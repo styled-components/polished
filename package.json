@@ -4,7 +4,8 @@
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
   "license": "MIT",
@@ -22,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/styled-components/cynosure/issues"
   },
-  "homepage": "https://github.com/styled-components/cynosure#readme"
+  "homepage": "https://github.com/styled-components/cynosure#readme",
+  "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.1.0"
+  }
 }
