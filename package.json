@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src"
   },
@@ -29,9 +30,14 @@
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^9.0.0",
     "eslint-plugin-import": "^2.1.0",
-    "semantic-release": "^4.3.5"
+    "ghooks": "^1.3.2",
+    "semantic-release": "^4.3.5",
+    "validate-commit-msg": "^2.8.2"
   },
   "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
