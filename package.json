@@ -3,7 +3,7 @@
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src"
   },
