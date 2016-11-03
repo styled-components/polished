@@ -1,11 +1,26 @@
 {
   "name": "cynosure",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A lightweight toolset for writing styles in Javascript.",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/styled-components/cynosure.git"
+  },
+  "keywords": [
+    "styled-components",
+    "cynosure",
+    "css-in-js",
+    "inline-styles",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/styled-components/cynosure/issues"
+  },
+  "homepage": "https://github.com/styled-components/cynosure#readme"
 }
