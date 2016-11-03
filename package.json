@@ -3,7 +3,7 @@
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
     "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src"
@@ -31,6 +31,7 @@
     "eslint-config-airbnb-base": "^9.0.0",
     "eslint-plugin-import": "^2.1.0",
     "ghooks": "^1.3.2",
+    "jest": "^16.0.2",
     "semantic-release": "^4.3.5",
     "validate-commit-msg": "^2.8.2"
   },
