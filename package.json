@@ -25,9 +25,15 @@
   },
   "homepage": "https://github.com/styled-components/cynosure#readme",
   "devDependencies": {
-    "semantic-release": "^4.3.5",
+    "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-import": "^2.1.0"
+    "eslint-plugin-import": "^2.1.0",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
