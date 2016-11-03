@@ -1,10 +1,11 @@
 {
   "name": "cynosure",
-  "version": "0.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "postcommit": "validate-commit-msg",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
@@ -25,8 +26,20 @@
   },
   "homepage": "https://github.com/styled-components/cynosure#readme",
   "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-import": "^2.1.0"
+    "eslint-plugin-import": "^2.1.0",
+    "ghooks": "^1.3.2",
+    "semantic-release": "^4.3.5",
+    "validate-commit-msg": "^2.8.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
