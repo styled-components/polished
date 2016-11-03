@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "lint": "eslint src"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
   "license": "MIT",
@@ -24,6 +25,9 @@
   },
   "homepage": "https://github.com/styled-components/cynosure#readme",
   "devDependencies": {
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^4.3.5",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.1.0"
   }
 }
