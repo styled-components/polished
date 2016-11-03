@@ -1,10 +1,10 @@
 {
   "name": "cynosure",
-  "version": "0.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
   "license": "MIT",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/styled-components/cynosure/issues"
   },
-  "homepage": "https://github.com/styled-components/cynosure#readme"
+  "homepage": "https://github.com/styled-components/cynosure#readme",
+  "devDependencies": {
+    "semantic-release": "^4.3.5"
+  }
 }
