@@ -3,6 +3,7 @@
     "latest"
   ],
   "plugins": [
-    "add-module-exports"
+    "add-module-exports",
+    "transform-flow-strip-types"
   ]
 }
