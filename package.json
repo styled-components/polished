@@ -1,5 +1,5 @@
 {
-  "name": "cynosure",
+  "name": "polished",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "src/index.js",
   "scripts": {
@@ -12,19 +12,19 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/styled-components/cynosure.git"
+    "url": "git+https://github.com/styled-components/polished.git"
   },
   "keywords": [
     "styled-components",
-    "cynosure",
+    "polished",
     "css-in-js",
     "inline-styles",
     "react"
   ],
   "bugs": {
-    "url": "https://github.com/styled-components/cynosure/issues"
+    "url": "https://github.com/styled-components/polished/issues"
   },
-  "homepage": "https://github.com/styled-components/cynosure#readme",
+  "homepage": "https://github.com/styled-components/polished#readme",
   "devDependencies": {
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.9.1",

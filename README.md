@@ -1,4 +1,4 @@
-# `cynosure`
+# `polished`
 
 A lightweight toolset for writing styles in Javascript.
 
