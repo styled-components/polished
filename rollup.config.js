@@ -4,7 +4,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import inject from 'rollup-plugin-inject'
 import babel from 'rollup-plugin-babel'
 import json from 'rollup-plugin-json'
-import flow from 'rollup-plugin-flow'
 import uglify from 'rollup-plugin-uglify'
 
 const processShim = '\0process-shim'
@@ -37,7 +36,6 @@ const plugins = [
       return null
     },
   },
-  flow(),
   nodeResolve(),
   commonjs(),
   replace({
@@ -52,7 +50,6 @@ const plugins = [
       ['latest', { es2015: { modules: false } }]
     ],
     plugins: [
-      'transform-flow-strip-types',
       'external-helpers',
     ],
   }),
