@@ -1,7 +1,7 @@
-const clearfix = require('../clearfix')
+import ClearFix from '../ClearFix';
 
-describe('clearfix', function () {
+describe('ClearFix', function () {
   it('should return clearfix', function () {
-    expect(clearfix()).toBe('clearfix')
+    expect(ClearFix()).toBe('clearfix')
   })
 })
