@@ -1,5 +1,13 @@
-const clearfix = require('./mixins/clearfix')
+// Helpers
+import StripUnit from './helpers/StripUnit';
 
-module.exports = {
-  clearfix: clearfix,
+// Mixins
+import ClearFix from './mixins/ClearFix';
+
+const polished = {
+  ClearFix,
+  StripUnit
 }
+
+export default polished;
+export { StripUnit, ClearFix };
