@@ -1,1 +1,3 @@
-module.exports = function() { return 'clearfix' }
+export default function() {
+  return 'clearfix'
+};
