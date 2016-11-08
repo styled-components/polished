@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>polished  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>polished</h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#stripunit'
+                  class="">
+                  StripUnit
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ellipsis'
+                  class="">
+                  Ellipsis
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='stripunit'>
+      StripUnit
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Strips the unit from a given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>StripUnit</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> a string that is a number plus a unit of measure.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        an integer without the unit.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ellipsis'>
+      Ellipsis
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Represents truncated text with an ellipsis.</p>
+
+
+  <div class='pre p1 fill-light mt0'>Ellipsis</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>width</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>]
+            (default <code>100%</code>)
+            )</code> Max-width for text to respect before being truncated.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        CSS as JS for truncating text.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>- Usage <span class="hljs-keyword">with</span> param
+  Ellipsis(<span class="hljs-number">250</span>px);</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>- Output <span class="hljs-keyword">with</span> param
+{
+  <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-block'</span>,
+  <span class="hljs-string">'max-width'</span>: <span class="hljs-string">'250px'</span>,
+  <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
+  <span class="hljs-string">'text-overflow'</span>: <span class="hljs-string">'ellipsis'</span>,
+  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
+  <span class="hljs-string">'word-wrap'</span>: <span class="hljs-string">'normal'</span>
+}</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>- Usage <span class="hljs-keyword">with</span> <span class="hljs-keyword">default</span>
+  Ellipsis();</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>- Output <span class="hljs-keyword">with</span> <span class="hljs-keyword">default</span>
+{
+  <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-block'</span>,
+  <span class="hljs-string">'max-width'</span>: <span class="hljs-string">'100%'</span>,
+  <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
+  <span class="hljs-string">'text-overflow'</span>: <span class="hljs-string">'ellipsis'</span>,
+  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
+  <span class="hljs-string">'word-wrap'</span>: <span class="hljs-string">'normal'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
