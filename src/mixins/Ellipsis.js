@@ -7,10 +7,10 @@
  * @returns {Object}
  *   CSS as JS for truncating text.
  *
- * @example - Usage with param
- *   Ellipsis(250px);
+ * @example Usage with param
+ *   Ellipsis(250px)
  *
- * @example - Output with param
+ * @example Output with param
  * {
  *   'display': 'inline-block',
  *   'max-width': '250px',
@@ -20,10 +20,10 @@
  *   'word-wrap': 'normal'
  * }
  *
- * @example - Usage with default
- *   Ellipsis();
+ * @example Usage with default
+ *   Ellipsis()
  *
- * @example - Output with default
+ * @example Output with default
  * {
  *   'display': 'inline-block',
  *   'max-width': '100%',
