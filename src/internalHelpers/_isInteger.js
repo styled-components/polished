@@ -7,6 +7,6 @@
  */
 
 export default function(value) {
-  const IntegerRegex = /^[0-9]+$/;
-  return IntegerRegex.test(value);
+  const IntegerRegex = /^[0-9]+$/
+  return IntegerRegex.test(value)
 };

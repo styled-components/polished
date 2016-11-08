@@ -5,11 +5,9 @@
  * @returns {Number} - an integer without the unit.
  */
 
-import isInteger from '../internalHelpers/_isInteger';
+import isInteger from '../internalHelpers/_isInteger'
 
 export default function(value) {
-
-  const unitlessValue = parseFloat(value);
-  if (isInteger(unitlessValue)) return unitlessValue;
-
-};
+  const unitlessValue = parseFloat(value)
+  if (isInteger(unitlessValue)) return unitlessValue
+}

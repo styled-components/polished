@@ -1,12 +1,24 @@
 {
-  "extends": "airbnb-base/legacy",
+  "parser": "babel-eslint",
   "rules": {
     "semi": [2, "never"],
     "arrow-parens": 0,
     "class-methods-use-this": 0,
     "symbol-description": 0,
     "no-unused-vars": [2, { "varsIgnorePattern": "^_+$" }],
+    "import/no-extraneous-dependencies": 0,
     "no-confusing-arrow": 0,
-    "no-else-return": 0
+    "no-else-return": 0,
+    "no-prototype-builtins": 0,
+    "no-duplicate-imports": 0,
+    "valid-jsdoc": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "experimentalObjectRestSpread": true
+    }
   }
 }
