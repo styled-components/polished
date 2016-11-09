@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>mixins/Ellipsis.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,25 +27,55 @@
 
 <div id="main">
     
+    <h1 class="page-title">mixins/Ellipsis.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Mixins */
 
+/**
+ * CSS to represent truncated text with an ellipsis.
+ * @static
+ * @param {string} [width = 100%] - Max-width for text to respect before being truncated.
+ * @return {Object} CSS as JS.
+ * @example
+ * div {
+ *   ellipsis(250px)
+ * }
+ *
+ * // CSS as JS Output
+ *
+ * div {
+ *   'display': 'inline-block',
+ *   'max-width': '250px',
+ *   'overflow': 'hidden',
+ *   'text-overflow': 'ellipsis',
+ *   'white-space': 'nowrap',
+ *   'word-wrap': 'normal'
+ * }
+ */
 
+function ellipsis(width = '100%') {
+  return {
+    'display': 'inline-block',
+    'max-width': width,
+    'overflow': 'hidden',
+    'text-overflow': 'ellipsis',
+    'white-space': 'nowrap',
+    'word-wrap': 'normal'
+  }
+}
 
-
-
-
-
-
-
-    
-
-
-
+export default ellipsis
+</code></pre>
+        </article>
+    </section>
 
 
 
