@@ -1,14 +1,27 @@
+/** @module Helpers */
+import isInteger from '../internalHelpers/_isInteger'
+
 /**
- * Strips the unit from a given value.
- * @param {string} value - a string that is a number plus a unit of measure.
- * @return {number} - an integer without the unit.
+ * Strip the unit from a given CSS value
+ * @static
+ * @param {string} value - A string containing a value with its unit.
+ * @return {Number} Unitless value.
+ * @example
+ * element {
+ *   '--dimension': stripUnit(100px)
+ * }
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   '--dimension': 100
+ * }
  */
 
-import isInteger from '../internalHelpers/_isInteger';
+export function stripUnit(value) {
+  const unitlessValue = parseFloat(value)
+  if (isInteger(unitlessValue)) return unitlessValue
+  return value
+}
 
-export default function(value) {
-
-  const unitlessValue = parseFloat(value);
-  if (isInteger(unitlessValue)) return unitlessValue;
-
-};
+export default stripUnit

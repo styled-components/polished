@@ -1,4 +1,4 @@
-import ClearFix from '../ClearFix';
+import ClearFix from '../ClearFix'
 
 describe('ClearFix', function () {
   it('should return clearfix', function () {
