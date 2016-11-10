@@ -2,10 +2,10 @@
 import isInteger from '../internalHelpers/_isInteger'
 
 /**
- * CSS to represent truncated text with an ellipsis.
+ * Strip the unit from a given CSS value
  * @static
- * @param {string} [width = 100%] - Max-width for text to respect before being truncated.
- * @return {Object} CSS as JS for truncating text.
+ * @param {string} value - A string containing a value with its unit.
+ * @return {Number} Unitless value.
  * @example
  * element {
  *   '--dimension': stripUnit(100px)
