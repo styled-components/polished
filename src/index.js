@@ -8,7 +8,7 @@ import Ellipsis from './mixins/Ellipsis'
 const polished = {
   ClearFix,
   Ellipsis,
-  StripUnit
+  StripUnit,
 }
 
 export default polished

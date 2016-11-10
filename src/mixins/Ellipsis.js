@@ -29,7 +29,7 @@ function ellipsis(width = '100%') {
     'overflow': 'hidden',
     'text-overflow': 'ellipsis',
     'white-space': 'nowrap',
-    'word-wrap': 'normal'
+    'word-wrap': 'normal',
   }
 }
 

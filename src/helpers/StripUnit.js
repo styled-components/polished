@@ -21,6 +21,7 @@ import isInteger from '../internalHelpers/_isInteger'
 export function stripUnit(value) {
   const unitlessValue = parseFloat(value)
   if (isInteger(unitlessValue)) return unitlessValue
+  return value
 }
 
 export default stripUnit
