@@ -1,5 +1,4 @@
 /** @module Helpers */
-import isInteger from '../internalHelpers/_isInteger'
 
 /**
  * Strip the unit from a given CSS value
@@ -7,9 +6,15 @@ import isInteger from '../internalHelpers/_isInteger'
  * @param {string} value - A string containing a value with its unit.
  * @return {Number} Unitless value.
  * @example
- * element {
+ * // Styles as object usage
+ * const styles = {
  *   '--dimension': stripUnit(100px)
  * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   --dimension: ${stripUnit(100px)}
+ * `
  *
  * // CSS in JS Output
  *
@@ -20,8 +25,8 @@ import isInteger from '../internalHelpers/_isInteger'
 
 export function stripUnit(value) {
   const unitlessValue = parseFloat(value)
-  if (isInteger(unitlessValue)) return unitlessValue
-  return value
+  if (isNaN(unitlessValue)) return value
+  return unitlessValue
 }
 
 export default stripUnit
