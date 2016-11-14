@@ -7,13 +7,13 @@
  * @param {string} [wrap = 'break-word'] - Value for the word-break property
  * @return {Object} CSS as JS.
  * @example
- * div {
- *   wordWrap('break-all')
+ * const styles = {
+ *   ...wordWrap('break-all')
  * }
  *
  * // CSS as JS Output
  *
- * div {
+ * const styles = {
  *   overflow-wrap: 'break-all',
  *   word-wrap: 'break-all',
  *   word-break: 'break-all',
