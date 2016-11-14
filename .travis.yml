@@ -13,6 +13,7 @@ before_install:
 install:
   - npm i -g codecov
 before_script:
+  - npm install
   - npm prune
 after_success:
   - codecov
