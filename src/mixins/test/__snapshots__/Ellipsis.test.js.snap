@@ -12,7 +12,7 @@ Object {
 exports[`ellipsis should pass parameter to the value of max-width 1`] = `
 Object {
   "display": "inline-block",
-  "max-width": "500px",
+  "max-width": "300px",
   "overflow": "hidden",
   "text-overflow": "ellipsis",
   "white-space": "nowrap",
@@ -24,7 +24,7 @@ exports[`ellipsis should properly add rules when block has existing rules 1`] = 
 Object {
   "background": "red",
   "display": "inline-block",
-  "max-width": "500px",
+  "max-width": "300px",
   "overflow": "hidden",
   "text-overflow": "ellipsis",
   "white-space": "nowrap",
