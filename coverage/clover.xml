@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1479151868270" clover="3.2.0">
+  <project timestamp="1479151868270" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4" elements="31" coveredelements="31" complexity="0" loc="16" ncloc="16" packages="2" files="4" classes="4">
+      <package name="lib.mixins">
+        <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="3"/>
+        <file name="ClearFix.js" path="/Users/bhough/polished/lib/mixins/ClearFix.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+        </file>
+        <file name="Ellipsis.js" path="/Users/bhough/polished/lib/mixins/Ellipsis.js">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="37" count="3" type="stmt"/>
+          <line num="39" count="3" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+        </file>
+        <file name="wordWrap.js" path="/Users/bhough/polished/lib/mixins/wordWrap.js">
+          <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.mixins">
+        <metrics statements="1" coveredstatements="1" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <file name="Ellipsis.js" path="/Users/bhough/polished/src/mixins/Ellipsis.js">
+          <metrics statements="1" coveredstatements="1" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+          <line num="32" count="3" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

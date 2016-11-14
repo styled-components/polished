@@ -1,4 +1,4 @@
-exports[`Ellipsis should default max-width to 100% 1`] = `
+exports[`ellipsis should default max-width to 100% 1`] = `
 Object {
   "display": "inline-block",
   "max-width": "100%",
@@ -9,10 +9,22 @@ Object {
 }
 `;
 
-exports[`Ellipsis should pass parameter to the value of max-width 1`] = `
+exports[`ellipsis should pass parameter to the value of max-width 1`] = `
 Object {
   "display": "inline-block",
-  "max-width": "250px",
+  "max-width": "500px",
+  "overflow": "hidden",
+  "text-overflow": "ellipsis",
+  "white-space": "nowrap",
+  "word-wrap": "normal",
+}
+`;
+
+exports[`ellipsis should properly add rules when block has existing rules 1`] = `
+Object {
+  "background": "red",
+  "display": "inline-block",
+  "max-width": "500px",
   "overflow": "hidden",
   "text-overflow": "ellipsis",
   "white-space": "nowrap",
