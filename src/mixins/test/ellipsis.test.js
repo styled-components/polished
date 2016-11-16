@@ -13,7 +13,6 @@ describe('ellipsis', function() {
     }).toMatchSnapshot()
   })
 
-
   it('should default max-width to 100%', function() {
     expect({...ellipsis()}).toMatchSnapshot()
   })

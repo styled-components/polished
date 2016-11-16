@@ -1,0 +1,203 @@
+exports[`stripUnit should return a unitless value when passed one 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`stripUnit should return an untouched string when passed 1`] = `
+Object {
+  "--dimension": "red",
+}
+`;
+
+exports[`stripUnit should strip % from decimal values 1`] = `
+Object {
+  "--dimension": 33.3,
+}
+`;
+
+exports[`stripUnit should strip % from whole values 1`] = `
+Object {
+  "--dimension": 80,
+}
+`;
+
+exports[`stripUnit should strip ch from decimal values 1`] = `
+Object {
+  "--dimension": 1.2,
+}
+`;
+
+exports[`stripUnit should strip ch from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip cm from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip cm from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip em from decimal values 1`] = `
+Object {
+  "--dimension": 1.2,
+}
+`;
+
+exports[`stripUnit should strip em from whole value 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip ex from decimal values 1`] = `
+Object {
+  "--dimension": 1.2,
+}
+`;
+
+exports[`stripUnit should strip ex from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip in from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip in from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip mm from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip mm from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip pc from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip pc from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip pt from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip pt from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip px from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip px from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip q from values 1`] = `
+Object {
+  "--dimension": 1.5,
+}
+`;
+
+exports[`stripUnit should strip q from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip rem from decimal values 1`] = `
+Object {
+  "--dimension": 1.2,
+}
+`;
+
+exports[`stripUnit should strip rem from whole values 1`] = `
+Object {
+  "--dimension": 1,
+}
+`;
+
+exports[`stripUnit should strip vh from decimal values 1`] = `
+Object {
+  "--dimension": 33.33,
+}
+`;
+
+exports[`stripUnit should strip vh from whole values 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`stripUnit should strip vmax from decimal values 1`] = `
+Object {
+  "--dimension": 33.33,
+}
+`;
+
+exports[`stripUnit should strip vmax from whole values 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`stripUnit should strip vmin from decimal values 1`] = `
+Object {
+  "--dimension": 33.33,
+}
+`;
+
+exports[`stripUnit should strip vmin from whole values 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`stripUnit should strip vw from decimal values 1`] = `
+Object {
+  "--dimension": 33.33,
+}
+`;
+
+exports[`stripUnit should strip vw from whole values 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
