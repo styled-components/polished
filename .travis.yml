@@ -13,7 +13,7 @@ before_install:
 install:
   - npm i -g codecov
 before_script:
-  - npm prune
+  - npm install
 after_success:
   - codecov
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
