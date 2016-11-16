@@ -63,6 +63,439 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".easeInBack"><span class="type-signature">(static, constant) </span>easeInBack<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+</div>
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'transition-timing-function': easeInQuad
+}
+
+const styles = {
+  'transition-timing-function': timingFunctions(easeInQuad)
+}
+
+// styled-components usage
+const div = styled.div`
+  transition-timing-function: ${easeInQuad};
+`
+ const div = styled.div`
+  transition-timing-function: ${timingFunctions(easeInQuad)};
+`
+
+// CSS as JS Output
+
+div {
+  'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+}</code></pre>
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".ellipsis"><span class="type-signature">(static) </span>ellipsis<span class="signature">(width<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_ellipsis.js.html">mixins/ellipsis.js</a>, <a href="mixins_ellipsis.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to represent truncated text with an ellipsis.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  ...ellipsis(250px)
+}
+
+// styled-components usage
+const div = styled.div`
+  ${ellipsis(250px)}
+`
+
+// CSS as JS Output
+
+div {
+  'display': 'inline-block',
+  'max-width': '250px',
+  'overflow': 'hidden',
+  'text-overflow': 'ellipsis',
+  'white-space': 'nowrap',
+  'word-wrap': 'normal'
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>100%</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Max-width for text to respect before being truncated.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".easeInBack"><span class="type-signature">(static, constant) </span>easeInBack<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+</div>
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'transition-timing-function': easeInQuad
+}
+
+const styles = {
+  'transition-timing-function': timingFunctions(easeInQuad)
+}
+
+// styled-components usage
+const div = styled.div`
+  transition-timing-function: ${easeInQuad};
+`
+ const div = styled.div`
+  transition-timing-function: ${timingFunctions(easeInQuad)};
+`
+
+// CSS as JS Output
+
+div {
+  'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+}</code></pre>
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -4832,7 +5265,15 @@ const styles = {
 <br class="clear">
 
 <footer>
+<<<<<<< HEAD
     Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Nov 18 2016 13:25:20 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+=======
+<<<<<<< HEAD
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Nov 17 2016 08:07:23 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+=======
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Nov 16 2016 12:00:11 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+>>>>>>> 15e365f... chore(timingFunctions): Add cubic-bezier timing functions
+>>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
 </footer>
 
 <script>prettyPrint();</script>
