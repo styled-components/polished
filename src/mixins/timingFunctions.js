@@ -1,5 +1,30 @@
 /** @module Mixins */
 
+<<<<<<< HEAD
+=======
+/**
+ * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
+ * @static
+ * @return {string} CSS as JS.
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   'transition-timing-function': timingFunctions(easeInQuad)
+ * }
+ *
+ * // styled-components usage
+ *  const div = styled.div`
+ *   transition-timing-function: ${timingFunctions(easeInQuad)};
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div {
+ *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+ * }
+ */
+
+>>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -29,6 +54,7 @@ const functionsMap = {
   'easeInOutSine':  'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
 }
 
+<<<<<<< HEAD
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
  * @static
@@ -52,6 +78,8 @@ const functionsMap = {
  * }
  */
 
+=======
+>>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
 function timingFunctions(timingFunction) {
   return functionsMap[timingFunction]
 }
