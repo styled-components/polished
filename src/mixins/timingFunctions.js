@@ -7,12 +7,12 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   'transition-timing-function': timingFunctions(easeInQuad)
+ *   'transition-timing-function': timingFunctions('easeInQuad')
  * }
  *
  * // styled-components usage
  *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions(easeInQuad)};
+ *   transition-timing-function: ${timingFunctions('easeInQuad')};
  * `
  *
  * // CSS as JS Output
