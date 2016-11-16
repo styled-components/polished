@@ -1,13 +1,15 @@
 // Helpers
-import StripUnit from './helpers/StripUnit';
+import stripUnit from './helpers/stripUnit'
 
 // Mixins
-import ClearFix from './mixins/ClearFix';
+import clearFix from './mixins/clearFix'
+import ellipsis from './mixins/ellipsis'
 
 const polished = {
-  ClearFix,
-  StripUnit
+  clearFix,
+  ellipsis,
+  stripUnit,
 }
 
-export default polished;
-export { StripUnit, ClearFix };
+export default polished
+export { clearFix, ellipsis, stripUnit }
