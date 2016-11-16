@@ -14,7 +14,7 @@
  * // styled-components usage
  * const div = styled.div`
  *   background-image: url(logo.png);
- *   ${...hideText()};
+ *   ${hideText()};
  * `
  *
  * // CSS as JS Output
