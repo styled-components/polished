@@ -22,7 +22,15 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
+<<<<<<< HEAD
     <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.clearFix">clearFix</a></li><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.hiDPI">hiDPI</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
+=======
+<<<<<<< HEAD
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
+=======
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li></ul></li></ul>
+>>>>>>> db04b9f... chore(timingFunctions): Updated docs
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 </nav>
 
 <div id="main">
@@ -63,12 +71,18 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id=".functionsMap"><span class="type-signature">(static, constant) </span>functionsMap<span class="type-signature"></span></h4>
 
+    
+
+    <h4 class="name" id=".ellipsis"><span class="type-signature">(static) </span>ellipsis<span class="signature">(width<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
 
 
 
@@ -78,7 +92,336 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line25">line 25</a>
+        <a href="mixins_ellipsis.js.html">mixins/ellipsis.js</a>, <a href="mixins_ellipsis.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to represent truncated text with an ellipsis.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  ...ellipsis(250px)
+}
+
+// styled-components usage
+const div = styled.div`
+  ${ellipsis(250px)}
+`
+
+// CSS as JS Output
+
+div {
+  'display': 'inline-block',
+  'max-width': '250px',
+  'overflow': 'hidden',
+  'text-overflow': 'ellipsis',
+  'white-space': 'nowrap',
+  'word-wrap': 'normal'
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>100%</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Max-width for text to respect before being truncated.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".hideText"><span class="type-signature">(static) </span>hideText<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_hideText.js.html">mixins/hideText.js</a>, <a href="mixins_hideText.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to hide text to show a background image in a SEO-Friendly.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'background-image': 'url(logo.png)',
+  ...hideText(),
+}
+
+// styled-components usage
+const div = styled.div`
+  background-image: url(logo.png);
+  ${hideText()};
+`
+
+// CSS as JS Output
+
+div {
+  'background-image': 'url(logo.png)',
+  'text-indent': '101%',
+  'overflow': 'hidden',
+  'white-space': 'nowrap',
+}</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".timingFunctions"><span class="type-signature">(static) </span>timingFunctions<span class="signature">(timingFunction<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -127,6 +470,8 @@
 
 
 
+
+
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Styles as object usage
@@ -147,7 +492,216 @@ div {
 
 
 
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
         
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>timingFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'easeInBack'</span>
+|
+
+<span class="param-type">'easeInCirc'</span>
+|
+
+<span class="param-type">'easeInCubic'</span>
+|
+
+<span class="param-type">'easeInExpo'</span>
+|
+
+<span class="param-type">'easeInQuad'</span>
+|
+
+<span class="param-type">'easeInQuart'</span>
+|
+
+<span class="param-type">'easeInQuint'</span>
+|
+
+<span class="param-type">'easeInSine'</span>
+|
+
+<span class="param-type">'easeOutBack'</span>
+|
+
+<span class="param-type">'easeOutCubic'</span>
+|
+
+<span class="param-type">'easeOutCirc'</span>
+|
+
+<span class="param-type">'easeOutExpo'</span>
+|
+
+<span class="param-type">'easeOutQuad'</span>
+|
+
+<span class="param-type">'easeOutQuart'</span>
+|
+
+<span class="param-type">'easeOutQuint'</span>
+|
+
+<span class="param-type">'easeOutSine'</span>
+|
+
+<span class="param-type">'easeInOutBack'</span>
+|
+
+<span class="param-type">'easeInOutCirc'</span>
+|
+
+<span class="param-type">'easeInOutCubic'</span>
+|
+
+<span class="param-type">'easeInOutExpo'</span>
+|
+
+<span class="param-type">'easeInOutQuad'</span>
+|
+
+<span class="param-type">'easeInOutQuart'</span>
+|
+
+<span class="param-type">'easeInOutQuint'</span>
+|
+
+<span class="param-type">'easeInOutSine'</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>String representing desired cubic-bezier function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
     
 
     
@@ -353,55 +907,13 @@ div {
 
 
         
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
             
-<h4 class="name" id=".functionsMap"><span class="type-signature">(static, constant) </span>functionsMap<span class="type-signature"></span></h4>
 
+    
+
+    <h4 class="name" id=".hideText"><span class="type-signature">(static) </span>hideText<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
 
 
 
@@ -411,7 +923,137 @@ div {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line25">line 25</a>
+        <a href="mixins_hideText.js.html">mixins/hideText.js</a>, <a href="mixins_hideText.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to hide text to show a background image in a SEO-Friendly.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'background-image': 'url(logo.png)',
+  ...hideText(),
+}
+
+// styled-components usage
+const div = styled.div`
+  background-image: url(logo.png);
+  ${hideText()};
+`
+
+// CSS as JS Output
+
+div {
+  'background-image': 'url(logo.png)',
+  'text-indent': '101%',
+  'overflow': 'hidden',
+  'white-space': 'nowrap',
+}</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".timingFunctions"><span class="type-signature">(static) </span>timingFunctions<span class="signature">(timingFunction<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -460,6 +1102,8 @@ div {
 
 
 
+
+
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Styles as object usage
@@ -480,7 +1124,216 @@ div {
 
 
 
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
         
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>timingFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">'easeInBack'</span>
+|
+
+<span class="param-type">'easeInCirc'</span>
+|
+
+<span class="param-type">'easeInCubic'</span>
+|
+
+<span class="param-type">'easeInExpo'</span>
+|
+
+<span class="param-type">'easeInQuad'</span>
+|
+
+<span class="param-type">'easeInQuart'</span>
+|
+
+<span class="param-type">'easeInQuint'</span>
+|
+
+<span class="param-type">'easeInSine'</span>
+|
+
+<span class="param-type">'easeOutBack'</span>
+|
+
+<span class="param-type">'easeOutCubic'</span>
+|
+
+<span class="param-type">'easeOutCirc'</span>
+|
+
+<span class="param-type">'easeOutExpo'</span>
+|
+
+<span class="param-type">'easeOutQuad'</span>
+|
+
+<span class="param-type">'easeOutQuart'</span>
+|
+
+<span class="param-type">'easeOutQuint'</span>
+|
+
+<span class="param-type">'easeOutSine'</span>
+|
+
+<span class="param-type">'easeInOutBack'</span>
+|
+
+<span class="param-type">'easeInOutCirc'</span>
+|
+
+<span class="param-type">'easeInOutCubic'</span>
+|
+
+<span class="param-type">'easeInOutExpo'</span>
+|
+
+<span class="param-type">'easeInOutQuad'</span>
+|
+
+<span class="param-type">'easeInOutQuart'</span>
+|
+
+<span class="param-type">'easeInOutQuint'</span>
+|
+
+<span class="param-type">'easeInOutSine'</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>String representing desired cubic-bezier function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
     
 
     
@@ -491,6 +1344,336 @@ div {
 
     
 
+    <h4 class="name" id=".ellipsis"><span class="type-signature">(static) </span>ellipsis<span class="signature">(width<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_ellipsis.js.html">mixins/ellipsis.js</a>, <a href="mixins_ellipsis.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to represent truncated text with an ellipsis.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  ...ellipsis(250px)
+}
+
+// styled-components usage
+const div = styled.div`
+  ${ellipsis(250px)}
+`
+
+// CSS as JS Output
+
+div {
+  'display': 'inline-block',
+  'max-width': '250px',
+  'overflow': 'hidden',
+  'text-overflow': 'ellipsis',
+  'white-space': 'nowrap',
+  'word-wrap': 'normal'
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>100%</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Max-width for text to respect before being truncated.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".hideText"><span class="type-signature">(static) </span>hideText<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mixins_hideText.js.html">mixins/hideText.js</a>, <a href="mixins_hideText.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>CSS to hide text to show a background image in a SEO-Friendly.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'background-image': 'url(logo.png)',
+  ...hideText(),
+}
+
+// styled-components usage
+const div = styled.div`
+  background-image: url(logo.png);
+  ${hideText()};
+`
+
+// CSS as JS Output
+
+div {
+  'background-image': 'url(logo.png)',
+  'text-indent': '101%',
+  'overflow': 'hidden',
+  'white-space': 'nowrap',
+}</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CSS as JS.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+<<<<<<< HEAD
     <h4 class="name" id=".clearFix"><span class="type-signature">(static) </span>clearFix<span class="signature">(parent<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
@@ -686,6 +1869,9 @@ const div = styled.div`
     
 
     <h4 class="name" id=".ellipsis"><span class="type-signature">(static) </span>ellipsis<span class="signature">(width<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+=======
+    <h4 class="name" id=".timingFunctions"><span class="type-signature">(static) </span>timingFunctions<span class="signature">(timingFunction<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 
     
 
@@ -697,6 +1883,7 @@ const div = styled.div`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
+<<<<<<< HEAD
         <a href="mixins_ellipsis.js.html">mixins/ellipsis.js</a>, <a href="mixins_ellipsis.js.html#line31">line 31</a>
     </li></ul></dd>
     
@@ -4340,6 +5527,9 @@ const styles = {
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="mixins_clearFix.js.html">mixins/clearFix.js</a>, <a href="mixins_clearFix.js.html#line26">line 26</a>
+=======
+        <a href="mixins_timingFunctions.js.html">mixins/timingFunctions.js</a>, <a href="mixins_timingFunctions.js.html#line55">line 55</a>
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
     </li></ul></dd>
     
 
@@ -4379,7 +5569,11 @@ const styles = {
 
 
 <div class="description">
+<<<<<<< HEAD
     <p>CSS to contain a float (credit to CSSMojo)</p>
+=======
+    <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 </div>
 
 
@@ -4393,19 +5587,34 @@ const styles = {
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Styles as object usage
+<<<<<<< HEAD
 PENDING...
 
 // styled-components usage
 const div = styled.div`
   ${clearFix()}
+=======
+const styles = {
+  'transition-timing-function': timingFunctions('easeInQuad')
+}
+
+// styled-components usage
+ const div = styled.div`
+  transition-timing-function: ${timingFunctions('easeInQuad')};
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 `
 
 // CSS as JS Output
 
+<<<<<<< HEAD
 '&amp;::after': {
   'clear': 'both',
   'content': '',
   'display': 'table'
+=======
+div {
+  'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 }</code></pre>
 
 
@@ -4428,8 +5637,6 @@ const div = styled.div`
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -4440,13 +5647,86 @@ const div = styled.div`
 
         <tr>
             
+<<<<<<< HEAD
                 <td class="name"><code>parent</code></td>
+=======
+                <td class="name"><code>timingFunction</code></td>
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">'easeInBack'</span>
+|
+
+<span class="param-type">'easeInCirc'</span>
+|
+
+<span class="param-type">'easeInCubic'</span>
+|
+
+<span class="param-type">'easeInExpo'</span>
+|
+
+<span class="param-type">'easeInQuad'</span>
+|
+
+<span class="param-type">'easeInQuart'</span>
+|
+
+<span class="param-type">'easeInQuint'</span>
+|
+
+<span class="param-type">'easeInSine'</span>
+|
+
+<span class="param-type">'easeOutBack'</span>
+|
+
+<span class="param-type">'easeOutCubic'</span>
+|
+
+<span class="param-type">'easeOutCirc'</span>
+|
+
+<span class="param-type">'easeOutExpo'</span>
+|
+
+<span class="param-type">'easeOutQuad'</span>
+|
+
+<span class="param-type">'easeOutQuart'</span>
+|
+
+<span class="param-type">'easeOutQuint'</span>
+|
+
+<span class="param-type">'easeOutSine'</span>
+|
+
+<span class="param-type">'easeInOutBack'</span>
+|
+
+<span class="param-type">'easeInOutCirc'</span>
+|
+
+<span class="param-type">'easeInOutCubic'</span>
+|
+
+<span class="param-type">'easeInOutExpo'</span>
+|
+
+<span class="param-type">'easeInOutQuad'</span>
+|
+
+<span class="param-type">'easeInOutQuart'</span>
+|
+
+<span class="param-type">'easeInOutQuint'</span>
+|
+
+<span class="param-type">'easeInOutSine'</span>
 
 
             
@@ -4465,6 +5745,7 @@ const div = styled.div`
             
 
             
+<<<<<<< HEAD
                 <td class="default">
                 
                     <code>&amp;</code>
@@ -4473,6 +5754,10 @@ const div = styled.div`
             
 
             <td class="description last"><p>Optional parent selector</p></td>
+=======
+
+            <td class="description last"><p>String representing desired cubic-bezier function.</p></td>
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
         </tr>
 
     
@@ -4507,7 +5792,7 @@ const div = styled.div`
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
     </dd>
@@ -5253,10 +6538,13 @@ const styles = {
 <footer>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Nov 18 2016 13:25:20 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 =======
 =======
 >>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
+=======
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 <<<<<<< HEAD
     Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Nov 17 2016 08:07:23 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 =======
@@ -5268,7 +6556,13 @@ const styles = {
 =======
     Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Nov 16 2016 13:24:41 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 >>>>>>> 3bc4409... chore(docs): Generate timingFunctions docs
+<<<<<<< HEAD
 >>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
+=======
+=======
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Nov 17 2016 08:56:30 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+>>>>>>> db04b9f... chore(timingFunctions): Updated docs
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 </footer>
 
 <script>prettyPrint();</script>

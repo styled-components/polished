@@ -1,27 +1,5 @@
 /** @module Mixins */
 
-/**
- * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
- * @static
- * @return {string} CSS as JS.
- * @example
- * // Styles as object usage
- * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
- * `
- *
- * // CSS as JS Output
- *
- * div {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
-
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -50,6 +28,29 @@ const functionsMap = {
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine':  'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
 }
+
+/**
+ * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
+ * @static
+ * @param {('easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine')} [timingFunction] String representing desired cubic-bezier function.
+ * @return {string} CSS as JS.
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   'transition-timing-function': timingFunctions('easeInQuad')
+ * }
+ *
+ * // styled-components usage
+ *  const div = styled.div`
+ *   transition-timing-function: ${timingFunctions('easeInQuad')};
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div {
+ *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+ * }
+ */
 
 function timingFunctions(timingFunction) {
   return functionsMap[timingFunction]
