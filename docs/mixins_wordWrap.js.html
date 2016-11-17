@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home - Documentation</title>
+    <title>mixins/wordWrap.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,25 +27,52 @@
 
 <div id="main">
     
+    <h1 class="page-title">mixins/wordWrap.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Mixins */
 
+/**
+ * Provides an easy way to change the `word-wrap` property
+ *
+ * @static
+ * @param {string} [wrap = 'break-word'] - Value for the word-break property
+ * @return {Object} CSS as JS.
+ * @example
+ * const styles = {
+ *   ...wordWrap('break-all')
+ * }
+ *
+ * // CSS as JS Output
+ *
+ * const styles = {
+ *   overflow-wrap: 'break-all',
+ *   word-wrap: 'break-all',
+ *   word-break: 'break-all',
+ * }
+ */
 
+function wordWrap(wrap = 'break-word') {
+  const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
+  return {
+    'overflow-wrap': wrap,
+    'word-wrap': wrap,
+    'word-break': wordBreak,
+  }
+}
 
+export default wordWrap
 
-
-
-
-
-
-    
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 

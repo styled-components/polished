@@ -1,0 +1,15 @@
+exports[`wordWrap should accept other values 1`] = `
+Object {
+  "overflow-wrap": "break-all",
+  "word-break": "break-all",
+  "word-wrap": "break-all",
+}
+`;
+
+exports[`wordWrap should default wrap to break-word 1`] = `
+Object {
+  "overflow-wrap": "break-word",
+  "word-break": "break-all",
+  "word-wrap": "break-word",
+}
+`;
