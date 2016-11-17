@@ -1,0 +1,16 @@
+exports[`hideText should add rules when block has existing rules 1`] = `
+Object {
+  "background-image": "url(logo.png)",
+  "overflow": "hidden",
+  "text-indent": "101%",
+  "white-space": "nowrap",
+}
+`;
+
+exports[`hideText should return the CSS in JS 1`] = `
+Object {
+  "overflow": "hidden",
+  "text-indent": "101%",
+  "white-space": "nowrap",
+}
+`;
