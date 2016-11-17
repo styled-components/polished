@@ -1,6 +1,7 @@
 /** @module Mixins */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
@@ -25,6 +26,8 @@
  */
 
 >>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
+=======
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -55,6 +58,9 @@ const functionsMap = {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
  * @static
@@ -78,8 +84,11 @@ const functionsMap = {
  * }
  */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
+=======
+>>>>>>> 05a65da... chore(timingFunctions): Updated docs
 function timingFunctions(timingFunction) {
   return functionsMap[timingFunction]
 }
