@@ -4,7 +4,8 @@
     },
     "source": {
         "includePattern": ".js$",
-        "excludePattern": "(node_modules/|docs)"
+        "exclude": ["node_modules", "docs"],
+        "excludePattern": ".test.js$"
     },
     "plugins": [
         "plugins/markdown"
