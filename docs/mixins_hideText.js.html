@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/ellipsis.js - Documentation</title>
+    <title>mixins/hideText.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/ellipsis.js</h1>
+    <h1 class="page-title">mixins/hideText.js</h1>
     
 
     
@@ -40,45 +40,41 @@
             <pre class="prettyprint source linenums"><code>/** @module Mixins */
 
 /**
- * CSS to represent truncated text with an ellipsis.
+ * CSS to hide text to show a background image in a SEO-Friendly.
  * @static
- * @param {string} [width = 100%] - Max-width for text to respect before being truncated.
  * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...ellipsis(250px)
+ *   'background-image': 'url(logo.png)',
+ *   ...hideText(),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${ellipsis(250px)}
+ *   background-image: url(logo.png);
+ *   ${hideText()};
  * `
  *
  * // CSS as JS Output
  *
  * div {
- *   'display': 'inline-block',
- *   'max-width': '250px',
+ *   'background-image': 'url(logo.png)',
+ *   'text-indent': '101%',
  *   'overflow': 'hidden',
- *   'text-overflow': 'ellipsis',
  *   'white-space': 'nowrap',
- *   'word-wrap': 'normal'
  * }
  */
 
-function ellipsis(width = '100%') {
+function hideText() {
   return {
-    'display': 'inline-block',
-    'max-width': width,
+    'text-indent': '101%',
     'overflow': 'hidden',
-    'text-overflow': 'ellipsis',
     'white-space': 'nowrap',
-    'word-wrap': 'normal',
   }
 }
 
-export default ellipsis
+export default hideText
 </code></pre>
         </article>
     </section>
