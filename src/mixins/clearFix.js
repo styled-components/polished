@@ -3,7 +3,7 @@
 /**
  * CSS to contain a float (credit to CSSMojo)
  * @static
- * @param {string} [parent = &] - Optional parent selector that can be used when `&` is not supported.
+ * @param {string} [parent = &] - Optional parent selector
  * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
