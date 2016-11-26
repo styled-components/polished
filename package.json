@@ -39,6 +39,9 @@
     "url": "https://github.com/styled-components/polished/issues"
   },
   "homepage": "https://github.com/styled-components/polished#readme",
+  "dependencies": {
+    "chroma-js": "^1.2.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
