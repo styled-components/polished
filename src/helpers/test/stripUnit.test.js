@@ -1,3 +1,4 @@
+// @flow
 import stripUnit from '../stripUnit'
 
 describe('stripUnit', function() {

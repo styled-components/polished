@@ -1,3 +1,4 @@
+// @flow
 /** @module Mixins */
 
 /**
@@ -20,7 +21,7 @@
  * }
  */
 
-function wordWrap(wrap = 'break-word') {
+function wordWrap(wrap: string = 'break-word') {
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
     'overflow-wrap': wrap,
@@ -30,4 +31,3 @@ function wordWrap(wrap = 'break-word') {
 }
 
 export default wordWrap
-

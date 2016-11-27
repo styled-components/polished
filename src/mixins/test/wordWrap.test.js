@@ -1,3 +1,4 @@
+// @flow
 import wordWrap from '../wordWrap'
 
 describe('wordWrap', function() {
@@ -15,4 +16,3 @@ describe('wordWrap', function() {
   })
 
 })
-

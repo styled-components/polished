@@ -1,3 +1,4 @@
+// @flow
 import ellipsis from '../ellipsis'
 
 describe('ellipsis', function() {
