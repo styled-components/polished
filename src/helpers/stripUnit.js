@@ -24,7 +24,7 @@
  * }
  */
 
-export function stripUnit(value: string) {
+function stripUnit(value: string) {
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue
