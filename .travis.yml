@@ -14,6 +14,10 @@ install:
   - npm i -g codecov
 before_script:
   - npm install
+script:
+  - npm test
+  - npm run lint
+  - npm run flow
 after_success:
   - codecov
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'

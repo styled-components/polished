@@ -16,6 +16,7 @@
     "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src",
+    "flow": "flow check",
     "prepublish": "npm run build"
   },
   "watch": {
