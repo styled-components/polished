@@ -1,7 +1,5 @@
 [ignore]
-.*/node_modules/config-chain/test/.*
-.*/node_modules/findup/test/.*
-.*/node_modules/npmconf/test/.*
+.*/node_modules/.*
 
 [include]
 
