@@ -47,10 +47,11 @@ const plugins = [
   babel({
     babelrc: false,
     presets: [
-      ['latest', { es2015: { modules: false } }]
+      ['latest', { es2015: { modules: false } }],
     ],
     plugins: [
       'external-helpers',
+      'transform-flow-strip-types',
     ],
   }),
   json(),
@@ -63,5 +64,5 @@ export default {
   moduleName: 'polished',
   exports: 'named',
   targets,
-  plugins
+  plugins,
 }
