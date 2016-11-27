@@ -1,0 +1,10 @@
+[ignore]
+.*/node_modules/config-chain/test/.*
+.*/node_modules/findup/test/.*
+.*/node_modules/npmconf/test/.*
+
+[include]
+
+[libs]
+
+[options]
