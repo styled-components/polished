@@ -1,3 +1,4 @@
+// @flow
 /** @module Helpers */
 
 /**
@@ -23,7 +24,7 @@
  * }
  */
 
-export function stripUnit(value) {
+export function stripUnit(value: string) {
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue

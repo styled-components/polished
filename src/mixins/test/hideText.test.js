@@ -1,3 +1,4 @@
+// @flow
 import hideText from '../hideText'
 
 describe('hideText', function() {

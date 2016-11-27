@@ -1,3 +1,4 @@
+// @flow
 import timingFunctions from '../timingFunctions'
 
 describe('timingFunctions', function() {

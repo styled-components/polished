@@ -1,3 +1,4 @@
+// @flow
 // Helpers
 import stripUnit from './helpers/stripUnit'
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** @module Mixins */
 
 /**
@@ -32,6 +33,11 @@ function clearFix(parent = `&`) {
       'display': 'table'
     }
   }
+=======
+// @flow
+export default function() {
+  return 'clearfix'
+>>>>>>> fc7f9b5... chore: Add flow type annotations
 }
 
 export default clearFix
