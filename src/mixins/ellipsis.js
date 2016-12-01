@@ -1,3 +1,4 @@
+// @flow
 /** @module Mixins */
 
 /**
@@ -28,7 +29,7 @@
  * }
  */
 
-function ellipsis(width = '100%') {
+function ellipsis(width: string = '100%') {
   return {
     'display': 'inline-block',
     'max-width': width,

@@ -1,5 +1,7 @@
+// @flow
 /** @module Mixins */
 
+/* eslint-disable key-spacing */
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -28,11 +30,43 @@ const functionsMap = {
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine':  'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
 }
+/* eslint-enable key-spacing */
+
+type TimingFunctions =
+  | 'easeInBack'
+  | 'easeInCirc'
+  | 'easeInCubic'
+  | 'easeInExpo'
+  | 'easeInQuad'
+  | 'easeInQuart'
+  | 'easeInQuint'
+  | 'easeInSine'
+  | 'easeOutBack'
+  | 'easeOutCubic'
+  | 'easeOutCirc'
+  | 'easeOutExpo'
+  | 'easeOutQuad'
+  | 'easeOutQuart'
+  | 'easeOutQuint'
+  | 'easeOutSine'
+  | 'easeInOutBack'
+  | 'easeInOutCirc'
+  | 'easeInOutCubic'
+  | 'easeInOutExpo'
+  | 'easeInOutQuad'
+  | 'easeInOutQuart'
+  | 'easeInOutQuint'
+  | 'easeInOutSine';
 
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
  * @static
- * @param {('easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine')} [timingFunction] String representing desired cubic-bezier function.
+ * @param {(
+ *   'easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|
+ *   'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|
+ *   'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|
+ *   'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine'
+ * )} [timingFunction] String representing desired cubic-bezier function.
  * @return {string} CSS as JS.
  * @example
  * // Styles as object usage
@@ -52,7 +86,7 @@ const functionsMap = {
  * }
  */
 
-function timingFunctions(timingFunction) {
+function timingFunctions(timingFunction: TimingFunctions) {
   return functionsMap[timingFunction]
 }
 

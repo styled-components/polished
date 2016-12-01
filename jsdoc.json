@@ -8,7 +8,8 @@
         "excludePattern": ".test.js$"
     },
     "plugins": [
-        "plugins/markdown"
+        "plugins/markdown",
+        "node_modules/jsdoc-babel"
     ],
     "opts": {
         "template": "docs_theme/",
@@ -20,5 +21,8 @@
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false
+    },
+    "babel": {
+      "plugins": ["transform-flow-strip-types"]
     }
 }
