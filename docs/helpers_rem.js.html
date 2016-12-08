@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/hideText.js - Documentation</title>
+    <title>helpers/rem.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/hideText.js</h1>
+    <h1 class="page-title">helpers/rem.js</h1>
     
 
     
@@ -38,44 +38,48 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// @flow
-/** @module Mixins */
+/** @module Helpers */
+
+import stripUnit from './stripUnit'
 
 /**
- * CSS to hide text to show a background image in a SEO-Friendly.
+ * Convert pixel value to rems. The default base value is 16px, but can be changed with the second argument
  * @static
- * @return {Object} CSS as JS.
+ * @param {string|number} pxval - The pixel value you want to convert
+ * @param {string|number} [base = "16px"] - The base size to convert from
+ * @return {String} The converted value
  * @example
  * // Styles as object usage
  * const styles = {
- *   'background-image': 'url(logo.png)',
- *   ...hideText(),
+ *   'height': rem('16px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background-image: url(logo.png);
- *   ${hideText()};
+ *   height: ${rem('16px')}
  * `
  *
- * // CSS as JS Output
+ * // CSS in JS Output
  *
- * div {
- *   'background-image': 'url(logo.png)',
- *   'text-indent': '101%',
- *   'overflow': 'hidden',
- *   'white-space': 'nowrap',
+ * element {
+ *   'height': '1rem'
  * }
  */
 
-function hideText() {
-  return {
-    'text-indent': '101%',
-    'overflow': 'hidden',
-    'white-space': 'nowrap',
+/* eslint-disable no-param-reassign */
+function rem(pxval: string|number, base?: string|number = '16px') {
+  if (typeof pxval === 'string') {
+    pxval = stripUnit(pxval)
   }
+  if (base &amp;&amp; typeof base === 'string') {
+    base = stripUnit(base)
+  }
+
+  // $FlowFixMe
+  return `${pxval / base}rem`
 }
 
-export default hideText
+export default rem
 </code></pre>
         </article>
     </section>
