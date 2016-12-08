@@ -7,14 +7,10 @@ import em from './helpers/em'
 import clearFix from './mixins/clearFix'
 import ellipsis from './mixins/ellipsis'
 import hideText from './mixins/hideText'
-<<<<<<< HEAD
 import hiDPI from './mixins/hiDPI'
+import placeholder from './mixins/placeholder'
 import selection from './mixins/selection'
 import size from './mixins/size'
-=======
-import hiDIPI from './mixins/hiDPI'
-import placeholder from './mixins/placeholder'
->>>>>>> 6ac0cb2... chore(docs): Docs for placeholder mixin
 import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
@@ -23,14 +19,10 @@ const polished = {
   ellipsis,
   em,
   hideText,
-<<<<<<< HEAD
-  hiDPI,
-  selection,
-  size,
-=======
   hiDIPI,
   placeholder,
->>>>>>> 6ac0cb2... chore(docs): Docs for placeholder mixin
+  selection,
+  size,
   stripUnit,
   timingFunctions,
   wordWrap,
@@ -43,14 +35,10 @@ export {
   ellipsis,
   em,
   hideText,
-<<<<<<< HEAD
   hiDPI,
+  placeholder,
   selection,
   size,
-=======
-  hiDIPI,
-  placeholder,
->>>>>>> 6ac0cb2... chore(docs): Docs for placeholder mixin
   stripUnit,
   timingFunctions,
   wordWrap,
