@@ -2,6 +2,7 @@
 // Helpers
 import stripUnit from './helpers/stripUnit'
 import modularScale from './helpers/modularScale'
+import em from './helpers/em'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -16,6 +17,7 @@ import wordWrap from './mixins/wordWrap'
 const polished = {
   clearFix,
   ellipsis,
+  em,
   hideText,
   hiDPI,
   modularScale,
@@ -27,16 +29,4 @@ const polished = {
 }
 
 export default polished
-
-export {
-  clearFix,
-  ellipsis,
-  hideText,
-  hiDPI,
-  modularScale,
-  selection,
-  size,
-  stripUnit,
-  timingFunctions,
-  wordWrap,
-}
+export { clearFix, ellipsis, stripUnit, em }
