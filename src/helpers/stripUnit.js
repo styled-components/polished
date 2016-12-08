@@ -1,5 +1,4 @@
 // @flow
-/** @module Helpers */
 
 /**
  * Strip the unit from a given CSS value

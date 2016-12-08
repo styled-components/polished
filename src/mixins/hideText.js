@@ -1,5 +1,4 @@
 // @flow
-/** @module Mixins */
 
 /**
  * CSS to hide text to show a background image in a SEO-Friendly.

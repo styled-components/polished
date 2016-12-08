@@ -1,5 +1,4 @@
 // @flow
-/** @module Mixins */
 
 /**
  * Provides an easy way to change the `word-wrap` property

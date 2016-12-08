@@ -1,5 +1,4 @@
 // @flow
-/** @module Mixins */
 
 /**
  * CSS to represent truncated text with an ellipsis.
