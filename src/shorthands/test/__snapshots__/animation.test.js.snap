@@ -1,0 +1,11 @@
+exports[`animation should be fine with less than eight arguments 1`] = `
+Object {
+  "animation": "rotate 1s ease-in-out",
+}
+`;
+
+exports[`animation should pass first eight arguments to the CSS 1`] = `
+Object {
+  "animation": "rotate 1s ease-in-out 0.5s 5 reverse forwards paused",
+}
+`;

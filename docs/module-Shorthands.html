@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Helpers - Documentation</title>
+    <title>Shorthands - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Helpers</h1>
+    <h1 class="page-title">Shorthands</h1>
     
 
     
@@ -72,7 +72,7 @@
 
     
 
-    <h4 class="name" id=".stripUnit"><span class="type-signature">(static) </span>stripUnit<span class="signature">(value)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".animation"><span class="type-signature">(static) </span>animation<span class="signature">(&hellip;arguments<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
@@ -84,7 +84,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helpers_stripUnit.js.html">helpers/stripUnit.js</a>, <a href="helpers_stripUnit.js.html#line27">line 27</a>
+        <a href="shorthands_animation.js.html">shorthands/animation.js</a>, <a href="shorthands_animation.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -124,7 +124,7 @@
 
 
 <div class="description">
-    <p>Strip the unit from a given CSS value</p>
+    <p>Shorthand for easily setting the animation property</p>
 </div>
 
 
@@ -139,18 +139,18 @@
     
     <pre class="prettyprint"><code>// Styles as object usage
 const styles = {
-  '--dimension': stripUnit(100px)
+  ...animation('rotate', '1s', 'ease-in-out')
 }
 
 // styled-components usage
 const div = styled.div`
-  --dimension: ${stripUnit(100px)}
+  ${animation('rotate', '1s', 'ease-in-out')}
 `
 
-// CSS in JS Output
+// CSS as JS Output
 
-element {
-  '--dimension': 100
+div {
+  'animation': 'rotate 1s ease-in-out'
 }</code></pre>
 
 
@@ -169,6 +169,8 @@ element {
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -181,23 +183,38 @@ element {
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>arguments</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>A string containing a value with its unit.</p></td>
+            <td class="description last"><p>Up to eight animation properties</p></td>
         </tr>
 
     
@@ -221,7 +238,7 @@ element {
 
         
 <div class="param-desc">
-    <p>Unitless value.</p>
+    <p>CSS as JS.</p>
 </div>
 
 
@@ -232,7 +249,7 @@ element {
     </dt>
     <dd>
         
-<span class="param-type">Number</span>
+<span class="param-type">Object</span>
 
 
     </dd>

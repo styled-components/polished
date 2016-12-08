@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/hideText.js - Documentation</title>
+    <title>shorthands/animation.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/hideText.js</h1>
+    <h1 class="page-title">shorthands/animation.js</h1>
     
 
     
@@ -38,44 +38,42 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// @flow
-/** @module Mixins */
+/** @module Shorthands */
 
 /**
- * CSS to hide text to show a background image in a SEO-Friendly.
+ * Shorthand for easily setting the animation property
  * @static
+ * @param {...(string|number)} [arguments] - Up to eight animation properties
  * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
  * const styles = {
- *   'background-image': 'url(logo.png)',
- *   ...hideText(),
+ *   ...animation('rotate', '1s', 'ease-in-out')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background-image: url(logo.png);
- *   ${hideText()};
+ *   ${animation('rotate', '1s', 'ease-in-out')}
  * `
  *
  * // CSS as JS Output
  *
  * div {
- *   'background-image': 'url(logo.png)',
- *   'text-indent': '101%',
- *   'overflow': 'hidden',
- *   'white-space': 'nowrap',
+ *   'animation': 'rotate 1s ease-in-out'
  * }
  */
 
-function hideText() {
+function animation(...args: Array&lt;string|number>) {
+  if (args.length > 8) {
+    throw new Error('The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation')
+  }
+
   return {
-    'text-indent': '101%',
-    'overflow': 'hidden',
-    'white-space': 'nowrap',
+    'animation': args.join(' '),
   }
 }
 
-export default hideText
+export default animation
 </code></pre>
         </article>
     </section>
