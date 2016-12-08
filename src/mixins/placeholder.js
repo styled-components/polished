@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // @flow
 
 /**
@@ -45,6 +46,22 @@ function placeholder(styles: Object, parent: string = '&') {
     },
     [`${parent}:-ms-input-placeholder`]: {
       ...styles,
+=======
+//@flow
+function placeholder(styles: Object, parent: string = '&') {
+  return {
+    [`${parent}::-webkit-input-placeholder`]: {
+      ...styles
+    },
+    [`${parent}:-moz-placeholder`]: {
+      ...styles
+    },
+    [`${parent}::-moz-placeholder`]: {
+      ...styles
+    },
+    [`${parent}:-ms-input-placeholder`]: {
+      ...styles
+>>>>>>> 088995e... chore(placeholder): Add placeholder mixin
     },
   }
 }
