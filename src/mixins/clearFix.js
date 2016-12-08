@@ -24,14 +24,20 @@
  * }
  */
 
+<<<<<<< HEAD
 function clearFix(parent = `&`) {
+=======
+function clearFix(parent: string = '&') {
+>>>>>>> d5c2354... chore(Linting): Fix linting
   const pseudoSelector = `${parent}::after`
   return {
+    /* eslint-disable comma-dangle */
     [pseudoSelector]: {
       'clear': 'both',
       'content': '',
-      'display': 'table'
+      'display': 'table',
     }
+    /* eslint-enable comma-dangle */
   }
 =======
 // @flow

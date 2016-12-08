@@ -17,7 +17,7 @@ const polished = {
   hiDIPI,
   stripUnit,
   timingFunctions,
-  wordWrap
+  wordWrap,
 }
 
 export default polished
@@ -29,5 +29,5 @@ export {
   hiDIPI,
   stripUnit,
   timingFunctions,
-  wordWrap
+  wordWrap,
 }
