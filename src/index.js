@@ -1,6 +1,7 @@
 // @flow
 // Helpers
 import stripUnit from './helpers/stripUnit'
+import em from './helpers/em'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -10,7 +11,8 @@ const polished = {
   clearFix,
   ellipsis,
   stripUnit,
+  em,
 }
 
 export default polished
-export { clearFix, ellipsis, stripUnit }
+export { clearFix, ellipsis, stripUnit, em }
