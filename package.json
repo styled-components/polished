@@ -88,5 +88,8 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "dependencies": {
+    "modular-scale": "^4.4.1"
   }
 }
