@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/wordWrap.js - Documentation</title>
+    <title>helpers/em.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/wordWrap.js</h1>
+    <h1 class="page-title">helpers/em.js</h1>
     
 
     
@@ -38,38 +38,48 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// @flow
-/** @module Mixins */
+/** @module Helpers */
+
+import stripUnit from './stripUnit'
 
 /**
- * Provides an easy way to change the `word-wrap` property
- *
+ * Convert pixel value to ems. The default base value is 16px, but can be changed with the second argument
  * @static
- * @param {string} [wrap = 'break-word'] - Value for the word-break property
- * @return {Object} CSS as JS.
+ * @param {string|number} pxval - The pixel value you want to convert
+ * @param {string|number} [base = "16px"] - The base size to convert from
+ * @return {String} The converted value
  * @example
+ * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *   'height': em('16px')
  * }
  *
- * // CSS as JS Output
+ * // styled-components usage
+ * const div = styled.div`
+ *   height: ${em('16px')}
+ * `
  *
- * const styles = {
- *   overflow-wrap: 'break-all',
- *   word-wrap: 'break-all',
- *   word-break: 'break-all',
+ * // CSS in JS Output
+ *
+ * element {
+ *   'height': '1em'
  * }
  */
 
-function wordWrap(wrap: string = 'break-word') {
-  const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
-  return {
-    'overflow-wrap': wrap,
-    'word-wrap': wrap,
-    'word-break': wordBreak,
+/* eslint-disable no-param-reassign */
+function em(pxval: string|number, base?: string|number = '16px') {
+  if (typeof pxval === 'string') {
+    pxval = stripUnit(pxval)
   }
+  if (base &amp;&amp; typeof base === 'string') {
+    base = stripUnit(base)
+  }
+
+  // $FlowFixMe
+  return `${pxval / base}em`
 }
 
-export default wordWrap
+export default em
 </code></pre>
         </article>
     </section>

@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.em">em</a></li><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -72,6 +72,241 @@
 
     
 
+    <h4 class="name" id=".em"><span class="type-signature">(static) </span>em<span class="signature">(pxval, base<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="helpers_em.js.html">helpers/em.js</a>, <a href="helpers_em.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Convert pixel value to ems. The default base value is 16px, but can be changed with the second argument</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'height': em('16px')
+}
+
+// styled-components usage
+const div = styled.div`
+  height: ${em('16px')}
+`
+
+// CSS in JS Output
+
+element {
+  'height': '1em'
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pxval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The pixel value you want to convert</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>base</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>"16px"</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The base size to convert from</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The converted value</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".stripUnit"><span class="type-signature">(static) </span>stripUnit<span class="signature">(value)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
@@ -84,7 +319,464 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helpers_stripUnit.js.html">helpers/stripUnit.js</a>, <a href="helpers_stripUnit.js.html#line26">line 26</a>
+        <a href="helpers_stripUnit.js.html">helpers/stripUnit.js</a>, <a href="helpers_stripUnit.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Strip the unit from a given CSS value</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  '--dimension': stripUnit(100px)
+}
+
+// styled-components usage
+const div = styled.div`
+  --dimension: ${stripUnit(100px)}
+`
+
+// CSS in JS Output
+
+element {
+  '--dimension': 100
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A string containing a value with its unit.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Unitless value.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".em"><span class="type-signature">(static) </span>em<span class="signature">(pxval, base<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="helpers_em.js.html">helpers/em.js</a>, <a href="helpers_em.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Convert pixel value to ems. The default base value is 16px, but can be changed with the second argument</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Styles as object usage
+const styles = {
+  'height': em('16px')
+}
+
+// styled-components usage
+const div = styled.div`
+  height: ${em('16px')}
+`
+
+// CSS in JS Output
+
+element {
+  'height': '1em'
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pxval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The pixel value you want to convert</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>base</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>"16px"</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The base size to convert from</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The converted value</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".stripUnit"><span class="type-signature">(static) </span>stripUnit<span class="signature">(value)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="helpers_stripUnit.js.html">helpers/stripUnit.js</a>, <a href="helpers_stripUnit.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -259,7 +951,7 @@ element {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Nov 18 2016 11:44:21 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 08 2016 17:19:21 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
