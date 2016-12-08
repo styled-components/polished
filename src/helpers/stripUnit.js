@@ -1,10 +1,7 @@
 // @flow
 
 /**
- * Strip the unit from a given CSS value
- * @static
- * @param {string} value - A string containing a value with its unit.
- * @return {Number} Unitless value.
+ * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
  * @example
  * // Styles as object usage
  * const styles = {
@@ -23,7 +20,7 @@
  * }
  */
 
-function stripUnit(value: string) {
+function stripUnit(value: string): number {
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue

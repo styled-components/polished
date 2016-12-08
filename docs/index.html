@@ -43,6 +43,16 @@
                 
                 </li>
               
+                
+                <li><a
+                  href='#timingfunctions'
+                  class="">
+                  timingFunctions
+                  
+                </a>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
@@ -63,17 +73,17 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5543ef2cc312ec37b42a78ebcc18b987aff9bc41/src/helpers/stripUnit.js#L26-L30'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/e06d3c58c77ea2002365347d80498827bc68f267/src/helpers/stripUnit.js#L23-L27'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
   </div>
   
 
-  <p>Strip the unit from a given CSS value</p>
+  <p>Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)</p>
 
 
-  <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
   
 
@@ -90,8 +100,7 @@
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    A string containing a value with its unit.
-
+	    
           </div>
           
         </div>
@@ -104,10 +113,7 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
-        Unitless value.
-
-      
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
     
   
 
@@ -155,7 +161,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5543ef2cc312ec37b42a78ebcc18b987aff9bc41/src/mixins/ellipsis.js#L31-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/e06d3c58c77ea2002365347d80498827bc68f267/src/mixins/ellipsis.js#L28-L37'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -165,7 +171,7 @@ element {
   <p>CSS to represent truncated text with an ellipsis.</p>
 
 
-  <div class='pre p1 fill-light mt0'>ellipsis(width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  <div class='pre p1 fill-light mt0'>ellipsis(width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
   
   
 
@@ -182,9 +188,8 @@ element {
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
-            = <code>100%</code>)</code>
-	    Max-width for text to respect before being truncated.
-
+            = <code>&#39;100%&#39;</code>)</code>
+	    
           </div>
           
         </div>
@@ -194,14 +199,6 @@ element {
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        CSS as JS.
-
-      
-    
   
 
   
@@ -229,6 +226,89 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <span class="hljs-string">'text-overflow'</span>: <span class="hljs-string">'ellipsis'</span>,
   <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
   <span class="hljs-string">'word-wrap'</span>: <span class="hljs-string">'normal'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='timingfunctions'>
+      timingFunctions
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/e06d3c58c77ea2002365347d80498827bc68f267/src/mixins/timingFunctions.js#L80-L82'>
+      <span>src/mixins/timingFunctions.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: TimingFunctions)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timingFunction</span> <code class='quiet'>(TimingFunctions)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'transition-timing-function'</span>: timingFunctions(<span class="hljs-string">'easeInQuad'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+ <span class="hljs-keyword">const</span> div = styled.div`
+  transition-timing-<span class="hljs-function"><span class="hljs-keyword">function</span>: $</span>{timingFunctions(<span class="hljs-string">'easeInQuad'</span>)};
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+div {
+  <span class="hljs-string">'transition-timing-function'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
 }</pre>
     
   

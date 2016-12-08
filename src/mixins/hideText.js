@@ -2,8 +2,6 @@
 
 /**
  * CSS to hide text to show a background image in a SEO-Friendly.
- * @static
- * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
  * const styles = {

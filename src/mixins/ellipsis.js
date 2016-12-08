@@ -2,9 +2,6 @@
 
 /**
  * CSS to represent truncated text with an ellipsis.
- * @static
- * @param {string} [width = 100%] - Max-width for text to respect before being truncated.
- * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
  * const styles = {
