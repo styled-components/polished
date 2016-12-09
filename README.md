@@ -1,6 +1,9 @@
-# `polished`
+<a href="https://github.com/styled-components/polished">
+  <img alt="polished" src="https://raw.githubusercontent.com/styled-components/brand/master/polished.png" height="150px" />
+</a>
+<br />
 
-A lightweight toolset for writing styles in Javascript.
+A lightweight toolset for writing styles in Javascript. ✨
 
 ## License
 
