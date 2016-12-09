@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/wordWrap.js - Documentation</title>
+    <title>mixins/clearFix.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/wordWrap.js</h1>
+    <h1 class="page-title">mixins/clearFix.js</h1>
     
 
     
@@ -41,35 +41,42 @@
 /** @module Mixins */
 
 /**
- * Provides an easy way to change the `word-wrap` property
- *
+ * CSS to contain a float (credit to CSSMojo)
  * @static
- * @param {string} [wrap = 'break-word'] - Value for the word-break property
+ * @param {string} [parent = &amp;] - Optional parent selector
  * @return {Object} CSS as JS.
  * @example
+ * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *    ...clearFix(),
  * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${clearFix()}
+ * `
  *
  * // CSS as JS Output
  *
- * const styles = {
- *   overflow-wrap: 'break-all',
- *   word-wrap: 'break-all',
- *   word-break: 'break-all',
+ * '&amp;::after': {
+ *   'clear': 'both',
+ *   'content': '',
+ *   'display': 'table'
  * }
  */
 
-function wordWrap(wrap: string = 'break-word') {
-  const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
+function clearFix(parent: string = '&amp;') {
+  const pseudoSelector = `${parent}::after`
   return {
-    'overflow-wrap': wrap,
-    'word-wrap': wrap,
-    'word-break': wordBreak,
+    [pseudoSelector]: {
+      'clear': 'both',
+      'content': '',
+      'display': 'table',
+    },
   }
 }
 
-export default wordWrap
+export default clearFix
 </code></pre>
         </article>
     </section>
