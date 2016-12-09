@@ -1,5 +1,4 @@
 // @flow
-/** @module Mixins */
 
 /* eslint-disable key-spacing */
 const functionsMap = {
