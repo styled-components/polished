@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>mixins/wordWrap.js - Documentation</title>
+    <title>mixins/hiDPI.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">mixins/wordWrap.js</h1>
+    <h1 class="page-title">mixins/hiDPI.js</h1>
     
 
     
@@ -37,39 +37,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// @flow
-/** @module Mixins */
+            <pre class="prettyprint source linenums"><code>/** @module Mixins */
 
 /**
- * Provides an easy way to change the `word-wrap` property
- *
+ * Generates a media query to target HiDPI devices.
  * @static
- * @param {string} [wrap = 'break-word'] - Value for the word-break property
- * @return {Object} CSS as JS.
+ * @param {Number} [width = 1.3] - Device pixel ratio.
+ * @return {string} Represents the generated media query.
  * @example
- * const styles = {
- *   ...wordWrap('break-all')
- * }
+ * // Styles as object usage
+ * PENDING....
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${hiDPI(1.5)} {
+ *     width: 200px;
+ *   }
+ * `
  *
  * // CSS as JS Output
  *
- * const styles = {
- *   overflow-wrap: 'break-all',
- *   word-wrap: 'break-all',
- *   word-break: 'break-all',
+ * '@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+ *  only screen and (min--moz-device-pixel-ratio: 1.5),
+ *  only screen and (-o-min-device-pixel-ratio: 1.5/1),
+ *  only screen and (min-resolution: 144dpi),
+ *  only screen and (min-resolution: 1.5dppx)': {
+ *   'width': '200px',
  * }
  */
 
-function wordWrap(wrap: string = 'break-word') {
-  const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
-  return {
-    'overflow-wrap': wrap,
-    'word-wrap': wrap,
-    'word-break': wordBreak,
-  }
+function hiDPI(ratio = 1.3) {
+  return `
+    @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
+    only screen and (min--moz-device-pixel-ratio: ${ratio}),
+    only screen and (-o-min-device-pixel-ratio: ${ratio}/1),
+    only screen and (min-resolution: ${Math.round((ratio * 96))}dpi),
+    only screen and (min-resolution: ${ratio}dppx)
+  `
 }
 
-export default wordWrap
+export default hiDPI
 </code></pre>
         </article>
     </section>
