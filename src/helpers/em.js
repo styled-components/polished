@@ -4,7 +4,8 @@
 import stripUnit from './stripUnit'
 
 /**
- * Convert pixel value to ems. The default base value is 16px, but can be changed with the second argument
+ * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
+ * second argument to the function.
  * @static
  * @param {string|number} pxval - The pixel value you want to convert
  * @param {string|number} [base = "16px"] - The base size to convert from
@@ -32,11 +33,19 @@ function em(pxval: string|number, base?: string|number = '16px') {
   if (typeof pxval === 'string') {
     pxval = stripUnit(pxval)
   }
-  if (base && typeof base === 'string') {
+
+  if (typeof base === 'string') {
     base = stripUnit(base)
   }
 
-  // $FlowFixMe
+  if (typeof pxval === 'string') {
+    throw new Error(`Passed invalid pixel value ("${pxval}") to em(), please pass a value like "12px" or 12.`)
+  }
+
+  if (typeof base === 'string') {
+    throw new Error(`Passed invalid base value ("${base}") to em(), please pass a value like "12px" or 12.`)
+  }
+
   return `${pxval / base}em`
 }
 
