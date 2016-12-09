@@ -8,7 +8,9 @@
  * @return {Object} CSS as JS.
  * @example
  * // Styles as object usage
- * PENDING...
+ * const styles = {
+ *    ...clearFix(),
+ * }
  *
  * // styled-components usage
  * const div = styled.div`
@@ -31,13 +33,11 @@ function clearFix(parent: string = '&') {
 >>>>>>> d5c2354... chore(Linting): Fix linting
   const pseudoSelector = `${parent}::after`
   return {
-    /* eslint-disable comma-dangle */
     [pseudoSelector]: {
       'clear': 'both',
       'content': '',
       'display': 'table',
-    }
-    /* eslint-enable comma-dangle */
+    },
   }
 =======
 // @flow
