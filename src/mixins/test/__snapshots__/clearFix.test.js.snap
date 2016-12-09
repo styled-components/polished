@@ -1,0 +1,19 @@
+exports[`clearFix should default to & when no parent is passed 1`] = `
+Object {
+  "&::after": Object {
+    "clear": "both",
+    "content": "",
+    "display": "table",
+  },
+}
+`;
+
+exports[`clearFix should pass parent to pseudo selector 1`] = `
+Object {
+  "div::after": Object {
+    "clear": "both",
+    "content": "",
+    "display": "table",
+  },
+}
+`;
