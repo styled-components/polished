@@ -1,38 +1,7 @@
 // @flow
 /** @module Mixins */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/**
- * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
- * @static
- * @return {string} CSS as JS.
- * @example
- * // Styles as object usage
- * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
- * `
- *
- * // CSS as JS Output
- *
- * div {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
-
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-=======
 /* eslint-disable key-spacing */
->>>>>>> e8b069c... chore: Realign timing functions map
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -63,12 +32,6 @@ const functionsMap = {
 }
 /* eslint-enable key-spacing */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-=======
 type TimingFunctions =
   | 'easeInBack'
   | 'easeInCirc'
@@ -95,7 +58,6 @@ type TimingFunctions =
   | 'easeInOutQuint'
   | 'easeInOutSine';
 
->>>>>>> fc7f9b5... chore: Add flow type annotations
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
  * @static
@@ -124,16 +86,7 @@ type TimingFunctions =
  * }
  */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-function timingFunctions(timingFunction) {
-=======
 function timingFunctions(timingFunction: TimingFunctions) {
->>>>>>> fc7f9b5... chore: Add flow type annotations
   return functionsMap[timingFunction]
 }
 

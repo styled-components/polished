@@ -22,19 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.clearFix">clearFix</a></li><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.hiDPI">hiDPI</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li></ul></li></ul>
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li></ul></li></ul>
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
->>>>>>> e5117ef... chore(docs): Regenerate docs
 </nav>
 
 <div id="main">
@@ -49,10 +37,10 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** @module Mixins */
+            <pre class="prettyprint source linenums"><code>// @flow
+/** @module Mixins */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+/* eslint-disable key-spacing */
 const functionsMap = {
   'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -81,106 +69,43 @@ const functionsMap = {
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine':  'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
 }
+/* eslint-enable key-spacing */
+
+type TimingFunctions =
+  | 'easeInBack'
+  | 'easeInCirc'
+  | 'easeInCubic'
+  | 'easeInExpo'
+  | 'easeInQuad'
+  | 'easeInQuart'
+  | 'easeInQuint'
+  | 'easeInSine'
+  | 'easeOutBack'
+  | 'easeOutCubic'
+  | 'easeOutCirc'
+  | 'easeOutExpo'
+  | 'easeOutQuad'
+  | 'easeOutQuart'
+  | 'easeOutQuint'
+  | 'easeOutSine'
+  | 'easeInOutBack'
+  | 'easeInOutCirc'
+  | 'easeInOutCubic'
+  | 'easeInOutExpo'
+  | 'easeInOutQuad'
+  | 'easeInOutQuart'
+  | 'easeInOutQuint'
+  | 'easeInOutSine';
 
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
  * @static
- * @param {('easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine')} [timingFunction] String representing desired cubic-bezier function.
-=======
-/**
- * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
- * @static
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
- * @return {string} CSS as JS.
- * @example
- * // Styles as object usage
- * const styles = {
-<<<<<<< HEAD
-<<<<<<< HEAD
- *   'transition-timing-function': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
-=======
- *   'transition-timing-function': easeInQuad
- * }
- *
- * const styles = {
- *   'transition-timing-function': timingFunctions(easeInQuad)
-=======
- *   'transition-timing-function': timingFunctions('easeInQuad')
->>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
-<<<<<<< HEAD
- *   transition-timing-function: ${timingFunctions(easeInQuad)};
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
->>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
- * `
- *
- * // CSS as JS Output
- *
- * div {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-function timingFunctions(timingFunction) {
-  return functionsMap[timingFunction]
-=======
-export const easeInBack      =  'cubic-bezier(0.600, -0.280, 0.735, 0.045)';
-export const easeInCirc      =  'cubic-bezier(0.600,  0.040, 0.980, 0.335)';
-export const easeInCubic     =  'cubic-bezier(0.550,  0.055, 0.675, 0.190)';
-export const easeInExpo      =  'cubic-bezier(0.950,  0.050, 0.795, 0.035)';
-export const easeInQuad      =  'cubic-bezier(0.550,  0.085, 0.680, 0.530)';
-export const easeInQuart     =  'cubic-bezier(0.895,  0.030, 0.685, 0.220)';
-export const easeInQuint     =  'cubic-bezier(0.755,  0.050, 0.855, 0.060)';
-export const easeInSine      =  'cubic-bezier(0.470,  0.000, 0.745, 0.715)';
-=======
-=======
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-const functionsMap = {
-  'easeInBack':     'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
-  'easeInCirc':     'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
-  'easeInCubic':    'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
-  'easeInExpo':     'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
-  'easeInQuad':     'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-  'easeInQuart':    'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
-  'easeInQuint':    'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
-  'easeInSine':     'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
->>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
-
-  'easeOutBack':    'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
-  'easeOutCubic':   'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
-  'easeOutCirc':    'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
-  'easeOutExpo':    'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
-  'easeOutQuad':    'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
-  'easeOutQuart':   'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
-  'easeOutQuint':   'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
-  'easeOutSine':    'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
-
-  'easeInOutBack':  'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
-  'easeInOutCirc':  'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
-  'easeInOutCubic': 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
-  'easeInOutExpo':  'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
-  'easeInOutQuad':  'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
-  'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
-  'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
-  'easeInOutSine':  'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
-}
-
-/**
- * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
- * @static
- * @param {('easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine')} [timingFunction] String representing desired cubic-bezier function.
+ * @param {(
+ *   'easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|
+ *   'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|
+ *   'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|
+ *   'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine'
+ * )} [timingFunction] String representing desired cubic-bezier function.
  * @return {string} CSS as JS.
  * @example
  * // Styles as object usage
@@ -200,13 +125,8 @@ const functionsMap = {
  * }
  */
 
-function timingFunctions(timingFunction) {
-<<<<<<< HEAD
-  return timingFunction
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
+function timingFunctions(timingFunction: TimingFunctions) {
   return functionsMap[timingFunction]
->>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
 }
 
 export default timingFunctions
@@ -222,31 +142,7 @@ export default timingFunctions
 <br class="clear">
 
 <footer>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 08 2016 07:00:03 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Nov 16 2016 12:00:11 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> 6601612... chore(timingFunctions): Add cubic-bezier timing functions
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Nov 16 2016 13:24:41 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> 9b2dc79... chore(docs): Generate timingFunctions docs
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Nov 17 2016 08:56:30 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> 05a65da... chore(timingFunctions): Updated docs
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Nov 17 2016 09:03:01 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> e5117ef... chore(docs): Regenerate docs
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Nov 18 2016 11:44:21 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> b967143... chore(docs): Fix doc param length display bug in theme
-=======
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 08 2016 13:16:00 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
->>>>>>> 008bd04... chore(Docs): Review feedback
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Dec 09 2016 09:32:39 GMT-0800 (PST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

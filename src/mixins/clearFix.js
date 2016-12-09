@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// @flow
 /** @module Mixins */
 
 /**
@@ -26,11 +26,7 @@
  * }
  */
 
-<<<<<<< HEAD
-function clearFix(parent = `&`) {
-=======
 function clearFix(parent: string = '&') {
->>>>>>> d5c2354... chore(Linting): Fix linting
   const pseudoSelector = `${parent}::after`
   return {
     [pseudoSelector]: {
@@ -39,11 +35,6 @@ function clearFix(parent: string = '&') {
       'display': 'table',
     },
   }
-=======
-// @flow
-export default function() {
-  return 'clearfix'
->>>>>>> fc7f9b5... chore: Add flow type annotations
 }
 
 export default clearFix
