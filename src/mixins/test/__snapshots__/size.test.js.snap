@@ -1,0 +1,21 @@
+exports[`size should pass parameters to the values of height and width 1`] = `
+Object {
+  "height": "300px",
+  "width": "250px",
+}
+`;
+
+exports[`size should properly add rules when block has existing rules 1`] = `
+Object {
+  "background": "red",
+  "height": "300px",
+  "width": "250px",
+}
+`;
+
+exports[`size should set height and width to the same value when only one parameter is passed 1`] = `
+Object {
+  "height": "300px",
+  "width": "300px",
+}
+`;
