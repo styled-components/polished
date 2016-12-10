@@ -53,6 +53,7 @@ const plugins = [
     ],
     plugins: [
       'external-helpers',
+      'transform-object-rest-spread',
     ],
   }),
   json(),

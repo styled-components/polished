@@ -7,6 +7,7 @@ import clearFix from './mixins/clearFix'
 import ellipsis from './mixins/ellipsis'
 import hideText from './mixins/hideText'
 import hiDIPI from './mixins/hiDPI'
+import placeholder from './mixins/placeholder'
 import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
@@ -15,6 +16,7 @@ const polished = {
   ellipsis,
   hideText,
   hiDIPI,
+  placeholder,
   stripUnit,
   timingFunctions,
   wordWrap,
@@ -27,6 +29,7 @@ export {
   ellipsis,
   hideText,
   hiDIPI,
+  placeholder,
   stripUnit,
   timingFunctions,
   wordWrap,
