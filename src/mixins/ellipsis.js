@@ -2,6 +2,7 @@
 
 /**
  * CSS to represent truncated text with an ellipsis.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -11,11 +12,11 @@
  * // styled-components usage
  * const div = styled.div`
  *   ${ellipsis(250px)}
- * `
+ *
  *
  * // CSS as JS Output
  *
- * div {
+ * div: {
  *   'display': 'inline-block',
  *   'max-width': '250px',
  *   'overflow': 'hidden',
