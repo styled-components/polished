@@ -1,6 +1,5 @@
 exports[`placeholder should properly add rules when block has existing rules 1`] = `
 Object {
-<<<<<<< HEAD
   "background": "white",
   "input:-moz-placeholder": Object {
     "color": "blue",
@@ -13,26 +12,6 @@ Object {
   },
   "input::-webkit-input-placeholder": Object {
     "color": "blue",
-=======
-  "input": Object {
-    "background": "white",
-    "input:-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input:-ms-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-webkit-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
->>>>>>> 088995e... chore(placeholder): Add placeholder mixin
   },
 }
 `;
@@ -42,7 +21,6 @@ Object {
   "input": Object {
     "&:-moz-placeholder": Object {
       "color": "blue",
-<<<<<<< HEAD
     },
     "&:-ms-input-placeholder": Object {
       "color": "blue",
@@ -52,21 +30,6 @@ Object {
     },
     "&::-webkit-input-placeholder": Object {
       "color": "blue",
-=======
-      "font-size": "12px",
-    },
-    "&:-ms-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "&::-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "&::-webkit-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
->>>>>>> 088995e... chore(placeholder): Add placeholder mixin
     },
   },
 }
@@ -74,7 +37,6 @@ Object {
 
 exports[`placeholder should properly pass styles object and parent 1`] = `
 Object {
-<<<<<<< HEAD
   "input:-moz-placeholder": Object {
     "color": "blue",
   },
@@ -86,25 +48,6 @@ Object {
   },
   "input::-webkit-input-placeholder": Object {
     "color": "blue",
-=======
-  "input": Object {
-    "input:-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input:-ms-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-webkit-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
->>>>>>> 088995e... chore(placeholder): Add placeholder mixin
   },
 }
 `;
