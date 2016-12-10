@@ -1,23 +1,17 @@
 exports[`placeholder should properly add rules when block has existing rules 1`] = `
 Object {
-  "input": Object {
-    "background": "white",
-    "input:-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input:-ms-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-webkit-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
+  "background": "white",
+  "input:-moz-placeholder": Object {
+    "color": "blue",
+  },
+  "input:-ms-input-placeholder": Object {
+    "color": "blue",
+  },
+  "input::-moz-placeholder": Object {
+    "color": "blue",
+  },
+  "input::-webkit-input-placeholder": Object {
+    "color": "blue",
   },
 }
 `;
@@ -27,19 +21,15 @@ Object {
   "input": Object {
     "&:-moz-placeholder": Object {
       "color": "blue",
-      "font-size": "12px",
     },
     "&:-ms-input-placeholder": Object {
       "color": "blue",
-      "font-size": "12px",
     },
     "&::-moz-placeholder": Object {
       "color": "blue",
-      "font-size": "12px",
     },
     "&::-webkit-input-placeholder": Object {
       "color": "blue",
-      "font-size": "12px",
     },
   },
 }
@@ -47,23 +37,17 @@ Object {
 
 exports[`placeholder should properly pass styles object and parent 1`] = `
 Object {
-  "input": Object {
-    "input:-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input:-ms-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-moz-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
-    "input::-webkit-input-placeholder": Object {
-      "color": "blue",
-      "font-size": "12px",
-    },
+  "input:-moz-placeholder": Object {
+    "color": "blue",
+  },
+  "input:-ms-input-placeholder": Object {
+    "color": "blue",
+  },
+  "input::-moz-placeholder": Object {
+    "color": "blue",
+  },
+  "input::-webkit-input-placeholder": Object {
+    "color": "blue",
   },
 }
 `;

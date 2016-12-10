@@ -13,9 +13,6 @@
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${hiDPI(1.5)} {
- *     width: 200px;
- *   }
  * `
  *
  * // CSS as JS Output
