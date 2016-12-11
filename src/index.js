@@ -11,7 +11,11 @@ import size from './mixins/size'
 import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
+// Shorthands
+import animation from './shorthands/animation'
+
 const polished = {
+  animation,
   clearFix,
   ellipsis,
   hideText,
@@ -25,6 +29,7 @@ const polished = {
 export default polished
 
 export {
+  animation,
   clearFix,
   ellipsis,
   hideText,
