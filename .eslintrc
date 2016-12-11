@@ -9,6 +9,9 @@
       "experimentalObjectRestSpread": true
     }
   },
+  "env": {
+    "jest": true,
+  },
   "rules": {
     "arrow-parens": 0,
     "class-methods-use-this": 0,
@@ -22,6 +25,7 @@
     "semi": [2, "never"],
     "space-before-function-paren": 0,
     "symbol-description": 0,
-    "valid-jsdoc": "error"
+    "valid-jsdoc": "error",
+    "max-len": 0
   }
 }

@@ -1,12 +1,9 @@
 // @flow
-/** @module Mixins */
 
 /**
  * Provides an easy way to change the `word-wrap` property
  *
  * @static
- * @param {string} [wrap = 'break-word'] - Value for the word-break property
- * @return {Object} CSS as JS.
  * @example
  * const styles = {
  *   ...wordWrap('break-all')
