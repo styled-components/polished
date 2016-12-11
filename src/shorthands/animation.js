@@ -1,5 +1,7 @@
 // @flow
 
+type AnimationProperty = string|number
+
 /**
  * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
  * or a single animation spread over the arguments.
@@ -36,10 +38,7 @@
  *   'animation': 'rotate 1s ease-in-out'
  * }
  */
-
-type AnimationProperty = string|number
-
-function animation(...args: Array<Array<AnimationProperty>>|Array<AnimationProperty>) {
+function animation(...args: Array<Array<AnimationProperty>|AnimationProperty>) {
   // Allow single or multiple animations passed
   const multiMode = Array.isArray(args[0])
   if (!multiMode && args.length > 8) {
@@ -49,11 +48,11 @@ function animation(...args: Array<Array<AnimationProperty>>|Array<AnimationPrope
     if ((multiMode && !Array.isArray(arg)) || (!multiMode && Array.isArray(arg))) {
       throw new Error('To pass multiple animations please supply them in arrays, e.g. animation([\'rotate\', \'2s\'], [\'move\', \'1s\'])\nTo pass a single animation please supply them in simple values, e.g. animation(\'rotate\', \'2s\')')
     }
-    if (multiMode && arg.length > 8) {
+    if (Array.isArray(arg) && arg.length > 8) {
       throw new Error('The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation')
     }
 
-    return multiMode ? arg.join(' ') : arg
+    return Array.isArray(arg) ? arg.join(' ') : arg
   }).join(', ')
 
   return {
