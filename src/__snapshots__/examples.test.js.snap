@@ -1,0 +1,17 @@
+exports[`lib/helpers/examples/stripUnit examples should match example #0 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`lib/helpers/examples/stripUnit examples should match example #1 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
+
+exports[`src/helpers/examples/stripUnit examples should match example #0 1`] = `
+Object {
+  "--dimension": 100,
+}
+`;
