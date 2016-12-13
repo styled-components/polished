@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * Check if a string ends with something
  */
