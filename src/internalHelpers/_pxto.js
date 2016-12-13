@@ -7,7 +7,7 @@ import stripUnit from '../helpers/stripUnit'
  * Factory function that creates pixel-to-x converters
  * @private
  */
-const pxtoFactory = to => (pxval: string|number, base?: string|number = '16px') => {
+const pxtoFactory = (to: string) => (pxval: string|number, base?: string|number = '16px') => {
   let newPxval = pxval
   let newBase = base
   if (typeof pxval === 'string') {
