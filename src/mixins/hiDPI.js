@@ -1,13 +1,15 @@
-/** @module Mixins */
+// @flow
 
 /**
  * Generates a media query to target HiDPI devices.
- * @static
- * @param {Number} [width = 1.3] - Device pixel ratio.
- * @return {string} Represents the generated media query.
+ *
  * @example
  * // Styles as object usage
- * PENDING....
+ * const styles = {
+ *  [hiDPI(1.5)]: {
+ *    width: 200px;
+ *  }
+ * }
  *
  * // styled-components usage
  * const div = styled.div`
@@ -27,7 +29,7 @@
  * }
  */
 
-function hiDPI(ratio = 1.3) {
+function hiDPI(ratio: number = 1.3) {
   return `
     @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
     only screen and (min--moz-device-pixel-ratio: ${ratio}),
