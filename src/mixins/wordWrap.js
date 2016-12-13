@@ -3,11 +3,16 @@
 /**
  * Provides an easy way to change the `word-wrap` property
  *
- * @static
  * @example
+ * // Styles as object usage
  * const styles = {
  *   ...wordWrap('break-all')
  * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${wordWrap('break-all')}
+ *
  *
  * // CSS as JS Output
  *
