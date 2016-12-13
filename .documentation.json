@@ -1,0 +1,6 @@
+{
+  "hljs": {
+    "highlightAuto": true
+  },
+  "inferPrivate": "^_"
+}

@@ -1,5 +1,4 @@
 // @flow
-/** @module Mixins */
 
 /* eslint-disable key-spacing */
 const functionsMap = {
@@ -60,14 +59,7 @@ type TimingFunctions =
 
 /**
  * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
- * @static
- * @param {(
- *   'easeInBack'|'easeInCirc'|'easeInCubic'|'easeInExpo'|'easeInQuad'|'easeInQuart'|'easeInQuint'|
- *   'easeInSine'|'easeOutBack'|'easeOutCubic'|'easeOutCirc'|'easeOutExpo'|'easeOutQuad'|
- *   'easeOutQuart'|'easeOutQuint'|'easeOutSine'|'easeInOutBack'|'easeInOutCirc'|'easeInOutCubic'|
- *   'easeInOutExpo'|'easeInOutQuad'|'easeInOutQuart'|'easeInOutQuint'|'easeInOutSine'
- * )} [timingFunction] String representing desired cubic-bezier function.
- * @return {string} CSS as JS.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -81,7 +73,7 @@ type TimingFunctions =
  *
  * // CSS as JS Output
  *
- * div {
+ * 'div': {
  *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
  * }
  */
