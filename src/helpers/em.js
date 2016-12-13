@@ -1,5 +1,4 @@
 // @flow
-/** @module Helpers */
 
 import endsWith from '../internalHelpers/_endsWith'
 import stripUnit from './stripUnit'
