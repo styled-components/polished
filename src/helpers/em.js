@@ -6,10 +6,6 @@ import stripUnit from './stripUnit'
 /**
  * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
  * second argument to the function.
- * @static
- * @param {string|number} pxval - The pixel value you want to convert
- * @param {string|number} [base = "16px"] - The base size to convert from
- * @return {String} The converted value
  * @example
  * // Styles as object usage
  * const styles = {
