@@ -1,64 +1,1206 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Home - Documentation</title>
-
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+  <meta charset='utf-8' />
+  <title>polished  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
 </head>
-<body>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>polished</h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#stripunit'
+                  class="">
+                  stripUnit
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#em'
+                  class="">
+                  em
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#helpers'
+                  class="">
+                  Helpers
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#rem'
+                  class="">
+                  rem
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#clearfix'
+                  class="">
+                  clearFix
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ellipsis'
+                  class="">
+                  ellipsis
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#hidetext'
+                  class="">
+                  hideText
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#hidpi'
+                  class="">
+                  hiDPI
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#selection'
+                  class="">
+                  selection
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#size'
+                  class="">
+                  size
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#timingfunctions'
+                  class="">
+                  timingFunctions
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#wordwrap'
+                  class="">
+                  wordWrap
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method'><a href="module-Helpers.html#.rem">rem</a></li><li data-type='method'><a href="module-Helpers.html#.stripUnit">stripUnit</a></li></ul></li><li><a href="module-Mixins.html">Mixins</a><ul class='methods'><li data-type='method'><a href="module-Mixins.html#.ellipsis">ellipsis</a></li><li data-type='method'><a href="module-Mixins.html#.hideText">hideText</a></li><li data-type='method'><a href="module-Mixins.html#.timingFunctions">timingFunctions</a></li><li data-type='method'><a href="module-Mixins.html#.wordWrap">wordWrap</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
+  
+  <div class='clearfix'>
     
-
+    <h3 class='fl m0' id='stripunit'>
+      stripUnit
+    </h3>
     
-
-
-
     
-
-
-
-
-
-
-
-
-
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/helpers/stripUnit.js#L24-L28'>
+      <span>src/helpers/stripUnit.js</span>
+      </a>
     
+  </div>
+  
+
+  <p>Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)</p>
 
 
+  <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-number">100</span>px)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-number">100</span>px)}</span>
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='em'>
+      em
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/helpers/em.js#L32-L58'>
+      <span>src/helpers/em.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
+second argument to the function.</p>
 
 
+  <div class='pre p1 fill-light mt0'>em(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pxval</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+	    The pixel value you want to convert
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?
+            = <code>&quot;16px&quot;</code>)</code>
+	    The base size to convert from
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        The converted value
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'height'</span>: em(<span class="hljs-string">'16px'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  height: <span class="hljs-subst">${em(<span class="hljs-string">'16px'</span>)}</span>
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'height'</span>: <span class="hljs-string">'1em'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='helpers'>
+      Helpers
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/helpers/rem.js#L4-L4'>
+      <span>src/helpers/rem.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>Helpers</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='rem'>
+      rem
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/helpers/rem.js#L31-L41'>
+      <span>src/helpers/rem.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Convert pixel value to rems. The default base value is 16px, but can be changed with the second argument</p>
 
 
+  <div class='pre p1 fill-light mt0'>rem(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
 
-</div>
+  
+  
+  
+  
+  
 
-<br class="clear">
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pxval</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+	    The pixel value you want to convert
 
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 08 2016 17:29:09 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?
+            = <code>&quot;16px&quot;</code>)</code>
+	    The base size to convert from
 
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        The converted value
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'height'</span>: rem(<span class="hljs-string">'16px'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  height: <span class="hljs-subst">${rem(<span class="hljs-string">'16px'</span>)}</span>
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'height'</span>: <span class="hljs-string">'1rem'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='clearfix'>
+      clearFix
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/clearFix.js#L26-L35'>
+      <span>src/mixins/clearFix.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS to contain a float (credit to CSSMojo).</p>
+
+
+  <div class='pre p1 fill-light mt0'>clearFix(parent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>parent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>&#39;&amp;&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+   ...clearFix(),
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  <span class="hljs-subst">${clearFix()}</span>
+`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'&amp;::after'</span>: {
+  <span class="hljs-string">'clear'</span>: <span class="hljs-string">'both'</span>,
+  <span class="hljs-string">'content'</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-string">'display'</span>: <span class="hljs-string">'table'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ellipsis'>
+      ellipsis
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/ellipsis.js#L29-L38'>
+      <span>src/mixins/ellipsis.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS to represent truncated text with an ellipsis.</p>
+
+
+  <div class='pre p1 fill-light mt0'>ellipsis(width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>&#39;100%&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+  ...ellipsis(<span class="hljs-number">250</span>px)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
+  <span class="hljs-symbol">$</span>{ellipsis(<span class="hljs-number">250</span>px)}
+
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-built-in">div</span>: {
+  <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-block'</span>,
+  <span class="hljs-string">'max-width'</span>: <span class="hljs-string">'250px'</span>,
+  <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
+  <span class="hljs-string">'text-overflow'</span>: <span class="hljs-string">'ellipsis'</span>,
+  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
+  <span class="hljs-string">'word-wrap'</span>: <span class="hljs-string">'normal'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='hidetext'>
+      hideText
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/hideText.js#L29-L35'>
+      <span>src/mixins/hideText.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS to hide text to show a background image in a SEO-Friendly.</p>
+
+
+  <div class='pre p1 fill-light mt0'>hideText()</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'url(logo.png)'</span>,
+  ...hideText(),
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  <span class="hljs-built_in">background</span>-<span class="hljs-built_in">image</span>: url(logo.png);
+  ${hideText()};
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'url(logo.png)'</span>,
+  <span class="hljs-string">'text-indent'</span>: <span class="hljs-string">'101%'</span>,
+  <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
+  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='hidpi'>
+      hiDPI
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/hiDPI.js#L32-L40'>
+      <span>src/mixins/hiDPI.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Generates a media query to target HiDPI devices.</p>
+
+
+  <div class='pre p1 fill-light mt0'>hiDPI(ratio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ratio</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?
+            = <code>1.3</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+ [hiDPI(<span class="hljs-number">1.5</span>)]: {
+   width: <span class="hljs-number">200</span>px;
+ }
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const div = styled.div`
+  ${hiDPI(<span class="hljs-number">1.5</span>)} {
+    width: <span class="hljs-number">200</span>px;
+  }
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+'@media only screen <span class="hljs-built_in">and</span> (-webkit-<span class="hljs-built_in">min</span>-device-pixel-ratio: <span class="hljs-number">1.5</span>),
+ only screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>--moz-device-pixel-ratio: <span class="hljs-number">1.5</span>),
+ only screen <span class="hljs-built_in">and</span> (-o-<span class="hljs-built_in">min</span>-device-pixel-ratio: <span class="hljs-number">1.5</span>/<span class="hljs-number">1</span>),
+ only screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>-resolution: <span class="hljs-number">144</span>dpi),
+ only screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>-resolution: <span class="hljs-number">1.5</span>dppx)': {
+  'width': '<span class="hljs-number">200</span>px',
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='selection'>
+      selection
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/selection.js#L31-L40'>
+      <span>src/mixins/selection.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS to style the selection psuedo-element.</p>
+
+
+  <div class='pre p1 fill-light mt0'>selection(styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>parent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>&#39;&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
+const styles = {
+  ...selection({
+    <span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>
+  }, <span class="hljs-string">'section'</span>)
+}
+
+// styled-components usage
+const div = styled.div`
+  ${selection({<span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>}, <span class="hljs-string">'section'</span>)}
+`
+
+// CSS <span class="hljs-keyword">as</span> JS Output
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'section::-moz-selection'</span>: {
+    <span class="hljs-string">'background-color'</span>:<span class="hljs-string">'blue'</span>,
+  },
+  <span class="hljs-string">'section::selection'</span>: {
+    <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'blue'</span>,
+  }
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='size'>
+      size
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/size.js#L24-L29'>
+      <span>src/mixins/size.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Mixin to set the height and width properties in a single statement.</p>
+
+
+  <div class='pre p1 fill-light mt0'>size(height: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>height</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+  ...<span class="hljs-keyword">size</span>(<span class="hljs-string">'300px'</span>, <span class="hljs-string">'250px'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">div</span>`
+  ${<span class="hljs-keyword">size</span>(<span class="hljs-string">'300px'</span>, <span class="hljs-string">'250px'</span>)}
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-keyword">div</span> {
+  <span class="hljs-string">'height'</span>: <span class="hljs-string">'300px'</span>,
+  <span class="hljs-string">'width'</span>: <span class="hljs-string">'250px'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='timingfunctions'>
+      timingFunctions
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/timingFunctions.js#L81-L83'>
+      <span>src/mixins/timingFunctions.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: TimingFunctions)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timingFunction</span> <code class='quiet'>(TimingFunctions)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'transition-timing-function'</span>: timingFunctions(<span class="hljs-string">'easeInQuad'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+ <span class="hljs-keyword">const</span> div = styled.div`
+  transition-timing-<span class="hljs-function"><span class="hljs-keyword">function</span>: $</span>{timingFunctions(<span class="hljs-string">'easeInQuad'</span>)};
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'transition-timing-function'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='wordwrap'>
+      wordWrap
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/5d3457c4845ca699eb942ed157ff1990afe553ed/src/mixins/wordWrap.js#L26-L33'>
+      <span>src/mixins/wordWrap.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Provides an easy way to change the <code>word-wrap</code> property</p>
+
+
+  <div class='pre p1 fill-light mt0'>wordWrap(wrap: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>wrap</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?
+            = <code>&#39;break-word&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  ...wordWrap('<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>')
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  ${wordWrap('<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>')}
+
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-keyword">const</span> styles = {
+  overflow-wrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+  word-wrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+  word-<span class="hljs-keyword">break</span>: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
 </body>
 </html>

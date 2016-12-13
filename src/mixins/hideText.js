@@ -1,10 +1,8 @@
 // @flow
-/** @module Mixins */
 
 /**
  * CSS to hide text to show a background image in a SEO-Friendly.
- * @static
- * @return {Object} CSS as JS.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -20,7 +18,7 @@
  *
  * // CSS as JS Output
  *
- * div {
+ * 'div': {
  *   'background-image': 'url(logo.png)',
  *   'text-indent': '101%',
  *   'overflow': 'hidden',

@@ -1,0 +1,39 @@
+exports[`selection should properly add rules when block has existing rules 1`] = `
+Object {
+  "div": Object {
+    "background": "white",
+    "section::-moz-selection": Object {
+      "background-color": "blue",
+    },
+    "section::selection": Object {
+      "background-color": "blue",
+    },
+  },
+}
+`;
+
+exports[`selection should properly default to no parent when not passed one 1`] = `
+Object {
+  "div": Object {
+    "::-moz-selection": Object {
+      "background-color": "blue",
+    },
+    "::selection": Object {
+      "background-color": "blue",
+    },
+  },
+}
+`;
+
+exports[`selection should properly pass styles object and parent 1`] = `
+Object {
+  "div": Object {
+    "section::-moz-selection": Object {
+      "background-color": "blue",
+    },
+    "section::selection": Object {
+      "background-color": "blue",
+    },
+  },
+}
+`;
