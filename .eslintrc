@@ -25,7 +25,7 @@
     "semi": [2, "never"],
     "space-before-function-paren": 0,
     "symbol-description": 0,
-    "valid-jsdoc": "error",
+    "valid-jsdoc": 0,
     "max-len": 0
   }
 }
