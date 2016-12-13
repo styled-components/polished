@@ -88,6 +88,6 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "modular-scale": "^4.4.1"
+    "simple-modular-scale": "^1.0.2"
   }
 }

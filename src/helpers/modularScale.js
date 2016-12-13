@@ -1,35 +1,31 @@
 // @flow
 /** @module Helpers */
 
-import ms from 'modular-scale'
+import ms from 'simple-modular-scale'
+import stripUnit from './stripUnit'
 
-const ratioNames = [
-  'minorSecond',
-  'majorSecond',
-  'minorThird',
-  'majorThird',
-  'perfectFourth',
-  'augFourth',
-  'perfectFifth',
-  'minorSixth',
-  'goldenSection',
-  'majorSixth',
-  'minorSeventh',
-  'majorSeventh',
-  'octave',
-  'majorTenth',
-  'majorEleventh',
-  'majorTwelfth',
-  'doubleOctave',
-]
+const ratioNames = {
+  minorSecond: 1.067,
+  majorSecond: 1.125,
+  minorThird: 1.2,
+  majorThird: 1.25,
+  perfectFourth: 1.333,
+  augFourth: 1.414,
+  perfectFifth: 1.5,
+  minorSixth: 1.6,
+  goldenSection: 1.618,
+  majorSixth: 1.667,
+  minorSeventh: 1.778,
+  majorSeventh: 1.875,
+  octave: 2,
+  majorTenth: 2.5,
+  majorEleventh: 2.667,
+  majorTwelfth: 3,
+  doubleOctave: 4,
+}
 
 /**
  * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
- * @static
- * @param {number} steps - The amount of steps to move along the scale. Any integer.
- * @param {string} [base] - The base value to generate the scale from.
- * @param {(number|'minorSecond'|'majorSecond'|'minorThird'|'majorThird'|'perfectFourth'|'augFourth'|'perfectFifth'|'minorSixth'|'goldenSection'|'majorSixth'|'minorSeventh'|'majorSeventh'|'octave'|'majorTenth'|'majorEleventh'|'majorTwelfth'|'doubleOctave')} [ratio] - The scale ratio, can either be a number or one of the pre-defined scales from below.
- * @return {string} The size in ems.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -70,20 +66,26 @@ type Ratio =
   | 'majorTwelfth'
   | 'doubleOctave'
 
-function modularScale(steps: number, base?: string = '1em', ratio?: Ratio = 'perfectFourth') {
+function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth') {
   if (!steps) {
     throw new Error('Please provide a number of steps to the modularScale helper.')
   }
-  if (typeof ratio === 'string' && ratioNames.indexOf(ratio) === -1) {
-    throw new Error('Please pass a number or one of the predefined scales to modularScale.')
+  if (steps < 0 || steps > 16) {
+    throw new Error('The number of steps passed to the modularScale helper needs to be between 0 and 16.')
+  }
+  if (typeof ratio === 'string' && !ratioNames[ratio]) {
+    throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.')
   }
 
+  const realBase = typeof base === 'string' ? stripUnit(base) : base
+  const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
+
   const scale = ms({
-    ratios: [ratio],
-    bases: [base],
+    base: realBase,
+    ratios: [realRatio],
   })
 
-  return `${scale(steps)}em`
+  return `${scale[steps]}em`
 }
 
 export { ratioNames }

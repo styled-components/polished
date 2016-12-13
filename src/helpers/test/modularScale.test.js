@@ -15,12 +15,12 @@ describe('modularScale', function() {
   })
 
   it('should allow adjusting the ratio', function() {
-    expect({ 'font-size': modularScale(1, undefined, 1) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, '1em', 1) }).toMatchSnapshot()
   })
 
   it('should allow any of the predefined ratio names', function() {
-    ratioNames.forEach((ratio) => {
-      expect({ 'font-size': modularScale(1, undefined, ratio) }).toMatchSnapshot()
+    Object.keys(ratioNames).forEach((ratio) => {
+      expect({ 'font-size': modularScale(1, '1em', ratioNames[ratio]) }).toMatchSnapshot()
     })
   })
 })
