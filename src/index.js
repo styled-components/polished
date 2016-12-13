@@ -1,6 +1,7 @@
 // @flow
 // Helpers
 import stripUnit from './helpers/stripUnit'
+import em from './helpers/em'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -15,6 +16,7 @@ import wordWrap from './mixins/wordWrap'
 const polished = {
   clearFix,
   ellipsis,
+  em,
   hideText,
   hiDPI,
   selection,
@@ -29,6 +31,7 @@ export default polished
 export {
   clearFix,
   ellipsis,
+  em,
   hideText,
   hiDPI,
   selection,
