@@ -30,23 +30,25 @@ import stripUnit from './stripUnit'
 
 /* eslint-disable no-param-reassign */
 function em(pxval: string|number, base?: string|number = '16px') {
+  let newPxval = pxval
+  let newBase = base
   if (typeof pxval === 'string') {
-    pxval = stripUnit(pxval)
+    newPxval = stripUnit(pxval)
   }
 
   if (typeof base === 'string') {
-    base = stripUnit(base)
+    newBase = stripUnit(base)
   }
 
-  if (typeof pxval === 'string') {
+  if (typeof newPxval === 'string') {
     throw new Error(`Passed invalid pixel value ("${pxval}") to em(), please pass a value like "12px" or 12.`)
   }
 
-  if (typeof base === 'string') {
+  if (typeof newBase === 'string') {
     throw new Error(`Passed invalid base value ("${base}") to em(), please pass a value like "12px" or 12.`)
   }
 
-  return `${pxval / base}em`
+  return `${newPxval / newBase}em`
 }
 
 export default em
