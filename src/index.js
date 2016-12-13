@@ -29,4 +29,16 @@ const polished = {
 }
 
 export default polished
-export { clearFix, ellipsis, stripUnit, em }
+export {
+  clearFix,
+  ellipsis,
+  em,
+  hideText,
+  hiDPI,
+  modularScale,
+  selection,
+  size,
+  stripUnit,
+  timingFunctions,
+  wordWrap,
+}
