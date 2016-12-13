@@ -2,5 +2,24 @@
   "hljs": {
     "highlightAuto": true
   },
-  "inferPrivate": "^_"
+  "inferPrivate": "^_",
+  "toc": [
+    {
+      "name": "Mixins",
+      "description": "These are reusable chunks of styles. By extracting common ones into small utilities you avoid repetition and mistakes."
+    },
+    "clearFix",
+    "ellipsis",
+    "hiDPI",
+    "hideText",
+    "selection",
+    "size",
+    "timingFunctions",
+    "wordWrap",
+    {
+      "name": "Helpers",
+      "description": "Tiny helper functions that make your life easier."
+    },
+    "stripUnit"
+  ]
 }
