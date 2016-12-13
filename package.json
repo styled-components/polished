@@ -87,7 +87,5 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
-  "dependencies": {
-    "simple-modular-scale": "^1.0.2"
-  }
+  "dependencies": {}
 }

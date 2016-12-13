@@ -1,6 +1,5 @@
 // @flow
 
-import ms from 'simple-modular-scale'
 import stripUnit from './stripUnit'
 
 const ratioNames = {
@@ -43,9 +42,6 @@ type Ratio =
   | 'majorTwelfth'
   | 'doubleOctave'
 
-// Cache the scale computation to avoid computing everytime
-const scalesCache = {}
-
 /**
  * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
  * @example
@@ -71,9 +67,6 @@ function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio
   if (!steps) {
     throw new Error('Please provide a number of steps to the modularScale helper.')
   }
-  if (steps < 0 || steps > 16) {
-    throw new Error('The number of steps passed to the modularScale helper needs to be between 0 and 16.')
-  }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
     throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.')
   }
@@ -81,17 +74,11 @@ function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
-  // Return the cached scale if it's been computed before
-  const scale = (scalesCache[realBase] && scalesCache[realBase][realRatio]) || ms({
-    base: realBase,
-    ratios: [realRatio],
-  })
+  if (typeof realBase === 'string') {
+    throw new Error(`Invalid value passed as base to modularScale, expected number or em string but got "${base}"`)
+  }
 
-  // Cache the computed scale for the next roundtrip
-  if (!scalesCache[realBase]) scalesCache[realBase] = {}
-  if (!scalesCache[realBase][realRatio]) scalesCache[realBase][realRatio] = scale
-
-  return `${scale[steps]}em`
+  return `${realBase * realRatio * steps}em`
 }
 
 export { ratioNames }

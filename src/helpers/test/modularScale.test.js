@@ -3,7 +3,7 @@ import modularScale, { ratioNames } from '../modularScale'
 
 describe('modularScale', function() {
   it('should throw an error if no steps are provided', function() {
-    expect(function() { return { 'font-size': modularScale() } }).toThrow()
+    expect(() => { return { 'font-size': modularScale() } }).toThrow()
   })
 
   it('should use perfect fourth and 1em base by default', function() {
@@ -22,5 +22,17 @@ describe('modularScale', function() {
     Object.keys(ratioNames).forEach((ratio) => {
       expect({ 'font-size': modularScale(1, '1em', ratioNames[ratio]) }).toMatchSnapshot()
     })
+  })
+
+  it('should throw an error if an invalid base is provided', function() {
+    expect(() => {
+      modularScale(2, 'invalid')
+    }).toThrow()
+  })
+
+  it('should throw an error if an invalid ratio is provided', function() {
+    expect(() => {
+      modularScale(2, '1em', 'invalid')
+    }).toThrow()
   })
 })
