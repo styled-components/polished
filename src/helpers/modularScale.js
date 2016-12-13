@@ -24,6 +24,29 @@ const ratioNames = {
   doubleOctave: 4,
 }
 
+type Ratio =
+  | number
+  | 'minorSecond'
+  | 'majorSecond'
+  | 'minorThird'
+  | 'majorThird'
+  | 'perfectFourth'
+  | 'augFourth'
+  | 'perfectFifth'
+  | 'minorSixth'
+  | 'goldenSection'
+  | 'majorSixth'
+  | 'minorSeventh'
+  | 'majorSeventh'
+  | 'octave'
+  | 'majorTenth'
+  | 'majorEleventh'
+  | 'majorTwelfth'
+  | 'doubleOctave'
+
+// Cache the scale computation to avoid computing everytime
+const scalesCache = {}
+
 /**
  * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
  * @example
@@ -45,27 +68,6 @@ const ratioNames = {
  *   'font-size': '1.77689em'
  * }
  */
-
-type Ratio =
-  | number
-  | 'minorSecond'
-  | 'majorSecond'
-  | 'minorThird'
-  | 'majorThird'
-  | 'perfectFourth'
-  | 'augFourth'
-  | 'perfectFifth'
-  | 'minorSixth'
-  | 'goldenSection'
-  | 'majorSixth'
-  | 'minorSeventh'
-  | 'majorSeventh'
-  | 'octave'
-  | 'majorTenth'
-  | 'majorEleventh'
-  | 'majorTwelfth'
-  | 'doubleOctave'
-
 function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth') {
   if (!steps) {
     throw new Error('Please provide a number of steps to the modularScale helper.')
@@ -80,10 +82,15 @@ function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
-  const scale = ms({
+  // Return the cached scale if it's been computed before
+  const scale = (scalesCache[realBase] && scalesCache[realBase][realRatio]) || ms({
     base: realBase,
     ratios: [realRatio],
   })
+
+  // Cache the computed scale for the next roundtrip
+  if (!scalesCache[realBase]) scalesCache[realBase] = {}
+  if (!scalesCache[realBase][realRatio]) scalesCache[realBase][realRatio] = scale
 
   return `${scale[steps]}em`
 }
