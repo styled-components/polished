@@ -1,5 +1,4 @@
 // @flow
-/** @module Helpers */
 
 import ms from 'simple-modular-scale'
 import stripUnit from './stripUnit'
