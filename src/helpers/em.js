@@ -1,6 +1,7 @@
 // @flow
 /** @module Helpers */
 
+import endsWith from '../internalHelpers/_endsWith'
 import stripUnit from './stripUnit'
 
 /**
@@ -33,10 +34,16 @@ function em(pxval: string|number, base?: string|number = '16px') {
   let newPxval = pxval
   let newBase = base
   if (typeof pxval === 'string') {
+    if (!endsWith(pxval, 'px')) {
+      throw new Error(`Expected a string ending in "px" or a number passed as the first argument to em(), got "${pxval}" instead.`)
+    }
     newPxval = stripUnit(pxval)
   }
 
   if (typeof base === 'string') {
+    if (!endsWith(base, 'px')) {
+      throw new Error(`Expected a string ending in "px" or a number passed as the second argument to em(), got "${base}" instead.`)
+    }
     newBase = stripUnit(base)
   }
 
