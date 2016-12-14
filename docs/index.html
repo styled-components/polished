@@ -45,6 +45,16 @@
               
                 
                 <li><a
+                  href='#modularscale'
+                  class="">
+                  modularScale
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#clearfix'
                   class="">
                   clearFix
@@ -143,7 +153,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/helpers/stripUnit.js#L24-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/helpers/stripUnit.js#L24-L28'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
@@ -231,7 +241,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/helpers/em.js#L32-L58'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/helpers/em.js#L32-L58'>
       <span>src/helpers/em.js</span>
       </a>
     
@@ -329,12 +339,115 @@ element {
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='modularscale'>
+      modularScale
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/helpers/modularScale.js#L66-L82'>
+      <span>src/helpers/modularScale.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.</p>
+
+
+  <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?, ratio: Ratio?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>steps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?
+            = <code>&#39;1em&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ratio</span> <code class='quiet'>(Ratio?
+            = <code>&#39;perfectFourth&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  <span class="hljs-string">'font-size'</span>: modularScale(<span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  font-<span class="hljs-built_in">size</span>: ${modularScale(<span class="hljs-number">2</span>)}
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'font-size'</span>: <span class="hljs-string">'1.77689em'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='clearfix'>
       clearFix
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/clearFix.js#L26-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/clearFix.js#L26-L35'>
       <span>src/mixins/clearFix.js</span>
       </a>
     
@@ -420,7 +533,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/ellipsis.js#L29-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/ellipsis.js#L29-L38'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -509,7 +622,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/hideText.js#L29-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/hideText.js#L29-L35'>
       <span>src/mixins/hideText.js</span>
       </a>
     
@@ -584,7 +697,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/hiDPI.js#L32-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/hiDPI.js#L32-L40'>
       <span>src/mixins/hiDPI.js</span>
       </a>
     
@@ -676,7 +789,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/selection.js#L31-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/selection.js#L31-L40'>
       <span>src/mixins/selection.js</span>
       </a>
     
@@ -775,7 +888,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/size.js#L24-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/size.js#L24-L29'>
       <span>src/mixins/size.js</span>
       </a>
     
@@ -868,7 +981,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/timingFunctions.js#L81-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/timingFunctions.js#L81-L83'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -951,7 +1064,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/8fddbf66c038f35efe4777abe4ed904123725116/src/mixins/wordWrap.js#L26-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/f19ccc1a480dbcad6edf600941451c752e5aa999/src/mixins/wordWrap.js#L26-L33'>
       <span>src/mixins/wordWrap.js</span>
       </a>
     
