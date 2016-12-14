@@ -8,6 +8,7 @@ import clearFix from './mixins/clearFix'
 import ellipsis from './mixins/ellipsis'
 import hideText from './mixins/hideText'
 import hiDPI from './mixins/hiDPI'
+import retinaImage from './mixins/retinaImage'
 import selection from './mixins/selection'
 import size from './mixins/size'
 import timingFunctions from './mixins/timingFunctions'
@@ -19,6 +20,7 @@ const polished = {
   em,
   hideText,
   hiDPI,
+  retinaImage,
   selection,
   size,
   stripUnit,
@@ -34,6 +36,7 @@ export {
   em,
   hideText,
   hiDPI,
+  retinaImage,
   selection,
   size,
   stripUnit,
