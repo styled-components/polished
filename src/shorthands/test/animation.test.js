@@ -10,6 +10,10 @@ describe('animation', function() {
     it('should be fine with less than eight arguments', function() {
       expect({ ...animation('rotate', '1s', 'ease-in-out') }).toMatchSnapshot()
     })
+
+    it('should throw an error if more than eight elements are supplied', function() {
+      expect(function () { animation('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'oops') }).toThrow()
+    })
   })
 
   describe('multi mode', function() {
