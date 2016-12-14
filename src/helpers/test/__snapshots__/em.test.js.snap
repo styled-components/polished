@@ -1,34 +1,4 @@
-exports[`em should allow changing the base with a number 1`] = `
-Object {
-  "height": "2em",
-}
-`;
-
-exports[`em should allow changing the base with a string 1`] = `
-Object {
-  "height": "2em",
-}
-`;
-
-exports[`em should convert a complex number to ems 1`] = `
-Object {
-  "height": "1.125em",
-}
-`;
-
-exports[`em should convert a complex string with px to ems 1`] = `
-Object {
-  "height": "1.125em",
-}
-`;
-
 exports[`em should convert a simple number to ems 1`] = `
-Object {
-  "height": "1em",
-}
-`;
-
-exports[`em should convert a simple string with px to ems 1`] = `
 Object {
   "height": "1em",
 }

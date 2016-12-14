@@ -1,34 +1,4 @@
-exports[`rem should allow changing the base with a number 1`] = `
-Object {
-  "height": "2rem",
-}
-`;
-
-exports[`rem should allow changing the base with a string 1`] = `
-Object {
-  "height": "2rem",
-}
-`;
-
-exports[`rem should convert a complex number to rems 1`] = `
-Object {
-  "height": "1.125rem",
-}
-`;
-
-exports[`rem should convert a complex string with px to rems 1`] = `
-Object {
-  "height": "1.125rem",
-}
-`;
-
 exports[`rem should convert a simple number to rems 1`] = `
-Object {
-  "height": "1rem",
-}
-`;
-
-exports[`rem should convert a simple string with px to rems 1`] = `
 Object {
   "height": "1rem",
 }
