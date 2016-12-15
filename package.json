@@ -11,6 +11,7 @@
     "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
     "prebuild:docs": "rm -rf docs/*",
     "build:docs": "documentation build --github -o docs -f html -c ./.documentation.json",
+    "postbuild:docs": "cp CNAME docs/CNAME",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
     "test": "jest src",
