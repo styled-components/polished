@@ -86,7 +86,7 @@ module.exports = function (comments, options, callback) {
   const exampleFiles = getExamples(sourcePath)
   comments.forEach((comment) => {
     if (comment.kind !== 'note' && new RegExp(comment.name).test(exampleFiles.join('|'))) {
-      comment.examples = []
+      comment.examples = [] // eslint-disable-line no-param-reassign
       const pathToExample = path.join(sourcePath, exampleFiles.find(exampleFile => exampleFile.indexOf(comment.name)))
       const results = require(pathToExample) // eslint-disable-line global-require, import/no-dynamic-require
       const originalCode = fs.readFileSync(pathToExample.replace('/lib/', '/src/')).toString()
@@ -111,12 +111,16 @@ module.exports = function (comments, options, callback) {
             const before = generate(elem, null, originalCode).code
             const after = JSON.stringify(results[index], null, 2).replace(/"/g, '\'')
             if (before.substr(0, 1) === '{') {
-              comment.examples.push({ description: `// Styles as object usage\nconst styles = ${before}\n\n// CSS-in-JS ouput\n${after}` })
-            } else {
-              comment.examples.push({ description: `// styled-components usage\nconst Box = styled.div${before}\n\n// CSS-in-JS ouput\n${after}` })
+              comment.examples.push({
+                description: `// Styles as object usage\nconst styles = ${before}\n\n// CSS-in-JS ouput\nconst styles = ${after}`
+              })
+            } else if (before.substr(0, 1) === '`') {
+              comment.examples.push({
+                description: `// styled-components usage\nconst Box = styled.div${before}\n\n// CSS-in-JS ouput\nconst Box = styled.div${after.replace(/'/g, '`').replace(/\\n|\n/g, '\n')}`
+              })
             }
           })
-        }
+        },
       })
     }
   })

@@ -15,3 +15,9 @@ Object {
   "--dimension": 100,
 }
 `;
+
+exports[`src/helpers/examples/stripUnit examples should match example #1 1`] = `
+"
+  --dimension: 100
+"
+`;
