@@ -1,0 +1,35 @@
+exports[`margin properly applies a value when passed only one 1`] = `
+Object {
+  "margin-bottom": "12px",
+  "margin-left": "12px",
+  "margin-right": "12px",
+  "margin-top": "12px",
+}
+`;
+
+exports[`margin properly applies values when passed four 1`] = `
+Object {
+  "margin-bottom": "36px",
+  "margin-left": "48px",
+  "margin-right": "24px",
+  "margin-top": "12px",
+}
+`;
+
+exports[`margin properly applies values when passed three 1`] = `
+Object {
+  "margin-bottom": "36px",
+  "margin-left": "24px",
+  "margin-right": "24px",
+  "margin-top": "12px",
+}
+`;
+
+exports[`margin properly applies values when passed two 1`] = `
+Object {
+  "margin-bottom": "12px",
+  "margin-left": "24px",
+  "margin-right": "24px",
+  "margin-top": "12px",
+}
+`;
