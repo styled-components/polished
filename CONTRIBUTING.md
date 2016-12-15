@@ -1,7 +1,7 @@
 ## Setup
 
 ```bash
-yarn install
+npm install
 ```
 
 ## Development
