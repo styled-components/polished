@@ -12,6 +12,12 @@ To run the test suite use
 npm test
 ```
 
+To update the snapshots use
+
+```bash
+npm test -- -u
+```
+
 To rebuild the library and docs on every change run
 
 ```bash
