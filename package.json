@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs",
     "prebuild:lib": "rm -rf lib/*",
-    "build:lib": "babel --out-dir lib src",
+    "build:lib": "babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "rm -rf dist/*",
     "prebuild:dist": "rm -rf dist/*",
     "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
@@ -13,7 +13,7 @@
     "build:docs": "documentation build --github -o docs -f html -c ./.documentation.json",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
-    "test": "jest",
+    "test": "jest src",
     "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src",
