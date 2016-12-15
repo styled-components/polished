@@ -1,6 +1,7 @@
 // @flow
 // Helpers
 import stripUnit from './helpers/stripUnit'
+import modularScale from './helpers/modularScale'
 import em from './helpers/em'
 
 // Mixins
@@ -19,6 +20,7 @@ const polished = {
   em,
   hideText,
   hiDPI,
+  modularScale,
   selection,
   size,
   stripUnit,
@@ -27,13 +29,13 @@ const polished = {
 }
 
 export default polished
-
 export {
   clearFix,
   ellipsis,
   em,
   hideText,
   hiDPI,
+  modularScale,
   selection,
   size,
   stripUnit,
