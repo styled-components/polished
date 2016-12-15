@@ -1,0 +1,5 @@
+exports[`em should convert a rgb string to a hex color 1`] = `
+Object {
+  "background": "#FFCD64",
+}
+`;
