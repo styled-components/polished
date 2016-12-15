@@ -1,0 +1,3 @@
+
+<h3 class='mb0 no-anchor'><%- options.name %></h3>
+<div class='mb1'><code><%- options.version %></code></div>
