@@ -1,11 +1,8 @@
 // @flow
-/** @module Mixins */
 
 /**
- * CSS to contain a float (credit to CSSMojo)
- * @static
- * @param {string} [parent = &] - Optional parent selector
- * @return {Object} CSS as JS.
+ * CSS to contain a float (credit to CSSMojo).
+ *
  * @example
  * // Styles as object usage
  * const styles = {

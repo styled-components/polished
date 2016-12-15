@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title><%- options.name %> <%- options.version %> | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='/assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='/assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='/assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <% if (typeof docs !== 'undefined') { %>
+    <%= renderDocs({
+      options: options,
+      docs: docs,
+      renderSection: renderSection,
+      renderSectionList: renderSectionList,
+      renderNote: renderNote,
+    }) %>
+  <% } else { %>
+    <%= renderHome({
+      options: options,
+    }) %>
+  <% } %>
+  <script src='/assets/anchor.js'></script>
+  <script src='/assets/site.js'></script>
+</body>
+</html>

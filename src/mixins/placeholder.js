@@ -11,7 +11,7 @@
  *
  * // styled-components usage
  * const div = styled.input`
- *   ...placeholder(styles)
+ *    ${placeholder(css`styles`)}
  * `
  *
  * // CSS as JS Output
