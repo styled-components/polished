@@ -6,3 +6,5 @@
 [libs]
 
 [options]
+
+suppress_comment=.*\\$FlowIgnoreNextLine
