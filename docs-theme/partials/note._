@@ -1,0 +1,10 @@
+<section class='py2 clearfix'>
+
+  <h2 id='<%- note.namespace %>' class='mt0'>
+    <%- note.name %>
+  </h2>
+
+  <% if (note.description) { %>
+    <%= md(note.description) %>
+  <% } %>
+</section>
