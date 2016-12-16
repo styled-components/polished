@@ -2,9 +2,14 @@
 // Helpers
 import em from './helpers/em'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 =======
+=======
+import modularScale from './helpers/modularScale'
+import rem from './helpers/rem'
+>>>>>>> a6eba2a... chore(docs): Update TOC with missing modules
 import stripUnit from './helpers/stripUnit'
 >>>>>>> 4042d23... chore(shorthand): Simplify Buttons and Inputs to use shared helper
 

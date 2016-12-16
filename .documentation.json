@@ -10,8 +10,12 @@
     },
     "clearFix",
     "ellipsis",
-    "hiDPI",
     "hideText",
+<<<<<<< HEAD
+=======
+    "hiDPI",
+    "selection",
+>>>>>>> a6eba2a... chore(docs): Update TOC with missing modules
     "placeholder",
     "retinaImage",
     "selection",
@@ -20,9 +24,17 @@
     "wordWrap",
     {
       "name": "Shorthands",
+<<<<<<< HEAD
       "description": "Functions that help write nicer code. They're shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation."
     },
     "animation",
+=======
+      "description": "Shorthands for generating multiple lines of css quickly."
+    },
+    "animation",
+    "buttons",
+    "textInputs",
+>>>>>>> a6eba2a... chore(docs): Update TOC with missing modules
     {
       "name": "Helpers",
       "description": "Tiny helper functions that make your life easier."
