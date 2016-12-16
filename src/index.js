@@ -1,9 +1,9 @@
 // @flow
 // Helpers
-import stripUnit from './helpers/stripUnit'
 import em from './helpers/em'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
+import stripUnit from './helpers/stripUnit'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -19,29 +19,12 @@ import wordWrap from './mixins/wordWrap'
 
 // Shorthands
 import animation from './shorthands/animation'
-
-const polished = {
-  animation,
-  clearFix,
-  ellipsis,
-  em,
-  modularScale,
-  hideText,
-  hiDPI,
-  placeholder,
-  rem,
-  retinaImage,
-  selection,
-  size,
-  stripUnit,
-  timingFunctions,
-  wordWrap,
-}
-
-export default polished
+import buttons from './shorthands/buttons'
+import textInputs from './shorthands/textInputs'
 
 export {
   animation,
+  buttons,
   clearFix,
   ellipsis,
   em,
@@ -54,6 +37,7 @@ export {
   selection,
   size,
   stripUnit,
+  textInputs,
   timingFunctions,
   wordWrap,
 }
