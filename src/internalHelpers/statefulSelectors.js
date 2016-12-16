@@ -9,6 +9,10 @@ type State =
   | null
   | string;
 
+/**
+ * Function helper that adds an array of states to a template of selectors. Used in textInputs and buttons.
+ * @private
+ */
 function statefulSelectors(states: Array<State>, template: Function, stateMap: ?Array<State>) {
   if (!template) throw new Error('You must provide a template to this method.')
   if (states.length === 0) return generateSelectors(template, null)

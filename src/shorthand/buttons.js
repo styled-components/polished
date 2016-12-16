@@ -13,7 +13,7 @@ import statefulSelectors from '../internalHelpers/statefulSelectors'
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${buttons('active')} {
+ *   > ${buttons('active')} {
  *     border: none;
  *   }
  * `
