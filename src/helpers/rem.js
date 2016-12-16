@@ -5,6 +5,7 @@ import pixelsto from '../internalHelpers/_pxto'
 /**
  * Convert pixel value to rems. The default base value is 16px, but can be changed by passing a
  * second argument to the function.
+ * @function
  * @param {string|number} pxval
  * @param {string|number} [base='16px']
  * @example
