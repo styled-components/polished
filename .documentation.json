@@ -12,14 +12,24 @@
     "ellipsis",
     "hiDPI",
     "hideText",
+    "placeholder",
+    "retinaImage",
     "selection",
     "size",
     "timingFunctions",
     "wordWrap",
     {
+      "name": "Shorthands",
+      "description": "Functions that help write nicer code. They're shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation."
+    },
+    "animation",
+    {
       "name": "Helpers",
       "description": "Tiny helper functions that make your life easier."
     },
+    "em",
+    "modularScale",
+    "rem",
     "stripUnit"
   ]
 }
