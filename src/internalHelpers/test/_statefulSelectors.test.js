@@ -1,4 +1,4 @@
-import statefulSelectors from '../statefulSelectors'
+import statefulSelectors from '../_statefulSelectors'
 
 const mockStateMap = [null, ':before', ':after']
 

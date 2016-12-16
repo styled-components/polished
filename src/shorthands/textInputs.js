@@ -1,5 +1,33 @@
 // @flow
-import statefulSelectors from '../internalHelpers/statefulSelectors'
+import statefulSelectors from '../internalHelpers/_statefulSelectors'
+
+const stateMap = [undefined, null, 'active', 'focus', 'hover']
+
+function template(state) {
+  return `input[type="color"]${state},
+    input[type="date"]${state},
+    input[type="datetime"]${state},
+    input[type="datetime-local"]${state},
+    input[type="email"]${state},
+    input[type="month"]${state},
+    input[type="number"]${state},
+    input[type="password"]${state},
+    input[type="search"]${state},
+    input[type="tel"]${state},
+    input[type="text"]${state},
+    input[type="time"]${state},
+    input[type="url"]${state},
+    input[type="week"]${state},
+    input:not([type])${state},
+    textarea${state}`
+}
+
+type State =
+  | typeof(undefined)
+  | null
+  | 'active'
+  | 'focus'
+  | 'hover';
 
 /**
  * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.
@@ -39,34 +67,6 @@ import statefulSelectors from '../internalHelpers/statefulSelectors'
  *   'border': 'none'
  * }
  */
-
-const stateMap = [undefined, null, 'active', 'focus', 'hover']
-
-function template(state) {
-  return `input[type="color"]${state},
-    input[type="date"]${state},
-    input[type="datetime"]${state},
-    input[type="datetime-local"]${state},
-    input[type="email"]${state},
-    input[type="month"]${state},
-    input[type="number"]${state},
-    input[type="password"]${state},
-    input[type="search"]${state},
-    input[type="tel"]${state},
-    input[type="text"]${state},
-    input[type="time"]${state},
-    input[type="url"]${state},
-    input[type="week"]${state},
-    input:not([type])${state},
-    textarea${state}`
-}
-
-type State =
-  | typeof(undefined)
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover';
 
 function textInputs(...states: Array<State>) {
   return statefulSelectors(states, template, stateMap)

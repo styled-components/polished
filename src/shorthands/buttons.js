@@ -1,5 +1,21 @@
 // @flow
-import statefulSelectors from '../internalHelpers/statefulSelectors'
+import statefulSelectors from '../internalHelpers/_statefulSelectors'
+
+const stateMap = [undefined, null, 'active', 'focus', 'hover']
+
+function template(state) {
+  return `button${state},
+  input[type="button"]${state},
+  input[type="reset"]${state},
+  input[type="submit"]${state}`
+}
+
+type State =
+  | typeof(undefined)
+  | null
+  | 'active'
+  | 'focus'
+  | 'hover';
 
 /**
  * Populates selectors that target all buttons. You can pass optional states to append to the selectors.
@@ -27,22 +43,6 @@ import statefulSelectors from '../internalHelpers/statefulSelectors'
  *   'border': 'none'
  * }
  */
-
-const stateMap = [undefined, null, 'active', 'focus', 'hover']
-
-function template(state) {
-  return `button${state},
-  input[type="button"]${state},
-  input[type="reset"]${state},
-  input[type="submit"]${state}`
-}
-
-type State =
-  | typeof(undefined)
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover';
 
 function buttons(...states: Array<State>) {
   return statefulSelectors(states, template, stateMap)

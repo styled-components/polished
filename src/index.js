@@ -1,17 +1,9 @@
 // @flow
 // Helpers
 import em from './helpers/em'
-<<<<<<< HEAD
-<<<<<<< HEAD
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
-=======
-=======
-import modularScale from './helpers/modularScale'
-import rem from './helpers/rem'
->>>>>>> a6eba2a... chore(docs): Update TOC with missing modules
 import stripUnit from './helpers/stripUnit'
->>>>>>> 4042d23... chore(shorthand): Simplify Buttons and Inputs to use shared helper
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -25,34 +17,14 @@ import size from './mixins/size'
 import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
-<<<<<<< HEAD
 // Shorthands
 import animation from './shorthands/animation'
+import buttons from './shorthands/buttons'
+import textInputs from './shorthands/textInputs'
 
-const polished = {
-  animation,
-  clearFix,
-  ellipsis,
-  em,
-  modularScale,
-  hideText,
-  hiDPI,
-  placeholder,
-  rem,
-  retinaImage,
-  selection,
-  size,
-  stripUnit,
-  timingFunctions,
-  wordWrap,
-}
-
-export default polished
-
-=======
->>>>>>> 4042d23... chore(shorthand): Simplify Buttons and Inputs to use shared helper
 export {
   animation,
+  buttons,
   clearFix,
   ellipsis,
   em,
@@ -65,6 +37,7 @@ export {
   selection,
   size,
   stripUnit,
+  textInputs,
   timingFunctions,
   wordWrap,
 }
