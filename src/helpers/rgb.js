@@ -1,6 +1,7 @@
 // @flow
 
 import reduceHexValue from '../internalHelpers/_reduceHexValue'
+import toHex from '../internalHelpers/_numberToHex'
 
 /**
  * Returns a string value for the color. The returned result is the smalles possible hex notation.
@@ -30,11 +31,6 @@ type RgbColor = {
   red: number,
   green: number,
   blue: number,
-}
-
-function toHex(value) {
-  const hex = value.toString(16)
-  return hex.length === 1 ? `0${hex}` : hex
 }
 
 function rgb(value: RgbColor | number, green?: number, blue?: number): string {
