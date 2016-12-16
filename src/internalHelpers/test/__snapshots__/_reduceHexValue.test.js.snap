@@ -1,0 +1,9 @@
+exports[`reduceHexValue should not reduce #112234 1`] = `"#112234"`;
+
+exports[`reduceHexValue should not reduce #fff 1`] = `"#fff"`;
+
+exports[`reduceHexValue should reduce #884422 to #842 1`] = `"#842"`;
+
+exports[`reduceHexValue should reduce #ffffff to #fff 1`] = `"#fff"`;
+
+exports[`reduceHexValue should return the value in case it can not be reduced 1`] = `"You rock!"`;
