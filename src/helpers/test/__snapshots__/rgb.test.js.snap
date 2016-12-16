@@ -9,3 +9,9 @@ Object {
   "background": "#ffcd64",
 }
 `;
+
+exports[`rgb should convert to a reduce hex value if possible 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
