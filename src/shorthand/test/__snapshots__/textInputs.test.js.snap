@@ -1,0 +1,99 @@
+exports[`textInputs populates all active text input selectors 1`] = `
+Object {
+  "
+    input[type=\"color\"]:active,
+    input[type=\"date\"]:active,
+    input[type=\"datetime\"]:active,
+    input[type=\"datetime-local\"]:active,
+    input[type=\"email\"]:active,
+    input[type=\"month\"]:active,
+    input[type=\"number\"]:active,
+    input[type=\"password\"]:active,
+    input[type=\"search\"]:active,
+    input[type=\"tel\"]:active,
+    input[type=\"text\"]:active,
+    input[type=\"time\"]:active,
+    input[type=\"url\"]:active,
+    input[type=\"week\"]:active,
+    input:not([type]):active,
+    textarea:active
+  ": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`textInputs populates all base text input selectors 1`] = `
+Object {
+  "
+    input[type=\"color\"],
+    input[type=\"date\"],
+    input[type=\"datetime\"],
+    input[type=\"datetime-local\"],
+    input[type=\"email\"],
+    input[type=\"month\"],
+    input[type=\"number\"],
+    input[type=\"password\"],
+    input[type=\"search\"],
+    input[type=\"tel\"],
+    input[type=\"text\"],
+    input[type=\"time\"],
+    input[type=\"url\"],
+    input[type=\"week\"],
+    input:not([type]),
+    textarea
+  ": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`textInputs populates all focus text input selectors 1`] = `
+Object {
+  "
+    input[type=\"color\"]:focus,
+    input[type=\"date\"]:focus,
+    input[type=\"datetime\"]:focus,
+    input[type=\"datetime-local\"]:focus,
+    input[type=\"email\"]:focus,
+    input[type=\"month\"]:focus,
+    input[type=\"number\"]:focus,
+    input[type=\"password\"]:focus,
+    input[type=\"search\"]:focus,
+    input[type=\"tel\"]:focus,
+    input[type=\"text\"]:focus,
+    input[type=\"time\"]:focus,
+    input[type=\"url\"]:focus,
+    input[type=\"week\"]:focus,
+    input:not([type]):focus,
+    textarea:focus
+  ": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`textInputs populates all hover text input selectors 1`] = `
+Object {
+  "
+    input[type=\"color\"]:hover,
+    input[type=\"date\"]:hover,
+    input[type=\"datetime\"]:hover,
+    input[type=\"datetime-local\"]:hover,
+    input[type=\"email\"]:hover,
+    input[type=\"month\"]:hover,
+    input[type=\"number\"]:hover,
+    input[type=\"password\"]:hover,
+    input[type=\"search\"]:hover,
+    input[type=\"tel\"]:hover,
+    input[type=\"text\"]:hover,
+    input[type=\"time\"]:hover,
+    input[type=\"url\"]:hover,
+    input[type=\"week\"]:hover,
+    input:not([type]):hover,
+    textarea:hover
+  ": Object {
+    "border-color": "black",
+  },
+}
+`;
