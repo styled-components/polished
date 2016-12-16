@@ -3,7 +3,7 @@
 import pixelsto from '../internalHelpers/_pxto'
 
 /**
- * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
+ * Convert pixel value to rems. The default base value is 16px, but can be changed by passing a
  * second argument to the function.
  * @function
  * @param {string|number} pxval
@@ -11,19 +11,18 @@ import pixelsto from '../internalHelpers/_pxto'
  * @example
  * // Styles as object usage
  * const styles = {
- *   'height': em('16px')
+ *   'height': rem('16px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   height: ${em('16px')}
+ *   height: ${rem('16px')}
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   'height': '1em'
+ *   'height': '1rem'
  * }
  */
-
-export default pixelsto('em')
+export default pixelsto('rem')

@@ -2,6 +2,7 @@
 // Helpers
 import stripUnit from './helpers/stripUnit'
 import em from './helpers/em'
+import rem from './helpers/rem'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -25,6 +26,7 @@ const polished = {
   hideText,
   hiDPI,
   placeholder,
+  rem,
   selection,
   size,
   stripUnit,
@@ -42,6 +44,7 @@ export {
   hideText,
   hiDPI,
   placeholder,
+  rem,
   selection,
   size,
   stripUnit,

@@ -1,0 +1,35 @@
+exports[`pxto converter should allow changing the base with a number 1`] = `
+Object {
+  "height": "2em",
+}
+`;
+
+exports[`pxto converter should allow changing the base with a string 1`] = `
+Object {
+  "height": "2em",
+}
+`;
+
+exports[`pxto converter should convert a complex number to ems 1`] = `
+Object {
+  "height": "1.125em",
+}
+`;
+
+exports[`pxto converter should convert a complex string with px to ems 1`] = `
+Object {
+  "height": "1.125em",
+}
+`;
+
+exports[`pxto converter should convert a simple number to ems 1`] = `
+Object {
+  "height": "1em",
+}
+`;
+
+exports[`pxto converter should convert a simple string with px to ems 1`] = `
+Object {
+  "height": "1em",
+}
+`;
