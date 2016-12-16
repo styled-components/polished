@@ -1,0 +1,24 @@
+// @flow
+function generateSelectors(template: Function, state: string|null) {
+  const stateSuffix = state ? `:${state}` : ''
+  return template(stateSuffix)
+}
+
+type State =
+  | typeof(undefined)
+  | null
+  | string;
+
+function statefulSelectors(states: Array<State>, template: Function, stateMap: ?Array<State>) {
+  if (!template) throw new Error('You must provide a template to this method.')
+  if (states.length === 0) return generateSelectors(template, null)
+  let selectors = []
+  for (let i = 0; i < states.length; i += 1) {
+    if (stateMap && !stateMap.includes(states[i])) throw new Error('You passed an unsupported selector state to this method.')
+    selectors.push(generateSelectors(template, states[i]))
+  }
+  selectors = selectors.join(',')
+  return selectors
+}
+
+export default statefulSelectors
