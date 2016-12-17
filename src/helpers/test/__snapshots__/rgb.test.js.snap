@@ -1,0 +1,17 @@
+exports[`rgb should convert a rgb object to a hex color 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;
+
+exports[`rgb should convert multiple numbers to a hex color 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;
+
+exports[`rgb should convert to a reduce hex value if possible 1`] = `
+Object {
+  "background": "#fff",
+}
+`;

@@ -17,6 +17,9 @@ import size from './mixins/size'
 import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
+// Color
+import rgb from './helpers/rgb'
+
 // Shorthands
 import animation from './shorthands/animation'
 import buttons from './shorthands/buttons'
@@ -34,6 +37,7 @@ export {
   placeholder,
   rem,
   retinaImage,
+  rgb,
   selection,
   size,
   stripUnit,
