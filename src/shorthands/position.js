@@ -46,7 +46,7 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  * }
  */
 
-function position(positionKeyword: string|null, ...values: Array<string|null>) {
+function position(positionKeyword: string|null, ...values: Array<?string>) {
   if (positionMap.includes(positionKeyword)) {
     return {
       position: positionKeyword,

@@ -24,7 +24,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function borderStyle(...values: Array<string|null>) {
+function borderStyle(...values: Array<?string>) {
   return directionalProperty('border-style', ...values)
 }
 

@@ -24,7 +24,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function borderWidth(...values: Array<string|null>) {
+function borderWidth(...values: Array<?string>) {
   return directionalProperty('border-width', ...values)
 }
 

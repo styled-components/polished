@@ -8,7 +8,7 @@ function generateProperty(property: string, position: string) {
   return splitPropertyName.join('-')
 }
 
-function generateStyles(property: string, valuesWithDefaults: Array<string|null>) {
+function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
   const styles = {}
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
     if (valuesWithDefaults[i]) {
@@ -41,7 +41,7 @@ function generateStyles(property: string, valuesWithDefaults: Array<string|null>
  * }
  */
 
-function directionalProperty(property: string, ...values: Array<string|null>) {
+function directionalProperty(property: string, ...values: Array<?string>) {
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]
