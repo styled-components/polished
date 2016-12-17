@@ -3,6 +3,12 @@
 import reduceHexValue from '../internalHelpers/_reduceHexValue'
 import toHex from '../internalHelpers/_numberToHex'
 
+type RgbColor = {
+  red: number,
+  green: number,
+  blue: number,
+}
+
 /**
  * Returns a string value for the color. The returned result is the smalles possible hex notation.
  *
@@ -26,13 +32,6 @@ import toHex from '../internalHelpers/_numberToHex'
  *   background: "#ffcd64";
  * }
  */
-
-type RgbColor = {
-  red: number,
-  green: number,
-  blue: number,
-}
-
 function rgb(value: RgbColor | number, green?: number, blue?: number): string {
   if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
     return reduceHexValue(`#${toHex(value)}${toHex(green)}${toHex(blue)}`)
