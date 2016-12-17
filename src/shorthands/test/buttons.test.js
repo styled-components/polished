@@ -1,3 +1,4 @@
+// @flow
 import buttons from '../buttons'
 
 describe('buttons', function() {

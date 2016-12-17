@@ -19,6 +19,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "lint": "eslint src",
     "flow": "flow check",
+    "docs": "pushstate-server docs",
     "prepublish": "npm run build"
   },
   "watch": {
@@ -68,6 +69,7 @@
     "jest": "^16.0.2",
     "lodash": "^4.17.2",
     "npm-watch": "^0.1.6",
+    "pushstate-server": "^2.1.0",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^5.0.5",

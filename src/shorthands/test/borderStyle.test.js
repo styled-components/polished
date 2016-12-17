@@ -3,15 +3,15 @@ import borderStyle from '../borderStyle'
 
 describe('borderStyle', function() {
   it('properly applies a value when passed only one', function() {
-    expect(borderStyle('12px')).toMatchSnapshot()
+    expect(borderStyle('solid')).toMatchSnapshot()
   })
   it('properly applies values when passed two', function() {
-    expect(borderStyle('12px', '24px')).toMatchSnapshot()
+    expect(borderStyle('solid', 'dashed')).toMatchSnapshot()
   })
   it('properly applies values when passed three', function() {
-    expect(borderStyle('12px', '24px', '36px')).toMatchSnapshot()
+    expect(borderStyle('solid', 'dashed', 'dotted')).toMatchSnapshot()
   })
   it('properly applies values when passed four', function() {
-    expect(borderStyle('12px', '24px', '36px', '48px')).toMatchSnapshot()
+    expect(borderStyle('solid', 'dashed', 'dotted', 'double')).toMatchSnapshot()
   })
 })

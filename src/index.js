@@ -22,10 +22,10 @@ import rgb from './helpers/rgb'
 
 // Shorthands
 import animation from './shorthands/animation'
-import buttons from './shorthands/buttons'
 import borderColor from './shorthands/borderColor'
 import borderStyle from './shorthands/borderStyle'
 import borderWidth from './shorthands/borderWidth'
+import buttons from './shorthands/buttons'
 import margin from './shorthands/margin'
 import padding from './shorthands/padding'
 import position from './shorthands/position'
