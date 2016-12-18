@@ -1,7 +1,9 @@
+// @flow
 import retinaImage from '../retinaImage'
 
 describe('retinaImage', function() {
   it('should throw an error if no filename is passed', function() {
+    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
     expect(() => ({ ...retinaImage() })).toThrow()
   })
 

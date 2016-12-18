@@ -1,3 +1,4 @@
+// @flow
 import clearFix from '../clearFix'
 
 describe('clearFix', function() {
