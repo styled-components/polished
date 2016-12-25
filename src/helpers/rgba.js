@@ -9,6 +9,32 @@ type RgbaColor = {
   alpha: number,
 }
 
+/**
+ * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: rgba(255, 205, 100, 180),
+ *   background: rgba({ red: 255, green: 205, blue: 100, alpha: 180 }),
+ *   background: rgba(255, 205, 100, 255),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${rgba(255, 205, 100, 180)};
+ *   background: ${rgba({ red: 255, green: 205, blue: 100, alpha: 180 })};
+ *   background: ${rgba(255, 205, 100, 255)};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(255,205,100,180)";
+ *   background: "rgba(255,205,100,180)";
+ *   background: "#ffcd64";
+ * }
+ */
 function rgba(value: RgbaColor | number, green?: number, blue?: number, alpha?: number): string {
   if (typeof value === 'number' &&
       typeof green === 'number' &&
