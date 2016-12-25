@@ -6,8 +6,20 @@ describe('rgb', () => {
     expect({ background: rgba(255, 205, 100, 180) }).toMatchSnapshot()
   })
 
-  it('should convert a rgba object to a hex color', () => {
+  it('should convert multiple numbers with full opacity to a hex color', () => {
+    expect({ background: rgba(255, 205, 100, 255) }).toMatchSnapshot()
+  })
+
+  it('should convert a rgba object to a rgba string', () => {
     expect({ background: rgba({ red: 255, green: 205, blue: 100, alpha: 180 }) }).toMatchSnapshot()
+  })
+
+  it('should convert a rgba object with full opacity to a hex color', () => {
+    expect({ background: rgba({ red: 255, green: 205, blue: 100, alpha: 255 }) }).toMatchSnapshot()
+  })
+
+  it('should convert a rgba object with full opacity to a reduced hex color', () => {
+    expect({ background: rgba({ red: 255, green: 255, blue: 255, alpha: 255 }) }).toMatchSnapshot()
   })
 
   it('should throw an error if an object and multiple arguments are passed', () => {
