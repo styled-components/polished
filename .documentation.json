@@ -27,6 +27,8 @@
       "description": "Functions that help write nicer code. They're shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation."
     },
     "animation",
+    "backgroundImages",
+    "backgrounds",
     "borderColor",
     "borderStyle",
     "borderWidth",
