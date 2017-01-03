@@ -44,6 +44,7 @@
     "position",
     "size",
     "textInputs",
+    "transitions",
     {
       "name": "Helpers",
       "description": "Tiny helper functions that make your life easier."
