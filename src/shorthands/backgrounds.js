@@ -5,12 +5,12 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)", "center no-repeat")
+ *   ...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)", "center no-repeat")}
+ *   ${...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
  * `
  *
  * // CSS as JS Output

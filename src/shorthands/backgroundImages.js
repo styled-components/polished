@@ -5,18 +5,18 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)")
+ *   ...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)")}
+ *   ${...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
  * `
  *
  * // CSS as JS Output
  *
  * div {
- *   'background': 'url("/image/background.jpg"), linear-gradient(red, green)'
+ *   'background-image': 'url("/image/background.jpg"), linear-gradient(red, green)'
  * }
  */
 
