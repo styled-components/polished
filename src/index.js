@@ -9,6 +9,7 @@ import stripUnit from './helpers/stripUnit'
 // Mixins
 import clearFix from './mixins/clearFix'
 import ellipsis from './mixins/ellipsis'
+import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hiDPI from './mixins/hiDPI'
 import placeholder from './mixins/placeholder'
@@ -46,6 +47,7 @@ export {
   directionalProperty,
   ellipsis,
   em,
+  fontFace,
   hideText,
   hiDPI,
   margin,
