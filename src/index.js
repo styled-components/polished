@@ -22,6 +22,8 @@ import rgb from './helpers/rgb'
 
 // Shorthands
 import animation from './shorthands/animation'
+import backgroundImages from './shorthands/backgroundImages'
+import backgrounds from './shorthands/backgrounds'
 import borderColor from './shorthands/borderColor'
 import borderStyle from './shorthands/borderStyle'
 import borderWidth from './shorthands/borderWidth'
@@ -34,6 +36,8 @@ import textInputs from './shorthands/textInputs'
 
 export {
   animation,
+  backgroundImages,
+  backgrounds,
   borderColor,
   borderStyle,
   borderWidth,
