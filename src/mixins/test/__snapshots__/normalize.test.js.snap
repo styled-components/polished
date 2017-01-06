@@ -1,0 +1,380 @@
+exports[`normalize should default to all rules 1`] = `
+Object {
+  "::-webkit-file-upload-button": Object {
+    "-webkit-appearance": "button",
+    "font": "inherit",
+  },
+  "[hidden]": Object {
+    "display": "none",
+  },
+  "[type=\"checkbox\"],
+  [type=\"radio\"]": Object {
+    "box-sizing": "border-box",
+    "padding": "0",
+  },
+  "[type=\"number\"]::-webkit-inner-spin-button,
+  [type=\"number\"]::-webkit-outer-spin-button": Object {
+    "height": "auto",
+  },
+  "[type=\"search\"]": Object {
+    "-webkit-appearance": "textfield",
+    "outline-offset": "-2px",
+  },
+  "[type=\"search\"]::-webkit-search-cancel-button,
+  [type=\"search\"]::-webkit-search-decoration": Object {
+    "-webkit-appearance": "none",
+  },
+  "a": Object {
+    "-webkit-text-decoration-skip": "objects",
+    "background-color": "transparent",
+  },
+  "a:active,
+  a:hover": Object {
+    "outline-width": "0",
+  },
+  "abbr[title]": Object {
+    "border-bottom": "none",
+    "text-decoration": "underline dotted",
+  },
+  "article,
+  aside,
+  footer,
+  header,
+  nav,
+  section": Object {
+    "display": "block",
+  },
+  "audio,
+  video": Object {
+    "display": "inline-block",
+  },
+  "audio:not([controls])": Object {
+    "display": "none",
+    "height": "0",
+  },
+  "b,
+  strong": Object {
+    "font-weight": "inherit",
+  },
+  "body": Object {
+    "margin": "0",
+  },
+  "button,
+  html [type=\"button\"],
+  [type=\"reset\"],
+  [type=\"submit\"]": Object {
+    "-webkit-appearance": "button",
+  },
+  "button,
+  input": Object {
+    "overflow": "visible",
+  },
+  "button,
+  input,
+  optgroup,
+  select,
+  textarea": Object {
+    "font-family": "sans-serif",
+    "font-size": "100%",
+    "line-height": "1.15",
+    "margin": "0",
+  },
+  "button,
+  select": Object {
+    "text-transform": "none",
+  },
+  "button:-moz-focusring,
+  [type=\"button\"]:-moz-focusring,
+  [type=\"reset\"]:-moz-focusring,
+  [type=\"submit\"]:-moz-focusring": Object {
+    "outline": "1px dotted ButtonText",
+  },
+  "button::-moz-focus-inner,
+  [type=\"button\"]::-moz-focus-inner,
+  [type=\"reset\"]::-moz-focus-inner,
+  [type=\"submit\"]::-moz-focus-inner": Object {
+    "border-style": "none",
+    "padding": "0",
+  },
+  "canvas": Object {
+    "display": "inline-block",
+  },
+  "code,
+  kbd,
+  samp": Object {
+    "font-family": "monospace, monospace",
+    "font-size": "1em",
+  },
+  "details,
+  menu": Object {
+    "display": "block",
+  },
+  "dfn": Object {
+    "font-style": "italic",
+  },
+  "fieldset": Object {
+    "border": "1px solid #c0c0c0",
+    "margin": "0 2px",
+    "padding": "0.35em 0.625em 0.75em",
+  },
+  "figcaption,
+  figure,
+  main": Object {
+    "display": "block",
+  },
+  "figure": Object {
+    "margin": "1em 40px",
+  },
+  "h1": Object {
+    "font-size": "2em",
+    "margin": "0.67em 0",
+  },
+  "hr": Object {
+    "box-sizing": "content-box",
+    "height": "0",
+    "overflow": "visible",
+  },
+  "html": Object {
+    "-ms-text-size-adjust": "100%",
+    "-webkit-text-size-adjust": "100%",
+    "font-family": "sans-serif",
+    "line-height": "1.15",
+  },
+  "img": Object {
+    "border-style": "none",
+  },
+  "legend": Object {
+    "box-sizing": "border-box",
+    "color": "inherit",
+    "display": "table",
+    "max-width": "100%",
+    "padding": "0",
+    "white-space": "normal",
+  },
+  "mark": Object {
+    "background-color": "#ff0",
+    "color": "#000",
+  },
+  "pre": Object {
+    "font-family": "monospace, monospace",
+    "font-size": "1em",
+  },
+  "progress": Object {
+    "display": "inline-block",
+    "vertical-align": "baseline",
+  },
+  "small": Object {
+    "font-size": "80%",
+  },
+  "sub": Object {
+    "bottom": "-0.25em",
+  },
+  "sub,
+  sup": Object {
+    "font-size": "75%",
+    "line-height": "0",
+    "position": "relative",
+    "vertical-align": "baseline",
+  },
+  "summary": Object {
+    "display": "list-item",
+  },
+  "sup": Object {
+    "top": "-0.5em",
+  },
+  "svg:not(:root)": Object {
+    "overflow": "hidden",
+  },
+  "template": Object {
+    "display": "none",
+  },
+  "textarea": Object {
+    "overflow": "auto",
+  },
+}
+`;
+
+exports[`normalize should only return unopinionated rules, when passed true 1`] = `
+Object {
+  "::-webkit-file-upload-button": Object {
+    "-webkit-appearance": "button",
+    "font": "inherit",
+  },
+  "[hidden]": Object {
+    "display": "none",
+  },
+  "[type=\"checkbox\"],
+  [type=\"radio\"]": Object {
+    "box-sizing": "border-box",
+    "padding": "0",
+  },
+  "[type=\"number\"]::-webkit-inner-spin-button,
+  [type=\"number\"]::-webkit-outer-spin-button": Object {
+    "height": "auto",
+  },
+  "[type=\"search\"]": Object {
+    "-webkit-appearance": "textfield",
+    "outline-offset": "-2px",
+  },
+  "[type=\"search\"]::-webkit-search-cancel-button,
+  [type=\"search\"]::-webkit-search-decoration": Object {
+    "-webkit-appearance": "none",
+  },
+  "a": Object {
+    "-webkit-text-decoration-skip": "objects",
+    "background-color": "transparent",
+  },
+  "abbr[title]": Object {
+    "border-bottom": "none",
+    "text-decoration": "underline dotted",
+  },
+  "article,
+  aside,
+  footer,
+  header,
+  nav,
+  section": Object {
+    "display": "block",
+  },
+  "audio,
+  video": Object {
+    "display": "inline-block",
+  },
+  "audio:not([controls])": Object {
+    "display": "none",
+    "height": "0",
+  },
+  "b,
+  strong": Object {
+    "font-weight": "inherit",
+  },
+  "button,
+  html [type=\"button\"],
+  [type=\"reset\"],
+  [type=\"submit\"]": Object {
+    "-webkit-appearance": "button",
+  },
+  "button,
+  input": Object {
+    "overflow": "visible",
+  },
+  "button,
+  input,
+  optgroup,
+  select,
+  textarea": Object {
+    "margin": "0",
+  },
+  "button,
+  select": Object {
+    "text-transform": "none",
+  },
+  "button:-moz-focusring,
+  [type=\"button\"]:-moz-focusring,
+  [type=\"reset\"]:-moz-focusring,
+  [type=\"submit\"]:-moz-focusring": Object {
+    "outline": "1px dotted ButtonText",
+  },
+  "button::-moz-focus-inner,
+  [type=\"button\"]::-moz-focus-inner,
+  [type=\"reset\"]::-moz-focus-inner,
+  [type=\"submit\"]::-moz-focus-inner": Object {
+    "border-style": "none",
+    "padding": "0",
+  },
+  "canvas": Object {
+    "display": "inline-block",
+  },
+  "code,
+  kbd,
+  samp": Object {
+    "font-family": "monospace, monospace",
+    "font-size": "1em",
+  },
+  "details,
+  menu": Object {
+    "display": "block",
+  },
+  "dfn": Object {
+    "font-style": "italic",
+  },
+  "fieldset": Object {
+    "border": "1px solid #c0c0c0",
+    "margin": "0 2px",
+    "padding": "0.35em 0.625em 0.75em",
+  },
+  "figcaption,
+  figure,
+  main": Object {
+    "display": "block",
+  },
+  "figure": Object {
+    "margin": "1em 40px",
+  },
+  "h1": Object {
+    "font-size": "2em",
+    "margin": "0.67em 0",
+  },
+  "hr": Object {
+    "box-sizing": "content-box",
+    "height": "0",
+    "overflow": "visible",
+  },
+  "html": Object {
+    "-ms-text-size-adjust": "100%",
+    "-webkit-text-size-adjust": "100%",
+    "line-height": "1.15",
+  },
+  "img": Object {
+    "border-style": "none",
+  },
+  "legend": Object {
+    "box-sizing": "border-box",
+    "color": "inherit",
+    "display": "table",
+    "max-width": "100%",
+    "padding": "0",
+    "white-space": "normal",
+  },
+  "mark": Object {
+    "background-color": "#ff0",
+    "color": "#000",
+  },
+  "pre": Object {
+    "font-family": "monospace, monospace",
+    "font-size": "1em",
+  },
+  "progress": Object {
+    "display": "inline-block",
+    "vertical-align": "baseline",
+  },
+  "small": Object {
+    "font-size": "80%",
+  },
+  "sub": Object {
+    "bottom": "-0.25em",
+  },
+  "sub,
+  sup": Object {
+    "font-size": "75%",
+    "line-height": "0",
+    "position": "relative",
+    "vertical-align": "baseline",
+  },
+  "summary": Object {
+    "display": "list-item",
+  },
+  "sup": Object {
+    "top": "-0.5em",
+  },
+  "svg:not(:root)": Object {
+    "overflow": "hidden",
+  },
+  "template": Object {
+    "display": "none",
+  },
+  "textarea": Object {
+    "overflow": "auto",
+  },
+}
+`;

@@ -12,6 +12,7 @@ import ellipsis from './mixins/ellipsis'
 import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hiDPI from './mixins/hiDPI'
+import normalize from './mixins/normalize'
 import placeholder from './mixins/placeholder'
 import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
@@ -53,6 +54,7 @@ export {
   hiDPI,
   margin,
   modularScale,
+  normalize,
   padding,
   placeholder,
   position,
