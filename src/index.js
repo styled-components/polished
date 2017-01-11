@@ -13,6 +13,7 @@ import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hiDPI from './mixins/hiDPI'
 import placeholder from './mixins/placeholder'
+import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
 import selection from './mixins/selection'
 import timingFunctions from './mixins/timingFunctions'
@@ -55,6 +56,7 @@ export {
   padding,
   placeholder,
   position,
+  radialGradient,
   rem,
   retinaImage,
   rgb,
