@@ -31,6 +31,7 @@ import animation from './shorthands/animation'
 import backgroundImages from './shorthands/backgroundImages'
 import backgrounds from './shorthands/backgrounds'
 import borderColor from './shorthands/borderColor'
+import borderRadius from './shorthands/borderRadius'
 import borderStyle from './shorthands/borderStyle'
 import borderWidth from './shorthands/borderWidth'
 import buttons from './shorthands/buttons'
@@ -46,6 +47,7 @@ export {
   backgroundImages,
   backgrounds,
   borderColor,
+  borderRadius,
   borderStyle,
   borderWidth,
   buttons,
