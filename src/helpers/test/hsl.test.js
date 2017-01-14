@@ -6,34 +6,6 @@ describe('hsl', () => {
     expect({ background: hsl(360, 0.75, 0.4) }).toMatchSnapshot()
   })
 
-  it('should convert the color red', () => {
-    expect({ background: hsl(0, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert the color yellow', () => {
-    expect({ background: hsl(60, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert the color lime', () => {
-    expect({ background: hsl(120, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert the color cyan', () => {
-    expect({ background: hsl(180, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert the color blue', () => {
-    expect({ background: hsl(240, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert the color magenta', () => {
-    expect({ background: hsl(300, 1, 0.5) }).toMatchSnapshot()
-  })
-
-  it('should convert black', () => {
-    expect({ background: hsl({ hue: 360, saturation: 0, lightness: 0.4 }) }).toMatchSnapshot()
-  })
-
   it('should convert a hls object to a hex color', () => {
     expect({ background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }) }).toMatchSnapshot()
   })

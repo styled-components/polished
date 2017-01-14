@@ -4,51 +4,9 @@ Object {
 }
 `;
 
-exports[`hsl should convert black 1`] = `
-Object {
-  "background": "#666",
-}
-`;
-
 exports[`hsl should convert numbers to a hex color 1`] = `
 Object {
   "background": "#b31919",
-}
-`;
-
-exports[`hsl should convert the color blue 1`] = `
-Object {
-  "background": "#00f",
-}
-`;
-
-exports[`hsl should convert the color cyan 1`] = `
-Object {
-  "background": "#0ff",
-}
-`;
-
-exports[`hsl should convert the color lime 1`] = `
-Object {
-  "background": "#0f0",
-}
-`;
-
-exports[`hsl should convert the color magenta 1`] = `
-Object {
-  "background": "#f0f",
-}
-`;
-
-exports[`hsl should convert the color red 1`] = `
-Object {
-  "background": "#f00",
-}
-`;
-
-exports[`hsl should convert the color yellow 1`] = `
-Object {
-  "background": "#ff0",
 }
 `;
 
