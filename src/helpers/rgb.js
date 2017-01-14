@@ -10,7 +10,7 @@ type RgbColor = {
 }
 
 /**
- * Returns a string value for the color. The returned result is the smalles possible hex notation.
+ * Returns a string value for the color. The returned result is the smallest possible hex notation.
  *
  * @example
  * // Styles as object usage

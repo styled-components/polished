@@ -22,6 +22,7 @@ import wordWrap from './mixins/wordWrap'
 
 // Color
 import rgb from './helpers/rgb'
+import rgba from './helpers/rgba'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -62,6 +63,7 @@ export {
   rem,
   retinaImage,
   rgb,
+  rgba,
   selection,
   size,
   stripUnit,
