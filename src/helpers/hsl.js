@@ -3,10 +3,10 @@
 import reduceHexValue from '../internalHelpers/_reduceHexValue'
 import toHex from '../internalHelpers/_numberToHex'
 
-type HlsColor = {
+type HslColor = {
   hue: number,
-  lightness: number,
   saturation: number,
+  lightness: number,
 }
 
 /**
@@ -15,14 +15,14 @@ type HlsColor = {
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: hls(360, 0.75, 0.4),
- *   background: hls({ hue: 360, lightness: 0.75, saturation: 0.4 }),
+ *   background: hsl(360, 0.75, 0.4),
+ *   background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${hls(360, 0.75, 0.4)};
- *   background: ${hls({ hue: 360, lightness: 0.75, saturation: 0.4 })};
+ *   background: ${hsl(360, 0.75, 0.4)};
+ *   background: ${hsl({ hue: 360, saturation: 0.75, lightness: 0.4 })};
  * `
  *
  * // CSS in JS Output
@@ -33,7 +33,7 @@ type HlsColor = {
  * }
  */
 
-function hlsToHex(hue: number, lightness: number, saturation: number): string {
+function hslToHex(hue: number, saturation: number, lightness: number): string {
   if (saturation === 0) {
     // achromatic
     return reduceHexValue(`#${toHex(lightness)}${toHex(lightness)}${toHex(lightness)}`)
@@ -78,14 +78,14 @@ function hlsToHex(hue: number, lightness: number, saturation: number): string {
   return reduceHexValue(`#${addLightAndConvert(red)}${addLightAndConvert(green)}${addLightAndConvert(blue)}`)
 }
 
-function hls(value: HlsColor | number, lightness?: number, saturation?: number): string {
-  if (typeof value === 'number' && typeof lightness === 'number' && typeof saturation === 'number') {
-    return hlsToHex(value, lightness, saturation)
-  } else if (typeof value === 'object' && lightness === undefined && saturation === undefined) {
-    return hlsToHex(value.hue, value.lightness, value.saturation)
+function hsl(value: HslColor | number, saturation?: number, lightness?: number): string {
+  if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
+    return hslToHex(value, saturation, lightness)
+  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined) {
+    return hslToHex(value.hue, value.saturation, value.lightness)
   }
 
-  throw new Error('Passed invalid arguments to hls, please pass multiple numbers e.g. hls(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, lightness: 0.75, saturation: 0.4 }).')
+  throw new Error('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).')
 }
 
-export default hls
+export default hsl
