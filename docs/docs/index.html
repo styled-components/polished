@@ -56,6 +56,16 @@
             
               
               <li><a
+                href='#fontface'
+                class="">
+                fontFace
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#hidpi'
                 class="">
                 hiDPI
@@ -76,9 +86,29 @@
             
               
               <li><a
+                href='#normalize'
+                class="">
+                normalize
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#placeholder'
                 class="">
                 placeholder
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#radialgradient'
+                class="">
+                radialGradient
                 
               </a>
               
@@ -169,6 +199,26 @@
                 href='#animation'
                 class="">
                 animation
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#backgroundimages'
+                class="">
+                backgroundImages
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#backgrounds'
+                class="">
+                backgrounds
                 
               </a>
               
@@ -359,7 +409,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/clearFix.js#L26-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/clearFix.js#L26-L35'>
       <span>src/mixins/clearFix.js</span>
       </a>
     
@@ -445,7 +495,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/ellipsis.js#L29-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/ellipsis.js#L29-L38'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -529,12 +579,174 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='fontface'>
+      fontFace
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/fontFace.js#L60-L91'>
+      <span>src/mixins/fontFace.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS for a @font-face declaration.</p>
+
+
+  <div class='pre p1 fill-light mt0'>fontFace($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontFamily</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontFilePath</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontStretch</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontStyle</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontVariant</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fontWeight</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fileFormats</span> <code class='quiet'>Any</code>
+                  
+                    (default <code>[&#39;eot&#39;, &#39;woff2&#39;, &#39;woff&#39;, &#39;ttf&#39;, &#39;svg&#39;]</code>)
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.localFonts</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.unicodeRange</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object basic usage</span>
+<span class="hljs-keyword">const</span> styles = {
+   ...fontFace({
+     <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro'
+     <span class="hljs-symbol">'fontFilePath</span>': <span class="hljs-symbol">'path</span>/to/file'
+   })
+}
+
+<span class="hljs-comment">// styled-components basic usage</span>
+injectGlobals`${
+  fontFace({
+    <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro'
+    <span class="hljs-symbol">'fontFilePath</span>': <span class="hljs-symbol">'path</span>/to/file'
+  }
+)}`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+'@font-face': {
+  <span class="hljs-symbol">'font</span>-family': <span class="hljs-symbol">'Sans</span>-Pro',
+  <span class="hljs-symbol">'src</span>': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"path/to/file.eot"</span>), url(<span class="hljs-string">"path/to/file.woff2"</span>), url(<span class="hljs-string">"path/to/file.woff"</span>), url(<span class="hljs-string">"path/to/file.ttf"</span>), url(<span class="hljs-string">"path/to/file.svg"</span>)',
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='hidpi'>
       hiDPI
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/hiDPI.js#L32-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/hiDPI.js#L32-L40'>
       <span>src/mixins/hiDPI.js</span>
       </a>
     
@@ -626,7 +838,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/hideText.js#L29-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/hideText.js#L29-L35'>
       <span>src/mixins/hideText.js</span>
       </a>
     
@@ -696,12 +908,96 @@ const div = styled.div`
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='normalize'>
+      normalize
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/normalize.js#L293-L296'>
+      <span>src/mixins/normalize.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS to normalize abnormalities across browsers (normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css)</p>
+
+
+  <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>excludeOpinionated</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+   ...<span class="hljs-keyword">normalize</span>(),
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+injectGlobals<span class="hljs-string">`${normalize()}`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+html {
+  font-family: sans-serif,
+  line-height: <span class="hljs-number">1.15</span>,
+  -ms-<span class="hljs-keyword">text</span>-<span class="hljs-keyword">size</span>-adjust: <span class="hljs-number">100</span>%,
+  -webkit-<span class="hljs-keyword">text</span>-<span class="hljs-keyword">size</span>-adjust: <span class="hljs-number">100</span>%,
+} ...</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='placeholder'>
       placeholder
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/placeholder.js#L35-L50'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/placeholder.js#L35-L50'>
       <span>src/mixins/placeholder.js</span>
       </a>
     
@@ -799,12 +1095,152 @@ const div = styled.input`
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='radialgradient'>
+      radialGradient
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/radialGradient.js#L66-L78'>
+      <span>src/mixins/radialGradient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
+
+
+  <div class='pre p1 fill-light mt0'>radialGradient($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.colorStops</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.extent</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fallback</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.position</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.shape</span> <code class='quiet'>Any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+  ...radialGradient({
+    colorStops: [<span class="hljs-string">'#00FFFF 0%'</span>, <span class="hljs-string">'rgba(0, 0, 255, 0) 50%'</span>, <span class="hljs-string">'#0000FF 95%'</span>],
+    extent: <span class="hljs-string">'farthest-corner at 45px 45px'</span>,
+    <span class="hljs-attribute">position</span>: <span class="hljs-string">'center'</span>,
+    shape: <span class="hljs-string">'ellipse'</span>,
+  })
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-selector-tag">div</span> = styled.div`
+  ${radialGradient({
+    colorStops: [<span class="hljs-string">'#00FFFF 0%'</span>, <span class="hljs-string">'rgba(0, 0, 255, 0) 50%'</span>, <span class="hljs-string">'#0000FF 95%'</span>],
+    extent: <span class="hljs-string">'farthest-corner at 45px 45px'</span>,
+    <span class="hljs-attribute">position</span>: <span class="hljs-string">'center'</span>,
+    shape: <span class="hljs-string">'ellipse'</span>,
+  })}
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-selector-tag">div</span>: {
+  <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'#00FFFF'</span>,
+  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='retinaimage'>
       retinaImage
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/retinaImage.js#L33-L48'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/retinaImage.js#L33-L48'>
       <span>src/mixins/retinaImage.js</span>
       </a>
     
@@ -929,7 +1365,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/selection.js#L31-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/selection.js#L31-L40'>
       <span>src/mixins/selection.js</span>
       </a>
     
@@ -1028,7 +1464,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/timingFunctions.js#L81-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/timingFunctions.js#L81-L83'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -1111,7 +1547,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/mixins/wordWrap.js#L26-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/mixins/wordWrap.js#L26-L33'>
       <span>src/mixins/wordWrap.js</span>
       </a>
     
@@ -1212,7 +1648,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/rgb.js#L35-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/rgb.js#L35-L43'>
       <span>src/helpers/rgb.js</span>
       </a>
     
@@ -1319,7 +1755,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/rgba.js#L38-L51'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/rgba.js#L38-L51'>
       <span>src/helpers/rgba.js</span>
       </a>
     
@@ -1452,7 +1888,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/animation.js#L41-L61'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/animation.js#L41-L61'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -1548,12 +1984,178 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='backgroundimages'>
+      backgroundImages
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/backgroundImages.js#L23-L27'>
+      <span>src/shorthands/backgroundImages.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..</p>
+
+
+  <div class='pre p1 fill-light mt0'>backgroundImages(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>properties</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  ...backgroundImages(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)')
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  ${...backgroundImages(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)')}
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+div {
+  <span class="hljs-symbol">'background</span>-image': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>), linear-gradient(red, green)'
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='backgrounds'>
+      backgrounds
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/backgrounds.js#L22-L26'>
+      <span>src/shorthands/backgrounds.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The backgrounds shorthand accepts any number of background values as parameters for creating a single background statement..</p>
+
+
+  <div class='pre p1 fill-light mt0'>backgrounds(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>properties</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  ...backgrounds(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)', <span class="hljs-symbol">'center</span> no-repeat')
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  ${...backgrounds(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)', <span class="hljs-symbol">'center</span> no-repeat')}
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+div {
+  <span class="hljs-symbol">'background</span>': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>), linear-gradient(red, green), center no-repeat'
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='bordercolor'>
       borderColor
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/borderColor.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/borderColor.js#L27-L29'>
       <span>src/shorthands/borderColor.js</span>
       </a>
     
@@ -1639,7 +2241,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/borderStyle.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/borderStyle.js#L27-L29'>
       <span>src/shorthands/borderStyle.js</span>
       </a>
     
@@ -1725,7 +2327,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/borderWidth.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/borderWidth.js#L27-L29'>
       <span>src/shorthands/borderWidth.js</span>
       </a>
     
@@ -1811,7 +2413,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/buttons.js#L47-L49'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/buttons.js#L47-L49'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -1901,7 +2503,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/margin.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/margin.js#L27-L29'>
       <span>src/shorthands/margin.js</span>
       </a>
     
@@ -1987,7 +2589,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/padding.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/padding.js#L27-L29'>
       <span>src/shorthands/padding.js</span>
       </a>
     
@@ -2073,7 +2675,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/position.js#L49-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/position.js#L49-L59'>
       <span>src/shorthands/position.js</span>
       </a>
     
@@ -2187,7 +2789,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/size.js#L24-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/size.js#L24-L29'>
       <span>src/shorthands/size.js</span>
       </a>
     
@@ -2280,7 +2882,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/shorthands/textInputs.js#L71-L73'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/shorthands/textInputs.js#L71-L73'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -2397,7 +2999,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/directionalProperty.js#L44-L49'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/directionalProperty.js#L44-L49'>
       <span>src/helpers/directionalProperty.js</span>
       </a>
     
@@ -2491,7 +3093,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/em.js#L29-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/em.js#L29-L29'>
       <span>src/helpers/em.js</span>
       </a>
     
@@ -2584,7 +3186,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/modularScale.js#L66-L82'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/modularScale.js#L66-L82'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -2687,7 +3289,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/rem.js#L28-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/rem.js#L28-L28'>
       <span>src/helpers/rem.js</span>
       </a>
     
@@ -2780,7 +3382,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/0c5f890840c9e1bc12ee222d4441f3412eefd909/src/helpers/stripUnit.js#L24-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/162118a90a953f00443ed822d14e957e7f6520bc/src/helpers/stripUnit.js#L24-L28'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
