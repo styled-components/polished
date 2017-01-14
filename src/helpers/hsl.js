@@ -15,13 +15,13 @@ type HslColor = {
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: hsl(360, 0.75, 0.4),
+ *   background: hsl(359, 0.75, 0.4),
  *   background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${hsl(360, 0.75, 0.4)};
+ *   background: ${hsl(359, 0.75, 0.4)};
  *   background: ${hsl({ hue: 360, saturation: 0.75, lightness: 0.4 })};
  * `
  *
@@ -36,34 +36,36 @@ type HslColor = {
 function hslToHex(hue: number, saturation: number, lightness: number): string {
   if (saturation === 0) {
     // achromatic
-    return reduceHexValue(`#${toHex(lightness)}${toHex(lightness)}${toHex(lightness)}`)
+    const colorComponent = lightness * 255
+    return reduceHexValue(`#${toHex(colorComponent)}${toHex(colorComponent)}${toHex(colorComponent)}`)
   }
 
   // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
-  const huePrime = hue / 60
+  const huePrime = (hue % 360) / 60
   const chroma = (1 - Math.abs((2 * lightness) - 1)) * saturation
   const secondComponent = chroma * (1 - Math.abs((huePrime % 2) - 1))
 
   let red
   let green
   let blue
-  if (huePrime >= 0 && huePrime <= 1) {
+
+  if (huePrime >= 0 && huePrime < 1) {
     red = chroma
     green = secondComponent
     blue = 0
-  } else if (huePrime >= 1 && huePrime <= 2) {
+  } else if (huePrime >= 1 && huePrime < 2) {
     red = secondComponent
     green = chroma
     blue = 0
-  } else if (huePrime >= 2 && huePrime <= 3) {
+  } else if (huePrime >= 2 && huePrime < 3) {
     red = 0
     green = chroma
     blue = secondComponent
-  } else if (huePrime >= 3 && huePrime <= 4) {
+  } else if (huePrime >= 3 && huePrime < 4) {
     red = 0
     green = secondComponent
     blue = chroma
-  } else if (huePrime >= 4 && huePrime <= 5) {
+  } else if (huePrime >= 4 && huePrime < 5) {
     red = secondComponent
     green = 0
     blue = chroma
