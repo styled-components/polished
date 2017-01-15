@@ -3,6 +3,10 @@
 import reduceHexValue from './_reduceHexValue'
 import toHex from './_numberToHex'
 
+function addLightnessAndConvert(color: number, lightnessModification: number): string {
+  return toHex(Math.round((color + lightnessModification) * 255))
+}
+
 function hslToHex(hue: number, saturation: number, lightness: number): string {
   if (saturation === 0) {
     // achromatic
@@ -15,39 +19,32 @@ function hslToHex(hue: number, saturation: number, lightness: number): string {
   const chroma = (1 - Math.abs((2 * lightness) - 1)) * saturation
   const secondComponent = chroma * (1 - Math.abs((huePrime % 2) - 1))
 
-  let red
-  let green
-  let blue
+  let red = 0
+  let green = 0
+  let blue = 0
 
   if (huePrime >= 0 && huePrime < 1) {
     red = chroma
     green = secondComponent
-    blue = 0
   } else if (huePrime >= 1 && huePrime < 2) {
     red = secondComponent
     green = chroma
-    blue = 0
   } else if (huePrime >= 2 && huePrime < 3) {
-    red = 0
     green = chroma
     blue = secondComponent
   } else if (huePrime >= 3 && huePrime < 4) {
-    red = 0
     green = secondComponent
     blue = chroma
   } else if (huePrime >= 4 && huePrime < 5) {
     red = secondComponent
-    green = 0
     blue = chroma
   } else if (huePrime >= 5 && huePrime < 6) {
     red = chroma
-    green = 0
     blue = secondComponent
   }
 
   const lightnessModification = lightness - (chroma / 2)
-  const addLightAndConvert = (color) => toHex(Math.round((color + lightnessModification) * 255))
-  return reduceHexValue(`#${addLightAndConvert(red)}${addLightAndConvert(green)}${addLightAndConvert(blue)}`)
+  return reduceHexValue(`#${addLightnessAndConvert(red, lightnessModification)}${addLightnessAndConvert(green, lightnessModification)}${addLightnessAndConvert(blue, lightnessModification)}`)
 }
 
 export default hslToHex
