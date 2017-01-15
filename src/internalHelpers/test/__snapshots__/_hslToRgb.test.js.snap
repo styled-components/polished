@@ -1,0 +1,47 @@
+exports[`hslToRgb should convert black 1`] = `
+Object {
+  "background": "rgb(102,102,102)",
+}
+`;
+
+exports[`hslToRgb should convert numbers to a hex color 1`] = `
+Object {
+  "background": "rgb(179,25,25)",
+}
+`;
+
+exports[`hslToRgb should convert the color blue 1`] = `
+Object {
+  "background": "rgb(0,0,255)",
+}
+`;
+
+exports[`hslToRgb should convert the color cyan 1`] = `
+Object {
+  "background": "rgb(0,255,255)",
+}
+`;
+
+exports[`hslToRgb should convert the color lime 1`] = `
+Object {
+  "background": "rgb(0,255,0)",
+}
+`;
+
+exports[`hslToRgb should convert the color magenta 1`] = `
+Object {
+  "background": "rgb(255,0,255)",
+}
+`;
+
+exports[`hslToRgb should convert the color red 1`] = `
+Object {
+  "background": "rgb(255,0,0)",
+}
+`;
+
+exports[`hslToRgb should convert the color yellow 1`] = `
+Object {
+  "background": "rgb(255,255,0)",
+}
+`;
