@@ -2,7 +2,7 @@
 
 type ConversionFunction = (red: number, green: number, blue: number) => string;
 
-function colorToInt(color: number): string {
+function colorToInt(color: number): number {
   return Math.round(color * 255)
 }
 
