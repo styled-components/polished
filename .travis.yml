@@ -5,7 +5,7 @@ notifications:
   email: false
 node_js:
   - '6'
-install:
+before_script:
   - yarn global add codecov
 script:
   - npm test
