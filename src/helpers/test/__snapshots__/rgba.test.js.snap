@@ -1,6 +1,6 @@
 exports[`rgb should convert a rgba object to a rgba string 1`] = `
 Object {
-  "background": "rgba(255,205,100,180)",
+  "background": "rgba(255,205,100,0.75)",
 }
 `;
 
@@ -18,7 +18,7 @@ Object {
 
 exports[`rgb should convert multiple numbers to a rgba string 1`] = `
 Object {
-  "background": "rgba(255,205,100,180)",
+  "background": "rgba(255,205,100,0.75)",
 }
 `;
 
