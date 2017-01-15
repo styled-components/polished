@@ -24,6 +24,7 @@ import wordWrap from './mixins/wordWrap'
 import rgb from './helpers/rgb'
 import rgba from './helpers/rgba'
 import hsl from './helpers/hsl'
+import hsla from './helpers/hsla'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -55,6 +56,7 @@ export {
   hideText,
   hiDPI,
   hsl,
+  hsla,
   margin,
   modularScale,
   normalize,

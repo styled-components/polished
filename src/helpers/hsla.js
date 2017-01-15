@@ -31,8 +31,8 @@ type HslColor = {
  * // CSS in JS Output
  *
  * element {
- *   background: "rgba()";
- *   background: "rgba()";
+ *   background: "rgba(179,25,28,0.7)";
+ *   background: "rgba(179,25,28,0.7)";
  *   background: "#b3191c";
  * }
  */
