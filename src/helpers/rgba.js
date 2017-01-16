@@ -2,6 +2,7 @@
 
 import rgb from './rgb'
 
+/** */
 type RgbaColor = {
   red: number,
   green: number,

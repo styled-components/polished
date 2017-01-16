@@ -52,6 +52,19 @@
     "em",
     "modularScale",
     "rem",
-    "stripUnit"
+    "stripUnit",
+    {
+      "name": "Types",
+      "description": "Types used within the library."
+    },
+    "Ratio",
+    "RgbColor",
+    "RgbaColor",
+    "FontFaceConfiguration",
+    "RadialGradientConfiguration",
+    "TimingFunction",
+    "AnimationProperty",
+    "ButtonState",
+    "InputState"
   ]
 }

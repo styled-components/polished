@@ -10,7 +10,8 @@ function template(state) {
   input[type="submit"]${state}`
 }
 
-type State =
+/** */
+type ButtonState =
   | typeof(undefined)
   | null
   | 'active'
@@ -44,7 +45,7 @@ type State =
  * }
  */
 
-function buttons(...states: Array<State>) {
+function buttons(...states: Array<ButtonState>) {
   return statefulSelectors(states, template, stateMap)
 }
 
