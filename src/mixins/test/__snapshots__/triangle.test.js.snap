@@ -1,4 +1,4 @@
-exports[`ellipsis should pass parameters to the values of color, border-width 1`] = `
+exports[`triangle should pass parameters to the values of color, border-width 1`] = `
 Object {
   "border-color": "transparent",
   "border-left-color": "red !important",
@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly add rules when block has existing rules 1`] = `
+exports[`triangle should properly add rules when block has existing rules 1`] = `
 Object {
   "background": "red",
   "border-color": "transparent",
@@ -21,7 +21,7 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly render bottom pointing arrow with red color, width of 20px and height 20px 1`] = `
+exports[`triangle should properly render bottom pointing arrow with red color, width of 20px and height 20px 1`] = `
 Object {
   "border-color": "transparent",
   "border-style": "solid",
@@ -32,7 +32,7 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly render left pointing arrow with blue color, width of 10px and height 20px 1`] = `
+exports[`triangle should properly render left pointing arrow with blue color, width of 10px and height 20px 1`] = `
 Object {
   "border-color": "transparent",
   "border-right-color": "blue !important",
@@ -43,7 +43,7 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly render right pointing arrow with width of 20px and height 10px 1`] = `
+exports[`triangle should properly render right pointing arrow with width of 20px and height 10px 1`] = `
 Object {
   "border-color": "transparent",
   "border-left-color": "red !important",
@@ -54,7 +54,7 @@ Object {
 }
 `;
 
-exports[`ellipsis should properly render top pointing arrow with green color, width of 20px and height 20px 1`] = `
+exports[`triangle should properly render top pointing arrow with green color, width of 20px and height 20px 1`] = `
 Object {
   "border-bottom-color": "green !important",
   "border-color": "transparent",

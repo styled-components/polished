@@ -1,7 +1,7 @@
 // @flow
 import triangle from '../triangle'
 
-describe('ellipsis', function() {
+describe('triangle', function() {
 
   it('should pass parameters to the values of color, border-width', function() {
     expect({...triangle({ color: 'red', pointingDirection: 'right', height: 10, width: 20 })}).toMatchSnapshot()
