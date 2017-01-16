@@ -1,5 +1,6 @@
 // @flow
 
+/** */
 type AnimationProperty = string|number
 
 /**

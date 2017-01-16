@@ -1,6 +1,7 @@
 // @flow
 
-type ConfigurationType = {
+/** */
+type FontFaceConfiguration = {
   fontFamily: string;
   fontFilePath?: string;
   fontStretch?: string;
@@ -67,7 +68,7 @@ function fontFace({
     fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
     localFonts,
     unicodeRange,
-  }: ConfigurationType) {
+  }: FontFaceConfiguration) {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.')

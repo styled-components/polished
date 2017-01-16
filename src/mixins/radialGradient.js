@@ -1,6 +1,7 @@
 // @flow
 
-type radialGradientConfiguration = {
+/** */
+type RadialGradientConfiguration = {
   colorStops: Array<string>;
   extent?: string;
   fallback?: string;
@@ -69,7 +70,7 @@ function radialGradient({
   fallback,
   position,
   shape,
-}: radialGradientConfiguration) {
+}: RadialGradientConfiguration) {
   if (!colorStops || colorStops.length < 2) throw new Error('radialGradient requries at least 2 color-stops to properly render.')
   return {
     'background-color': fallback || parseFallback(colorStops),

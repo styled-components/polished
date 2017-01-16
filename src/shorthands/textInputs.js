@@ -22,7 +22,8 @@ function template(state) {
     textarea${state}`
 }
 
-type State =
+/** */
+type InputState =
   | typeof(undefined)
   | null
   | 'active'
@@ -68,7 +69,7 @@ type State =
  * }
  */
 
-function textInputs(...states: Array<State>) {
+function textInputs(...states: Array<InputState>) {
   return statefulSelectors(states, template, stateMap)
 }
 
