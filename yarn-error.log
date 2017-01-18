@@ -1,4 +1,5 @@
 Arguments: 
+<<<<<<< HEAD
   /Users/bhough/.nvm/versions/node/v7.0.0/bin/node /Users/bhough/.nvm/versions/node/v7.0.0/bin/yarn
 
 PATH: 
@@ -9,6 +10,18 @@ Yarn version:
 
 Node version: 
   7.0.0
+=======
+  /Users/brhjunior/.nvm/versions/node/v6.2.0/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/brhjunior/.nvm/versions/node/v6.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/bin:/Users/brhjunior/.rvm/bin
+
+Yarn version: 
+  0.17.9
+
+Node version: 
+  6.2.0
+>>>>>>> 7e4dfae... chore(borderRadius): borderRadius shorthand
 
 Platform: 
   darwin x64
@@ -5823,4 +5836,9 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
+<<<<<<< HEAD
   Error: EACCES: permission denied, mkdir '/Users/bhough/polished/node_modules/accepts'
+=======
+  Error: EACCES: permission denied, mkdir '/Users/brhjunior/polished/node_modules/documentation/node_modules/clone-stats'
+      at Error (native)
+>>>>>>> 7e4dfae... chore(borderRadius): borderRadius shorthand
