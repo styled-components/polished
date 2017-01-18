@@ -38,4 +38,18 @@ describe('triangle', function() {
     }).toMatchSnapshot()
   })
 
+  it('should throw an error when pointingDirection is not provided or does not match corresponding options', function() {
+    expect(() => {
+      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      triangle(
+        {
+          color: 'blue',
+          height: 20,
+          width: 10,
+          poitingDirection: false,
+        }
+      )
+    }).toThrow('Passed invalid argument to triangle, please pass correct poitingDirection e.g. \'right\'.')
+  })
+
 })

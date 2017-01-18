@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable default-case, consistent-return */
 
 
 /**
@@ -48,6 +47,8 @@ const getBorderWidth = ({ pointingDirection, height, width } : BorderWidthArgs) 
     case 'left': return `${height / 2}px ${width}px ${height / 2}px 0`
     case 'bottom': return `${height}px ${width / 2}px 0 ${width / 2}px`
     case 'right': return `${height / 2}px 0 ${height / 2}px ${width}px`
+
+    default: throw new Error('Passed invalid argument to triangle, please pass correct poitingDirection e.g. \'right\'.')
   }
 }
 
