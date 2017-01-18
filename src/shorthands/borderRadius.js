@@ -22,7 +22,7 @@
  */
 
 function borderRadius(side:string, radius:string) {
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string.')
+  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.')
   if (side === 'top' || side === 'bottom') {
     return {
       [`border-${side}-right-radius`]: radius,
@@ -37,7 +37,7 @@ function borderRadius(side:string, radius:string) {
     }
   }
 
-  throw new Error('borderRadius expects a valid value for side.')
+  throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.')
 }
 
 export default borderRadius
