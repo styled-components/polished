@@ -1,0 +1,66 @@
+exports[`triangle should pass parameters to the values of color, border-width 1`] = `
+Object {
+  "border-color": "transparent",
+  "border-left-color": "red !important",
+  "border-style": "solid",
+  "border-width": "5px 0 5px 20px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should properly add rules when block has existing rules 1`] = `
+Object {
+  "background": "red",
+  "border-color": "transparent",
+  "border-left-color": "grey !important",
+  "border-style": "solid",
+  "border-width": "5px 0 5px 20px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should properly render bottom pointing arrow with red color, width of 20px and height 20px 1`] = `
+Object {
+  "border-color": "transparent",
+  "border-style": "solid",
+  "border-top-color": "red !important",
+  "border-width": "20px 5px 0 5px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should properly render left pointing arrow with blue color, width of 10px and height 20px 1`] = `
+Object {
+  "border-color": "transparent",
+  "border-right-color": "blue !important",
+  "border-style": "solid",
+  "border-width": "10px 10px 10px 0",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should properly render right pointing arrow with width of 20px and height 10px 1`] = `
+Object {
+  "border-color": "transparent",
+  "border-left-color": "red !important",
+  "border-style": "solid",
+  "border-width": "5px 0 5px 20px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should properly render top pointing arrow with green color, width of 20px and height 20px 1`] = `
+Object {
+  "border-bottom-color": "green !important",
+  "border-color": "transparent",
+  "border-style": "solid",
+  "border-width": "0 10px 20px 10px",
+  "height": "0",
+  "width": "0",
+}
+`;
