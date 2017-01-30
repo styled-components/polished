@@ -1,0 +1,27 @@
+exports[`borderRadius returns the proper values for the bottom side 1`] = `
+Object {
+  "border-bottom-left-radius": "5px",
+  "border-bottom-right-radius": "5px",
+}
+`;
+
+exports[`borderRadius returns the proper values for the left side 1`] = `
+Object {
+  "border-bottom-left-radius": "5px",
+  "border-top-left-radius": "5px",
+}
+`;
+
+exports[`borderRadius returns the proper values for the right side 1`] = `
+Object {
+  "border-bottom-right-radius": "5px",
+  "border-top-right-radius": "5px",
+}
+`;
+
+exports[`borderRadius returns the proper values for the top side 1`] = `
+Object {
+  "border-top-left-radius": "5px",
+  "border-top-right-radius": "5px",
+}
+`;

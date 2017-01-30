@@ -36,6 +36,7 @@
     "backgroundImages",
     "backgrounds",
     "borderColor",
+    "borderRadius",
     "borderStyle",
     "borderWidth",
     "buttons",
@@ -44,6 +45,7 @@
     "position",
     "size",
     "textInputs",
+    "transitions",
     {
       "name": "Helpers",
       "description": "Tiny helper functions that make your life easier."
