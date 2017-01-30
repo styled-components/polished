@@ -1,5 +1,8 @@
 const fs = require('fs')
 const path = require('path')
+const babylon = require('babylon')
+const traverse = require('babel-traverse').default
+const generate = require('babel-generator').default
 const File = require('vinyl')
 const vfs = require('vinyl-fs')
 const _ = require('lodash')
@@ -8,6 +11,7 @@ const GithubSlugger = require('github-slugger')
 const createFormatters = require('documentation').util.createFormatters
 const createLinkerStack = require('documentation').util.createLinkerStack
 const hljs = require('highlight.js')
+const getExamples = require('../helpers').getExamples
 
 module.exports = function (comments, options, callback) {
   const linkerStack = createLinkerStack(options)
@@ -77,6 +81,49 @@ module.exports = function (comments, options, callback) {
   sharedImports.imports.renderHome = _.template(fs.readFileSync(path.join(__dirname, 'index._'), 'utf8'), sharedImports)
 
   const mainTemplate = _.template(fs.readFileSync(path.join(__dirname, 'partials/base._'), 'utf8'), sharedImports)
+
+  const sourcePath = path.join(process.cwd(), 'lib/')
+  const exampleFiles = getExamples(sourcePath)
+  comments.forEach((comment) => {
+    if (comment.kind !== 'note' && new RegExp(comment.name).test(exampleFiles.join('|'))) {
+      comment.examples = [] // eslint-disable-line no-param-reassign
+      const pathToExample = path.join(sourcePath, exampleFiles.find(exampleFile => exampleFile.indexOf(comment.name)))
+      const results = require(pathToExample) // eslint-disable-line global-require, import/no-dynamic-require
+      const originalCode = fs.readFileSync(pathToExample.replace('/lib/', '/src/')).toString()
+      const ast = babylon.parse(originalCode, {
+        sourceType: 'module',
+        plugins: [
+          'jsx',
+          'flow',
+          'objectRestSpread',
+          'decorators',
+          'classProperties',
+          'exportExtensions',
+          'asyncGenerators',
+          'functionBind',
+          'functionSent',
+          'dynamicImport',
+        ],
+      })
+      traverse(ast, {
+        ExportDefaultDeclaration(p) {
+          p.node.declaration.elements.forEach((elem, index) => {
+            const before = generate(elem, null, originalCode).code
+            const after = JSON.stringify(results[index], null, 2).replace(/"/g, '\'')
+            if (before.substr(0, 1) === '{') {
+              comment.examples.push({
+                description: `// Styles as object usage\nconst styles = ${before}\n\n// CSS-in-JS ouput\nconst styles = ${after}`
+              })
+            } else if (before.substr(0, 1) === '`') {
+              comment.examples.push({
+                description: `// styled-components usage\nconst Box = styled.div${before}\n\n// CSS-in-JS ouput\nconst Box = styled.div${after.replace(/'/g, '`').replace(/\\n|\n/g, '\n')}`
+              })
+            }
+          })
+        },
+      })
+    }
+  })
 
   const pages = [{
     path: 'index.html',
