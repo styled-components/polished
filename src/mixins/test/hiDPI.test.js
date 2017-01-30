@@ -1,3 +1,4 @@
+// @flow
 import hiDPI from '../hiDPI'
 
 describe('hiDPI', function() {

@@ -10,16 +10,63 @@
     },
     "clearFix",
     "ellipsis",
+    "fontFace",
     "hiDPI",
     "hideText",
+    "normalize",
+    "placeholder",
+    "radialGradient",
+    "retinaImage",
     "selection",
-    "size",
     "timingFunctions",
     "wordWrap",
+    {
+      "name": "Color",
+      "description": "Functions that help creating and modifying colors."
+    },
+    "rgb",
+    "rgba",
+    "hsl",
+    "hsla",
+    {
+      "name": "Shorthands",
+      "description": "Functions that help write nicer code. They're shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation."
+    },
+    "animation",
+    "backgroundImages",
+    "backgrounds",
+    "borderColor",
+    "borderRadius",
+    "borderStyle",
+    "borderWidth",
+    "buttons",
+    "margin",
+    "padding",
+    "position",
+    "size",
+    "textInputs",
+    "transitions",
     {
       "name": "Helpers",
       "description": "Tiny helper functions that make your life easier."
     },
-    "stripUnit"
+    "directionalProperty",
+    "em",
+    "modularScale",
+    "rem",
+    "stripUnit",
+    {
+      "name": "Types",
+      "description": "Types used within the library."
+    },
+    "Ratio",
+    "RgbColor",
+    "RgbaColor",
+    "FontFaceConfiguration",
+    "RadialGradientConfiguration",
+    "TimingFunction",
+    "AnimationProperty",
+    "ButtonState",
+    "InputState"
   ]
 }

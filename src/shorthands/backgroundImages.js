@@ -1,0 +1,29 @@
+// @flow
+
+/**
+ * The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   ...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div {
+ *   'background-image': 'url("/image/background.jpg"), linear-gradient(red, green)'
+ * }
+ */
+
+function backgroundImages(...properties: Array<string>) {
+  return {
+    'background-image': properties.join(', '),
+  }
+}
+
+export default backgroundImages

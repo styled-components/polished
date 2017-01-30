@@ -1,0 +1,29 @@
+exports[`rgb should convert a rgba object to a rgba string 1`] = `
+Object {
+  "background": "rgba(255,205,100,0.75)",
+}
+`;
+
+exports[`rgb should convert a rgba object with full opacity to a hex color 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;
+
+exports[`rgb should convert a rgba object with full opacity to a reduced hex color 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
+
+exports[`rgb should convert multiple numbers to a rgba string 1`] = `
+Object {
+  "background": "rgba(255,205,100,0.75)",
+}
+`;
+
+exports[`rgb should convert multiple numbers with full opacity to a hex color 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;

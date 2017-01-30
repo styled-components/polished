@@ -1,0 +1,49 @@
+exports[`buttons populates base button selectors 1`] = `
+Object {
+  "button,
+  input[type=\"button\"],
+  input[type=\"reset\"],
+  input[type=\"submit\"]": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`buttons populates both base selectors and selectors for a single state 1`] = `
+Object {
+  "button,
+  input[type=\"button\"],
+  input[type=\"reset\"],
+  input[type=\"submit\"],button:focus,
+  input[type=\"button\"]:focus,
+  input[type=\"reset\"]:focus,
+  input[type=\"submit\"]:focus": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`buttons populates button selectors for multiple states 1`] = `
+Object {
+  "button:active,
+  input[type=\"button\"]:active,
+  input[type=\"reset\"]:active,
+  input[type=\"submit\"]:active,button:focus,
+  input[type=\"button\"]:focus,
+  input[type=\"reset\"]:focus,
+  input[type=\"submit\"]:focus": Object {
+    "border-color": "black",
+  },
+}
+`;
+
+exports[`buttons populates buttons selectors for a single state 1`] = `
+Object {
+  "button:active,
+  input[type=\"button\"]:active,
+  input[type=\"reset\"]:active,
+  input[type=\"submit\"]:active": Object {
+    "border-color": "black",
+  },
+}
+`;

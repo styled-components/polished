@@ -1,0 +1,38 @@
+exports[`statefulSelectors populates both base selectors and selectors for a single state 1`] = `
+Object {
+  "section a,
+  p a,section a::after,
+  p a::after": Object {
+    "content": "hello",
+  },
+}
+`;
+
+exports[`statefulSelectors populates both base selectors and selectors for a single state when not passed a stateMap 1`] = `
+Object {
+  "section a,
+  p a,section a::after,
+  p a::after": Object {
+    "content": "hello",
+  },
+}
+`;
+
+exports[`statefulSelectors populates selectors for a multiple states 1`] = `
+Object {
+  "section a::before,
+  p a::before,section a::after,
+  p a::after": Object {
+    "content": "hello",
+  },
+}
+`;
+
+exports[`statefulSelectors populates selectors for a single state 1`] = `
+Object {
+  "section a::before,
+  p a::before": Object {
+    "content": "hello",
+  },
+}
+`;

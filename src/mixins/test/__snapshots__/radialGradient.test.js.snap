@@ -1,0 +1,34 @@
+exports[`radialGradient properly overrides the fallback when it is passed 1`] = `
+Object {
+  "background-color": "#FFF",
+  "background-image": "radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
+}
+`;
+
+exports[`radialGradient returns the correct object when only passed two color stops, including parsed fallback with no percentage 1`] = `
+Object {
+  "background-color": "#fff",
+  "background-image": "radial-gradient(#fff, #000)",
+}
+`;
+
+exports[`radialGradient returns the correct object when passed extent and shape 1`] = `
+Object {
+  "background-color": "#00FFFF",
+  "background-image": "radial-gradient(ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
+}
+`;
+
+exports[`radialGradient returns the correct object when passed extent, shape, and position, including parsed fallback with percentage 1`] = `
+Object {
+  "background-color": "#00FFFF",
+  "background-image": "radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
+}
+`;
+
+exports[`radialGradient returns the correct object when passed just extent 1`] = `
+Object {
+  "background-color": "#00FFFF",
+  "background-image": "radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)",
+}
+`;

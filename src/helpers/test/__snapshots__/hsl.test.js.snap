@@ -1,0 +1,17 @@
+exports[`hsl should convert a hls object to a hex color 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`hsl should convert numbers to a hex color 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`hsl should convert to a reduce hex value if possible 1`] = `
+Object {
+  "background": "#c00",
+}
+`;

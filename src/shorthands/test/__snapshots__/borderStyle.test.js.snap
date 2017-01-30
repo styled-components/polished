@@ -1,0 +1,35 @@
+exports[`borderStyle properly applies a value when passed only one 1`] = `
+Object {
+  "border-bottom-style": "solid",
+  "border-left-style": "solid",
+  "border-right-style": "solid",
+  "border-top-style": "solid",
+}
+`;
+
+exports[`borderStyle properly applies values when passed four 1`] = `
+Object {
+  "border-bottom-style": "dotted",
+  "border-left-style": "double",
+  "border-right-style": "dashed",
+  "border-top-style": "solid",
+}
+`;
+
+exports[`borderStyle properly applies values when passed three 1`] = `
+Object {
+  "border-bottom-style": "dotted",
+  "border-left-style": "dashed",
+  "border-right-style": "dashed",
+  "border-top-style": "solid",
+}
+`;
+
+exports[`borderStyle properly applies values when passed two 1`] = `
+Object {
+  "border-bottom-style": "solid",
+  "border-left-style": "dashed",
+  "border-right-style": "dashed",
+  "border-top-style": "solid",
+}
+`;

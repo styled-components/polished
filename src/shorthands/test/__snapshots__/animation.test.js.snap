@@ -1,0 +1,29 @@
+exports[`animation multi mode should be fine with less than eight arguments 1`] = `
+Object {
+  "animation": "rotate 1s ease-in-out",
+}
+`;
+
+exports[`animation multi mode should be fine with multiple animations 1`] = `
+Object {
+  "animation": "rotate 1s ease-in-out, colorchange 2s",
+}
+`;
+
+exports[`animation multi mode should pass first eight arguments to the CSS in multi mode 1`] = `
+Object {
+  "animation": "rotate 1s ease-in-out 0.5s 5 reverse forwards paused",
+}
+`;
+
+exports[`animation single mode should be fine with less than eight arguments 1`] = `
+Object {
+  "animation": "rotate, 1s, ease-in-out",
+}
+`;
+
+exports[`animation single mode should pass first eight arguments to the CSS 1`] = `
+Object {
+  "animation": "rotate, 1s, ease-in-out, 0.5s, 5, reverse, forwards, paused",
+}
+`;

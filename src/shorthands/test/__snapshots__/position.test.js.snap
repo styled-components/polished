@@ -1,0 +1,48 @@
+exports[`position properly applies a value when passed only one 1`] = `
+Object {
+  "bottom": "12px",
+  "left": "12px",
+  "position": "relative",
+  "right": "12px",
+  "top": "12px",
+}
+`;
+
+exports[`position properly applies values when passed four 1`] = `
+Object {
+  "bottom": "36px",
+  "left": "48px",
+  "position": "relative",
+  "right": "24px",
+  "top": "12px",
+}
+`;
+
+exports[`position properly applies values when passed three 1`] = `
+Object {
+  "bottom": "36px",
+  "left": "24px",
+  "position": "relative",
+  "right": "24px",
+  "top": "12px",
+}
+`;
+
+exports[`position properly applies values when passed two 1`] = `
+Object {
+  "bottom": "12px",
+  "left": "24px",
+  "position": "relative",
+  "right": "24px",
+  "top": "12px",
+}
+`;
+
+exports[`position properly ignores position property, when not passed one 1`] = `
+Object {
+  "bottom": "36px",
+  "left": "48px",
+  "right": "24px",
+  "top": "12px",
+}
+`;

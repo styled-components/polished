@@ -1,0 +1,58 @@
+exports[`fontFace should respect the file format configuration object 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.svg\")",
+  },
+}
+`;
+
+exports[`fontFace should return a valid object when passed both a file-based source and multiple local sources 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "src": "local(\"sans-pro\"), local(\"sans pro\"), url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
+  },
+}
+`;
+
+exports[`fontFace should return a valid object when passed both local and file-based sources 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "src": "local(\"sans-pro\"), url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
+  },
+}
+`;
+
+exports[`fontFace should return a valid object when passed just a family and source 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
+  },
+}
+`;
+
+exports[`fontFace should return a valid object when passed only local sources 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "src": "local(\"sans-pro\"), local(\"sans pro\")",
+  },
+}
+`;
+
+exports[`fontFace should set passed font configuration variables 1`] = `
+Object {
+  "@font-face": Object {
+    "font-family": "Sans Pro",
+    "font-stretch": "condensed",
+    "font-style": "italic",
+    "font-variant": "small-caps",
+    "font-weight": "bold",
+    "src": "url(\"path/to/file.eot\"), url(\"path/to/file.woff2\"), url(\"path/to/file.woff\"), url(\"path/to/file.ttf\"), url(\"path/to/file.svg\")",
+    "unicode-range": "U+26",
+  },
+}
+`;

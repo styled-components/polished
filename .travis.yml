@@ -1,19 +1,12 @@
 sudo: false
 language: node_js
-cache:
-  directories:
-    - node_modules
+cache: yarn
 notifications:
   email: false
 node_js:
   - '6'
-  - '4'
-before_install:
-  - npm i -g npm@^2.0.0
-install:
-  - npm i -g codecov
 before_script:
-  - npm install
+  - yarn global add codecov
 script:
   - npm test
   - npm run lint
