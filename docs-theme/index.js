@@ -114,9 +114,9 @@ module.exports = function (comments, options, callback) {
               comment.examples.push({
                 description: `// Styles as object usage\nconst styles = ${before}\n\n// CSS-in-JS ouput\nconst styles = ${after}`
               })
-            } else if (before.substr(0, 1) === '`') {
+            } else if (before.substr(0, 10) === 'stringify`') {
               comment.examples.push({
-                description: `// styled-components usage\nconst Box = styled.div${before}\n\n// CSS-in-JS ouput\nconst Box = styled.div${after.replace(/'/g, '`').replace(/\\n|\n/g, '\n')}`
+                description: `// styled-components usage\nconst Box = styled.div${before.substr(9, before.length)}\n\n// CSS-in-JS ouput\nconst Box = styled.div${after.replace(/'/g, '`').replace(/\\n|\n/g, '\n')}`
               })
             }
           })

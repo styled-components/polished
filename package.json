@@ -24,7 +24,7 @@
   },
   "watch": {
     "build:docs": "src/**/*.js",
-    "build:lib": "src/**/*.js"
+    "build:docs": "docs-theme/**/*.js"
   },
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com)",
   "license": "MIT",

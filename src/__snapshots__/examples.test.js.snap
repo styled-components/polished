@@ -1,23 +1,23 @@
-exports[`lib/helpers/examples/stripUnit examples should match example #0 1`] = `
+exports[`stripUnit examples should match example #0 1`] = `
 Object {
   "--dimension": 100,
 }
 `;
 
-exports[`lib/helpers/examples/stripUnit examples should match example #1 1`] = `
+exports[`stripUnit examples should match example #0 2`] = `
 Object {
   "--dimension": 100,
 }
 `;
 
-exports[`src/helpers/examples/stripUnit examples should match example #0 1`] = `
-Object {
-  "--dimension": 100,
-}
-`;
-
-exports[`src/helpers/examples/stripUnit examples should match example #1 1`] = `
+exports[`stripUnit examples should match example #1 1`] = `
 "
-  --dimension: 100
+  --dimension: 100;
+"
+`;
+
+exports[`stripUnit examples should match example #1 2`] = `
+"
+  --dimension: 100;
 "
 `;
