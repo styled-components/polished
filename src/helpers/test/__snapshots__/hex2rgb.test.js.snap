@@ -1,0 +1,5 @@
+exports[`hex2rgb should convert hex color to rgb 1`] = `
+Object {
+  "color": "rgb(255, 0, 0)",
+}
+`;

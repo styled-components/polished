@@ -1,0 +1,17 @@
+exports[`mix should mix two colors 1`] = `
+Object {
+  "color": "#3f00bf",
+}
+`;
+
+exports[`mix should mix two colors with default value 1`] = `
+Object {
+  "color": "#7f007f",
+}
+`;
+
+exports[`mix should mix two colors with weight in string percentage 1`] = `
+Object {
+  "color": "#3f00bf",
+}
+`;
