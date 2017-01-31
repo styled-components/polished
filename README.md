@@ -37,6 +37,9 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
     <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
+    <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
+    <li><a href="http://polished.js.org/docs/#hex2rgb">hex2rgb</a></li>
+    <li><a href="http://polished.js.org/docs/#hex2rgba">hex2rgba</a></li>
   </ul>
 </details>
 <details open>
@@ -61,6 +64,7 @@ A lightweight toolset for writing styles in Javascript. ✨
 <details open>
   <summary>Helpers</summary>
   <ul>
+    <li><a href="http://polished.js.org/docs/#alpha">alpha</a></li>
     <li><a href="http://polished.js.org/docs/#directionalproperty">directionalProperty</a></li>
     <li><a href="http://polished.js.org/docs/#em">em</a></li>
     <li><a href="http://polished.js.org/docs/#modularscale">modularScale</a></li>

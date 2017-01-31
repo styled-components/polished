@@ -1,9 +1,12 @@
 // @flow
 // Helpers
+import alpha from './helpers/alpha'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
+import hex2rgb from './helpers/hex2rgb'
+import hex2rgba from './helpers/hex2rgba'
 import stripUnit from './helpers/stripUnit'
 
 // Mixins
@@ -21,6 +24,7 @@ import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
 // Color
+import mix from './helpers/mix'
 import rgb from './helpers/rgb'
 import rgba from './helpers/rgba'
 import hsl from './helpers/hsl'
@@ -43,6 +47,7 @@ import textInputs from './shorthands/textInputs'
 import transitions from './shorthands/transitions'
 
 export {
+  alpha,
   animation,
   backgroundImages,
   backgrounds,
@@ -68,7 +73,10 @@ export {
   position,
   radialGradient,
   rem,
+  hex2rgb,
+  hex2rgba,
   retinaImage,
+  mix,
   rgb,
   rgba,
   selection,
