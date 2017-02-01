@@ -7,7 +7,7 @@ A lightweight toolset for writing styles in Javascript. ✨
 
 ## Docs
 
-**See the full documentation at [polished.js.org](http://polished.js.org)!**
+**See the full documentation at [polished.js.org](http://polished.js.org/docs)!**
 
 ### ToC
 
