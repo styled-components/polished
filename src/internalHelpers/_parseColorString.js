@@ -8,11 +8,9 @@ type RgbColor = {
   alpha?: number,
 }
 
-const hexRegex = new RegExp('^#[a-fA-F0-9]{6}$')
-const reducedHexRegex = new RegExp('^#[a-fA-F0-9]{3}$')
-// eslint-disable-next-line no-useless-escape
+const hexRegex = /^#[a-fA-F0-9]{6}$/
+const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
 const rgbaRegex = /^rgba\((\d+),(\d+),(\d+),([-+]?[0-9]*[.]?[0-9]+)\)$/
-// const rgbaRegex = new RegExp('^rgba\((\d+),(\d+),(\d+),([-+]?[0-9]*[.]?[0-9]+)\)$')
 
 function parseColorString(value: string): RgbColor {
   if (value.match(hexRegex)) {
