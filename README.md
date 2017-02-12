@@ -74,17 +74,12 @@ A lightweight toolset for writing styles in Javascript. ✨
   <summary>Types</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
-    <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
-    <li><a href="http://polished.js.org/docs/#rgbcolor-1">RgbColor</a></li>
-    <li><a href="http://polished.js.org/docs/#rgbcolor-2">RgbColor</a></li>
-    <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
     <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
-    <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
