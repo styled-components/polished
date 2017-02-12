@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title><%- options.name %> <%- options.version %> | Documentation</title>
+  <title><%- options.name %> | <% if (typeof docs !== 'undefined') { %>Documentation<% } else { %>A lightweight toolset for writing styles in JavaScript<% } %></title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='/assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='/assets/style.css' type='text/css' rel='stylesheet' />
   <link href='/assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='/assets/style.css' type='text/css' rel='stylesheet' />
 </head>
-<body class='documentation'>
+<body class='<% if (typeof docs !== 'undefined') { %>documentation<% } else { %>home<% } %>'>
   <% if (typeof docs !== 'undefined') { %>
     <%= renderDocs({
       options: options,
@@ -22,7 +22,12 @@
       options: options,
     }) %>
   <% } %>
-  <script src='/assets/anchor.js'></script>
-  <script src='/assets/site.js'></script>
+  <% if (typeof docs !== 'undefined') { %>
+    <script src='/assets/anchor.js'></script>
+    <script src='/assets/docs.js'></script>
+  <% } else { %>
+    <script src="/assets/highlight.pack.js"></script>
+    <script src="/assets/repl.js"></script>
+  <% } %>
 </body>
 </html>
