@@ -25,6 +25,8 @@ import rgb from './helpers/rgb'
 import rgba from './helpers/rgba'
 import hsl from './helpers/hsl'
 import hsla from './helpers/hsla'
+import darken from './helpers/darken'
+import lighten from './helpers/lighten'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -52,6 +54,7 @@ export {
   borderWidth,
   buttons,
   clearFix,
+  darken,
   directionalProperty,
   ellipsis,
   em,
@@ -60,6 +63,7 @@ export {
   hiDPI,
   hsl,
   hsla,
+  lighten,
   margin,
   modularScale,
   normalize,

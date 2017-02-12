@@ -1,12 +1,7 @@
 // @flow
 
 import hslToHex from '../internalHelpers/_hslToHex'
-
-type HslColor = {
-  hue: number,
-  saturation: number,
-  lightness: number,
-}
+import type { HslColor } from '../types/color'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible hex notation.

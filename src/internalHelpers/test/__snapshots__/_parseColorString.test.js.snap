@@ -1,0 +1,24 @@
+exports[`parseColorString should parse a hex color representation 1`] = `
+Object {
+  "blue": 174,
+  "green": 67,
+  "red": 255,
+}
+`;
+
+exports[`parseColorString should parse a reduced hex color representation 1`] = `
+Object {
+  "blue": 170,
+  "green": 85,
+  "red": 68,
+}
+`;
+
+exports[`parseColorString should parse a rgba color representation 1`] = `
+Object {
+  "alpha": 0.6,
+  "blue": 255,
+  "green": 67,
+  "red": 174,
+}
+`;

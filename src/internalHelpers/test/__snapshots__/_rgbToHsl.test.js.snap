@@ -1,0 +1,61 @@
+exports[`hslToHex should convert black 1`] = `
+Object {
+  "background": Object {
+    "hue": 0,
+    "lightness": 0,
+    "saturation": 0,
+  },
+}
+`;
+
+exports[`hslToHex should convert black with a transparency of 0.6 1`] = `
+Object {
+  "background": Object {
+    "alpha": 0.5,
+    "hue": 0,
+    "lightness": 0,
+    "saturation": 0,
+  },
+}
+`;
+
+exports[`hslToHex should convert the color blue 1`] = `
+Object {
+  "background": Object {
+    "hue": 240,
+    "lightness": 0.5,
+    "saturation": 1,
+  },
+}
+`;
+
+exports[`hslToHex should convert the color green 1`] = `
+Object {
+  "background": Object {
+    "hue": 120,
+    "lightness": 0.5,
+    "saturation": 1,
+  },
+}
+`;
+
+exports[`hslToHex should convert the color red 1`] = `
+Object {
+  "background": Object {
+    "hue": 0,
+    "lightness": 0.5,
+    "saturation": 1,
+  },
+}
+`;
+
+exports[`hslToHex should convert the color red with a transparency of 0.6 1`] = `
+Object {
+  "background": Object {
+    "alpha": 0.5,
+    "hue": 0,
+    "lightness": 0.5,
+    "saturation": 1,
+  },
+}
+`;
