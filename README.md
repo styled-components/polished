@@ -37,6 +37,8 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
     <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
+    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
+    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
   </ul>
 </details>
 <details open>
@@ -73,6 +75,8 @@ A lightweight toolset for writing styles in Javascript. ✨
   <ul>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
     <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbcolor-1">RgbColor</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbcolor-2">RgbColor</a></li>
     <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
     <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
@@ -80,6 +84,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
