@@ -4,6 +4,7 @@ import parseColorString from '../internalHelpers/_parseColorString'
 import rgbToHsl from '../internalHelpers/_rgbToHsl'
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
+import guard from '../internalHelpers/_guard'
 
 /**
  * Returns a string value for the lightened color.
@@ -33,7 +34,7 @@ function lighten(amount: number, color: string): string {
   const hslColor = rgbToHsl(parseColorString(color))
   const value = {
     ...hslColor,
-    lightness: Math.max(0, Math.min(1, hslColor.lightness + amount)),
+    lightness: guard(0, 1, hslColor.lightness + amount),
   }
   return value.alpha >= 1 || value.alpha === undefined
     ? hslToHex(value.hue, value.saturation, value.lightness)
