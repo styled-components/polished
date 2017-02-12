@@ -24,12 +24,14 @@ import wordWrap from './mixins/wordWrap'
 import rgb from './helpers/rgb'
 import rgba from './helpers/rgba'
 import hsl from './helpers/hsl'
+import hsla from './helpers/hsla'
 
 // Shorthands
 import animation from './shorthands/animation'
 import backgroundImages from './shorthands/backgroundImages'
 import backgrounds from './shorthands/backgrounds'
 import borderColor from './shorthands/borderColor'
+import borderRadius from './shorthands/borderRadius'
 import borderStyle from './shorthands/borderStyle'
 import borderWidth from './shorthands/borderWidth'
 import buttons from './shorthands/buttons'
@@ -38,12 +40,14 @@ import padding from './shorthands/padding'
 import position from './shorthands/position'
 import size from './shorthands/size'
 import textInputs from './shorthands/textInputs'
+import transitions from './shorthands/transitions'
 
 export {
   animation,
   backgroundImages,
   backgrounds,
   borderColor,
+  borderRadius,
   borderStyle,
   borderWidth,
   buttons,
@@ -55,6 +59,7 @@ export {
   hideText,
   hiDPI,
   hsl,
+  hsla,
   margin,
   modularScale,
   normalize,
@@ -71,5 +76,6 @@ export {
   stripUnit,
   textInputs,
   timingFunctions,
+  transitions,
   wordWrap,
 }

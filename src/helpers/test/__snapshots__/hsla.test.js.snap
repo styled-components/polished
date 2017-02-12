@@ -1,0 +1,29 @@
+exports[`hsla should convert a hlsa object to a hex color 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`hsla should convert a hlsa object to a rgba color 1`] = `
+Object {
+  "background": "rgba(179,25,25,0.5)",
+}
+`;
+
+exports[`hsla should convert numbers to a hex color 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`hsla should convert numbers to a rgba color 1`] = `
+Object {
+  "background": "rgba(179,25,25,0.5)",
+}
+`;
+
+exports[`hsla should convert to a reduce hex value if possible 1`] = `
+Object {
+  "background": "#c00",
+}
+`;

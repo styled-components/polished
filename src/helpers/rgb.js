@@ -3,6 +3,7 @@
 import reduceHexValue from '../internalHelpers/_reduceHexValue'
 import toHex from '../internalHelpers/_numberToHex'
 
+/** */
 type RgbColor = {
   red: number,
   green: number,

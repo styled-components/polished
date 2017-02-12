@@ -31,7 +31,8 @@ const functionsMap = {
 }
 /* eslint-enable key-spacing */
 
-type TimingFunctions =
+/** */
+type TimingFunction =
   | 'easeInBack'
   | 'easeInCirc'
   | 'easeInCubic'
@@ -78,7 +79,7 @@ type TimingFunctions =
  * }
  */
 
-function timingFunctions(timingFunction: TimingFunctions) {
+function timingFunctions(timingFunction: TimingFunction) {
   return functionsMap[timingFunction]
 }
 

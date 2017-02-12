@@ -22,6 +22,7 @@ const ratioNames = {
   doubleOctave: 4,
 }
 
+/** */
 type Ratio =
   | number
   | 'minorSecond'
