@@ -2,13 +2,7 @@
 
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
-
-type HslColor = {
-  hue: number,
-  saturation: number,
-  lightness: number,
-  alpha: number,
-}
+import type { HslaColor } from '../types/color'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -36,7 +30,7 @@ type HslColor = {
  *   background: "#b3191c";
  * }
  */
-function hsla(value: HslColor | number, saturation?: number, lightness?: number, alpha?: number): string {
+function hsla(value: HslaColor | number, saturation?: number, lightness?: number, alpha?: number): string {
   if (
     typeof value === 'number' &&
     typeof saturation === 'number' &&

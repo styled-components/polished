@@ -1,18 +1,12 @@
 // @flow
 
-/** */
-type RgbColor = {
-  red: number,
-  green: number,
-  blue: number,
-  alpha?: number,
-}
+import type { RgbColor, RgbaColor } from '../types/color'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
 const rgbaRegex = /^rgba\((\d+),(\d+),(\d+),([-+]?[0-9]*[.]?[0-9]+)\)$/
 
-function parseColorString(value: string): RgbColor {
+function parseColorString(value: string): RgbColor | RgbaColor {
   if (value.match(hexRegex)) {
     return {
       red: parseInt(`${value[1]}${value[2]}`, 16),

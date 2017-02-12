@@ -1,22 +1,13 @@
 // @flow
 
-/** */
-type HslColor = {
-  hue: number,
-  saturation: number,
-  lightness: number,
-  alpha?: number,
-}
+import type {
+  HslColor,
+  HslaColor,
+  RgbColor,
+  RgbaColor,
+} from '../types/color'
 
-/** */
-type RgbColor = {
-  red: number,
-  green: number,
-  blue: number,
-  alpha?: number,
-}
-
-function rgbToHsl(color: RgbColor): HslColor {
+function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   // make sure rgb are contained in a set of [0, 255]
   const red = color.red / 255
   const green = color.green / 255
