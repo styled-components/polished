@@ -5,20 +5,34 @@ type HslColor = {
   hue: number,
   saturation: number,
   lightness: number,
+  alpha?: number,
 }
 
-function rgbToHsl(_red: number, _green: number, _blue: number): HslColor {
+/** */
+type RgbColor = {
+  red: number,
+  green: number,
+  blue: number,
+  alpha?: number,
+}
+
+function rgbToHsl(color: RgbColor): HslColor {
   // make sure rgb are contained in a set of [0, 255]
-  const red = _red / 255
-  const green = _green / 255
-  const blue = _blue / 255
+  const red = color.red / 255
+  const green = color.green / 255
+  const blue = color.blue / 255
 
   const max = Math.max(red, green, blue)
   const min = Math.min(red, green, blue)
   const lightness = (max + min) / 2
 
   if (max === min) {
-    return { hue: 0, saturation: 0, lightness } // achromatic
+     // achromatic
+    if (color.alpha !== undefined) {
+      return { hue: 0, saturation: 0, lightness, alpha: color.alpha }
+    } else {
+      return { hue: 0, saturation: 0, lightness }
+    }
   }
 
   let hue
@@ -37,6 +51,9 @@ function rgbToHsl(_red: number, _green: number, _blue: number): HslColor {
   }
 
   hue *= 60
+  if (color.alpha !== undefined) {
+    return { hue, saturation, lightness, alpha: color.alpha }
+  }
   return { hue, saturation, lightness }
 }
 
