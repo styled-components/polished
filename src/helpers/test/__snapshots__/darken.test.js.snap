@@ -1,0 +1,3 @@
+exports[`rgb should darken a color by 20% 1`] = `"#111"`;
+
+exports[`rgb should darken a color with opacity by 30% 1`] = `"rgba(262,87,87,0.7)"`;
