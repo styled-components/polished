@@ -1,6 +1,13 @@
 // @flow
 
-function rgbToHsl(_red: number, _green: number, _blue: number) {
+/** */
+type HslColor = {
+  hue: number,
+  saturation: number,
+  lightness: number,
+}
+
+function rgbToHsl(_red: number, _green: number, _blue: number): HslColor {
   // make sure rgb are contained in a set of [0, 255]
   const red = _red / 255
   const green = _green / 255
