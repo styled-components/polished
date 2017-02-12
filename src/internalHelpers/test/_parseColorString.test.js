@@ -12,4 +12,8 @@ describe('parseColorString', () => {
   it('should parse a rgba color representation', () => {
     expect(parseColorString('rgba(174,67,255,0.6)')).toMatchSnapshot()
   })
+
+  it('should throw an error if an invalid color string is provided', () => {
+    expect(() => { parseColorString('(174,67,255)') }).toThrow('Couldn\'t parse the color string. Please provide the color in hex or rgba notation as a string.')
+  })
 })
