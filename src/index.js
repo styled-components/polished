@@ -28,6 +28,7 @@ import hsla from './helpers/hsla'
 import darken from './helpers/darken'
 import lighten from './helpers/lighten'
 import saturate from './helpers/saturate'
+import desaturate from './helpers/desaturate'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -56,6 +57,7 @@ export {
   buttons,
   clearFix,
   darken,
+  desaturate,
   directionalProperty,
   ellipsis,
   em,
