@@ -27,6 +27,7 @@ import hsl from './helpers/hsl'
 import hsla from './helpers/hsla'
 import darken from './helpers/darken'
 import lighten from './helpers/lighten'
+import saturate from './helpers/saturate'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -75,6 +76,7 @@ export {
   retinaImage,
   rgb,
   rgba,
+  saturate,
   selection,
   size,
   stripUnit,
