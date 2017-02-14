@@ -1,7 +1,7 @@
 // @flow
 import saturate from '../saturate'
 
-describe('rgb', () => {
+describe('saturate', () => {
   it('should saturate a color by 10%', () => {
     expect(saturate(0.1, '#444')).toMatchSnapshot()
   })

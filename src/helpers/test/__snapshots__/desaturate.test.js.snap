@@ -1,0 +1,7 @@
+exports[`desaturate should desaturate a color but not go below 0 1`] = `"rgba(25,25,25,0.7)"`;
+
+exports[`desaturate should desaturate a color with opacity by 20% 1`] = `"rgba(184,185,121,0.7)"`;
+
+exports[`desaturate should desaturate a hex color by 20% 1`] = `"#b8b979"`;
+
+exports[`desaturate should desaturate a reduced hex color by 10% 1`] = `"#444"`;
