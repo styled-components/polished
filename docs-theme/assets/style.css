@@ -69,6 +69,23 @@ body {
 }
 
 .repl {
+  position: relative;
+  width: 100%;
+  max-width: 35em;
+  height: 10em;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.repl__input,
+.repl__output {
+  height: 10em;
+  width: 50%;
+  position: relative;
+}
+
+/*.repl {
   text-align: left;
   display: flex;
   flex-direction: row;
@@ -76,12 +93,7 @@ body {
   background: #4EBD87;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.24);
   border-radius: 4px;
-}
-
-.repl__section {
-  display: inline-block;
-  width: 50%;
-}
+}*/
 
 .bg-white {
   background-color: #fff;

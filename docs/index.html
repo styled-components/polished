@@ -19,33 +19,20 @@
 
 <main class="main">
 	<h3>Try editing the code below</h3>
-	<pre class="repl hljs javascript">
-		<code class="repl__section">
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">color</span>: lighten(<span class="hljs-string">'#000'</span>, <span class="hljs-number">20</span>),
-  fontSize: modularScale(<span class="hljs-number">1</span>),
-  [hiDPI(<span class="hljs-number">1.5</span>)]: {
-    fontSize: modularScale(<span class="hljs-number">1.25</span>)
-  }
-}</code>
-		<code class="repl__section">
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">color</span>: <span class="hljs-string">'#333'</span>,
-  fontSize: <span class="hljs-string">'16px'</span>,
-  <span class="hljs-string">'@media only screen and'</span>: {
-    fontSize: <span class="hljs-string">'20px'</span>
-  }
-}</code>
-	</pre>
+	<div class="repl">
+		<div class="repl__input"></div>
+		<div class="repl__output"></div>
+	</div>
 </main>
 
 <footer>
-	<p>Made by [@mxstbr](https://github.com/mxstbr), [@bhough](https://github.com/bhough), [@nikgraf](https://github.com/nikgraf) and [collaborators](https://github.com/styled-components/polished).
+	<p>Made by <a href="https://github.com/mxstbr">@mxstbr</a>, <a href="https://github.com/bhough">@bhough</a>, <a href="https://github.com/nikgraf">@nikgraf</a> and <a href="https://github.com/styled-components/polished">collaborators</a>.</p>
 </footer>
 
   
   
     <script src="/assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/polished.js"></script>
     <script src="/assets/repl.js"></script>
   
 </body>

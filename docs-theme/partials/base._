@@ -26,7 +26,8 @@
     <script src='/assets/anchor.js'></script>
     <script src='/assets/docs.js'></script>
   <% } else { %>
-    <script src="/assets/highlight.pack.js"></script>
+    <script src="/assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/polished.js"></script>
     <script src="/assets/repl.js"></script>
   <% } %>
 </body>

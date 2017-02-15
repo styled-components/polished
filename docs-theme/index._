@@ -7,26 +7,12 @@
 
 <main class="main">
 	<h3>Try editing the code below</h3>
-	<pre class="repl hljs javascript">
-		<code class="repl__section"><%= highlight(`
-const styles = {
-  color: lighten('#000', 20),
-  fontSize: modularScale(1),
-  [hiDPI(1.5)]: {
-    fontSize: modularScale(1.25)
-  }
-}`) %></code>
-		<code class="repl__section"><%= highlight(`
-const styles = {
-  color: '#333',
-  fontSize: '16px',
-  '@media only screen and': {
-    fontSize: '20px'
-  }
-}`) %></code>
-	</pre>
+	<div class="repl">
+		<div class="repl__input"></div>
+		<div class="repl__output"></div>
+	</div>
 </main>
 
 <footer>
-	<p>Made by [@mxstbr](https://github.com/mxstbr), [@bhough](https://github.com/bhough), [@nikgraf](https://github.com/nikgraf) and [collaborators](https://github.com/styled-components/polished).
+	<p>Made by <a href="https://github.com/mxstbr">@mxstbr</a>, <a href="https://github.com/bhough">@bhough</a>, <a href="https://github.com/nikgraf">@nikgraf</a> and <a href="https://github.com/styled-components/polished">collaborators</a>.</p>
 </footer>
