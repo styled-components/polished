@@ -31,6 +31,7 @@ import saturate from './helpers/saturate'
 import desaturate from './helpers/desaturate'
 import grayscale from './helpers/grayscale'
 import complement from './helpers/complement'
+import adjustHue from './helpers/adjustHue'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -49,6 +50,7 @@ import textInputs from './shorthands/textInputs'
 import transitions from './shorthands/transitions'
 
 export {
+  adjustHue,
   animation,
   backgroundImages,
   backgrounds,

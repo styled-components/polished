@@ -33,6 +33,7 @@
     "saturate",
     "desaturate",
     "grayscale",
+    "adjustHue",
     "complement",
     {
       "name": "Shorthands",
