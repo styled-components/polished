@@ -7,7 +7,9 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
 import guard from '../internalHelpers/_guard'
 
 /**
- * Returns a string value for the desaturated color.
+ * Returns a string value for the desaturated color. Saturation is the intensity
+ * of color and has a range between 0 to 1. The first argument of the desaturate
+ * function is the amount by how much saturation should be decreased.
  *
  * @example
  * // Styles as object usage
