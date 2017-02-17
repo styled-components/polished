@@ -30,6 +30,7 @@ import lighten from './helpers/lighten'
 import saturate from './helpers/saturate'
 import desaturate from './helpers/desaturate'
 import grayscale from './helpers/grayscale'
+import complement from './helpers/complement'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -57,6 +58,7 @@ export {
   borderWidth,
   buttons,
   clearFix,
+  complement,
   darken,
   desaturate,
   directionalProperty,
