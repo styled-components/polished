@@ -1,0 +1,7 @@
+exports[`saturate should saturate a color but not go beyond 255 1`] = `"rgba(255,200,200,0.7)"`;
+
+exports[`saturate should saturate a color by 10% 1`] = `"#4b3d3d"`;
+
+exports[`saturate should saturate a color with opacity by 20% 1`] = `"rgba(224,226,80,0.7)"`;
+
+exports[`saturate should saturate a hex color by 20% 1`] = `"#e0e250"`;

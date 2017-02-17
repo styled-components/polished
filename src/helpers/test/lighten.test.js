@@ -1,7 +1,7 @@
 // @flow
 import lighten from '../lighten'
 
-describe('rgb', () => {
+describe('lighten', () => {
   it('should lighten a color by 10%', () => {
     expect(lighten(0.1, '#444')).toMatchSnapshot()
   })

@@ -1,7 +1,7 @@
 // @flow
 import darken from '../darken'
 
-describe('rgb', () => {
+describe('darken', () => {
   it('should darken a color by 20%', () => {
     expect(darken(0.2, '#444')).toMatchSnapshot()
   })
