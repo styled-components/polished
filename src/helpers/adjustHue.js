@@ -6,7 +6,9 @@ import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
 
 /**
- * Returns the adjustHue of the provided color. This is identical to adjustHue(180, <color>).
+ * Changes the hue of the color. Hue is a number between 0 to 360. The first
+ * argument for adjustHue is the amount of degrees the color is rotated along
+ * the color wheel.
  *
  * @example
  * // Styles as object usage
