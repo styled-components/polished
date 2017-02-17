@@ -29,6 +29,7 @@ import darken from './helpers/darken'
 import lighten from './helpers/lighten'
 import saturate from './helpers/saturate'
 import desaturate from './helpers/desaturate'
+import grayscale from './helpers/grayscale'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -62,6 +63,7 @@ export {
   ellipsis,
   em,
   fontFace,
+  grayscale,
   hideText,
   hiDPI,
   hsl,

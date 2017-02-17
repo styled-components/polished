@@ -41,6 +41,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
     <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
     <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
+    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
   </ul>
 </details>
 <details open>
