@@ -7,9 +7,9 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
 import guard from '../internalHelpers/_guard'
 
 /**
- * Returns a string value for the saturated color. Saturation is the intensity
- * of color and has a range between 0 to 1. The first argument of the saturate
- * function is the amount by how much saturation should be increased.
+ * Increases the intensity of a color. Its range is between 0 to 1. The first
+ * argument of the saturate function is the amount by how much the color
+ * intensity should be increased.
  *
  * @example
  * // Styles as object usage
