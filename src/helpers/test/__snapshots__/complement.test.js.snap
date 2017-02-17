@@ -1,0 +1,5 @@
+exports[`complement should return the complement of a color with opacity 1`] = `"rgba(204,205,100,0.7)"`;
+
+exports[`complement should return the complement of a hex color 1`] = `"#6564cd"`;
+
+exports[`complement should return the complement of a reduced hex color 1`] = `"#884"`;
