@@ -7,9 +7,9 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
 import guard from '../internalHelpers/_guard'
 
 /**
-* Decreases the intensity of a color. Its range is between 0 to 1. The first
-* argument of the desaturate function is the amount by how much the color
-* intensity should be decreased.
+ * Decreases the intensity of a color. Its range is between 0 to 1. The first
+ * argument of the desaturate function is the amount by how much the color
+ * intensity should be decreased.
  *
  * @example
  * // Styles as object usage
