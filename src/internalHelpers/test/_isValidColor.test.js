@@ -14,4 +14,10 @@ describe('isValidColor', () => {
     expect(validations.isHex('#00')).toEqual(false)
   })
 
+  // rgb
+  it('isRgb should return true when color is rgb(0,0,0)', () => {
+    expect(validations.isRgb('rgb(0,0,0)')).toEqual(true)
+  })
+
+
 })
