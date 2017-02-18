@@ -23,5 +23,14 @@ describe('isValidColor', () => {
     expect(validations.isRgb('rgb(255, 0, 0)')).toEqual(true)
   })
 
+  it('isRgb should return false when color is rgba(255, 0, 0, 1)', () => {
+    expect(validations.isRgb('rgba(255, 0, 0, 1)')).toEqual(false)
+  })
+
+  // rgba
+  it('isRgba should return true when color is rgba(0,0,0,0)', () => {
+    expect(validations.isRgba('rgba(0,0,0,0)')).toEqual(true)
+  })
+
 
 })
