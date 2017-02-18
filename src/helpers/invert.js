@@ -1,10 +1,31 @@
 // @flow
 
 import parseColorString from '../internalHelpers/_parseColorString'
+import rgb from './rgb'
 import rgba from './rgba'
 
 /**
- * Returns the inverted color.
+ * Returns the inverted color meaning the red, green and blue values are invert.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: invert(0.2, '#CCCD64'),
+ *   background: invert(0.2, 'rgba(101,100,205,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${invert(0.2, '#CCCD64')};
+ *   background: ${invert(0.2, 'rgba(101,100,205,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#33329b";
+ *   background: "rgba(154,155,50,0.7)";
+ * }
  */
 function invert(color: string): string {
   // parse color string to hsl
@@ -15,7 +36,9 @@ function invert(color: string): string {
     green: 255 - value.green,
     blue: 255 - value.blue,
   }
-  return rgba(invertedColor)
+  return invertedColor.alpha === undefined || invertedColor.alpha >= 1
+    ? rgb(invertedColor)
+    : rgba(invertedColor)
 }
 
 export default invert
