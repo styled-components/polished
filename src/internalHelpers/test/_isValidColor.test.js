@@ -32,5 +32,10 @@ describe('isValidColor', () => {
     expect(validations.isRgba('rgba(0,0,0,0)')).toEqual(true)
   })
 
+  it('isRgba should return true when color is rgb(255, 0, 0, .5)', () => {
+    expect(validations.isRgba('rgba(255, 0, 0, .5)')).toEqual(true)
+  })
+
+
 
 })
