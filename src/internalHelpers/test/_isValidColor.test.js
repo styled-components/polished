@@ -1,3 +1,4 @@
+// @flow
 import * as validations from '../_isValidColor'
 
 describe('isValidColor', () => {
@@ -53,6 +54,17 @@ describe('isValidColor', () => {
     expect(validations.isHsl('hsla(10,10%,100%)')).toEqual(false)
   })
 
+  // hsla
+  it('isHsla should return true when color is hsla(0,0%,100%,1)', () => {
+    expect(validations.isHsla('hsla(0,0%,100%,1)')).toEqual(true)
+  })
 
+  it('isHsla should return true when color is hsla(10,10%,100%,.5)', () => {
+    expect(validations.isHsla('hsla(10,10%,100%,.5)')).toEqual(true)
+  })
+
+  it('isHsla should return false when color is hsl(10,10%,2%)', () => {
+    expect(validations.isHsla('hsl(10,10%,2%)')).toEqual(false)
+  })
 
 })
