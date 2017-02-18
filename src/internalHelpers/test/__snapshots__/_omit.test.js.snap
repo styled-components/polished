@@ -1,0 +1,6 @@
+exports[`omit return an object with properites omitted 1`] = `
+Object {
+  "b": 2,
+  "d": 4,
+}
+`;
