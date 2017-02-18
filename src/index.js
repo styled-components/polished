@@ -1,5 +1,6 @@
 // @flow
 // Helpers
+import applyTransform from './helpers/applyTransform'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
 import modularScale from './helpers/modularScale'
@@ -48,6 +49,7 @@ import transitions from './shorthands/transitions'
 
 export {
   animation,
+  applyTransform,
   backgroundImages,
   backgrounds,
   borderColor,
