@@ -5,7 +5,7 @@ import rgb from './rgb'
 import rgba from './rgba'
 
 /**
- * Returns the inverted color meaning the red, green and blue values are invert.
+ * Inverts the red, green and blue values of a color.
  *
  * @example
  * // Styles as object usage
