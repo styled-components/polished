@@ -45,5 +45,10 @@ describe('isValidColor', () => {
     expect(validations.isHsl('hsl(0,0%,100%)')).toEqual(true)
   })
 
+  it('isHsl should return true when color is hsl(10,10%,100%)', () => {
+    expect(validations.isHsl('hsl(10,10%,100%)')).toEqual(true)
+  })
+
+
 
 })
