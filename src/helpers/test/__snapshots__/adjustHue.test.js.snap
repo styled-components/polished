@@ -1,0 +1,7 @@
+exports[`adjustHue should adjustHue of a color and not go beyond 360 1`] = `"#444f88"`;
+
+exports[`adjustHue should adjustHue of a color with opacity 1`] = `"rgba(136,100,205,0.7)"`;
+
+exports[`adjustHue should adjustHue of a hex color 1`] = `"#a9cd64"`;
+
+exports[`adjustHue should adjustHue of a reduced hex color 1`] = `"#5b4488"`;

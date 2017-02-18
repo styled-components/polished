@@ -29,6 +29,10 @@ import darken from './helpers/darken'
 import lighten from './helpers/lighten'
 import saturate from './helpers/saturate'
 import desaturate from './helpers/desaturate'
+import grayscale from './helpers/grayscale'
+import complement from './helpers/complement'
+import adjustHue from './helpers/adjustHue'
+import invert from './helpers/invert'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -47,6 +51,7 @@ import textInputs from './shorthands/textInputs'
 import transitions from './shorthands/transitions'
 
 export {
+  adjustHue,
   animation,
   backgroundImages,
   backgrounds,
@@ -56,12 +61,15 @@ export {
   borderWidth,
   buttons,
   clearFix,
+  complement,
   darken,
   desaturate,
   directionalProperty,
   ellipsis,
   em,
   fontFace,
+  grayscale,
+  invert,
   hideText,
   hiDPI,
   hsl,
