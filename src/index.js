@@ -32,6 +32,7 @@ import desaturate from './helpers/desaturate'
 import grayscale from './helpers/grayscale'
 import complement from './helpers/complement'
 import adjustHue from './helpers/adjustHue'
+import invert from './helpers/invert'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -68,6 +69,7 @@ export {
   em,
   fontFace,
   grayscale,
+  invert,
   hideText,
   hiDPI,
   hsl,
