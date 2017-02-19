@@ -3,7 +3,7 @@ import { isRgb, isRgba, isHsl, isHsla, isHex } from '../internalHelpers/_isValid
 import hexToRgb from '../internalHelpers/_hexToRgb'
 
 const getNewTransparency = (currentTransparency: number, percentage: number) : number => (
-  currentTransparency * (1 - (percentage / 100))
+  currentTransparency * (1 - percentage)
 )
 
 const getColorValuesInBrackets = (color: string) : string => (
