@@ -58,7 +58,7 @@ const getLastColorValue = (color: string) : number => (
   )
 )
 
-function transparentize(color: string, percentage: number) {
+function transparentize(percentage: number, color: string) {
   if (percentage >= 0 && percentage <= 1) {
     if (isHex(color)) {
       return transparentizeRgb(`${hexToRgb(color)})`, percentage)
