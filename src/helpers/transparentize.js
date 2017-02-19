@@ -1,6 +1,7 @@
 // @flow
 import { isRgb, isRgba, isHsl, isHsla, isHex } from '../internalHelpers/_isValidColor'
 import hexToRgb from '../internalHelpers/_hexToRgb'
+import hslToRgb from '../internalHelpers/_hslToRgb'
 
 const getNewTransparency = (currentTransparency: number, percentage: number) : number => (
   currentTransparency * (1 - percentage)
@@ -40,16 +41,19 @@ function transparentize(color: string, percentage : number) {
 
       return `rgba(${rgb}, ${newTransparency})`
     } else if (isHsl(color)) {
-      const hslValues = getColorValuesInBrackets(color)
       const newTransparency = getNewTransparency(1, percentage)
+      const values = getColorValuesInBrackets(color).split(',').map(num => parseInt(num, 10) / 100)
+      const rgbValues = hslToRgb(...values)
 
-      return `hsla(${hslValues}, ${newTransparency})`
+      return `rgba(${rgbValues}, ${newTransparency})`
     } else if (isHsla(color)) {
       const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
       const currentTransparency = getLastColorValue(color)
       const newTransparency = getNewTransparency(currentTransparency, percentage)
+      const values = hslValues.split(',').map(num => parseInt(num, 10) / 100)
+      const rgbValues = hslToRgb(...values)
 
-      return `hsla(${hslValues}, ${newTransparency})`
+      return `rgba(${rgbValues}, ${newTransparency})`
     } else {
       throw new Error('Invalid color')
     }
