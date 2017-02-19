@@ -28,29 +28,33 @@ const getLastColorValue = (color: string) : number => (
 )
 
 function transparentize(color: string, percentage : number) {
-  if (isHex(color)) {
-    return transparentizeRgb(`${hexToRgb(color)})`, percentage)
-  } else if (isRgb(color)) {
-    return transparentizeRgb(color, percentage)
-  } else if (isRgba(color)) {
-    const currentTransparency = getLastColorValue(color)
-    const rgb = getValuesTillLastComma(getColorValuesInBrackets(color))
-    const newTransparency = getNewTransparency(currentTransparency, percentage)
+  if (percentage >= 0 && percentage <= 1) {
+    if (isHex(color)) {
+      return transparentizeRgb(`${hexToRgb(color)})`, percentage)
+    } else if (isRgb(color)) {
+      return transparentizeRgb(color, percentage)
+    } else if (isRgba(color)) {
+      const currentTransparency = getLastColorValue(color)
+      const rgb = getValuesTillLastComma(getColorValuesInBrackets(color))
+      const newTransparency = getNewTransparency(currentTransparency, percentage)
 
-    return `rgba(${rgb}, ${newTransparency})`
-  } else if (isHsl(color)) {
-    const hslValues = getColorValuesInBrackets(color)
-    const newTransparency = getNewTransparency(1, percentage)
+      return `rgba(${rgb}, ${newTransparency})`
+    } else if (isHsl(color)) {
+      const hslValues = getColorValuesInBrackets(color)
+      const newTransparency = getNewTransparency(1, percentage)
 
-    return `hsla(${hslValues}, ${newTransparency})`
-  } else if (isHsla(color)) {
-    const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
-    const currentTransparency = getLastColorValue(color)
-    const newTransparency = getNewTransparency(currentTransparency, percentage)
+      return `hsla(${hslValues}, ${newTransparency})`
+    } else if (isHsla(color)) {
+      const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
+      const currentTransparency = getLastColorValue(color)
+      const newTransparency = getNewTransparency(currentTransparency, percentage)
 
-    return `hsla(${hslValues}, ${newTransparency})`
+      return `hsla(${hslValues}, ${newTransparency})`
+    } else {
+      throw new Error('Invalid color')
+    }
   } else {
-    throw new Error('Invalid color')
+    throw new Error('Invalid percentage, only values from 0 to 1 are accepted.')
   }
 }
 
