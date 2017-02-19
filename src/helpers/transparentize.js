@@ -54,7 +54,7 @@ function transparentize(color: string, percentage : number) {
       throw new Error('Invalid color')
     }
   } else {
-    throw new Error('Invalid percentage, only values from 0 to 1 are accepted.')
+    throw new Error('Invalid percentage, only values from 0 to 1 are accepted')
   }
 }
 

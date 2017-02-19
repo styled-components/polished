@@ -33,4 +33,9 @@ describe('transparentize', () => {
   it('it should throw an error when enter an invalid color', () => {
     expect(() => { transparentize('not a color', 0.5) }).toThrow(new Error('Invalid color'))
   })
+
+  it('it should throw an error when enter an invalid percentage', () => {
+    expect(() => { transparentize('rgba(255, 255, 255, .5)', 1.5) })
+      .toThrow(new Error('Invalid percentage, only values from 0 to 1 are accepted'))
+  })
 })
