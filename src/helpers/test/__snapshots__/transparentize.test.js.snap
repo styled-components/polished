@@ -1,8 +1,8 @@
 exports[`transparentize it should correctly convert hex #fff with 20% transparency to rgba 1`] = `"rgba(255, 255, 255, 0.8)"`;
 
-exports[`transparentize it should correctly convert hsl(0, 0%, 100%) with 20% transparency to rgba 1`] = `"hsla(0, 0%, 100%, 0.8)"`;
+exports[`transparentize it should correctly convert hsl(0, 0%, 100%) with 20% transparency to rgba 1`] = `"rgba(255,255,255, 0.8)"`;
 
-exports[`transparentize it should correctly convert hsla(0, 0%, 100%, .8) with 50% transparency to rgba 1`] = `"hsla(0, 0%, 100%, 0.4)"`;
+exports[`transparentize it should correctly convert hsla(0, 0%, 100%, .8) with 50% transparency to rgba 1`] = `"rgba(255,255,255, 0.4)"`;
 
 exports[`transparentize it should correctly convert rgb(255, 0, 255) with 10% transparency to rgba 1`] = `"rgba(255, 0, 255, 0.9)"`;
 
