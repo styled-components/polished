@@ -3,6 +3,36 @@ import { isRgb, isRgba, isHsl, isHsla, isHex } from '../internalHelpers/_isValid
 import hexToRgb from '../internalHelpers/_hexToRgb'
 import hslToRgb from '../internalHelpers/_hslToRgb'
 
+/**
+ * Decreases the alpha of a color. Its range is between 0 to 1. The first
+ * argument of the transparentize function is the percentage by how much the alpha
+ * of color should be decreased.
+ *
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: transparentize('#fff', 0.2);
+ *   background: transparentize('hsl(0, 0%, 100%)', 0.2),
+ *   background: transparentize('rgba(255, 0, 0, .5)', 0.5),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${transparentize('#fff', 0.2)};
+ *   background: ${transparentize('hsl(0, 0%, 100%)', 0.2)},
+ *   background: ${transparentize('rgba(255, 0, 0, .5)', 0.5)},
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(255, 255, 255, 0.8)";
+ *   background: "hsla(0, 0%, 100%, 0.8)";
+ *   background: "rgba(255, 0, 0, 0.25)";
+ * }
+ */
+
 const getNewTransparency = (currentTransparency: number, percentage: number) : number => (
   currentTransparency * (1 - percentage)
 )
