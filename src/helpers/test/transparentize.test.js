@@ -3,7 +3,7 @@ import transparentize from '../transparentize'
 
 describe('transparentize', () => {
   it('it should correctly convert hex #fff with 0.1 amount transparency', () => {
-    expect(transparentize(0.2, '#fff')).toMatchSnapshot()
+    expect(transparentize(0.1, '#fff')).toMatchSnapshot()
   })
 
   it('it should correctly convert rgb(255, 0, 255) with 0.1 amount transparency', () => {
