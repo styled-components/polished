@@ -1,13 +1,10 @@
 // @flow
-import { isRgb, isRgba, isHsl, isHsla, isHex } from '../internalHelpers/_isValidColor'
-import hexToRgb from '../internalHelpers/_hexToRgb'
-import hslToRgb from '../internalHelpers/_hslToRgb'
+import rgba from './rgba'
+import parseColorString from '../internalHelpers/_parseColorString'
+import guard from '../internalHelpers/_guard'
 
 /**
- * Decreases the alpha of a color. Its range is between 0 to 1. The first
- * argument of the transparentize function is the amount of alpha
- * that should be decreased from a color and the last argument is
- * a color.
+ * Decreases the alpha of a color. Its range for the amount is between 0 to 1.
  *
  *
  * @example
@@ -33,49 +30,14 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
  *   background: "rgba(255, 0, 0, 0.9)";
  * }
  */
-
-const getColorValuesInBrackets = (color: string) : string => (
-  color.slice(color.indexOf('(') + 1, color.indexOf(')'))
-)
-
-const getValuesTillLastComma = (color: string) : string => (
-  color.slice(0, color.lastIndexOf(','))
-)
-
-const getRgba = (rgb: string, amount: number) : string => (
-  `rgba(${rgb}, ${amount})`
-)
-
 function transparentize(amount: number, color: string) {
-  if (isHex(color)) {
-    const rgb = getColorValuesInBrackets(hexToRgb(color))
-    return getRgba(rgb, amount)
-  } else if (isRgb(color)) {
-    const rgb = getColorValuesInBrackets(color)
-    return getRgba(rgb, amount)
-  } else if (isRgba(color)) {
-    const rgb = getValuesTillLastComma(getColorValuesInBrackets(color))
-    return getRgba(rgb, amount)
-  } else if (isHsl(color)) {
-    const values = (
-      getColorValuesInBrackets(color)
-        .split(',')
-        .map(num => parseInt(num, 10) / 100)
-    )
-    const rgb = hslToRgb(...values)
-    return getRgba(rgb, amount)
-  } else if (isHsla(color)) {
-    const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
-    const values = (
-      hslValues
-        .split(',')
-        .map(num => parseInt(num, 10) / 100)
-    )
-    const rgb = hslToRgb(...values)
-    return getRgba(rgb, amount)
-  } else {
-    throw new Error('Passed invalid arguments to transparentize, please pass a valid color string in a hex or rgba notation.')
+  const parsedColor = parseColorString(color)
+  const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
+  const colorWithAlpha = {
+    ...parsedColor,
+    alpha: guard(0, 1, (alpha - amount)),
   }
+  return rgba(colorWithAlpha)
 }
 
 export default transparentize

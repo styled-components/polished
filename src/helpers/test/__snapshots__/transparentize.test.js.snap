@@ -1,13 +1,11 @@
-exports[`transparentize it should correctly convert hex #fff with 0.1 amount transparency 1`] = `"rgba(255, 255, 255, 0.1)"`;
+exports[`transparentize should not increase the opacity beyond 1 1`] = `"#f00"`;
 
-exports[`transparentize it should correctly convert hsl(0, 0%, 100%) with 0.2 amount transparency 1`] = `"rgba(255,255,255, 0.2)"`;
+exports[`transparentize should not reduce the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
 
-exports[`transparentize it should correctly convert hsla(0, 0%, 100%, .8) with 0.5 amount transparency 1`] = `"rgba(255,255,255, 0.5)"`;
+exports[`transparentize should reduce the opacity of hex #fff by 0.1 1`] = `"rgba(255,255,255,0.9)"`;
 
-exports[`transparentize it should correctly convert rgb(255, 0, 255) with 0.1 amount transparency 1`] = `"rgba(255, 0, 255, 0.1)"`;
+exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.3 1`] = `"rgba(255,0,0,0.2)"`;
 
-exports[`transparentize it should correctly convert rgba(255, 0, 0, .5) with 0.3 amount transparency 1`] = `"rgba(255, 0, 0, 0.3)"`;
+exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.5 1`] = `"rgba(255,0,0,0)"`;
 
-exports[`transparentize it should correctly convert rgba(255, 0, 0, .5) with 0.5 amount transparency 1`] = `"rgba(255, 0, 0, 0.5)"`;
-
-exports[`transparentize it should correctly convert rgba(255, 0, 0, 1) with 0.1 amount transparency 1`] = `"rgba(255, 0, 0, 0.1)"`;
+exports[`transparentize should reduce the opacity of rgba(255, 0, 0, 1) by 0.1 1`] = `"rgba(255,0,0,0.9)"`;
