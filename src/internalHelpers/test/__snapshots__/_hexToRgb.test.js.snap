@@ -1,3 +1,0 @@
-exports[`transparentize it should correctly convert hex #000000 to rgb 1`] = `"rgb(0, 0, 0)"`;
-
-exports[`transparentize it should correctly convert hex #fff to rgb 1`] = `"rgb(255, 255, 255)"`;
