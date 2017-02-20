@@ -12,22 +12,22 @@ import guard from '../internalHelpers/_guard'
  * const styles = {
  *   background: transparentize(0.1, '#fff');
  *   background: transparentize(0.2, 'hsl(0, 0%, 100%)'),
- *   background: transparentize(0.5, 'rgba(255, 0, 0, .5)'),
+ *   background: transparentize(0.5, 'rgba(255, 0, 0, 0.8)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${transparentize(0.1, '#fff')};
  *   background: ${transparentize(0.2, 'hsl(0, 0%, 100%)')},
- *   background: ${transparentize(0.9, 'rgba(255, 0, 0, 0.1)', 0.9)},
+ *   background: ${transparentize(0.5, 'rgba(255, 0, 0, 0.8)')},
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   background: "rgba(255, 255, 255, 0.1)";
- *   background: "rgba(255, 255, 255, 0.2)";
- *   background: "rgba(255, 0, 0, 0.9)";
+ *   background: "rgba(255,255,255,0.9)";
+ *   background: "rgba(255,255,255,0.8)";
+ *   background: "rgba(255,0,0,0.3)";
  * }
  */
 function transparentize(amount: number, color: string) {
