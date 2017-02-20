@@ -47,38 +47,34 @@ const getRgba = (rgb: string, amount: number) : string => (
 )
 
 function transparentize(amount: number, color: string) {
-  if (amount >= 0 && amount <= 1) {
-    if (isHex(color)) {
-      const rgb = getColorValuesInBrackets(hexToRgb(color))
-      return getRgba(rgb, amount)
-    } else if (isRgb(color)) {
-      const rgb = getColorValuesInBrackets(color)
-      return getRgba(rgb, amount)
-    } else if (isRgba(color)) {
-      const rgb = getValuesTillLastComma(getColorValuesInBrackets(color))
-      return getRgba(rgb, amount)
-    } else if (isHsl(color)) {
-      const values = (
-        getColorValuesInBrackets(color)
-          .split(',')
-          .map(num => parseInt(num, 10) / 100)
-      )
-      const rgb = hslToRgb(...values)
-      return getRgba(rgb, amount)
-    } else if (isHsla(color)) {
-      const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
-      const values = (
-        hslValues
-          .split(',')
-          .map(num => parseInt(num, 10) / 100)
-      )
-      const rgb = hslToRgb(...values)
-      return getRgba(rgb, amount)
-    } else {
-      throw new Error('Invalid color')
-    }
+  if (isHex(color)) {
+    const rgb = getColorValuesInBrackets(hexToRgb(color))
+    return getRgba(rgb, amount)
+  } else if (isRgb(color)) {
+    const rgb = getColorValuesInBrackets(color)
+    return getRgba(rgb, amount)
+  } else if (isRgba(color)) {
+    const rgb = getValuesTillLastComma(getColorValuesInBrackets(color))
+    return getRgba(rgb, amount)
+  } else if (isHsl(color)) {
+    const values = (
+      getColorValuesInBrackets(color)
+        .split(',')
+        .map(num => parseInt(num, 10) / 100)
+    )
+    const rgb = hslToRgb(...values)
+    return getRgba(rgb, amount)
+  } else if (isHsla(color)) {
+    const hslValues = getValuesTillLastComma(getColorValuesInBrackets(color))
+    const values = (
+      hslValues
+        .split(',')
+        .map(num => parseInt(num, 10) / 100)
+    )
+    const rgb = hslToRgb(...values)
+    return getRgba(rgb, amount)
   } else {
-    throw new Error('Invalid amount, only values from 0 to 1 are accepted')
+    throw new Error('Passed invalid arguments to transparentize, please pass a valid color string in a hex or rgba notation.')
   }
 }
 

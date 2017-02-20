@@ -31,11 +31,6 @@ describe('transparentize', () => {
   })
 
   it('it should throw an error when enter an invalid color', () => {
-    expect(() => { transparentize(0.5, 'not a color') }).toThrow(new Error('Invalid color'))
-  })
-
-  it('it should throw an error when enter an invalid percentage', () => {
-    expect(() => { transparentize(1.5, 'rgba(255, 255, 255, .5)') })
-      .toThrow(new Error('Invalid amount, only values from 0 to 1 are accepted'))
+    expect(() => { transparentize(0.5, 'not a color') }).toThrow(new Error('Passed invalid arguments to transparentize, please pass a valid color string in a hex or rgba notation.'))
   })
 })
