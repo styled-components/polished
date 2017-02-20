@@ -14,6 +14,14 @@ Object {
 }
 `;
 
+exports[`parseColorString should parse a rgb color representation 1`] = `
+Object {
+  "blue": 255,
+  "green": 67,
+  "red": 174,
+}
+`;
+
 exports[`parseColorString should parse a rgba color representation 1`] = `
 Object {
   "alpha": 0.6,
