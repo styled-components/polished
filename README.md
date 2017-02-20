@@ -86,6 +86,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#getcolorvaluesinbrackets">getColorValuesInBrackets</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
