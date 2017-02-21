@@ -4,7 +4,7 @@ import parseColorString from '../internalHelpers/_parseColorString'
 import guard from '../internalHelpers/_guard'
 
 /**
- * Decreases the alpha of a color. Its range for the amount is between 0 to 1.
+ * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
  *
  *
  * @example
