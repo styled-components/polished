@@ -34,6 +34,7 @@ import complement from './helpers/complement'
 import adjustHue from './helpers/adjustHue'
 import invert from './helpers/invert'
 import transparentize from './helpers/transparentize'
+import opacify from './helpers/opacify'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -79,6 +80,7 @@ export {
   margin,
   modularScale,
   normalize,
+  opacify,
   padding,
   placeholder,
   position,
