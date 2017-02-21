@@ -1,0 +1,13 @@
+exports[`opacify should increase the opacity of hex #fff by 0.1 and still be 1 1`] = `"#fff"`;
+
+exports[`opacify should increase the opacity of hsl(0, 0%, 100%) by 0.2 and still be 1 1`] = `"#fff"`;
+
+exports[`opacify should increase the opacity of hsla(0, 0%, 100%, .3) by 0.5 1`] = `"rgba(255,255,255,0.8)"`;
+
+exports[`opacify should increase the opacity of rgba(255, 0, 0, .5) by 0.5 1`] = `"#f00"`;
+
+exports[`opacify should increase the opacity of rgba(255, 0, 0, 0.5) by 0.2 1`] = `"rgba(255,0,0,0.7)"`;
+
+exports[`opacify should not decrease the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
+
+exports[`opacify should not increase the opacity beyond 1 1`] = `"#f00"`;

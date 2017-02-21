@@ -36,6 +36,7 @@
     "adjustHue",
     "complement",
     "invert",
+    "opacify",
     "transparentize",
     {
       "name": "Shorthands",
