@@ -45,6 +45,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#adjusthue">adjustHue</a></li>
     <li><a href="http://polished.js.org/docs/#complement">complement</a></li>
     <li><a href="http://polished.js.org/docs/#invert">invert</a></li>
+    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
   </ul>
 </details>
 <details open>

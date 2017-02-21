@@ -33,6 +33,7 @@ import grayscale from './helpers/grayscale'
 import complement from './helpers/complement'
 import adjustHue from './helpers/adjustHue'
 import invert from './helpers/invert'
+import transparentize from './helpers/transparentize'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -93,5 +94,6 @@ export {
   textInputs,
   timingFunctions,
   transitions,
+  transparentize,
   wordWrap,
 }
