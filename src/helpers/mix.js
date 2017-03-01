@@ -34,10 +34,21 @@ import parseColorString from '../internalHelpers/_parseColorString'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-const mix: (weight: number, color: string, color2: string) => string | (color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
-  const weight = typeof colorOrWeight === 'number' ? colorOrWeight : 0.5
-  const colorString1 = typeof colorOrWeight === 'number' ? color : colorOrWeight
-  const colorString2 = typeof colorOrWeight === 'number' ? otherColor : color
+const mix: ((color: string, color2: string) => string) & (weight: number, color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
+  let weight
+  let colorString1
+  let colorString2
+  if (typeof colorOrWeight === 'number' && typeof otherColor === 'string') {
+    weight = colorOrWeight
+    colorString1 = color
+    colorString2 = otherColor
+  } else if (typeof colorOrWeight === 'string') {
+    weight = 0.5
+    colorString1 = colorOrWeight
+    colorString2 = color
+  } else {
+    throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors).')
+  }
 
   const parsedColor1 = parseColorString(colorString1)
   const color1 = {
