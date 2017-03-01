@@ -64,7 +64,7 @@ function mix(colorOrWeight: number | string, color: string, otherColor?: string)
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1,
   }
 
-  // The formular is copied by the original Sass implementation:
+  // The formular is copied from the original Sass implementation:
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
   const x = (weight * 2) - 1
