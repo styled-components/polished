@@ -25,6 +25,16 @@ import rgb from './helpers/rgb'
 import rgba from './helpers/rgba'
 import hsl from './helpers/hsl'
 import hsla from './helpers/hsla'
+import darken from './helpers/darken'
+import lighten from './helpers/lighten'
+import saturate from './helpers/saturate'
+import desaturate from './helpers/desaturate'
+import grayscale from './helpers/grayscale'
+import complement from './helpers/complement'
+import adjustHue from './helpers/adjustHue'
+import invert from './helpers/invert'
+import transparentize from './helpers/transparentize'
+import opacify from './helpers/opacify'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -43,6 +53,7 @@ import textInputs from './shorthands/textInputs'
 import transitions from './shorthands/transitions'
 
 export {
+  adjustHue,
   animation,
   backgroundImages,
   backgrounds,
@@ -52,17 +63,24 @@ export {
   borderWidth,
   buttons,
   clearFix,
+  complement,
+  darken,
+  desaturate,
   directionalProperty,
   ellipsis,
   em,
   fontFace,
+  grayscale,
+  invert,
   hideText,
   hiDPI,
   hsl,
   hsla,
+  lighten,
   margin,
   modularScale,
   normalize,
+  opacify,
   padding,
   placeholder,
   position,
@@ -71,11 +89,13 @@ export {
   retinaImage,
   rgb,
   rgba,
+  saturate,
   selection,
   size,
   stripUnit,
   textInputs,
   timingFunctions,
   transitions,
+  transparentize,
   wordWrap,
 }
