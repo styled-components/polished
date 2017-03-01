@@ -34,7 +34,9 @@ import parseColorString from '../internalHelpers/_parseColorString'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-const mix: ((color: string, color2: string) => string) & (weight: number, color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
+// Correct type definition, but doesn't show up when we generate the docs.
+// const mix: ((color: string, color2: string) => string) & (weight: number, color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
+function mix(colorOrWeight: number | string, color: string, otherColor?: string): string {
   let weight
   let colorString1
   let colorString2

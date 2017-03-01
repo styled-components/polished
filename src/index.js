@@ -35,6 +35,7 @@ import adjustHue from './helpers/adjustHue'
 import invert from './helpers/invert'
 import transparentize from './helpers/transparentize'
 import opacify from './helpers/opacify'
+import mix from './helpers/mix'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -78,6 +79,7 @@ export {
   hsla,
   lighten,
   margin,
+  mix,
   modularScale,
   normalize,
   opacify,
