@@ -4,7 +4,12 @@ import rgba from './rgba'
 import parseColorString from '../internalHelpers/_parseColorString'
 
 /**
- * Mixes two colors together.
+ * Mixes two colors together by calculating the average of each of the RGB components.
+ *
+ * By default the weight is 0.5 meaning that half of the first color and half the second
+ * color should be used. Optionally the weight can be modified by by providing a number
+ * as the first argument. 0.25 means that a quarter of the first color and three quarters
+ * of the second color should be used.
  *
  * @example
  * // Styles as object usage
@@ -29,7 +34,7 @@ import parseColorString from '../internalHelpers/_parseColorString'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(colorOrWeight: string | number, color: string, otherColor?: string): string {
+const mix: (weight: number, color: string, color2: string) => string | (color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
   const weight = typeof colorOrWeight === 'number' ? colorOrWeight : 0.5
   const colorString1 = typeof colorOrWeight === 'number' ? color : colorOrWeight
   const colorString2 = typeof colorOrWeight === 'number' ? otherColor : color
