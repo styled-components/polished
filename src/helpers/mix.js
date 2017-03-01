@@ -49,7 +49,7 @@ function mix(colorOrWeight: number | string, color: string, otherColor?: string)
     colorString1 = colorOrWeight
     colorString2 = color
   } else {
-    throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors).')
+    throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.')
   }
 
   const parsedColor1 = parseColorString(colorString1)
