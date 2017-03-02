@@ -15,6 +15,7 @@ describe('mix', () => {
   })
 
   it('should throw an error if only one color is provided', () => {
-    expect(() => { mix(0.25, 'rgba(255, 0, 0, 0.5)') }).toThrow(new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.'))
+    const error = new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.')
+    expect(() => { mix(0.25, 'rgba(255, 0, 0, 0.5)') }).toThrow(error)
   })
 })
