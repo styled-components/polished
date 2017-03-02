@@ -1,0 +1,5 @@
+exports[`mix should mix two colors 1`] = `"#7f007f"`;
+
+exports[`mix should mix two colors with by a weight of 25% 1`] = `"#3f00bf"`;
+
+exports[`mix should mix two colors with opacity lower than 1 1`] = `"rgba(63,0,191,0.75)"`;
