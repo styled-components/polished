@@ -1,8 +1,8 @@
 // @flow
 import rem from '../rem'
 
-describe('rem', function() {
-  it('should convert a simple number to rems', function() {
+describe('rem', () => {
+  it('should convert a simple number to rems', () => {
     expect({ height: rem(16) }).toMatchSnapshot()
   })
 })
