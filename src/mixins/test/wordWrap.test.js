@@ -1,18 +1,16 @@
 // @flow
 import wordWrap from '../wordWrap'
 
-describe('wordWrap', function() {
-
-  it('should accept other values', function() {
+describe('wordWrap', () => {
+  it('should accept other values', () => {
     expect({
-      ...wordWrap('break-all')
+      ...wordWrap('break-all'),
     }).toMatchSnapshot()
   })
 
-  it('should default wrap to break-word', function() {
+  it('should default wrap to break-word', () => {
     expect({
-      ...wordWrap()
+      ...wordWrap(),
     }).toMatchSnapshot()
   })
-
 })
