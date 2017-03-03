@@ -4,7 +4,7 @@
  * @private
  */
 
-function formatMessageHeader(moduleInfo) {
+function formatMessage(moduleInfo) {
   const header = `%c -- ${type} --------------------------------------------------- ${modulePath} -- `
 
   const messageBody = `%c
@@ -15,14 +15,14 @@ function formatMessageHeader(moduleInfo) {
   `
 
   const messageInfo = `%c
-  Please see the documentation at %chttps://www.polished.js/${docLink} %cfor more information.
+  Please see the documentation at %chttps://www.polished.js.org/${docPath} %cfor more information.
 
   `
   console.log(header + messageBody + messageInfo, 'padding: 2px; font-weight: bold; background: red; color: black', 'color: black', 'color: slategray', 'color: blue', 'color: slategray')
 }
 
-function generateMessage({type, moduleInfo, messageBody}) {
-  const message = formatMessage(moduleInfo, messageBody)
+function generateMessage(type, moduleInfo, messageBody, docPath) {
+  const message = formatMessage(type, moduleInfo, messageBody, docPath)
   console.log(message)
 }
 
