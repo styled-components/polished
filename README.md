@@ -33,21 +33,23 @@ A lightweight toolset for writing styles in Javascript. ✨
 <details open>
   <summary>Color</summary>
   <ul>
-    <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
-    <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
-    <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
-    <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
-    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
-    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
-    <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
-    <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
-    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
     <li><a href="http://polished.js.org/docs/#adjusthue">adjustHue</a></li>
     <li><a href="http://polished.js.org/docs/#complement">complement</a></li>
+    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
+    <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
+    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
+    <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
+    <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
     <li><a href="http://polished.js.org/docs/#invert">invert</a></li>
-    <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
-    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
+    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
+    <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
+    <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
+    <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
+    <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
+    <li><a href="http://polished.js.org/docs/#shade">shade</a></li>
+    <li><a href="http://polished.js.org/docs/#tint">tint</a></li>
+    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
   </ul>
 </details>
 <details open>
@@ -83,12 +85,17 @@ A lightweight toolset for writing styles in Javascript. ✨
   <summary>Types</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslacolor">HslaColor</a></li>
     <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
