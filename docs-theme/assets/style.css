@@ -16,6 +16,12 @@ body {
 
 .header {
   text-align: center;
+  margin-top: 5em;
+}
+
+.logo {
+  height: 10em;
+  background-color: #fff;
 }
 
 .home h2,
@@ -30,6 +36,26 @@ body {
 
 .home h3 {
   font-size: 1.5em;
+}
+
+.installation {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
+
+.command {
+  background-color: #3a9b6d;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.5em 1.5em;
+  display: inline-block;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.command:before {
+  content: "$";
+  margin-right: 0.5em;
 }
 
 .button {
@@ -76,24 +102,31 @@ body {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  background: #48be85;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .repl__input,
 .repl__output {
-  height: 10em;
-  width: 50%;
   position: relative;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  overflow: scroll;
+  color: #3a9b6d;
 }
 
-/*.repl {
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  color: #0B1912;
-  background: #4EBD87;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.24);
-  border-radius: 4px;
-}*/
+.repl__arg {
+  font-weight: bold;
+}
+
+.repl__func {
+  color: black;
+  font-weight: bold;
+}
 
 .bg-white {
   background-color: #fff;

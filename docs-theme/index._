@@ -1,16 +1,37 @@
 <header class="header">
-	<h1> polished</h1>
+	<img src="/assets/logo.svg" alt="polished" class="logo" />
 	<h2 class="subtitle">A lightweight toolset for writing styles in JavaScript</h2>
+	<div class="repl">
+		<pre class="repl__input"><code>const styles = {
+  color: <span class="repl__func">lighten</span>(<span class="repl__arg">'#000', 20</span>),
+  font-size: <span class="repl__func">modularScale</span>(<span class="repl__arg">1</span>),
+  [<span class="repl__func">hiDPI</span>(<span class="repl__arg">1.5</span>)]: {
+    font-size: <span class="repl__func">modularScale</span>(<span class="repl__arg">1.25</span>)
+  }
+}</code></pre>
+		<pre class="repl__output"><code>const styles = {
+  color: '#333',
+  font-size: '16px',
+  '@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 1.5/1), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx)': {
+    font-size: '20px',
+  }
+}</code></pre>
+	</div>
 	<a class="button" href="https://github.com/styled-components/polished"><img src="/assets/GitHub-Mark-Light-64px.png" />View on GitHub</a>
 	<a class="button" href="/docs/">Docs</a>
+	<div class="installation">
+		<code class="command">npm install --save polished</code>
+	</div>
 </header>
 
 <main class="main">
-	<h3>Try editing the code below</h3>
-	<div class="repl">
-		<div class="repl__input"></div>
-		<div class="repl__output"></div>
-	</div>
+	<h3>Cross-framework compatible</h3>
+	<p>No matter if you're using 💅 styled-components, aphrodite or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!</p>
+	<h3>Make your app look great without stress</h3>
+	<p>From sizing over colors all the way to mixins we cover everything you could need to make your app look ✨ fabulous.</p>
+	<h3>Almost no learning curve</h3>
+	<p>Used a CSS preprocessor before? The polished utils will immediately feel familiar. Haven't used one before? Don't worry, our <a href="/docs">extensive documentation</a> has got you.</p>
+	<a class="button" href="/docs/">Jump right in!</a>
 </main>
 
 <footer>

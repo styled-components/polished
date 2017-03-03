@@ -7,6 +7,7 @@
   <link href='/assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='/assets/github.css' type='text/css' rel='stylesheet' />
   <link href='/assets/style.css' type='text/css' rel='stylesheet' />
+  <link rel="shortcut icon" href="/favicon.png" />
 </head>
 <body class='documentation'>
   
@@ -146,6 +147,16 @@
             
               
               <li><a
+                href='#timingfunctions'
+                class="">
+                timingFunctions
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#wordwrap'
                 class="">
                 wordWrap
@@ -169,6 +180,26 @@
                 href='#rgb'
                 class="">
                 rgb
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#rgb'
+                class="">
+                rgb
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#rgba'
+                class="">
+                rgba
                 
               </a>
               
@@ -217,10 +248,27 @@
               
               <li><a
                 href='#animation'
-                class="">
+                class=" toggle-sibling">
                 animation
-                
+                <span class='icon'>▸</span>
               </a>
+              
+              <div class='toggle-target display-none'>
+                
+                <ul class='list-reset py1-ul pl1'>
+                  <li class='h5'><span>Static members</span></li>
+                  
+                    <li><a
+                      href='#animation.default'
+                      class='regular pre-open'>
+                      .default
+                    </a></li>
+                  
+                  </ul>
+                
+                
+                
+              </div>
               
               </li>
             
@@ -296,6 +344,16 @@
             
               
               <li><a
+                href='#buttons'
+                class="">
+                buttons
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#margin'
                 class="">
                 margin
@@ -346,6 +404,16 @@
             
               
               <li><a
+                href='#textinputs'
+                class="">
+                textInputs
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#transitions'
                 class="">
                 transitions
@@ -376,16 +444,6 @@
             
               
               <li><a
-                href='#em'
-                class="">
-                em
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
                 href='#modularscale'
                 class="">
                 modularScale
@@ -396,9 +454,9 @@
             
               
               <li><a
-                href='#rem'
+                href='#modularscale'
                 class="">
-                rem
+                modularScale
                 
               </a>
               
@@ -426,9 +484,9 @@
             
               
               <li><a
-                href='#ratio'
+                href='#default'
                 class="">
-                Ratio
+                default
                 
               </a>
               
@@ -436,9 +494,9 @@
             
               
               <li><a
-                href='#rgbcolor'
+                href='#default'
                 class="">
-                RgbColor
+                default
                 
               </a>
               
@@ -446,9 +504,9 @@
             
               
               <li><a
-                href='#rgbacolor'
+                href='#generatelocalreferences'
                 class="">
-                RgbaColor
+                generateLocalReferences
                 
               </a>
               
@@ -456,59 +514,9 @@
             
               
               <li><a
-                href='#fontfaceconfiguration'
+                href='#constructgradientvalue'
                 class="">
-                FontFaceConfiguration
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#radialgradientconfiguration'
-                class="">
-                RadialGradientConfiguration
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#timingfunction'
-                class="">
-                TimingFunction
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#animationproperty'
-                class="">
-                AnimationProperty
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#buttonstate'
-                class="">
-                ButtonState
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#inputstate'
-                class="">
-                InputState
+                constructGradientValue
                 
               </a>
               
@@ -549,8 +557,8 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/clearFix.js#L26-L35'>
-      <span>src/mixins/clearFix.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/clearFix.js#L32-L41'>
+      <span>lib/mixins/clearFix.js</span>
       </a>
     
   </div>
@@ -559,7 +567,7 @@
   <p>CSS to contain a float (credit to CSSMojo).</p>
 
 
-  <div class='pre p1 fill-light mt0'>clearFix(parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>clearFix()</div>
   
   
 
@@ -569,20 +577,6 @@
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;&amp;&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -635,8 +629,8 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/ellipsis.js#L29-L38'>
-      <span>src/mixins/ellipsis.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/ellipsis.js#L34-L45'>
+      <span>lib/mixins/ellipsis.js</span>
       </a>
     
   </div>
@@ -645,7 +639,7 @@
   <p>CSS to represent truncated text with an ellipsis.</p>
 
 
-  <div class='pre p1 fill-light mt0'>ellipsis(width: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>ellipsis()</div>
   
   
 
@@ -655,20 +649,6 @@
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>width</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;100%&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -724,8 +704,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/fontFace.js#L61-L92'>
-      <span>src/mixins/fontFace.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/fontFace.js#L60-L92'>
+      <span>lib/mixins/fontFace.js</span>
       </a>
     
   </div>
@@ -734,7 +714,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>CSS for a @font-face declaration.</p>
 
 
-  <div class='pre p1 fill-light mt0'>fontFace($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>fontFace(_ref: Any)</div>
   
   
 
@@ -750,81 +730,9 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>_ref</span> <code class='quiet'>(Any)</code>
 	    
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontFamily</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontFilePath</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontStretch</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontStyle</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontVariant</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fontWeight</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fileFormats</span> <code class='quiet'>Any</code>
-                  
-                    (default <code>[&#39;eot&#39;, &#39;woff2&#39;, &#39;woff&#39;, &#39;ttf&#39;, &#39;svg&#39;]</code>)
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.localFonts</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.unicodeRange</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -886,8 +794,8 @@ injectGlobals`${
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/hiDPI.js#L32-L40'>
-      <span>src/mixins/hiDPI.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/hiDPI.js#L37-L41'>
+      <span>lib/mixins/hiDPI.js</span>
       </a>
     
   </div>
@@ -896,7 +804,7 @@ injectGlobals`${
   <p>Generates a media query to target HiDPI devices.</p>
 
 
-  <div class='pre p1 fill-light mt0'>hiDPI(ratio: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>])</div>
+  <div class='pre p1 fill-light mt0'>hiDPI()</div>
   
   
 
@@ -906,20 +814,6 @@ injectGlobals`${
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>ratio</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>]
-            = <code>1.3</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -978,8 +872,8 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/hideText.js#L29-L35'>
-      <span>src/mixins/hideText.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/hideText.js#L34-L40'>
+      <span>lib/mixins/hideText.js</span>
       </a>
     
   </div>
@@ -1053,8 +947,8 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/normalize.js#L293-L296'>
-      <span>src/mixins/normalize.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/normalize.js#L177-L180'>
+      <span>lib/mixins/normalize.js</span>
       </a>
     
   </div>
@@ -1063,7 +957,7 @@ const div = styled.div`
   <p>CSS to normalize abnormalities across browsers (normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css)</p>
 
 
-  <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+  <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: Any)</div>
   
   
 
@@ -1079,7 +973,7 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>excludeOpinionated</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+            <span class='code bold'>excludeOpinionated</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1137,8 +1031,8 @@ html {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/placeholder.js#L35-L50'>
-      <span>src/mixins/placeholder.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/placeholder.js#L43-L49'>
+      <span>lib/mixins/placeholder.js</span>
       </a>
     
   </div>
@@ -1147,7 +1041,7 @@ html {
   <p>CSS to style the selection psuedo-element.</p>
 
 
-  <div class='pre p1 fill-light mt0'>placeholder(styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>placeholder(styles: Any)</div>
   
   
 
@@ -1163,16 +1057,7 @@ html {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;&amp;&#39;</code>)</code>
+            <span class='code bold'>styles</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1240,8 +1125,8 @@ const div = styled.input`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/radialGradient.js#L67-L79'>
-      <span>src/mixins/radialGradient.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/radialGradient.js#L69-L81'>
+      <span>lib/mixins/radialGradient.js</span>
       </a>
     
   </div>
@@ -1250,7 +1135,7 @@ const div = styled.input`
   <p>CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
 
 
-  <div class='pre p1 fill-light mt0'>radialGradient($0: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>radialGradient(_ref: Any)</div>
   
   
 
@@ -1266,55 +1151,9 @@ const div = styled.input`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>_ref</span> <code class='quiet'>(Any)</code>
 	    
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.colorStops</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.extent</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.fallback</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.position</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-                <tr>
-                  <td class='break-word'><span class='code bold'>$0.shape</span> <code class='quiet'>Any</code>
-                  </td>
-                  <td class='break-word'><span></span></td>
-                </tr>
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -1380,8 +1219,8 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/retinaImage.js#L33-L48'>
-      <span>src/mixins/retinaImage.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/retinaImage.js#L43-L61'>
+      <span>lib/mixins/retinaImage.js</span>
       </a>
     
   </div>
@@ -1392,7 +1231,7 @@ background image. The retina background image will output to a HiDPI media query
 a _2x.png filename suffix by default.</p>
 
 
-  <div class='pre p1 fill-light mt0'>retinaImage(filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, backgroundSize: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, extension: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>], retinaFilename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, retinaSuffix: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>retinaImage(filename: Any, backgroundSize: Any)</div>
   
   
 
@@ -1408,7 +1247,7 @@ a _2x.png filename suffix by default.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>filename</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>filename</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1416,33 +1255,7 @@ a _2x.png filename suffix by default.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>backgroundSize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>extension</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;png&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>retinaFilename</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>retinaSuffix</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;_2x&#39;</code>)</code>
+            <span class='code bold'>backgroundSize</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1505,8 +1318,8 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/selection.js#L31-L40'>
-      <span>src/mixins/selection.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/selection.js#L39-L45'>
+      <span>lib/mixins/selection.js</span>
       </a>
     
   </div>
@@ -1515,7 +1328,7 @@ div {
   <p>CSS to style the selection psuedo-element.</p>
 
 
-  <div class='pre p1 fill-light mt0'>selection(styles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>selection(styles: Any)</div>
   
   
 
@@ -1531,16 +1344,7 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>parent</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;&#39;</code>)</code>
+            <span class='code bold'>styles</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1604,17 +1408,16 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/timingFunctions.js#L82-L84'>
-      <span>src/mixins/timingFunctions.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/timingFunctions.js#L63-L65'>
+      <span>lib/mixins/timingFunctions.js</span>
       </a>
     
   </div>
   
 
-  <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+  
 
-
-  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: <a href="#timingfunction">TimingFunction</a>)</div>
+  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: Any)</div>
   
   
 
@@ -1630,7 +1433,70 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>timingFunction</span> <code class='quiet'>(<a href="#timingfunction">TimingFunction</a>)</code>
+            <span class='code bold'>timingFunction</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='timingfunctions'>
+      timingFunctions
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/timingFunctions.js#L63-L65'>
+      <span>lib/mixins/timingFunctions.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>timingFunction</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1687,8 +1553,8 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/wordWrap.js#L26-L33'>
-      <span>src/mixins/wordWrap.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/wordWrap.js#L31-L40'>
+      <span>lib/mixins/wordWrap.js</span>
       </a>
     
   </div>
@@ -1697,7 +1563,7 @@ const div = styled.div`
   <p>Provides an easy way to change the <code>word-wrap</code> property</p>
 
 
-  <div class='pre p1 fill-light mt0'>wordWrap(wrap: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>wordWrap()</div>
   
   
 
@@ -1707,20 +1573,6 @@ const div = styled.div`
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>wrap</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>&#39;break-word&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -1788,8 +1640,8 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/rgb.js#L36-L44'>
-      <span>src/helpers/rgb.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/rgb.js#L45-L53'>
+      <span>lib/helpers/rgb.js</span>
       </a>
     
   </div>
@@ -1798,7 +1650,7 @@ const div = styled.div`
   <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
 
 
-  <div class='pre p1 fill-light mt0'>rgb(value: (<a href="#rgbcolor">RgbColor</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), green: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, blue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>rgb(value: Any, green: Any, blue: Any)</div>
   
   
 
@@ -1814,7 +1666,7 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>((<a href="#rgbcolor">RgbColor</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1822,7 +1674,7 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>green</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1830,7 +1682,7 @@ const div = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>blue</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1841,11 +1693,6 @@ const div = styled.div`
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
   
 
   
@@ -1890,22 +1737,21 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='rgba'>
-      rgba
+    <h3 class='fl m0' id='rgb'>
+      rgb
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/rgba.js#L39-L52'>
-      <span>src/helpers/rgba.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/rgb.js#L45-L53'>
+      <span>lib/helpers/rgb.js</span>
       </a>
     
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
+  
 
-
-  <div class='pre p1 fill-light mt0'>rgba(value: (<a href="#rgbacolor">RgbaColor</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), green: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, blue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, alpha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>rgb(value: Any, green: Any, blue: Any)</div>
   
   
 
@@ -1921,7 +1767,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>((<a href="#rgbacolor">RgbaColor</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1929,7 +1775,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>green</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1937,15 +1783,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>alpha</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>blue</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -1957,10 +1795,92 @@ element {
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
     
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    <h3 class='fl m0' id='rgba'>
+      rgba
+    </h3>
     
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/rgba.js#L44-L52'>
+      <span>lib/helpers/rgba.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
+
+
+  <div class='pre p1 fill-light mt0'>rgba(value: Any, green: Any, blue: Any, alpha: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>green</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>blue</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>alpha</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
   
 
   
@@ -2008,22 +1928,21 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='hsl'>
-      hsl
+    <h3 class='fl m0' id='rgba'>
+      rgba
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/hsl.js#L34-L42'>
-      <span>src/helpers/hsl.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/rgba.js#L44-L52'>
+      <span>lib/helpers/rgba.js</span>
       </a>
     
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
+  
 
-
-  <div class='pre p1 fill-light mt0'>hsl(value: (HslColor | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>rgba(value: Any, green: Any, blue: Any, alpha: Any)</div>
   
   
 
@@ -2039,7 +1958,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>((HslColor | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2047,7 +1966,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>green</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2055,7 +1974,15 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>blue</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>alpha</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2067,10 +1994,84 @@ element {
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
     
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    <h3 class='fl m0' id='hsl'>
+      hsl
+    </h3>
     
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/hsl.js#L38-L46'>
+      <span>lib/helpers/hsl.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
+
+
+  <div class='pre p1 fill-light mt0'>hsl(value: Any, saturation: Any, lightness: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>saturation</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lightness</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
   
 
   
@@ -2120,8 +2121,8 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/hsla.js#L39-L61'>
-      <span>src/helpers/hsla.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/hsla.js#L45-L53'>
+      <span>lib/helpers/hsla.js</span>
       </a>
     
   </div>
@@ -2130,7 +2131,7 @@ element {
   <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
 
 
-  <div class='pre p1 fill-light mt0'>hsla(value: (HslColor | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, alpha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>hsla(value: Any, saturation: Any, lightness: Any, alpha: Any)</div>
   
   
 
@@ -2146,7 +2147,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>((HslColor | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2154,7 +2155,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>saturation</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2162,7 +2163,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>lightness</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2170,7 +2171,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>alpha</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>alpha</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2181,11 +2182,6 @@ element {
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
   
 
   
@@ -2253,8 +2249,8 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/animation.js#L42-L62'>
-      <span>src/shorthands/animation.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/animation.js#L44-L68'>
+      <span>lib/shorthands/animation.js</span>
       </a>
     
   </div>
@@ -2264,7 +2260,7 @@ element {
 or a single animation spread over the arguments.</p>
 
 
-  <div class='pre p1 fill-light mt0'>animation(args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#animationproperty">AnimationProperty</a>&gt; | <a href="#animationproperty">AnimationProperty</a>)&gt;)</div>
+  <div class='pre p1 fill-light mt0'>animation()</div>
   
   
 
@@ -2274,19 +2270,6 @@ or a single animation spread over the arguments.</p>
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#animationproperty">AnimationProperty</a>&gt; | <a href="#animationproperty">AnimationProperty</a>)&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2335,6 +2318,65 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='animation.default'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>default</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/animation.js#L71-L71'>
+      <span>lib/shorthands/animation.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>default</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
 
   
 
@@ -2354,8 +2396,8 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/backgroundImages.js#L23-L27'>
-      <span>src/shorthands/backgroundImages.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/backgroundImages.js#L28-L36'>
+      <span>lib/shorthands/backgroundImages.js</span>
       </a>
     
   </div>
@@ -2364,7 +2406,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   <p>The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..</p>
 
 
-  <div class='pre p1 fill-light mt0'>backgroundImages(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  <div class='pre p1 fill-light mt0'>backgroundImages()</div>
   
   
 
@@ -2374,19 +2416,6 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>properties</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2437,8 +2466,8 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/backgrounds.js#L22-L26'>
-      <span>src/shorthands/backgrounds.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/backgrounds.js#L27-L35'>
+      <span>lib/shorthands/backgrounds.js</span>
       </a>
     
   </div>
@@ -2447,7 +2476,7 @@ div {
   <p>The backgrounds shorthand accepts any number of background values as parameters for creating a single background statement..</p>
 
 
-  <div class='pre p1 fill-light mt0'>backgrounds(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  <div class='pre p1 fill-light mt0'>backgrounds()</div>
   
   
 
@@ -2457,19 +2486,6 @@ div {
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>properties</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2520,8 +2536,8 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/borderColor.js#L27-L29'>
-      <span>src/shorthands/borderColor.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/borderColor.js#L36-L42'>
+      <span>lib/shorthands/borderColor.js</span>
       </a>
     
   </div>
@@ -2530,7 +2546,7 @@ div {
   <p>The border-color shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
 
 
-  <div class='pre p1 fill-light mt0'>borderColor(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>borderColor()</div>
   
   
 
@@ -2540,19 +2556,6 @@ div {
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2606,8 +2609,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/borderRadius.js#L24-L41'>
-      <span>src/shorthands/borderRadius.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/borderRadius.js#L30-L45'>
+      <span>lib/shorthands/borderRadius.js</span>
       </a>
     
   </div>
@@ -2616,7 +2619,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>The border-radius shorthand accepts a value for side and a value for radius and applies the radius value to both corners of the side.</p>
 
 
-  <div class='pre p1 fill-light mt0'>borderRadius(side: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, radius: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  <div class='pre p1 fill-light mt0'>borderRadius(side: Any, radius: Any)</div>
   
   
 
@@ -2632,7 +2635,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>side</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>side</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2640,7 +2643,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>radius</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>radius</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -2698,8 +2701,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/borderStyle.js#L27-L29'>
-      <span>src/shorthands/borderStyle.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/borderStyle.js#L36-L42'>
+      <span>lib/shorthands/borderStyle.js</span>
       </a>
     
   </div>
@@ -2708,7 +2711,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>The border-style shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
 
 
-  <div class='pre p1 fill-light mt0'>borderStyle(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>borderStyle()</div>
   
   
 
@@ -2718,19 +2721,6 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2784,8 +2774,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/borderWidth.js#L27-L29'>
-      <span>src/shorthands/borderWidth.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/borderWidth.js#L36-L42'>
+      <span>lib/shorthands/borderWidth.js</span>
       </a>
     
   </div>
@@ -2794,7 +2784,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>The border-width shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
 
 
-  <div class='pre p1 fill-light mt0'>borderWidth(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>borderWidth()</div>
   
   
 
@@ -2804,19 +2794,6 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2870,8 +2847,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/buttons.js#L48-L50'>
-      <span>src/shorthands/buttons.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/buttons.js#L50-L56'>
+      <span>lib/shorthands/buttons.js</span>
       </a>
     
   </div>
@@ -2880,7 +2857,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <p>Populates selectors that target all buttons. You can pass optional states to append to the selectors.</p>
 
 
-  <div class='pre p1 fill-light mt0'>buttons(states: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#buttonstate">ButtonState</a>&gt;)</div>
+  <div class='pre p1 fill-light mt0'>buttons()</div>
   
   
 
@@ -2890,19 +2867,6 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>states</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#buttonstate">ButtonState</a>&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -2955,13 +2919,62 @@ const div = styled.div`
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='buttons'>
+      buttons
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/buttons.js#L50-L56'>
+      <span>lib/shorthands/buttons.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>buttons()</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='margin'>
       margin
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/margin.js#L27-L29'>
-      <span>src/shorthands/margin.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/margin.js#L36-L42'>
+      <span>lib/shorthands/margin.js</span>
       </a>
     
   </div>
@@ -2970,7 +2983,7 @@ const div = styled.div`
   <p>The margin shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
 
 
-  <div class='pre p1 fill-light mt0'>margin(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>margin()</div>
   
   
 
@@ -2980,19 +2993,6 @@ const div = styled.div`
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -3046,8 +3046,8 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/padding.js#L27-L29'>
-      <span>src/shorthands/padding.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/padding.js#L36-L42'>
+      <span>lib/shorthands/padding.js</span>
       </a>
     
   </div>
@@ -3056,7 +3056,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   <p>The padding shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
 
 
-  <div class='pre p1 fill-light mt0'>padding(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>padding()</div>
   
   
 
@@ -3066,19 +3066,6 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -3132,8 +3119,8 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/position.js#L49-L59'>
-      <span>src/shorthands/position.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/position.js#L60-L73'>
+      <span>lib/shorthands/position.js</span>
       </a>
     
   </div>
@@ -3142,7 +3129,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
   <p>The position shorthand accepts up to five values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions. The first calue can optionally be a position keyword.</p>
 
 
-  <div class='pre p1 fill-light mt0'>position(positionKeyword: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | Any), values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>position(positionKeyword: Any)</div>
   
   
 
@@ -3158,15 +3145,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>positionKeyword</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | Any))</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
+            <span class='code bold'>positionKeyword</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -3246,8 +3225,8 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/size.js#L24-L29'>
-      <span>src/shorthands/size.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/size.js#L29-L36'>
+      <span>lib/shorthands/size.js</span>
       </a>
     
   </div>
@@ -3256,7 +3235,7 @@ div {
   <p>Mixin to set the height and width properties in a single statement.</p>
 
 
-  <div class='pre p1 fill-light mt0'>size(height: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, width: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>])</div>
+  <div class='pre p1 fill-light mt0'>size(height: Any)</div>
   
   
 
@@ -3272,16 +3251,7 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>width</span> <code class='quiet'>([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>]
-            = <code>height</code>)</code>
+            <span class='code bold'>height</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -3339,8 +3309,57 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/textInputs.js#L72-L74'>
-      <span>src/shorthands/textInputs.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/textInputs.js#L62-L68'>
+      <span>lib/shorthands/textInputs.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>textInputs()</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='textinputs'>
+      textInputs
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/textInputs.js#L62-L68'>
+      <span>lib/shorthands/textInputs.js</span>
       </a>
     
   </div>
@@ -3349,7 +3368,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
   <p>Populates selectors that target all text inputs. You can pass optional states to append to the selectors.</p>
 
 
-  <div class='pre p1 fill-light mt0'>textInputs(states: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#inputstate">InputState</a>&gt;)</div>
+  <div class='pre p1 fill-light mt0'>textInputs()</div>
   
   
 
@@ -3359,19 +3378,6 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>states</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="#inputstate">InputState</a>&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -3441,8 +3447,8 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/transitions.js#L23-L27'>
-      <span>src/shorthands/transitions.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/shorthands/transitions.js#L28-L36'>
+      <span>lib/shorthands/transitions.js</span>
       </a>
     
   </div>
@@ -3451,7 +3457,7 @@ const div = styled.div`
   <p>The transitions shorthand accepts any number of transition values as parameters for creating a single transition statement..</p>
 
 
-  <div class='pre p1 fill-light mt0'>transitions(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</div>
+  <div class='pre p1 fill-light mt0'>transitions()</div>
   
   
 
@@ -3461,19 +3467,6 @@ const div = styled.div`
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>properties</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -3539,8 +3532,8 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/directionalProperty.js#L44-L49'>
-      <span>src/helpers/directionalProperty.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/directionalProperty.js#L48-L64'>
+      <span>lib/helpers/directionalProperty.js</span>
       </a>
     
   </div>
@@ -3549,7 +3542,7 @@ div {
   <p>The directional property helper enables shorthand for direction based properties. It accepts a property and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can optionally pass a null argument for a directional value to ignore it.</p>
 
 
-  <div class='pre p1 fill-light mt0'>directionalProperty(property: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</div>
+  <div class='pre p1 fill-light mt0'>directionalProperty(property: Any)</div>
   
   
 
@@ -3565,15 +3558,7 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>property</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?&gt;)</code>
+            <span class='code bold'>property</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -3628,13 +3613,258 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='em'>
-      em
+    <h3 class='fl m0' id='modularscale'>
+      modularScale
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/em.js#L29-L29'>
-      <span>src/helpers/em.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/modularScale.js#L58-L77'>
+      <span>lib/helpers/modularScale.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>modularScale(steps: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>steps</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='modularscale'>
+      modularScale
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/modularScale.js#L58-L77'>
+      <span>lib/helpers/modularScale.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.</p>
+
+
+  <div class='pre p1 fill-light mt0'>modularScale(steps: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>steps</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  <span class="hljs-string">'font-size'</span>: modularScale(<span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  font-<span class="hljs-built_in">size</span>: ${modularScale(<span class="hljs-number">2</span>)}
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'font-size'</span>: <span class="hljs-string">'1.77689em'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='stripunit'>
+      stripUnit
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/stripUnit.js#L29-L33'>
+      <span>lib/helpers/stripUnit.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)</p>
+
+
+  <div class='pre p1 fill-light mt0'>stripUnit(value: Any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-number">100</span>px)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-number">100</span>px)}</span>
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='Types' class='mt0'>
+    Types
+  </h2>
+
+  
+    <p>Types used within the library.</p>
+
+  
+</section>
+</div>
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='default'>
+      default
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/em.js#L37-L37'>
+      <span>lib/helpers/em.js</span>
       </a>
     
   </div>
@@ -3644,7 +3874,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 second argument to the function.</p>
 
 
-  <div class='pre p1 fill-light mt0'>em(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)])</div>
+  <div class='pre p1 fill-light mt0'>default(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)])</div>
   
   
 
@@ -3721,116 +3951,13 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='modularscale'>
-      modularScale
+    <h3 class='fl m0' id='default'>
+      default
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/modularScale.js#L67-L83'>
-      <span>src/helpers/modularScale.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.</p>
-
-
-  <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)], ratio: [<a href="#ratio">Ratio</a>])</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>steps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>base</span> <code class='quiet'>([(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)]
-            = <code>&#39;1em&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>ratio</span> <code class='quiet'>([<a href="#ratio">Ratio</a>]
-            = <code>&#39;perfectFourth&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-   <span class="hljs-comment">// Increment two steps up the default scale</span>
-  <span class="hljs-string">'font-size'</span>: modularScale(<span class="hljs-number">2</span>)
-}
-
-<span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div`
-   <span class="hljs-comment">// Increment two steps up the default scale</span>
-  font-<span class="hljs-built_in">size</span>: ${modularScale(<span class="hljs-number">2</span>)}
-`
-
-<span class="hljs-comment">// CSS in JS Output</span>
-
-element {
-  <span class="hljs-string">'font-size'</span>: <span class="hljs-string">'1.77689em'</span>
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='rem'>
-      rem
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/rem.js#L28-L28'>
-      <span>src/helpers/rem.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/helpers/rem.js#L36-L36'>
+      <span>lib/helpers/rem.js</span>
       </a>
     
   </div>
@@ -3840,7 +3967,7 @@ element {
 second argument to the function.</p>
 
 
-  <div class='pre p1 fill-light mt0'>rem(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)])</div>
+  <div class='pre p1 fill-light mt0'>default(pxval: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: [(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)])</div>
   
   
 
@@ -3917,22 +4044,21 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='stripunit'>
-      stripUnit
+    <h3 class='fl m0' id='generatelocalreferences'>
+      generateLocalReferences
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/stripUnit.js#L24-L28'>
-      <span>src/helpers/stripUnit.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/fontFace.js#L18-L23'>
+      <span>lib/mixins/fontFace.js</span>
       </a>
     
   </div>
   
 
-  <p>Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)</p>
+  
 
-
-  <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  <div class='pre p1 fill-light mt0'>generateLocalReferences(localFonts: Any)</div>
   
   
 
@@ -3948,7 +4074,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>localFonts</span> <code class='quiet'>(Any)</code>
 	    
           </div>
           
@@ -3960,95 +4086,6 @@ element {
   
 
   
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-number">100</span>px)
-}
-
-<span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-number">100</span>px)}</span>
-`</span>
-
-<span class="hljs-comment">// CSS in JS Output</span>
-
-element {
-  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
-
-  <h2 id='Types' class='mt0'>
-    Types
-  </h2>
-
-  
-    <p>Types used within the library.</p>
-
-  
-</section>
-</div>
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='ratio'>
-      Ratio
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/modularScale.js#L26-L44'>
-      <span>src/helpers/modularScale.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>Ratio</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
 
   
 
@@ -4069,13 +4106,13 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='rgbcolor'>
-      RgbColor
+    <h3 class='fl m0' id='constructgradientvalue'>
+      constructGradientValue
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/rgb.js#L7-L11'>
-      <span>src/helpers/rgb.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/3d30d6a02dc6a4da567244ec4249df979c88f714/lib/mixins/radialGradient.js#L18-L35'>
+      <span>lib/mixins/radialGradient.js</span>
       </a>
     
   </div>
@@ -4083,7 +4120,7 @@ element {
 
   
 
-  <div class='pre p1 fill-light mt0'>RgbColor</div>
+  <div class='pre p1 fill-light mt0'>constructGradientValue(literals: Any)</div>
   
   
 
@@ -4094,494 +4131,18 @@ element {
   
 
   
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
       
         <div class='space-bottom0'>
-          <span class='code bold'>red</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
+          <div>
+            <span class='code bold'>literals</span> <code class='quiet'>(Any)</code>
+	    
+          </div>
           
         </div>
       
     </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='rgbacolor'>
-      RgbaColor
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/helpers/rgba.js#L6-L11'>
-      <span>src/helpers/rgba.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>RgbaColor</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>red</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>alpha</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='fontfaceconfiguration'>
-      FontFaceConfiguration
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/fontFace.js#L4-L14'>
-      <span>src/mixins/fontFace.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>FontFaceConfiguration</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontFamily</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontFilePath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontStretch</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontStyle</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontVariant</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fontWeight</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fileFormats</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>localFonts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>unicodeRange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='radialgradientconfiguration'>
-      RadialGradientConfiguration
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/radialGradient.js#L4-L10'>
-      <span>src/mixins/radialGradient.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>RadialGradientConfiguration</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>colorStops</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>extent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>fallback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>position</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>shape</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='timingfunction'>
-      TimingFunction
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/mixins/timingFunctions.js#L35-L59'>
-      <span>src/mixins/timingFunctions.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>TimingFunction</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='animationproperty'>
-      AnimationProperty
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/animation.js#L4-L4'>
-      <span>src/shorthands/animation.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>AnimationProperty</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='buttonstate'>
-      ButtonState
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/buttons.js#L14-L19'>
-      <span>src/shorthands/buttons.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>ButtonState</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='inputstate'>
-      InputState
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/2bcb6af118d6279b82da0d4701c39547de9b34c5/src/shorthands/textInputs.js#L26-L31'>
-      <span>src/shorthands/textInputs.js</span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>InputState</div>
-  
-  
-
-  
-  
-  
-  
-  
-
   
 
   

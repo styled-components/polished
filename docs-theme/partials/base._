@@ -7,6 +7,7 @@
   <link href='/assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='/assets/github.css' type='text/css' rel='stylesheet' />
   <link href='/assets/style.css' type='text/css' rel='stylesheet' />
+  <link rel="shortcut icon" href="/favicon.png" />
 </head>
 <body class='<% if (typeof docs !== 'undefined') { %>documentation<% } else { %>home<% } %>'>
   <% if (typeof docs !== 'undefined') { %>
@@ -26,9 +27,7 @@
     <script src='/assets/anchor.js'></script>
     <script src='/assets/docs.js'></script>
   <% } else { %>
-    <script src="/assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="/assets/polished.js"></script>
-    <script src="/assets/repl.js"></script>
   <% } %>
 </body>
 </html>
