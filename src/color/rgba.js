@@ -1,14 +1,7 @@
 // @flow
 
 import rgb from './rgb'
-
-/** */
-type RgbaColor = {
-  red: number,
-  green: number,
-  blue: number,
-  alpha: number,
-}
+import type { RgbaColor } from '../types/color'
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.

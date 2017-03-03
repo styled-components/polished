@@ -7,68 +7,62 @@ function mockTemplate(pseudoSelector) {
   p a${pseudoSelector}`
 }
 
-describe('statefulSelectors', function() {
+describe('statefulSelectors', () => {
   // Selectors
-  it('populates selectors for a single state', function() {
+  it('populates selectors for a single state', () => {
     expect({
       [statefulSelectors([':before'], mockTemplate, mockStateMap)]: {
-        'content': 'hello'
-      }
+        'content': 'hello',
+      },
     }).toMatchSnapshot()
   })
-  it('populates selectors for a multiple states', function() {
+  it('populates selectors for a multiple states', () => {
     expect({
       [statefulSelectors([':before', ':after'], mockTemplate, mockStateMap)]: {
-        'content': 'hello'
-      }
+        'content': 'hello',
+      },
     }).toMatchSnapshot()
   })
-  it('populates both base selectors and selectors for a single state', function() {
+  it('populates both base selectors and selectors for a single state', () => {
     expect({
       [statefulSelectors([null, ':after'], mockTemplate, mockStateMap)]: {
-        'content': 'hello'
-      }
+        'content': 'hello',
+      },
     }).toMatchSnapshot()
   })
-  it('populates both base selectors and selectors for a single state when not passed a stateMap', function() {
+  it('populates both base selectors and selectors for a single state when not passed a stateMap', () => {
     expect({
       [statefulSelectors([null, ':after'], mockTemplate)]: {
-        'content': 'hello'}
-      }).toMatchSnapshot()
+        'content': 'hello' },
+    }).toMatchSnapshot()
   })
 
   // Errors
-  it('throws an error when passed a state it does not recognize', function() {
+  it('throws an error when passed a state it does not recognize', () => {
     expect(
-      function () {
-        return {
-          [statefulSelectors([':visited'], mockTemplate, mockStateMap)]: {
-            'content': 'hello'
-          }
-        }
-      }
+      () => ({
+        [statefulSelectors([':visited'], mockTemplate, mockStateMap)]: {
+          'content': 'hello',
+        },
+      }),
     ).toThrow('You passed an unsupported selector state to this method')
   })
-  it('throws an error when passed one of the states it is passed is not recognized', function() {
+  it('throws an error when passed one of the states it is passed is not recognized', () => {
     expect(
-      function () {
-        return {
-          [statefulSelectors(['hover', ':visited'], mockTemplate, mockStateMap)]: {
-            'content': 'hello'
-          }
-        }
-      }
+      () => ({
+        [statefulSelectors(['hover', ':visited'], mockTemplate, mockStateMap)]: {
+          'content': 'hello',
+        },
+      }),
     ).toThrow('You passed an unsupported selector state to this method')
   })
-  it('throws an error when not passed a template', function() {
+  it('throws an error when not passed a template', () => {
     expect(
-      function () {
-        return {
-          [statefulSelectors([':visited'])]: {
-            'content': 'hello'
-          }
-        }
-      }
+      () => ({
+        [statefulSelectors([':visited'])]: {
+          'content': 'hello',
+        },
+      }),
     ).toThrow('You must provide a template to this method.')
   })
 })

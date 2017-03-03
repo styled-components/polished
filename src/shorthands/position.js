@@ -27,12 +27,12 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  *
  * // Styles as object usage
  * const styles = {
- *   ...position('absolute', 12px', '24px', '36px', '48px')
+ *   ...position('absolute', '12px', '24px', '36px', '48px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${position('absolute', 12px', '24px', '36px', '48px')}
+ *   ${position('absolute', '12px', '24px', '36px', '48px')}
  * `
  *
  * // CSS as JS Output

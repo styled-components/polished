@@ -21,10 +21,21 @@ import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
 // Color
-import rgb from './helpers/rgb'
-import rgba from './helpers/rgba'
-import hsl from './helpers/hsl'
-import hsla from './helpers/hsla'
+import rgb from './color/rgb'
+import rgba from './color/rgba'
+import hsl from './color/hsl'
+import hsla from './color/hsla'
+import darken from './color/darken'
+import lighten from './color/lighten'
+import saturate from './color/saturate'
+import desaturate from './color/desaturate'
+import grayscale from './color/grayscale'
+import complement from './color/complement'
+import adjustHue from './color/adjustHue'
+import invert from './color/invert'
+import transparentize from './color/transparentize'
+import opacify from './color/opacify'
+import mix from './color/mix'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -43,6 +54,7 @@ import textInputs from './shorthands/textInputs'
 import transitions from './shorthands/transitions'
 
 export {
+  adjustHue,
   animation,
   backgroundImages,
   backgrounds,
@@ -52,17 +64,25 @@ export {
   borderWidth,
   buttons,
   clearFix,
+  complement,
+  darken,
+  desaturate,
   directionalProperty,
   ellipsis,
   em,
   fontFace,
+  grayscale,
+  invert,
   hideText,
   hiDPI,
   hsl,
   hsla,
+  lighten,
   margin,
+  mix,
   modularScale,
   normalize,
+  opacify,
   padding,
   placeholder,
   position,
@@ -71,11 +91,13 @@ export {
   retinaImage,
   rgb,
   rgba,
+  saturate,
   selection,
   size,
   stripUnit,
   textInputs,
   timingFunctions,
   transitions,
+  transparentize,
   wordWrap,
 }

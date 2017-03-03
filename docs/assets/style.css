@@ -92,6 +92,10 @@ body {
 
 .main {
   text-align: center;
+  max-width: 35em;
+  text-align: left;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .repl {
