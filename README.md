@@ -5,6 +5,12 @@
 
 A lightweight toolset for writing styles in Javascript. ✨
 
+```sh
+npm install --save polished
+# or if you're using yarn
+yarn add polished
+```
+
 - **Make your app look great without stress**
 - **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
 - **Switching from a pre-processor to styles in JS made easy**
