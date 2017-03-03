@@ -61,6 +61,7 @@ body {
 
 #installation ~ .installation {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .command:before {
@@ -177,6 +178,7 @@ a {
   color: #fff;
   text-shadow: 0 1px 1px #3a9b6d;
   text-shadow: 0 1px 1px rgba(58, 155, 109, 0.37);
+  font-size: 2em;
 }
 
 .documentation a[href]:hover {

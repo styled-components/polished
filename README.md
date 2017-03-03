@@ -24,6 +24,11 @@ yarn add polished
 <!-- NOTE: Anything between INJECT DOCS START and END will be deleted! -->
 <!-- INJECT DOCS START -->
 <details>
+  <summary>Installation</summary>
+  <ul>
+  </ul>
+</details>
+<details>
   <summary>Mixins</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#clearfix">clearFix</a></li>
