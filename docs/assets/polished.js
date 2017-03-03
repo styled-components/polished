@@ -1124,8 +1124,6 @@ function numberToHex(value) {
 
 //      
 
-/** */
-
 /**
  * Returns a string value for the color. The returned result is the smallest possible hex notation.
  *
@@ -1160,8 +1158,6 @@ function rgb(value, green, blue) {
 }
 
 //      
-
-/** */
 
 /**
  * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -1339,6 +1335,558 @@ function hsla(value, saturation, lightness, alpha) {
   }
 
   throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
+}
+
+//      
+
+var hexRegex = /^#[a-fA-F0-9]{6}$/;
+var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
+var rgbRegex = /^rgb\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)$/;
+var rgbaRegex = /^rgba\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3}), ?([-+]?[0-9]*[.]?[0-9]+)\)$/;
+var hslRegex = /^hsl\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%\)$/;
+var hslaRegex = /^hsla\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%, ?([-+]?[0-9]*[.]?[0-9]+)\)$/;
+
+function parseColorString(value) {
+  if (value.match(hexRegex)) {
+    return {
+      red: parseInt('' + value[1] + value[2], 16),
+      green: parseInt('' + value[3] + value[4], 16),
+      blue: parseInt('' + value[5] + value[6], 16)
+    };
+  }
+  if (value.match(reducedHexRegex)) {
+    return {
+      red: parseInt('' + value[1] + value[1], 16),
+      green: parseInt('' + value[2] + value[2], 16),
+      blue: parseInt('' + value[3] + value[3], 16)
+    };
+  }
+  var rgbMatched = rgbRegex.exec(value);
+  if (rgbMatched) {
+    return {
+      red: parseInt('' + rgbMatched[1], 10),
+      green: parseInt('' + rgbMatched[2], 10),
+      blue: parseInt('' + rgbMatched[3], 10)
+    };
+  }
+  var rgbaMatched = rgbaRegex.exec(value);
+  if (rgbaMatched) {
+    return {
+      red: parseInt('' + rgbaMatched[1], 10),
+      green: parseInt('' + rgbaMatched[2], 10),
+      blue: parseInt('' + rgbaMatched[3], 10),
+      alpha: parseFloat('' + rgbaMatched[4], 10)
+    };
+  }
+  var hslMatched = hslRegex.exec(value);
+  if (hslMatched) {
+    var hue = parseInt('' + hslMatched[1], 10);
+    var saturation = parseInt('' + hslMatched[2], 10) / 100;
+    var lightness = parseInt('' + hslMatched[3], 10) / 100;
+    var rgbColorString = 'rgb(' + hslToRgb(hue, saturation, lightness) + ')';
+    var hslRgbMatched = rgbRegex.exec(rgbColorString);
+    return {
+      red: parseInt('' + hslRgbMatched[1], 10),
+      green: parseInt('' + hslRgbMatched[2], 10),
+      blue: parseInt('' + hslRgbMatched[3], 10)
+    };
+  }
+  var hslaMatched = hslaRegex.exec(value);
+  if (hslaMatched) {
+    var _hue = parseInt('' + hslaMatched[1], 10);
+    var _saturation = parseInt('' + hslaMatched[2], 10) / 100;
+    var _lightness = parseInt('' + hslaMatched[3], 10) / 100;
+    var _rgbColorString = 'rgb(' + hslToRgb(_hue, _saturation, _lightness) + ')';
+    var _hslRgbMatched = rgbRegex.exec(_rgbColorString);
+    return {
+      red: parseInt('' + _hslRgbMatched[1], 10),
+      green: parseInt('' + _hslRgbMatched[2], 10),
+      blue: parseInt('' + _hslRgbMatched[3], 10),
+      alpha: parseFloat('' + hslaMatched[4], 10)
+    };
+  }
+  throw new Error('Couldn\'t parse the color string. Please provide the color in hex, rgb, rgba, hsl or hsla notation as a string.');
+}
+
+//      
+
+
+function rgbToHsl(color) {
+  // make sure rgb are contained in a set of [0, 255]
+  var red = color.red / 255;
+  var green = color.green / 255;
+  var blue = color.blue / 255;
+
+  var max = Math.max(red, green, blue);
+  var min = Math.min(red, green, blue);
+  var lightness = (max + min) / 2;
+
+  if (max === min) {
+    // achromatic
+    if (color.alpha !== undefined) {
+      return { hue: 0, saturation: 0, lightness: lightness, alpha: color.alpha };
+    } else {
+      return { hue: 0, saturation: 0, lightness: lightness };
+    }
+  }
+
+  var hue = void 0;
+  var delta = max - min;
+  var saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
+  switch (max) {
+    case red:
+      hue = (green - blue) / delta + (green < blue ? 6 : 0);
+      break;
+    case green:
+      hue = (blue - red) / delta + 2;
+      break;
+    default:
+      // blue case
+      hue = (red - green) / delta + 4;
+      break;
+  }
+
+  hue *= 60;
+  if (color.alpha !== undefined) {
+    return { hue: hue, saturation: saturation, lightness: lightness, alpha: color.alpha };
+  }
+  return { hue: hue, saturation: saturation, lightness: lightness };
+}
+
+//      
+
+function guard(lowerBoundary, upperBoundary, value) {
+  return Math.max(lowerBoundary, Math.min(upperBoundary, value));
+}
+
+//      
+
+/**
+ * Returns a string value for the darkened color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: darken(0.2, '#FFCD64'),
+ *   background: darken(0.2, 'rgba(255,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${darken(0.2, '#FFCD64')};
+ *   background: ${darken(0.2, 'rgba(255,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#ffbd31";
+ *   background: "rgba(255,189,49,0.7)";
+ * }
+ */
+function darken(amount, color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    lightness: guard(0, 1, hslColor.lightness - amount)
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Returns a string value for the lightened color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: lighten(0.2, '#CCCD64'),
+ *   background: lighten(0.2, 'rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${lighten(0.2, '#FFCD64')};
+ *   background: ${lighten(0.2, 'rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#e5e6b1";
+ *   background: "rgba(229,230,177,0.7)";
+ * }
+ */
+function lighten(amount, color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    lightness: guard(0, 1, hslColor.lightness + amount)
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Increases the intensity of a color. Its range is between 0 to 1. The first
+ * argument of the saturate function is the amount by how much the color
+ * intensity should be increased.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: saturate(0.2, '#CCCD64'),
+ *   background: saturate(0.2, 'rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${saturate(0.2, '#FFCD64')};
+ *   background: ${saturate(0.2, 'rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#e0e250";
+ *   background: "rgba(224,226,80,0.7)";
+ * }
+ */
+function saturate(amount, color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    saturation: guard(0, 1, hslColor.saturation + amount)
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Decreases the intensity of a color. Its range is between 0 to 1. The first
+ * argument of the desaturate function is the amount by how much the color
+ * intensity should be decreased.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: desaturate(0.2, '#CCCD64'),
+ *   background: desaturate(0.2, 'rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${desaturate(0.2, '#CCCD64')};
+ *   background: ${desaturate(0.2, 'rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#b8b979";
+ *   background: "rgba(184,185,121,0.7)";
+ * }
+ */
+function desaturate(amount, color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    saturation: guard(0, 1, hslColor.saturation - amount)
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Converts the color to a grayscale, but reducing its saturation to 0.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: grayscale('#CCCD64'),
+ *   background: grayscale('rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${grayscale('#CCCD64')};
+ *   background: ${grayscale('rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#999";
+ *   background: "rgba(153,153,153,0.7)";
+ * }
+ */
+function grayscale(color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    saturation: 0
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: complement('#448'),
+ *   background: complement('rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${complement('#448')};
+ *   background: ${complement('rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#884";
+ *   background: "rgba(153,153,153,0.7)";
+ * }
+ */
+function complement(color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    hue: (hslColor.hue + 180) % 360
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Changes the hue of the color. Hue is a number between 0 to 360. The first
+ * argument for adjustHue is the amount of degrees the color is rotated along
+ * the color wheel.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: adjustHue('#448'),
+ *   background: adjustHue('rgba(101,100,205,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${adjustHue('#448')};
+ *   background: ${adjustHue('rgba(101,100,205,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#5b4488";
+ *   background: "rgba(136,100,205,0.7)";
+ * }
+ */
+function adjustHue(degree, color) {
+  // parse color string to hsl
+  var hslColor = rgbToHsl(parseColorString(color));
+  var value = _extends({}, hslColor, {
+    hue: (hslColor.hue + degree) % 360
+  });
+  return value.alpha >= 1 || value.alpha === undefined ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+}
+
+//      
+
+/**
+ * Inverts the red, green and blue values of a color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: invert(0.2, '#CCCD64'),
+ *   background: invert(0.2, 'rgba(101,100,205,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${invert(0.2, '#CCCD64')};
+ *   background: ${invert(0.2, 'rgba(101,100,205,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#33329b";
+ *   background: "rgba(154,155,50,0.7)";
+ * }
+ */
+function invert(color) {
+  // parse color string to hsl
+  var value = parseColorString(color);
+  var invertedColor = _extends({}, value, {
+    red: 255 - value.red,
+    green: 255 - value.green,
+    blue: 255 - value.blue
+  });
+  return invertedColor.alpha === undefined || invertedColor.alpha >= 1 ? rgb(invertedColor) : rgba(invertedColor);
+}
+
+//      
+/**
+ * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
+ *
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: transparentize(0.1, '#fff');
+ *   background: transparentize(0.2, 'hsl(0, 0%, 100%)'),
+ *   background: transparentize(0.5, 'rgba(255, 0, 0, 0.8)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${transparentize(0.1, '#fff')};
+ *   background: ${transparentize(0.2, 'hsl(0, 0%, 100%)')},
+ *   background: ${transparentize(0.5, 'rgba(255, 0, 0, 0.8)')},
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(255,255,255,0.9)";
+ *   background: "rgba(255,255,255,0.8)";
+ *   background: "rgba(255,0,0,0.3)";
+ * }
+ */
+function transparentize(amount, color) {
+  var parsedColor = parseColorString(color);
+  var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
+  var colorWithAlpha = _extends({}, parsedColor, {
+    alpha: guard(0, 1, alpha - amount)
+  });
+  return rgba(colorWithAlpha);
+}
+
+//      
+/**
+ * Increases the opacity of a color. Its range for the amount is between 0 to 1.
+ *
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: opacify(0.1, '#fff');
+ *   background: opacify(0.2, 'hsl(0, 0%, 100%)'),
+ *   background: opacify(0.5, 'rgba(255, 0, 0, 0.8)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${opacify(0.1, '#fff')};
+ *   background: ${opacify(0.2, 'hsl(0, 0%, 100%)')},
+ *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.8)')},
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "rgba(255,255,255,0.9)";
+ *   background: "rgba(255,255,255,0.8)";
+ *   background: "rgba(255,0,0,0.3)";
+ * }
+ */
+function opacify(amount, color) {
+  var parsedColor = parseColorString(color);
+  var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
+  var colorWithAlpha = _extends({}, parsedColor, {
+    alpha: guard(0, 1, alpha + amount)
+  });
+  return rgba(colorWithAlpha);
+}
+
+//      
+
+/**
+ * Mixes two colors together by calculating the average of each of the RGB components.
+ *
+ * By default the weight is 0.5 meaning that half of the first color and half the second
+ * color should be used. Optionally the weight can be modified by by providing a number
+ * as the first argument. 0.25 means that a quarter of the first color and three quarters
+ * of the second color should be used.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: mix('#f00', '#00f')
+ *   background: mix(0.25, '#f00', '#00f')
+ *   background: mix('rgba(255, 0, 0, 0.5)', '#00f')
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${mix('#f00', '#00f')};
+ *   background: ${mix(0.25, '#f00', '#00f')};
+ *   background: ${mix('rgba(255, 0, 0, 0.5)', '#00f')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#7f007f";
+ *   background: "#3f00bf";
+ *   background: "rgba(63, 0, 191, 0.75)";
+ * }
+ */
+// Correct type definition, but doesn't show up when we generate the docs.
+// const mix: ((color: string, color2: string) => string) & (weight: number, color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
+function mix(colorOrWeight, color, otherColor) {
+  var weight = void 0;
+  var colorString1 = void 0;
+  var colorString2 = void 0;
+  if (typeof colorOrWeight === 'number' && typeof otherColor === 'string') {
+    weight = colorOrWeight;
+    colorString1 = color;
+    colorString2 = otherColor;
+  } else if (typeof colorOrWeight === 'string') {
+    weight = 0.5;
+    colorString1 = colorOrWeight;
+    colorString2 = color;
+  } else {
+    throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.');
+  }
+
+  var parsedColor1 = parseColorString(colorString1);
+  var color1 = _extends({}, parsedColor1, {
+    alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
+  });
+
+  var parsedColor2 = parseColorString(colorString2);
+  var color2 = _extends({}, parsedColor2, {
+    alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
+  });
+
+  // The formular is copied from the original Sass implementation:
+  // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
+  var alphaDelta = color1.alpha - color2.alpha;
+  var x = weight * 2 - 1;
+  var y = x * alphaDelta === -1 ? x : x + alphaDelta;
+  var z = 1 + x * alphaDelta;
+  var weight1 = (y / z + 1) / 2.0;
+  var weight2 = 1 - weight1;
+
+  var mixedColor = {
+    red: Math.floor(color1.red * weight1 + color2.red * weight2),
+    green: Math.floor(color1.green * weight1 + color2.green * weight2),
+    blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
+    alpha: color1.alpha + (color2.alpha - color1.alpha) * (weight / 1.0)
+  };
+
+  return rgba(mixedColor);
 }
 
 //      
@@ -1763,12 +2311,12 @@ var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
  *
  * // Styles as object usage
  * const styles = {
- *   ...position('absolute', 12px', '24px', '36px', '48px')
+ *   ...position('absolute', '12px', '24px', '36px', '48px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${position('absolute', 12px', '24px', '36px', '48px')}
+ *   ${position('absolute', '12px', '24px', '36px', '48px')}
  * `
  *
  * // CSS as JS Output
@@ -1923,6 +2471,7 @@ function transitions() {
 // Color
 // Shorthands
 
+exports.adjustHue = adjustHue;
 exports.animation = animation;
 exports.backgroundImages = backgroundImages;
 exports.backgrounds = backgrounds;
@@ -1932,17 +2481,25 @@ exports.borderStyle = borderStyle;
 exports.borderWidth = borderWidth;
 exports.buttons = buttons;
 exports.clearFix = clearFix;
+exports.complement = complement;
+exports.darken = darken;
+exports.desaturate = desaturate;
 exports.directionalProperty = directionalProperty;
 exports.ellipsis = ellipsis;
 exports.em = em;
 exports.fontFace = fontFace;
+exports.grayscale = grayscale;
+exports.invert = invert;
 exports.hideText = hideText;
 exports.hiDPI = hiDPI;
 exports.hsl = hsl;
 exports.hsla = hsla;
+exports.lighten = lighten;
 exports.margin = margin;
+exports.mix = mix;
 exports.modularScale = modularScale;
 exports.normalize = normalize;
+exports.opacify = opacify;
 exports.padding = padding;
 exports.placeholder = placeholder;
 exports.position = position;
@@ -1951,12 +2508,14 @@ exports.rem = rem;
 exports.retinaImage = retinaImage;
 exports.rgb = rgb;
 exports.rgba = rgba;
+exports.saturate = saturate;
 exports.selection = selection;
 exports.size = size;
 exports.stripUnit = stripUnit;
 exports.textInputs = textInputs;
 exports.timingFunctions = timingFunctions;
 exports.transitions = transitions;
+exports.transparentize = transparentize;
 exports.wordWrap = wordWrap;
 
 Object.defineProperty(exports, '__esModule', { value: true });

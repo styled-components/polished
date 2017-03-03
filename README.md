@@ -37,7 +37,6 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#retinaimage">retinaImage</a></li>
     <li><a href="http://polished.js.org/docs/#selection">selection</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunctions">timingFunctions</a></li>
-    <li><a href="http://polished.js.org/docs/#timingfunctions-1">timingFunctions</a></li>
     <li><a href="http://polished.js.org/docs/#wordwrap">wordWrap</a></li>
   </ul>
 </details>
@@ -45,11 +44,20 @@ yarn add polished
   <summary>Color</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
-    <li><a href="http://polished.js.org/docs/#rgb-1">rgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
-    <li><a href="http://polished.js.org/docs/#rgba-1">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
     <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
+    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
+    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
+    <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
+    <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
+    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
+    <li><a href="http://polished.js.org/docs/#adjusthue">adjustHue</a></li>
+    <li><a href="http://polished.js.org/docs/#complement">complement</a></li>
+    <li><a href="http://polished.js.org/docs/#invert">invert</a></li>
+    <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
+    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
+    <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
   </ul>
 </details>
 <details>
@@ -63,13 +71,11 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#borderstyle">borderStyle</a></li>
     <li><a href="http://polished.js.org/docs/#borderwidth">borderWidth</a></li>
     <li><a href="http://polished.js.org/docs/#buttons">buttons</a></li>
-    <li><a href="http://polished.js.org/docs/#buttons-1">buttons</a></li>
     <li><a href="http://polished.js.org/docs/#margin">margin</a></li>
     <li><a href="http://polished.js.org/docs/#padding">padding</a></li>
     <li><a href="http://polished.js.org/docs/#position">position</a></li>
     <li><a href="http://polished.js.org/docs/#size">size</a></li>
     <li><a href="http://polished.js.org/docs/#textinputs">textInputs</a></li>
-    <li><a href="http://polished.js.org/docs/#textinputs-1">textInputs</a></li>
     <li><a href="http://polished.js.org/docs/#transitions">transitions</a></li>
   </ul>
 </details>
@@ -77,18 +83,27 @@ yarn add polished
   <summary>Helpers</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#directionalproperty">directionalProperty</a></li>
+    <li><a href="http://polished.js.org/docs/#em">em</a></li>
     <li><a href="http://polished.js.org/docs/#modularscale">modularScale</a></li>
-    <li><a href="http://polished.js.org/docs/#modularscale-1">modularScale</a></li>
+    <li><a href="http://polished.js.org/docs/#rem">rem</a></li>
     <li><a href="http://polished.js.org/docs/#stripunit">stripUnit</a></li>
   </ul>
 </details>
 <details>
   <summary>Types</summary>
   <ul>
-    <li><a href="http://polished.js.org/docs/#default">default</a></li>
-    <li><a href="http://polished.js.org/docs/#default-1">default</a></li>
-    <li><a href="http://polished.js.org/docs/#generatelocalreferences">generateLocalReferences</a></li>
-    <li><a href="http://polished.js.org/docs/#constructgradientvalue">constructGradientValue</a></li>
+    <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslacolor">HslaColor</a></li>
+    <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
+    <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
+    <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
+    <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
+    <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
+    <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->

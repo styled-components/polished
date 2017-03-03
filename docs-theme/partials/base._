@@ -27,7 +27,8 @@
     <script src='/assets/anchor.js'></script>
     <script src='/assets/docs.js'></script>
   <% } else { %>
-    <script src="/assets/polished.js"></script>
   <% } %>
+  <script defer src="/assets/polished.js"></script>
+  <script defer src="/assets/script.js"></script>
 </body>
 </html>

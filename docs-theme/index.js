@@ -20,11 +20,15 @@ module.exports = function (comments, options, callback) {
 
   hljs.configure(options.hljs || {})
 
+
   const sharedImports = {
     imports: {
       slug (str) {
         const slugger = new GithubSlugger()
         return slugger.slug(str)
+      },
+      lowercase (str) {
+        return str.toLowerCase()
       },
       shortSignature (section) {
         let prefix = ''
