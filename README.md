@@ -5,6 +5,16 @@
 
 A lightweight toolset for writing styles in Javascript. ✨
 
+```sh
+npm install --save polished
+# or if you're using yarn
+yarn add polished
+```
+
+- **Make your app look great without stress**
+- **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Switching from a pre-processor to styles in JS made easy**
+
 ## Docs
 
 **See the full documentation at [polished.js.org](http://polished.js.org)!**
@@ -13,7 +23,12 @@ A lightweight toolset for writing styles in Javascript. ✨
 
 <!-- NOTE: Anything between INJECT DOCS START and END will be deleted! -->
 <!-- INJECT DOCS START -->
-<details open>
+<details>
+  <summary>Installation</summary>
+  <ul>
+  </ul>
+</details>
+<details>
   <summary>Mixins</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#clearfix">clearFix</a></li>
@@ -30,7 +45,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#wordwrap">wordWrap</a></li>
   </ul>
 </details>
-<details open>
+<details>
   <summary>Color</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
@@ -50,7 +65,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
   </ul>
 </details>
-<details open>
+<details>
   <summary>Shorthands</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#animation">animation</a></li>
@@ -69,7 +84,7 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#transitions">transitions</a></li>
   </ul>
 </details>
-<details open>
+<details>
   <summary>Helpers</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#directionalproperty">directionalProperty</a></li>
@@ -79,19 +94,30 @@ A lightweight toolset for writing styles in Javascript. ✨
     <li><a href="http://polished.js.org/docs/#stripunit">stripUnit</a></li>
   </ul>
 </details>
-<details open>
+<details>
   <summary>Types</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
+    <li><a href="http://polished.js.org/docs/#hslacolor">HslaColor</a></li>
     <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
+
+## Compatibility
+
+✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is definitely and by far, not limited to, styled-components, radium, aphrodite, glamor, jss and many more!
+
+No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
 
 ## License
 

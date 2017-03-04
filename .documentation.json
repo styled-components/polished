@@ -5,8 +5,11 @@
   "inferPrivate": "^_",
   "toc": [
     {
-      "name": "Mixins",
-      "description": "These are reusable chunks of styles. By extracting common ones into small utilities you avoid repetition and mistakes."
+      "name": "Installation",
+      "description": "<div class='installation'><code class='command'>npm install --save polished</code></div>",
+    },
+    {
+      "name": "Mixins"
     },
     "clearFix",
     "ellipsis",
@@ -21,8 +24,7 @@
     "timingFunctions",
     "wordWrap",
     {
-      "name": "Color",
-      "description": "Functions that help creating and modifying colors."
+      "name": "Color"
     },
     "rgb",
     "rgba",
@@ -40,8 +42,7 @@
     "transparentize",
     "mix",
     {
-      "name": "Shorthands",
-      "description": "Functions that help write nicer code. They're shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation."
+      "name": "Shorthands"
     },
     "animation",
     "backgroundImages",
@@ -58,8 +59,7 @@
     "textInputs",
     "transitions",
     {
-      "name": "Helpers",
-      "description": "Tiny helper functions that make your life easier."
+      "name": "Helpers"
     },
     "directionalProperty",
     "em",
@@ -67,8 +67,7 @@
     "rem",
     "stripUnit",
     {
-      "name": "Types",
-      "description": "Types used within the library."
+      "name": "Types"
     },
     "Ratio",
     "RgbColor",

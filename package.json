@@ -15,7 +15,7 @@
     "build:docs:readme": "documentation build src/** -t docs-theme/markdown.js --github -o docs -f html -c ./.documentation.json",
     "prebuild:docs:site": "rm -rf docs/*",
     "build:docs:site": "documentation build src/** -t docs-theme --github -o docs -f html -c ./.documentation.json",
-    "postbuild:docs:site": "cp CNAME docs/CNAME",
+    "postbuild:docs:site": "cp CNAME docs/CNAME && cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
     "test": "jest src",

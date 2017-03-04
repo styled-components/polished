@@ -23,7 +23,7 @@ module.exports = (comments, options, callback) => {
         firstNote = false
         prepend = ''
       }
-      return `${prepend}<details open>\n  <summary>${comment.name}</summary>\n  <ul>`
+      return `${prepend}<details>\n  <summary>${comment.name}</summary>\n  <ul>`
     }
     return `    <li>${createLink(comment.name, slug)}</li>`
   }).join('\n')
