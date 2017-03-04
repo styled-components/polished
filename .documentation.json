@@ -7,6 +7,7 @@
     {
       "name": "Installation",
       "description": "<div class='installation'><code class='command'>npm install --save polished</code></div>",
+      "markdown": false
     },
     {
       "name": "Mixins"

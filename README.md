@@ -5,10 +5,10 @@
 
 A lightweight toolset for writing styles in Javascript. ✨
 
+[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
+
 ```sh
 npm install --save polished
-# or if you're using yarn
-yarn add polished
 ```
 
 - **Make your app look great without stress**
@@ -23,12 +23,7 @@ yarn add polished
 
 <!-- NOTE: Anything between INJECT DOCS START and END will be deleted! -->
 <!-- INJECT DOCS START -->
-<details>
-  <summary>Installation</summary>
-  <ul>
-  </ul>
-</details>
-<details>
+<details open>
   <summary>Mixins</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#clearfix">clearFix</a></li>
@@ -45,7 +40,7 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#wordwrap">wordWrap</a></li>
   </ul>
 </details>
-<details>
+<details open>
   <summary>Color</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
@@ -65,7 +60,7 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
   </ul>
 </details>
-<details>
+<details open>
   <summary>Shorthands</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#animation">animation</a></li>
@@ -84,7 +79,7 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#transitions">transitions</a></li>
   </ul>
 </details>
-<details>
+<details open>
   <summary>Helpers</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#directionalproperty">directionalProperty</a></li>
@@ -94,7 +89,7 @@ yarn add polished
     <li><a href="http://polished.js.org/docs/#stripunit">stripUnit</a></li>
   </ul>
 </details>
-<details>
+<details open>
   <summary>Types</summary>
   <ul>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
@@ -115,7 +110,7 @@ yarn add polished
 
 ## Compatibility
 
-✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is definitely and by far, not limited to, styled-components, radium, aphrodite, glamor, jss and many more!
+✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is by far not limited to, styled-components, radium, aphrodite, glamor, jss and many more!
 
 No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
 
