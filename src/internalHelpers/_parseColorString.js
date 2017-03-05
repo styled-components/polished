@@ -11,6 +11,7 @@ const hslRegex = /^hsl\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%\)$/
 const hslaRegex = /^hsla\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%, ?([-+]?[0-9]*[.]?[0-9]+)\)$/
 
 function parseColorString(value: string): RgbColor | RgbaColor {
+  if (typeof value !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.')
   if (value.match(hexRegex)) {
     return {
       red: parseInt(`${value[1]}${value[2]}`, 16),

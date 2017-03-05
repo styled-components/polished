@@ -3,7 +3,9 @@
 import mix from './mix'
 
 /**
- * Shades a color by mixing it with black. Leverages the mix color module.
+ * Shades a color by mixing it with black. Compared to `darken` it can produce
+ * hue shifts, wheres `darken` manipulates the luminance channel and therefor
+ * doesn't produce hue shifts.
  *
  * @example
  * // Styles as object usage
@@ -25,8 +27,7 @@ import mix from './mix'
 
 function shade(percentage: number, color: string) {
   if (!percentage || !color) throw new Error('Passed insufficient arguments to shade, please pass a percentage and a color to be shaded.')
-  if (typeof percentage !== 'number' || percentage > 1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1.')
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to shade, please pass a string representation of a color.')
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
   return mix(percentage, color, 'rgb(0, 0, 0)')
 }
 
