@@ -7,7 +7,7 @@ import parseColorString from '../internalHelpers/_parseColorString'
  * Mixes two colors together by calculating the average of each of the RGB components.
  *
  * By default the weight is 0.5 meaning that half of the first color and half the second
- * color should be used. Optionally the weight can be modified by by providing a number
+ * color should be used. Optionally the weight can be modified by providing a number
  * as the first argument. 0.25 means that a quarter of the first color and three quarters
  * of the second color should be used.
  *

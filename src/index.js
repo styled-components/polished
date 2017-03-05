@@ -21,21 +21,23 @@ import timingFunctions from './mixins/timingFunctions'
 import wordWrap from './mixins/wordWrap'
 
 // Color
-import rgb from './color/rgb'
-import rgba from './color/rgba'
-import hsl from './color/hsl'
-import hsla from './color/hsla'
+import adjustHue from './color/adjustHue'
+import complement from './color/complement'
 import darken from './color/darken'
-import lighten from './color/lighten'
-import saturate from './color/saturate'
 import desaturate from './color/desaturate'
 import grayscale from './color/grayscale'
-import complement from './color/complement'
-import adjustHue from './color/adjustHue'
+import hsl from './color/hsl'
+import hsla from './color/hsla'
 import invert from './color/invert'
-import transparentize from './color/transparentize'
-import opacify from './color/opacify'
+import lighten from './color/lighten'
 import mix from './color/mix'
+import opacify from './color/opacify'
+import rgb from './color/rgb'
+import rgba from './color/rgba'
+import saturate from './color/saturate'
+import shade from './color/shade'
+import tint from './color/tint'
+import transparentize from './color/transparentize'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -93,10 +95,12 @@ export {
   rgba,
   saturate,
   selection,
+  shade,
   size,
   stripUnit,
   textInputs,
   timingFunctions,
+  tint,
   transitions,
   transparentize,
   wordWrap,

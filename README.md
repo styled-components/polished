@@ -43,21 +43,23 @@ npm install --save polished
 <details open>
   <summary>Color</summary>
   <ul>
-    <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
-    <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
-    <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
-    <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
-    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
-    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
-    <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
-    <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
-    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
     <li><a href="http://polished.js.org/docs/#adjusthue">adjustHue</a></li>
     <li><a href="http://polished.js.org/docs/#complement">complement</a></li>
+    <li><a href="http://polished.js.org/docs/#darken">darken</a></li>
+    <li><a href="http://polished.js.org/docs/#desaturate">desaturate</a></li>
+    <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
+    <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
+    <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
     <li><a href="http://polished.js.org/docs/#invert">invert</a></li>
-    <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
-    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
+    <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
+    <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
+    <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
+    <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
+    <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
+    <li><a href="http://polished.js.org/docs/#shade">shade</a></li>
+    <li><a href="http://polished.js.org/docs/#tint">tint</a></li>
+    <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>
   </ul>
 </details>
 <details open>
