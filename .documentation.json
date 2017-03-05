@@ -43,6 +43,7 @@
     "saturate",
     "setHue",
     "setLightness",
+    "setSaturation",
     "shade",
     "tint",
     "transparentize",

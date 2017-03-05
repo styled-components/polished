@@ -57,6 +57,9 @@ npm install --save polished
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
+    <li><a href="http://polished.js.org/docs/#sethue">setHue</a></li>
+    <li><a href="http://polished.js.org/docs/#setlightness">setLightness</a></li>
+    <li><a href="http://polished.js.org/docs/#setsaturation">setSaturation</a></li>
     <li><a href="http://polished.js.org/docs/#shade">shade</a></li>
     <li><a href="http://polished.js.org/docs/#tint">tint</a></li>
     <li><a href="http://polished.js.org/docs/#transparentize">transparentize</a></li>

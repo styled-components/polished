@@ -37,6 +37,7 @@ import rgba from './color/rgba'
 import saturate from './color/saturate'
 import setHue from './color/setHue'
 import setLightness from './color/setLightness'
+import setSaturation from './color/setSaturation'
 import shade from './color/shade'
 import tint from './color/tint'
 import transparentize from './color/transparentize'
@@ -99,6 +100,7 @@ export {
   selection,
   setHue,
   setLightness,
+  setSaturation,
   shade,
   size,
   stripUnit,
