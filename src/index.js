@@ -42,6 +42,7 @@ import setLightness from './color/setLightness'
 import setSaturation from './color/setSaturation'
 import shade from './color/shade'
 import tint from './color/tint'
+import toColorString from './color/toColorString'
 import transparentize from './color/transparentize'
 
 // Shorthands
@@ -111,6 +112,7 @@ export {
   textInputs,
   timingFunctions,
   tint,
+  toColorString,
   transitions,
   transparentize,
   wordWrap,
