@@ -68,7 +68,7 @@ const isHsla = (color: HslaColor): boolean => (
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
-function toColorString(color: RgbColor | RgbaColor): string {
+function toColorString(color: RgbColor | RgbaColor | HslColor | HslaColor): string {
   if (isRgb(color)) {
     return rgb(color)
   } else if (isRgba(color)) {
