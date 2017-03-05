@@ -54,6 +54,8 @@ npm install --save polished
     <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
     <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
+    <li><a href="http://polished.js.org/docs/#parsetohsl">parseToHsl</a></li>
+    <li><a href="http://polished.js.org/docs/#parsetorgb">parseToRgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
@@ -108,6 +110,7 @@ npm install --save polished
     <li><a href="http://polished.js.org/docs/#animationproperty">AnimationProperty</a></li>
     <li><a href="http://polished.js.org/docs/#buttonstate">ButtonState</a></li>
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
+    <li><a href="http://polished.js.org/docs/#tocolorstring">toColorString</a></li>
     <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
   </ul>
 </details>

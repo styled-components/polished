@@ -40,30 +40,32 @@ const isHsla = (color: HslaColor): boolean => (
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
+ * This util is useful in case you only know on runtime which color object is
+ * used. Otherwise we recommend to rely on `rgb`, `rgba`, `hsl` or `hsla`.
  *
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: toColorString(),
- *   background: toColorString(),
- *   background: toColorString(),
- *   background: toColorString(),
+ *   background: toColorString({ red: 255, green: 205, blue: 100 }),
+ *   background: toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 }),
+ *   background: toColorString({ hue: 240, saturation: 1, lightness: 0.5 }),
+ *   background: toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${toColorString()};
- *   background: ${toColorString()};
- *   background: ${toColorString()};
- *   background: ${toColorString()};
+ *   background: ${toColorString({ red: 255, green: 205, blue: 100 })};
+ *   background: ${toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 })};
+ *   background: ${toColorString({ hue: 240, saturation: 1, lightness: 0.5 })};
+ *   background: ${toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 })};
  * `
  *
  * // CSS in JS Output
  * element {
- *   background: "";
- *   background: "";
- *   background: "";
- *   background: "";
+ *   background: "#ffcd64";
+ *   background: "rgba(255,205,100,0.72)";
+ *   background: "#00f";
+ *   background: "rgba(179,25,25,0.72)";
  * }
  */
 function toColorString(color: RgbColor | RgbaColor): string {

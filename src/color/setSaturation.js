@@ -26,10 +26,10 @@ import toColorString from './toColorString'
  *   background: "rgba(228,229,76,0.7)";
  * }
  */
-function setSaturation(amount: number, color: string): string {
+function setSaturation(saturation: number, color: string): string {
   return toColorString({
     ...parseToHsl(color),
-    saturation: amount,
+    saturation,
   })
 }
 

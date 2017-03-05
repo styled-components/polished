@@ -26,10 +26,10 @@ import toColorString from './toColorString'
  *   background: "rgba(107,100,205,0.7)";
  * }
  */
-function setHue(amount: number, color: string): string {
+function setHue(hue: number, color: string): string {
   return toColorString({
     ...parseToHsl(color),
-    hue: amount,
+    hue,
   })
 }
 
