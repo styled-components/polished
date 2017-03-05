@@ -1,1 +1,1 @@
-export default (arg) => arg
+export default (arg) => `Markdown here with ${JSON.stringify(arg)}`
