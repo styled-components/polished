@@ -38,6 +38,7 @@
     "lighten",
     "mix",
     "opacify",
+    "parseToRgb",
     "rgb",
     "rgba",
     "saturate",

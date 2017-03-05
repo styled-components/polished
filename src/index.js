@@ -32,6 +32,7 @@ import invert from './color/invert'
 import lighten from './color/lighten'
 import mix from './color/mix'
 import opacify from './color/opacify'
+import parseToRgb from './color/parseToRgb'
 import rgb from './color/rgb'
 import rgba from './color/rgba'
 import saturate from './color/saturate'
@@ -89,6 +90,7 @@ export {
   normalize,
   opacify,
   padding,
+  parseToRgb,
   placeholder,
   position,
   radialGradient,

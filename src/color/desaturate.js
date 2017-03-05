@@ -1,6 +1,6 @@
 // @flow
 
-import parseColorString from '../internalHelpers/_parseColorString'
+import parseToRgb from './parseToRgb'
 import rgbToHsl from '../internalHelpers/_rgbToHsl'
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
@@ -32,7 +32,7 @@ import guard from '../internalHelpers/_guard'
  */
 function desaturate(amount: number, color: string): string {
   // parse color string to hsl
-  const hslColor = rgbToHsl(parseColorString(color))
+  const hslColor = rgbToHsl(parseToRgb(color))
   const value = {
     ...hslColor,
     saturation: guard(0, 1, hslColor.saturation - amount),
