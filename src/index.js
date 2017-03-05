@@ -35,6 +35,7 @@ import opacify from './color/opacify'
 import rgb from './color/rgb'
 import rgba from './color/rgba'
 import saturate from './color/saturate'
+import setHue from './color/setHue'
 import shade from './color/shade'
 import tint from './color/tint'
 import transparentize from './color/transparentize'
@@ -95,6 +96,7 @@ export {
   rgba,
   saturate,
   selection,
+  setHue,
   shade,
   size,
   stripUnit,

@@ -1,0 +1,3 @@
+exports[`setHue should update the hue and return a color with opacity 1`] = `"rgba(107,100,205,0.7)"`;
+
+exports[`setHue should update the hue and return a hex color 1`] = `"#cdae64"`;
