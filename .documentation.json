@@ -42,6 +42,7 @@
     "rgba",
     "saturate",
     "setHue",
+    "setLightness",
     "shade",
     "tint",
     "transparentize",
