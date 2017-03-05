@@ -1,7 +1,6 @@
 // @flow
 
-import parseToRgb from './parseToRgb'
-import rgbToHsl from '../internalHelpers/_rgbToHsl'
+import parseToHsl from './parseToHsl'
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
 
@@ -29,7 +28,7 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
  */
 function complement(color: string): string {
   // parse color string to hsl
-  const hslColor = rgbToHsl(parseToRgb(color))
+  const hslColor = parseToHsl(color)
   const value = {
     ...hslColor,
     hue: (hslColor.hue + 180) % 360,

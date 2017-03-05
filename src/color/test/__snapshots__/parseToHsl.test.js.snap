@@ -1,0 +1,49 @@
+exports[`parseToHsl should parse a hex color representation 1`] = `
+Object {
+  "hue": 325.8510638297872,
+  "lightness": 0.6313725490196078,
+  "saturation": 1,
+}
+`;
+
+exports[`parseToHsl should parse a hsl color representation 1`] = `
+Object {
+  "hue": 210,
+  "lightness": 0.0392156862745098,
+  "saturation": 0.1,
+}
+`;
+
+exports[`parseToHsl should parse a hsla color representation 1`] = `
+Object {
+  "alpha": 0.75,
+  "hue": 209.99999999999997,
+  "lightness": 0.4,
+  "saturation": 0.09803921568627451,
+}
+`;
+
+exports[`parseToHsl should parse a reduced hex color representation 1`] = `
+Object {
+  "hue": 230,
+  "lightness": 0.4666666666666667,
+  "saturation": 0.42857142857142855,
+}
+`;
+
+exports[`parseToHsl should parse a rgb color representation 1`] = `
+Object {
+  "hue": 274.1489361702128,
+  "lightness": 0.6313725490196078,
+  "saturation": 1,
+}
+`;
+
+exports[`parseToHsl should parse a rgba color representation 1`] = `
+Object {
+  "alpha": 0.6,
+  "hue": 274.1489361702128,
+  "lightness": 0.6313725490196078,
+  "saturation": 1,
+}
+`;
