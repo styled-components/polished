@@ -14,7 +14,9 @@ const createLink = (text, slug) => `<a href="http://polished.js.org/docs/#${slug
 module.exports = (comments, options, callback) => {
   // Create the ToC to be injected into the README
   let firstNote = true
-  const toc = comments.map(comment => {
+  const toc = comments
+    .filter(comment => comment.markdown !== false)
+    .map(comment => {
     const slug = slugger.slug(comment.name)
     if (isHeading(comment)) {
       let prepend = '  </ul>\n</details>\n'

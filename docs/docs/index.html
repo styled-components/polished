@@ -2,11 +2,30 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>  | Documentation</title>
+  <title>polished | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <meta name="description" content="A lightweight toolset for writing styles in JavaScript." />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mxstbr">
+  <meta name="twitter:title" content="✨ polished | Documentation">
+  <meta name="twitter:description" content="A lightweight toolset for writing styles in JavaScript.">
+  <meta name="twitter:creator" content="@mxstbr">
+  <meta name="twitter:image" content="/assets/meta.png">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="✨ polished | Documentation" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://styled-components.com/color-schemer/" />
+  <meta property="og:image" content="/assets/meta.png" />
+  <meta property="og:description" content="A lightweight toolset for writing styles in JavaScript." />
+  <meta property="og:site_name" content="✨ polished" />
+
   <link href='/assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='/assets/style.css' type='text/css' rel='stylesheet' />
   <link href='/assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='/assets/style.css' type='text/css' rel='stylesheet' />
+  <link rel="shortcut icon" href="/favicon.png" />
 </head>
 <body class='documentation'>
   
@@ -23,6 +42,16 @@
           type='text' />
         <div id='toc'>
           <ul class='list-reset h5 py1-ul'>
+            
+              
+              <li><a
+                href='#installation'
+                class="h5 bold black caps">
+                Installation
+                
+              </a>
+              
+              </li>
             
               
               <li><a
@@ -684,14 +713,26 @@
     <div class='fix-margin-3'>
       
         
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
 
-  <h2 id='Mixins' class='mt0'>
-    Mixins
+  <h2 class="section__heading" id='installation' class='mt0'>
+    Installation
   </h2>
 
   
-    <p>These are reusable chunks of styles. By extracting common ones into small utilities you avoid repetition and mistakes.</p>
+    <div class='installation'><code class='command'>npm install --save polished</code></div>
+
+  
+</section>
+</div>
+        
+      
+        
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
+
+  <h2 class="section__heading" id='mixins' class='mt0'>
+    Mixins
+  </h2>
 
   
 </section>
@@ -709,7 +750,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/clearFix.js#L26-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/clearFix.js#L26-L35'>
       <span>src/mixins/clearFix.js</span>
       </a>
     
@@ -795,7 +836,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/ellipsis.js#L29-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/ellipsis.js#L29-L38'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -884,7 +925,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/fontFace.js#L61-L92'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/fontFace.js#L61-L92'>
       <span>src/mixins/fontFace.js</span>
       </a>
     
@@ -1046,7 +1087,7 @@ injectGlobals`${
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/hiDPI.js#L32-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/hiDPI.js#L32-L40'>
       <span>src/mixins/hiDPI.js</span>
       </a>
     
@@ -1138,7 +1179,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/hideText.js#L29-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/hideText.js#L29-L35'>
       <span>src/mixins/hideText.js</span>
       </a>
     
@@ -1213,7 +1254,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/normalize.js#L293-L296'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/normalize.js#L293-L296'>
       <span>src/mixins/normalize.js</span>
       </a>
     
@@ -1297,7 +1338,7 @@ html {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/placeholder.js#L35-L50'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/placeholder.js#L35-L50'>
       <span>src/mixins/placeholder.js</span>
       </a>
     
@@ -1400,7 +1441,7 @@ const div = styled.input`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/radialGradient.js#L67-L79'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/radialGradient.js#L67-L79'>
       <span>src/mixins/radialGradient.js</span>
       </a>
     
@@ -1540,7 +1581,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/retinaImage.js#L33-L48'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/retinaImage.js#L33-L48'>
       <span>src/mixins/retinaImage.js</span>
       </a>
     
@@ -1665,7 +1706,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/selection.js#L31-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/selection.js#L31-L40'>
       <span>src/mixins/selection.js</span>
       </a>
     
@@ -1764,7 +1805,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/timingFunctions.js#L82-L84'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/timingFunctions.js#L82-L84'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -1847,7 +1888,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/wordWrap.js#L26-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/wordWrap.js#L26-L33'>
       <span>src/mixins/wordWrap.js</span>
       </a>
     
@@ -1923,14 +1964,11 @@ const div = styled.div`
         
       
         
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
 
-  <h2 id='Color' class='mt0'>
+  <h2 class="section__heading" id='color' class='mt0'>
     Color
   </h2>
-
-  
-    <p>Functions that help creating and modifying colors.</p>
 
   
 </section>
@@ -1948,7 +1986,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/adjustHue.js#L32-L42'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/adjustHue.js#L32-L42'>
       <span>src/color/adjustHue.js</span>
       </a>
     
@@ -2048,7 +2086,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/complement.js#L30-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/complement.js#L30-L40'>
       <span>src/color/complement.js</span>
       </a>
     
@@ -2138,7 +2176,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/darken.js#L32-L42'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/darken.js#L32-L42'>
       <span>src/color/darken.js</span>
       </a>
     
@@ -2237,7 +2275,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/desaturate.js#L33-L43'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/desaturate.js#L33-L43'>
       <span>src/color/desaturate.js</span>
       </a>
     
@@ -2337,7 +2375,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/grayscale.js#L30-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/grayscale.js#L30-L40'>
       <span>src/color/grayscale.js</span>
       </a>
     
@@ -2427,7 +2465,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/hsl.js#L29-L37'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/hsl.js#L29-L37'>
       <span>src/color/hsl.js</span>
       </a>
     
@@ -2534,7 +2572,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/hsla.js#L33-L55'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/hsla.js#L33-L55'>
       <span>src/color/hsla.js</span>
       </a>
     
@@ -2652,7 +2690,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/invert.js#L30-L42'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/invert.js#L30-L42'>
       <span>src/color/invert.js</span>
       </a>
     
@@ -2743,7 +2781,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/lighten.js#L32-L42'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/lighten.js#L32-L42'>
       <span>src/color/lighten.js</span>
       </a>
     
@@ -2842,7 +2880,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/mix.js#L39-L84'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/mix.js#L39-L84'>
       <span>src/color/mix.js</span>
       </a>
     
@@ -2956,7 +2994,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/opacify.js#L33-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/opacify.js#L33-L41'>
       <span>src/color/opacify.js</span>
       </a>
     
@@ -3053,7 +3091,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/rgb.js#L30-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/rgb.js#L30-L38'>
       <span>src/color/rgb.js</span>
       </a>
     
@@ -3160,7 +3198,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/rgba.js#L32-L45'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/rgba.js#L32-L45'>
       <span>src/color/rgba.js</span>
       </a>
     
@@ -3278,7 +3316,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/saturate.js#L34-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/saturate.js#L34-L44'>
       <span>src/color/saturate.js</span>
       </a>
     
@@ -3379,7 +3417,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/shade.js#L26-L31'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/shade.js#L26-L31'>
       <span>src/color/shade.js</span>
       </a>
     
@@ -3470,7 +3508,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/tint.js#L26-L31'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/tint.js#L26-L31'>
       <span>src/color/tint.js</span>
       </a>
     
@@ -3561,7 +3599,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/color/transparentize.js#L33-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/color/transparentize.js#L33-L41'>
       <span>src/color/transparentize.js</span>
       </a>
     
@@ -3648,14 +3686,11 @@ element {
         
       
         
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
 
-  <h2 id='Shorthands' class='mt0'>
+  <h2 class="section__heading" id='shorthands' class='mt0'>
     Shorthands
   </h2>
-
-  
-    <p>Functions that help write nicer code. They&#x27;re shorter, of course, but they also make it easy to pass in multiple variables without resorting to string concatenation.</p>
 
   
 </section>
@@ -3673,7 +3708,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/animation.js#L42-L62'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/animation.js#L42-L62'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -3774,7 +3809,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/backgroundImages.js#L23-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/backgroundImages.js#L23-L27'>
       <span>src/shorthands/backgroundImages.js</span>
       </a>
     
@@ -3857,7 +3892,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/backgrounds.js#L22-L26'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/backgrounds.js#L22-L26'>
       <span>src/shorthands/backgrounds.js</span>
       </a>
     
@@ -3940,7 +3975,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/borderColor.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/borderColor.js#L27-L29'>
       <span>src/shorthands/borderColor.js</span>
       </a>
     
@@ -4026,7 +4061,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/borderRadius.js#L24-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/borderRadius.js#L24-L41'>
       <span>src/shorthands/borderRadius.js</span>
       </a>
     
@@ -4118,7 +4153,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/borderStyle.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/borderStyle.js#L27-L29'>
       <span>src/shorthands/borderStyle.js</span>
       </a>
     
@@ -4204,7 +4239,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/borderWidth.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/borderWidth.js#L27-L29'>
       <span>src/shorthands/borderWidth.js</span>
       </a>
     
@@ -4290,7 +4325,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/buttons.js#L48-L50'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/buttons.js#L48-L50'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -4380,7 +4415,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/margin.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/margin.js#L27-L29'>
       <span>src/shorthands/margin.js</span>
       </a>
     
@@ -4466,7 +4501,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/padding.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/padding.js#L27-L29'>
       <span>src/shorthands/padding.js</span>
       </a>
     
@@ -4552,7 +4587,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/position.js#L49-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/position.js#L49-L59'>
       <span>src/shorthands/position.js</span>
       </a>
     
@@ -4666,7 +4701,7 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/size.js#L24-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/size.js#L24-L29'>
       <span>src/shorthands/size.js</span>
       </a>
     
@@ -4759,7 +4794,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/textInputs.js#L72-L74'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/textInputs.js#L72-L74'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -4861,7 +4896,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/transitions.js#L23-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/transitions.js#L23-L27'>
       <span>src/shorthands/transitions.js</span>
       </a>
     
@@ -4934,14 +4969,11 @@ div {
         
       
         
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
 
-  <h2 id='Helpers' class='mt0'>
+  <h2 class="section__heading" id='helpers' class='mt0'>
     Helpers
   </h2>
-
-  
-    <p>Tiny helper functions that make your life easier.</p>
 
   
 </section>
@@ -4959,7 +4991,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/directionalProperty.js#L44-L49'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/directionalProperty.js#L44-L49'>
       <span>src/helpers/directionalProperty.js</span>
       </a>
     
@@ -5053,7 +5085,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/em.js#L29-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/em.js#L29-L29'>
       <span>src/helpers/em.js</span>
       </a>
     
@@ -5146,7 +5178,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/modularScale.js#L67-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/modularScale.js#L67-L83'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -5249,7 +5281,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/rem.js#L28-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/rem.js#L28-L28'>
       <span>src/helpers/rem.js</span>
       </a>
     
@@ -5342,7 +5374,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/stripUnit.js#L24-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/stripUnit.js#L24-L28'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
@@ -5420,14 +5452,11 @@ element {
         
       
         
-          <div class='keyline-top-not py2'><section class='py2 clearfix'>
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
 
-  <h2 id='Types' class='mt0'>
+  <h2 class="section__heading" id='types' class='mt0'>
     Types
   </h2>
-
-  
-    <p>Types used within the library.</p>
 
   
 </section>
@@ -5445,7 +5474,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/helpers/modularScale.js#L26-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/helpers/modularScale.js#L26-L44'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -5494,7 +5523,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/types/color.js#L19-L23'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/types/color.js#L19-L23'>
       <span>src/types/color.js</span>
       </a>
     
@@ -5543,7 +5572,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/types/color.js#L26-L31'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/types/color.js#L26-L31'>
       <span>src/types/color.js</span>
       </a>
     
@@ -5592,7 +5621,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/types/color.js#L4-L8'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/types/color.js#L4-L8'>
       <span>src/types/color.js</span>
       </a>
     
@@ -5641,7 +5670,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/types/color.js#L11-L16'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/types/color.js#L11-L16'>
       <span>src/types/color.js</span>
       </a>
     
@@ -5690,7 +5719,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/fontFace.js#L4-L14'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/fontFace.js#L4-L14'>
       <span>src/mixins/fontFace.js</span>
       </a>
     
@@ -5798,7 +5827,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/radialGradient.js#L4-L10'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/radialGradient.js#L4-L10'>
       <span>src/mixins/radialGradient.js</span>
       </a>
     
@@ -5882,7 +5911,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/timingFunctions.js#L35-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/timingFunctions.js#L35-L59'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -5931,7 +5960,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/animation.js#L4-L4'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/animation.js#L4-L4'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -5980,7 +6009,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/buttons.js#L14-L19'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/buttons.js#L14-L19'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -6029,7 +6058,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/shorthands/textInputs.js#L26-L31'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/shorthands/textInputs.js#L26-L31'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -6078,7 +6107,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/a0a5fe8d30f999ae3d456f4923417a41ac7da1f0/src/mixins/triangle.js#L32-L32'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/ebb14dc6dcc63d27abede43c74d8443cb750bba9/src/mixins/triangle.js#L32-L32'>
       <span>src/mixins/triangle.js</span>
       </a>
     
@@ -6149,7 +6178,11 @@ div: {
 </div>
 
   
-  <script src='/assets/anchor.js'></script>
-  <script src='/assets/site.js'></script>
+  
+    <script src='/assets/anchor.js'></script>
+    <script src='/assets/docs.js'></script>
+  
+  <script defer src="/assets/polished.js"></script>
+  <script defer src="/assets/script.js"></script>
 </body>
 </html>

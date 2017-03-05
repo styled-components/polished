@@ -20,11 +20,15 @@ module.exports = function (comments, options, callback) {
 
   hljs.configure(options.hljs || {})
 
+
   const sharedImports = {
     imports: {
       slug (str) {
         const slugger = new GithubSlugger()
         return slugger.slug(str)
+      },
+      lowercase (str) {
+        return str.toLowerCase()
       },
       shortSignature (section) {
         let prefix = ''
@@ -61,11 +65,11 @@ module.exports = function (comments, options, callback) {
       },
       formatType: formatters.type,
       autolink: formatters.autolink,
-      highlight (example) {
-        if (options.hljs && options.hljs.highlightAuto) {
+      highlight (example, language) {
+        if (!language && options.hljs && options.hljs.highlightAuto) {
           return hljs.highlightAuto(example).value
         }
-        return hljs.highlight('js', example).value
+        return hljs.highlight(language || 'js', example).value
       },
     },
   }
@@ -88,7 +92,7 @@ module.exports = function (comments, options, callback) {
   }]
 
   // push assets into the pipeline as well.
-  vfs.src([`${__dirname}/assets/**`], { base: __dirname })
+  vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname })
     .pipe(concat((files) => {
       callback(null, files.concat(pages.map((page) => {
         const data = Object.assign({}, {

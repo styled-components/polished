@@ -5,6 +5,16 @@
 
 A lightweight toolset for writing styles in Javascript. ✨
 
+[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
+
+```sh
+npm install --save polished
+```
+
+- **Make your app look great without stress**
+- **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Switching from a pre-processor to styles in JS made easy**
+
 ## Docs
 
 **See the full documentation at [polished.js.org](http://polished.js.org)!**
@@ -99,6 +109,12 @@ A lightweight toolset for writing styles in Javascript. ✨
   </ul>
 </details>
 <!-- INJECT DOCS END -->
+
+## Compatibility
+
+✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is by far not limited to, styled-components, radium, aphrodite, glamor, jss and many more!
+
+No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
 
 ## License
 
