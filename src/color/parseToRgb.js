@@ -81,7 +81,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       alpha: parseFloat(`${hslaMatched[4]}`, 10),
     }
   }
-  throw new Error('Couldn\'t parse the color string. Please provide the color in hex, rgb, rgba, hsl or hsla notation as a string.')
+  throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.')
 }
 
 export default parseToRgb
