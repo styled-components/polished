@@ -1,6 +1,6 @@
 // @flow
 import rgba from './rgba'
-import parseColorString from '../internalHelpers/_parseColorString'
+import parseToRgb from './parseToRgb'
 import guard from '../internalHelpers/_guard'
 
 /**
@@ -31,7 +31,7 @@ import guard from '../internalHelpers/_guard'
  * }
  */
 function opacify(amount: number, color: string) {
-  const parsedColor = parseColorString(color)
+  const parsedColor = parseToRgb(color)
   const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
   const colorWithAlpha = {
     ...parsedColor,

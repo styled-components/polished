@@ -1,0 +1,35 @@
+exports[`toColorString should convert a HslColor to a hex string 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`toColorString should convert a HslColor to a reduced hex string 1`] = `
+Object {
+  "background": "#00f",
+}
+`;
+
+exports[`toColorString should convert a HslaColor to a rgba string 1`] = `
+Object {
+  "background": "rgba(179,25,25,0.72)",
+}
+`;
+
+exports[`toColorString should convert a RgbColor to a hex string 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;
+
+exports[`toColorString should convert a RgbColor to a reduced hex string 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
+
+exports[`toColorString should convert a RgbaColor to a rgba string 1`] = `
+Object {
+  "background": "rgba(255,205,100,0.72)",
+}
+`;

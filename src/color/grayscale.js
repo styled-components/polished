@@ -1,9 +1,7 @@
 // @flow
 
-import parseColorString from '../internalHelpers/_parseColorString'
-import rgbToHsl from '../internalHelpers/_rgbToHsl'
-import hslToHex from '../internalHelpers/_hslToHex'
-import hslToRgb from '../internalHelpers/_hslToRgb'
+import parseToHsl from './parseToHsl'
+import toColorString from './toColorString'
 
 /**
  * Converts the color to a grayscale, but reducing its saturation to 0.
@@ -28,15 +26,10 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
  * }
  */
 function grayscale(color: string): string {
-  // parse color string to hsl
-  const hslColor = rgbToHsl(parseColorString(color))
-  const value = {
-    ...hslColor,
+  return toColorString({
+    ...parseToHsl(color),
     saturation: 0,
-  }
-  return value.alpha >= 1 || value.alpha === undefined
-    ? hslToHex(value.hue, value.saturation, value.lightness)
-    : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${value.alpha})`
+  })
 }
 
 export default grayscale

@@ -1,7 +1,7 @@
 // @flow
 
 import rgba from './rgba'
-import parseColorString from '../internalHelpers/_parseColorString'
+import parseToRgb from './parseToRgb'
 
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
@@ -52,13 +52,13 @@ function mix(colorOrWeight: number | string, color: string, otherColor?: string)
     throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.')
   }
 
-  const parsedColor1 = parseColorString(colorString1)
+  const parsedColor1 = parseToRgb(colorString1)
   const color1 = {
     ...parsedColor1,
     alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1,
   }
 
-  const parsedColor2 = parseColorString(colorString2)
+  const parsedColor2 = parseToRgb(colorString2)
   const color2 = {
     ...parsedColor2,
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1,

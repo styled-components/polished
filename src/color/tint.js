@@ -3,7 +3,9 @@
 import mix from './mix'
 
 /**
- * Tints a color by mixing it with white. Leverages the mix color module.
+ * Tints a color by mixing it with white. Compared to `lighten` it can produce
+ * hue shifts, wheres `lighten` manipulates the luminance channel and therefor
+ * doesn't produce hue shifts.
  *
  * @example
  * // Styles as object usage
@@ -25,8 +27,7 @@ import mix from './mix'
 
 function tint(percentage: number, color: string) {
   if (!percentage || !color) throw new Error('Passed insufficient arguments to tint, please pass a percentage and a color to be tinted.')
-  if (typeof percentage !== 'number' || percentage > 1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1.')
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to tint, please pass a string representation of a color.')
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
   return mix(percentage, color, 'rgb(255, 255, 255)')
 }
 

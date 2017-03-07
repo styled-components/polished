@@ -1,9 +1,7 @@
 // @flow
 
-import parseColorString from '../internalHelpers/_parseColorString'
-import rgbToHsl from '../internalHelpers/_rgbToHsl'
-import hslToHex from '../internalHelpers/_hslToHex'
-import hslToRgb from '../internalHelpers/_hslToRgb'
+import parseToHsl from './parseToHsl'
+import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
 
 /**
@@ -30,15 +28,11 @@ import guard from '../internalHelpers/_guard'
  * }
  */
 function lighten(amount: number, color: string): string {
-  // parse color string to hsl
-  const hslColor = rgbToHsl(parseColorString(color))
-  const value = {
+  const hslColor = parseToHsl(color)
+  return toColorString({
     ...hslColor,
     lightness: guard(0, 1, hslColor.lightness + amount),
-  }
-  return value.alpha >= 1 || value.alpha === undefined
-    ? hslToHex(value.hue, value.saturation, value.lightness)
-    : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${value.alpha})`
+  })
 }
 
 export default lighten

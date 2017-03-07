@@ -1,9 +1,7 @@
 // @flow
 
-import parseColorString from '../internalHelpers/_parseColorString'
-import rgbToHsl from '../internalHelpers/_rgbToHsl'
-import hslToHex from '../internalHelpers/_hslToHex'
-import hslToRgb from '../internalHelpers/_hslToRgb'
+import parseToHsl from './parseToHsl'
+import toColorString from './toColorString'
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -30,15 +28,11 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
  * }
  */
 function adjustHue(degree: number, color: string): string {
-  // parse color string to hsl
-  const hslColor = rgbToHsl(parseColorString(color))
-  const value = {
+  const hslColor = parseToHsl(color)
+  return toColorString({
     ...hslColor,
     hue: (hslColor.hue + degree) % 360,
-  }
-  return value.alpha >= 1 || value.alpha === undefined
-    ? hslToHex(value.hue, value.saturation, value.lightness)
-    : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${value.alpha})`
+  })
 }
 
 export default adjustHue

@@ -1,8 +1,7 @@
 // @flow
 
-import parseColorString from '../internalHelpers/_parseColorString'
-import rgb from './rgb'
-import rgba from './rgba'
+import parseToRgb from './parseToRgb'
+import toColorString from './toColorString'
 
 /**
  * Inverts the red, green and blue values of a color.
@@ -29,16 +28,13 @@ import rgba from './rgba'
  */
 function invert(color: string): string {
   // parse color string to hsl
-  const value = parseColorString(color)
-  const invertedColor = {
+  const value = parseToRgb(color)
+  return toColorString({
     ...value,
     red: 255 - value.red,
     green: 255 - value.green,
     blue: 255 - value.blue,
-  }
-  return invertedColor.alpha === undefined || invertedColor.alpha >= 1
-    ? rgb(invertedColor)
-    : rgba(invertedColor)
+  })
 }
 
 export default invert
