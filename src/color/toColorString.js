@@ -6,35 +6,39 @@ import hsl from './hsl'
 import hsla from './hsla'
 import type { RgbColor, RgbaColor, HslColor, HslaColor } from '../types/color'
 
-const isRgb = (color: RgbColor): boolean => (
+const isRgb = (color): boolean => (
   typeof color === 'object' &&
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
+  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha !== 'number'
 )
 
-const isRgba = (color: RgbaColor): boolean => (
+const isRgba = (color): boolean => (
   typeof color === 'object' &&
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
+  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha === 'number'
 )
 
-const isHsl = (color: HslColor): boolean => (
+const isHsl = (color): boolean => (
   typeof color === 'object' &&
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
+  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha !== 'number'
 )
 
-const isHsla = (color: HslaColor): boolean => (
+const isHsla = (color): boolean => (
   typeof color === 'object' &&
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
+  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha === 'number'
 )
 
@@ -69,14 +73,18 @@ const isHsla = (color: HslaColor): boolean => (
  * }
  */
 function toColorString(color: RgbColor | RgbaColor | HslColor | HslaColor): string {
-  if (isRgb(color)) {
-    return rgb(color)
-  } else if (isRgba(color)) {
+  if (isRgba(color)) {
+    // $FlowIgnoreNextLine not sure why this complains
     return rgba(color)
-  } else if (isHsl(color)) {
-    return hsl(color)
+  } else if (isRgb(color)) {
+    // $FlowIgnoreNextLine not sure why this complains
+    return rgb(color)
   } else if (isHsla(color)) {
+    // $FlowIgnoreNextLine not sure why this complains
     return hsla(color)
+  } else if (isHsl(color)) {
+    // $FlowIgnoreNextLine not sure why this complains
+    return hsl(color)
   }
   throw new Error('Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.')
 }
