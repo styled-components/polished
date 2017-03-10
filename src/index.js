@@ -46,6 +46,7 @@ import toColorString from './color/toColorString'
 import transparentize from './color/transparentize'
 
 // Shorthands
+import align from './shorthands/align'
 import animation from './shorthands/animation'
 import backgroundImages from './shorthands/backgroundImages'
 import backgrounds from './shorthands/backgrounds'
@@ -63,6 +64,7 @@ import transitions from './shorthands/transitions'
 
 export {
   adjustHue,
+  align,
   animation,
   backgroundImages,
   backgrounds,

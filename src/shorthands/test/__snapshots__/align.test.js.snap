@@ -1,0 +1,105 @@
+exports[`align should align object horizontally 1`] = `
+Object {
+  "left": "50%",
+  "margin-top": "0",
+  "position": "absolute",
+  "transform": "translateX(-50%)",
+}
+`;
+
+exports[`align should align object to bottom 1`] = `
+Object {
+  "bottom": "0",
+  "left": "50%",
+  "position": "absolute",
+  "transform": "translateX(-50%)",
+}
+`;
+
+exports[`align should align object to bottom left corner 1`] = `
+Object {
+  "bottom": "0",
+  "left": "0",
+  "position": "absolute",
+}
+`;
+
+exports[`align should align object to bottom right corner 1`] = `
+Object {
+  "bottom": "0",
+  "position": "absolute",
+  "right": "0",
+}
+`;
+
+exports[`align should align object to center with -10px offset 1`] = `
+Object {
+  "left": "50%",
+  "margin-top": "-10px",
+  "position": "absolute",
+  "top": "50%",
+  "transform": "translate(-50%, -50%)",
+}
+`;
+
+exports[`align should align object to center without offset 1`] = `
+Object {
+  "left": "50%",
+  "margin-top": "0",
+  "position": "absolute",
+  "top": "50%",
+  "transform": "translate(-50%, -50%)",
+}
+`;
+
+exports[`align should align object to left with -10px offset 1`] = `
+Object {
+  "left": "-10px",
+  "position": "absolute",
+  "top": "50%",
+  "transform": "translateY(-50%)",
+}
+`;
+
+exports[`align should align object to right 1`] = `
+Object {
+  "position": "absolute",
+  "right": "0",
+  "top": "50%",
+  "transform": "translateY(-50%)",
+}
+`;
+
+exports[`align should align object to top left corner with -10px offset 1`] = `
+Object {
+  "left": "-10px",
+  "position": "absolute",
+  "top": "-10px",
+}
+`;
+
+exports[`align should align object to top with 1rem offset 1`] = `
+Object {
+  "left": "50%",
+  "position": "absolute",
+  "top": "1rem",
+  "transform": "translateX(-50%)",
+}
+`;
+
+exports[`align should align object to topRight corner with -15px offset 1`] = `
+Object {
+  "position": "absolute",
+  "right": "-15px",
+  "top": "-15px",
+}
+`;
+
+exports[`align should align object vertically 1`] = `
+Object {
+  "margin-top": "0",
+  "position": "absolute",
+  "top": "50%",
+  "transform": "translateY(-50%)",
+}
+`;
