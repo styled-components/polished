@@ -93,9 +93,9 @@ const param = (parameter, short) => {
 /**
  * Format a utils parameters correctly
  */
-export const params = ({ parameters }, short) => {
-  if (!parameters) return '()'
-  return `(${parameters.map((parameter) => param(parameter, short)).join(', ')})`
+export const params = (util, short) => {
+  if (!util.params) return '()'
+  return `(${util.params.map((parameter) => param(parameter, short)).join(', ')})`
 }
 
 /**

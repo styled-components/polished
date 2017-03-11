@@ -12,12 +12,18 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   createServer((req, res) => {
-    const { pathname } = parse(req.url)
+    const url = parse(req.url, true)
+    const { pathname, query } = url
     if (pathname !== '/') {
       // eslint-disable-next-line no-param-reassign
       req.utilities = ${JSON.stringify(comments)}
+      if (pathname.startsWith('/docs/util')) {
+        app.render(req, res, '/docs/util', query)
+        return
+      }
     }
-    handle(req, res)
+
+    handle(req, res, url)
   })
   .listen(3000, (err) => {
     if (err) throw err

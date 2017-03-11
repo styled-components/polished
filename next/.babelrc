@@ -6,6 +6,7 @@
   "plugins": [
     "transform-object-rest-spread",
     "transform-class-properties",
-    "transform-runtime"
+    "transform-runtime",
+    "styled-components"
   ]
 }

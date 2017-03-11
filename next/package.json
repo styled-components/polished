@@ -10,8 +10,10 @@
   "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com/)",
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.0.0",
     "next": "^2.0.0-beta.36",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "styled-components": "^2.0.0-6"
   }
 }

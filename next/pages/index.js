@@ -1,7 +1,11 @@
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from '../utils/theme'
 
 export default () => (
-  <div>
-    <h1>Hello World!</h1>
-  </div>
+  <ThemeProvider theme={theme}>
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  </ThemeProvider>
 )

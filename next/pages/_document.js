@@ -1,4 +1,5 @@
 import React from 'react'
+import { styleSheet, injectGlobal } from 'styled-components'
 import Document, { Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
@@ -9,7 +10,21 @@ class MyDocument extends Document {
     return {
       ...page,
       utilities: JSON.stringify(req.utilities),
+      style: styleSheet.getCSS(),
     }
+  }
+
+  componentWillMount() {
+    console.log('inject')
+    injectGlobal`
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        color: #222;
+        line-height: 1.5;
+        font-size: 16px;
+        background: #65daa2;
+      }
+    `
   }
 
   render() {
@@ -17,6 +32,7 @@ class MyDocument extends Document {
       <html>
         <Head>
           <title>My App</title>
+          <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>
         <body>
           <Main />
