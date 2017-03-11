@@ -1,0 +1,24 @@
+exports[`stripUnit should properly add rules when block has existing rules 1`] = `
+Object {
+  "background": "red",
+  "z-index": 0,
+}
+`;
+
+exports[`stripUnit should return correct z-index value in array 1`] = `
+Object {
+  "z-index": 4,
+}
+`;
+
+exports[`stripUnit should return correct z-index value in array with base value 1`] = `
+Object {
+  "z-index": 104,
+}
+`;
+
+exports[`stripUnit should return correct z-index value in object 1`] = `
+Object {
+  "z-index": 23,
+}
+`;
