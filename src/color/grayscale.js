@@ -4,7 +4,7 @@ import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 
 /**
- * Converts the color to a grayscale, but reducing its saturation to 0.
+ * Converts the color to a grayscale, by reducing its saturation to 0.
  *
  * @example
  * // Styles as object usage
