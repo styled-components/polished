@@ -4,26 +4,43 @@
  * @private
  */
 
-function formatMessage(moduleInfo) {
+const errorStyles = 'padding: 2px; font-weight: bold; background: red; color: black'
+const warningStyles = 'padding: 2px; font-weight: bold; background: yellow; color: black'
+
+function formatMessage(type:string, modulePath:string, messageBody:string, docPath:string) {
   const header = `%c -- ${type} --------------------------------------------------- ${modulePath} -- `
 
-  const messageBody = `%c
+  const body = `%c
 
 
   ${messageBody}
 
   `
 
-  const messageInfo = `%c
+  const info = `%c
   Please see the documentation at %chttps://www.polished.js.org/${docPath} %cfor more information.
 
   `
-  console.log(header + messageBody + messageInfo, 'padding: 2px; font-weight: bold; background: red; color: black', 'color: black', 'color: slategray', 'color: blue', 'color: slategray')
+
+  return `${header}${body}${info}`
 }
 
-function generateMessage(type, moduleInfo, messageBody, docPath) {
-  const message = formatMessage(type, moduleInfo, messageBody, docPath)
-  console.log(message)
+function generateHeaderStyles(type:string) {
+  return type === 'error' ? errorStyles : warningStyles
 }
 
-export default generateMessage
+function messageHandler(type:string, modulePath:string, messageBody:string, docPath:string) {
+  const message = formatMessage(type, modulePath, messageBody, docPath)
+  const headerStyles = generateHeaderStyles(type)
+  // eslint-disable-next-line no-console
+  console.log(message, headerStyles, 'color: black', 'color: slategray', 'color: blue', 'color: slategray')
+}
+
+export function error(modulePath: string, messageBody: string, docPath: string) {
+  messageHandler('error', modulePath, messageBody, docPath)
+}
+
+export function warning(modulePath: string, messageBody: string, docPath: string) {
+  messageHandler('warning', modulePath, messageBody, docPath)
+}
+

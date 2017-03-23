@@ -1,4 +1,6 @@
 // @flow
+import { error } from '../internalHelpers/_messageHandler'
+
 const opinionatedRules = {
   'html': {
     'font-family': 'sans-serif',
@@ -291,6 +293,14 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  */
 
 function normalize(excludeOpinionated?: boolean) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof excludeOpinionated !== 'boolean') {
+      const modulePath = 'mixins/normalize.js'
+      const messageBody = `normalize optionally takes a boolean that determines if opinionated rules should be included. However, you provided a parameter of type ${typeof excludeOpinionated} instead.`
+      const docPath = '#normalize'
+      error(modulePath, messageBody, docPath)
+    }
+  }
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }
