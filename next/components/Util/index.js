@@ -6,7 +6,6 @@ import {
 } from '../../utils/format'
 import autolink from '../../utils/autolink'
 import highlight from '../../utils/highlight'
-import md from '../../utils/markdown'
 
 import Title from './Title'
 import Card from './Card'
@@ -14,7 +13,12 @@ import Signature from './Signature'
 import Type from './Type'
 
 export default ({ util, compact }) => (
-  <Card compact={compact}>
+  <Card
+    prefetch
+    href="/docs/util"
+    as={`/docs/util/${slug(util.namespace.toLowerCase())}`}
+    compact={compact}
+  >
     {!util.nested && (
       <Title
         nested={util.nested}
@@ -25,7 +29,11 @@ export default ({ util, compact }) => (
       />
     )}
 
-    {md(util.description)}
+    <p
+      dangerouslySetInnerHTML={{
+        __html: util.description,
+      }}
+    />
 
     <Signature>{signature(util)}</Signature>
     {util.type && <p>Type: {formatType(util.type)}</p>}
@@ -47,8 +55,14 @@ export default ({ util, compact }) => (
             {util.params.map((param) => (
               <div>
                 <Type>{`${param.name} `}</Type>
-                <code>({`${formatType(param.type)}${param.default && ` = ${param.default}`}`})</code>
-                {param.description && md(param.description, true)}
+                <code>({`${formatType(param.type)}${param.default ? ` = ${param.default}` : ''}`})</code>
+                {param.description && (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: param.description,
+                    }}
+                  />
+                )}
                 {param.properties && (
                   <table>
                     <colgroup>
@@ -71,7 +85,13 @@ export default ({ util, compact }) => (
                               <code>{`default ${property.default}`}</code>
                             }
                           </td>
-                          <td>{property.description && md(property.description, true)}</td>
+                          <td>{property.description && (
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: property.description,
+                              }}
+                            />
+                          )}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -92,7 +112,16 @@ export default ({ util, compact }) => (
                 {property.default &&
                   <code>{`default ${property.default}`}</code>
                 }
-                {property.description && `: ${md(property.description, true)}`}
+                {property.description && (
+                  <p>
+                    {': '}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: property.description,
+                      }}
+                    />
+                  </p>
+                )}
                 {property.properties && (
                   <ul>
                     {property.properties.map(prop => (
@@ -102,7 +131,13 @@ export default ({ util, compact }) => (
                         {property.default &&
                           <code>{`default ${property.default}`}</code>
                         }
-                        {property.description && md(property.description, true)}
+                        {property.description && (
+                          <p
+                            dangerouslySetInnerHTML={{
+                              __html: property.description,
+                            }}
+                          />
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -116,14 +151,27 @@ export default ({ util, compact }) => (
           <div>
             <h4>Returns</h4>
             <code>{formatType(ret.type)}</code>
-            {ret.description && md(ret.description, true)}
+            {ret.description && (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: ret.description,
+                }}
+              />
+            )}
           </div>
         ))}
 
         {util.throws && (
           <ul>
             {util.throws.map(throws => (
-              <li>{`${formatType(throws.type)}: ${md(throws.description, true)}`}</li>
+              <li>
+                {`${formatType(throws.type)}: `}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: throws.description,
+                  }}
+                />
+              </li>
             ))}
           </ul>
         )}
@@ -133,8 +181,18 @@ export default ({ util, compact }) => (
             <h4>Example</h4>
             {util.examples.map(example => (
               <div>
-                {example.caption && <p>{md(example.caption)}</p>}
-                <pre>{highlight(example.description)}</pre>
+                {example.caption && (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: example.caption,
+                    }}
+                  />
+                )}
+                <pre>
+                  <code>
+                    {highlight(example.description)}
+                  </code>
+                </pre>
               </div>
             ))}
           </div>

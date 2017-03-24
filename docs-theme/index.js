@@ -1,7 +1,14 @@
 const fs = require('fs')
-const path = require('path')
+const remark = require('remark')
+const html = require('remark-html')
 
-module.exports = function (comments, options, callback) {
+const md = (ast) => {
+  if (!ast) return ''
+
+  return remark().use(html).stringify(ast)
+}
+
+module.exports = (utilities, options, callback) => {
   fs.writeFileSync('next/server-generated.js', `const { parse } = require('url')
 const { createServer } = require('http')
 const next = require('next')
@@ -16,7 +23,13 @@ app.prepare().then(() => {
     const { pathname, query } = url
     if (pathname !== '/') {
       // eslint-disable-next-line no-param-reassign
-      req.utilities = ${JSON.stringify(comments)}
+      req.utilities = ${JSON.stringify(utilities.map(util => {
+        if (!util.description) return util
+
+        return Object.assign(util, {
+          description: md(util.description),
+        })
+      }))}
       if (pathname.startsWith('/docs/util')) {
         app.render(req, res, '/docs/util', query)
         return

@@ -1,7 +1,8 @@
 import React from 'react'
 import Util from '../../../components/Util'
-import ToC from '../../../components/ToC'
-import slug from '../../../utils/slug';
+import Wrapper from '../../../components/Wrapper'
+import Nav from '../../../components/Nav';
+import slug from '../../../utils/slug'
 
 class UtilPage extends React.Component {
   static async getInitialProps({ req }) {
@@ -18,8 +19,10 @@ class UtilPage extends React.Component {
 
     return (
       <div>
-        <ToC utils={global.utilities} />
-        {util ? <Util util={util} /> : <h1>Util not found</h1>}
+        <Nav />
+        <Wrapper>
+          {util ? <Util util={util} /> : <h1>Util not found</h1>}
+        </Wrapper>
       </div>
     )
   }

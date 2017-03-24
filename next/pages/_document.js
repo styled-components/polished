@@ -1,6 +1,7 @@
 import React from 'react'
 import { styleSheet, injectGlobal } from 'styled-components'
 import Document, { Head, Main, NextScript } from 'next/document'
+import Nav from '../components/Nav';
 
 class MyDocument extends Document {
   static async getInitialProps({ req, renderPage }) {
@@ -15,7 +16,6 @@ class MyDocument extends Document {
   }
 
   componentWillMount() {
-    console.log('inject')
     injectGlobal`
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -23,6 +23,7 @@ class MyDocument extends Document {
         line-height: 1.5;
         font-size: 16px;
         background: #65daa2;
+        padding-top: 3em;
       }
     `
   }
