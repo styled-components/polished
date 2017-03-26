@@ -6,3 +6,4 @@ dist
 .DS_Store
 yarn-error.log
 next/.next
+next/server-generated.js
