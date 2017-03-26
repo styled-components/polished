@@ -32,7 +32,28 @@ class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My App</title>
+          <meta charset='utf-8' />
+          <meta name='viewport' content='width=device-width,initial-scale=1' />
+          <title>polished | A lightweight toolset for writing styles in JavaScript</title>
+          <meta name="description" content="A lightweight toolset for writing styles in JavaScript." />
+
+          {/* Twitter Card data */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@mxstbr" />
+          <meta name="twitter:title" content="✨ polished | A lightweight toolset for writing styles in JavaScript" />
+          <meta name="twitter:description" content="A lightweight toolset for writing styles in JavaScript." />
+          <meta name="twitter:creator" content="@mxstbr" />
+          <meta name="twitter:image" content="https://polished.js.org/static/meta.png" />
+
+          {/* Open Graph data */}
+          <meta property="og:title" content="✨ polished | A lightweight toolset for writing styles in JavaScript" />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="https://polished.js.org" />
+          <meta property="og:image" content="https://polished.js.org/static/meta.png" />
+          <meta property="og:description" content="A lightweight toolset for writing styles in JavaScript." />
+          <meta property="og:site_name" content="✨ polished" />
+
+          {/* Inject styles */}
           <style dangerouslySetInnerHTML={{ __html: this.props.style }} />
         </Head>
         <body>
