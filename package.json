@@ -74,6 +74,7 @@
     "lodash": "^4.17.2",
     "npm-watch": "^0.1.6",
     "pushstate-server": "^2.1.0",
+    "ramda": "^0.23.0",
     "rollup": "^0.36.3",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-commonjs": "^5.0.5",
@@ -99,5 +100,6 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
-  }
+  },
+  "dependencies": {}
 }

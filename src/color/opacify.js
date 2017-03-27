@@ -2,6 +2,7 @@
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import guard from '../internalHelpers/_guard'
+import curry2 from '../internalHelpers/_curry2'
 
 /**
  * Increases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -40,4 +41,4 @@ function opacify(amount: number, color: string) {
   return rgba(colorWithAlpha)
 }
 
-export default opacify
+export default curry2(opacify)

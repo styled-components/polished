@@ -3,6 +3,7 @@
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
+import curry2 from '../internalHelpers/_curry2'
 
 /**
  * Decreases the intensity of a color. Its range is between 0 to 1. The first
@@ -36,4 +37,4 @@ function desaturate(amount: number, color: string): string {
   })
 }
 
-export default desaturate
+export default curry2(desaturate)
