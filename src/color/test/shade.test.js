@@ -6,12 +6,6 @@ describe('shade', () => {
     expect(shade(0.25, '#00f')).toMatchSnapshot()
   })
 
-  it('should throw an error if only one parameter is provided', () => {
-    const error = new Error('Passed insufficient arguments to shade, please pass a percentage and a color to be shaded.')
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    expect(() => { shade('#00f') }).toThrow(error)
-  })
-
   it('should throw an error if a percentage greater than 1 is passed', () => {
     const error = new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
     expect(() => { shade(1.1, '#00f') }).toThrow(error)

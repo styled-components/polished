@@ -27,7 +27,6 @@ import curry2 from '../internalHelpers/_curry2'
  */
 
 function shade(percentage: number, color: string) {
-  if (!percentage || !color) throw new Error('Passed insufficient arguments to shade, please pass a percentage and a color to be shaded.')
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
   return mix(percentage, color, 'rgb(0, 0, 0)')
 }

@@ -6,12 +6,6 @@ describe('test', () => {
     expect(tint(0.25, '#00f')).toMatchSnapshot()
   })
 
-  it('should throw an error if only one parameter is provided', () => {
-    const error = new Error('Passed insufficient arguments to tint, please pass a percentage and a color to be tinted.')
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-    expect(() => { tint('#00f') }).toThrow(error)
-  })
-
   it('should throw an error if a percentage greater than 1 is passed', () => {
     const error = new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
     expect(() => { tint(1.1, '#00f') }).toThrow(error)
