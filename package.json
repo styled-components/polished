@@ -43,6 +43,11 @@
     "inline-styles",
     "react"
   ],
+  "files": [
+    "package.json",
+    "lib",
+    "flow-typed"
+  ],
   "bugs": {
     "url": "https://github.com/styled-components/polished/issues"
   },
