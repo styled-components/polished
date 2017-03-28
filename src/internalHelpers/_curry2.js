@@ -1,21 +1,24 @@
 // @flow
 
-/**
- * Optimized internal two-arity curry function.
- *
- * @private
- * @param {Function} fn The function to curry.
- * @return {Function} The curried function.
- */
-module.exports = function _curry2(fn: Function): Function {
-  return function f2(amount: number, color: string) {
-    switch (arguments.length) {
-      case 0:
-        return f2
-      case 1:
-        return (_color: string) => fn(amount, _color)
-      default:
-        return fn(amount, color)
-    }
+// Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
+export type Fn1<A, B> = (a: A, ...rest: Array<void>) => B;
+export type Fn2<A, B, C> = (a: A, b: B, ...rest: Array<void>) => C;
+
+export type CurriedFn2<A, B, C> =
+  & Fn1<A, Fn1<B, C>>
+  & Fn2<A, B, C>;
+
+// eslint-disable-next-line no-unused-vars
+declare function curry<A, B, C>(f: Fn2<A, B, C>): CurriedFn2<A, B, C>;
+
+function curried(f, length, acc) {
+  return function fn() {
+    // eslint-disable-next-line prefer-rest-params
+    const combined = acc.concat(Array.prototype.slice.call(arguments))
+    return combined.length >= length ? f.apply(this, combined) : curried(f, length, combined)
   }
+}
+
+export default function curry(f: Function) { // eslint-disable-line no-redeclare
+  return curried(f, f.length, [])
 }
