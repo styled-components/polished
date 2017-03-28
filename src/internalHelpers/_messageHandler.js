@@ -5,7 +5,7 @@
  */
 
 const errorStyles = 'padding: 2px; font-weight: bold; background: red; color: black'
-const warningStyles = 'padding: 2px; font-weight: bold; background: yellow; color: black'
+const warningStyles = 'padding: 2px; font-weight: bold; background: gold; color: black'
 
 function formatMessage(type:string, modulePath:string, messageBody:string, docPath:string) {
   const header = `%c -- ${type} --------------------------------------------------- ${modulePath} -- `
@@ -13,12 +13,12 @@ function formatMessage(type:string, modulePath:string, messageBody:string, docPa
   const body = `%c
 
 
-  ${messageBody}
+${messageBody}
 
   `
 
   const info = `%c
-  Please see the documentation at %chttps://www.polished.js.org/${docPath} %cfor more information.
+Please see the documentation at %chttps://www.polished.js.org/${docPath} %cfor more information.
 
   `
 
