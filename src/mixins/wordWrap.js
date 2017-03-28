@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Provides an easy way to change the `word-wrap` property
+ * Provides an easy way to change the `word-wrap` property.
  *
  * @example
  * // Styles as object usage
