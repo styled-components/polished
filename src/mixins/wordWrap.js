@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Provides an easy way to change the `word-wrap` property
+ * Provides an easy way to change the `word-wrap` property.
  *
  * @example
  * // Styles as object usage
@@ -12,7 +12,7 @@
  * // styled-components usage
  * const div = styled.div`
  *   ${wordWrap('break-all')}
- *
+ * `
  *
  * // CSS as JS Output
  *

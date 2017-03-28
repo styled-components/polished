@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to hide text to show a background image in a SEO-Friendly.
+ * CSS to hide text to show a background image in a SEO-friendly way.
  *
  * @example
  * // Styles as object usage
