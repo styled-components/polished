@@ -1,6 +1,7 @@
 // @flow
 
 import mix from './mix'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Shades a color by mixing it with black. Compared to `darken` it can produce
@@ -26,9 +27,8 @@ import mix from './mix'
  */
 
 function shade(percentage: number, color: string) {
-  if (!percentage || !color) throw new Error('Passed insufficient arguments to shade, please pass a percentage and a color to be shaded.')
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
   return mix(percentage, color, 'rgb(0, 0, 0)')
 }
 
-export default shade
+export default curry(shade)

@@ -2,6 +2,7 @@
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import guard from '../internalHelpers/_guard'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -40,4 +41,4 @@ function transparentize(amount: number, color: string) {
   return rgba(colorWithAlpha)
 }
 
-export default transparentize
+export default curry(transparentize)

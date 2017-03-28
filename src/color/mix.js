@@ -2,6 +2,7 @@
 
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
@@ -14,16 +15,16 @@ import parseToRgb from './parseToRgb'
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: mix('#f00', '#00f')
+ *   background: mix(0.5, '#f00', '#00f')
  *   background: mix(0.25, '#f00', '#00f')
- *   background: mix('rgba(255, 0, 0, 0.5)', '#00f')
+ *   background: mix(0.5, 'rgba(255, 0, 0, 0.5)', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${mix('#f00', '#00f')};
+ *   background: ${mix(0.5, '#f00', '#00f')};
  *   background: ${mix(0.25, '#f00', '#00f')};
- *   background: ${mix('rgba(255, 0, 0, 0.5)', '#00f')};
+ *   background: ${mix(0.5, 'rgba(255, 0, 0, 0.5)', '#00f')};
  * `
  *
  * // CSS in JS Output
@@ -34,31 +35,14 @@ import parseToRgb from './parseToRgb'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-// Correct type definition, but doesn't show up when we generate the docs.
-// const mix: ((color: string, color2: string) => string) & (weight: number, color: string, color2: string) => string = (colorOrWeight, color, otherColor) => {
-function mix(colorOrWeight: number | string, color: string, otherColor?: string): string {
-  let weight
-  let colorString1
-  let colorString2
-  if (typeof colorOrWeight === 'number' && typeof otherColor === 'string') {
-    weight = colorOrWeight
-    colorString1 = color
-    colorString2 = otherColor
-  } else if (typeof colorOrWeight === 'string') {
-    weight = 0.5
-    colorString1 = colorOrWeight
-    colorString2 = color
-  } else {
-    throw new Error('Passed invalid arguments to mix, please pass either two colors or the weight as a number and the two colors.')
-  }
-
-  const parsedColor1 = parseToRgb(colorString1)
+function mix(weight: number = 0.5, color: string, otherColor: string): string {
+  const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,
     alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1,
   }
 
-  const parsedColor2 = parseToRgb(colorString2)
+  const parsedColor2 = parseToRgb(otherColor)
   const color2 = {
     ...parsedColor2,
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1,
@@ -83,4 +67,4 @@ function mix(colorOrWeight: number | string, color: string, otherColor?: string)
   return rgba(mixedColor)
 }
 
-export default mix
+export default curry(mix)

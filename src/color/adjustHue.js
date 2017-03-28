@@ -2,6 +2,7 @@
 
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -35,4 +36,4 @@ function adjustHue(degree: number, color: string): string {
   })
 }
 
-export default adjustHue
+export default curry(adjustHue)

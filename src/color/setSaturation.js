@@ -2,6 +2,7 @@
 
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the saturation of a color to the provided value. The lightness range can be
@@ -33,4 +34,4 @@ function setSaturation(saturation: number, color: string): string {
   })
 }
 
-export default setSaturation
+export default curry(setSaturation)

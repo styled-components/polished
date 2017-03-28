@@ -3,6 +3,7 @@
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Returns a string value for the lightened color.
@@ -35,4 +36,4 @@ function lighten(amount: number, color: string): string {
   })
 }
 
-export default lighten
+export default curry(lighten)

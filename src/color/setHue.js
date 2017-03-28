@@ -2,6 +2,7 @@
 
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the hue of a color to the provided value. The hue range can be
@@ -33,4 +34,4 @@ function setHue(hue: number, color: string): string {
   })
 }
 
-export default setHue
+export default curry(setHue)
