@@ -1,7 +1,7 @@
 // @flow
 
 import mix from './mix'
-import curry2 from '../internalHelpers/_curry2'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Tints a color by mixing it with white. Compared to `lighten` it can produce
@@ -31,4 +31,4 @@ function tint(percentage: number, color: string) {
   return mix(percentage, color, 'rgb(255, 255, 255)')
 }
 
-export default curry2(tint)
+export default curry(tint)

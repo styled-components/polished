@@ -2,7 +2,7 @@
 
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import curry2 from '../internalHelpers/_curry2'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the lightness of a color to the provided value. The lightness range can be
@@ -34,4 +34,4 @@ function setLightness(lightness: number, color: string): string {
   })
 }
 
-export default curry2(setLightness)
+export default curry(setLightness)

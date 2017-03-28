@@ -3,7 +3,7 @@
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 import guard from '../internalHelpers/_guard'
-import curry2 from '../internalHelpers/_curry2'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Increases the intensity of a color. Its range is between 0 to 1. The first
@@ -38,4 +38,4 @@ function saturate(amount: number, color: string): string {
   })
 }
 
-export default curry2(saturate)
+export default curry(saturate)

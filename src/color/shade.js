@@ -1,7 +1,7 @@
 // @flow
 
 import mix from './mix'
-import curry2 from '../internalHelpers/_curry2'
+import curry from '../internalHelpers/_curry'
 
 /**
  * Shades a color by mixing it with black. Compared to `darken` it can produce
@@ -31,4 +31,4 @@ function shade(percentage: number, color: string) {
   return mix(percentage, color, 'rgb(0, 0, 0)')
 }
 
-export default curry2(shade)
+export default curry(shade)
