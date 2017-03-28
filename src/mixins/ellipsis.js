@@ -6,12 +6,12 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...ellipsis(250px)
+ *   ...ellipsis('250px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${ellipsis(250px)}
+ *   ${ellipsis('250px')}
  *
  *
  * // CSS as JS Output
