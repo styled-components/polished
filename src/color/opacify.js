@@ -12,14 +12,14 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: opacify(0.1, '#fff');
- *   background: opacify(0.2, 'hsl(0, 0%, 20%)'),
+ *   background: opacify(0.2, 'hsla(0, 0%, 100%, 0.5)'),
  *   background: opacify(0.5, 'rgba(255, 0, 0, 0.2)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${opacify(0.1, '#fff')};
- *   background: ${opacify(0.2, 'hsl(0, 0%, 20%)')},
+ *   background: ${opacify(0.2, 'hsla(0, 0%, 100%, 0.5)')},
  *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.2)')},
  * `
  *
@@ -27,7 +27,7 @@ import curry from '../internalHelpers/_curry'
  *
  * element {
  *   background: "#fff";
- *   background: "rgba(255,255,255,0.4)";
+ *   background: "rgba(255,255,255,0.7)";
  *   background: "rgba(255,0,0,0.7)";
  * }
  */
