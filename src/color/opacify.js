@@ -12,23 +12,23 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: opacify(0.1, '#fff');
- *   background: opacify(0.2, 'hsl(0, 0%, 100%)'),
- *   background: opacify(0.5, 'rgba(255, 0, 0, 0.8)'),
+ *   background: opacify(0.2, 'hsla(0, 0%, 100%, 0.5)'),
+ *   background: opacify(0.5, 'rgba(255, 0, 0, 0.2)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${opacify(0.1, '#fff')};
- *   background: ${opacify(0.2, 'hsl(0, 0%, 100%)')},
- *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.8)')},
+ *   background: ${opacify(0.2, 'hsla(0, 0%, 100%, 0.5)')},
+ *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.2)')},
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   background: "rgba(255,255,255,0.9)";
- *   background: "rgba(255,255,255,0.8)";
- *   background: "rgba(255,0,0,0.3)";
+ *   background: "#fff";
+ *   background: "rgba(255,255,255,0.7)";
+ *   background: "rgba(255,0,0,0.7)";
  * }
  */
 function opacify(amount: number, color: string) {
