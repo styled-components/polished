@@ -27,6 +27,8 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 
 You can optionally also use [`babel-plugin-polished`](https://github.com/styled-components/babel-plugin-polished) to compile the static function calls out and remove the (already tiny) runtime performance impact of using `✨ polished`.
 
+### Object rest spread syntax
+In the documentation you will see examples using the [object rest spread](https://github.com/tc39/proposal-object-rest-spread), which is still an experimental syntax. To enable this shorthand, add [babel-plugin-transform-object-rest-spread](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread) to your Babel configuration.
 ### ToC
 
 <!-- NOTE: Anything between INJECT DOCS START and END will be deleted! -->
