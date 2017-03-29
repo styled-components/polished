@@ -43,7 +43,7 @@ function generateSources(fontFilePath?: string, localFonts?: Array<string>, file
  * }
  *
  * // styled-components basic usage
- * injectGlobals`${
+ * injectGlobal`${
  *   fontFace({
  *     'fontFamily': 'Sans-Pro'
  *     'fontFilePath': 'path/to/file'
