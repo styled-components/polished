@@ -41,16 +41,16 @@
 	<div class="repl">
 		<pre class="repl__input"><code>const styles = {
   color: <span class="repl__func">lighten(0.2, '#000')</span>,
-  font-size: <span class="repl__func">modularScale(1)</span>,
+  "font-size": <span class="repl__func">modularScale(1)</span>,
   [<span class="repl__func">hiDPI(1.5)</span>]: {
-    font-size: <span class="repl__func">modularScale(1.25)</span>
+    "font-size": <span class="repl__func">modularScale(1.25)</span>
   }
 }</code></pre>
 		<pre class="repl__output"><code>const styles = {
   color: <span class="repl__func">'#333'</span>,
-  font-size: <span class="repl__func">'1.33em'</span>,
+  "font-size": <span class="repl__func">'1.33em'</span>,
   <span class="repl__func">'@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 1.5/1), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx)'</span>: {
-    font-size: <span class="repl__func">'1.66625em'</span>,
+    "font-size": <span class="repl__func">'1.66625em'</span>,
   }
 }</code></pre>
 	</div>

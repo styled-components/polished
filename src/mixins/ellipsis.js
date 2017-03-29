@@ -12,7 +12,7 @@
  * // styled-components usage
  * const div = styled.div`
  *   ${ellipsis('250px')}
- *
+ * `
  *
  * // CSS as JS Output
  *
