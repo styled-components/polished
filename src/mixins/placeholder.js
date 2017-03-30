@@ -6,12 +6,12 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...placeholder(styles)
+ *   ...placeholder({'color': 'blue'})
  * }
  *
  * // styled-components usage
  * const div = styled.input`
- *    ${placeholder(css`styles`)}
+ *    ${placeholder({'color': 'blue'})}
  * `
  *
  * // CSS as JS Output
