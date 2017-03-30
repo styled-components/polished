@@ -28,7 +28,7 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 You can optionally also use [`babel-plugin-polished`](https://github.com/styled-components/babel-plugin-polished) to compile the static function calls out and remove the (already tiny) runtime performance impact of using `✨ polished`.
 
 ### Object rest spread syntax
-In the documentation you will see examples using the [object rest spread](https://github.com/tc39/proposal-object-rest-spread), which is still an experimental syntax. To enable this shorthand, add [babel-plugin-transform-object-rest-spread](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread) to your Babel configuration.
+In the documentation you will see examples using the [object rest spread](https://github.com/tc39/proposal-object-rest-spread) .To enable this shorthand, add [babel-plugin-transform-object-rest-spread](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread) to your Babel configuration, or use the [stage3 preset](https://babeljs.io/docs/plugins/preset-stage-3/).
 ### ToC
 
 <!-- NOTE: Anything between INJECT DOCS START and END will be deleted! -->
@@ -146,7 +146,7 @@ First of all, we didn't find another library that had everything we needed, and 
 
 Specifically most other packages that provide color functions do so in an object-oriented style, often with a fluent API that's very different from the Sass-style helpers. This means people that aren't very familiar with JavaScript might shy away from using them.
 
-`✨ polished` was made as a standard library for everybody, no matter if they know JS inside out or not. 
+`✨ polished` was made as a standard library for everybody, no matter if they know JS inside out or not.
 
 ## Compatibility
 
