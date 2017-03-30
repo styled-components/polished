@@ -9,14 +9,14 @@ import toColorString from './toColorString'
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: invert(0.2, '#CCCD64'),
- *   background: invert(0.2, 'rgba(101,100,205,0.7)'),
+ *   background: invert('#CCCD64'),
+ *   background: invert('rgba(101,100,205,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${invert(0.2, '#CCCD64')};
- *   background: ${invert(0.2, 'rgba(101,100,205,0.7)')};
+ *   background: ${invert('#CCCD64')};
+ *   background: ${invert('rgba(101,100,205,0.7)')};
  * `
  *
  * // CSS in JS Output
