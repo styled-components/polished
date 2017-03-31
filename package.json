@@ -2,8 +2,8 @@
   "name": "polished",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "lib/index.js",
-  "jsnext:main": "dist/styled-components.es.js",
-  "module": "dist/styled-components.es.js",
+  "jsnext:main": "dist/polished.es.js",
+  "module": "dist/polished.es.js",
   "scripts": {
     "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs",
     "prebuild:lib": "shx rm -rf lib/*",
