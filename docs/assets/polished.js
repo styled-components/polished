@@ -506,7 +506,7 @@ function generateSources(fontFilePath, localFonts, fileFormats) {
  * }
  *
  * // styled-components basic usage
- * injectGlobal`${
+ * injectGlobals`${
  *   fontFace({
  *     'fontFamily': 'Sans-Pro'
  *     'fontFilePath': 'path/to/file'
@@ -784,7 +784,7 @@ function mergeRules(baseRules, additionalRules) {
  * }
  *
  * // styled-components usage
- * injectGlobal`${normalize()}`
+ * injectGlobals`${normalize()}`
  *
  * // CSS as JS Output
  *
