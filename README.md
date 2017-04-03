@@ -130,9 +130,9 @@ In the documentation you will see examples using [object spread properties](http
 
 ## Why?
 
-When writing styles in JavaScript, many people still need Sass-style helper functions to be productive. `✨ polished` brings them to you in a nice, lightweight package tailor-made for styles in JavaScript.
+When writing styles in JavaScript, people need Sass-style helper functions to be productive. `✨ polished` brings them to you in a nice, lightweight package tailor-made for styles in JavaScript.
 
-The main difference to specifically Sass is that it's written in a functional style and all color functions are curried. This means you can compose them together into your own nicely reusable helpers with a `compose` function of your choice:
+The main difference with Sass is that it's written in a functional style and all color functions are curried. This means you can compose them together into your own reusable helpers with a `compose` function of your choice:
 
 ```JS
 import { compose } from 'ramda' // Replace with any compose() function of your choice
