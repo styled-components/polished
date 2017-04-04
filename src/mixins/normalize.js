@@ -278,7 +278,7 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * }
  *
  * // styled-components usage
- * injectGlobal`${normalize()}`
+ * injectGlobals`${normalize()}`
  *
  * // CSS as JS Output
  *
@@ -296,4 +296,3 @@ function normalize(excludeOpinionated?: boolean) {
 }
 
 export default normalize
-
