@@ -278,7 +278,7 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * }
  *
  * // styled-components usage
- * injectGlobals`${normalize()}`
+ * injectGlobal`${normalize()}`
  *
  * // CSS as JS Output
  *
