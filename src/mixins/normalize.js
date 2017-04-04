@@ -296,4 +296,3 @@ function normalize(excludeOpinionated?: boolean) {
 }
 
 export default normalize
-

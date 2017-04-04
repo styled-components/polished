@@ -435,13 +435,13 @@ function clearFix() {
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...ellipsis(250px)
+ *   ...ellipsis('250px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${ellipsis(250px)}
- *
+ *   ${ellipsis('250px')}
+ * `
  *
  * // CSS as JS Output
  *
@@ -558,7 +558,7 @@ function fontFace(_ref) {
 //      
 
 /**
- * CSS to hide text to show a background image in a SEO-Friendly.
+ * CSS to hide text to show a background image in a SEO-friendly way.
  *
  * @example
  * // Styles as object usage
@@ -809,12 +809,12 @@ function normalize(excludeOpinionated) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...placeholder(styles)
+ *   ...placeholder({'color': 'blue'})
  * }
  *
  * // styled-components usage
  * const div = styled.input`
- *    ${placeholder(css`styles`)}
+ *    ${placeholder({'color': 'blue'})}
  * `
  *
  * // CSS as JS Output
@@ -1069,7 +1069,7 @@ function timingFunctions(timingFunction) {
 //      
 
 /**
- * Provides an easy way to change the `word-wrap` property
+ * Provides an easy way to change the `word-wrap` property.
  *
  * @example
  * // Styles as object usage
@@ -1080,7 +1080,7 @@ function timingFunctions(timingFunction) {
  * // styled-components usage
  * const div = styled.div`
  *   ${wordWrap('break-all')}
- *
+ * `
  *
  * // CSS as JS Output
  *
@@ -1593,20 +1593,20 @@ function curry(f) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: adjustHue('#448'),
- *   background: adjustHue('rgba(101,100,205,0.7)'),
+ *   background: adjustHue(180, '#448'),
+ *   background: adjustHue(180, 'rgba(101,100,205,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${adjustHue('#448')};
- *   background: ${adjustHue('rgba(101,100,205,0.7)')};
+ *   background: ${adjustHue(180, '#448')};
+ *   background: ${adjustHue(180, 'rgba(101,100,205,0.7)')};
  * `
  *
  * // CSS in JS Output
  * element {
- *   background: "#5b4488";
- *   background: "rgba(136,100,205,0.7)";
+ *   background: "#888844";
+ *   background: "rgba(136,136,68,0.7)";
  * }
  */
 function adjustHue(degree, color) {
@@ -1762,14 +1762,14 @@ function grayscale(color) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: invert(0.2, '#CCCD64'),
- *   background: invert(0.2, 'rgba(101,100,205,0.7)'),
+ *   background: invert('#CCCD64'),
+ *   background: invert('rgba(101,100,205,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${invert(0.2, '#CCCD64')};
- *   background: ${invert(0.2, 'rgba(101,100,205,0.7)')};
+ *   background: ${invert('#CCCD64')};
+ *   background: ${invert('rgba(101,100,205,0.7)')};
  * `
  *
  * // CSS in JS Output
@@ -1900,24 +1900,24 @@ var mix$1 = curry(mix);
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: opacify(0.1, '#fff');
- *   background: opacify(0.2, 'hsl(0, 0%, 100%)'),
- *   background: opacify(0.5, 'rgba(255, 0, 0, 0.8)'),
+ *   background: opacify(0.1, 'rgba(255, 255, 255, 0.9)');
+ *   background: opacify(0.2, 'hsla(0, 0%, 100%, 0.5)'),
+ *   background: opacify(0.5, 'rgba(255, 0, 0, 0.2)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${opacify(0.1, '#fff')};
- *   background: ${opacify(0.2, 'hsl(0, 0%, 100%)')},
- *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.8)')},
+ *   background: ${opacify(0.1, 'rgba(255, 255, 255, 0.9)')};
+ *   background: ${opacify(0.2, 'hsla(0, 0%, 100%, 0.5)')},
+ *   background: ${opacify(0.5, 'rgba(255, 0, 0, 0.2)')},
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   background: "rgba(255,255,255,0.9)";
- *   background: "rgba(255,255,255,0.8)";
- *   background: "rgba(255,0,0,0.3)";
+ *   background: "#fff";
+ *   background: "rgba(255,255,255,0.7)";
+ *   background: "rgba(255,0,0,0.7)";
  * }
  */
 function opacify(amount, color) {
