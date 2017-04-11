@@ -10,7 +10,7 @@
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
+ *   ${transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
  * `
  *
  * // CSS as JS Output
