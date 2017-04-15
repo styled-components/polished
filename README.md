@@ -130,9 +130,9 @@ In the documentation you will see examples using [object spread properties](http
 
 ## Why?
 
-When writing styles in JavaScript, many people still need Sass-style helper functions to be productive. `✨ polished` brings them to you in a nice, lightweight package tailor-made for styles in JavaScript.
+When writing styles in JavaScript, many people need Sass-style helper functions to be productive. `✨ polished` brings them to you in a nice, lightweight package tailor-made for styles in JavaScript.
 
-The main difference to specifically Sass is that it's written in a functional style and all color functions are curried. This means you can compose them together into your own nicely reusable helpers with a `compose` function of your choice:
+The main difference with Sass is that it's written in a functional style and all color functions are curried. This means you can compose them together into your own reusable helpers with a `compose` function of your choice:
 
 ```JS
 import { compose } from 'ramda' // Replace with any compose() function of your choice
@@ -152,7 +152,7 @@ Specifically most other packages that provide color functions do so in an object
 
 ## Compatibility
 
-✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is by far not limited to, `styled-components`, radium, aphrodite, glamor, jss and many more!
+✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is by far not limited to, `styled-components`, radium, aphrodite, glamor, glamorous, jss and many more!
 
 No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
 
