@@ -9,6 +9,8 @@ describe('modularScale', () => {
 
   it('should use perfect fourth and 1em base by default', () => {
     expect({ 'font-size': modularScale(1) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(2) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(0) }).toMatchSnapshot()
   })
 
   it('should allow adjusting the base', () => {

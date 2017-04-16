@@ -117,3 +117,15 @@ Object {
   "font-size": "1.333em",
 }
 `;
+
+exports[`modularScale should use perfect fourth and 1em base by default 2`] = `
+Object {
+  "font-size": "1.776889em",
+}
+`;
+
+exports[`modularScale should use perfect fourth and 1em base by default 3`] = `
+Object {
+  "font-size": "1em",
+}
+`;
