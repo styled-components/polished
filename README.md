@@ -21,7 +21,7 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 
 ## Docs
 
-**See the full documentation at [polished.js.org](http://polished.js.org)!**
+**See the full documentation at [polished.js.org](http://polished.js.org/docs)!**
 
 ### Babel plugin
 
