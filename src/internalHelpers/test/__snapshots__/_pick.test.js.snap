@@ -1,0 +1,6 @@
+exports[`pick return an object with properites picked 1`] = `
+Object {
+  "a": 1,
+  "c": 3,
+}
+`;
