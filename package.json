@@ -4,6 +4,7 @@
   "main": "lib/index.js",
   "jsnext:main": "dist/polished.es.js",
   "module": "dist/polished.es.js",
+  "typings": "typings/polished.d.ts",
   "scripts": {
     "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs",
     "prebuild:lib": "shx rm -rf lib/*",
@@ -24,7 +25,9 @@
     "lint": "eslint src",
     "flow": "flow check",
     "docs": "pushstate-server docs",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "tslint": "tslint typings/*.ts",
+    "typescript": "tsc ./typings/polished-test.ts --noEmit --target es6 --module es2015 --moduleResolution node"
   },
   "watch": {
     "build:docs": "src/**/*.js",
@@ -86,6 +89,8 @@
     "rollup-plugin-uglify": "^1.0.1",
     "semantic-release": "^4.3.5",
     "shx": "^0.2.2",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2",
     "validate-commit-msg": "^2.8.2",
     "vinyl": "^2.0.1",
     "vinyl-fs": "^2.4.4"
