@@ -1,4 +1,6 @@
 // @flow
+import { error, warning } from '../internalHelpers/_messageHandler'
+
 const positionMap = ['top', 'right', 'bottom', 'left']
 
 function generateProperty(property: string, position: string) {
@@ -42,6 +44,12 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  */
 
 function directionalProperty(property: string, ...values: Array<?string>) {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV !== 'production') {
+    if (!property) error('expects a property(string) as its firt parameter. However, you did not provide one.')
+    if (!values) error('expects at least one value(string) as its tail. However, you did not provide one.')
+    if (values.length > 5) warning(`expects no more than 4 values(string) as its tail. However, you provided ${values.length} instead, ${values.length - 4} of which were ignored.`)
+  }
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]
