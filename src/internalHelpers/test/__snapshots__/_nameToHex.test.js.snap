@@ -1,0 +1,35 @@
+exports[`nameToHex should convert a camel-cased named color to a hex value 1`] = `
+Object {
+  "background": "#b0e0e6",
+}
+`;
+
+exports[`nameToHex should convert a named color to a hex value 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
+
+exports[`nameToHex should return a non-string value without mutation 1`] = `
+Object {
+  "background": 2,
+}
+`;
+
+exports[`nameToHex should return a passed HSL value without mutation 1`] = `
+Object {
+  "background": "hsl(180, 50%, 50%)",
+}
+`;
+
+exports[`nameToHex should return a passed RGB string value without mutation 1`] = `
+Object {
+  "background": "rgb(0,0,0)",
+}
+`;
+
+exports[`nameToHex should return a passed hex value without mutation 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
