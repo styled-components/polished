@@ -18,7 +18,7 @@
  *
  * '&::after': {
  *   'clear': 'both',
- *   'content': '',
+ *   'content': '""',
  *   'display': 'table'
  * }
  */
@@ -28,7 +28,7 @@ function clearFix(parent: string = '&') {
   return {
     [pseudoSelector]: {
       'clear': 'both',
-      'content': '',
+      'content': '""',
       'display': 'table',
     },
   }
