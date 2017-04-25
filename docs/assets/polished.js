@@ -219,7 +219,7 @@ function modularScale(steps) {
   var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
   var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
 
-  if (!steps) {
+  if (typeof steps !== 'number') {
     throw new Error('Please provide a number of steps to the modularScale helper.');
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
@@ -233,7 +233,7 @@ function modularScale(steps) {
     throw new Error('Invalid value passed as base to modularScale, expected number or em string but got "' + base + '"');
   }
 
-  return realBase * realRatio * steps + 'em';
+  return realBase * Math.pow(realRatio, steps) + 'em';
 }
 
 //      
@@ -411,7 +411,7 @@ var taggedTemplateLiteral = function (strings, raw) {
  *
  * '&::after': {
  *   'clear': 'both',
- *   'content': '',
+ *   'content': '""',
  *   'display': 'table'
  * }
  */
@@ -422,7 +422,7 @@ function clearFix() {
   var pseudoSelector = parent + '::after';
   return defineProperty({}, pseudoSelector, {
     'clear': 'both',
-    'content': '',
+    'content': '""',
     'display': 'table'
   });
 }
@@ -1161,10 +1161,10 @@ function hslToRgb(hue, saturation, lightness) {
 
 var hexRegex = /^#[a-fA-F0-9]{6}$/;
 var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
-var rgbRegex = /^rgb\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)$/;
-var rgbaRegex = /^rgba\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3}), ?([-+]?[0-9]*[.]?[0-9]+)\)$/;
-var hslRegex = /^hsl\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%\)$/;
-var hslaRegex = /^hsla\((\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%, ?([-+]?[0-9]*[.]?[0-9]+)\)$/;
+var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
+var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
+var hslRegex = /^hsl\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
+var hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
 
 /**
  * Returns an RgbColor or RgbaColor object. This utility function is only useful

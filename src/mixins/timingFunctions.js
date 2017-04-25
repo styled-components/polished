@@ -59,7 +59,7 @@ type TimingFunction =
   | 'easeInOutSine';
 
 /**
- * String to represent commong easing functions as demonstrated here: (github.com/jaukia/easie).
+ * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
  *
  * @example
  * // Styles as object usage
