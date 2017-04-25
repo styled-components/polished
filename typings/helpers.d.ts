@@ -65,7 +65,7 @@ export function directionalProperty(property: string, ...values: Array<string | 
  *   'height': '1em'
  * }
  */
-export function em(value: string | number): string;
+export function em(value: string | number, base?: string | number): string;
 
 /**
  * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
@@ -113,7 +113,7 @@ export function modularScale(steps: number, base?: number | string, ratio?: Rati
  *   'height': '1rem'
  * }
  */
-export function rem(value: string | number): string;
+export function rem(value: string | number, base?: string | number): string;
 
 /**
  * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
