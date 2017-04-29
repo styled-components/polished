@@ -47,7 +47,7 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  */
 
 function position(positionKeyword: string|null, ...values: Array<?string>) {
-  if (positionMap.includes(positionKeyword)) {
+  if (positionMap.indexOf(positionKeyword) >= 0) {
     return {
       position: positionKeyword,
       ...directionalProperty('', ...values),
