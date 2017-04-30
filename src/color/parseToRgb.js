@@ -2,6 +2,7 @@
 
 import hslToRgb from '../internalHelpers/_hslToRgb'
 import type { RgbColor, RgbaColor } from '../types/color'
+import nameToHex from '../internalHelpers/_nameToHex'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
@@ -23,21 +24,22 @@ const hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*(
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
   if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.')
-  if (color.match(hexRegex)) {
+  const normalizedColor = nameToHex(color)
+  if (normalizedColor.match(hexRegex)) {
     return {
-      red: parseInt(`${color[1]}${color[2]}`, 16),
-      green: parseInt(`${color[3]}${color[4]}`, 16),
-      blue: parseInt(`${color[5]}${color[6]}`, 16),
+      red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
+      green: parseInt(`${normalizedColor[3]}${normalizedColor[4]}`, 16),
+      blue: parseInt(`${normalizedColor[5]}${normalizedColor[6]}`, 16),
     }
   }
-  if (color.match(reducedHexRegex)) {
+  if (normalizedColor.match(reducedHexRegex)) {
     return {
-      red: parseInt(`${color[1]}${color[1]}`, 16),
-      green: parseInt(`${color[2]}${color[2]}`, 16),
-      blue: parseInt(`${color[3]}${color[3]}`, 16),
+      red: parseInt(`${normalizedColor[1]}${normalizedColor[1]}`, 16),
+      green: parseInt(`${normalizedColor[2]}${normalizedColor[2]}`, 16),
+      blue: parseInt(`${normalizedColor[3]}${normalizedColor[3]}`, 16),
     }
   }
-  const rgbMatched = rgbRegex.exec(color)
+  const rgbMatched = rgbRegex.exec(normalizedColor)
   if (rgbMatched) {
     return {
       red: parseInt(`${rgbMatched[1]}`, 10),
@@ -45,7 +47,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${rgbMatched[3]}`, 10),
     }
   }
-  const rgbaMatched = rgbaRegex.exec(color)
+  const rgbaMatched = rgbaRegex.exec(normalizedColor)
   if (rgbaMatched) {
     return {
       red: parseInt(`${rgbaMatched[1]}`, 10),
@@ -54,7 +56,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       alpha: parseFloat(`${rgbaMatched[4]}`, 10),
     }
   }
-  const hslMatched = hslRegex.exec(color)
+  const hslMatched = hslRegex.exec(normalizedColor)
   if (hslMatched) {
     const hue = parseInt(`${hslMatched[1]}`, 10)
     const saturation = parseInt(`${hslMatched[2]}`, 10) / 100
@@ -67,7 +69,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${hslRgbMatched[3]}`, 10),
     }
   }
-  const hslaMatched = hslaRegex.exec(color)
+  const hslaMatched = hslaRegex.exec(normalizedColor)
   if (hslaMatched) {
     const hue = parseInt(`${hslaMatched[1]}`, 10)
     const saturation = parseInt(`${hslaMatched[2]}`, 10) / 100
