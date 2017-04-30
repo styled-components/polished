@@ -27,7 +27,7 @@ import toColorString from './toColorString'
  * }
  */
 function invert(color: string): string {
-  // parse color string to hsl
+  // parse color string to rgb
   const value = parseToRgb(color)
   return toColorString({
     ...value,
