@@ -2616,7 +2616,7 @@ function statefulSelectors(states, template, stateMap) {
   if (states.length === 0) return generateSelectors(template, null);
   var selectors = [];
   for (var i = 0; i < states.length; i += 1) {
-    if (stateMap && !stateMap.includes(states[i])) throw new Error('You passed an unsupported selector state to this method.');
+    if (stateMap && stateMap.indexOf(states[i]) < 0) throw new Error('You passed an unsupported selector state to this method.');
     selectors.push(generateSelectors(template, states[i]));
   }
   selectors = selectors.join(',');
@@ -2782,7 +2782,7 @@ function position(positionKeyword) {
     values[_key - 1] = arguments[_key];
   }
 
-  if (positionMap$1.includes(positionKeyword)) {
+  if (positionMap$1.indexOf(positionKeyword) >= 0) {
     return _extends({
       position: positionKeyword
     }, directionalProperty.apply(undefined, [''].concat(values)));
