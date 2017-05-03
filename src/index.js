@@ -18,6 +18,7 @@ import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
 import selection from './mixins/selection'
 import timingFunctions from './mixins/timingFunctions'
+import triangle from './mixins/triangle'
 import wordWrap from './mixins/wordWrap'
 
 // Color
@@ -115,5 +116,6 @@ export {
   toColorString,
   transitions,
   transparentize,
+  triangle,
   wordWrap,
 }
