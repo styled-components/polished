@@ -1,0 +1,3 @@
+exports[`getLuminance should return the luminance of a hex color 1`] = `0.05780543019106723`;
+
+exports[`getLuminance should return the luminance of an rgba color 1`] = `0.5742011250098834`;
