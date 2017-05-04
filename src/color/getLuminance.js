@@ -25,7 +25,7 @@ import curry from '../internalHelpers/_curry'
  *
  */
 function getLuminance(color: string): number {
-  const rgbColor = parseToRgb(color)
+  const rgbColor: { [string]: number } = parseToRgb(color)
   const [r, g, b] = Object.keys(rgbColor).map(key => {
     const channel = rgbColor[key] / 255
     return channel <= 0.03928
