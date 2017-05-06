@@ -10,6 +10,11 @@
       "markdown": false
     },
     {
+      "name": "Usage",
+      "description": "<div class='usage'><code class='javascript'>import { lighten, modularScale } from 'polished'</code></div>",
+      "markdown": false
+    },
+    {
       "name": "Mixins"
     },
     "clearFix",

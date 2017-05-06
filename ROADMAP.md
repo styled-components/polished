@@ -6,18 +6,18 @@ Interested in contributing? Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for d
 
 ## Features Actively In Development
 
-- Better error messaging in `development` and stripped out in `production`. (#4)
+- Better error messaging in `development` and removed in `production`. (#4)
 - Fluid Typography Mixin. (#129)
+- Color Luminance and Lightness Guard. (#148)
+- Adding Sass-like functionality to RGB. (#104)
 
 ## Features Being Added But Not In Development
 
-- Color Luminance and Lightness Guard. (#148)
 - Adding library-specific usage examples to documentation. (#144)
 
 ## Features Being Considered For Inclusion
 
 - React Native helpers for dealing with `Device` width and height. (#143)
-- Adding Sass-like functionality to RGB. (#104)
 
 ## Features That Won't Be Included
 
