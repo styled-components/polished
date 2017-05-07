@@ -7,6 +7,24 @@ Object {
 }
 `;
 
+exports[`margin properly applies unitless values 1`] = `
+Object {
+  "margin-bottom": 36,
+  "margin-left": 48,
+  "margin-right": 24,
+  "margin-top": 12,
+}
+`;
+
+exports[`margin properly applies unitless zero 1`] = `
+Object {
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-top": 0,
+}
+`;
+
 exports[`margin properly applies values when passed four 1`] = `
 Object {
   "margin-bottom": "36px",

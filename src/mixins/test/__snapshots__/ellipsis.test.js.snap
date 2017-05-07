@@ -20,6 +20,17 @@ Object {
 }
 `;
 
+exports[`ellipsis should permit bare number 1`] = `
+Object {
+  "display": "inline-block",
+  "max-width": 300,
+  "overflow": "hidden",
+  "text-overflow": "ellipsis",
+  "white-space": "nowrap",
+  "word-wrap": "normal",
+}
+`;
+
 exports[`ellipsis should properly add rules when block has existing rules 1`] = `
 Object {
   "background": "red",

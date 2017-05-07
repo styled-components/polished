@@ -19,15 +19,29 @@ describe('borderRadius', () => {
       // $FlowIgnoreNextLine since the coming is invalid code, flow complains
       borderRadius('top')
     }).toThrow(
-      'borderRadius expects a radius value as a string as the second argument.',
+      'borderRadius expects a radius value as a string or number as the second argument.',
+    )
+  })
+  it('should throw an error when no radius value is provided', () => {
+    expect(() => {
+      borderRadius('top', '')
+    }).toThrow(
+      'borderRadius expects a radius value as a string or number as the second argument.',
+    )
+  })
+  it('should throw an error when no radius value is provided', () => {
+    expect(() => {
+      borderRadius('top', NaN)
+    }).toThrow(
+      'borderRadius expects a radius value as a string or number as the second argument.',
     )
   })
   it('should throw an error when no radius value is provided', () => {
     expect(() => {
       // $FlowIgnoreNextLine since the coming is invalid code, flow complains
-      borderRadius('top', 100)
+      borderRadius('top', true)
     }).toThrow(
-      'borderRadius expects a radius value as a string as the second argument.',
+      'borderRadius expects a radius value as a string or number as the second argument.',
     )
   })
   it('should throw an error when an invalid side value is provided', () => {
@@ -36,5 +50,11 @@ describe('borderRadius', () => {
     }).toThrow(
       'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
     )
+  })
+  it('properly applies unitless value', () => {
+    expect(borderRadius('top', 5)).toMatchSnapshot()
+  })
+  it('properly applies unitless zero', () => {
+    expect(borderRadius('left', 0)).toMatchSnapshot()
   })
 })

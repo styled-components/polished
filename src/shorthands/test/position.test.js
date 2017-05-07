@@ -19,4 +19,10 @@ describe('position', () => {
   it('properly ignores position property, when not passed one', () => {
     expect(position('12px', '24px', '36px', '48px')).toMatchSnapshot()
   })
+  it('properly applies unitless values', () => {
+    expect(position(12, 24, 36, 48)).toMatchSnapshot()
+  })
+  it('properly applies unitless zero', () => {
+    expect(position(0)).toMatchSnapshot()
+  })
 })

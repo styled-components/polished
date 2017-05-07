@@ -14,4 +14,10 @@ describe('borderWidth', () => {
   it('properly applies values when passed four', () => {
     expect(borderWidth('12px', '24px', '36px', '48px')).toMatchSnapshot()
   })
+  it('properly applies unitless values', () => {
+    expect(borderWidth(12, 24, 36, 48)).toMatchSnapshot()
+  })
+  it('properly applies unitless zero', () => {
+    expect(borderWidth(0)).toMatchSnapshot()
+  })
 })
