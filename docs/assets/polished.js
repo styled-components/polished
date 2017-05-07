@@ -1464,7 +1464,7 @@ function rgbToHsl(color) {
 function parseToHsl(color) {
   // Note: At a later stage we can optimize this function as right now a hsl
   // color would be parsed converted to rgb values and converted back to hsl.
-  return rgbToHsl(parseToRgb(nameToHex(color)));
+  return rgbToHsl(parseToRgb(color));
 }
 
 //      
@@ -2257,8 +2257,7 @@ var setSaturation$1 = curry(setSaturation);
 function shade(percentage, color) {
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
   if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
-  var normalizedColor = nameToHex(color);
-  return mix$1(percentage, normalizedColor, 'rgb(0, 0, 0)');
+  return mix$1(percentage, color, 'rgb(0, 0, 0)');
 }
 
 var shade$1 = curry(shade);
@@ -2291,8 +2290,7 @@ var shade$1 = curry(shade);
 function tint(percentage, color) {
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
   if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
-  var normalizedColor = nameToHex(color);
-  return mix$1(percentage, normalizedColor, 'rgb(255, 255, 255)');
+  return mix$1(percentage, color, 'rgb(255, 255, 255)');
 }
 
 var tint$1 = curry(tint);

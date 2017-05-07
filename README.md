@@ -16,12 +16,22 @@ yarn add polished
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? `✨ polished` is for you!
 
 - **Make your app look great without stress**
-- **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
 - **Switching from a pre-processor to styles in JS made easy**
+
+## Usage
+
+`✨ polished` modules are meant to be used as stand-alone imports. You should avoid importing the entire library directly:
+
+`import { clearFix, animation } from 'polished'`
+~`import * as polished from 'polished`~
+~`import polished from 'polished'`~
+
+When `✨ polished` modules are imported properly, tree shaking in [webpack 2](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
 ## Docs
 
-**See the full documentation at [polished.js.org](http://polished.js.org)!**
+**See the full documentation at [polished.js.org](http://polished.js.org/docs)!**
 
 ### Babel plugin
 
