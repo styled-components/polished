@@ -1,8 +1,8 @@
 // @flow
 
 import hslToRgb from '../internalHelpers/_hslToRgb'
-import type { RgbColor, RgbaColor } from '../types/color'
 import nameToHex from '../internalHelpers/_nameToHex'
+import type { RgbColor, RgbaColor } from '../types/color'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
