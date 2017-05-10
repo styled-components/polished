@@ -1,6 +1,28 @@
-exports[`triangle should pass parameters to the values of color, border-width 1`] = `
+exports[`triangle should default to a transparent background when not passed a backgroundColor 1`] = `
 Object {
   "border-color": "transparent",
+  "border-left-color": "red !important",
+  "border-style": "solid",
+  "border-width": "5px 0 5px 20px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should generate a proper triangle when passed all parameters 1`] = `
+Object {
+  "border-color": "black",
+  "border-left-color": "red !important",
+  "border-style": "solid",
+  "border-width": "5px 0 5px 20px",
+  "height": "0",
+  "width": "0",
+}
+`;
+
+exports[`triangle should generate a proper triangle when passed string values for height and width 1`] = `
+Object {
+  "border-color": "black",
   "border-left-color": "red !important",
   "border-style": "solid",
   "border-width": "5px 0 5px 20px",
@@ -21,7 +43,7 @@ Object {
 }
 `;
 
-exports[`triangle should properly render bottom pointing arrow with red color, width of 20px and height 20px 1`] = `
+exports[`triangle should properly render bottom pointing arrow with red foregroundColor, width of 20px and height 20px 1`] = `
 Object {
   "border-color": "transparent",
   "border-style": "solid",
@@ -32,7 +54,7 @@ Object {
 }
 `;
 
-exports[`triangle should properly render left pointing arrow with blue color, width of 10px and height 20px 1`] = `
+exports[`triangle should properly render left pointing arrow with blue foregroundColor, width of 10px and height 20px 1`] = `
 Object {
   "border-color": "transparent",
   "border-right-color": "blue !important",
@@ -54,7 +76,7 @@ Object {
 }
 `;
 
-exports[`triangle should properly render top pointing arrow with green color, width of 20px and height 20px 1`] = `
+exports[`triangle should properly render top pointing arrow with green foregroundColor, width of 20px and height 20px 1`] = `
 Object {
   "border-bottom-color": "green !important",
   "border-color": "transparent",
