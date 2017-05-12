@@ -70,8 +70,8 @@ function constructGradientValue(
  * // CSS as JS Output
  *
  * div: {
- *   'background-color': '#00FFFF',
- *   'background-image': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+ *   'backgroundColor': '#00FFFF',
+ *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
 
@@ -88,8 +88,8 @@ function radialGradient({
     )
   }
   return {
-    'background-color': fallback || parseFallback(colorStops),
-    'background-image': constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(', ')})`,
+    backgroundColor: fallback || parseFallback(colorStops),
+    backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(', ')})`,
   }
 }
 

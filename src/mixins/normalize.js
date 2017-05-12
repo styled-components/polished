@@ -1,7 +1,7 @@
 // @flow
 const opinionatedRules = {
-  html: {
-    'font-family': 'sans-serif',
+  'html': {
+    'fontFamily': 'sans-serif',
   },
 
   body: {
@@ -10,7 +10,7 @@ const opinionatedRules = {
 
   [`a:active,
   a:hover`]: {
-    'outline-width': '0',
+    'outlineWidth': '0',
   },
 
   [`button,
@@ -18,17 +18,16 @@ const opinionatedRules = {
   optgroup,
   select,
   textarea`]: {
-    'font-family': 'sans-serif',
-    'font-size': '100%',
-    'line-height': '1.15',
+    'fontFamily': 'sans-serif',
+    'fontSize': '100%',
+    'lineHeight': '1.15',
   },
 }
 
 const unopinionatedRules = {
-  html: {
-    'line-height': '1.15',
-    '-ms-text-size-adjust': '100%',
-    '-webkit-text-size-adjust': '100%',
+  'html': {
+    'lineHeight': '1.15',
+    'textSizeAdjust': '100%',
   },
 
   [`article,
@@ -40,9 +39,9 @@ const unopinionatedRules = {
     display: 'block',
   },
 
-  h1: {
-    'font-size': '2em',
-    margin: '0.67em 0',
+  'h1': {
+    'fontSize': '2em',
+    'margin': '0.67em 0',
   },
 
   [`figcaption,
@@ -55,15 +54,15 @@ const unopinionatedRules = {
     margin: '1em 40px',
   },
 
-  hr: {
-    'box-sizing': 'content-box',
-    height: '0',
-    overflow: 'visible',
+  'hr': {
+    'boxSizing': 'content-box',
+    'height': '0',
+    'overflow': 'visible',
   },
 
-  pre: {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em',
+  'pre': {
+    'fontFamily': 'monospace, monospace',
+    'fontSize': '1em',
   },
 
   a: {
@@ -72,43 +71,43 @@ const unopinionatedRules = {
   },
 
   'abbr[title]': {
-    'border-bottom': 'none',
-    'text-decoration': 'underline',
+    'borderBottom': 'none',
+    'textDecoration': 'underline',
     // eslint-disable-next-line no-dupe-keys
-    'text-decoration': 'underline dotted',
+    'textDecoration': 'underline dotted',
   },
 
   [`b,
   strong`]: {
-    'font-weight': 'inherit',
+    'fontWeight': 'inherit',
   },
 
   [`code,
   kbd,
   samp`]: {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em',
+    'fontFamily': 'monospace, monospace',
+    'fontSize': '1em',
   },
 
-  dfn: {
-    'font-style': 'italic',
+  'dfn': {
+    'fontStyle': 'italic',
   },
 
-  mark: {
-    'background-color': '#ff0',
-    color: '#000',
+  'mark': {
+    'backgroundColor': '#ff0',
+    'color': '#000',
   },
 
-  small: {
-    'font-size': '80%',
+  'small': {
+    'fontSize': '80%',
   },
 
   [`sub,
   sup`]: {
-    'font-size': '75%',
-    'line-height': '0',
-    position: 'relative',
-    'vertical-align': 'baseline',
+    'fontSize': '75%',
+    'lineHeight': '0',
+    'position': 'relative',
+    'verticalAlign': 'baseline',
   },
 
   sub: {
@@ -129,8 +128,8 @@ const unopinionatedRules = {
     height: '0',
   },
 
-  img: {
-    'border-style': 'none',
+  'img': {
+    'borderStyle': 'none',
   },
 
   'svg:not(:root)': {
@@ -152,7 +151,7 @@ const unopinionatedRules = {
 
   [`button,
   select`]: {
-    'text-transform': 'none',
+    'textTransform': 'none',
   },
 
   [`button,
@@ -166,8 +165,8 @@ const unopinionatedRules = {
   [type="button"]::-moz-focus-inner,
   [type="reset"]::-moz-focus-inner,
   [type="submit"]::-moz-focus-inner`]: {
-    'border-style': 'none',
-    padding: '0',
+    'borderStyle': 'none',
+    'padding': '0',
   },
 
   [`button:-moz-focusring,
@@ -183,18 +182,18 @@ const unopinionatedRules = {
     padding: '0.35em 0.625em 0.75em',
   },
 
-  legend: {
-    'box-sizing': 'border-box',
-    color: 'inherit',
-    display: 'table',
-    'max-width': '100%',
-    padding: '0',
-    'white-space': 'normal',
+  'legend': {
+    'boxSizing': 'border-box',
+    'color': 'inherit',
+    'display': 'table',
+    'maxWidth': '100%',
+    'padding': '0',
+    'whiteSpace': 'normal',
   },
 
-  progress: {
-    display: 'inline-block',
-    'vertical-align': 'baseline',
+  'progress': {
+    'display': 'inline-block',
+    'verticalAlign': 'baseline',
   },
 
   textarea: {
@@ -203,8 +202,8 @@ const unopinionatedRules = {
 
   [`[type="checkbox"],
   [type="radio"]`]: {
-    'box-sizing': 'border-box',
-    padding: '0',
+    'boxSizing': 'border-box',
+    'padding': '0',
   },
 
   [`[type="number"]::-webkit-inner-spin-button,
@@ -214,7 +213,7 @@ const unopinionatedRules = {
 
   '[type="search"]': {
     '-webkit-appearance': 'textfield',
-    'outline-offset': '-2px',
+    'outlineOffset': '-2px',
   },
 
   [`[type="search"]::-webkit-search-cancel-button,
@@ -281,10 +280,9 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * // CSS as JS Output
  *
  * html {
- *   font-family: sans-serif,
- *   line-height: 1.15,
- *   -ms-text-size-adjust: 100%,
- *   -webkit-text-size-adjust: 100%,
+ *   fontFamily: sans-serif,
+ *   lineHeight: 1.15,
+ *   textSizeAdjust: 100%,
  * } ...
  */
 

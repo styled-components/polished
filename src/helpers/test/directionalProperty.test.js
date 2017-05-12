@@ -5,6 +5,11 @@ describe('directionalProperty', () => {
   it('properly generates properties when passed a hyphenated property', () => {
     expect(directionalProperty('border-width', '12px')).toMatchSnapshot()
   })
+
+  it('properly generates properties when passed a camelCased property', () => {
+    expect(directionalProperty('borderWidth', '12px')).toMatchSnapshot()
+  })
+
   it('properly passes just the position when not given a property', () => {
     expect(directionalProperty('', '12px')).toMatchSnapshot()
   })

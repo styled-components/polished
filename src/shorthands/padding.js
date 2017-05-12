@@ -2,7 +2,7 @@
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
- * The padding shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -17,10 +17,10 @@ import directionalProperty from '../helpers/directionalProperty'
  * // CSS as JS Output
  *
  * div {
- *   'padding-top': '12px',
- *   'padding-right': '24px',
- *   'padding-bottom': '36px',
- *   'padding-left': '48px'
+ *   'paddingTop': '12px',
+ *   'paddingRight': '24px',
+ *   'paddingBottom': '36px',
+ *   'paddingLeft': '48px'
  * }
  */
 

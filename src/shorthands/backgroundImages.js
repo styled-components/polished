@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..
+ * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -16,13 +16,13 @@
  * // CSS as JS Output
  *
  * div {
- *   'background-image': 'url("/image/background.jpg"), linear-gradient(red, green)'
+ *   'backgroundImage': 'url("/image/background.jpg"), linear-gradient(red, green)'
  * }
  */
 
 function backgroundImages(...properties: Array<string>) {
   return {
-    'background-image': properties.join(', '),
+    backgroundImage: properties.join(', '),
   }
 }
 

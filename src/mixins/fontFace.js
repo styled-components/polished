@@ -64,7 +64,7 @@ function generateSources(
  * // CSS as JS Output
  *
  * '@font-face': {
- *   'font-family': 'Sans-Pro',
+ *   'fontFamily': 'Sans-Pro',
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
@@ -96,13 +96,13 @@ function fontFace({
 
   const fontFaceDeclaration = {
     '@font-face': {
-      'font-family': fontFamily,
+      fontFamily,
       src: generateSources(fontFilePath, localFonts, fileFormats),
-      'unicode-range': unicodeRange,
-      'font-stretch': fontStretch,
-      'font-style': fontStyle,
-      'font-variant': fontVariant,
-      'font-weight': fontWeight,
+      unicodeRange,
+      fontStretch,
+      fontStyle,
+      fontVariant,
+      fontWeight,
     },
   }
 

@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Provides an easy way to change the `word-wrap` property.
+ * Provides an easy way to change the `wordWrap` property.
  *
  * @example
  * // Styles as object usage
@@ -17,18 +17,18 @@
  * // CSS as JS Output
  *
  * const styles = {
- *   overflow-wrap: 'break-all',
- *   word-wrap: 'break-all',
- *   word-break: 'break-all',
+ *   overflowWrap: 'break-all',
+ *   wordWrap: 'break-all',
+ *   wordBreak: 'break-all',
  * }
  */
 
 function wordWrap(wrap: string = 'break-word') {
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
-    'overflow-wrap': wrap,
-    'word-wrap': wrap,
-    'word-break': wordBreak,
+    overflowWrap: wrap,
+    wordWrap: wrap,
+    wordBreak,
   }
 }
 

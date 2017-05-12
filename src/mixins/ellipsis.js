@@ -18,22 +18,22 @@
  *
  * div: {
  *   'display': 'inline-block',
- *   'max-width': '250px',
+ *   'maxWidth': '250px',
  *   'overflow': 'hidden',
- *   'text-overflow': 'ellipsis',
- *   'white-space': 'nowrap',
- *   'word-wrap': 'normal'
+ *   'textOverflow': 'ellipsis',
+ *   'whiteSpace': 'nowrap',
+ *   'wordWrap': 'normal'
  * }
  */
 
 function ellipsis(width: string = '100%') {
   return {
-    display: 'inline-block',
-    'max-width': width,
-    overflow: 'hidden',
-    'text-overflow': 'ellipsis',
-    'white-space': 'nowrap',
-    'word-wrap': 'normal',
+    'display': 'inline-block',
+    'maxWidth': width,
+    'overflow': 'hidden',
+    'textOverflow': 'ellipsis',
+    'whiteSpace': 'nowrap',
+    'wordWrap': 'normal',
   }
 }
 

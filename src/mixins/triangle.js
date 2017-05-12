@@ -35,10 +35,10 @@ const getBorderWidth = (
 
 // needed for border-color
 const reverseDirection = {
-  left: 'right',
-  right: 'left',
-  top: 'bottom',
-  bottom: 'top',
+  left: 'Right',
+  right: 'Left',
+  top: 'Bottom',
+  bottom: 'Top',
 }
 
 /**
@@ -60,10 +60,10 @@ const reverseDirection = {
  * // CSS as JS Output
  *
  * div: {
- *  'border-color': 'transparent',
- *  'border-left-color': 'red !important',
- *  'border-style': 'solid',
- *  'border-width': '50px 0 50px 100px',
+ *  'borderColor': 'transparent',
+ *  'borderLeftColor': 'red !important',
+ *  'borderStyle': 'solid',
+ *  'borderWidth': '50px 0 50px 100px',
  *  'height': '0',
  *  'width': '0',
  * }
@@ -85,21 +85,17 @@ function triangle({
   }
 
   return {
-    'border-color': backgroundColor,
+    borderColor: backgroundColor,
     width: '0',
     height: '0',
-    'border-width': getBorderWidth(
-      pointingDirection,
-      unitlessHeight,
-      unitlessWidth,
-    ),
-    'border-style': 'solid',
+    borderWidth: getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
+    borderStyle: 'solid',
     /*
     * javascript Object sorting orders 'border-color' after 'border-bottom-color'
     * (bottom-b) is before (bottom-c) - !important is needed
     * { border-bottom-color: 'red', border-color: 'transparent' }
     */
-    [`border-${reverseDirection[pointingDirection]}-color`]: `${foregroundColor} !important`,
+    [`border${reverseDirection[pointingDirection]}Color`]: `${foregroundColor} !important`,
   }
 }
 
