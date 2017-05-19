@@ -28,28 +28,37 @@ function fluidRange(cssProp: Array <Object> | Object, minScreen: string = '320px
     minScreenUnit !== maxScreenUnit
     ) throw new Error('minScreen and maxScreen must be provided as stringified numbers with units.')
 
-  const styles = {
-    [`@media (min-width: ${minScreen})`]: {},
-    [`@media (min-width: ${maxScreen})`]: {},
-  }
-
   if (Array.isArray(cssProp)) {
+    const styles = {}
     for (const obj of cssProp) {
       if (!obj.prop || !obj.fromSize || !obj.toSize) throw new Error('expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.')
 
       styles[obj.prop] = obj.fromSize
-      styles[`@media (min-width: ${minScreen})`][obj.prop] = between(obj.fromSize, obj.toSize, unitlessMinScreen, unitlessMaxScreen)
-      styles[`@media (min-width: ${maxScreen})`][obj.prop] = obj.toSize
+      styles[`@media (min-width: ${minScreen})`] = {
+        ...styles[`@media (min-width: ${minScreen})`],
+        [obj.prop]: between(obj.fromSize, obj.toSize, unitlessMinScreen, unitlessMaxScreen)
+      }
+      styles[`@media (min-width: ${maxScreen})`] = {
+        ...styles[`@media (min-width: ${maxScreen})`],
+        [obj.prop]: obj.toSize
+      }
     }
+
+    return styles
+
   } else {
     if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.')
 
-    styles[cssProp.prop] = cssProp.fromSize
-    styles[`@media (min-width: ${minScreen})`][cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, unitlessMinScreen, unitlessMaxScreen)
-    styles[`@media (min-width: ${maxScreen})`][cssProp.prop] = cssProp.toSize
+    return {
+      [cssProp.prop]: cssProp.fromSize,
+      [`@media (min-width: ${minScreen})`]: {
+        [cssProp.prop]: between(cssProp.fromSize, cssProp.toSize, unitlessMinScreen, unitlessMaxScreen),
+      },
+      [`@media (min-width: ${maxScreen})`]: {
+        [cssProp.prop]: cssProp.toSize,
+      }
+    }
   }
-
-  return styles
 }
 
 export default fluidRange
