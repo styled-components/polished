@@ -8,6 +8,7 @@ describe('getUnit', () => {
   })
 
   it('should get px from values', () => {
+    expect(getUnit('.05px')).toMatchSnapshot()
     expect(getUnit('1.5px')).toMatchSnapshot()
   })
 
@@ -16,6 +17,7 @@ describe('getUnit', () => {
   })
 
   it('should get pt from values', () => {
+    expect(getUnit('.05pt')).toMatchSnapshot()
     expect(getUnit('1.5pt')).toMatchSnapshot()
   })
 
@@ -24,6 +26,7 @@ describe('getUnit', () => {
   })
 
   it('should get pc from values', () => {
+    expect(getUnit('.05pc')).toMatchSnapshot()
     expect(getUnit('1.5pc')).toMatchSnapshot()
   })
 
@@ -32,6 +35,7 @@ describe('getUnit', () => {
   })
 
   it('should get mm from values', () => {
+    expect(getUnit('.05mm')).toMatchSnapshot()
     expect(getUnit('1.5mm')).toMatchSnapshot()
   })
 
@@ -40,6 +44,7 @@ describe('getUnit', () => {
   })
 
   it('should get q from values', () => {
+    expect(getUnit('.05q')).toMatchSnapshot()
     expect(getUnit('1.5q')).toMatchSnapshot()
   })
 
@@ -48,6 +53,7 @@ describe('getUnit', () => {
   })
 
   it('should get cm from values', () => {
+    expect(getUnit('.05cm')).toMatchSnapshot()
     expect(getUnit('1.5cm')).toMatchSnapshot()
   })
 
@@ -56,6 +62,7 @@ describe('getUnit', () => {
   })
 
   it('should get in from values', () => {
+    expect(getUnit('.05in')).toMatchSnapshot()
     expect(getUnit('1.5in')).toMatchSnapshot()
   })
 
@@ -64,6 +71,7 @@ describe('getUnit', () => {
   })
 
   it('should get em from decimal values', () => {
+    expect(getUnit('.05em')).toMatchSnapshot()
     expect(getUnit('1.2em')).toMatchSnapshot()
   })
 
@@ -72,6 +80,7 @@ describe('getUnit', () => {
   })
 
   it('should get rem from decimal values', () => {
+    expect(getUnit('.05rem')).toMatchSnapshot()
     expect(getUnit('1.2rem')).toMatchSnapshot()
   })
 
@@ -80,6 +89,7 @@ describe('getUnit', () => {
   })
 
   it('should get ex from decimal values', () => {
+    expect(getUnit('.05ex')).toMatchSnapshot()
     expect(getUnit('1.2ex')).toMatchSnapshot()
   })
 
@@ -88,6 +98,7 @@ describe('getUnit', () => {
   })
 
   it('should get ch from decimal values', () => {
+    expect(getUnit('.05ch')).toMatchSnapshot()
     expect(getUnit('1.2ch')).toMatchSnapshot()
   })
 
@@ -96,6 +107,7 @@ describe('getUnit', () => {
   })
 
   it('should get vh from decimal values', () => {
+    expect(getUnit('.05vh')).toMatchSnapshot()
     expect(getUnit('33.33vh')).toMatchSnapshot()
   })
 
@@ -104,6 +116,7 @@ describe('getUnit', () => {
   })
 
   it('should get vw from decimal values', () => {
+    expect(getUnit('.05vw')).toMatchSnapshot()
     expect(getUnit('33.33vw')).toMatchSnapshot()
   })
 
@@ -112,6 +125,7 @@ describe('getUnit', () => {
   })
 
   it('should get vmin from decimal values', () => {
+    expect(getUnit('.05vmin')).toMatchSnapshot()
     expect(getUnit('33.33vmin')).toMatchSnapshot()
   })
 
@@ -120,6 +134,7 @@ describe('getUnit', () => {
   })
 
   it('should get vmax from decimal values', () => {
+    expect(getUnit('.05vmax')).toMatchSnapshot()
     expect(getUnit('33.33vmax')).toMatchSnapshot()
   })
 
@@ -128,6 +143,7 @@ describe('getUnit', () => {
   })
 
   it('should get % from decimal values', () => {
+    expect(getUnit('.05%')).toMatchSnapshot()
     expect(getUnit('33.3%')).toMatchSnapshot()
   })
 
