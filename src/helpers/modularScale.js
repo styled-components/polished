@@ -1,5 +1,6 @@
 // @flow
 
+import getUnit from '../internalHelpers/_getUnit'
 import stripUnit from './stripUnit'
 
 const ratioNames = {
@@ -72,6 +73,8 @@ function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio
     throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.')
   }
 
+  const defaultUnit = 'em'
+  const unit = typeof base === 'string' ? (getUnit(base) || defaultUnit) : defaultUnit
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
@@ -79,7 +82,7 @@ function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio
     throw new Error(`Invalid value passed as base to modularScale, expected number or em string but got "${base}"`)
   }
 
-  return `${realBase * (realRatio ** steps)}em`
+  return `${realBase * (realRatio ** steps)}${unit}`
 }
 
 export { ratioNames }

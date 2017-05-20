@@ -28,9 +28,9 @@ const units = [
   'vw',
 ]
 
-function getUnit(value: string): string {
+function getUnit(value: string): string | null {
   const unit = value.replace(/[^a-zA-Z-%]/g, '')
-  return units.includes(unit) ? unit : null;
+  return units.includes(unit) ? unit : null
 }
 
 export default getUnit
