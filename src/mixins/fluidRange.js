@@ -29,22 +29,26 @@ function fluidRange(cssProp: Array <Object> | Object, minScreen: string = '320px
     ) throw new Error('minScreen and maxScreen must be provided as stringified numbers with units.')
 
   if (Array.isArray(cssProp)) {
-    const styles = {}
+    const mediaQueries = {}
+    const fallbacks = {}
     for (const obj of cssProp) {
       if (!obj.prop || !obj.fromSize || !obj.toSize) throw new Error('expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.')
 
-      styles[obj.prop] = obj.fromSize
-      styles[`@media (min-width: ${minScreen})`] = {
-        ...styles[`@media (min-width: ${minScreen})`],
+      fallbacks[obj.prop] = obj.fromSize
+      mediaQueries[`@media (min-width: ${minScreen})`] = {
+        ...mediaQueries[`@media (min-width: ${minScreen})`],
         [obj.prop]: between(obj.fromSize, obj.toSize, unitlessMinScreen, unitlessMaxScreen)
       }
-      styles[`@media (min-width: ${maxScreen})`] = {
-        ...styles[`@media (min-width: ${maxScreen})`],
+      mediaQueries[`@media (min-width: ${maxScreen})`] = {
+        ...mediaQueries[`@media (min-width: ${maxScreen})`],
         [obj.prop]: obj.toSize
       }
     }
 
-    return styles
+    return {
+      ...fallbacks,
+      ...mediaQueries
+    }
 
   } else {
     if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.')
