@@ -8,11 +8,11 @@
  * @property {number}  saturation
  * @property {number}  lightness
  */
-export type HslColor = {
+export type HslColor = {|
   hue: number,
   saturation: number,
   lightness: number,
-}
+|}
 
 /**
  * @property {number}  hue
@@ -20,23 +20,23 @@ export type HslColor = {
  * @property {number}  lightness
  * @property {number}  alpha
  */
-export type HslaColor = {
+export type HslaColor = {|
   hue: number,
   saturation: number,
   lightness: number,
   alpha: number,
-}
+|}
 
 /**
  * @property {number}  red
  * @property {number}  green
  * @property {number}  blue
  */
-export type RgbColor = {
+export type RgbColor = {|
   red: number,
   green: number,
   blue: number,
-}
+|}
 
 /**
  * @property {number}  red
@@ -44,9 +44,9 @@ export type RgbColor = {
  * @property {number}  blue
  * @property {number}  alpha
  */
-export type RgbaColor = {
+export type RgbaColor = {|
   red: number,
   green: number,
   blue: number,
   alpha: number,
-}
+|}
