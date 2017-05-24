@@ -28,7 +28,7 @@
     "prepublish": "npm run build"
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
       "eslint src --fix",
       "git add"
