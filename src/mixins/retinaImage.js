@@ -30,13 +30,23 @@ import hiDPI from './hiDPI'
  *   }
  * }
  */
-function retinaImage(filename: string, backgroundSize?: string, extension?: string = 'png', retinaFilename?: string, retinaSuffix?: string = '_2x') {
+function retinaImage(
+  filename: string,
+  backgroundSize?: string,
+  extension?: string = 'png',
+  retinaFilename?: string,
+  retinaSuffix?: string = '_2x',
+) {
   if (!filename) {
-    throw new Error('Please supply a filename to retinaImage() as the first argument.')
+    throw new Error(
+      'Please supply a filename to retinaImage() as the first argument.',
+    )
   }
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')
-  const rFilename = retinaFilename ? `${retinaFilename}.${ext}` : `${filename}${retinaSuffix}.${ext}`
+  const rFilename = retinaFilename
+    ? `${retinaFilename}.${ext}`
+    : `${filename}${retinaSuffix}.${ext}`
 
   return {
     backgroundImage: `url(${filename}.${ext})`,

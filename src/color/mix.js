@@ -51,17 +51,17 @@ function mix(weight: number = 0.5, color: string, otherColor: string): string {
   // The formular is copied from the original Sass implementation:
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
-  const x = (weight * 2) - 1
-  const y = x * alphaDelta === -1 ? x : (x + alphaDelta)
-  const z = (1 + (x * alphaDelta))
-  const weight1 = ((y / z) + 1) / 2.0
+  const x = weight * 2 - 1
+  const y = x * alphaDelta === -1 ? x : x + alphaDelta
+  const z = 1 + x * alphaDelta
+  const weight1 = (y / z + 1) / 2.0
   const weight2 = 1 - weight1
 
   const mixedColor = {
-    red: Math.floor((color1.red * weight1) + (color2.red * weight2)),
-    green: Math.floor((color1.green * weight1) + (color2.green * weight2)),
-    blue: Math.floor((color1.blue * weight1) + (color2.blue * weight2)),
-    alpha: color1.alpha + ((color2.alpha - color1.alpha) * (weight / 1.0)),
+    red: Math.floor(color1.red * weight1 + color2.red * weight2),
+    green: Math.floor(color1.green * weight1 + color2.green * weight2),
+    blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
+    alpha: color1.alpha + (color2.alpha - color1.alpha) * (weight / 1.0),
   }
 
   return rgba(mixedColor)

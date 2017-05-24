@@ -23,7 +23,11 @@ const hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*(
  * const color2 = 'hsla(210, 10%, 40%, 0.75)';
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.')
+  if (typeof color !== 'string') {
+    throw new Error(
+      'Passed an incorrect argument to a color function, please pass a string representation of a color.',
+    )
+  }
   const normalizedColor = nameToHex(color)
   if (normalizedColor.match(hexRegex)) {
     return {
@@ -83,7 +87,9 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       alpha: parseFloat(`${hslaMatched[4]}`, 10),
     }
   }
-  throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.')
+  throw new Error(
+    "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
+  )
 }
 
 export default parseToRgb

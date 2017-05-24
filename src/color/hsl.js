@@ -26,14 +26,28 @@ import type { HslColor } from '../types/color'
  *   background: "#b3191c";
  * }
  */
-function hsl(value: HslColor | number, saturation?: number, lightness?: number): string {
-  if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
+function hsl(
+  value: HslColor | number,
+  saturation?: number,
+  lightness?: number,
+): string {
+  if (
+    typeof value === 'number' &&
+    typeof saturation === 'number' &&
+    typeof lightness === 'number'
+  ) {
     return hslToHex(value, saturation, lightness)
-  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined) {
+  } else if (
+    typeof value === 'object' &&
+    saturation === undefined &&
+    lightness === undefined
+  ) {
     return hslToHex(value.hue, value.saturation, value.lightness)
   }
 
-  throw new Error('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).')
+  throw new Error(
+    'Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).',
+  )
 }
 
 export default hsl
