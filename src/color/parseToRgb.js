@@ -88,7 +88,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     }
   }
   throw new Error(
-    'Could not parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.',r
+    'Could not parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.',
   )
 }
 
