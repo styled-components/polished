@@ -28,9 +28,9 @@
     "prepublish": "npm run build"
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint --fix",
+      "eslint src --fix",
       "git add"
     ]
   },
@@ -100,9 +100,6 @@
     "vinyl-fs": "^2.4.4"
   },
   "config": {
-    "ghooks": {
-      "commit-msg": "validate-commit-msg"
-    },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
