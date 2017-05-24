@@ -6,19 +6,30 @@ type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
 type TriangleArgs = {
   backgroundColor?: string,
   foregroundColor: string,
-  height: number|string,
-  width: number|string,
+  height: number | string,
+  width: number | string,
   pointingDirection: PointingDirection,
 }
 
-const getBorderWidth = (pointingDirection: PointingDirection, height: number, width: number) => {
+const getBorderWidth = (
+  pointingDirection: PointingDirection,
+  height: number,
+  width: number
+) => {
   switch (pointingDirection) {
-    case 'top': return `0 ${width / 2}px ${height}px ${width / 2}px`
-    case 'left': return `${height / 2}px ${width}px ${height / 2}px 0`
-    case 'bottom': return `${height}px ${width / 2}px 0 ${width / 2}px`
-    case 'right': return `${height / 2}px 0 ${height / 2}px ${width}px`
+    case 'top':
+      return `0 ${width / 2}px ${height}px ${width / 2}px`
+    case 'left':
+      return `${height / 2}px ${width}px ${height / 2}px 0`
+    case 'bottom':
+      return `${height}px ${width / 2}px 0 ${width / 2}px`
+    case 'right':
+      return `${height / 2}px 0 ${height / 2}px ${width}px`
 
-    default: throw new Error('Passed invalid argument to triangle, please pass correct poitingDirection e.g. \'right\'.')
+    default:
+      throw new Error(
+        "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'."
+      )
   }
 }
 
@@ -58,18 +69,30 @@ const reverseDirection = {
  * }
  */
 
-function triangle({ pointingDirection, height, width, foregroundColor, backgroundColor = 'transparent' } : TriangleArgs) {
+function triangle({
+  pointingDirection,
+  height,
+  width,
+  foregroundColor,
+  backgroundColor = 'transparent',
+}: TriangleArgs) {
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
-    throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
+    throw new Error(
+      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit'
+    )
   }
 
   return {
     'border-color': backgroundColor,
-    'width': '0',
-    'height': '0',
-    'border-width': getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
+    width: '0',
+    height: '0',
+    'border-width': getBorderWidth(
+      pointingDirection,
+      unitlessHeight,
+      unitlessWidth
+    ),
     'border-style': 'solid',
     /*
     * javascript Object sorting orders 'border-color' after 'border-bottom-color'

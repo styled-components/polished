@@ -43,7 +43,12 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
 
 function directionalProperty(property: string, ...values: Array<?string>) {
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
-  const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
+  const [
+    firstValue,
+    secondValue = firstValue,
+    thirdValue = firstValue,
+    fourthValue = secondValue,
+  ] = values
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]
   return generateStyles(property, valuesWithDefaults)
 }

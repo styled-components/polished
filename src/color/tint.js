@@ -27,8 +27,14 @@ import curry from '../internalHelpers/_curry'
  */
 
 function tint(percentage: number, color: string) {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.')
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1)
+    throw new Error(
+      'Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.'
+    )
+  if (typeof color !== 'string')
+    throw new Error(
+      'Passed an incorrect argument to a color function, please pass a string representation of a color.'
+    )
   return mix(percentage, color, 'rgb(255, 255, 255)')
 }
 

@@ -22,8 +22,10 @@ describe('modularScale', () => {
   })
 
   it('should allow any of the predefined ratio names', () => {
-    Object.keys(ratioNames).forEach((ratio) => {
-      expect({ 'font-size': modularScale(1, '1em', ratioNames[ratio]) }).toMatchSnapshot()
+    Object.keys(ratioNames).forEach(ratio => {
+      expect({
+        'font-size': modularScale(1, '1em', ratioNames[ratio]),
+      }).toMatchSnapshot()
     })
   })
 

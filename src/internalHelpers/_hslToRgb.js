@@ -1,6 +1,6 @@
 // @flow
 
-type ConversionFunction = (red: number, green: number, blue: number) => string;
+type ConversionFunction = (red: number, green: number, blue: number) => string
 
 function colorToInt(color: number): number {
   return Math.round(color * 255)
@@ -14,7 +14,7 @@ function hslToRgb(
   hue: number,
   saturation: number,
   lightness: number,
-  convert: ConversionFunction = convertToInt,
+  convert: ConversionFunction = convertToInt
 ): string {
   if (saturation === 0) {
     // achromatic
@@ -22,9 +22,9 @@ function hslToRgb(
   }
 
   // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
-  const huePrime = (hue % 360) / 60
-  const chroma = (1 - Math.abs((2 * lightness) - 1)) * saturation
-  const secondComponent = chroma * (1 - Math.abs((huePrime % 2) - 1))
+  const huePrime = hue % 360 / 60
+  const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation
+  const secondComponent = chroma * (1 - Math.abs(huePrime % 2 - 1))
 
   let red = 0
   let green = 0
@@ -50,7 +50,7 @@ function hslToRgb(
     blue = secondComponent
   }
 
-  const lightnessModification = lightness - (chroma / 2)
+  const lightnessModification = lightness - chroma / 2
   const finalRed = red + lightnessModification
   const finalGreen = green + lightnessModification
   const finalBlue = blue + lightnessModification

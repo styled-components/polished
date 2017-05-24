@@ -30,7 +30,12 @@ import type { HslaColor } from '../types/color'
  *   background: "#b3191c";
  * }
  */
-function hsla(value: HslaColor | number, saturation?: number, lightness?: number, alpha?: number): string {
+function hsla(
+  value: HslaColor | number,
+  saturation?: number,
+  lightness?: number,
+  alpha?: number
+): string {
   if (
     typeof value === 'number' &&
     typeof saturation === 'number' &&
@@ -51,7 +56,9 @@ function hsla(value: HslaColor | number, saturation?: number, lightness?: number
       : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${value.alpha})`
   }
 
-  throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).')
+  throw new Error(
+    'Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).'
+  )
 }
 
 export default hsla
