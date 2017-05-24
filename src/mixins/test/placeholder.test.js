@@ -3,7 +3,7 @@ import placeholder from '../placeholder'
 
 describe('placeholder', () => {
   const styles = {
-    'color': 'blue',
+    color: 'blue',
   }
 
   it('should properly pass styles object and parent', () => {
@@ -14,7 +14,7 @@ describe('placeholder', () => {
 
   it('should properly add rules when block has existing rules', () => {
     expect({
-      'background': 'white',
+      background: 'white',
       ...placeholder(styles, 'input'),
     }).toMatchSnapshot()
   })

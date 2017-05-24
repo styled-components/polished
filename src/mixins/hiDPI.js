@@ -34,7 +34,7 @@ function hiDPI(ratio: number = 1.3) {
     @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
     only screen and (min--moz-device-pixel-ratio: ${ratio}),
     only screen and (-o-min-device-pixel-ratio: ${ratio}/1),
-    only screen and (min-resolution: ${Math.round((ratio * 96))}dpi),
+    only screen and (min-resolution: ${Math.round(ratio * 96)}dpi),
     only screen and (min-resolution: ${ratio}dppx)
   `
 }

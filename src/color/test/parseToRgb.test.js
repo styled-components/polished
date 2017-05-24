@@ -30,6 +30,18 @@ describe('parseToRgb', () => {
   })
 
   it('should throw an error if an invalid color string is provided', () => {
-    expect(() => { parseToRgb('(174,67,255)') }).toThrow('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.')
+    expect(() => {
+      parseToRgb('(174,67,255)')
+    }).toThrow(
+      'Could not parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.',
+    )
+  })
+
+  it('should throw an error if a string is not provided', () => {
+    expect(() => {
+      parseToRgb({ red: 255, blue: 255, green: 255 })
+    }).toThrow(
+      'Passed an incorrect argument to a color function, please pass a string representation of a color.',
+    )
   })
 })

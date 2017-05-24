@@ -29,7 +29,7 @@
 function hideText() {
   return {
     'text-indent': '101%',
-    'overflow': 'hidden',
+    overflow: 'hidden',
     'white-space': 'nowrap',
   }
 }

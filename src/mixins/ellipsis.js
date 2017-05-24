@@ -28,9 +28,9 @@
 
 function ellipsis(width: string = '100%') {
   return {
-    'display': 'inline-block',
+    display: 'inline-block',
     'max-width': width,
-    'overflow': 'hidden',
+    overflow: 'hidden',
     'text-overflow': 'ellipsis',
     'white-space': 'nowrap',
     'word-wrap': 'normal',
