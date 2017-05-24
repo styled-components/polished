@@ -43,6 +43,13 @@
       "git add"
     ]
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "watch": {
     "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
