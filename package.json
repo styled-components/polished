@@ -44,9 +44,9 @@
     ]
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint --fix",
+      "eslint src --fix",
       "git add"
     ]
   },
