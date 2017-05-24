@@ -46,7 +46,7 @@ function animation(
   const multiMode = Array.isArray(args[0])
   if (!multiMode && args.length > 8) {
     throw new Error(
-      'The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation'
+      'The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation',
     )
   }
   const code = args
@@ -56,12 +56,12 @@ function animation(
         (!multiMode && Array.isArray(arg))
       ) {
         throw new Error(
-          "To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')"
+          "To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')",
         )
       }
       if (Array.isArray(arg) && arg.length > 8) {
         throw new Error(
-          'The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation'
+          'The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation',
         )
       }
 

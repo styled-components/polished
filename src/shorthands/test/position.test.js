@@ -13,7 +13,7 @@ describe('position', () => {
   })
   it('properly applies values when passed four', () => {
     expect(
-      position('relative', '12px', '24px', '36px', '48px')
+      position('relative', '12px', '24px', '36px', '48px'),
     ).toMatchSnapshot()
   })
   it('properly ignores position property, when not passed one', () => {

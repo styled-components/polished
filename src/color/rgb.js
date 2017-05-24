@@ -40,12 +40,12 @@ function rgb(value: RgbColor | number, green?: number, blue?: number): string {
     blue === undefined
   ) {
     return reduceHexValue(
-      `#${toHex(value.red)}${toHex(value.green)}${toHex(value.blue)}`
+      `#${toHex(value.red)}${toHex(value.green)}${toHex(value.blue)}`,
     )
   }
 
   throw new Error(
-    'Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).'
+    'Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).',
   )
 }
 

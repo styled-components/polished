@@ -42,10 +42,10 @@ describe('hsla', () => {
         { hue: 360, saturation: 0.75, lightness: 0.4, alpha: 1 },
         250,
         100,
-        1
+        1,
       ),
     })).toThrow(
-      'Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).'
+      'Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).',
     )
   })
 })

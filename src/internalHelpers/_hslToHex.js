@@ -10,7 +10,7 @@ function colorToHex(color: number): string {
 
 function convertToHex(red, green, blue) {
   return reduceHexValue(
-    `#${colorToHex(red)}${colorToHex(green)}${colorToHex(blue)}`
+    `#${colorToHex(red)}${colorToHex(green)}${colorToHex(blue)}`,
   )
 }
 

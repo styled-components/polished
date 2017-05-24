@@ -13,7 +13,7 @@ describe('animation', () => {
           5,
           'reverse',
           'forwards',
-          'paused'
+          'paused',
         ),
       }).toMatchSnapshot()
     })
@@ -33,7 +33,7 @@ describe('animation', () => {
           'six',
           'seven',
           'eight',
-          'oops'
+          'oops',
         )
       }).toThrow()
     })
@@ -97,7 +97,7 @@ describe('animation', () => {
             'seven',
             'eight',
             'oops',
-          ]
+          ],
         )
       }).toThrow()
     })

@@ -67,16 +67,16 @@ type Ratio =
 function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: Ratio = 'perfectFourth'
+  ratio?: Ratio = 'perfectFourth',
 ) {
   if (typeof steps !== 'number') {
     throw new Error(
-      'Please provide a number of steps to the modularScale helper.'
+      'Please provide a number of steps to the modularScale helper.',
     )
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
     throw new Error(
-      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.'
+      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.',
     )
   }
 
@@ -85,7 +85,7 @@ function modularScale(
 
   if (typeof realBase === 'string') {
     throw new Error(
-      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`
+      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
     )
   }
 

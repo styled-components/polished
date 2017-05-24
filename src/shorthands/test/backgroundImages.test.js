@@ -11,7 +11,7 @@ describe('backgroundImages', () => {
     expect({
       ...backgroundImages(
         'url("/image/background.jpg")',
-        'linear-gradient(red, green)'
+        'linear-gradient(red, green)',
       ),
     }).toMatchSnapshot()
   })

@@ -34,10 +34,10 @@ describe('rgb', () => {
         { red: 255, green: 1, blue: 1, alpha: 180 },
         250,
         100,
-        0.5
+        0.5,
       ),
     })).toThrow(
-      'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).'
+      'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).',
     )
   })
 })

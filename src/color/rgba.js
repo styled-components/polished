@@ -33,7 +33,7 @@ function rgba(
   value: RgbaColor | number,
   green?: number,
   blue?: number,
-  alpha?: number
+  alpha?: number,
 ): string {
   if (
     typeof value === 'number' &&
@@ -56,7 +56,7 @@ function rgba(
   }
 
   throw new Error(
-    'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).'
+    'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).',
   )
 }
 

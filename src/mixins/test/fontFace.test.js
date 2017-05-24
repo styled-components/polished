@@ -79,7 +79,7 @@ describe('fontFace', () => {
         fontFamily: 'Sans Pro',
       })
     }).toThrow(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.'
+      'fontFace expects either the path to the font file(s) or a name of a local copy.',
     )
   })
 

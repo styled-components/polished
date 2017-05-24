@@ -33,7 +33,7 @@ describe('parseToRgb', () => {
     expect(() => {
       parseToRgb('(174,67,255)')
     }).toThrow(
-      "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation."
+      "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
     )
   })
 })

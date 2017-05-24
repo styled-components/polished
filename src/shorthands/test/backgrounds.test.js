@@ -12,7 +12,7 @@ describe('backgrounds', () => {
       ...backgrounds(
         'url("/image/background.jpg")',
         'linear-gradient(red, green)',
-        'center no-repeat'
+        'center no-repeat',
       ),
     }).toMatchSnapshot()
   })

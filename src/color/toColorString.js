@@ -69,7 +69,7 @@ const isHsla = (color): boolean =>
  * }
  */
 function toColorString(
-  color: RgbColor | RgbaColor | HslColor | HslaColor
+  color: RgbColor | RgbaColor | HslColor | HslaColor,
 ): string {
   if (isRgba(color)) {
     // $FlowIgnoreNextLine not sure why this complains
@@ -85,7 +85,7 @@ function toColorString(
     return hsl(color)
   }
   throw new Error(
-    'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
+    'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.',
   )
 }
 

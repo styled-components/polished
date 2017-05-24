@@ -103,7 +103,7 @@ describe('triangle', () => {
         poitingDirection: false,
       })
     }).toThrow(
-      "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'."
+      "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.",
     )
   })
 
@@ -117,7 +117,7 @@ describe('triangle', () => {
         poitingDirection: false,
       })
     }).toThrow(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit'
+      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
     )
   })
 })

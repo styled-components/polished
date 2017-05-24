@@ -21,7 +21,7 @@
     "test": "jest src",
     "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "prettier": "prettier --no-semi --single-quote --trailing-comma es5 --write './src/**/*.js'",
+    "precommit": "prettier --no-semi --single-quote --trailing-comma all --write './src/**/*.js' && eslint src --fix",
     "lint": "eslint src",
     "flow": "flow check",
     "docs": "pushstate-server docs",

@@ -29,7 +29,7 @@ import type { HslColor } from '../types/color'
 function hsl(
   value: HslColor | number,
   saturation?: number,
-  lightness?: number
+  lightness?: number,
 ): string {
   if (
     typeof value === 'number' &&
@@ -46,7 +46,7 @@ function hsl(
   }
 
   throw new Error(
-    'Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).'
+    'Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).',
   )
 }
 

@@ -14,7 +14,7 @@ type TriangleArgs = {
 const getBorderWidth = (
   pointingDirection: PointingDirection,
   height: number,
-  width: number
+  width: number,
 ) => {
   switch (pointingDirection) {
     case 'top':
@@ -28,7 +28,7 @@ const getBorderWidth = (
 
     default:
       throw new Error(
-        "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'."
+        "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.",
       )
   }
 }
@@ -80,7 +80,7 @@ function triangle({
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
     throw new Error(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit'
+      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
     )
   }
 
@@ -91,7 +91,7 @@ function triangle({
     'border-width': getBorderWidth(
       pointingDirection,
       unitlessHeight,
-      unitlessWidth
+      unitlessWidth,
     ),
     'border-style': 'solid',
     /*
