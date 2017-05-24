@@ -21,11 +21,18 @@
     "test": "jest src",
     "postcommit": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "precommit": "prettier --no-semi --single-quote --trailing-comma all --write './src/**/*.js' && eslint src --fix",
+    "precommit": "lint-staged --verbose",
     "lint": "eslint src",
     "flow": "flow check",
     "docs": "pushstate-server docs",
     "prepublish": "npm run build"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "watch": {
     "build:docs": "src/**/*.js",
@@ -68,9 +75,9 @@
     "eslint-plugin-import": "^2.2.0",
     "flow-bin": "^0.36.0",
     "flow-copy-source": "^1.1.0",
-    "ghooks": "^1.3.2",
     "github-slugger": "^1.1.1",
     "highlight.js": "^9.9.0",
+    "husky": "^0.13.3",
     "jest": "^16.0.2",
     "lodash": "^4.17.2",
     "npm-watch": "^0.1.6",

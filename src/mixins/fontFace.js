@@ -35,7 +35,9 @@ function generateSources(
 ) {
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))
-  if (fontFilePath) { fontReferences.push(generateFileReferences(fontFilePath, fileFormats)) }
+  if (fontFilePath) {
+    fontReferences.push(generateFileReferences(fontFilePath, fileFormats))
+  }
   return fontReferences.join(', ')
 }
 
@@ -85,8 +87,12 @@ function fontFace({
       'fontFace expects either the path to the font file(s) or a name of a local copy.',
     )
   }
-  if (localFonts && !Array.isArray(localFonts)) { throw new Error('fontFace expects localFonts to be an array.') }
-  if (!Array.isArray(fileFormats)) { throw new Error('fontFace expects fileFormats to be an array.') }
+  if (localFonts && !Array.isArray(localFonts)) {
+    throw new Error('fontFace expects localFonts to be an array.')
+  }
+  if (!Array.isArray(fileFormats)) {
+    throw new Error('fontFace expects fileFormats to be an array.')
+  }
 
   const fontFaceDeclaration = {
     '@font-face': {

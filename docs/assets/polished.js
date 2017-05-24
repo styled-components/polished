@@ -421,9 +421,9 @@ function clearFix() {
 
   var pseudoSelector = parent + '::after';
   return defineProperty({}, pseudoSelector, {
-    'clear': 'both',
-    'content': '""',
-    'display': 'table'
+    clear: 'both',
+    content: '""',
+    display: 'table'
   });
 }
 
@@ -459,9 +459,9 @@ function ellipsis() {
   var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '100%';
 
   return {
-    'display': 'inline-block',
+    display: 'inline-block',
     'max-width': width,
-    'overflow': 'hidden',
+    overflow: 'hidden',
     'text-overflow': 'ellipsis',
     'white-space': 'nowrap',
     'word-wrap': 'normal'
@@ -489,7 +489,9 @@ function generateLocalReferences(localFonts) {
 function generateSources(fontFilePath, localFonts, fileFormats) {
   var fontReferences = [];
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts));
-  if (fontFilePath) fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
+  if (fontFilePath) {
+    fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
+  }
   return fontReferences.join(', ');
 }
 
@@ -535,14 +537,20 @@ function fontFace(_ref) {
 
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.');
-  if (!fontFilePath && !localFonts) throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
-  if (localFonts && !Array.isArray(localFonts)) throw new Error('fontFace expects localFonts to be an array.');
-  if (!Array.isArray(fileFormats)) throw new Error('fontFace expects fileFormats to be an array.');
+  if (!fontFilePath && !localFonts) {
+    throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
+  }
+  if (localFonts && !Array.isArray(localFonts)) {
+    throw new Error('fontFace expects localFonts to be an array.');
+  }
+  if (!Array.isArray(fileFormats)) {
+    throw new Error('fontFace expects fileFormats to be an array.');
+  }
 
   var fontFaceDeclaration = {
     '@font-face': {
       'font-family': fontFamily,
-      'src': generateSources(fontFilePath, localFonts, fileFormats),
+      src: generateSources(fontFilePath, localFonts, fileFormats),
       'unicode-range': unicodeRange,
       'font-stretch': fontStretch,
       'font-style': fontStyle,
@@ -586,7 +594,7 @@ function fontFace(_ref) {
 function hideText() {
   return {
     'text-indent': '101%',
-    'overflow': 'hidden',
+    overflow: 'hidden',
     'white-space': 'nowrap'
   };
 }
@@ -633,12 +641,12 @@ var _unopinionatedRules;
 
 //      
 var opinionatedRules = (_opinionatedRules = {
-  'html': {
+  html: {
     'font-family': 'sans-serif'
   },
 
-  'body': {
-    'margin': '0'
+  body: {
+    margin: '0'
   }
 
 }, defineProperty(_opinionatedRules, 'a:active,\n  a:hover', {
@@ -650,25 +658,25 @@ var opinionatedRules = (_opinionatedRules = {
 }), _opinionatedRules);
 
 var unopinionatedRules = (_unopinionatedRules = {
-  'html': {
+  html: {
     'line-height': '1.15',
     '-ms-text-size-adjust': '100%',
     '-webkit-text-size-adjust': '100%'
   }
 
 }, defineProperty(_unopinionatedRules, 'article,\n  aside,\n  footer,\n  header,\n  nav,\n  section', {
-  'display': 'block'
+  display: 'block'
 }), defineProperty(_unopinionatedRules, 'h1', {
   'font-size': '2em',
-  'margin': '0.67em 0'
+  margin: '0.67em 0'
 }), defineProperty(_unopinionatedRules, 'figcaption,\n  figure,\n  main', {
-  'display': 'block'
+  display: 'block'
 }), defineProperty(_unopinionatedRules, 'figure', {
-  'margin': '1em 40px'
+  margin: '1em 40px'
 }), defineProperty(_unopinionatedRules, 'hr', {
   'box-sizing': 'content-box',
-  'height': '0',
-  'overflow': 'visible'
+  height: '0',
+  overflow: 'visible'
 }), defineProperty(_unopinionatedRules, 'pre', {
   'font-family': 'monospace, monospace',
   'font-size': '1em'
@@ -687,61 +695,61 @@ var unopinionatedRules = (_unopinionatedRules = {
   'font-style': 'italic'
 }), defineProperty(_unopinionatedRules, 'mark', {
   'background-color': '#ff0',
-  'color': '#000'
+  color: '#000'
 }), defineProperty(_unopinionatedRules, 'small', {
   'font-size': '80%'
 }), defineProperty(_unopinionatedRules, 'sub,\n  sup', {
   'font-size': '75%',
   'line-height': '0',
-  'position': 'relative',
+  position: 'relative',
   'vertical-align': 'baseline'
 }), defineProperty(_unopinionatedRules, 'sub', {
-  'bottom': '-0.25em'
+  bottom: '-0.25em'
 }), defineProperty(_unopinionatedRules, 'sup', {
-  'top': '-0.5em'
+  top: '-0.5em'
 }), defineProperty(_unopinionatedRules, 'audio,\n  video', {
-  'display': 'inline-block'
+  display: 'inline-block'
 }), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
-  'display': 'none',
-  'height': '0'
+  display: 'none',
+  height: '0'
 }), defineProperty(_unopinionatedRules, 'img', {
   'border-style': 'none'
 }), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
-  'overflow': 'hidden'
+  overflow: 'hidden'
 }), defineProperty(_unopinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
-  'margin': '0'
+  margin: '0'
 }), defineProperty(_unopinionatedRules, 'button,\n  input', {
-  'overflow': 'visible'
+  overflow: 'visible'
 }), defineProperty(_unopinionatedRules, 'button,\n  select', {
   'text-transform': 'none'
 }), defineProperty(_unopinionatedRules, 'button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]', {
   '-webkit-appearance': 'button'
 }), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner', {
   'border-style': 'none',
-  'padding': '0'
+  padding: '0'
 }), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring', {
-  'outline': '1px dotted ButtonText'
+  outline: '1px dotted ButtonText'
 }), defineProperty(_unopinionatedRules, 'fieldset', {
-  'border': '1px solid #c0c0c0',
-  'margin': '0 2px',
-  'padding': '0.35em 0.625em 0.75em'
+  border: '1px solid #c0c0c0',
+  margin: '0 2px',
+  padding: '0.35em 0.625em 0.75em'
 }), defineProperty(_unopinionatedRules, 'legend', {
   'box-sizing': 'border-box',
-  'color': 'inherit',
-  'display': 'table',
+  color: 'inherit',
+  display: 'table',
   'max-width': '100%',
-  'padding': '0',
+  padding: '0',
   'white-space': 'normal'
 }), defineProperty(_unopinionatedRules, 'progress', {
-  'display': 'inline-block',
+  display: 'inline-block',
   'vertical-align': 'baseline'
 }), defineProperty(_unopinionatedRules, 'textarea', {
-  'overflow': 'auto'
+  overflow: 'auto'
 }), defineProperty(_unopinionatedRules, '[type="checkbox"],\n  [type="radio"]', {
   'box-sizing': 'border-box',
-  'padding': '0'
+  padding: '0'
 }), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button', {
-  'height': 'auto'
+  height: 'auto'
 }), defineProperty(_unopinionatedRules, '[type="search"]', {
   '-webkit-appearance': 'textfield',
   'outline-offset': '-2px'
@@ -749,17 +757,17 @@ var unopinionatedRules = (_unopinionatedRules = {
   '-webkit-appearance': 'none'
 }), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
   '-webkit-appearance': 'button',
-  'font': 'inherit'
+  font: 'inherit'
 }), defineProperty(_unopinionatedRules, 'details,\n  menu', {
-  'display': 'block'
+  display: 'block'
 }), defineProperty(_unopinionatedRules, 'summary', {
-  'display': 'list-item'
+  display: 'list-item'
 }), defineProperty(_unopinionatedRules, 'canvas', {
-  'display': 'inline-block'
+  display: 'inline-block'
 }), defineProperty(_unopinionatedRules, 'template', {
-  'display': 'none'
+  display: 'none'
 }), defineProperty(_unopinionatedRules, '[hidden]', {
-  'display': 'none'
+  display: 'none'
 }), _unopinionatedRules);
 
 function mergeRules(baseRules, additionalRules) {
@@ -911,7 +919,9 @@ function radialGradient(_ref) {
       position = _ref.position,
       shape = _ref.shape;
 
-  if (!colorStops || colorStops.length < 2) throw new Error('radialGradient requries at least 2 color-stops to properly render.');
+  if (!colorStops || colorStops.length < 2) {
+    throw new Error('radialGradient requries at least 2 color-stops to properly render.');
+  }
   return {
     'background-color': fallback || parseFallback(colorStops),
     'background-image': constructGradientValue(_templateObject, position, shape, extent, colorStops.join(', '))
@@ -1010,32 +1020,32 @@ function selection(styles) {
 
 /* eslint-disable key-spacing */
 var functionsMap = {
-  'easeInBack': 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
-  'easeInCirc': 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
-  'easeInCubic': 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
-  'easeInExpo': 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
-  'easeInQuad': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-  'easeInQuart': 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
-  'easeInQuint': 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
-  'easeInSine': 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
+  easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
+  easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
+  easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
+  easeInExpo: 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
+  easeInQuad: 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+  easeInQuart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
+  easeInQuint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
+  easeInSine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
 
-  'easeOutBack': 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
-  'easeOutCubic': 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
-  'easeOutCirc': 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
-  'easeOutExpo': 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
-  'easeOutQuad': 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
-  'easeOutQuart': 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
-  'easeOutQuint': 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
-  'easeOutSine': 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
+  easeOutBack: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
+  easeOutCubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
+  easeOutCirc: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
+  easeOutExpo: 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
+  easeOutQuad: 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+  easeOutQuart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
+  easeOutQuint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
+  easeOutSine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
 
-  'easeInOutBack': 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
-  'easeInOutCirc': 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
-  'easeInOutCubic': 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
-  'easeInOutExpo': 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
-  'easeInOutQuad': 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
-  'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
-  'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
-  'easeInOutSine': 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
+  easeInOutBack: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
+  easeInOutCirc: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
+  easeInOutCubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
+  easeInOutExpo: 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
+  easeInOutQuad: 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+  easeInOutQuart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
+  easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
+  easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
 };
 /* eslint-enable key-spacing */
 
@@ -1082,7 +1092,7 @@ var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
       return height / 2 + 'px 0 ' + height / 2 + 'px ' + width + 'px';
 
     default:
-      throw new Error('Passed invalid argument to triangle, please pass correct poitingDirection e.g. \'right\'.');
+      throw new Error("Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.");
   }
 };
 
@@ -1138,8 +1148,8 @@ function triangle(_ref) {
 
   return defineProperty({
     'border-color': backgroundColor,
-    'width': '0',
-    'height': '0',
+    width: '0',
+    height: '0',
     'border-width': getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
     'border-style': 'solid'
   }, 'border-' + reverseDirection[pointingDirection] + '-color', foregroundColor + ' !important');
@@ -1238,154 +1248,154 @@ function hslToRgb(hue, saturation, lightness) {
 
 //      
 var namedColorMap = {
-  'aliceblue': 'f0f8ff',
-  'antiquewhite': 'faebd7',
-  'aqua': '00ffff',
-  'aquamarine': '7fffd4',
-  'azure': 'f0ffff',
-  'beige': 'f5f5dc',
-  'bisque': 'ffe4c4',
-  'black': '000',
-  'blanchedalmond': 'ffebcd',
-  'blue': '0000ff',
-  'blueviolet': '8a2be2',
-  'brown': 'a52a2a',
-  'burlywood': 'deb887',
-  'cadetblue': '5f9ea0',
-  'chartreuse': '7fff00',
-  'chocolate': 'd2691e',
-  'coral': 'ff7f50',
-  'cornflowerblue': '6495ed',
-  'cornsilk': 'fff8dc',
-  'crimson': 'dc143c',
-  'cyan': '00ffff',
-  'darkblue': '00008b',
-  'darkcyan': '008b8b',
-  'darkgoldenrod': 'b8860b',
-  'darkgray': 'a9a9a9',
-  'darkgreen': '006400',
-  'darkgrey': 'a9a9a9',
-  'darkkhaki': 'bdb76b',
-  'darkmagenta': '8b008b',
-  'darkolivegreen': '556b2f',
-  'darkorange': 'ff8c00',
-  'darkorchid': '9932cc',
-  'darkred': '8b0000',
-  'darksalmon': 'e9967a',
-  'darkseagreen': '8fbc8f',
-  'darkslateblue': '483d8b',
-  'darkslategray': '2f4f4f',
-  'darkslategrey': '2f4f4f',
-  'darkturquoise': '00ced1',
-  'darkviolet': '9400d3',
-  'deeppink': 'ff1493',
-  'deepskyblue': '00bfff',
-  'dimgray': '696969',
-  'dimgrey': '696969',
-  'dodgerblue': '1e90ff',
-  'firebrick': 'b22222',
-  'floralwhite': 'fffaf0',
-  'forestgreen': '228b22',
-  'fuchsia': 'ff00ff',
-  'gainsboro': 'dcdcdc',
-  'ghostwhite': 'f8f8ff',
-  'gold': 'ffd700',
-  'goldenrod': 'daa520',
-  'gray': '808080',
-  'green': '008000',
-  'greenyellow': 'adff2f',
-  'grey': '808080',
-  'honeydew': 'f0fff0',
-  'hotpink': 'ff69b4',
-  'indianred': 'cd5c5c',
-  'indigo': '4b0082',
-  'ivory': 'fffff0',
-  'khaki': 'f0e68c',
-  'lavender': 'e6e6fa',
-  'lavenderblush': 'fff0f5',
-  'lawngreen': '7cfc00',
-  'lemonchiffon': 'fffacd',
-  'lightblue': 'add8e6',
-  'lightcoral': 'f08080',
-  'lightcyan': 'e0ffff',
-  'lightgoldenrodyellow': 'fafad2',
-  'lightgray': 'd3d3d3',
-  'lightgreen': '90ee90',
-  'lightgrey': 'd3d3d3',
-  'lightpink': 'ffb6c1',
-  'lightsalmon': 'ffa07a',
-  'lightseagreen': '20b2aa',
-  'lightskyblue': '87cefa',
-  'lightslategray': '789',
-  'lightslategrey': '789',
-  'lightsteelblue': 'b0c4de',
-  'lightyellow': 'ffffe0',
-  'lime': '0f0',
-  'limegreen': '32cd32',
-  'linen': 'faf0e6',
-  'magenta': 'f0f',
-  'maroon': '800000',
-  'mediumaquamarine': '66cdaa',
-  'mediumblue': '0000cd',
-  'mediumorchid': 'ba55d3',
-  'mediumpurple': '9370db',
-  'mediumseagreen': '3cb371',
-  'mediumslateblue': '7b68ee',
-  'mediumspringgreen': '00fa9a',
-  'mediumturquoise': '48d1cc',
-  'mediumvioletred': 'c71585',
-  'midnightblue': '191970',
-  'mintcream': 'f5fffa',
-  'mistyrose': 'ffe4e1',
-  'moccasin': 'ffe4b5',
-  'navajowhite': 'ffdead',
-  'navy': '000080',
-  'oldlace': 'fdf5e6',
-  'olive': '808000',
-  'olivedrab': '6b8e23',
-  'orange': 'ffa500',
-  'orangered': 'ff4500',
-  'orchid': 'da70d6',
-  'palegoldenrod': 'eee8aa',
-  'palegreen': '98fb98',
-  'paleturquoise': 'afeeee',
-  'palevioletred': 'db7093',
-  'papayawhip': 'ffefd5',
-  'peachpuff': 'ffdab9',
-  'peru': 'cd853f',
-  'pink': 'ffc0cb',
-  'plum': 'dda0dd',
-  'powderblue': 'b0e0e6',
-  'purple': '800080',
-  'rebeccapurple': '639',
-  'red': 'f00',
-  'rosybrown': 'bc8f8f',
-  'royalblue': '4169e1',
-  'saddlebrown': '8b4513',
-  'salmon': 'fa8072',
-  'sandybrown': 'f4a460',
-  'seagreen': '2e8b57',
-  'seashell': 'fff5ee',
-  'sienna': 'a0522d',
-  'silver': 'c0c0c0',
-  'skyblue': '87ceeb',
-  'slateblue': '6a5acd',
-  'slategray': '708090',
-  'slategrey': '708090',
-  'snow': 'fffafa',
-  'springgreen': '00ff7f',
-  'steelblue': '4682b4',
-  'tan': 'd2b48c',
-  'teal': '008080',
-  'thistle': 'd8bfd8',
-  'tomato': 'ff6347',
-  'turquoise': '40e0d0',
-  'violet': 'ee82ee',
-  'wheat': 'f5deb3',
-  'white': 'fff',
-  'whitesmoke': 'f5f5f5',
-  'yellow': 'ff0',
-  'yellowgreen': '9acd32'
+  aliceblue: 'f0f8ff',
+  antiquewhite: 'faebd7',
+  aqua: '00ffff',
+  aquamarine: '7fffd4',
+  azure: 'f0ffff',
+  beige: 'f5f5dc',
+  bisque: 'ffe4c4',
+  black: '000',
+  blanchedalmond: 'ffebcd',
+  blue: '0000ff',
+  blueviolet: '8a2be2',
+  brown: 'a52a2a',
+  burlywood: 'deb887',
+  cadetblue: '5f9ea0',
+  chartreuse: '7fff00',
+  chocolate: 'd2691e',
+  coral: 'ff7f50',
+  cornflowerblue: '6495ed',
+  cornsilk: 'fff8dc',
+  crimson: 'dc143c',
+  cyan: '00ffff',
+  darkblue: '00008b',
+  darkcyan: '008b8b',
+  darkgoldenrod: 'b8860b',
+  darkgray: 'a9a9a9',
+  darkgreen: '006400',
+  darkgrey: 'a9a9a9',
+  darkkhaki: 'bdb76b',
+  darkmagenta: '8b008b',
+  darkolivegreen: '556b2f',
+  darkorange: 'ff8c00',
+  darkorchid: '9932cc',
+  darkred: '8b0000',
+  darksalmon: 'e9967a',
+  darkseagreen: '8fbc8f',
+  darkslateblue: '483d8b',
+  darkslategray: '2f4f4f',
+  darkslategrey: '2f4f4f',
+  darkturquoise: '00ced1',
+  darkviolet: '9400d3',
+  deeppink: 'ff1493',
+  deepskyblue: '00bfff',
+  dimgray: '696969',
+  dimgrey: '696969',
+  dodgerblue: '1e90ff',
+  firebrick: 'b22222',
+  floralwhite: 'fffaf0',
+  forestgreen: '228b22',
+  fuchsia: 'ff00ff',
+  gainsboro: 'dcdcdc',
+  ghostwhite: 'f8f8ff',
+  gold: 'ffd700',
+  goldenrod: 'daa520',
+  gray: '808080',
+  green: '008000',
+  greenyellow: 'adff2f',
+  grey: '808080',
+  honeydew: 'f0fff0',
+  hotpink: 'ff69b4',
+  indianred: 'cd5c5c',
+  indigo: '4b0082',
+  ivory: 'fffff0',
+  khaki: 'f0e68c',
+  lavender: 'e6e6fa',
+  lavenderblush: 'fff0f5',
+  lawngreen: '7cfc00',
+  lemonchiffon: 'fffacd',
+  lightblue: 'add8e6',
+  lightcoral: 'f08080',
+  lightcyan: 'e0ffff',
+  lightgoldenrodyellow: 'fafad2',
+  lightgray: 'd3d3d3',
+  lightgreen: '90ee90',
+  lightgrey: 'd3d3d3',
+  lightpink: 'ffb6c1',
+  lightsalmon: 'ffa07a',
+  lightseagreen: '20b2aa',
+  lightskyblue: '87cefa',
+  lightslategray: '789',
+  lightslategrey: '789',
+  lightsteelblue: 'b0c4de',
+  lightyellow: 'ffffe0',
+  lime: '0f0',
+  limegreen: '32cd32',
+  linen: 'faf0e6',
+  magenta: 'f0f',
+  maroon: '800000',
+  mediumaquamarine: '66cdaa',
+  mediumblue: '0000cd',
+  mediumorchid: 'ba55d3',
+  mediumpurple: '9370db',
+  mediumseagreen: '3cb371',
+  mediumslateblue: '7b68ee',
+  mediumspringgreen: '00fa9a',
+  mediumturquoise: '48d1cc',
+  mediumvioletred: 'c71585',
+  midnightblue: '191970',
+  mintcream: 'f5fffa',
+  mistyrose: 'ffe4e1',
+  moccasin: 'ffe4b5',
+  navajowhite: 'ffdead',
+  navy: '000080',
+  oldlace: 'fdf5e6',
+  olive: '808000',
+  olivedrab: '6b8e23',
+  orange: 'ffa500',
+  orangered: 'ff4500',
+  orchid: 'da70d6',
+  palegoldenrod: 'eee8aa',
+  palegreen: '98fb98',
+  paleturquoise: 'afeeee',
+  palevioletred: 'db7093',
+  papayawhip: 'ffefd5',
+  peachpuff: 'ffdab9',
+  peru: 'cd853f',
+  pink: 'ffc0cb',
+  plum: 'dda0dd',
+  powderblue: 'b0e0e6',
+  purple: '800080',
+  rebeccapurple: '639',
+  red: 'f00',
+  rosybrown: 'bc8f8f',
+  royalblue: '4169e1',
+  saddlebrown: '8b4513',
+  salmon: 'fa8072',
+  sandybrown: 'f4a460',
+  seagreen: '2e8b57',
+  seashell: 'fff5ee',
+  sienna: 'a0522d',
+  silver: 'c0c0c0',
+  skyblue: '87ceeb',
+  slateblue: '6a5acd',
+  slategray: '708090',
+  slategrey: '708090',
+  snow: 'fffafa',
+  springgreen: '00ff7f',
+  steelblue: '4682b4',
+  tan: 'd2b48c',
+  teal: '008080',
+  thistle: 'd8bfd8',
+  tomato: 'ff6347',
+  turquoise: '40e0d0',
+  violet: 'ee82ee',
+  wheat: 'f5deb3',
+  white: 'fff',
+  whitesmoke: 'f5f5f5',
+  yellow: 'ff0',
+  yellowgreen: '9acd32'
 };
 
 /**
@@ -1419,7 +1429,9 @@ var hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-
  * const color2 = 'hsla(210, 10%, 40%, 0.75)';
  */
 function parseToRgb(color) {
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   var normalizedColor = nameToHex(color);
   if (normalizedColor.match(hexRegex)) {
     return {
@@ -1479,7 +1491,7 @@ function parseToRgb(color) {
       alpha: parseFloat('' + hslaMatched[4], 10)
     };
   }
-  throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.');
+  throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
 }
 
 //      
@@ -1819,9 +1831,8 @@ function curried(f, length, acc) {
     return combined.length >= length ? f.apply(this, combined) : curried(f, length, combined);
   };
 }
-
+// eslint-disable-next-line no-redeclare
 function curry(f) {
-  // eslint-disable-line no-redeclare
   return curried(f, f.length, []);
 }
 
@@ -2334,8 +2345,12 @@ var setSaturation$1 = curry(setSaturation);
  */
 
 function shade(percentage, color) {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
+    throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
+  }
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   return mix$1(percentage, color, 'rgb(0, 0, 0)');
 }
 
@@ -2367,8 +2382,12 @@ var shade$1 = curry(shade);
  */
 
 function tint(percentage, color) {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
+    throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
+  }
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   return mix$1(percentage, color, 'rgb(255, 255, 255)');
 }
 
@@ -2465,7 +2484,7 @@ function animation() {
   }
   var code = args.map(function (arg) {
     if (multiMode && !Array.isArray(arg) || !multiMode && Array.isArray(arg)) {
-      throw new Error('To pass multiple animations please supply them in arrays, e.g. animation([\'rotate\', \'2s\'], [\'move\', \'1s\'])\nTo pass a single animation please supply them in simple values, e.g. animation(\'rotate\', \'2s\')');
+      throw new Error("To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')");
     }
     if (Array.isArray(arg) && arg.length > 8) {
       throw new Error('The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation');
@@ -2475,7 +2494,7 @@ function animation() {
   }).join(', ');
 
   return {
-    'animation': code
+    animation: code
   };
 }
 
@@ -2538,7 +2557,7 @@ function backgrounds() {
   }
 
   return {
-    'background': properties.join(', ')
+    background: properties.join(', ')
   };
 }
 
@@ -2598,7 +2617,9 @@ function borderColor() {
  */
 
 function borderRadius(side, radius) {
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  if (!radius || typeof radius !== 'string') {
+    throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  }
   if (side === 'top' || side === 'bottom') {
     var _ref;
 
@@ -2693,7 +2714,9 @@ function statefulSelectors(states, template, stateMap) {
   if (states.length === 0) return generateSelectors(template, null);
   var selectors = [];
   for (var i = 0; i < states.length; i += 1) {
-    if (stateMap && stateMap.indexOf(states[i]) < 0) throw new Error('You passed an unsupported selector state to this method.');
+    if (stateMap && stateMap.indexOf(states[i]) < 0) {
+      throw new Error('You passed an unsupported selector state to this method.');
+    }
     selectors.push(generateSelectors(template, states[i]));
   }
   selectors = selectors.join(',');
@@ -2985,7 +3008,7 @@ function transitions() {
   }
 
   return {
-    'transition': properties.join(', ')
+    transition: properties.join(', ')
   };
 }
 
