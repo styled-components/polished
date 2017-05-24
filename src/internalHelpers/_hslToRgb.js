@@ -14,7 +14,7 @@ function hslToRgb(
   hue: number,
   saturation: number,
   lightness: number,
-  convert: ConversionFunction = convertToInt,
+  convert: ConversionFunction = convertToInt
 ): string {
   if (saturation === 0) {
     // achromatic

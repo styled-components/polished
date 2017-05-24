@@ -25,6 +25,7 @@ function curried(f, length, acc) {
       : curried(f, length, combined)
   }
 }
+
 // eslint-disable-next-line no-redeclare
 export default function curry(f: Function) {
   return curried(f, f.length, [])
