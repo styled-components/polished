@@ -25,7 +25,7 @@
     "flow": "flow check",
     "precommit": "lint-staged --verbose",
     "postcommit": "validate-commit-msg",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build:lib && npm run build:dist && npm run build:flow",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "docs": "pushstate-server docs"
   },
