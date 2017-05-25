@@ -18,19 +18,23 @@
     "postbuild:docs:site": "shx cp CNAME docs/CNAME && shx cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
+    "cli": "yarn test && yarn flow && yarn lint",
     "test": "jest src",
-    "postcommit": "validate-commit-msg",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "precommit": "lint-staged --verbose",
+    "test:watch": "jest src --watch",
     "lint": "eslint src",
     "flow": "flow check",
-    "docs": "pushstate-server docs",
-    "prepublish": "npm run build"
+    "precommit": "lint-staged --verbose",
+    "postcommit": "validate-commit-msg",
+    "prepublish": "npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "docs": "pushstate-server docs"
   },
   "lint-staged": {
     "src/**/*.*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
       "eslint src --fix",
+      "build:docs",
+      "build:lib",
       "git add"
     ]
   },
