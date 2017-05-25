@@ -32,14 +32,14 @@
   "lint-staged": {
     "src/**/*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint src --fix",
+      "eslint --fix",
       "build:docs",
       "git add docs",
       "git add"
     ],
     "src/**/*.*.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint src --fix",
+      "eslint --fix",
       "git add"
     ]
   },
