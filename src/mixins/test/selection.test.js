@@ -17,7 +17,7 @@ describe('selection', () => {
   it('should properly add rules when block has existing rules', () => {
     expect({
       div: {
-        'background': 'white',
+        background: 'white',
         ...selection(styles, 'section'),
       },
     }).toMatchSnapshot()

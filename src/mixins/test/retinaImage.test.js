@@ -24,10 +24,14 @@ describe('retinaImage', () => {
   })
 
   it('should allow passing in a separate filename for the retina version', () => {
-    expect({ ...retinaImage('img', undefined, undefined, 'retina_img') }).toMatchSnapshot()
+    expect({
+      ...retinaImage('img', undefined, undefined, 'retina_img'),
+    }).toMatchSnapshot()
   })
 
   it('should allow passing in a separate suffix for the retina version', () => {
-    expect({ ...retinaImage('img', undefined, undefined, undefined, '_5x') }).toMatchSnapshot()
+    expect({
+      ...retinaImage('img', undefined, undefined, undefined, '_5x'),
+    }).toMatchSnapshot()
   })
 })

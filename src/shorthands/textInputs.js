@@ -23,12 +23,7 @@ function template(state) {
 }
 
 /** */
-type InputState =
-  | typeof(undefined)
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover';
+type InputState = typeof undefined | null | 'active' | 'focus' | 'hover'
 
 /**
  * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.
