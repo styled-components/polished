@@ -34,7 +34,6 @@
       "prettier --no-semi --single-quote --trailing-comma all --write",
       "eslint src --fix",
       "build:docs",
-      "build:lib",
       "git add"
     ]
   },
