@@ -2,7 +2,6 @@ import pxto from '../_pxto'
 
 describe('pxto', () => {
   let em
-
   describe('factory', () => {
     it('should allow creating a simple pixels-to-x converter', () => {
       em = pxto('em')

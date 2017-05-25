@@ -30,7 +30,7 @@
     "docs": "pushstate-server docs"
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/!(*.test).js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
       "eslint --fix",
       "build:docs",
