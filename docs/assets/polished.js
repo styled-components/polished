@@ -655,8 +655,8 @@ var _unopinionatedRules;
 
 //      
 var opinionatedRules = (_opinionatedRules = {
-  'html': {
-    'fontFamily': 'sans-serif'
+  html: {
+    fontFamily: 'sans-serif'
   },
 
   body: {
@@ -664,58 +664,58 @@ var opinionatedRules = (_opinionatedRules = {
   }
 
 }, defineProperty(_opinionatedRules, 'a:active,\n  a:hover', {
-  'outlineWidth': '0'
+  outlineWidth: '0'
 }), defineProperty(_opinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
-  'fontFamily': 'sans-serif',
-  'fontSize': '100%',
-  'lineHeight': '1.15'
+  fontFamily: 'sans-serif',
+  fontSize: '100%',
+  lineHeight: '1.15'
 }), _opinionatedRules);
 
 var unopinionatedRules = (_unopinionatedRules = {
-  'html': {
-    'lineHeight': '1.15',
-    'textSizeAdjust': '100%'
+  html: {
+    lineHeight: '1.15',
+    textSizeAdjust: '100%'
   }
 
 }, defineProperty(_unopinionatedRules, 'article,\n  aside,\n  footer,\n  header,\n  nav,\n  section', {
   display: 'block'
 }), defineProperty(_unopinionatedRules, 'h1', {
-  'fontSize': '2em',
-  'margin': '0.67em 0'
+  fontSize: '2em',
+  margin: '0.67em 0'
 }), defineProperty(_unopinionatedRules, 'figcaption,\n  figure,\n  main', {
   display: 'block'
 }), defineProperty(_unopinionatedRules, 'figure', {
   margin: '1em 40px'
 }), defineProperty(_unopinionatedRules, 'hr', {
-  'boxSizing': 'content-box',
-  'height': '0',
-  'overflow': 'visible'
+  boxSizing: 'content-box',
+  height: '0',
+  overflow: 'visible'
 }), defineProperty(_unopinionatedRules, 'pre', {
-  'fontFamily': 'monospace, monospace',
-  'fontSize': '1em'
+  fontFamily: 'monospace, monospace',
+  fontSize: '1em'
 }), defineProperty(_unopinionatedRules, 'a', {
   'background-color': 'transparent',
   '-webkit-text-decoration-skip': 'objects'
 }), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
-  'borderBottom': 'none',
-  'textDecoration': 'underline'
+  borderBottom: 'none',
+  textDecoration: 'underline'
 }, 'textDecoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n  strong', {
-  'fontWeight': 'inherit'
+  fontWeight: 'inherit'
 }), defineProperty(_unopinionatedRules, 'code,\n  kbd,\n  samp', {
-  'fontFamily': 'monospace, monospace',
-  'fontSize': '1em'
+  fontFamily: 'monospace, monospace',
+  fontSize: '1em'
 }), defineProperty(_unopinionatedRules, 'dfn', {
-  'fontStyle': 'italic'
+  fontStyle: 'italic'
 }), defineProperty(_unopinionatedRules, 'mark', {
-  'backgroundColor': '#ff0',
-  'color': '#000'
+  backgroundColor: '#ff0',
+  color: '#000'
 }), defineProperty(_unopinionatedRules, 'small', {
-  'fontSize': '80%'
+  fontSize: '80%'
 }), defineProperty(_unopinionatedRules, 'sub,\n  sup', {
-  'fontSize': '75%',
-  'lineHeight': '0',
-  'position': 'relative',
-  'verticalAlign': 'baseline'
+  fontSize: '75%',
+  lineHeight: '0',
+  position: 'relative',
+  verticalAlign: 'baseline'
 }), defineProperty(_unopinionatedRules, 'sub', {
   bottom: '-0.25em'
 }), defineProperty(_unopinionatedRules, 'sup', {
@@ -726,7 +726,7 @@ var unopinionatedRules = (_unopinionatedRules = {
   display: 'none',
   height: '0'
 }), defineProperty(_unopinionatedRules, 'img', {
-  'borderStyle': 'none'
+  borderStyle: 'none'
 }), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
   overflow: 'hidden'
 }), defineProperty(_unopinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
@@ -734,12 +734,12 @@ var unopinionatedRules = (_unopinionatedRules = {
 }), defineProperty(_unopinionatedRules, 'button,\n  input', {
   overflow: 'visible'
 }), defineProperty(_unopinionatedRules, 'button,\n  select', {
-  'textTransform': 'none'
+  textTransform: 'none'
 }), defineProperty(_unopinionatedRules, 'button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]', {
   '-webkit-appearance': 'button'
 }), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner', {
-  'borderStyle': 'none',
-  'padding': '0'
+  borderStyle: 'none',
+  padding: '0'
 }), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring', {
   outline: '1px dotted ButtonText'
 }), defineProperty(_unopinionatedRules, 'fieldset', {
@@ -747,25 +747,25 @@ var unopinionatedRules = (_unopinionatedRules = {
   margin: '0 2px',
   padding: '0.35em 0.625em 0.75em'
 }), defineProperty(_unopinionatedRules, 'legend', {
-  'boxSizing': 'border-box',
-  'color': 'inherit',
-  'display': 'table',
-  'maxWidth': '100%',
-  'padding': '0',
-  'whiteSpace': 'normal'
+  boxSizing: 'border-box',
+  color: 'inherit',
+  display: 'table',
+  maxWidth: '100%',
+  padding: '0',
+  whiteSpace: 'normal'
 }), defineProperty(_unopinionatedRules, 'progress', {
-  'display': 'inline-block',
-  'verticalAlign': 'baseline'
+  display: 'inline-block',
+  verticalAlign: 'baseline'
 }), defineProperty(_unopinionatedRules, 'textarea', {
   overflow: 'auto'
 }), defineProperty(_unopinionatedRules, '[type="checkbox"],\n  [type="radio"]', {
-  'boxSizing': 'border-box',
-  'padding': '0'
+  boxSizing: 'border-box',
+  padding: '0'
 }), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button', {
   height: 'auto'
 }), defineProperty(_unopinionatedRules, '[type="search"]', {
   '-webkit-appearance': 'textfield',
-  'outlineOffset': '-2px'
+  outlineOffset: '-2px'
 }), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n  [type="search"]::-webkit-search-decoration', {
   '-webkit-appearance': 'none'
 }), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
@@ -815,7 +815,6 @@ function mergeRules(baseRules, additionalRules) {
  *   textSizeAdjust: 100%,
  * } ...
  */
-
 function normalize(excludeOpinionated) {
   if (excludeOpinionated) return unopinionatedRules;
   return mergeRules(unopinionatedRules, opinionatedRules);

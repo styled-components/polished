@@ -41,11 +41,6 @@
       "prettier --no-semi --single-quote --trailing-comma all --write",
       "eslint --fix",
       "git add"
-    ],
-    "src/**/*.*.js": [
-      "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint src --fix",
-      "git add"
     ]
   },
   "watch": {
