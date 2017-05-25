@@ -2,6 +2,7 @@ import pxto from '../_pxto'
 
 describe('pxto', () => {
   let em
+
   describe('factory', () => {
     it('should allow creating a simple pixels-to-x converter', () => {
       em = pxto('em')
@@ -36,7 +37,7 @@ describe('pxto', () => {
 
     it('should throw an error if a non-pixel value is passed for the first arg', () => {
       expect(() => ({ height: em('10em') })).toThrow(
-        'Expected a string ending in "px" or a number passed as the first argument to em(), got "10em" instead.',.
+        'Expected a string ending in "px" or a number passed as the first argument to em(), got "10em" instead.',
       )
     })
 
