@@ -40,7 +40,6 @@ function readableText(color: string): string {
       (w3cConversion(parsedColor.red) * 0.2126) +
       (w3cConversion(parsedColor.green) * 0.7152) +
       (w3cConversion(parsedColor.blue) * 0.0722)
-
   return luminosity > 0.179 ? '#000' : '#fff'
 }
 
