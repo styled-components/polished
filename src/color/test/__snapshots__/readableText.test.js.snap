@@ -1,0 +1,15 @@
+exports[`readableText should return black given red 1`] = `"#000"`;
+
+exports[`readableText should return black given this gray 1`] = `"#000"`;
+
+exports[`readableText should return black given white 1`] = `"#000"`;
+
+exports[`readableText should return black given white hex 1`] = `"#000"`;
+
+exports[`readableText should return white given black 1`] = `"#fff"`;
+
+exports[`readableText should return white given black hex 1`] = `"#fff"`;
+
+exports[`readableText should return white given blue 1`] = `"#fff"`;
+
+exports[`readableText should return white given this gray 1`] = `"#000"`;
