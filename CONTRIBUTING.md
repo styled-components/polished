@@ -11,7 +11,6 @@ Want to know where to start helping? Check out our [ROADMAP.md](./ROADMAP.md) or
 ```bash
 npm install
 ```
-
 ## Development
 
 Here are some useful commands for development:
