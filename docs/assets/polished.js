@@ -2166,7 +2166,7 @@ function opacify(amount, color) {
   var parsedColor = parseToRgb(color);
   var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
   var colorWithAlpha = _extends({}, parsedColor, {
-    alpha: guard(0, 1, alpha + amount)
+    alpha: guard(0, 1, (alpha * 100 + amount * 100) / 100)
   });
   return rgba(colorWithAlpha);
 }
@@ -2406,7 +2406,7 @@ function transparentize(amount, color) {
   var parsedColor = parseToRgb(color);
   var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
   var colorWithAlpha = _extends({}, parsedColor, {
-    alpha: guard(0, 1, alpha - amount)
+    alpha: guard(0, 1, (alpha * 100 - amount * 100) / 100)
   });
   return rgba(colorWithAlpha);
 }

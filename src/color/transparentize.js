@@ -36,7 +36,9 @@ function transparentize(amount: number, color: string) {
   const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
   const colorWithAlpha = {
     ...parsedColor,
-    alpha: guard(0, 1, (alpha - amount)),
+    alpha: guard(0, 1, (
+      (alpha * 100) - (amount * 100)
+    ) / 100),
   }
   return rgba(colorWithAlpha)
 }
