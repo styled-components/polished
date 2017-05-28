@@ -35,8 +35,16 @@ function hslToColorString(color: HslColor | HslaColor | number): string {
     typeof color.saturation === 'number' &&
     typeof color.lightness === 'number'
   ) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return (color.alpha && typeof color.alpha === 'number') ? hsla(color) : hsl(color)
+    if (color.alpha && typeof color.alpha === 'number') {
+      return hsla({
+        hue: color.hue,
+        saturation: color.saturation,
+        lightness: color.lightness,
+        alpha: color.alpha,
+      })
+    }
+
+    return hsl({ hue: color.hue, saturation: color.saturation, lightness: color.lightness })
   }
 
   throw new Error('Passed invalid argument to hslToColorString, please pass a HslColor or HslaColor object.')
