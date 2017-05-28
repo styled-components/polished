@@ -1,7 +1,7 @@
 // @flow
 
 import parseToHsl from './parseToHsl'
-import toColorString from './toColorString'
+import hslToColorString from './hslToColorString'
 import curry from '../internalHelpers/_curry'
 
 /**
@@ -30,7 +30,7 @@ import curry from '../internalHelpers/_curry'
  */
 function adjustHue(degree: number, color: string): string {
   const hslColor = parseToHsl(color)
-  return toColorString({
+  return hslToColorString({
     ...hslColor,
     hue: (hslColor.hue + degree) % 360,
   })
