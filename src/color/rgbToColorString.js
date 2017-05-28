@@ -35,8 +35,11 @@ function rgbToColorString(color: RgbColor | RgbaColor): string {
     typeof color.green === 'number' &&
     typeof color.blue === 'number'
   ) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return (color.alpha && typeof color.alpha === 'number') ? rgba(color) : rgb(color)
+    if (color.alpha && typeof color.alpha === 'number') {
+      return rgba({ red: color.red, green: color.green, blue: color.blue, alpha: color.alpha })
+    }
+
+    return rgb({ red: color.red, green: color.green, blue: color.blue })
   }
 
   throw new Error('Passed invalid argument to rgbToColorString, please pass a RgbColor or RgbaColor object.')
