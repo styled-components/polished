@@ -136,6 +136,7 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
     <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
+    <li><a href="http://polished.js.org/docs/#tocolorstring">toColorString</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->
