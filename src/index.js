@@ -29,6 +29,7 @@ import desaturate from './color/desaturate'
 import grayscale from './color/grayscale'
 import hsl from './color/hsl'
 import hsla from './color/hsla'
+import hslToColorString from './color/hslToColorString'
 import invert from './color/invert'
 import lighten from './color/lighten'
 import mix from './color/mix'
@@ -37,13 +38,13 @@ import parseToHsl from './color/parseToHsl'
 import parseToRgb from './color/parseToRgb'
 import rgb from './color/rgb'
 import rgba from './color/rgba'
+import rgbToColorString from './color/rgbToColorString'
 import saturate from './color/saturate'
 import setHue from './color/setHue'
 import setLightness from './color/setLightness'
 import setSaturation from './color/setSaturation'
 import shade from './color/shade'
 import tint from './color/tint'
-import toColorString from './color/toColorString'
 import transparentize from './color/transparentize'
 
 // Shorthands
@@ -86,6 +87,7 @@ export {
   hiDPI,
   hsl,
   hsla,
+  hslToColorString,
   lighten,
   margin,
   mix,
@@ -102,6 +104,7 @@ export {
   retinaImage,
   rgb,
   rgba,
+  rgbToColorString,
   saturate,
   selection,
   setHue,
@@ -113,7 +116,6 @@ export {
   textInputs,
   timingFunctions,
   tint,
-  toColorString,
   transitions,
   transparentize,
   triangle,
