@@ -5,6 +5,7 @@ import em from './helpers/em'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
+import zIndex from './helpers/zIndex'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -118,4 +119,5 @@ export {
   transparentize,
   triangle,
   wordWrap,
+  zIndex,
 }
