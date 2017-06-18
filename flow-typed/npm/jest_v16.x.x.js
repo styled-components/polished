@@ -1,5 +1,5 @@
-// flow-typed signature: 04965d796c54f045f5f5c8a2aa474600
-// flow-typed version: fc5874dbeb/jest_v16.x.x/flow_>=v0.33.x
+// flow-typed signature: 21f65c0cb79564d865cdb7e4a39e81e4
+// flow-typed version: fcaf13fb04/jest_v16.x.x/flow_>=v0.33.x
 
 type JestMockFn = {
   (...args: Array<any>): any;
@@ -32,7 +32,7 @@ type JestCallsType = {
 type JestClockType = {
   install(): void;
   mockDate(date: Date): void;
-  tick(): void;
+  tick(milliseconds?:number): void;
   uninstall(): void;
 }
 
@@ -79,6 +79,7 @@ declare var it: {
   (name: string, fn: Function): ?Promise<void>;
   only(name: string, fn: Function): ?Promise<void>;
   skip(name: string, fn: Function): ?Promise<void>;
+  concurrent(name: string, fn: Function): ?Promise<void>,
 };
 declare function fit(name: string, fn: Function): ?Promise<void>;
 declare var test: typeof it;
