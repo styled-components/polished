@@ -23,9 +23,9 @@ Here are some useful commands for development:
 
 ## Committing
 
-`✨ polished` uses [`semantic-release`][https://npmjs.com/package/semantic-release] to do automatic releases and generate a changelog based on the commit history. In order for this to work, we follow [this convention][convention] for commit messages.
+`✨ polished` uses [`semantic-release`](https://npmjs.com/package/semantic-release) to do automatic releases and generate a changelog based on the commit history. In order for this to work, we follow [this convention][convention] for commit messages.
 
-`commitizen` is installed to help you follow [this convention][https://github.com/conventional-changelog/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md]
+`commitizen` is installed to help you follow [this convention][convention].
 
 Once you are ready to commit your changes, just use the following commands:
 
@@ -33,3 +33,5 @@ Once you are ready to commit your changes, just use the following commands:
 2. `git cz`
 
 Then you just simply follow the prompts to craft your commit message.
+
+[convention]: https://github.com/conventional-changelog/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
