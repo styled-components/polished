@@ -6,6 +6,10 @@ describe('ellipsis', () => {
     expect({ ...ellipsis('300px') }).toMatchSnapshot()
   })
 
+  it('should permit bare number', () => {
+    expect({ ...ellipsis(300) }).toMatchSnapshot()
+  })
+
   it('should properly add rules when block has existing rules', () => {
     expect({
       background: 'red',

@@ -21,10 +21,13 @@
  * }
  */
 
-function borderRadius(side: string, radius: string) {
-  if (!radius || typeof radius !== 'string') {
+function borderRadius(side:string, radius:string | number) {
+  if (
+    (typeof radius !== 'string' || radius === '') &&
+    (typeof radius !== 'number' || Number.isNaN(radius))
+  ) {
     throw new Error(
-      'borderRadius expects a radius value as a string as the second argument.',
+      'borderRadius expects a radius value as a string or number as the second argument.',
     )
   }
   if (side === 'top' || side === 'bottom') {

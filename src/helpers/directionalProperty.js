@@ -8,10 +8,10 @@ function generateProperty(property: string, position: string) {
   return splitPropertyName.join('-')
 }
 
-function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
+function generateStyles(property: string, valuesWithDefaults: Array<?string | ?number>) {
   const styles = {}
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i]
     }
   }
@@ -41,7 +41,7 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  * }
  */
 
-function directionalProperty(property: string, ...values: Array<?string>) {
+function directionalProperty(property: string, ...values: Array<?string | ?number>) {
   //  prettier-ignore
   // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values

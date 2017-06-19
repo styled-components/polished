@@ -26,7 +26,7 @@
  * }
  */
 
-function ellipsis(width: string = '100%') {
+function ellipsis(width: string | number = '100%') {
   return {
     display: 'inline-block',
     'max-width': width,

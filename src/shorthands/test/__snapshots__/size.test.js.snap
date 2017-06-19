@@ -19,3 +19,17 @@ Object {
   "width": "300px",
 }
 `;
+
+exports[`size should set height and width with unitless values 1`] = `
+Object {
+  "height": 300,
+  "width": 250,
+}
+`;
+
+exports[`size should set height and width with unitless zero 1`] = `
+Object {
+  "height": 0,
+  "width": 0,
+}
+`;

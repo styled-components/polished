@@ -21,7 +21,7 @@
  * }
  */
 
-function size(height: string, width: string = height) {
+function size(height: string | number, width: string | number = height) {
   return {
     height,
     width,
