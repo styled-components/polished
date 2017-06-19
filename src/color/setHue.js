@@ -1,7 +1,7 @@
 // @flow
 
 import parseToHsl from './parseToHsl'
-import toColorString from './toColorString'
+import hslToColorString from './hslToColorString'
 import curry from '../internalHelpers/_curry'
 
 /**
@@ -28,7 +28,7 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function setHue(hue: number, color: string): string {
-  return toColorString({
+  return hslToColorString({
     ...parseToHsl(color),
     hue,
   })

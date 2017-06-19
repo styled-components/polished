@@ -1,7 +1,7 @@
 // @flow
 
 import parseToHsl from './parseToHsl'
-import toColorString from './toColorString'
+import hslToColorString from './hslToColorString'
 
 /**
  * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
@@ -27,7 +27,7 @@ import toColorString from './toColorString'
  */
 function complement(color: string): string {
   const hslColor = parseToHsl(color)
-  return toColorString({
+  return hslToColorString({
     ...hslColor,
     hue: (hslColor.hue + 180) % 360,
   })

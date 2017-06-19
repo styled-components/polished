@@ -73,6 +73,7 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#grayscale">grayscale</a></li>
     <li><a href="http://polished.js.org/docs/#hsl">hsl</a></li>
     <li><a href="http://polished.js.org/docs/#hsla">hsla</a></li>
+    <li><a href="http://polished.js.org/docs/#hsltocolorstring">hslToColorString</a></li>
     <li><a href="http://polished.js.org/docs/#invert">invert</a></li>
     <li><a href="http://polished.js.org/docs/#lighten">lighten</a></li>
     <li><a href="http://polished.js.org/docs/#mix">mix</a></li>
@@ -81,6 +82,7 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#parsetorgb">parseToRgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
+    <li><a href="http://polished.js.org/docs/#rgbtocolorstring">rgbToColorString</a></li>
     <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
     <li><a href="http://polished.js.org/docs/#sethue">setHue</a></li>
     <li><a href="http://polished.js.org/docs/#setlightness">setLightness</a></li>

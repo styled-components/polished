@@ -1,0 +1,17 @@
+exports[`rgbToColorString should convert a RgbColor to a hex string 1`] = `
+Object {
+  "background": "#ffcd64",
+}
+`;
+
+exports[`rgbToColorString should convert a RgbColor to a reduced hex string 1`] = `
+Object {
+  "background": "#fff",
+}
+`;
+
+exports[`rgbToColorString should convert a RgbaColor to a rgba string 1`] = `
+Object {
+  "background": "rgba(255,205,100,0.72)",
+}
+`;

@@ -1,7 +1,7 @@
 // @flow
 
 import parseToRgb from './parseToRgb'
-import toColorString from './toColorString'
+import rgbToColorString from './rgbToColorString'
 
 /**
  * Inverts the red, green and blue values of a color.
@@ -29,7 +29,7 @@ import toColorString from './toColorString'
 function invert(color: string): string {
   // parse color string to rgb
   const value = parseToRgb(color)
-  return toColorString({
+  return rgbToColorString({
     ...value,
     red: 255 - value.red,
     green: 255 - value.green,
