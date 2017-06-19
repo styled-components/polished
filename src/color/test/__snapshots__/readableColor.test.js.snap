@@ -1,4 +1,10 @@
-exports[`readableColor should return black given papayawhip 1`] = `"#000"`;
+exports[`readableColor should return black given gray, #787878 1`] = `"#000"`;
+
+exports[`readableColor should return black given gray, hsl(0, 0%, 47%) 1`] = `"#000"`;
+
+exports[`readableColor should return black given palevioletred, "palevioletred" 1`] = `"#000"`;
+
+exports[`readableColor should return black given papayawhip, "papayawhip" 1`] = `"#000"`;
 
 exports[`readableColor should return black given red, #FF0000 1`] = `"#000"`;
 
@@ -6,13 +12,13 @@ exports[`readableColor should return black given red, hsl(0, 100%, 50%) 1`] = `"
 
 exports[`readableColor should return black given rgb(120,120,120) 1`] = `"#000"`;
 
-exports[`readableColor should return black given white 1`] = `"#000"`;
-
-exports[`readableColor should return black given white 2`] = `"#000"`;
-
 exports[`readableColor should return black given white hex, #fff 1`] = `"#000"`;
 
+exports[`readableColor should return black given white, "white" 1`] = `"#000"`;
+
 exports[`readableColor should return black given white, rgb(255,255,255) 1`] = `"#000"`;
+
+exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, #000 1`] = `"#fff"`;
 
@@ -27,5 +33,9 @@ exports[`readableColor should return white given blue, #0000FF 1`] = `"#fff"`;
 exports[`readableColor should return white given blue, hsl(250, 100%, 50%) 1`] = `"#fff"`;
 
 exports[`readableColor should return white given blue, hsla(250, 100%, 50%, 0.2) 1`] = `"#fff"`;
+
+exports[`readableColor should return white given gray, #757575 1`] = `"#fff"`;
+
+exports[`readableColor should return white given gray, hsl(0, 0%, 45%) 1`] = `"#fff"`;
 
 exports[`readableColor should return white given rgb(117,117,117) 1`] = `"#fff"`;
