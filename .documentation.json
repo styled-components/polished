@@ -46,6 +46,7 @@
     "opacify",
     "parseToHsl",
     "parseToRgb",
+    "readableColor",
     "rgb",
     "rgba",
     "saturate",
