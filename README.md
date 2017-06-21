@@ -79,6 +79,7 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#opacify">opacify</a></li>
     <li><a href="http://polished.js.org/docs/#parsetohsl">parseToHsl</a></li>
     <li><a href="http://polished.js.org/docs/#parsetorgb">parseToRgb</a></li>
+    <li><a href="http://polished.js.org/docs/#readablecolor">readableColor</a></li>
     <li><a href="http://polished.js.org/docs/#rgb">rgb</a></li>
     <li><a href="http://polished.js.org/docs/#rgba">rgba</a></li>
     <li><a href="http://polished.js.org/docs/#saturate">saturate</a></li>
