@@ -21,10 +21,16 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  *   'borderTopLeftRadius': '5px',
  * }
  */
-
 function borderRadius(side:string, radius:string) {
   const uppercaseSide = capitalizeString(side)
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.')
+  if (
+    (typeof radius !== 'string' || radius === '') &&
+    (typeof radius !== 'number' || Number.isNaN(radius))
+  ) {
+    throw new Error(
+      'borderRadius expects a radius value as a string or number as the second argument.',
+    )
+  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     return {
       [`border${uppercaseSide}RightRadius`]: radius,

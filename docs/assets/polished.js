@@ -30,7 +30,7 @@ function generateProperty(property, position) {
 function generateStyles(property, valuesWithDefaults) {
   var styles = {};
   for (var i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
     }
   }
@@ -2626,10 +2626,11 @@ function borderColor() {
  *   'borderTopLeftRadius': '5px',
  * }
  */
-
 function borderRadius(side, radius) {
   var uppercaseSide = capitalizeString(side);
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  if ((typeof radius !== 'string' || radius === '') && (typeof radius !== 'number' || Number.isNaN(radius))) {
+    throw new Error('borderRadius expects a radius value as a string or number as the second argument.');
+  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     var _ref;
 
@@ -2700,7 +2701,6 @@ function borderStyle() {
  *   'borderLeftWidth': '48px'
  * }
  */
-
 function borderWidth() {
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
     values[_key] = arguments[_key];
