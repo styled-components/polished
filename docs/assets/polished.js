@@ -810,7 +810,7 @@ function mergeRules(baseRules, additionalRules) {
  * // CSS as JS Output
  *
  * html {
- *   fontFamily: sans-serif,
+ *   fontFamily: 'sans-serif',
  *   lineHeight: 1.15,
  *   textSizeAdjust: 100%,
  * } ...

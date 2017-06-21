@@ -21,7 +21,7 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  *   'borderTopLeftRadius': '5px',
  * }
  */
-function borderRadius(side:string, radius:string) {
+function borderRadius(side: string, radius: string | number) {
   const uppercaseSide = capitalizeString(side)
   if (
     (typeof radius !== 'string' || radius === '') &&
