@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Mixin to set the height and width properties in a single statement.
+ * Shorthand to set the height and width properties in a single statement.
  * @example
  * // Styles as object usage
  * const styles = {

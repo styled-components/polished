@@ -8,20 +8,20 @@ Object {
     "display": "none",
   },
   "[type=\"checkbox\"],
-    [type=\"radio\"]": Object {
-    "box-sizing": "border-box",
+  [type=\"radio\"]": Object {
+    "boxSizing": "border-box",
     "padding": "0",
   },
   "[type=\"number\"]::-webkit-inner-spin-button,
-    [type=\"number\"]::-webkit-outer-spin-button": Object {
+  [type=\"number\"]::-webkit-outer-spin-button": Object {
     "height": "auto",
   },
   "[type=\"search\"]": Object {
     "-webkit-appearance": "textfield",
-    "outline-offset": "-2px",
+    "outlineOffset": "-2px",
   },
   "[type=\"search\"]::-webkit-search-cancel-button,
-    [type=\"search\"]::-webkit-search-decoration": Object {
+  [type=\"search\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
@@ -29,23 +29,23 @@ Object {
     "background-color": "transparent",
   },
   "a:active,
-    a:hover": Object {
-    "outline-width": "0",
+  a:hover": Object {
+    "outlineWidth": "0",
   },
   "abbr[title]": Object {
-    "border-bottom": "none",
-    "text-decoration": "underline dotted",
+    "borderBottom": "none",
+    "textDecoration": "underline dotted",
   },
   "article,
-    aside,
-    footer,
-    header,
-    nav,
-    section": Object {
+  aside,
+  footer,
+  header,
+  nav,
+  section": Object {
     "display": "block",
   },
   "audio,
-    video": Object {
+  video": Object {
     "display": "inline-block",
   },
   "audio:not([controls])": Object {
@@ -53,64 +53,64 @@ Object {
     "height": "0",
   },
   "b,
-    strong": Object {
-    "font-weight": "inherit",
+  strong": Object {
+    "fontWeight": "inherit",
   },
   "body": Object {
     "margin": "0",
   },
   "button,
-    html [type=\"button\"],
-    [type=\"reset\"],
-    [type=\"submit\"]": Object {
+  html [type=\"button\"],
+  [type=\"reset\"],
+  [type=\"submit\"]": Object {
     "-webkit-appearance": "button",
   },
   "button,
-    input": Object {
+  input": Object {
     "overflow": "visible",
   },
   "button,
-    input,
-    optgroup,
-    select,
-    textarea": Object {
-    "font-family": "sans-serif",
-    "font-size": "100%",
-    "line-height": "1.15",
+  input,
+  optgroup,
+  select,
+  textarea": Object {
+    "fontFamily": "sans-serif",
+    "fontSize": "100%",
+    "lineHeight": "1.15",
     "margin": "0",
   },
   "button,
-    select": Object {
-    "text-transform": "none",
+  select": Object {
+    "textTransform": "none",
   },
   "button:-moz-focusring,
-    [type=\"button\"]:-moz-focusring,
-    [type=\"reset\"]:-moz-focusring,
-    [type=\"submit\"]:-moz-focusring": Object {
+  [type=\"button\"]:-moz-focusring,
+  [type=\"reset\"]:-moz-focusring,
+  [type=\"submit\"]:-moz-focusring": Object {
     "outline": "1px dotted ButtonText",
   },
   "button::-moz-focus-inner,
-    [type=\"button\"]::-moz-focus-inner,
-    [type=\"reset\"]::-moz-focus-inner,
-    [type=\"submit\"]::-moz-focus-inner": Object {
-    "border-style": "none",
+  [type=\"button\"]::-moz-focus-inner,
+  [type=\"reset\"]::-moz-focus-inner,
+  [type=\"submit\"]::-moz-focus-inner": Object {
+    "borderStyle": "none",
     "padding": "0",
   },
   "canvas": Object {
     "display": "inline-block",
   },
   "code,
-    kbd,
-    samp": Object {
-    "font-family": "monospace, monospace",
-    "font-size": "1em",
+  kbd,
+  samp": Object {
+    "fontFamily": "monospace, monospace",
+    "fontSize": "1em",
   },
   "details,
-    menu": Object {
+  menu": Object {
     "display": "block",
   },
   "dfn": Object {
-    "font-style": "italic",
+    "fontStyle": "italic",
   },
   "fieldset": Object {
     "border": "1px solid #c0c0c0",
@@ -118,63 +118,62 @@ Object {
     "padding": "0.35em 0.625em 0.75em",
   },
   "figcaption,
-    figure,
-    main": Object {
+  figure,
+  main": Object {
     "display": "block",
   },
   "figure": Object {
     "margin": "1em 40px",
   },
   "h1": Object {
-    "font-size": "2em",
+    "fontSize": "2em",
     "margin": "0.67em 0",
   },
   "hr": Object {
-    "box-sizing": "content-box",
+    "boxSizing": "content-box",
     "height": "0",
     "overflow": "visible",
   },
   "html": Object {
-    "-ms-text-size-adjust": "100%",
-    "-webkit-text-size-adjust": "100%",
-    "font-family": "sans-serif",
-    "line-height": "1.15",
+    "fontFamily": "sans-serif",
+    "lineHeight": "1.15",
+    "textSizeAdjust": "100%",
   },
   "img": Object {
-    "border-style": "none",
+    "borderStyle": "none",
   },
   "legend": Object {
-    "box-sizing": "border-box",
+    "boxSizing": "border-box",
     "color": "inherit",
     "display": "table",
-    "max-width": "100%",
+    "maxWidth": "100%",
     "padding": "0",
-    "white-space": "normal",
+    "whiteSpace": "normal",
   },
   "mark": Object {
-    "background-color": "#ff0",
+    "backgroundColor": "#ff0",
     "color": "#000",
   },
   "pre": Object {
-    "font-family": "monospace, monospace",
-    "font-size": "1em",
+    "fontFamily": "monospace, monospace",
+    "fontSize": "1em",
   },
   "progress": Object {
     "display": "inline-block",
-    "vertical-align": "baseline",
+    "verticalAlign": "baseline",
   },
   "small": Object {
-    "font-size": "80%",
+    "fontSize": "80%",
   },
   "sub": Object {
     "bottom": "-0.25em",
   },
   "sub,
-    sup": Object {
-    "font-size": "75%",
-    "line-height": "0",
+  sup": Object {
+    "fontSize": "75%",
+    "lineHeight": "0",
     "position": "relative",
-    "vertical-align": "baseline",
+    "verticalAlign": "baseline",
   },
   "summary": Object {
     "display": "list-item",
@@ -204,20 +203,20 @@ Object {
     "display": "none",
   },
   "[type=\"checkbox\"],
-    [type=\"radio\"]": Object {
-    "box-sizing": "border-box",
+  [type=\"radio\"]": Object {
+    "boxSizing": "border-box",
     "padding": "0",
   },
   "[type=\"number\"]::-webkit-inner-spin-button,
-    [type=\"number\"]::-webkit-outer-spin-button": Object {
+  [type=\"number\"]::-webkit-outer-spin-button": Object {
     "height": "auto",
   },
   "[type=\"search\"]": Object {
     "-webkit-appearance": "textfield",
-    "outline-offset": "-2px",
+    "outlineOffset": "-2px",
   },
   "[type=\"search\"]::-webkit-search-cancel-button,
-    [type=\"search\"]::-webkit-search-decoration": Object {
+  [type=\"search\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
@@ -225,19 +224,19 @@ Object {
     "background-color": "transparent",
   },
   "abbr[title]": Object {
-    "border-bottom": "none",
-    "text-decoration": "underline dotted",
+    "borderBottom": "none",
+    "textDecoration": "underline dotted",
   },
   "article,
-    aside,
-    footer,
-    header,
-    nav,
-    section": Object {
+  aside,
+  footer,
+  header,
+  nav,
+  section": Object {
     "display": "block",
   },
   "audio,
-    video": Object {
+  video": Object {
     "display": "inline-block",
   },
   "audio:not([controls])": Object {
@@ -245,58 +244,58 @@ Object {
     "height": "0",
   },
   "b,
-    strong": Object {
-    "font-weight": "inherit",
+  strong": Object {
+    "fontWeight": "inherit",
   },
   "button,
-    html [type=\"button\"],
-    [type=\"reset\"],
-    [type=\"submit\"]": Object {
+  html [type=\"button\"],
+  [type=\"reset\"],
+  [type=\"submit\"]": Object {
     "-webkit-appearance": "button",
   },
   "button,
-    input": Object {
+  input": Object {
     "overflow": "visible",
   },
   "button,
-    input,
-    optgroup,
-    select,
-    textarea": Object {
+  input,
+  optgroup,
+  select,
+  textarea": Object {
     "margin": "0",
   },
   "button,
-    select": Object {
-    "text-transform": "none",
+  select": Object {
+    "textTransform": "none",
   },
   "button:-moz-focusring,
-    [type=\"button\"]:-moz-focusring,
-    [type=\"reset\"]:-moz-focusring,
-    [type=\"submit\"]:-moz-focusring": Object {
+  [type=\"button\"]:-moz-focusring,
+  [type=\"reset\"]:-moz-focusring,
+  [type=\"submit\"]:-moz-focusring": Object {
     "outline": "1px dotted ButtonText",
   },
   "button::-moz-focus-inner,
-    [type=\"button\"]::-moz-focus-inner,
-    [type=\"reset\"]::-moz-focus-inner,
-    [type=\"submit\"]::-moz-focus-inner": Object {
-    "border-style": "none",
+  [type=\"button\"]::-moz-focus-inner,
+  [type=\"reset\"]::-moz-focus-inner,
+  [type=\"submit\"]::-moz-focus-inner": Object {
+    "borderStyle": "none",
     "padding": "0",
   },
   "canvas": Object {
     "display": "inline-block",
   },
   "code,
-    kbd,
-    samp": Object {
-    "font-family": "monospace, monospace",
-    "font-size": "1em",
+  kbd,
+  samp": Object {
+    "fontFamily": "monospace, monospace",
+    "fontSize": "1em",
   },
   "details,
-    menu": Object {
+  menu": Object {
     "display": "block",
   },
   "dfn": Object {
-    "font-style": "italic",
+    "fontStyle": "italic",
   },
   "fieldset": Object {
     "border": "1px solid #c0c0c0",
@@ -304,62 +303,61 @@ Object {
     "padding": "0.35em 0.625em 0.75em",
   },
   "figcaption,
-    figure,
-    main": Object {
+  figure,
+  main": Object {
     "display": "block",
   },
   "figure": Object {
     "margin": "1em 40px",
   },
   "h1": Object {
-    "font-size": "2em",
+    "fontSize": "2em",
     "margin": "0.67em 0",
   },
   "hr": Object {
-    "box-sizing": "content-box",
+    "boxSizing": "content-box",
     "height": "0",
     "overflow": "visible",
   },
   "html": Object {
-    "-ms-text-size-adjust": "100%",
-    "-webkit-text-size-adjust": "100%",
-    "line-height": "1.15",
+    "lineHeight": "1.15",
+    "textSizeAdjust": "100%",
   },
   "img": Object {
-    "border-style": "none",
+    "borderStyle": "none",
   },
   "legend": Object {
-    "box-sizing": "border-box",
+    "boxSizing": "border-box",
     "color": "inherit",
     "display": "table",
-    "max-width": "100%",
+    "maxWidth": "100%",
     "padding": "0",
-    "white-space": "normal",
+    "whiteSpace": "normal",
   },
   "mark": Object {
-    "background-color": "#ff0",
+    "backgroundColor": "#ff0",
     "color": "#000",
   },
   "pre": Object {
-    "font-family": "monospace, monospace",
-    "font-size": "1em",
+    "fontFamily": "monospace, monospace",
+    "fontSize": "1em",
   },
   "progress": Object {
     "display": "inline-block",
-    "vertical-align": "baseline",
+    "verticalAlign": "baseline",
   },
   "small": Object {
-    "font-size": "80%",
+    "fontSize": "80%",
   },
   "sub": Object {
     "bottom": "-0.25em",
   },
   "sub,
-    sup": Object {
-    "font-size": "75%",
-    "line-height": "0",
+  sup": Object {
+    "fontSize": "75%",
+    "lineHeight": "0",
     "position": "relative",
-    "vertical-align": "baseline",
+    "verticalAlign": "baseline",
   },
   "summary": Object {
     "display": "list-item",

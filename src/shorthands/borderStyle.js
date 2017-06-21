@@ -2,7 +2,7 @@
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
- * The border-style shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -17,15 +17,15 @@ import directionalProperty from '../helpers/directionalProperty'
  * // CSS as JS Output
  *
  * div {
- *   'border-top-style': 'solid',
- *   'border-right-style': 'dashed',
- *   'border-bottom-style': 'dotted',
- *   'border-left-style': 'double'
+ *   'borderTopStyle': 'solid',
+ *   'borderRightStyle': 'dashed',
+ *   'borderBottomStyle': 'dotted',
+ *   'borderLeftStyle': 'double'
  * }
  */
 
 function borderStyle(...values: Array<?string>) {
-  return directionalProperty('border-style', ...values)
+  return directionalProperty('borderStyle', ...values)
 }
 
 export default borderStyle

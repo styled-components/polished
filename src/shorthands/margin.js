@@ -2,7 +2,7 @@
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
- * The margin shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -17,10 +17,10 @@ import directionalProperty from '../helpers/directionalProperty'
  * // CSS as JS Output
  *
  * div {
- *   'margin-top': '12px',
- *   'margin-right': '24px',
- *   'margin-bottom': '36px',
- *   'margin-left': '48px'
+ *   'marginTop': '12px',
+ *   'marginRight': '24px',
+ *   'marginBottom': '36px',
+ *   'marginLeft': '48px'
  * }
  */
 

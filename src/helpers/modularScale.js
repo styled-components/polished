@@ -49,19 +49,19 @@ type Ratio =
  * // Styles as object usage
  * const styles = {
  *    // Increment two steps up the default scale
- *   'font-size': modularScale(2)
+ *   'fontSize': modularScale(2)
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *    // Increment two steps up the default scale
- *   font-size: ${modularScale(2)}
+ *   fontSize: ${modularScale(2)}
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   'font-size': '1.77689em'
+ *   'fontSize': '1.77689em'
  * }
  */
 function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth') {

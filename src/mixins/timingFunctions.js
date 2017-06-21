@@ -64,18 +64,18 @@ type TimingFunction =
  * @example
  * // Styles as object usage
  * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
+ *   'transitionTimingFunction': timingFunctions('easeInQuad')
  * }
  *
  * // styled-components usage
  *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
+ *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
  * `
  *
  * // CSS as JS Output
  *
  * 'div': {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+ *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
  * }
  */
 
