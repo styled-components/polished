@@ -1,14 +1,14 @@
 exports[`borderRadius properly applies unitless value 1`] = `
 Object {
-  "border-top-left-radius": 5,
-  "border-top-right-radius": 5,
+  "borderTopLeftRadius": 5,
+  "borderTopRightRadius": 5,
 }
 `;
 
 exports[`borderRadius properly applies unitless zero 1`] = `
 Object {
-  "border-bottom-left-radius": 0,
-  "border-top-left-radius": 0,
+  "borderBottomLeftRadius": 0,
+  "borderTopLeftRadius": 0,
 }
 `;
 

@@ -9,19 +9,19 @@ Object {
 
 exports[`padding properly applies unitless values 1`] = `
 Object {
-  "padding-bottom": 36,
-  "padding-left": 48,
-  "padding-right": 24,
-  "padding-top": 12,
+  "paddingBottom": 36,
+  "paddingLeft": 48,
+  "paddingRight": 24,
+  "paddingTop": 12,
 }
 `;
 
 exports[`padding properly applies unitless zero 1`] = `
 Object {
-  "padding-bottom": 0,
-  "padding-left": 0,
-  "padding-right": 0,
-  "padding-top": 0,
+  "paddingBottom": 0,
+  "paddingLeft": 0,
+  "paddingRight": 0,
+  "paddingTop": 0,
 }
 `;
 

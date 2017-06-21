@@ -23,11 +23,11 @@ Object {
 exports[`ellipsis should permit bare number 1`] = `
 Object {
   "display": "inline-block",
-  "max-width": 300,
+  "maxWidth": 300,
   "overflow": "hidden",
-  "text-overflow": "ellipsis",
-  "white-space": "nowrap",
-  "word-wrap": "normal",
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "wordWrap": "normal",
 }
 `;
 
