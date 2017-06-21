@@ -129,3 +129,21 @@ Object {
   "font-size": "1em",
 }
 `;
+
+exports[`modularScale should use the base unit as the output value 1`] = `
+Object {
+  "font-size": "1rem",
+}
+`;
+
+exports[`modularScale should use the base unit as the output value 2`] = `
+Object {
+  "font-size": "1em",
+}
+`;
+
+exports[`modularScale should use the base unit as the output value 3`] = `
+Object {
+  "font-size": "2em",
+}
+`;

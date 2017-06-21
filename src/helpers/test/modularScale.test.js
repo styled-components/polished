@@ -27,6 +27,12 @@ describe('modularScale', () => {
     })
   })
 
+  it('should use the base unit as the output value', () => {
+    expect({ 'font-size': modularScale(1, '1rem', 1) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, '1', 1) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, 2, 1) }).toMatchSnapshot()
+  })
+
   it('should throw an error if an invalid base is provided', () => {
     expect(() => {
       modularScale(2, 'invalid')
