@@ -1,3 +1,7 @@
+exports[`rgb should convert a hex value and an alpha value to a rgba string 1`] = `"rgba(255,255,255,0.4)"`;
+
+exports[`rgb should convert a named CSS color and an alpha value to a rgba string 1`] = `"rgba(0,0,0,0.7)"`;
+
 exports[`rgb should convert a rgba object to a rgba string 1`] = `
 Object {
   "background": "rgba(255,205,100,0.75)",
