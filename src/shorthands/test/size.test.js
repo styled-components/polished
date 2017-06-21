@@ -16,4 +16,12 @@ describe('size', () => {
   it('should set height and width to the same value when only one parameter is passed', () => {
     expect({ ...size('300px') }).toMatchSnapshot()
   })
+
+  it('should set height and width with unitless values', () => {
+    expect({ ...size(300, 250) }).toMatchSnapshot()
+  })
+
+  it('should set height and width with unitless zero', () => {
+    expect({ ...size(0) }).toMatchSnapshot()
+  })
 })

@@ -61,6 +61,15 @@ Object {
 }
 `;
 
+exports[`directionalProperty properly sets unitless zero 1`] = `
+Object {
+  "bottom": 0,
+  "left": 0,
+  "right": 0,
+  "top": 0,
+}
+`;
+
 exports[`directionalProperty properly skips bottom property when last value is null 1`] = `
 Object {
   "borderLeft": "24px",

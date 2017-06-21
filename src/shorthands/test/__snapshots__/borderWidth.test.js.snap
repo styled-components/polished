@@ -7,6 +7,24 @@ Object {
 }
 `;
 
+exports[`borderWidth properly applies unitless values 1`] = `
+Object {
+  "border-bottom-width": 36,
+  "border-left-width": 48,
+  "border-right-width": 24,
+  "border-top-width": 12,
+}
+`;
+
+exports[`borderWidth properly applies unitless zero 1`] = `
+Object {
+  "border-bottom-width": 0,
+  "border-left-width": 0,
+  "border-right-width": 0,
+  "border-top-width": 0,
+}
+`;
+
 exports[`borderWidth properly applies values when passed four 1`] = `
 Object {
   "borderBottomWidth": "36px",

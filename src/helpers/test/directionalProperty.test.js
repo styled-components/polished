@@ -13,6 +13,9 @@ describe('directionalProperty', () => {
   it('properly passes just the position when not given a property', () => {
     expect(directionalProperty('', '12px')).toMatchSnapshot()
   })
+  it('properly sets unitless zero', () => {
+    expect(directionalProperty('', 0)).toMatchSnapshot()
+  })
 
   // One Param
   it('properly applies a value when passed only one', () => {
