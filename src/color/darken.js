@@ -36,4 +36,6 @@ function darken(amount: number, color: string): string {
   })
 }
 
-export default curry(darken)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedDarken = /*#__PURE__*/curry(darken) // eslint-disable-line spaced-comment
+export default curriedDarken

@@ -67,4 +67,6 @@ function mix(weight: number = 0.5, color: string, otherColor: string): string {
   return rgba(mixedColor)
 }
 
-export default curry(mix)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedMix = /*#__PURE__*/curry(mix) // eslint-disable-line spaced-comment
+export default curriedMix

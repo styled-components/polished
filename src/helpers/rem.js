@@ -25,4 +25,7 @@ import pixelsto from '../internalHelpers/_pxto'
  *   'height': '1rem'
  * }
  */
-export default pixelsto('rem')
+
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const rem = /*#__PURE__*/pixelsto('rem') // eslint-disable-line spaced-comment
+export default rem

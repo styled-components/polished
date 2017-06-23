@@ -34,4 +34,6 @@ function setLightness(lightness: number, color: string): string {
   })
 }
 
-export default curry(setLightness)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedSetLightness = /*#__PURE__*/curry(setLightness) // eslint-disable-line spaced-comment
+export default curriedSetLightness
