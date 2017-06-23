@@ -168,7 +168,8 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  * }
  */
 
-var em = pxtoFactory$1('em');
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var pixelsToEm = /*#__PURE__*/pxtoFactory$1('em');
 
 //      
 
@@ -190,32 +191,31 @@ var ratioNames = {
   majorEleventh: 2.667,
   majorTwelfth: 3,
   doubleOctave: 4
-};
 
-/** */
+  /** */
 
-/**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
- * @example
- * // Styles as object usage
- * const styles = {
- *    // Increment two steps up the default scale
- *   'font-size': modularScale(2)
- * }
- *
- * // styled-components usage
- * const div = styled.div`
- *    // Increment two steps up the default scale
- *   font-size: ${modularScale(2)}
- * `
- *
- * // CSS in JS Output
- *
- * element {
- *   'font-size': '1.77689em'
- * }
- */
-function modularScale(steps) {
+  /**
+   * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *    // Increment two steps up the default scale
+   *   'font-size': modularScale(2)
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *    // Increment two steps up the default scale
+   *   font-size: ${modularScale(2)}
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   'font-size': '1.77689em'
+   * }
+   */
+};function modularScale(steps) {
   var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
   var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
 
@@ -261,7 +261,9 @@ function modularScale(steps) {
  *   'height': '1rem'
  * }
  */
-var rem = pxtoFactory$1('rem');
+
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var pixelsToRem = /*#__PURE__*/pxtoFactory$1('rem');
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -549,10 +551,9 @@ function fontFace(_ref) {
       'font-variant': fontVariant,
       'font-weight': fontWeight
     }
-  };
 
-  // Removes undefined fields for cleaner css object.
-  return JSON.parse(JSON.stringify(fontFaceDeclaration));
+    // Removes undefined fields for cleaner css object.
+  };return JSON.parse(JSON.stringify(fontFaceDeclaration));
 }
 
 //      
@@ -628,140 +629,7 @@ function hiDPI() {
   return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
 }
 
-var _opinionatedRules;
-var _unopinionatedRules;
-
 //      
-var opinionatedRules = (_opinionatedRules = {
-  'html': {
-    'font-family': 'sans-serif'
-  },
-
-  'body': {
-    'margin': '0'
-  }
-
-}, defineProperty(_opinionatedRules, 'a:active,\n  a:hover', {
-  'outline-width': '0'
-}), defineProperty(_opinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
-  'font-family': 'sans-serif',
-  'font-size': '100%',
-  'line-height': '1.15'
-}), _opinionatedRules);
-
-var unopinionatedRules = (_unopinionatedRules = {
-  'html': {
-    'line-height': '1.15',
-    '-ms-text-size-adjust': '100%',
-    '-webkit-text-size-adjust': '100%'
-  }
-
-}, defineProperty(_unopinionatedRules, 'article,\n  aside,\n  footer,\n  header,\n  nav,\n  section', {
-  'display': 'block'
-}), defineProperty(_unopinionatedRules, 'h1', {
-  'font-size': '2em',
-  'margin': '0.67em 0'
-}), defineProperty(_unopinionatedRules, 'figcaption,\n  figure,\n  main', {
-  'display': 'block'
-}), defineProperty(_unopinionatedRules, 'figure', {
-  'margin': '1em 40px'
-}), defineProperty(_unopinionatedRules, 'hr', {
-  'box-sizing': 'content-box',
-  'height': '0',
-  'overflow': 'visible'
-}), defineProperty(_unopinionatedRules, 'pre', {
-  'font-family': 'monospace, monospace',
-  'font-size': '1em'
-}), defineProperty(_unopinionatedRules, 'a', {
-  'background-color': 'transparent',
-  '-webkit-text-decoration-skip': 'objects'
-}), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
-  'border-bottom': 'none',
-  'text-decoration': 'underline'
-}, 'text-decoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n  strong', {
-  'font-weight': 'inherit'
-}), defineProperty(_unopinionatedRules, 'code,\n  kbd,\n  samp', {
-  'font-family': 'monospace, monospace',
-  'font-size': '1em'
-}), defineProperty(_unopinionatedRules, 'dfn', {
-  'font-style': 'italic'
-}), defineProperty(_unopinionatedRules, 'mark', {
-  'background-color': '#ff0',
-  'color': '#000'
-}), defineProperty(_unopinionatedRules, 'small', {
-  'font-size': '80%'
-}), defineProperty(_unopinionatedRules, 'sub,\n  sup', {
-  'font-size': '75%',
-  'line-height': '0',
-  'position': 'relative',
-  'vertical-align': 'baseline'
-}), defineProperty(_unopinionatedRules, 'sub', {
-  'bottom': '-0.25em'
-}), defineProperty(_unopinionatedRules, 'sup', {
-  'top': '-0.5em'
-}), defineProperty(_unopinionatedRules, 'audio,\n  video', {
-  'display': 'inline-block'
-}), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
-  'display': 'none',
-  'height': '0'
-}), defineProperty(_unopinionatedRules, 'img', {
-  'border-style': 'none'
-}), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
-  'overflow': 'hidden'
-}), defineProperty(_unopinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
-  'margin': '0'
-}), defineProperty(_unopinionatedRules, 'button,\n  input', {
-  'overflow': 'visible'
-}), defineProperty(_unopinionatedRules, 'button,\n  select', {
-  'text-transform': 'none'
-}), defineProperty(_unopinionatedRules, 'button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]', {
-  '-webkit-appearance': 'button'
-}), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner', {
-  'border-style': 'none',
-  'padding': '0'
-}), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring', {
-  'outline': '1px dotted ButtonText'
-}), defineProperty(_unopinionatedRules, 'fieldset', {
-  'border': '1px solid #c0c0c0',
-  'margin': '0 2px',
-  'padding': '0.35em 0.625em 0.75em'
-}), defineProperty(_unopinionatedRules, 'legend', {
-  'box-sizing': 'border-box',
-  'color': 'inherit',
-  'display': 'table',
-  'max-width': '100%',
-  'padding': '0',
-  'white-space': 'normal'
-}), defineProperty(_unopinionatedRules, 'progress', {
-  'display': 'inline-block',
-  'vertical-align': 'baseline'
-}), defineProperty(_unopinionatedRules, 'textarea', {
-  'overflow': 'auto'
-}), defineProperty(_unopinionatedRules, '[type="checkbox"],\n  [type="radio"]', {
-  'box-sizing': 'border-box',
-  'padding': '0'
-}), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button', {
-  'height': 'auto'
-}), defineProperty(_unopinionatedRules, '[type="search"]', {
-  '-webkit-appearance': 'textfield',
-  'outline-offset': '-2px'
-}), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n  [type="search"]::-webkit-search-decoration', {
-  '-webkit-appearance': 'none'
-}), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
-  '-webkit-appearance': 'button',
-  'font': 'inherit'
-}), defineProperty(_unopinionatedRules, 'details,\n  menu', {
-  'display': 'block'
-}), defineProperty(_unopinionatedRules, 'summary', {
-  'display': 'list-item'
-}), defineProperty(_unopinionatedRules, 'canvas', {
-  'display': 'inline-block'
-}), defineProperty(_unopinionatedRules, 'template', {
-  'display': 'none'
-}), defineProperty(_unopinionatedRules, '[hidden]', {
-  'display': 'none'
-}), _unopinionatedRules);
-
 function mergeRules(baseRules, additionalRules) {
   var mergedRules = _extends({}, baseRules);
   Object.keys(additionalRules).forEach(function (key) {
@@ -797,6 +665,138 @@ function mergeRules(baseRules, additionalRules) {
  */
 
 function normalize(excludeOpinionated) {
+  var _opinionatedRules, _unopinionatedRules;
+
+  var opinionatedRules = (_opinionatedRules = {
+    'html': {
+      'font-family': 'sans-serif'
+    },
+
+    'body': {
+      'margin': '0'
+    }
+
+  }, defineProperty(_opinionatedRules, 'a:active,\n    a:hover', {
+    'outline-width': '0'
+  }), defineProperty(_opinionatedRules, 'button,\n    input,\n    optgroup,\n    select,\n    textarea', {
+    'font-family': 'sans-serif',
+    'font-size': '100%',
+    'line-height': '1.15'
+  }), _opinionatedRules);
+
+  var unopinionatedRules = (_unopinionatedRules = {
+    'html': {
+      'line-height': '1.15',
+      '-ms-text-size-adjust': '100%',
+      '-webkit-text-size-adjust': '100%'
+    }
+
+  }, defineProperty(_unopinionatedRules, 'article,\n    aside,\n    footer,\n    header,\n    nav,\n    section', {
+    'display': 'block'
+  }), defineProperty(_unopinionatedRules, 'h1', {
+    'font-size': '2em',
+    'margin': '0.67em 0'
+  }), defineProperty(_unopinionatedRules, 'figcaption,\n    figure,\n    main', {
+    'display': 'block'
+  }), defineProperty(_unopinionatedRules, 'figure', {
+    'margin': '1em 40px'
+  }), defineProperty(_unopinionatedRules, 'hr', {
+    'box-sizing': 'content-box',
+    'height': '0',
+    'overflow': 'visible'
+  }), defineProperty(_unopinionatedRules, 'pre', {
+    'font-family': 'monospace, monospace',
+    'font-size': '1em'
+  }), defineProperty(_unopinionatedRules, 'a', {
+    'background-color': 'transparent',
+    '-webkit-text-decoration-skip': 'objects'
+  }), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
+    'border-bottom': 'none',
+    'text-decoration': 'underline'
+  }, 'text-decoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n    strong', {
+    'font-weight': 'inherit'
+  }), defineProperty(_unopinionatedRules, 'code,\n    kbd,\n    samp', {
+    'font-family': 'monospace, monospace',
+    'font-size': '1em'
+  }), defineProperty(_unopinionatedRules, 'dfn', {
+    'font-style': 'italic'
+  }), defineProperty(_unopinionatedRules, 'mark', {
+    'background-color': '#ff0',
+    'color': '#000'
+  }), defineProperty(_unopinionatedRules, 'small', {
+    'font-size': '80%'
+  }), defineProperty(_unopinionatedRules, 'sub,\n    sup', {
+    'font-size': '75%',
+    'line-height': '0',
+    'position': 'relative',
+    'vertical-align': 'baseline'
+  }), defineProperty(_unopinionatedRules, 'sub', {
+    'bottom': '-0.25em'
+  }), defineProperty(_unopinionatedRules, 'sup', {
+    'top': '-0.5em'
+  }), defineProperty(_unopinionatedRules, 'audio,\n    video', {
+    'display': 'inline-block'
+  }), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
+    'display': 'none',
+    'height': '0'
+  }), defineProperty(_unopinionatedRules, 'img', {
+    'border-style': 'none'
+  }), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
+    'overflow': 'hidden'
+  }), defineProperty(_unopinionatedRules, 'button,\n    input,\n    optgroup,\n    select,\n    textarea', {
+    'margin': '0'
+  }), defineProperty(_unopinionatedRules, 'button,\n    input', {
+    'overflow': 'visible'
+  }), defineProperty(_unopinionatedRules, 'button,\n    select', {
+    'text-transform': 'none'
+  }), defineProperty(_unopinionatedRules, 'button,\n    html [type="button"],\n    [type="reset"],\n    [type="submit"]', {
+    '-webkit-appearance': 'button'
+  }), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n    [type="button"]::-moz-focus-inner,\n    [type="reset"]::-moz-focus-inner,\n    [type="submit"]::-moz-focus-inner', {
+    'border-style': 'none',
+    'padding': '0'
+  }), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n    [type="button"]:-moz-focusring,\n    [type="reset"]:-moz-focusring,\n    [type="submit"]:-moz-focusring', {
+    'outline': '1px dotted ButtonText'
+  }), defineProperty(_unopinionatedRules, 'fieldset', {
+    'border': '1px solid #c0c0c0',
+    'margin': '0 2px',
+    'padding': '0.35em 0.625em 0.75em'
+  }), defineProperty(_unopinionatedRules, 'legend', {
+    'box-sizing': 'border-box',
+    'color': 'inherit',
+    'display': 'table',
+    'max-width': '100%',
+    'padding': '0',
+    'white-space': 'normal'
+  }), defineProperty(_unopinionatedRules, 'progress', {
+    'display': 'inline-block',
+    'vertical-align': 'baseline'
+  }), defineProperty(_unopinionatedRules, 'textarea', {
+    'overflow': 'auto'
+  }), defineProperty(_unopinionatedRules, '[type="checkbox"],\n    [type="radio"]', {
+    'box-sizing': 'border-box',
+    'padding': '0'
+  }), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n    [type="number"]::-webkit-outer-spin-button', {
+    'height': 'auto'
+  }), defineProperty(_unopinionatedRules, '[type="search"]', {
+    '-webkit-appearance': 'textfield',
+    'outline-offset': '-2px'
+  }), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n    [type="search"]::-webkit-search-decoration', {
+    '-webkit-appearance': 'none'
+  }), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
+    '-webkit-appearance': 'button',
+    'font': 'inherit'
+  }), defineProperty(_unopinionatedRules, 'details,\n    menu', {
+    'display': 'block'
+  }), defineProperty(_unopinionatedRules, 'summary', {
+    'display': 'list-item'
+  }), defineProperty(_unopinionatedRules, 'canvas', {
+    'display': 'inline-block'
+  }), defineProperty(_unopinionatedRules, 'template', {
+    'display': 'none'
+  }), defineProperty(_unopinionatedRules, '[hidden]', {
+    'display': 'none'
+  }), _unopinionatedRules);
+
   if (excludeOpinionated) return unopinionatedRules;
   return mergeRules(unopinionatedRules, opinionatedRules);
 }
@@ -1036,33 +1036,32 @@ var functionsMap = {
   'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine': 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
-};
-/* eslint-enable key-spacing */
+  /* eslint-enable key-spacing */
 
-/** */
+  /** */
 
-/**
- * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
- *
- * @example
- * // Styles as object usage
- * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
- * `
- *
- * // CSS as JS Output
- *
- * 'div': {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transition-timing-function': timingFunctions('easeInQuad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transition-timing-function: ${timingFunctions('easeInQuad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+   * }
+   */
 
-function timingFunctions(timingFunction) {
+};function timingFunctions(timingFunction) {
   return functionsMap[timingFunction];
 }
 
@@ -1092,37 +1091,36 @@ var reverseDirection = {
   right: 'left',
   top: 'bottom',
   bottom: 'top'
-};
 
-/**
- * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
- *
- * @example
- * // Styles as object usage
- *
- * const styles = {
- *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
- * }
- *
- *
- * // styled-components usage
- * const div = styled.div`
- *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
- *
- *
- * // CSS as JS Output
- *
- * div: {
- *  'border-color': 'transparent',
- *  'border-left-color': 'red !important',
- *  'border-style': 'solid',
- *  'border-width': '50px 0 50px 100px',
- *  'height': '0',
- *  'width': '0',
- * }
- */
+  /**
+   * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
+   *
+   * @example
+   * // Styles as object usage
+   *
+   * const styles = {
+   *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
+   * }
+   *
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
+   *
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *  'border-color': 'transparent',
+   *  'border-left-color': 'red !important',
+   *  'border-style': 'solid',
+   *  'border-width': '50px 0 50px 100px',
+   *  'height': '0',
+   *  'width': '0',
+   * }
+   */
 
-function triangle(_ref) {
+};function triangle(_ref) {
   var pointingDirection = _ref.pointingDirection,
       height = _ref.height,
       width = _ref.width,
@@ -1386,13 +1384,12 @@ var namedColorMap = {
   'whitesmoke': 'f5f5f5',
   'yellow': 'ff0',
   'yellowgreen': '9acd32'
-};
 
-/**
- * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
- * @private
- */
-function nameToHex(color) {
+  /**
+   * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
+   * @private
+   */
+};function nameToHex(color) {
   if (typeof color !== 'string') return color;
   var normalizedColorName = color.toLowerCase();
   return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
@@ -1869,7 +1866,8 @@ function adjustHue(degree, color) {
   }));
 }
 
-var adjustHue$1 = curry(adjustHue);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
 
 //      
 
@@ -1940,7 +1938,8 @@ function darken(amount, color) {
   }));
 }
 
-var darken$1 = curry(darken);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedDarken = /*#__PURE__*/curry(darken);
 
 //      
 
@@ -1975,7 +1974,8 @@ function desaturate(amount, color) {
   }));
 }
 
-var desaturate$1 = curry(desaturate);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedDesaturate = /*#__PURE__*/curry(desaturate);
 
 //      
 
@@ -2074,7 +2074,8 @@ function lighten(amount, color) {
   }));
 }
 
-var lighten$1 = curry(lighten);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedLighten = /*#__PURE__*/curry(lighten);
 
 //      
 
@@ -2122,11 +2123,10 @@ function mix() {
   var parsedColor2 = parseToRgb(otherColor);
   var color2 = _extends({}, parsedColor2, {
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
-  });
 
-  // The formular is copied from the original Sass implementation:
-  // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
-  var alphaDelta = color1.alpha - color2.alpha;
+    // The formular is copied from the original Sass implementation:
+    // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
+  });var alphaDelta = color1.alpha - color2.alpha;
   var x = weight * 2 - 1;
   var y = x * alphaDelta === -1 ? x : x + alphaDelta;
   var z = 1 + x * alphaDelta;
@@ -2143,7 +2143,8 @@ function mix() {
   return rgba(mixedColor);
 }
 
-var mix$1 = curry(mix);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedMix = /*#__PURE__*/curry(mix);
 
 //      
 /**
@@ -2182,7 +2183,8 @@ function opacify(amount, color) {
   return rgba(colorWithAlpha);
 }
 
-var opacify$1 = curry(opacify);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedOpacify = /*#__PURE__*/curry(opacify);
 
 //      
 
@@ -2218,7 +2220,8 @@ function saturate(amount, color) {
   }));
 }
 
-var saturate$1 = curry(saturate);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedSaturate = /*#__PURE__*/curry(saturate);
 
 //      
 
@@ -2251,7 +2254,8 @@ function setHue(hue, color) {
   }));
 }
 
-var setHue$1 = curry(setHue);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedSetHue = /*#__PURE__*/curry(setHue);
 
 //      
 
@@ -2284,7 +2288,8 @@ function setLightness(lightness, color) {
   }));
 }
 
-var setLightness$1 = curry(setLightness);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedSetLightness = /*#__PURE__*/curry(setLightness);
 
 //      
 
@@ -2317,7 +2322,8 @@ function setSaturation(saturation, color) {
   }));
 }
 
-var setSaturation$1 = curry(setSaturation);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
 
 //      
 
@@ -2347,10 +2353,11 @@ var setSaturation$1 = curry(setSaturation);
 function shade(percentage, color) {
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
   if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
-  return mix$1(percentage, color, 'rgb(0, 0, 0)');
+  return curriedMix(percentage, color, 'rgb(0, 0, 0)');
 }
 
-var shade$1 = curry(shade);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedShade = /*#__PURE__*/curry(shade);
 
 //      
 
@@ -2380,10 +2387,11 @@ var shade$1 = curry(shade);
 function tint(percentage, color) {
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
   if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
-  return mix$1(percentage, color, 'rgb(255, 255, 255)');
+  return curriedMix(percentage, color, 'rgb(255, 255, 255)');
 }
 
-var tint$1 = curry(tint);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedTint = /*#__PURE__*/curry(tint);
 
 //      
 /**
@@ -2422,7 +2430,8 @@ function transparentize(amount, color) {
   return rgba(colorWithAlpha);
 }
 
-var transparentize$1 = curry(transparentize);
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedTransparentize = /*#__PURE__*/curry(transparentize);
 
 //      
 
@@ -3006,7 +3015,7 @@ function transitions() {
 // Color
 // Shorthands
 
-exports.adjustHue = adjustHue$1;
+exports.adjustHue = curriedAdjustHue;
 exports.animation = animation;
 exports.backgroundImages = backgroundImages;
 exports.backgrounds = backgrounds;
@@ -3017,11 +3026,11 @@ exports.borderWidth = borderWidth;
 exports.buttons = buttons;
 exports.clearFix = clearFix;
 exports.complement = complement;
-exports.darken = darken$1;
-exports.desaturate = desaturate$1;
+exports.darken = curriedDarken;
+exports.desaturate = curriedDesaturate;
 exports.directionalProperty = directionalProperty;
 exports.ellipsis = ellipsis;
-exports.em = em;
+exports.em = pixelsToEm;
 exports.fontFace = fontFace;
 exports.grayscale = grayscale;
 exports.invert = invert;
@@ -3029,36 +3038,36 @@ exports.hideText = hideText;
 exports.hiDPI = hiDPI;
 exports.hsl = hsl;
 exports.hsla = hsla;
-exports.lighten = lighten$1;
+exports.lighten = curriedLighten;
 exports.margin = margin;
-exports.mix = mix$1;
+exports.mix = curriedMix;
 exports.modularScale = modularScale;
 exports.normalize = normalize;
-exports.opacify = opacify$1;
+exports.opacify = curriedOpacify;
 exports.padding = padding;
 exports.parseToHsl = parseToHsl;
 exports.parseToRgb = parseToRgb;
 exports.placeholder = placeholder;
 exports.position = position;
 exports.radialGradient = radialGradient;
-exports.rem = rem;
+exports.rem = pixelsToRem;
 exports.retinaImage = retinaImage;
 exports.rgb = rgb;
 exports.rgba = rgba;
-exports.saturate = saturate$1;
+exports.saturate = curriedSaturate;
 exports.selection = selection;
-exports.setHue = setHue$1;
-exports.setLightness = setLightness$1;
-exports.setSaturation = setSaturation$1;
-exports.shade = shade$1;
+exports.setHue = curriedSetHue;
+exports.setLightness = curriedSetLightness;
+exports.setSaturation = curriedSetSaturation;
+exports.shade = curriedShade;
 exports.size = size;
 exports.stripUnit = stripUnit;
 exports.textInputs = textInputs;
 exports.timingFunctions = timingFunctions;
-exports.tint = tint$1;
+exports.tint = curriedTint;
 exports.toColorString = toColorString;
 exports.transitions = transitions;
-exports.transparentize = transparentize$1;
+exports.transparentize = curriedTransparentize;
 exports.triangle = triangle;
 exports.wordWrap = wordWrap;
 
