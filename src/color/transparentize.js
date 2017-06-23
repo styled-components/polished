@@ -44,5 +44,5 @@ function transparentize(amount: number, color: string) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedTransparentize = /*#__PURE__*/curry(transparentize)
+const curriedTransparentize = /*#__PURE__*/curry(transparentize) // eslint-disable-line spaced-comment
 export default curriedTransparentize

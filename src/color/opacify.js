@@ -44,5 +44,5 @@ function opacify(amount: number, color: string) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedOpacify = /*#__PURE__*/curry(opacify)
+const curriedOpacify = /*#__PURE__*/curry(opacify) // eslint-disable-line spaced-comment
 export default curriedOpacify

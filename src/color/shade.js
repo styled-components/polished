@@ -33,5 +33,5 @@ function shade(percentage: number, color: string) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedShade = /*#__PURE__*/curry(shade)
+const curriedShade = /*#__PURE__*/curry(shade) // eslint-disable-line spaced-comment
 export default curriedShade
