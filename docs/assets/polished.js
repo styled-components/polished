@@ -191,31 +191,32 @@ var ratioNames = {
   majorEleventh: 2.667,
   majorTwelfth: 3,
   doubleOctave: 4
+};
 
-  /** */
+/** */
 
-  /**
-   * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *    // Increment two steps up the default scale
-   *   'font-size': modularScale(2)
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *    // Increment two steps up the default scale
-   *   font-size: ${modularScale(2)}
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   'font-size': '1.77689em'
-   * }
-   */
-};function modularScale(steps) {
+/**
+ * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *    // Increment two steps up the default scale
+ *   'font-size': modularScale(2)
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *    // Increment two steps up the default scale
+ *   font-size: ${modularScale(2)}
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   'font-size': '1.77689em'
+ * }
+ */
+function modularScale(steps) {
   var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
   var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
 
@@ -551,9 +552,10 @@ function fontFace(_ref) {
       'font-variant': fontVariant,
       'font-weight': fontWeight
     }
+  };
 
-    // Removes undefined fields for cleaner css object.
-  };return JSON.parse(JSON.stringify(fontFaceDeclaration));
+  // Removes undefined fields for cleaner css object.
+  return JSON.parse(JSON.stringify(fontFaceDeclaration));
 }
 
 //      
@@ -1036,32 +1038,33 @@ var functionsMap = {
   'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine': 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
-  /* eslint-enable key-spacing */
+};
+/* eslint-enable key-spacing */
 
-  /** */
+/** */
 
-  /**
-   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   'transition-timing-function': timingFunctions('easeInQuad')
-   * }
-   *
-   * // styled-components usage
-   *  const div = styled.div`
-   *   transition-timing-function: ${timingFunctions('easeInQuad')};
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-   * }
-   */
+/**
+ * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   'transition-timing-function': timingFunctions('easeInQuad')
+ * }
+ *
+ * // styled-components usage
+ *  const div = styled.div`
+ *   transition-timing-function: ${timingFunctions('easeInQuad')};
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * 'div': {
+ *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+ * }
+ */
 
-};function timingFunctions(timingFunction) {
+function timingFunctions(timingFunction) {
   return functionsMap[timingFunction];
 }
 
@@ -1091,36 +1094,37 @@ var reverseDirection = {
   right: 'left',
   top: 'bottom',
   bottom: 'top'
+};
 
-  /**
-   * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
-   *
-   * @example
-   * // Styles as object usage
-   *
-   * const styles = {
-   *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
-   * }
-   *
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
-   *
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *  'border-color': 'transparent',
-   *  'border-left-color': 'red !important',
-   *  'border-style': 'solid',
-   *  'border-width': '50px 0 50px 100px',
-   *  'height': '0',
-   *  'width': '0',
-   * }
-   */
+/**
+ * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
+ *
+ * @example
+ * // Styles as object usage
+ *
+ * const styles = {
+ *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
+ * }
+ *
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
+ *
+ *
+ * // CSS as JS Output
+ *
+ * div: {
+ *  'border-color': 'transparent',
+ *  'border-left-color': 'red !important',
+ *  'border-style': 'solid',
+ *  'border-width': '50px 0 50px 100px',
+ *  'height': '0',
+ *  'width': '0',
+ * }
+ */
 
-};function triangle(_ref) {
+function triangle(_ref) {
   var pointingDirection = _ref.pointingDirection,
       height = _ref.height,
       width = _ref.width,
@@ -1384,12 +1388,13 @@ var namedColorMap = {
   'whitesmoke': 'f5f5f5',
   'yellow': 'ff0',
   'yellowgreen': '9acd32'
+};
 
-  /**
-   * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
-   * @private
-   */
-};function nameToHex(color) {
+/**
+ * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
+ * @private
+ */
+function nameToHex(color) {
   if (typeof color !== 'string') return color;
   var normalizedColorName = color.toLowerCase();
   return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
@@ -2123,10 +2128,11 @@ function mix() {
   var parsedColor2 = parseToRgb(otherColor);
   var color2 = _extends({}, parsedColor2, {
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
+  });
 
-    // The formular is copied from the original Sass implementation:
-    // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
-  });var alphaDelta = color1.alpha - color2.alpha;
+  // The formular is copied from the original Sass implementation:
+  // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
+  var alphaDelta = color1.alpha - color2.alpha;
   var x = weight * 2 - 1;
   var y = x * alphaDelta === -1 ? x : x + alphaDelta;
   var z = 1 + x * alphaDelta;
