@@ -27,5 +27,5 @@ import pixelsto from '../internalHelpers/_pxto'
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const pixelsToRem = /*#__PURE__*/pixelsto('rem')
-export default pixelsToRem
+const rem = /*#__PURE__*/pixelsto('rem')
+export default rem

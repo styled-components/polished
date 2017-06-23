@@ -169,7 +169,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var pixelsToEm = /*#__PURE__*/pxtoFactory$1('em');
+var em = /*#__PURE__*/pxtoFactory$1('em');
 
 //      
 
@@ -264,7 +264,7 @@ function modularScale(steps) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var pixelsToRem = /*#__PURE__*/pxtoFactory$1('rem');
+var rem = /*#__PURE__*/pxtoFactory$1('rem');
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -3036,7 +3036,7 @@ exports.darken = curriedDarken;
 exports.desaturate = curriedDesaturate;
 exports.directionalProperty = directionalProperty;
 exports.ellipsis = ellipsis;
-exports.em = pixelsToEm;
+exports.em = em;
 exports.fontFace = fontFace;
 exports.grayscale = grayscale;
 exports.invert = invert;
@@ -3056,7 +3056,7 @@ exports.parseToRgb = parseToRgb;
 exports.placeholder = placeholder;
 exports.position = position;
 exports.radialGradient = radialGradient;
-exports.rem = pixelsToRem;
+exports.rem = rem;
 exports.retinaImage = retinaImage;
 exports.rgb = rgb;
 exports.rgba = rgba;
