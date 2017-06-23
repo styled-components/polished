@@ -37,4 +37,6 @@ function desaturate(amount: number, color: string): string {
   })
 }
 
-export default curry(desaturate)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedDesaturate = /*#__PURE__*/curry(desaturate)
+export default curriedDesaturate

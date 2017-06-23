@@ -43,4 +43,6 @@ function opacify(amount: number, color: string) {
   return rgba(colorWithAlpha)
 }
 
-export default curry(opacify)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedOpacify = /*#__PURE__*/curry(opacify)
+export default curriedOpacify

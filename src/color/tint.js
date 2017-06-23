@@ -32,4 +32,6 @@ function tint(percentage: number, color: string) {
   return mix(percentage, color, 'rgb(255, 255, 255)')
 }
 
-export default curry(tint)
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+const curriedTint = /*#__PURE__*/curry(tint)
+export default curriedTint
