@@ -6,8 +6,8 @@
   "module": "dist/polished.es.js",
   "scripts": {
     "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs",
-    "prebuild:lib": "shx rm -rf lib/*",
-    "build:lib": "babel --out-dir lib src --ignore test.js",
+    "prebuild:lib": "shx rm -rf lib/* color helpers internalHelpers mixins shortHands types index.js",
+    "build:lib": "babel --out-dir lib src --ignore test.js && babel --out-dir . src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
     "prebuild:dist": "shx rm -rf dist/*",
     "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
