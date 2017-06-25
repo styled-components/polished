@@ -9,7 +9,7 @@
 	</div>
   <h3>Usage</h3>
   <div class="usage">
-		<code class="javascript">import { lighten, modularScale } from 'polished'</code>
+		<code class='javascript'>import lighten from 'polished/color/lighten'</code>
 	</div>
 	<h3>Open the console and play around with it!</h3>
 	<div class="repl">

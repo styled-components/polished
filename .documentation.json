@@ -11,7 +11,7 @@
     },
     {
       "name": "Usage",
-      "description": "<div class='usage'><code class='javascript'>import { lighten, modularScale } from 'polished'</code></div>",
+      "description": "<div class='usage'><code class='javascript'>import lighten from 'polished/color/lighten'</code></div>",
       "markdown": false
     },
     {

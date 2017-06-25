@@ -21,13 +21,21 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 
 ## Usage
 
-`✨ polished` modules are meant to be used as stand-alone imports. You should avoid importing the entire library directly:
+`✨ polished` modules are meant to be used as stand-alone imports. You should avoid importing the entire library directly by only importing the modules you need:
 
-`import { clearFix, animation } from 'polished'`
-~`import * as polished from 'polished`~
+`import clearFix from 'polished/mixins/clearFix'
+
+You should avoid importing the entire polished library:
+
+~`import * as polished from 'polished'`~
 ~`import polished from 'polished'`~
 
-When `✨ polished` modules are imported properly, tree shaking in [webpack 2](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
+### Webpack/Rollup with tree shaking
+
+You can also leverage tree shaking in either [webpack](https://webpack.js.org/guides/tree-shaking/) or [Rollup](https://github.com/rollup/rollup#tree-shaking).
+
+`import { clearFix, animation } from 'polished'`
+
 
 ## Docs
 
