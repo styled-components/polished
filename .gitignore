@@ -1,13 +1,23 @@
-node_modules
-lib
-color
-helpers
-internalHelpers
-mixins
-shorthands
-types
-coverage
+# npm
 npm-debug.log
+node_modules
+
+# Built Files
+/index.js
+
+# Built Folders
+/color
 dist
+/helpers
+/internalHelpers
+lib
+/mixins
+/shorthands
+/types
+
+# Test files
+coverage
+
+# Misc.
 .DS_Store
 yarn-error.log
