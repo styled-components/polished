@@ -285,7 +285,7 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean) {
+function normalize(excludeOpinionated?: boolean): Object {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

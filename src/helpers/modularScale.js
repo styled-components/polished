@@ -64,7 +64,7 @@ type Ratio =
  *   'fontSize': '1.77689em'
  * }
  */
-function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth') {
+function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth'): string {
   if (typeof steps !== 'number') {
     throw new Error('Please provide a number of steps to the modularScale helper.')
   }

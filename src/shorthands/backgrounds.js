@@ -19,7 +19,7 @@
  *   'background': 'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat'
  * }
  */
-function backgrounds(...properties: Array<string>) {
+function backgrounds(...properties: Array<string>): Object {
   return {
     'background': properties.join(', '),
   }

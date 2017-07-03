@@ -28,7 +28,7 @@
  * }
  */
 
-function selection(styles: Object, parent: string = '') {
+function selection(styles: Object, parent: string = ''): Object {
   return {
     [`${parent}::-moz-selection`]: {
       ...styles,
