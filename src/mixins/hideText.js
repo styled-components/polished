@@ -26,7 +26,7 @@
  * }
  */
 
-function hideText() {
+function hideText(): Object {
   return {
     'text-indent': '101%',
     'overflow': 'hidden',

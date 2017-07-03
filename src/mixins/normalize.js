@@ -38,7 +38,7 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  * } ...
  */
 
-function normalize(excludeOpinionated?: boolean) {
+function normalize(excludeOpinionated?: boolean): Object {
   const opinionatedRules = {
     'html': {
       'font-family': 'sans-serif',

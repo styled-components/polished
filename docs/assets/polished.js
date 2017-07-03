@@ -169,7 +169,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /*#__PURE__*/pxtoFactory$1('em');
+var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
 
 //      
 
@@ -191,32 +191,31 @@ var ratioNames = {
   majorEleventh: 2.667,
   majorTwelfth: 3,
   doubleOctave: 4
-};
 
-/** */
+  /** */
 
-/**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
- * @example
- * // Styles as object usage
- * const styles = {
- *    // Increment two steps up the default scale
- *   'font-size': modularScale(2)
- * }
- *
- * // styled-components usage
- * const div = styled.div`
- *    // Increment two steps up the default scale
- *   font-size: ${modularScale(2)}
- * `
- *
- * // CSS in JS Output
- *
- * element {
- *   'font-size': '1.77689em'
- * }
- */
-function modularScale(steps) {
+  /**
+   * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *    // Increment two steps up the default scale
+   *   'font-size': modularScale(2)
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *    // Increment two steps up the default scale
+   *   font-size: ${modularScale(2)}
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   'font-size': '1.77689em'
+   * }
+   */
+};function modularScale(steps) {
   var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
   var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
 
@@ -264,7 +263,7 @@ function modularScale(steps) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var rem = /*#__PURE__*/pxtoFactory$1('rem');
+var rem = /*#__PURE__*/pxtoFactory$1('rem'); // eslint-disable-line spaced-comment
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -552,10 +551,9 @@ function fontFace(_ref) {
       'font-variant': fontVariant,
       'font-weight': fontWeight
     }
-  };
 
-  // Removes undefined fields for cleaner css object.
-  return JSON.parse(JSON.stringify(fontFaceDeclaration));
+    // Removes undefined fields for cleaner css object.
+  };return JSON.parse(JSON.stringify(fontFaceDeclaration));
 }
 
 //      
@@ -1038,33 +1036,32 @@ var functionsMap = {
   'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
   'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   'easeInOutSine': 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
-};
-/* eslint-enable key-spacing */
+  /* eslint-enable key-spacing */
 
-/** */
+  /** */
 
-/**
- * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
- *
- * @example
- * // Styles as object usage
- * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
- * `
- *
- * // CSS as JS Output
- *
- * 'div': {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transition-timing-function': timingFunctions('easeInQuad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transition-timing-function: ${timingFunctions('easeInQuad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+   * }
+   */
 
-function timingFunctions(timingFunction) {
+};function timingFunctions(timingFunction) {
   return functionsMap[timingFunction];
 }
 
@@ -1094,37 +1091,36 @@ var reverseDirection = {
   right: 'left',
   top: 'bottom',
   bottom: 'top'
-};
 
-/**
- * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
- *
- * @example
- * // Styles as object usage
- *
- * const styles = {
- *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
- * }
- *
- *
- * // styled-components usage
- * const div = styled.div`
- *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
- *
- *
- * // CSS as JS Output
- *
- * div: {
- *  'border-color': 'transparent',
- *  'border-left-color': 'red !important',
- *  'border-style': 'solid',
- *  'border-width': '50px 0 50px 100px',
- *  'height': '0',
- *  'width': '0',
- * }
- */
+  /**
+   * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
+   *
+   * @example
+   * // Styles as object usage
+   *
+   * const styles = {
+   *   ...triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })
+   * }
+   *
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${triangle({ pointingDirection: 'right', width: '100px', height: '100px', foregroundColor: 'red' })}
+   *
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *  'border-color': 'transparent',
+   *  'border-left-color': 'red !important',
+   *  'border-style': 'solid',
+   *  'border-width': '50px 0 50px 100px',
+   *  'height': '0',
+   *  'width': '0',
+   * }
+   */
 
-function triangle(_ref) {
+};function triangle(_ref) {
   var pointingDirection = _ref.pointingDirection,
       height = _ref.height,
       width = _ref.width,
@@ -1388,13 +1384,12 @@ var namedColorMap = {
   'whitesmoke': 'f5f5f5',
   'yellow': 'ff0',
   'yellowgreen': '9acd32'
-};
 
-/**
- * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
- * @private
- */
-function nameToHex(color) {
+  /**
+   * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
+   * @private
+   */
+};function nameToHex(color) {
   if (typeof color !== 'string') return color;
   var normalizedColorName = color.toLowerCase();
   return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
@@ -1872,7 +1867,7 @@ function adjustHue(degree, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
+var curriedAdjustHue = /*#__PURE__*/curry(adjustHue); // eslint-disable-line spaced-comment
 
 //      
 
@@ -1944,7 +1939,7 @@ function darken(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDarken = /*#__PURE__*/curry(darken);
+var curriedDarken = /*#__PURE__*/curry(darken); // eslint-disable-line spaced-comment
 
 //      
 
@@ -1980,7 +1975,7 @@ function desaturate(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDesaturate = /*#__PURE__*/curry(desaturate);
+var curriedDesaturate = /*#__PURE__*/curry(desaturate); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2080,7 +2075,7 @@ function lighten(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedLighten = /*#__PURE__*/curry(lighten);
+var curriedLighten = /*#__PURE__*/curry(lighten); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2128,11 +2123,10 @@ function mix() {
   var parsedColor2 = parseToRgb(otherColor);
   var color2 = _extends({}, parsedColor2, {
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
-  });
 
-  // The formular is copied from the original Sass implementation:
-  // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
-  var alphaDelta = color1.alpha - color2.alpha;
+    // The formular is copied from the original Sass implementation:
+    // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
+  });var alphaDelta = color1.alpha - color2.alpha;
   var x = weight * 2 - 1;
   var y = x * alphaDelta === -1 ? x : x + alphaDelta;
   var z = 1 + x * alphaDelta;
@@ -2150,7 +2144,7 @@ function mix() {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedMix = /*#__PURE__*/curry(mix);
+var curriedMix = /*#__PURE__*/curry(mix); // eslint-disable-line spaced-comment
 
 //      
 /**
@@ -2190,7 +2184,7 @@ function opacify(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedOpacify = /*#__PURE__*/curry(opacify);
+var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2227,7 +2221,7 @@ function saturate(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSaturate = /*#__PURE__*/curry(saturate);
+var curriedSaturate = /*#__PURE__*/curry(saturate); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2261,7 +2255,7 @@ function setHue(hue, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetHue = /*#__PURE__*/curry(setHue);
+var curriedSetHue = /*#__PURE__*/curry(setHue); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2295,7 +2289,7 @@ function setLightness(lightness, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetLightness = /*#__PURE__*/curry(setLightness);
+var curriedSetLightness = /*#__PURE__*/curry(setLightness); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2329,7 +2323,7 @@ function setSaturation(saturation, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
+var curriedSetSaturation = /*#__PURE__*/curry(setSaturation); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2363,7 +2357,7 @@ function shade(percentage, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedShade = /*#__PURE__*/curry(shade);
+var curriedShade = /*#__PURE__*/curry(shade); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2397,7 +2391,7 @@ function tint(percentage, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTint = /*#__PURE__*/curry(tint);
+var curriedTint = /*#__PURE__*/curry(tint); // eslint-disable-line spaced-comment
 
 //      
 /**
@@ -2437,7 +2431,7 @@ function transparentize(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTransparentize = /*#__PURE__*/curry(transparentize);
+var curriedTransparentize = /*#__PURE__*/curry(transparentize); // eslint-disable-line spaced-comment
 
 //      
 

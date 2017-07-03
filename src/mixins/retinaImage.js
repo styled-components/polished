@@ -30,7 +30,7 @@ import hiDPI from './hiDPI'
  *   }
  * }
  */
-function retinaImage(filename: string, backgroundSize?: string, extension?: string = 'png', retinaFilename?: string, retinaSuffix?: string = '_2x') {
+function retinaImage(filename: string, backgroundSize?: string, extension?: string = 'png', retinaFilename?: string, retinaSuffix?: string = '_2x'): Object {
   if (!filename) {
     throw new Error('Please supply a filename to retinaImage() as the first argument.')
   }

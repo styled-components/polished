@@ -70,7 +70,7 @@ function radialGradient({
   fallback,
   position,
   shape,
-}: RadialGradientConfiguration) {
+}: RadialGradientConfiguration): Object {
   if (!colorStops || colorStops.length < 2) throw new Error('radialGradient requries at least 2 color-stops to properly render.')
   return {
     'background-color': fallback || parseFallback(colorStops),

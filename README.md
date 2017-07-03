@@ -59,7 +59,6 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#retinaimage">retinaImage</a></li>
     <li><a href="http://polished.js.org/docs/#selection">selection</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunctions">timingFunctions</a></li>
-    <li><a href="http://polished.js.org/docs/#triangle">triangle</a></li>
     <li><a href="http://polished.js.org/docs/#wordwrap">wordWrap</a></li>
   </ul>
 </details>
@@ -130,11 +129,12 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#inputstate">InputState</a></li>
     <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
-    <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
     <li><a href="http://polished.js.org/docs/#rgbacolor">RgbaColor</a></li>
     <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
-    <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
     <li><a href="http://polished.js.org/docs/#tocolorstring">toColorString</a></li>
+    <li><a href="http://polished.js.org/docs/#">undefined</a></li>
+    <li><a href="http://polished.js.org/docs/#-1">undefined</a></li>
+    <li><a href="http://polished.js.org/docs/#-2">undefined</a></li>
   </ul>
 </details>
 <!-- INJECT DOCS END -->

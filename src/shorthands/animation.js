@@ -39,7 +39,7 @@ type AnimationProperty = string|number
  *   'animation': 'rotate 1s ease-in-out'
  * }
  */
-function animation(...args: Array<Array<AnimationProperty>|AnimationProperty>) {
+function animation(...args: Array<Array<AnimationProperty>|AnimationProperty>): Object {
   // Allow single or multiple animations passed
   const multiMode = Array.isArray(args[0])
   if (!multiMode && args.length > 8) {

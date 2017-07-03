@@ -45,7 +45,7 @@ type ButtonState =
  * }
  */
 
-function buttons(...states: Array<ButtonState>) {
+function buttons(...states: Array<ButtonState>): string {
   return statefulSelectors(states, template, stateMap)
 }
 
