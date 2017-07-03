@@ -12,6 +12,9 @@ script:
   - npm test
   - npm run lint
   - npm run flow
+  - npm run build:flow
+  - npm run build:typescript
+  - npm run typescript
 after_success:
   - codecov
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'

@@ -58,7 +58,7 @@ const reverseDirection = {
  * }
  */
 
-function triangle({ pointingDirection, height, width, foregroundColor, backgroundColor = 'transparent' } : TriangleArgs) {
+function triangle({ pointingDirection, height, width, foregroundColor, backgroundColor = 'transparent' } : TriangleArgs): Object {
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {

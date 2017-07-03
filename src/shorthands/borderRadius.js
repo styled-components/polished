@@ -21,7 +21,7 @@
  * }
  */
 
-function borderRadius(side:string, radius:string) {
+function borderRadius(side:string, radius:string): Object {
   if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.')
   if (side === 'top' || side === 'bottom') {
     return {

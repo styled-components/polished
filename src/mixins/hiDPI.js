@@ -29,7 +29,7 @@
  * }
  */
 
-function hiDPI(ratio: number = 1.3) {
+function hiDPI(ratio: number = 1.3): string {
   return `
     @media only screen and (-webkit-min-device-pixel-ratio: ${ratio}),
     only screen and (min--moz-device-pixel-ratio: ${ratio}),
