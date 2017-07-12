@@ -4,7 +4,7 @@ import directionalProperty from '../helpers/directionalProperty'
 const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
 
 /**
- * The position shorthand accepts up to five values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions. The first calue can optionally be a position keyword.
+ * Shorthand accepts up to five values, including null to skip a value, and maps them to their respective directions. The first value can optionally be a position keyword.
  * @example
  * // Styles as object usage
  * const styles = {

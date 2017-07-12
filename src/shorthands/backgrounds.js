@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * The backgrounds shorthand accepts any number of background values as parameters for creating a single background statement..
+ * Shorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -10,7 +10,7 @@
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
+ *   ${backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
  * `
  *
  * // CSS as JS Output

@@ -5,13 +5,26 @@
 }(this, (function (exports) { 'use strict';
 
 //      
-var positionMap = ['top', 'right', 'bottom', 'left'];
+
+// @private
+function capitalizeString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+//      
+var positionMap = ['Top', 'Right', 'Bottom', 'Left'];
 
 function generateProperty(property, position) {
-  if (!property) return position;
-  var splitPropertyName = property.split('-');
-  splitPropertyName.splice(1, 0, position);
-  return splitPropertyName.join('-');
+  if (!property) return position.toLowerCase();
+  var splitProperty = property.split('-');
+  if (splitProperty.length > 1) {
+    splitProperty.splice(1, 0, position);
+    return splitProperty.reduce(function (acc, val) {
+      return '' + acc + capitalizeString(val);
+    });
+  }
+  var joinedProperty = property.replace(/([a-z])([A-Z])/g, '$1' + position + '$2');
+  return property === joinedProperty ? '' + property + position : joinedProperty;
 }
 
 function generateStyles(property, valuesWithDefaults) {
@@ -25,7 +38,7 @@ function generateStyles(property, valuesWithDefaults) {
 }
 
 /**
- * The directional property helper enables shorthand for direction based properties. It accepts a property and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can optionally pass a null argument for a directional value to ignore it.
+ * A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -40,10 +53,10 @@ function generateStyles(property, valuesWithDefaults) {
  * // CSS as JS Output
  *
  * div {
- *   'padding-top': '12px',
- *   'padding-right': '24px',
- *   'padding-bottom': '36px',
- *   'padding-left': '48px'
+ *   'paddingTop': '12px',
+ *   'paddingRight': '24px',
+ *   'paddingBottom': '36px',
+ *   'paddingLeft': '48px'
  * }
  */
 
@@ -169,7 +182,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /*#__PURE__*/pxtoFactory$1('em');
+var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
 
 //      
 
@@ -201,19 +214,19 @@ var ratioNames = {
  * // Styles as object usage
  * const styles = {
  *    // Increment two steps up the default scale
- *   'font-size': modularScale(2)
+ *   'fontSize': modularScale(2)
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *    // Increment two steps up the default scale
- *   font-size: ${modularScale(2)}
+ *   fontSize: ${modularScale(2)}
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   'font-size': '1.77689em'
+ *   'fontSize': '1.77689em'
  * }
  */
 function modularScale(steps) {
@@ -264,7 +277,7 @@ function modularScale(steps) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var rem = /*#__PURE__*/pxtoFactory$1('rem');
+var rem = /*#__PURE__*/pxtoFactory$1('rem'); // eslint-disable-line spaced-comment
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
@@ -450,11 +463,11 @@ function clearFix() {
  *
  * div: {
  *   'display': 'inline-block',
- *   'max-width': '250px',
+ *   'maxWidth': '250px',
  *   'overflow': 'hidden',
- *   'text-overflow': 'ellipsis',
- *   'white-space': 'nowrap',
- *   'word-wrap': 'normal'
+ *   'textOverflow': 'ellipsis',
+ *   'whiteSpace': 'nowrap',
+ *   'wordWrap': 'normal'
  * }
  */
 
@@ -463,11 +476,11 @@ function ellipsis() {
 
   return {
     'display': 'inline-block',
-    'max-width': width,
+    'maxWidth': width,
     'overflow': 'hidden',
-    'text-overflow': 'ellipsis',
-    'white-space': 'nowrap',
-    'word-wrap': 'normal'
+    'textOverflow': 'ellipsis',
+    'whiteSpace': 'nowrap',
+    'wordWrap': 'normal'
   };
 }
 
@@ -519,7 +532,7 @@ function generateSources(fontFilePath, localFonts, fileFormats) {
  * // CSS as JS Output
  *
  * '@font-face': {
- *   'font-family': 'Sans-Pro',
+ *   'fontFamily': 'Sans-Pro',
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
@@ -544,13 +557,13 @@ function fontFace(_ref) {
 
   var fontFaceDeclaration = {
     '@font-face': {
-      'font-family': fontFamily,
-      'src': generateSources(fontFilePath, localFonts, fileFormats),
-      'unicode-range': unicodeRange,
-      'font-stretch': fontStretch,
-      'font-style': fontStyle,
-      'font-variant': fontVariant,
-      'font-weight': fontWeight
+      fontFamily: fontFamily,
+      src: generateSources(fontFilePath, localFonts, fileFormats),
+      unicodeRange: unicodeRange,
+      fontStretch: fontStretch,
+      fontStyle: fontStyle,
+      fontVariant: fontVariant,
+      fontWeight: fontWeight
     }
   };
 
@@ -566,31 +579,31 @@ function fontFace(_ref) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   'background-image': 'url(logo.png)',
+ *   'backgroundImage': 'url(logo.png)',
  *   ...hideText(),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background-image: url(logo.png);
+ *   backgroundImage: url(logo.png);
  *   ${hideText()};
  * `
  *
  * // CSS as JS Output
  *
  * 'div': {
- *   'background-image': 'url(logo.png)',
- *   'text-indent': '101%',
+ *   'backgroundImage': 'url(logo.png)',
+ *   'textIndent': '101%',
  *   'overflow': 'hidden',
- *   'white-space': 'nowrap',
+ *   'whiteSpace': 'nowrap',
  * }
  */
 
 function hideText() {
   return {
-    'text-indent': '101%',
-    'overflow': 'hidden',
-    'white-space': 'nowrap'
+    textIndent: '101%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap'
   };
 }
 
@@ -631,7 +644,139 @@ function hiDPI() {
   return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
 }
 
+var _opinionatedRules;
+var _unopinionatedRules;
+
 //      
+var opinionatedRules = (_opinionatedRules = {
+  html: {
+    fontFamily: 'sans-serif'
+  },
+
+  body: {
+    margin: '0'
+  }
+
+}, defineProperty(_opinionatedRules, 'a:active,\n  a:hover', {
+  outlineWidth: '0'
+}), defineProperty(_opinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
+  fontFamily: 'sans-serif',
+  fontSize: '100%',
+  lineHeight: '1.15'
+}), _opinionatedRules);
+
+var unopinionatedRules = (_unopinionatedRules = {
+  html: {
+    lineHeight: '1.15',
+    textSizeAdjust: '100%'
+  }
+
+}, defineProperty(_unopinionatedRules, 'article,\n  aside,\n  footer,\n  header,\n  nav,\n  section', {
+  display: 'block'
+}), defineProperty(_unopinionatedRules, 'h1', {
+  fontSize: '2em',
+  margin: '0.67em 0'
+}), defineProperty(_unopinionatedRules, 'figcaption,\n  figure,\n  main', {
+  display: 'block'
+}), defineProperty(_unopinionatedRules, 'figure', {
+  margin: '1em 40px'
+}), defineProperty(_unopinionatedRules, 'hr', {
+  boxSizing: 'content-box',
+  height: '0',
+  overflow: 'visible'
+}), defineProperty(_unopinionatedRules, 'pre', {
+  fontFamily: 'monospace, monospace',
+  fontSize: '1em'
+}), defineProperty(_unopinionatedRules, 'a', {
+  'background-color': 'transparent',
+  '-webkit-text-decoration-skip': 'objects'
+}), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
+  borderBottom: 'none',
+  textDecoration: 'underline'
+}, 'textDecoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n  strong', {
+  fontWeight: 'inherit'
+}), defineProperty(_unopinionatedRules, 'code,\n  kbd,\n  samp', {
+  fontFamily: 'monospace, monospace',
+  fontSize: '1em'
+}), defineProperty(_unopinionatedRules, 'dfn', {
+  fontStyle: 'italic'
+}), defineProperty(_unopinionatedRules, 'mark', {
+  backgroundColor: '#ff0',
+  color: '#000'
+}), defineProperty(_unopinionatedRules, 'small', {
+  fontSize: '80%'
+}), defineProperty(_unopinionatedRules, 'sub,\n  sup', {
+  fontSize: '75%',
+  lineHeight: '0',
+  position: 'relative',
+  verticalAlign: 'baseline'
+}), defineProperty(_unopinionatedRules, 'sub', {
+  bottom: '-0.25em'
+}), defineProperty(_unopinionatedRules, 'sup', {
+  top: '-0.5em'
+}), defineProperty(_unopinionatedRules, 'audio,\n  video', {
+  display: 'inline-block'
+}), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
+  display: 'none',
+  height: '0'
+}), defineProperty(_unopinionatedRules, 'img', {
+  borderStyle: 'none'
+}), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
+  overflow: 'hidden'
+}), defineProperty(_unopinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
+  margin: '0'
+}), defineProperty(_unopinionatedRules, 'button,\n  input', {
+  overflow: 'visible'
+}), defineProperty(_unopinionatedRules, 'button,\n  select', {
+  textTransform: 'none'
+}), defineProperty(_unopinionatedRules, 'button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]', {
+  '-webkit-appearance': 'button'
+}), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner', {
+  borderStyle: 'none',
+  padding: '0'
+}), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring', {
+  outline: '1px dotted ButtonText'
+}), defineProperty(_unopinionatedRules, 'fieldset', {
+  border: '1px solid #c0c0c0',
+  margin: '0 2px',
+  padding: '0.35em 0.625em 0.75em'
+}), defineProperty(_unopinionatedRules, 'legend', {
+  boxSizing: 'border-box',
+  color: 'inherit',
+  display: 'table',
+  maxWidth: '100%',
+  padding: '0',
+  whiteSpace: 'normal'
+}), defineProperty(_unopinionatedRules, 'progress', {
+  display: 'inline-block',
+  verticalAlign: 'baseline'
+}), defineProperty(_unopinionatedRules, 'textarea', {
+  overflow: 'auto'
+}), defineProperty(_unopinionatedRules, '[type="checkbox"],\n  [type="radio"]', {
+  boxSizing: 'border-box',
+  padding: '0'
+}), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button', {
+  height: 'auto'
+}), defineProperty(_unopinionatedRules, '[type="search"]', {
+  '-webkit-appearance': 'textfield',
+  outlineOffset: '-2px'
+}), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n  [type="search"]::-webkit-search-decoration', {
+  '-webkit-appearance': 'none'
+}), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
+  '-webkit-appearance': 'button',
+  font: 'inherit'
+}), defineProperty(_unopinionatedRules, 'details,\n  menu', {
+  display: 'block'
+}), defineProperty(_unopinionatedRules, 'summary', {
+  display: 'list-item'
+}), defineProperty(_unopinionatedRules, 'canvas', {
+  display: 'inline-block'
+}), defineProperty(_unopinionatedRules, 'template', {
+  display: 'none'
+}), defineProperty(_unopinionatedRules, '[hidden]', {
+  display: 'none'
+}), _unopinionatedRules);
+
 function mergeRules(baseRules, additionalRules) {
   var mergedRules = _extends({}, baseRules);
   Object.keys(additionalRules).forEach(function (key) {
@@ -659,146 +804,12 @@ function mergeRules(baseRules, additionalRules) {
  * // CSS as JS Output
  *
  * html {
- *   font-family: sans-serif,
- *   line-height: 1.15,
- *   -ms-text-size-adjust: 100%,
- *   -webkit-text-size-adjust: 100%,
+ *   fontFamily: 'sans-serif',
+ *   lineHeight: 1.15,
+ *   textSizeAdjust: 100%,
  * } ...
  */
-
 function normalize(excludeOpinionated) {
-  var _opinionatedRules, _unopinionatedRules;
-
-  var opinionatedRules = (_opinionatedRules = {
-    'html': {
-      'font-family': 'sans-serif'
-    },
-
-    'body': {
-      'margin': '0'
-    }
-
-  }, defineProperty(_opinionatedRules, 'a:active,\n    a:hover', {
-    'outline-width': '0'
-  }), defineProperty(_opinionatedRules, 'button,\n    input,\n    optgroup,\n    select,\n    textarea', {
-    'font-family': 'sans-serif',
-    'font-size': '100%',
-    'line-height': '1.15'
-  }), _opinionatedRules);
-
-  var unopinionatedRules = (_unopinionatedRules = {
-    'html': {
-      'line-height': '1.15',
-      '-ms-text-size-adjust': '100%',
-      '-webkit-text-size-adjust': '100%'
-    }
-
-  }, defineProperty(_unopinionatedRules, 'article,\n    aside,\n    footer,\n    header,\n    nav,\n    section', {
-    'display': 'block'
-  }), defineProperty(_unopinionatedRules, 'h1', {
-    'font-size': '2em',
-    'margin': '0.67em 0'
-  }), defineProperty(_unopinionatedRules, 'figcaption,\n    figure,\n    main', {
-    'display': 'block'
-  }), defineProperty(_unopinionatedRules, 'figure', {
-    'margin': '1em 40px'
-  }), defineProperty(_unopinionatedRules, 'hr', {
-    'box-sizing': 'content-box',
-    'height': '0',
-    'overflow': 'visible'
-  }), defineProperty(_unopinionatedRules, 'pre', {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em'
-  }), defineProperty(_unopinionatedRules, 'a', {
-    'background-color': 'transparent',
-    '-webkit-text-decoration-skip': 'objects'
-  }), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
-    'border-bottom': 'none',
-    'text-decoration': 'underline'
-  }, 'text-decoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n    strong', {
-    'font-weight': 'inherit'
-  }), defineProperty(_unopinionatedRules, 'code,\n    kbd,\n    samp', {
-    'font-family': 'monospace, monospace',
-    'font-size': '1em'
-  }), defineProperty(_unopinionatedRules, 'dfn', {
-    'font-style': 'italic'
-  }), defineProperty(_unopinionatedRules, 'mark', {
-    'background-color': '#ff0',
-    'color': '#000'
-  }), defineProperty(_unopinionatedRules, 'small', {
-    'font-size': '80%'
-  }), defineProperty(_unopinionatedRules, 'sub,\n    sup', {
-    'font-size': '75%',
-    'line-height': '0',
-    'position': 'relative',
-    'vertical-align': 'baseline'
-  }), defineProperty(_unopinionatedRules, 'sub', {
-    'bottom': '-0.25em'
-  }), defineProperty(_unopinionatedRules, 'sup', {
-    'top': '-0.5em'
-  }), defineProperty(_unopinionatedRules, 'audio,\n    video', {
-    'display': 'inline-block'
-  }), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
-    'display': 'none',
-    'height': '0'
-  }), defineProperty(_unopinionatedRules, 'img', {
-    'border-style': 'none'
-  }), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
-    'overflow': 'hidden'
-  }), defineProperty(_unopinionatedRules, 'button,\n    input,\n    optgroup,\n    select,\n    textarea', {
-    'margin': '0'
-  }), defineProperty(_unopinionatedRules, 'button,\n    input', {
-    'overflow': 'visible'
-  }), defineProperty(_unopinionatedRules, 'button,\n    select', {
-    'text-transform': 'none'
-  }), defineProperty(_unopinionatedRules, 'button,\n    html [type="button"],\n    [type="reset"],\n    [type="submit"]', {
-    '-webkit-appearance': 'button'
-  }), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n    [type="button"]::-moz-focus-inner,\n    [type="reset"]::-moz-focus-inner,\n    [type="submit"]::-moz-focus-inner', {
-    'border-style': 'none',
-    'padding': '0'
-  }), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n    [type="button"]:-moz-focusring,\n    [type="reset"]:-moz-focusring,\n    [type="submit"]:-moz-focusring', {
-    'outline': '1px dotted ButtonText'
-  }), defineProperty(_unopinionatedRules, 'fieldset', {
-    'border': '1px solid #c0c0c0',
-    'margin': '0 2px',
-    'padding': '0.35em 0.625em 0.75em'
-  }), defineProperty(_unopinionatedRules, 'legend', {
-    'box-sizing': 'border-box',
-    'color': 'inherit',
-    'display': 'table',
-    'max-width': '100%',
-    'padding': '0',
-    'white-space': 'normal'
-  }), defineProperty(_unopinionatedRules, 'progress', {
-    'display': 'inline-block',
-    'vertical-align': 'baseline'
-  }), defineProperty(_unopinionatedRules, 'textarea', {
-    'overflow': 'auto'
-  }), defineProperty(_unopinionatedRules, '[type="checkbox"],\n    [type="radio"]', {
-    'box-sizing': 'border-box',
-    'padding': '0'
-  }), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n    [type="number"]::-webkit-outer-spin-button', {
-    'height': 'auto'
-  }), defineProperty(_unopinionatedRules, '[type="search"]', {
-    '-webkit-appearance': 'textfield',
-    'outline-offset': '-2px'
-  }), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n    [type="search"]::-webkit-search-decoration', {
-    '-webkit-appearance': 'none'
-  }), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
-    '-webkit-appearance': 'button',
-    'font': 'inherit'
-  }), defineProperty(_unopinionatedRules, 'details,\n    menu', {
-    'display': 'block'
-  }), defineProperty(_unopinionatedRules, 'summary', {
-    'display': 'list-item'
-  }), defineProperty(_unopinionatedRules, 'canvas', {
-    'display': 'inline-block'
-  }), defineProperty(_unopinionatedRules, 'template', {
-    'display': 'none'
-  }), defineProperty(_unopinionatedRules, '[hidden]', {
-    'display': 'none'
-  }), _unopinionatedRules);
-
   if (excludeOpinionated) return unopinionatedRules;
   return mergeRules(unopinionatedRules, opinionatedRules);
 }
@@ -901,8 +912,8 @@ function constructGradientValue(literals) {
  * // CSS as JS Output
  *
  * div: {
- *   'background-color': '#00FFFF',
- *   'background-image': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+ *   'backgroundColor': '#00FFFF',
+ *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
 
@@ -915,15 +926,15 @@ function radialGradient(_ref) {
 
   if (!colorStops || colorStops.length < 2) throw new Error('radialGradient requries at least 2 color-stops to properly render.');
   return {
-    'background-color': fallback || parseFallback(colorStops),
-    'background-image': constructGradientValue(_templateObject, position, shape, extent, colorStops.join(', '))
+    backgroundColor: fallback || parseFallback(colorStops),
+    backgroundImage: constructGradientValue(_templateObject, position, shape, extent, colorStops.join(', '))
   };
 }
 
 //      
 
 /**
- * The retina-image mixin is a helper to generate a retina background image and non-retina
+ * A helper to generate a retina background image and non-retina
  * background image. The retina background image will output to a HiDPI media query. The mixin uses
  * a _2x.png filename suffix by default.
  *
@@ -979,23 +990,23 @@ function retinaImage(filename, backgroundSize) {
  * // Styles as object usage
  * const styles = {
  *   ...selection({
- *     'background': 'blue'
+ *     'backgroundColor': 'blue'
  *   }, 'section')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${selection({'background': 'blue'}, 'section')}
+ *   ${selection({'backgroundColor': 'blue'}, 'section')}
  * `
  *
  * // CSS as JS Output
  *
  * 'div': {
  *   'section::-moz-selection': {
- *     'background-color':'blue',
+ *     'backgroundColor':'blue',
  *   },
  *   'section::selection': {
- *     'background-color': 'blue',
+ *     'backgroundColor': 'blue',
  *   }
  * }
  */
@@ -1049,18 +1060,18 @@ var functionsMap = {
  * @example
  * // Styles as object usage
  * const styles = {
- *   'transition-timing-function': timingFunctions('easeInQuad')
+ *   'transitionTimingFunction': timingFunctions('easeInQuad')
  * }
  *
  * // styled-components usage
  *  const div = styled.div`
- *   transition-timing-function: ${timingFunctions('easeInQuad')};
+ *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
  * `
  *
  * // CSS as JS Output
  *
  * 'div': {
- *   'transition-timing-function': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+ *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
  * }
  */
 
@@ -1090,10 +1101,10 @@ var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
 
 // needed for border-color
 var reverseDirection = {
-  left: 'right',
-  right: 'left',
-  top: 'bottom',
-  bottom: 'top'
+  left: 'Right',
+  right: 'Left',
+  top: 'Bottom',
+  bottom: 'Top'
 };
 
 /**
@@ -1115,10 +1126,10 @@ var reverseDirection = {
  * // CSS as JS Output
  *
  * div: {
- *  'border-color': 'transparent',
- *  'border-left-color': 'red !important',
- *  'border-style': 'solid',
- *  'border-width': '50px 0 50px 100px',
+ *  'borderColor': 'transparent',
+ *  'borderLeftColor': 'red !important',
+ *  'borderStyle': 'solid',
+ *  'borderWidth': '50px 0 50px 100px',
  *  'height': '0',
  *  'width': '0',
  * }
@@ -1139,18 +1150,18 @@ function triangle(_ref) {
   }
 
   return defineProperty({
-    'border-color': backgroundColor,
-    'width': '0',
-    'height': '0',
-    'border-width': getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
-    'border-style': 'solid'
-  }, 'border-' + reverseDirection[pointingDirection] + '-color', foregroundColor + ' !important');
+    borderColor: backgroundColor,
+    width: '0',
+    height: '0',
+    borderWidth: getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
+    borderStyle: 'solid'
+  }, 'border' + reverseDirection[pointingDirection] + 'Color', foregroundColor + ' !important');
 }
 
 //      
 
 /**
- * Provides an easy way to change the `word-wrap` property.
+ * Provides an easy way to change the `wordWrap` property.
  *
  * @example
  * // Styles as object usage
@@ -1166,9 +1177,9 @@ function triangle(_ref) {
  * // CSS as JS Output
  *
  * const styles = {
- *   overflow-wrap: 'break-all',
- *   word-wrap: 'break-all',
- *   word-break: 'break-all',
+ *   overflowWrap: 'break-all',
+ *   wordWrap: 'break-all',
+ *   wordBreak: 'break-all',
  * }
  */
 
@@ -1177,9 +1188,9 @@ function wordWrap() {
 
   var wordBreak = wrap === 'break-word' ? 'break-all' : wrap;
   return {
-    'overflow-wrap': wrap,
-    'word-wrap': wrap,
-    'word-break': wordBreak
+    overflowWrap: wrap,
+    wordWrap: wrap,
+    wordBreak: wordBreak
   };
 }
 
@@ -1872,7 +1883,7 @@ function adjustHue(degree, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
+var curriedAdjustHue = /*#__PURE__*/curry(adjustHue); // eslint-disable-line spaced-comment
 
 //      
 
@@ -1944,7 +1955,7 @@ function darken(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDarken = /*#__PURE__*/curry(darken);
+var curriedDarken = /*#__PURE__*/curry(darken); // eslint-disable-line spaced-comment
 
 //      
 
@@ -1980,7 +1991,7 @@ function desaturate(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDesaturate = /*#__PURE__*/curry(desaturate);
+var curriedDesaturate = /*#__PURE__*/curry(desaturate); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2080,7 +2091,7 @@ function lighten(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedLighten = /*#__PURE__*/curry(lighten);
+var curriedLighten = /*#__PURE__*/curry(lighten); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2150,7 +2161,7 @@ function mix() {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedMix = /*#__PURE__*/curry(mix);
+var curriedMix = /*#__PURE__*/curry(mix); // eslint-disable-line spaced-comment
 
 //      
 /**
@@ -2190,7 +2201,7 @@ function opacify(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedOpacify = /*#__PURE__*/curry(opacify);
+var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2227,7 +2238,7 @@ function saturate(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSaturate = /*#__PURE__*/curry(saturate);
+var curriedSaturate = /*#__PURE__*/curry(saturate); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2261,7 +2272,7 @@ function setHue(hue, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetHue = /*#__PURE__*/curry(setHue);
+var curriedSetHue = /*#__PURE__*/curry(setHue); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2295,7 +2306,7 @@ function setLightness(lightness, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetLightness = /*#__PURE__*/curry(setLightness);
+var curriedSetLightness = /*#__PURE__*/curry(setLightness); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2329,7 +2340,7 @@ function setSaturation(saturation, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
+var curriedSetSaturation = /*#__PURE__*/curry(setSaturation); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2363,7 +2374,7 @@ function shade(percentage, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedShade = /*#__PURE__*/curry(shade);
+var curriedShade = /*#__PURE__*/curry(shade); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2397,7 +2408,7 @@ function tint(percentage, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTint = /*#__PURE__*/curry(tint);
+var curriedTint = /*#__PURE__*/curry(tint); // eslint-disable-line spaced-comment
 
 //      
 /**
@@ -2437,7 +2448,7 @@ function transparentize(amount, color) {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTransparentize = /*#__PURE__*/curry(transparentize);
+var curriedTransparentize = /*#__PURE__*/curry(transparentize); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2508,7 +2519,7 @@ function animation() {
 //      
 
 /**
- * The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..
+ * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2517,13 +2528,13 @@ function animation() {
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
+ *   ${backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
  * `
  *
  * // CSS as JS Output
  *
  * div {
- *   'background-image': 'url("/image/background.jpg"), linear-gradient(red, green)'
+ *   'backgroundImage': 'url("/image/background.jpg"), linear-gradient(red, green)'
  * }
  */
 
@@ -2533,14 +2544,14 @@ function backgroundImages() {
   }
 
   return {
-    'background-image': properties.join(', ')
+    backgroundImage: properties.join(', ')
   };
 }
 
 //      
 
 /**
- * The backgrounds shorthand accepts any number of background values as parameters for creating a single background statement..
+ * Thorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2549,7 +2560,7 @@ function backgroundImages() {
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
+ *   ${backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
  * `
  *
  * // CSS as JS Output
@@ -2570,7 +2581,7 @@ function backgrounds() {
 
 //      
 /**
- * The border-color shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2585,10 +2596,10 @@ function backgrounds() {
  * // CSS as JS Output
  *
  * div {
- *   'border-top-color': 'red',
- *   'border-right-color': 'green',
- *   'border-bottom-color': 'blue',
- *   'border-left-color': 'yellow'
+ *   'borderTopColor': 'red',
+ *   'borderRightColor': 'green',
+ *   'borderBottomColor': 'blue',
+ *   'borderLeftColor': 'yellow'
  * }
  */
 
@@ -2597,13 +2608,12 @@ function borderColor() {
     values[_key] = arguments[_key];
   }
 
-  return directionalProperty.apply(undefined, ['border-color'].concat(values));
+  return directionalProperty.apply(undefined, ['borderColor'].concat(values));
 }
 
 //      
-
 /**
- * The border-radius shorthand accepts a value for side and a value for radius and applies the radius value to both corners of the side.
+ * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2618,23 +2628,24 @@ function borderColor() {
  * // CSS as JS Output
  *
  * div {
- *   'border-top-right-radius': '5px',
- *   'border-top-left-radius': '5px',
+ *   'borderTopRightRadius': '5px',
+ *   'borderTopLeftRadius': '5px',
  * }
  */
 
 function borderRadius(side, radius) {
+  var uppercaseSide = capitalizeString(side);
   if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.');
-  if (side === 'top' || side === 'bottom') {
+  if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     var _ref;
 
-    return _ref = {}, defineProperty(_ref, 'border-' + side + '-right-radius', radius), defineProperty(_ref, 'border-' + side + '-left-radius', radius), _ref;
+    return _ref = {}, defineProperty(_ref, 'border' + uppercaseSide + 'RightRadius', radius), defineProperty(_ref, 'border' + uppercaseSide + 'LeftRadius', radius), _ref;
   }
 
-  if (side === 'left' || side === 'right') {
+  if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
     var _ref2;
 
-    return _ref2 = {}, defineProperty(_ref2, 'border-top-' + side + '-radius', radius), defineProperty(_ref2, 'border-bottom-' + side + '-radius', radius), _ref2;
+    return _ref2 = {}, defineProperty(_ref2, 'borderTop' + uppercaseSide + 'Radius', radius), defineProperty(_ref2, 'borderBottom' + uppercaseSide + 'Radius', radius), _ref2;
   }
 
   throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
@@ -2642,7 +2653,7 @@ function borderRadius(side, radius) {
 
 //      
 /**
- * The border-style shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2657,10 +2668,10 @@ function borderRadius(side, radius) {
  * // CSS as JS Output
  *
  * div {
- *   'border-top-style': 'solid',
- *   'border-right-style': 'dashed',
- *   'border-bottom-style': 'dotted',
- *   'border-left-style': 'double'
+ *   'borderTopStyle': 'solid',
+ *   'borderRightStyle': 'dashed',
+ *   'borderBottomStyle': 'dotted',
+ *   'borderLeftStyle': 'double'
  * }
  */
 
@@ -2669,12 +2680,12 @@ function borderStyle() {
     values[_key] = arguments[_key];
   }
 
-  return directionalProperty.apply(undefined, ['border-style'].concat(values));
+  return directionalProperty.apply(undefined, ['borderStyle'].concat(values));
 }
 
 //      
 /**
- * The border-width shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2689,19 +2700,18 @@ function borderStyle() {
  * // CSS as JS Output
  *
  * div {
- *   'border-top-width': '12px',
- *   'border-right-width': '24px',
- *   'border-bottom-width': '36px',
- *   'border-left-width': '48px'
+ *   'borderTopWidth': '12px',
+ *   'borderRightWidth': '24px',
+ *   'borderBottomWidth': '36px',
+ *   'borderLeftWidth': '48px'
  * }
  */
-
 function borderWidth() {
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
     values[_key] = arguments[_key];
   }
 
-  return directionalProperty.apply(undefined, ['border-width'].concat(values));
+  return directionalProperty.apply(undefined, ['borderWidth'].concat(values));
 }
 
 //      
@@ -2772,7 +2782,7 @@ function buttons() {
 
 //      
 /**
- * The margin shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2787,10 +2797,10 @@ function buttons() {
  * // CSS as JS Output
  *
  * div {
- *   'margin-top': '12px',
- *   'margin-right': '24px',
- *   'margin-bottom': '36px',
- *   'margin-left': '48px'
+ *   'marginTop': '12px',
+ *   'marginRight': '24px',
+ *   'marginBottom': '36px',
+ *   'marginLeft': '48px'
  * }
  */
 
@@ -2804,7 +2814,7 @@ function margin() {
 
 //      
 /**
- * The padding shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2819,10 +2829,10 @@ function margin() {
  * // CSS as JS Output
  *
  * div {
- *   'padding-top': '12px',
- *   'padding-right': '24px',
- *   'padding-bottom': '36px',
- *   'padding-left': '48px'
+ *   'paddingTop': '12px',
+ *   'paddingRight': '24px',
+ *   'paddingBottom': '36px',
+ *   'paddingLeft': '48px'
  * }
  */
 
@@ -2838,7 +2848,7 @@ function padding() {
 var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
 
 /**
- * The position shorthand accepts up to five values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions. The first calue can optionally be a position keyword.
+ * Shorthand accepts up to five values, including null to skip a value, and maps them to their respective directions. The first value can optionally be a position keyword.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2898,7 +2908,7 @@ function position(positionKeyword) {
 //      
 
 /**
- * Mixin to set the height and width properties in a single statement.
+ * Shorthand to set the height and width properties in a single statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2955,20 +2965,20 @@ function template$1(state) {
  *
  * // CSS in JS Output
  *
- *  ''input[type="color"]:active,
- *  'input[type="date"]:active,
- *  'input[type="datetime"]:active,
- *  'input[type="datetime-local"]:active,
- *  'input[type="email"]:active,
- *  'input[type="month"]:active,
- *  'input[type="number"]:active,
- *  'input[type="password"]:active,
- *  'input[type="search"]:active,
- *  'input[type="tel"]:active,
- *  'input[type="text"]:active,
- *  'input[type="time"]:active,
- *  'input[type="url"]:active,
- *  'input[type="week"]:active,
+ *  'input[type="color"]:active,
+ *  input[type="date"]:active,
+ *  input[type="datetime"]:active,
+ *  input[type="datetime-local"]:active,
+ *  input[type="email"]:active,
+ *  input[type="month"]:active,
+ *  input[type="number"]:active,
+ *  input[type="password"]:active,
+ *  input[type="search"]:active,
+ *  input[type="tel"]:active,
+ *  input[type="text"]:active,
+ *  input[type="time"]:active,
+ *  input[type="url"]:active,
+ *  input[type="week"]:active,
  *  input:not([type]):active,
  *  textarea:active': {
  *   'border': 'none'
@@ -2986,7 +2996,7 @@ function textInputs() {
 //      
 
 /**
- * The transitions shorthand accepts any number of transition values as parameters for creating a single transition statement..
+ * Shorthand that accepts any number of transition values as parameters for creating a single transition statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2995,7 +3005,7 @@ function textInputs() {
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
+ *   ${transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
  * `
  *
  * // CSS as JS Output

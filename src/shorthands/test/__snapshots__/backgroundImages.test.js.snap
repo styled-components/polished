@@ -1,11 +1,11 @@
 exports[`backgroundImages should generate a multiple backgroundImages from multiple parameters 1`] = `
 Object {
-  "background-image": "url(\"/image/background.jpg\"), linear-gradient(red, green)",
+  "backgroundImage": "url(\"/image/background.jpg\"), linear-gradient(red, green)",
 }
 `;
 
 exports[`backgroundImages should generate a single background from a parameter 1`] = `
 Object {
-  "background-image": "url(\"/image/background.jpg\")",
+  "backgroundImage": "url(\"/image/background.jpg\")",
 }
 `;

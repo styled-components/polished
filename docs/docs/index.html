@@ -845,7 +845,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/clearFix.js#L26-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/clearFix.js#L26-L35'>
       <span>src/mixins/clearFix.js</span>
       </a>
     
@@ -931,7 +931,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/ellipsis.js#L29-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/ellipsis.js#L29-L38'>
       <span>src/mixins/ellipsis.js</span>
       </a>
     
@@ -991,11 +991,11 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 
 <span class="hljs-built-in">div</span>: {
   <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-block'</span>,
-  <span class="hljs-string">'max-width'</span>: <span class="hljs-string">'250px'</span>,
+  <span class="hljs-string">'maxWidth'</span>: <span class="hljs-string">'250px'</span>,
   <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
-  <span class="hljs-string">'text-overflow'</span>: <span class="hljs-string">'ellipsis'</span>,
-  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
-  <span class="hljs-string">'word-wrap'</span>: <span class="hljs-string">'normal'</span>
+  <span class="hljs-string">'textOverflow'</span>: <span class="hljs-string">'ellipsis'</span>,
+  <span class="hljs-string">'whiteSpace'</span>: <span class="hljs-string">'nowrap'</span>,
+  <span class="hljs-string">'wordWrap'</span>: <span class="hljs-string">'normal'</span>
 }</pre>
     
   
@@ -1020,7 +1020,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/fontFace.js#L61-L92'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/fontFace.js#L61-L92'>
       <span>src/mixins/fontFace.js</span>
       </a>
     
@@ -1156,7 +1156,7 @@ injectGlobal`${
 <span class="hljs-comment">// CSS as JS Output</span>
 
 '@font-face': {
-  <span class="hljs-symbol">'font</span>-family': <span class="hljs-symbol">'Sans</span>-Pro',
+  <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro',
   <span class="hljs-symbol">'src</span>': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"path/to/file.eot"</span>), url(<span class="hljs-string">"path/to/file.woff2"</span>), url(<span class="hljs-string">"path/to/file.woff"</span>), url(<span class="hljs-string">"path/to/file.ttf"</span>), url(<span class="hljs-string">"path/to/file.svg"</span>)',
 }</pre>
     
@@ -1182,7 +1182,7 @@ injectGlobal`${
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/hiDPI.js#L32-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/hiDPI.js#L32-L40'>
       <span>src/mixins/hiDPI.js</span>
       </a>
     
@@ -1274,7 +1274,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/hideText.js#L29-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/hideText.js#L29-L35'>
       <span>src/mixins/hideText.js</span>
       </a>
     
@@ -1308,23 +1308,23 @@ const div = styled.div`
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'url(logo.png)'</span>,
+  <span class="hljs-string">'backgroundImage'</span>: <span class="hljs-string">'url(logo.png)'</span>,
   ...hideText(),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>-<span class="hljs-built_in">image</span>: url(logo.png);
-  ${hideText()};
-`
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  backgroundImage: url(logo.png);
+  <span class="hljs-subst">${hideText()}</span>;
+`</span>
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-string">'div'</span>: {
-  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'url(logo.png)'</span>,
-  <span class="hljs-string">'text-indent'</span>: <span class="hljs-string">'101%'</span>,
+  <span class="hljs-string">'backgroundImage'</span>: <span class="hljs-string">'url(logo.png)'</span>,
+  <span class="hljs-string">'textIndent'</span>: <span class="hljs-string">'101%'</span>,
   <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
-  <span class="hljs-string">'white-space'</span>: <span class="hljs-string">'nowrap'</span>,
+  <span class="hljs-string">'whiteSpace'</span>: <span class="hljs-string">'nowrap'</span>,
 }</pre>
     
   
@@ -1349,7 +1349,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/normalize.js#L41-L295'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/normalize.js#L288-L291'>
       <span>src/mixins/normalize.js</span>
       </a>
     
@@ -1396,19 +1396,18 @@ const div = styled.div`
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 const styles = {
-   ...<span class="hljs-keyword">normalize</span>(),
+   ...normalize(),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-injectGlobal<span class="hljs-string">`${normalize()}`</span>
+injectGlobal`${normalize()}`
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
 html {
-  font-family: sans-serif,
-  line-height: <span class="hljs-number">1.15</span>,
-  -ms-<span class="hljs-keyword">text</span>-<span class="hljs-keyword">size</span>-adjust: <span class="hljs-number">100</span>%,
-  -webkit-<span class="hljs-keyword">text</span>-<span class="hljs-keyword">size</span>-adjust: <span class="hljs-number">100</span>%,
+  fontFamily: <span class="hljs-string">'sans-serif'</span>,
+  lineHeight: <span class="hljs-number">1.15</span>,
+  textSizeAdjust: <span class="hljs-number">100</span>%,
 } ...</pre>
     
   
@@ -1433,7 +1432,7 @@ html {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/placeholder.js#L35-L50'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/placeholder.js#L35-L50'>
       <span>src/mixins/placeholder.js</span>
       </a>
     
@@ -1536,7 +1535,7 @@ const div = styled.input`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/radialGradient.js#L67-L79'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/radialGradient.js#L67-L79'>
       <span>src/mixins/radialGradient.js</span>
       </a>
     
@@ -1650,8 +1649,8 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-selector-tag">div</span>: {
-  <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'#00FFFF'</span>,
-  <span class="hljs-string">'background-image'</span>: <span class="hljs-string">'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'</span>,
+  <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'#00FFFF'</span>,
+  <span class="hljs-string">'backgroundImage'</span>: <span class="hljs-string">'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'</span>,
 }</pre>
     
   
@@ -1676,14 +1675,14 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/retinaImage.js#L33-L48'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/retinaImage.js#L33-L48'>
       <span>src/mixins/retinaImage.js</span>
       </a>
     
   </div>
   
 
-  <p>The retina-image mixin is a helper to generate a retina background image and non-retina
+  <p>A helper to generate a retina background image and non-retina
 background image. The retina background image will output to a HiDPI media query. The mixin uses
 a _2x.png filename suffix by default.</p>
 
@@ -1801,7 +1800,7 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/selection.js#L31-L40'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/selection.js#L31-L40'>
       <span>src/mixins/selection.js</span>
       </a>
     
@@ -1858,23 +1857,23 @@ div {
       <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
 const styles = {
   ...selection({
-    <span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>
+    <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>
   }, <span class="hljs-string">'section'</span>)
 }
 
 // styled-components usage
 const div = styled.div`
-  ${selection({<span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>}, <span class="hljs-string">'section'</span>)}
+  ${selection({<span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>}, <span class="hljs-string">'section'</span>)}
 `
 
 // CSS <span class="hljs-keyword">as</span> JS Output
 
 <span class="hljs-string">'div'</span>: {
   <span class="hljs-string">'section::-moz-selection'</span>: {
-    <span class="hljs-string">'background-color'</span>:<span class="hljs-string">'blue'</span>,
+    <span class="hljs-string">'backgroundColor'</span>:<span class="hljs-string">'blue'</span>,
   },
   <span class="hljs-string">'section::selection'</span>: {
-    <span class="hljs-string">'background-color'</span>: <span class="hljs-string">'blue'</span>,
+    <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>,
   }
 }</pre>
     
@@ -1900,7 +1899,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/timingFunctions.js#L82-L84'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/timingFunctions.js#L82-L84'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -1947,18 +1946,18 @@ const div = styled.div`
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'transition-timing-function'</span>: timingFunctions(<span class="hljs-string">'easeInQuad'</span>)
+  <span class="hljs-string">'transitionTimingFunction'</span>: timingFunctions(<span class="hljs-string">'easeInQuad'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
- <span class="hljs-keyword">const</span> div = styled.div`
-  transition-timing-<span class="hljs-function"><span class="hljs-keyword">function</span>: $</span>{timingFunctions(<span class="hljs-string">'easeInQuad'</span>)};
-`
+ <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  transitionTimingFunction: <span class="hljs-subst">${timingFunctions(<span class="hljs-string">'easeInQuad'</span>)}</span>;
+`</span>
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-string">'div'</span>: {
-  <span class="hljs-string">'transition-timing-function'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
+  <span class="hljs-string">'transitionTimingFunction'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
 }</pre>
     
   
@@ -1983,7 +1982,7 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/triangle.js#L61-L81'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/triangle.js#L61-L81'>
       <span>src/mixins/triangle.js</span>
       </a>
     
@@ -2090,12 +2089,11 @@ const div = styled.div`
 
 <span class="hljs-comment">// CSS as JS Output</span>
 <span class="hljs-symbol">
-
 div:</span> {
- <span class="hljs-string">'border-color'</span>: <span class="hljs-string">'transparent'</span>,
- <span class="hljs-string">'border-left-color'</span>: <span class="hljs-string">'red !important'</span>,
- <span class="hljs-string">'border-style'</span>: <span class="hljs-string">'solid'</span>,
- <span class="hljs-string">'border-width'</span>: <span class="hljs-string">'50px 0 50px 100px'</span>,
+ <span class="hljs-string">'borderColor'</span>: <span class="hljs-string">'transparent'</span>,
+ <span class="hljs-string">'borderLeftColor'</span>: <span class="hljs-string">'red !important'</span>,
+ <span class="hljs-string">'borderStyle'</span>: <span class="hljs-string">'solid'</span>,
+ <span class="hljs-string">'borderWidth'</span>: <span class="hljs-string">'50px 0 50px 100px'</span>,
  <span class="hljs-string">'height'</span>: <span class="hljs-string">'0'</span>,
  <span class="hljs-string">'width'</span>: <span class="hljs-string">'0'</span>,
 }</pre>
@@ -2122,14 +2120,14 @@ div:</span> {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/wordWrap.js#L26-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/wordWrap.js#L26-L33'>
       <span>src/mixins/wordWrap.js</span>
       </a>
     
   </div>
   
 
-  <p>Provides an easy way to change the <code>word-wrap</code> property.</p>
+  <p>Provides an easy way to change the <code>wordWrap</code> property.</p>
 
 
   <div class='pre p1 fill-light mt0'>wordWrap(wrap: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
@@ -2181,9 +2179,9 @@ div:</span> {
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-keyword">const</span> styles = {
-  overflow-wrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
-  word-wrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
-  word-<span class="hljs-keyword">break</span>: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+  overflowWrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+  wordWrap: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
+  wordBreak: '<span class="hljs-keyword">break</span>-<span class="hljs-built_in">all</span>',
 }</pre>
     
   
@@ -2220,7 +2218,7 @@ div:</span> {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/adjustHue.js#L31-L37'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/adjustHue.js#L31-L37'>
       <span>src/color/adjustHue.js</span>
       </a>
     
@@ -2320,7 +2318,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/complement.js#L28-L34'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/complement.js#L28-L34'>
       <span>src/color/complement.js</span>
       </a>
     
@@ -2410,7 +2408,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/darken.js#L31-L37'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/darken.js#L31-L37'>
       <span>src/color/darken.js</span>
       </a>
     
@@ -2509,7 +2507,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/desaturate.js#L32-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/desaturate.js#L32-L38'>
       <span>src/color/desaturate.js</span>
       </a>
     
@@ -2609,7 +2607,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/grayscale.js#L28-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/grayscale.js#L28-L33'>
       <span>src/color/grayscale.js</span>
       </a>
     
@@ -2699,7 +2697,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/hsl.js#L29-L37'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/hsl.js#L29-L37'>
       <span>src/color/hsl.js</span>
       </a>
     
@@ -2806,7 +2804,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/hsla.js#L33-L55'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/hsla.js#L33-L55'>
       <span>src/color/hsla.js</span>
       </a>
     
@@ -2924,7 +2922,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/invert.js#L29-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/invert.js#L29-L38'>
       <span>src/color/invert.js</span>
       </a>
     
@@ -3015,7 +3013,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/lighten.js#L31-L37'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/lighten.js#L31-L37'>
       <span>src/color/lighten.js</span>
       </a>
     
@@ -3114,7 +3112,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/mix.js#L38-L68'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/mix.js#L38-L68'>
       <span>src/color/mix.js</span>
       </a>
     
@@ -3229,7 +3227,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/opacify.js#L34-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/opacify.js#L34-L44'>
       <span>src/color/opacify.js</span>
       </a>
     
@@ -3326,7 +3324,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/parseToHsl.js#L18-L22'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/parseToHsl.js#L18-L22'>
       <span>src/color/parseToHsl.js</span>
       </a>
     
@@ -3405,7 +3403,7 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/parseToRgb.js#L25-L87'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/parseToRgb.js#L25-L87'>
       <span>src/color/parseToRgb.js</span>
       </a>
     
@@ -3484,7 +3482,7 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/rgb.js#L30-L38'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/rgb.js#L30-L38'>
       <span>src/color/rgb.js</span>
       </a>
     
@@ -3591,7 +3589,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/rgba.js#L41-L57'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/rgba.js#L41-L57'>
       <span>src/color/rgba.js</span>
       </a>
     
@@ -3716,7 +3714,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/saturate.js#L33-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/saturate.js#L33-L39'>
       <span>src/color/saturate.js</span>
       </a>
     
@@ -3817,7 +3815,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/setHue.js#L30-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/setHue.js#L30-L35'>
       <span>src/color/setHue.js</span>
       </a>
     
@@ -3916,7 +3914,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/setLightness.js#L30-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/setLightness.js#L30-L35'>
       <span>src/color/setLightness.js</span>
       </a>
     
@@ -4015,7 +4013,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/setSaturation.js#L30-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/setSaturation.js#L30-L35'>
       <span>src/color/setSaturation.js</span>
       </a>
     
@@ -4114,7 +4112,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/shade.js#L29-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/shade.js#L29-L33'>
       <span>src/color/shade.js</span>
       </a>
     
@@ -4207,7 +4205,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/tint.js#L29-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/tint.js#L29-L33'>
       <span>src/color/tint.js</span>
       </a>
     
@@ -4300,7 +4298,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/transparentize.js#L34-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/transparentize.js#L34-L44'>
       <span>src/color/transparentize.js</span>
       </a>
     
@@ -4409,7 +4407,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/animation.js#L42-L62'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/animation.js#L42-L62'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -4510,14 +4508,14 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/backgroundImages.js#L23-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/backgroundImages.js#L23-L27'>
       <span>src/shorthands/backgroundImages.js</span>
       </a>
     
   </div>
   
 
-  <p>The backgroundImages shorthand accepts any number of backgroundImage values as parameters for creating a single background statement..</p>
+  <p>Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.</p>
 
 
   <div class='pre p1 fill-light mt0'>backgroundImages(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</div>
@@ -4562,13 +4560,13 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  ${...backgroundImages(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)')}
+  ${backgroundImages(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)')}
 `
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
 div {
-  <span class="hljs-symbol">'background</span>-image': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>), linear-gradient(red, green)'
+  <span class="hljs-symbol">'backgroundImage</span>': <span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>), linear-gradient(red, green)'
 }</pre>
     
   
@@ -4593,14 +4591,14 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/backgrounds.js#L22-L26'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/backgrounds.js#L22-L26'>
       <span>src/shorthands/backgrounds.js</span>
       </a>
     
   </div>
   
 
-  <p>The backgrounds shorthand accepts any number of background values as parameters for creating a single background statement..</p>
+  <p>Thorthand that accepts any number of background values as parameters for creating a single background statement.</p>
 
 
   <div class='pre p1 fill-light mt0'>backgrounds(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</div>
@@ -4645,7 +4643,7 @@ div {
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  ${...backgrounds(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)', <span class="hljs-symbol">'center</span> no-repeat')}
+  ${backgrounds(<span class="hljs-symbol">'url</span>(<span class="hljs-string">"/image/background.jpg"</span>)', <span class="hljs-symbol">'linear</span>-gradient(red, green)', <span class="hljs-symbol">'center</span> no-repeat')}
 `
 
 <span class="hljs-comment">// CSS as JS Output</span>
@@ -4676,14 +4674,14 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/borderColor.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/borderColor.js#L27-L29'>
       <span>src/shorthands/borderColor.js</span>
       </a>
     
   </div>
   
 
-  <p>The border-color shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
+  <p>Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.</p>
 
 
   <div class='pre p1 fill-light mt0'>borderColor(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -4734,10 +4732,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'border-top-color'</span>: <span class="hljs-string">'red'</span>,
-  <span class="hljs-string">'border-right-color'</span>: <span class="hljs-string">'green'</span>,
-  <span class="hljs-string">'border-bottom-color'</span>: <span class="hljs-string">'blue'</span>,
-  <span class="hljs-string">'border-left-color'</span>: <span class="hljs-string">'yellow'</span>
+  <span class="hljs-string">'borderTopColor'</span>: <span class="hljs-string">'red'</span>,
+  <span class="hljs-string">'borderRightColor'</span>: <span class="hljs-string">'green'</span>,
+  <span class="hljs-string">'borderBottomColor'</span>: <span class="hljs-string">'blue'</span>,
+  <span class="hljs-string">'borderLeftColor'</span>: <span class="hljs-string">'yellow'</span>
 }</pre>
     
   
@@ -4762,14 +4760,14 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/borderRadius.js#L24-L41'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/borderRadius.js#L25-L43'>
       <span>src/shorthands/borderRadius.js</span>
       </a>
     
   </div>
   
 
-  <p>The border-radius shorthand accepts a value for side and a value for radius and applies the radius value to both corners of the side.</p>
+  <p>Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.</p>
 
 
   <div class='pre p1 fill-light mt0'>borderRadius(side: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, radius: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
@@ -4828,8 +4826,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'border-top-right-radius'</span>: <span class="hljs-string">'5px'</span>,
-  <span class="hljs-string">'border-top-left-radius'</span>: <span class="hljs-string">'5px'</span>,
+  <span class="hljs-string">'borderTopRightRadius'</span>: <span class="hljs-string">'5px'</span>,
+  <span class="hljs-string">'borderTopLeftRadius'</span>: <span class="hljs-string">'5px'</span>,
 }</pre>
     
   
@@ -4854,14 +4852,14 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/borderStyle.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/borderStyle.js#L27-L29'>
       <span>src/shorthands/borderStyle.js</span>
       </a>
     
   </div>
   
 
-  <p>The border-style shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
+  <p>Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.</p>
 
 
   <div class='pre p1 fill-light mt0'>borderStyle(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -4912,10 +4910,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'border-top-style'</span>: <span class="hljs-string">'solid'</span>,
-  <span class="hljs-string">'border-right-style'</span>: <span class="hljs-string">'dashed'</span>,
-  <span class="hljs-string">'border-bottom-style'</span>: <span class="hljs-string">'dotted'</span>,
-  <span class="hljs-string">'border-left-style'</span>: <span class="hljs-string">'double'</span>
+  <span class="hljs-string">'borderTopStyle'</span>: <span class="hljs-string">'solid'</span>,
+  <span class="hljs-string">'borderRightStyle'</span>: <span class="hljs-string">'dashed'</span>,
+  <span class="hljs-string">'borderBottomStyle'</span>: <span class="hljs-string">'dotted'</span>,
+  <span class="hljs-string">'borderLeftStyle'</span>: <span class="hljs-string">'double'</span>
 }</pre>
     
   
@@ -4940,14 +4938,14 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/borderWidth.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/borderWidth.js#L26-L28'>
       <span>src/shorthands/borderWidth.js</span>
       </a>
     
   </div>
   
 
-  <p>The border-width shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
+  <p>Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.</p>
 
 
   <div class='pre p1 fill-light mt0'>borderWidth(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -4998,10 +4996,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'border-top-width'</span>: <span class="hljs-string">'12px'</span>,
-  <span class="hljs-string">'border-right-width'</span>: <span class="hljs-string">'24px'</span>,
-  <span class="hljs-string">'border-bottom-width'</span>: <span class="hljs-string">'36px'</span>,
-  <span class="hljs-string">'border-left-width'</span>: <span class="hljs-string">'48px'</span>
+  <span class="hljs-string">'borderTopWidth'</span>: <span class="hljs-string">'12px'</span>,
+  <span class="hljs-string">'borderRightWidth'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'borderBottomWidth'</span>: <span class="hljs-string">'36px'</span>,
+  <span class="hljs-string">'borderLeftWidth'</span>: <span class="hljs-string">'48px'</span>
 }</pre>
     
   
@@ -5026,7 +5024,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/buttons.js#L48-L50'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/buttons.js#L48-L50'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -5116,14 +5114,14 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/margin.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/margin.js#L27-L29'>
       <span>src/shorthands/margin.js</span>
       </a>
     
   </div>
   
 
-  <p>The margin shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
+  <p>Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.</p>
 
 
   <div class='pre p1 fill-light mt0'>margin(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -5174,10 +5172,10 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-selector-tag">div</span> {
-  <span class="hljs-string">'margin-top'</span>: <span class="hljs-string">'12px'</span>,
-  <span class="hljs-string">'margin-right'</span>: <span class="hljs-string">'24px'</span>,
-  <span class="hljs-string">'margin-bottom'</span>: <span class="hljs-string">'36px'</span>,
-  <span class="hljs-string">'margin-left'</span>: <span class="hljs-string">'48px'</span>
+  <span class="hljs-string">'marginTop'</span>: <span class="hljs-string">'12px'</span>,
+  <span class="hljs-string">'marginRight'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'marginBottom'</span>: <span class="hljs-string">'36px'</span>,
+  <span class="hljs-string">'marginLeft'</span>: <span class="hljs-string">'48px'</span>
 }</pre>
     
   
@@ -5202,14 +5200,14 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/padding.js#L27-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/padding.js#L27-L29'>
       <span>src/shorthands/padding.js</span>
       </a>
     
   </div>
   
 
-  <p>The padding shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.</p>
+  <p>Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.</p>
 
 
   <div class='pre p1 fill-light mt0'>padding(values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -5260,10 +5258,10 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-selector-tag">div</span> {
-  <span class="hljs-string">'padding-top'</span>: <span class="hljs-string">'12px'</span>,
-  <span class="hljs-string">'padding-right'</span>: <span class="hljs-string">'24px'</span>,
-  <span class="hljs-string">'padding-bottom'</span>: <span class="hljs-string">'36px'</span>,
-  <span class="hljs-string">'padding-left'</span>: <span class="hljs-string">'48px'</span>
+  <span class="hljs-string">'paddingTop'</span>: <span class="hljs-string">'12px'</span>,
+  <span class="hljs-string">'paddingRight'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'paddingBottom'</span>: <span class="hljs-string">'36px'</span>,
+  <span class="hljs-string">'paddingLeft'</span>: <span class="hljs-string">'48px'</span>
 }</pre>
     
   
@@ -5288,14 +5286,14 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/position.js#L49-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/position.js#L49-L59'>
       <span>src/shorthands/position.js</span>
       </a>
     
   </div>
   
 
-  <p>The position shorthand accepts up to five values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions. The first calue can optionally be a position keyword.</p>
+  <p>Shorthand accepts up to five values, including null to skip a value, and maps them to their respective directions. The first value can optionally be a position keyword.</p>
 
 
   <div class='pre p1 fill-light mt0'>position(positionKeyword: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | null), values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -5402,14 +5400,14 @@ const <span class="hljs-selector-tag">div</span> = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/size.js#L24-L29'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/size.js#L24-L29'>
       <span>src/shorthands/size.js</span>
       </a>
     
   </div>
   
 
-  <p>Mixin to set the height and width properties in a single statement.</p>
+  <p>Shorthand to set the height and width properties in a single statement.</p>
 
 
   <div class='pre p1 fill-light mt0'>size(height: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, width: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</div>
@@ -5495,7 +5493,7 @@ const <span class="hljs-keyword">div</span> = styled.<span class="hljs-keyword">
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/textInputs.js#L72-L74'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/textInputs.js#L72-L74'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -5556,20 +5554,20 @@ const div = styled.div`
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
- '<span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"color"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"date"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"datetime"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"datetime-local"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"email"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"month"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"number"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"password"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"search"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"tel"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"text"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"time"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"url"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"week"</span>]:active,
+ <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"color"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"date"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"datetime"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"datetime-local"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"email"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"month"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"number"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"password"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"search"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"tel"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"text"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"time"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"url"</span>]:active,
+ input[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"week"</span>]:active,
  input:not([<span class="hljs-class"><span class="hljs-keyword">type</span>])</span>:active,
  textarea:active': {
   <span class="hljs-symbol">'borde</span>r': <span class="hljs-symbol">'non</span>e'
@@ -5597,14 +5595,14 @@ const div = styled.div`
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/transitions.js#L23-L27'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/transitions.js#L23-L27'>
       <span>src/shorthands/transitions.js</span>
       </a>
     
   </div>
   
 
-  <p>The transitions shorthand accepts any number of transition values as parameters for creating a single transition statement..</p>
+  <p>Shorthand that accepts any number of transition values as parameters for creating a single transition statement.</p>
 
 
   <div class='pre p1 fill-light mt0'>transitions(properties: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</div>
@@ -5649,7 +5647,7 @@ const div = styled.div`
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  ${...transitions(<span class="hljs-symbol">'opacity</span> <span class="hljs-number">1.0</span>s ease-<span class="hljs-keyword">in</span> <span class="hljs-number">0</span>s', <span class="hljs-symbol">'width</span> <span class="hljs-number">2.0</span>s ease-<span class="hljs-keyword">in</span> <span class="hljs-number">2</span>s')}
+  ${transitions(<span class="hljs-symbol">'opacity</span> <span class="hljs-number">1.0</span>s ease-<span class="hljs-keyword">in</span> <span class="hljs-number">0</span>s', <span class="hljs-symbol">'width</span> <span class="hljs-number">2.0</span>s ease-<span class="hljs-keyword">in</span> <span class="hljs-number">2</span>s')}
 `
 
 <span class="hljs-comment">// CSS as JS Output</span>
@@ -5692,14 +5690,14 @@ div {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/directionalProperty.js#L44-L49'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/directionalProperty.js#L50-L55'>
       <span>src/helpers/directionalProperty.js</span>
       </a>
     
   </div>
   
 
-  <p>The directional property helper enables shorthand for direction based properties. It accepts a property and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can optionally pass a null argument for a directional value to ignore it.</p>
+  <p>A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.</p>
 
 
   <div class='pre p1 fill-light mt0'>directionalProperty(property: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, values: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?>)</div>
@@ -5758,10 +5756,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
 <span class="hljs-comment">// CSS as JS Output</span>
 
 <span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'padding-top'</span>: <span class="hljs-string">'12px'</span>,
-  <span class="hljs-string">'padding-right'</span>: <span class="hljs-string">'24px'</span>,
-  <span class="hljs-string">'padding-bottom'</span>: <span class="hljs-string">'36px'</span>,
-  <span class="hljs-string">'padding-left'</span>: <span class="hljs-string">'48px'</span>
+  <span class="hljs-string">'paddingTop'</span>: <span class="hljs-string">'12px'</span>,
+  <span class="hljs-string">'paddingRight'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'paddingBottom'</span>: <span class="hljs-string">'36px'</span>,
+  <span class="hljs-string">'paddingLeft'</span>: <span class="hljs-string">'48px'</span>
 }</pre>
     
   
@@ -5786,7 +5784,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/em.js#L30-L30'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/em.js#L30-L30'>
       <span>src/helpers/em.js</span>
       </a>
     
@@ -5879,7 +5877,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/modularScale.js#L67-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/modularScale.js#L67-L83'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -5943,21 +5941,21 @@ element {
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
+const styles = {
    <span class="hljs-comment">// Increment two steps up the default scale</span>
-  <span class="hljs-string">'font-size'</span>: modularScale(<span class="hljs-number">2</span>)
+  <span class="hljs-string">'fontSize'</span>: modularScale(<span class="hljs-number">2</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div`
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
    <span class="hljs-comment">// Increment two steps up the default scale</span>
-  font-<span class="hljs-built_in">size</span>: ${modularScale(<span class="hljs-number">2</span>)}
+  fontSize: <span class="hljs-symbol">$</span>{modularScale(<span class="hljs-number">2</span>)}
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-string">'font-size'</span>: <span class="hljs-string">'1.77689em'</span>
+  <span class="hljs-string">'fontSize'</span>: <span class="hljs-string">'1.77689em'</span>
 }</pre>
     
   
@@ -5982,7 +5980,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/rem.js#L30-L30'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/rem.js#L30-L30'>
       <span>src/helpers/rem.js</span>
       </a>
     
@@ -6075,7 +6073,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/stripUnit.js#L24-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/stripUnit.js#L24-L28'>
       <span>src/helpers/stripUnit.js</span>
       </a>
     
@@ -6175,7 +6173,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/animation.js#L4-L4'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/animation.js#L4-L4'>
       <span>src/shorthands/animation.js</span>
       </a>
     
@@ -6229,7 +6227,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/buttons.js#L14-L19'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/buttons.js#L14-L19'>
       <span>src/shorthands/buttons.js</span>
       </a>
     
@@ -6283,7 +6281,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/fontFace.js#L4-L14'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/fontFace.js#L4-L14'>
       <span>src/mixins/fontFace.js</span>
       </a>
     
@@ -6396,7 +6394,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/types/color.js#L11-L15'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/types/color.js#L11-L15'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6473,7 +6471,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/types/color.js#L23-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/types/color.js#L23-L28'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6556,7 +6554,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/shorthands/textInputs.js#L26-L31'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/shorthands/textInputs.js#L26-L31'>
       <span>src/shorthands/textInputs.js</span>
       </a>
     
@@ -6610,7 +6608,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/triangle.js#L4-L4'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/triangle.js#L4-L4'>
       <span>src/mixins/triangle.js</span>
       </a>
     
@@ -6664,7 +6662,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/radialGradient.js#L4-L10'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/radialGradient.js#L4-L10'>
       <span>src/mixins/radialGradient.js</span>
       </a>
     
@@ -6753,7 +6751,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/helpers/modularScale.js#L26-L44'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/helpers/modularScale.js#L26-L44'>
       <span>src/helpers/modularScale.js</span>
       </a>
     
@@ -6807,7 +6805,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/types/color.js#L47-L52'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/types/color.js#L47-L52'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6890,7 +6888,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/types/color.js#L35-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/types/color.js#L35-L39'>
       <span>src/types/color.js</span>
       </a>
     
@@ -6967,7 +6965,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/mixins/timingFunctions.js#L35-L59'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/mixins/timingFunctions.js#L35-L59'>
       <span>src/mixins/timingFunctions.js</span>
       </a>
     
@@ -7021,7 +7019,7 @@ element {
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/220e40259294570e42ee5ee713402eb43b5f11e2/src/color/toColorString.js#L75-L90'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/styled-components/polished/blob/c11ae6c603ff0b62f99915062655bd09d4ef446a/src/color/toColorString.js#L75-L90'>
       <span>src/color/toColorString.js</span>
       </a>
     

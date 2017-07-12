@@ -7,23 +7,23 @@
  * // Styles as object usage
  * const styles = {
  *   ...selection({
- *     'background': 'blue'
+ *     'backgroundColor': 'blue'
  *   }, 'section')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${selection({'background': 'blue'}, 'section')}
+ *   ${selection({'backgroundColor': 'blue'}, 'section')}
  * `
  *
  * // CSS as JS Output
  *
  * 'div': {
  *   'section::-moz-selection': {
- *     'background-color':'blue',
+ *     'backgroundColor':'blue',
  *   },
  *   'section::selection': {
- *     'background-color': 'blue',
+ *     'backgroundColor': 'blue',
  *   }
  * }
  */

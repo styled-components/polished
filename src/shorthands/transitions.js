@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * The transitions shorthand accepts any number of transition values as parameters for creating a single transition statement..
+ * Shorthand that accepts any number of transition values as parameters for creating a single transition statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -10,7 +10,7 @@
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
+ *   ${transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')}
  * `
  *
  * // CSS as JS Output

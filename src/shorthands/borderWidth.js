@@ -2,7 +2,7 @@
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
- * The border-width shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -17,15 +17,14 @@ import directionalProperty from '../helpers/directionalProperty'
  * // CSS as JS Output
  *
  * div {
- *   'border-top-width': '12px',
- *   'border-right-width': '24px',
- *   'border-bottom-width': '36px',
- *   'border-left-width': '48px'
+ *   'borderTopWidth': '12px',
+ *   'borderRightWidth': '24px',
+ *   'borderBottomWidth': '36px',
+ *   'borderLeftWidth': '48px'
  * }
  */
-
 function borderWidth(...values: Array<?string>) {
-  return directionalProperty('border-width', ...values)
+  return directionalProperty('borderWidth', ...values)
 }
 
 export default borderWidth

@@ -2,7 +2,7 @@
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
- * The border-color shorthand accepts up to four values, including null to skip a value, and uses the directional-property mixin to map them to their respective directions.
+ * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -17,15 +17,15 @@ import directionalProperty from '../helpers/directionalProperty'
  * // CSS as JS Output
  *
  * div {
- *   'border-top-color': 'red',
- *   'border-right-color': 'green',
- *   'border-bottom-color': 'blue',
- *   'border-left-color': 'yellow'
+ *   'borderTopColor': 'red',
+ *   'borderRightColor': 'green',
+ *   'borderBottomColor': 'blue',
+ *   'borderLeftColor': 'yellow'
  * }
  */
 
 function borderColor(...values: Array<?string>) {
-  return directionalProperty('border-color', ...values)
+  return directionalProperty('borderColor', ...values)
 }
 
 export default borderColor

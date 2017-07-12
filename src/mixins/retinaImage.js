@@ -3,7 +3,7 @@
 import hiDPI from './hiDPI'
 
 /**
- * The retina-image mixin is a helper to generate a retina background image and non-retina
+ * A helper to generate a retina background image and non-retina
  * background image. The retina background image will output to a HiDPI media query. The mixin uses
  * a _2x.png filename suffix by default.
  *

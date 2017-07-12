@@ -1,11 +1,17 @@
 // @flow
-const positionMap = ['top', 'right', 'bottom', 'left']
+import capitalizeString from '../internalHelpers/_capitalizeString'
+
+const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
 function generateProperty(property: string, position: string) {
-  if (!property) return position
-  const splitPropertyName = property.split('-')
-  splitPropertyName.splice(1, 0, position)
-  return splitPropertyName.join('-')
+  if (!property) return position.toLowerCase()
+  const splitProperty = property.split('-')
+  if (splitProperty.length > 1) {
+    splitProperty.splice(1, 0, position)
+    return splitProperty.reduce((acc, val) => `${acc}${capitalizeString(val)}`)
+  }
+  const joinedProperty = property.replace(/([a-z])([A-Z])/g, `$1${position}$2`)
+  return property === joinedProperty ? `${property}${position}` : joinedProperty
 }
 
 function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
@@ -19,7 +25,7 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
 }
 
 /**
- * The directional property helper enables shorthand for direction based properties. It accepts a property and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can optionally pass a null argument for a directional value to ignore it.
+ * A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -34,10 +40,10 @@ function generateStyles(property: string, valuesWithDefaults: Array<?string>) {
  * // CSS as JS Output
  *
  * div {
- *   'padding-top': '12px',
- *   'padding-right': '24px',
- *   'padding-bottom': '36px',
- *   'padding-left': '48px'
+ *   'paddingTop': '12px',
+ *   'paddingRight': '24px',
+ *   'paddingBottom': '36px',
+ *   'paddingLeft': '48px'
  * }
  */
 
