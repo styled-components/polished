@@ -10,7 +10,7 @@
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
+ *   ${backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
  * `
  *
  * // CSS as JS Output

@@ -2528,7 +2528,7 @@ function animation() {
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
+ *   ${backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
  * `
  *
  * // CSS as JS Output
@@ -2560,7 +2560,7 @@ function backgroundImages() {
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
+ *   ${backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
  * `
  *
  * // CSS as JS Output
@@ -2613,7 +2613,7 @@ function borderColor() {
 
 //      
 /**
- * A shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
+ * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
  * @example
  * // Styles as object usage
  * const styles = {
