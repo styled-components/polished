@@ -104,8 +104,8 @@
   },
   "sizeLimit": [
     {
-      "path": "dist/polished.js",
-      "limit": "9KB"
+      "path": "lib/index.js",
+      "limit": "10KB"
     }
   ],
   "dependencies": {}
