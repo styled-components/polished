@@ -1,4 +1,28 @@
-.travis.yml
-.gitignore
+# config files
 .babelrc
+.documentation.json
+.editorconfig
+.eslintignore
+.eslintrc
+.flowconfig
+.github
+.gitignore
+.npmignore
+.travis.yml
+
+# folders
 coverage
+docs-theme
+src
+test
+flow-typed
+
+# markdown files
+CONTRIBUTING.md
+ROADMAP.md
+
+# misc.
+CNAME
+rollup.config.js
+travis_after_all.py
+yarn.lock
