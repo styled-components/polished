@@ -53,7 +53,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${rgbaMatched[1]}`, 10),
       green: parseInt(`${rgbaMatched[2]}`, 10),
       blue: parseInt(`${rgbaMatched[3]}`, 10),
-      alpha: parseFloat(`${rgbaMatched[4]}`, 10),
+      alpha: parseFloat(`${rgbaMatched[4]}`),
     }
   }
   const hslMatched = hslRegex.exec(normalizedColor)
@@ -80,7 +80,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
       green: parseInt(`${hslRgbMatched[2]}`, 10),
       blue: parseInt(`${hslRgbMatched[3]}`, 10),
-      alpha: parseFloat(`${hslaMatched[4]}`, 10),
+      alpha: parseFloat(`${hslaMatched[4]}`),
     }
   }
   throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.')
