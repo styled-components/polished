@@ -5,6 +5,7 @@
   "plugins": [
     "transform-object-rest-spread",
     "add-module-exports",
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    "syntax-trailing-function-commas"
   ]
 }
