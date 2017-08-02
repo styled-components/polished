@@ -1462,7 +1462,7 @@ function parseToRgb(color) {
       red: parseInt('' + rgbaMatched[1], 10),
       green: parseInt('' + rgbaMatched[2], 10),
       blue: parseInt('' + rgbaMatched[3], 10),
-      alpha: parseFloat('' + rgbaMatched[4], 10)
+      alpha: parseFloat('' + rgbaMatched[4])
     };
   }
   var hslMatched = hslRegex.exec(normalizedColor);
@@ -1489,7 +1489,7 @@ function parseToRgb(color) {
       red: parseInt('' + _hslRgbMatched[1], 10),
       green: parseInt('' + _hslRgbMatched[2], 10),
       blue: parseInt('' + _hslRgbMatched[3], 10),
-      alpha: parseFloat('' + hslaMatched[4], 10)
+      alpha: parseFloat('' + hslaMatched[4])
     };
   }
   throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.');
@@ -2551,7 +2551,7 @@ function backgroundImages() {
 //      
 
 /**
- * Thorthand that accepts any number of background values as parameters for creating a single background statement.
+ * Shorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
