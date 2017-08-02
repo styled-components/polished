@@ -22,7 +22,7 @@
 
 function transitions(...properties: Array<string>) {
   return {
-    'transition': properties.join(', '),
+    transition: properties.join(', '),
   }
 }
 

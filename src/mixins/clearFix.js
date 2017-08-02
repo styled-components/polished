@@ -23,13 +23,13 @@
  * }
  */
 
-function clearFix(parent: ?string = '&') {
+function clearFix(parent: string = '&') {
   const pseudoSelector = `${parent}::after`
   return {
     [pseudoSelector]: {
-      'clear': 'both',
-      'content': '""',
-      'display': 'table',
+      clear: 'both',
+      content: '""',
+      display: 'table',
     },
   }
 }

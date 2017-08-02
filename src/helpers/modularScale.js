@@ -64,22 +64,32 @@ type Ratio =
  *   'fontSize': '1.77689em'
  * }
  */
-function modularScale(steps: number, base?: number|string = '1em', ratio?: Ratio = 'perfectFourth') {
+function modularScale(
+  steps: number,
+  base?: number | string = '1em',
+  ratio?: Ratio = 'perfectFourth',
+) {
   if (typeof steps !== 'number') {
-    throw new Error('Please provide a number of steps to the modularScale helper.')
+    throw new Error(
+      'Please provide a number of steps to the modularScale helper.',
+    )
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
-    throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.')
+    throw new Error(
+      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.',
+    )
   }
 
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
   if (typeof realBase === 'string') {
-    throw new Error(`Invalid value passed as base to modularScale, expected number or em string but got "${base}"`)
+    throw new Error(
+      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
+    )
   }
 
-  return `${realBase * (realRatio ** steps)}em`
+  return `${realBase * realRatio ** steps}em`
 }
 
 export { ratioNames }

@@ -33,16 +33,15 @@ import curry from '../internalHelpers/_curry'
  */
 function transparentize(amount: number, color: string) {
   const parsedColor = parseToRgb(color)
-  const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
+  const alpha: number =
+    typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
   const colorWithAlpha = {
     ...parsedColor,
-    alpha: guard(0, 1, (
-      (alpha * 100) - (amount * 100)
-    ) / 100),
+    alpha: guard(0, 1, (alpha * 100 - amount * 100) / 100),
   }
   return rgba(colorWithAlpha)
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedTransparentize = /*#__PURE__*/curry(transparentize) // eslint-disable-line spaced-comment
+const curriedTransparentize = /*#__PURE__*/ curry(transparentize) // eslint-disable-line spaced-comment
 export default curriedTransparentize

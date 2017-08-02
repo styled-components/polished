@@ -27,9 +27,14 @@
     "prepublish": "npm run build"
   },
   "lint-staged": {
-    "src/**/*.*.js": [
+    "src/**/!(*.test).js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint src --fix",
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.test.js": [
+      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "eslint --fix",
       "git add"
     ]
   },
@@ -107,7 +112,5 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
-  "dependencies": {
-    "polished": "^1.3.0"
-  }
+  "dependencies": {}
 }

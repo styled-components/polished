@@ -21,7 +21,7 @@
  * }
  */
 
-function stripUnit(value: string): number|string {
+function stripUnit(value: string): number | string {
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value
   return unitlessValue
