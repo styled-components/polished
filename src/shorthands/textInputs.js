@@ -69,7 +69,7 @@ type InputState =
  * }
  */
 
-function textInputs(...states: Array<InputState>) {
+function textInputs(...states: Array<InputState>): string {
   return statefulSelectors(states, template, stateMap)
 }
 

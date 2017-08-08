@@ -2551,7 +2551,7 @@ function backgroundImages() {
 //      
 
 /**
- * Thorthand that accepts any number of background values as parameters for creating a single background statement.
+ * Shorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -2706,6 +2706,7 @@ function borderStyle() {
  *   'borderLeftWidth': '48px'
  * }
  */
+
 function borderWidth() {
   for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
     values[_key] = arguments[_key];

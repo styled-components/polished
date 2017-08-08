@@ -22,7 +22,7 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  * }
  */
 
-function borderRadius(side:string, radius:string) {
+function borderRadius(side:string, radius:string): Object {
   const uppercaseSide = capitalizeString(side)
   if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.')
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {

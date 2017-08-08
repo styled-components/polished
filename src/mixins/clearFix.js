@@ -23,7 +23,7 @@
  * }
  */
 
-function clearFix(parent: string = '&') {
+function clearFix(parent: string = '&'): Object {
   const pseudoSelector = `${parent}::after`
   return {
     [pseudoSelector]: {
