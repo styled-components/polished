@@ -22,6 +22,7 @@
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check",
+    "size": "size-limit",
     "docs": "pushstate-server docs",
     "prepublish": "npm run build"
   },
@@ -84,6 +85,7 @@
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^1.0.1",
     "shx": "^0.2.2",
+    "size-limit": "^0.7.1",
     "validate-commit-msg": "^2.8.2",
     "vinyl": "^2.0.1",
     "vinyl-fs": "^2.4.4"
@@ -100,5 +102,11 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
   },
+  "sizeLimit": [
+    {
+      "path": "lib/index.js",
+      "limit": "10KB"
+    }
+  ],
   "dependencies": {}
 }
