@@ -2551,7 +2551,7 @@ function backgroundImages() {
 //      
 
 /**
- * Thorthand that accepts any number of background values as parameters for creating a single background statement.
+ * Shorthand that accepts any number of background values as parameters for creating a single background statement.
  * @example
  * // Styles as object usage
  * const styles = {

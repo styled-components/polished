@@ -1,7 +1,15 @@
-node_modules
-lib
-coverage
+# npm
 npm-debug.log
+node_modules
+
+# Built Folders
 dist
+lib
+/utils
+
+# Test files
+coverage
+
+# Misc.
 .DS_Store
 yarn-error.log
