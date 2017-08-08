@@ -38,5 +38,5 @@ function desaturate(amount: number, color: string): string {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedDesaturate = /*#__PURE__*/curry(desaturate) // eslint-disable-line spaced-comment
+const curriedDesaturate = /*#__PURE__*/ curry(desaturate) // eslint-disable-line spaced-comment
 export default curriedDesaturate

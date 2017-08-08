@@ -22,9 +22,13 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  * }
  */
 
-function borderRadius(side:string, radius:string) {
+function borderRadius(side: string, radius: string) {
   const uppercaseSide = capitalizeString(side)
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.')
+  if (!radius || typeof radius !== 'string') {
+    throw new Error(
+      'borderRadius expects a radius value as a string as the second argument.',
+    )
+  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     return {
       [`border${uppercaseSide}RightRadius`]: radius,
@@ -39,7 +43,9 @@ function borderRadius(side:string, radius:string) {
     }
   }
 
-  throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.')
+  throw new Error(
+    'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
+  )
 }
 
 export default borderRadius

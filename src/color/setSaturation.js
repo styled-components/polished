@@ -35,5 +35,5 @@ function setSaturation(saturation: number, color: string): string {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedSetSaturation = /*#__PURE__*/curry(setSaturation) // eslint-disable-line spaced-comment
+const curriedSetSaturation = /*#__PURE__*/ curry(setSaturation) // eslint-disable-line spaced-comment
 export default curriedSetSaturation

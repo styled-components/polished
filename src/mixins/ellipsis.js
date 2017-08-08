@@ -28,12 +28,12 @@
 
 function ellipsis(width: string = '100%') {
   return {
-    'display': 'inline-block',
-    'maxWidth': width,
-    'overflow': 'hidden',
-    'textOverflow': 'ellipsis',
-    'whiteSpace': 'nowrap',
-    'wordWrap': 'normal',
+    display: 'inline-block',
+    maxWidth: width,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    wordWrap: 'normal',
   }
 }
 

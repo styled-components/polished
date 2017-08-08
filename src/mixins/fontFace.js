@@ -2,31 +2,42 @@
 
 /** */
 type FontFaceConfiguration = {
-  fontFamily: string;
-  fontFilePath?: string;
-  fontStretch?: string;
-  fontStyle?: string;
-  fontVariant?: string;
-  fontWeight?: string;
-  fileFormats?: Array<string>;
-  localFonts?: Array<string>;
-  unicodeRange?: string
+  fontFamily: string,
+  fontFilePath?: string,
+  fontStretch?: string,
+  fontStyle?: string,
+  fontVariant?: string,
+  fontWeight?: string,
+  fileFormats?: Array<string>,
+  localFonts?: Array<string>,
+  unicodeRange?: string,
 }
 
-function generateFileReferences(fontFilePath: string, fileFormats: Array<string>) {
-  const fileFontReferences = fileFormats.map((format) => `url("${fontFilePath}.${format}")`)
+function generateFileReferences(
+  fontFilePath: string,
+  fileFormats: Array<string>,
+) {
+  const fileFontReferences = fileFormats.map(
+    format => `url("${fontFilePath}.${format}")`,
+  )
   return fileFontReferences.join(', ')
 }
 
 function generateLocalReferences(localFonts: Array<string>) {
-  const localFontReferences = localFonts.map((font) => `local("${font}")`)
+  const localFontReferences = localFonts.map(font => `local("${font}")`)
   return localFontReferences.join(', ')
 }
 
-function generateSources(fontFilePath?: string, localFonts?: Array<string>, fileFormats: Array<string>) {
+function generateSources(
+  fontFilePath?: string,
+  localFonts?: Array<string>,
+  fileFormats: Array<string>,
+) {
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))
-  if (fontFilePath) fontReferences.push(generateFileReferences(fontFilePath, fileFormats))
+  if (fontFilePath) {
+    fontReferences.push(generateFileReferences(fontFilePath, fileFormats))
+  }
   return fontReferences.join(', ')
 }
 
@@ -59,21 +70,29 @@ function generateSources(fontFilePath?: string, localFonts?: Array<string>, file
  */
 
 function fontFace({
-    fontFamily,
-    fontFilePath,
-    fontStretch,
-    fontStyle,
-    fontVariant,
-    fontWeight,
-    fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
-    localFonts,
-    unicodeRange,
-  }: FontFaceConfiguration) {
+  fontFamily,
+  fontFilePath,
+  fontStretch,
+  fontStyle,
+  fontVariant,
+  fontWeight,
+  fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
+  localFonts,
+  unicodeRange,
+}: FontFaceConfiguration) {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
-  if (!fontFilePath && !localFonts) throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.')
-  if (localFonts && !Array.isArray(localFonts)) throw new Error('fontFace expects localFonts to be an array.')
-  if (!Array.isArray(fileFormats)) throw new Error('fontFace expects fileFormats to be an array.')
+  if (!fontFilePath && !localFonts) {
+    throw new Error(
+      'fontFace expects either the path to the font file(s) or a name of a local copy.',
+    )
+  }
+  if (localFonts && !Array.isArray(localFonts)) {
+    throw new Error('fontFace expects localFonts to be an array.')
+  }
+  if (!Array.isArray(fileFormats)) {
+    throw new Error('fontFace expects fileFormats to be an array.')
+  }
 
   const fontFaceDeclaration = {
     '@font-face': {

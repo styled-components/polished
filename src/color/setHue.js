@@ -35,5 +35,5 @@ function setHue(hue: number, color: string): string {
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedSetHue = /*#__PURE__*/curry(setHue) // eslint-disable-line spaced-comment
+const curriedSetHue = /*#__PURE__*/ curry(setHue) // eslint-disable-line spaced-comment
 export default curriedSetHue
