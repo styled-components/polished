@@ -29,6 +29,17 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 
 When `✨ polished` modules are imported properly, tree shaking in [webpack 2](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
+## Flow Type Definitions
+
+### Ignore ✨ polished source
+
+If you are using [Flow](https://flow.org/) and run into errors coming from the `polished` package in your `node_modules` directory, you should add the following lines to your `.flowconfig`:
+
+```bash
+[ignore]
+.*/node_modules/polished/.*
+```
+
 ## Docs
 
 **See the full documentation at [polished.js.org](http://polished.js.org/docs)!**
