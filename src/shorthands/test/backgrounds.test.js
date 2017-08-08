@@ -9,7 +9,11 @@ describe('backgrounds', () => {
 
   it('should generate a multiple backgrounds from multiple parameters', () => {
     expect({
-      ...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat'),
+      ...backgrounds(
+        'url("/image/background.jpg")',
+        'linear-gradient(red, green)',
+        'center no-repeat',
+      ),
     }).toMatchSnapshot()
   })
 })

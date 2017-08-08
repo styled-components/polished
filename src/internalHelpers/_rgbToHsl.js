@@ -1,11 +1,6 @@
 // @flow
 
-import type {
-  HslColor,
-  HslaColor,
-  RgbColor,
-  RgbaColor,
-} from '../types/color'
+import type { HslColor, HslaColor, RgbColor, RgbaColor } from '../types/color'
 
 function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   // make sure rgb are contained in a set of [0, 255]
@@ -18,7 +13,7 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   const lightness = (max + min) / 2
 
   if (max === min) {
-     // achromatic
+    // achromatic
     if (color.alpha !== undefined) {
       return { hue: 0, saturation: 0, lightness, alpha: color.alpha }
     } else {
@@ -28,16 +23,18 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
 
   let hue
   const delta = max - min
-  const saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min)
+  const saturation =
+    lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min)
   switch (max) {
     case red:
-      hue = ((green - blue) / delta) + (green < blue ? 6 : 0)
+      hue = (green - blue) / delta + (green < blue ? 6 : 0)
       break
     case green:
-      hue = ((blue - red) / delta) + 2
+      hue = (blue - red) / delta + 2
       break
-    default: // blue case
-      hue = ((red - green) / delta) + 4
+    default:
+      // blue case
+      hue = (red - green) / delta + 4
       break
   }
 

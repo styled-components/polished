@@ -5,7 +5,7 @@ describe('hiDPI', () => {
   it('should pass ratio to media query', () => {
     expect({
       [hiDPI(1.5)]: {
-        'width': '200px',
+        width: '200px',
       },
     }).toMatchSnapshot()
   })
@@ -13,7 +13,7 @@ describe('hiDPI', () => {
   it('should set a default ratio of 1.3 when no ratio is passed', () => {
     expect({
       [hiDPI()]: {
-        'width': '200px',
+        width: '200px',
       },
     }).toMatchSnapshot()
   })

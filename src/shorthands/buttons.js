@@ -11,12 +11,7 @@ function template(state) {
 }
 
 /** */
-type ButtonState =
-  | typeof(undefined)
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover';
+type ButtonState = typeof undefined | null | 'active' | 'focus' | 'hover'
 
 /**
  * Populates selectors that target all buttons. You can pass optional states to append to the selectors.

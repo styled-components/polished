@@ -21,7 +21,7 @@
  */
 function backgrounds(...properties: Array<string>) {
   return {
-    'background': properties.join(', '),
+    background: properties.join(', '),
   }
 }
 
