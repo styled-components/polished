@@ -22,6 +22,7 @@ describe('textInputs', () => {
   })
   it('throws an error when passed a state it does not recognize', () => {
     expect(() => ({
+      // $FlowFixMe
       [textInputs('clicked')]: { 'border-color': 'black' },
     })).toThrow('You passed an unsupported selector state to this method')
   })

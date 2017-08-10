@@ -22,7 +22,7 @@
     "precommit": "lint-staged --verbose",
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
-    "flow": "flow check",
+    "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
     "docs": "pushstate-server docs",
     "prepublish": "npm run build"
   },
@@ -78,8 +78,9 @@
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-plugin-import": "^2.2.0",
-    "flow-bin": "^0.36.0",
+    "flow-bin": "^0.51.1",
     "flow-copy-source": "^1.1.0",
+    "flow-coverage-report": "^0.3.0",
     "github-slugger": "^1.1.1",
     "highlight.js": "^9.9.0",
     "husky": "^0.14.3",
@@ -112,6 +113,5 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
-  },
-  "dependencies": {}
+  }
 }

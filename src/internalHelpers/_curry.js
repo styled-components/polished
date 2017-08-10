@@ -16,7 +16,7 @@ declare function curry<A, B, C>(f: Fn2<A, B, C>): CurriedFn2<A, B, C>
 // eslint-disable-next-line no-redeclare
 declare function curry<A, B, C, D>(f: Fn3<A, B, C, D>): CurriedFn3<A, B, C, D>
 
-function curried(f, length, acc) {
+function curried(f: Function, length: number, acc: Array<any>): Function {
   return function fn() {
     // eslint-disable-next-line prefer-rest-params
     const combined = acc.concat(Array.prototype.slice.call(arguments))
@@ -27,7 +27,7 @@ function curried(f, length, acc) {
 }
 
 // eslint-disable-next-line no-redeclare
-export default function curry(f: Function) {
+export default function curry(f: Function): Function {
   // eslint-disable-line no-redeclare
   return curried(f, f.length, [])
 }

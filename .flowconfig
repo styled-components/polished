@@ -1,10 +1,9 @@
 [ignore]
 .*/node_modules/.*
+.*/lib/.*
 
 [include]
 
 [libs]
 
 [options]
-
-suppress_comment=.*\\$FlowIgnoreNextLine

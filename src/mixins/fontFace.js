@@ -16,14 +16,14 @@ type FontFaceConfiguration = {
 function generateFileReferences(
   fontFilePath: string,
   fileFormats: Array<string>,
-) {
+): string {
   const fileFontReferences = fileFormats.map(
     format => `url("${fontFilePath}.${format}")`,
   )
   return fileFontReferences.join(', ')
 }
 
-function generateLocalReferences(localFonts: Array<string>) {
+function generateLocalReferences(localFonts: Array<string>): string {
   const localFontReferences = localFonts.map(font => `local("${font}")`)
   return localFontReferences.join(', ')
 }
@@ -32,7 +32,7 @@ function generateSources(
   fontFilePath?: string,
   localFonts?: Array<string>,
   fileFormats: Array<string>,
-) {
+): string {
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))
   if (fontFilePath) {
@@ -79,7 +79,7 @@ function fontFace({
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
   localFonts,
   unicodeRange,
-}: FontFaceConfiguration) {
+}: FontFaceConfiguration): Object {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {

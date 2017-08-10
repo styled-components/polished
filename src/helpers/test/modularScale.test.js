@@ -3,7 +3,7 @@ import modularScale, { ratioNames } from '../modularScale'
 
 describe('modularScale', () => {
   it('should throw an error if no steps are provided', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    // $FlowFixMe
     expect(() => ({ 'font-size': modularScale() })).toThrow()
   })
 
@@ -37,7 +37,7 @@ describe('modularScale', () => {
 
   it('should throw an error if an invalid ratio is provided', () => {
     expect(() => {
-      // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+      // $FlowFixMe
       modularScale(2, '1em', 'invalid')
     }).toThrow()
   })
