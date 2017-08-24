@@ -6,12 +6,12 @@
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit(100px)
+ *   '--dimension': stripUnit('100px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit(100px)}
+ *   --dimension: ${stripUnit('100px')}
  * `
  *
  * // CSS in JS Output
