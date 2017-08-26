@@ -78,7 +78,7 @@
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-plugin-import": "^2.2.0",
-    "flow-bin": "^0.51.1",
+    "flow-bin": "^0.53.1",
     "flow-copy-source": "^1.1.0",
     "flow-coverage-report": "^0.3.0",
     "github-slugger": "^1.1.1",

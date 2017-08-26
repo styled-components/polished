@@ -1,10 +1,8 @@
 // @flow
-
 import rgb from './rgb'
 import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
-import type { RgbColor, RgbaColor, HslColor, HslaColor } from '../types/color'
 
 const isRgb = (color: Object): boolean =>
   typeof color.red === 'number' &&
@@ -64,17 +62,11 @@ const errMsg =
  * }
  */
 
-function toColorString(
-  color: RgbColor | RgbaColor | HslColor | HslaColor,
-): string {
+function toColorString(color: Object): string {
   if (typeof color !== 'object') throw new Error(errMsg)
-  // $FlowFixMe
   if (isRgba(color)) return rgba(color)
-  // $FlowFixMe
   if (isRgb(color)) return rgb(color)
-  // $FlowFixMe
   if (isHsla(color)) return hsla(color)
-  // $FlowFixMe
   if (isHsl(color)) return hsl(color)
 
   throw new Error(errMsg)

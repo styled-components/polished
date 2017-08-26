@@ -138,6 +138,7 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#fontfaceconfiguration">FontFaceConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#hslcolor">HslColor</a></li>
     <li><a href="http://polished.js.org/docs/#hslacolor">HslaColor</a></li>
+    <li><a href="http://polished.js.org/docs/#interactionstate">InteractionState</a></li>
     <li><a href="http://polished.js.org/docs/#pointingdirection">PointingDirection</a></li>
     <li><a href="http://polished.js.org/docs/#radialgradientconfiguration">RadialGradientConfiguration</a></li>
     <li><a href="http://polished.js.org/docs/#ratio">Ratio</a></li>
@@ -145,7 +146,6 @@ In the documentation you will see examples using [object spread properties](http
     <li><a href="http://polished.js.org/docs/#rgbcolor">RgbColor</a></li>
     <li><a href="http://polished.js.org/docs/#timingfunction">TimingFunction</a></li>
     <li><a href="http://polished.js.org/docs/#tocolorstring">toColorString</a></li>
-    <li><a href="http://polished.js.org/docs/#interactionstate">InteractionState</a></li>
     <li><a href="http://polished.js.org/docs/#modularscaleratio">ModularScaleRatio</a></li>
   </ul>
 </details>

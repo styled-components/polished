@@ -49,7 +49,6 @@ describe('toColorString', () => {
   })
 
   it('should throw an error if anything else than a RgbColor, RgbaColor, HslColor or HslaColor is provided', () => {
-    // $FlowFixMe
     expect(() => toColorString({ red: 255, green: 1, hue: 240 })).toThrow(
       'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.',
     )

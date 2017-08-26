@@ -31,7 +31,7 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(255,0,0,0.3)";
  * }
  */
-function transparentize(amount: number, color: string) {
+function transparentize(amount: number, color: string): string {
   const parsedColor = parseToRgb(color)
   const alpha: number =
     typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1

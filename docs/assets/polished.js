@@ -156,7 +156,6 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
 };
 
 //      
-
 /**
  * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
  * second argument to the function.
@@ -1176,19 +1175,19 @@ function triangle(_ref) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *   ...wordWrap('break-word')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${wordWrap('break-all')}
+ *   ${wordWrap('break-word')}
  * `
  *
  * // CSS as JS Output
  *
  * const styles = {
- *   overflowWrap: 'break-all',
- *   wordWrap: 'break-all',
+ *   overflowWrap: 'break-word',
+ *   wordWrap: 'break-word',
  *   wordBreak: 'break-all',
  * }
  */
@@ -1422,7 +1421,6 @@ function nameToHex(color) {
 }
 
 //      
-
 var hexRegex = /^#[a-fA-F0-9]{6}$/;
 var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
 var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
@@ -1585,7 +1583,6 @@ var reduceHexValue = function reduceHexValue(value) {
 };
 
 //      
-
 function numberToHex(value) {
   var hex = value.toString(16);
   return hex.length === 1 ? "0" + hex : hex;
@@ -1676,7 +1673,6 @@ function rgba(firstValue, secondValue, thirdValue, fourthValue) {
 }
 
 //      
-
 function colorToHex(color) {
   return numberToHex(Math.round(color * 255));
 }
@@ -1763,30 +1759,23 @@ function hsla(value, saturation, lightness, alpha) {
 }
 
 //      
-
 var isRgb = function isRgb(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowFixMe
-  typeof color.alpha !== 'number';
+  return typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 };
 
 var isRgba = function isRgba(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowFixMe
-  typeof color.alpha === 'number';
+  return typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && typeof color.alpha === 'number';
 };
 
 var isHsl = function isHsl(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowFixMe
-  typeof color.alpha !== 'number';
+  return typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 };
 
 var isHsla = function isHsla(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowFixMe
-  typeof color.alpha === 'number';
+  return typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' && typeof color.alpha === 'number';
 };
+
+var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.';
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
@@ -1818,21 +1807,15 @@ var isHsla = function isHsla(color) {
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
+
 function toColorString(color) {
-  if (isRgba(color)) {
-    // $FlowFixMe
-    return rgba(color);
-  } else if (isRgb(color)) {
-    // $FlowFixMe
-    return rgb(color);
-  } else if (isHsla(color)) {
-    // $FlowFixMe
-    return hsla(color);
-  } else if (isHsl(color)) {
-    // $FlowFixMe
-    return hsl(color);
-  }
-  throw new Error('Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.');
+  if ((typeof color === 'undefined' ? 'undefined' : _typeof(color)) !== 'object') throw new Error(errMsg);
+  if (isRgba(color)) return rgba(color);
+  if (isRgb(color)) return rgb(color);
+  if (isHsla(color)) return hsla(color);
+  if (isHsl(color)) return hsl(color);
+
+  throw new Error(errMsg);
 }
 
 //      

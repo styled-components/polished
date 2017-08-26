@@ -20,7 +20,7 @@
  * }
  */
 
-function backgroundImages(...properties: Array<string>) {
+function backgroundImages(...properties: Array<string>): Object {
   return {
     backgroundImage: properties.join(', '),
   }

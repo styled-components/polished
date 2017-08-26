@@ -15,7 +15,7 @@ const getBorderWidth = (
   pointingDirection: PointingDirection,
   height: number,
   width: number,
-) => {
+): string => {
   switch (pointingDirection) {
     case 'top':
       return `0 ${width / 2}px ${height}px ${width / 2}px`

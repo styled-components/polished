@@ -35,7 +35,7 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(weight: number = 0.5, color: string, otherColor: string): string {
+function mix(weight?: number = 0.5, color: string, otherColor: string): string {
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,
