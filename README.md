@@ -31,9 +31,11 @@ When `✨ polished` modules are imported properly, tree shaking in [webpack 2](h
 
 ## Flow Type Definitions
 
+`✨ polished` has first-class [Flow](https://flow.org/) support with zero configuration to assist you in finding type errors while using our modules.
+
 ### Ignore ✨ polished source
 
-If you are using [Flow](https://flow.org/) and run into errors coming from the `polished` package in your `node_modules` directory, you should add the following lines to your `.flowconfig`:
+Flow frequently updates and it is possible that the version you are running may cause you to run into errors coming from the `polished` package in your `node_modules` directory. You can add the following lines to your `.flowconfig` to ignore `polished` in those cases:
 
 ```bash
 [ignore]
