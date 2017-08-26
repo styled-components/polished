@@ -181,7 +181,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
+var em = /* #__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
 
 //      
 
@@ -2200,7 +2200,6 @@ function opacify(amount, color) {
 var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-comment
 
 //      
-
 var h = function h(c) {
   return c / 255 <= 0.03928 ? c / 255 / 12.92 : Math.pow((c / 255 + 0.055) / 1.055, 2.4);
 };
