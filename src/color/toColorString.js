@@ -1,42 +1,35 @@
 // @flow
-
 import rgb from './rgb'
 import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
-import type { RgbColor, RgbaColor, HslColor, HslaColor } from '../types/color'
 
-const isRgb = (color): boolean =>
-  typeof color === 'object' &&
+const isRgb = (color: Object): boolean =>
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha !== 'number'
+  (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
 
-const isRgba = (color): boolean =>
-  typeof color === 'object' &&
+const isRgba = (color: Object): boolean =>
   typeof color.red === 'number' &&
   typeof color.green === 'number' &&
   typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha === 'number'
 
-const isHsl = (color): boolean =>
-  typeof color === 'object' &&
+const isHsl = (color: Object): boolean =>
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha !== 'number'
+  (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
 
-const isHsla = (color): boolean =>
-  typeof color === 'object' &&
+const isHsla = (color: Object): boolean =>
   typeof color.hue === 'number' &&
   typeof color.saturation === 'number' &&
   typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
   typeof color.alpha === 'number'
+
+const errMsg =
+  'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
@@ -68,25 +61,15 @@ const isHsla = (color): boolean =>
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
-function toColorString(
-  color: RgbColor | RgbaColor | HslColor | HslaColor,
-): string {
-  if (isRgba(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return rgba(color)
-  } else if (isRgb(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return rgb(color)
-  } else if (isHsla(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return hsla(color)
-  } else if (isHsl(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return hsl(color)
-  }
-  throw new Error(
-    'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.',
-  )
+
+function toColorString(color: Object): string {
+  if (typeof color !== 'object') throw new Error(errMsg)
+  if (isRgba(color)) return rgba(color)
+  if (isRgb(color)) return rgb(color)
+  if (isHsla(color)) return hsla(color)
+  if (isHsl(color)) return hsl(color)
+
+  throw new Error(errMsg)
 }
 
 export default toColorString

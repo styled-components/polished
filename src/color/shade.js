@@ -26,7 +26,7 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 
-function shade(percentage: number, color: string) {
+function shade(percentage: number, color: string): string {
   if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
     throw new Error(
       'Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.',

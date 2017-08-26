@@ -79,7 +79,7 @@ type TimingFunction =
  * }
  */
 
-function timingFunctions(timingFunction: TimingFunction) {
+function timingFunctions(timingFunction: TimingFunction): string {
   return functionsMap[timingFunction]
 }
 

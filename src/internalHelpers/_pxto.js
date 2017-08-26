@@ -10,7 +10,7 @@ import stripUnit from '../helpers/stripUnit'
 const pxtoFactory = (to: string) => (
   pxval: string | number,
   base?: string | number = '16px',
-) => {
+): string => {
   let newPxval = pxval
   let newBase = base
   if (typeof pxval === 'string') {

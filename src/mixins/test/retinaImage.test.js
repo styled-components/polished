@@ -3,7 +3,7 @@ import retinaImage from '../retinaImage'
 
 describe('retinaImage', () => {
   it('should throw an error if no filename is passed', () => {
-    // $FlowIgnoreNextLine since the coming is invalid code, flow complains
+    // $FlowFixMe
     expect(() => ({ ...retinaImage() })).toThrow()
   })
 

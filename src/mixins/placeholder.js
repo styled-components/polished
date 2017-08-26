@@ -32,7 +32,7 @@
  * },
  */
 
-function placeholder(styles: Object, parent: string = '&') {
+function placeholder(styles: Object, parent?: string = '&'): Object {
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,

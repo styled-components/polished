@@ -248,7 +248,7 @@ const unopinionatedRules = {
   },
 }
 
-function mergeRules(baseRules: Object, additionalRules: Object) {
+function mergeRules(baseRules: Object, additionalRules: Object): Object {
   const mergedRules = { ...baseRules }
   Object.keys(additionalRules).forEach(key => {
     if (mergedRules[key]) {
@@ -285,7 +285,7 @@ function mergeRules(baseRules: Object, additionalRules: Object) {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean) {
+function normalize(excludeOpinionated?: boolean): Object {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

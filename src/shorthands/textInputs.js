@@ -1,9 +1,11 @@
 // @flow
 import statefulSelectors from '../internalHelpers/_statefulSelectors'
 
+import type { InteractionState } from '../types/interactionState'
+
 const stateMap = [undefined, null, 'active', 'focus', 'hover']
 
-function template(state) {
+function template(state: string): string {
   return `input[type="color"]${state},
     input[type="date"]${state},
     input[type="datetime"]${state},
@@ -21,9 +23,6 @@ function template(state) {
     input:not([type])${state},
     textarea${state}`
 }
-
-/** */
-type InputState = typeof undefined | null | 'active' | 'focus' | 'hover'
 
 /**
  * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.
@@ -64,7 +63,7 @@ type InputState = typeof undefined | null | 'active' | 'focus' | 'hover'
  * }
  */
 
-function textInputs(...states: Array<InputState>) {
+function textInputs(...states: Array<InteractionState>): string {
   return statefulSelectors(states, template, stateMap)
 }
 
