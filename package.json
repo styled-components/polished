@@ -4,8 +4,9 @@
   "main": "lib/index.js",
   "jsnext:main": "dist/polished.es.js",
   "module": "dist/polished.es.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs",
+    "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs && npm run build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
@@ -18,13 +19,15 @@
     "postbuild:docs:site": "shx cp CNAME docs/CNAME && shx cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
+    "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
     "test": "jest src",
+    "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node",
     "precommit": "lint-staged --verbose",
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
     "docs": "pushstate-server docs",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && npm run typescript"
   },
   "lint-staged": {
     "src/**/!(*.test).js": [
@@ -113,5 +116,9 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "dependencies": {
+    "tsgen": "^1.0.0",
+    "typescript": "^2.4.2"
   }
 }

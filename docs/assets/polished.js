@@ -181,7 +181,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
+var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-commen
 
 //      
 
@@ -2201,6 +2201,48 @@ var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-
 
 //      
 
+var h = function h(c) {
+  return c / 255 <= 0.03928 ? c / 255 / 12.92 : Math.pow((c / 255 + 0.055) / 1.055, 2.4);
+};
+
+/**
+ * Selects black or white for best contrast depending on the luminosity of the given color.
+ * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   color: readableColor('#000'),
+ *   color: readableColor('papayawhip'),
+ *   color: readableColor('rgb(255,0,0)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   color: ${readableColor('#000')};
+ *   color: ${readableColor('papayawhip')};
+ *   color: ${readableColor('rgb(255,0,0)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   color: "#fff";
+ *   color: "#fff";
+ *   color: "#000";
+ * }
+ */
+
+function readableColor(color) {
+  var c = parseToRgb(color);
+  return h(c.red) * 0.2126 + h(c.green) * 0.7152 + h(c.blue) * 0.0722 > 0.179 ? '#000' : '#fff';
+}
+
+// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
+var curriedReadableColor = /*#__PURE__*/curry(readableColor); // eslint-disable-line spaced-comment
+
+//      
+
 /**
  * Increases the intensity of a color. Its range is between 0 to 1. The first
  * argument of the saturate function is the amount by how much the color
@@ -3072,6 +3114,7 @@ exports.parseToRgb = parseToRgb;
 exports.placeholder = placeholder;
 exports.position = position;
 exports.radialGradient = radialGradient;
+exports.readableColor = curriedReadableColor;
 exports.rem = rem;
 exports.retinaImage = retinaImage;
 exports.rgb = rgb;

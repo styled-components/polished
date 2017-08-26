@@ -75,7 +75,7 @@ function triangle({
   width,
   foregroundColor,
   backgroundColor = 'transparent',
-}: TriangleArgs) {
+}: TriangleArgs): Object {
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
