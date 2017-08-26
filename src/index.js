@@ -35,6 +35,7 @@ import mix from './color/mix'
 import opacify from './color/opacify'
 import parseToHsl from './color/parseToHsl'
 import parseToRgb from './color/parseToRgb'
+import readableColor from './color/readableColor'
 import rgb from './color/rgb'
 import rgba from './color/rgba'
 import saturate from './color/saturate'
@@ -98,6 +99,7 @@ export {
   placeholder,
   position,
   radialGradient,
+  readableColor,
   rem,
   retinaImage,
   rgb,
