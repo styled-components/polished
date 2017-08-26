@@ -96,12 +96,12 @@ var endsWith = function (string, suffix) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit(100px)
+ *   '--dimension': stripUnit('100px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit(100px)}
+ *   --dimension: ${stripUnit('100px')}
  * `
  *
  * // CSS in JS Output
@@ -181,7 +181,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-commen
+var em = /*#__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
 
 //      
 
