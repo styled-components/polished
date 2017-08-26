@@ -49,9 +49,7 @@ retinaImage = polished.retinaImage("", "", "", "", "");
 let selection: object = polished.selection({});
 selection = polished.selection({}, "");
 
-
 const timingFunctions = polished.timingFunctions("easeInBack");
-
 
 const triangle = polished.triangle({
   backgroundColor: "red",
@@ -85,6 +83,7 @@ const mix: string = polished.mix(0.5, "#f00", "#00f");
 const opacify: string = polished.opacify(0.1, "rgba(255, 255, 255, 0.9)");
 const parseToHsl = polished.parseToHsl("rgb(255, 0, 0)");
 const parseToRgb = polished.parseToRgb("rgb(255, 0, 0)");
+const readableColor = polished.readableColor("rgb(255,0,0)");
 
 let rgb: string = polished.rgb(255, 205, 100);
 rgb = polished.rgb({ red: 255, green: 205, blue: 100 });
@@ -109,7 +108,6 @@ const transparentize: string = polished.transparentize(0.1, "#fff");
 /*
  * Shorthands
  */
-
 const animation: object = polished.animation(["rotate", 1, "ease-in-out"], ["colorchange", "2s"]);
 const backgroundImages: object = polished.backgroundImages("url('/image/background.jpg')", "linear-gradient(red, green)");
 const backgrounds: object = polished.backgrounds("url('/image/background.jpg')", "linear-gradient(red, green)", "center no-repeat");
@@ -133,16 +131,15 @@ const textInputs: string = polished.textInputs("active", null, undefined);
 const transitions: object = polished.transitions("opacity 1.0s ease-in 0s", "width 2.0s ease-in 2s");
 
 /*
- * Shorthands
+ * Helpers
  */
-
 const directionalProperty: object = polished.directionalProperty("padding", "12px", null, undefined, "24px");
 
 let em: string = polished.em("12px");
 em = polished.em(12);
 
 let rem: string = polished.rem("12px");
-em = polished.rem(12);
+rem = polished.rem(12);
 
 let modularScale: string = polished.modularScale(2);
 modularScale = polished.modularScale(2, 2);
