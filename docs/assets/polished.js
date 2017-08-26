@@ -65,7 +65,7 @@ function directionalProperty(property) {
     values[_key - 1] = arguments[_key];
   }
 
-  // $FlowIgnoreNextLine doesn't understand destructuring with chained defaults.
+  //  prettier-ignore
   var firstValue = values[0],
       _values$ = values[1],
       secondValue = _values$ === undefined ? firstValue : _values$,
@@ -156,7 +156,6 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
 };
 
 //      
-
 /**
  * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
  * second argument to the function.
@@ -437,9 +436,9 @@ function clearFix() {
 
   var pseudoSelector = parent + '::after';
   return defineProperty({}, pseudoSelector, {
-    'clear': 'both',
-    'content': '""',
-    'display': 'table'
+    clear: 'both',
+    content: '""',
+    display: 'table'
   });
 }
 
@@ -475,12 +474,12 @@ function ellipsis() {
   var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '100%';
 
   return {
-    'display': 'inline-block',
-    'maxWidth': width,
-    'overflow': 'hidden',
-    'textOverflow': 'ellipsis',
-    'whiteSpace': 'nowrap',
-    'wordWrap': 'normal'
+    display: 'inline-block',
+    maxWidth: width,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    wordWrap: 'normal'
   };
 }
 
@@ -505,7 +504,9 @@ function generateLocalReferences(localFonts) {
 function generateSources(fontFilePath, localFonts, fileFormats) {
   var fontReferences = [];
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts));
-  if (fontFilePath) fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
+  if (fontFilePath) {
+    fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
+  }
   return fontReferences.join(', ');
 }
 
@@ -551,9 +552,15 @@ function fontFace(_ref) {
 
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.');
-  if (!fontFilePath && !localFonts) throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
-  if (localFonts && !Array.isArray(localFonts)) throw new Error('fontFace expects localFonts to be an array.');
-  if (!Array.isArray(fileFormats)) throw new Error('fontFace expects fileFormats to be an array.');
+  if (!fontFilePath && !localFonts) {
+    throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
+  }
+  if (localFonts && !Array.isArray(localFonts)) {
+    throw new Error('fontFace expects localFonts to be an array.');
+  }
+  if (!Array.isArray(fileFormats)) {
+    throw new Error('fontFace expects fileFormats to be an array.');
+  }
 
   var fontFaceDeclaration = {
     '@font-face': {
@@ -924,7 +931,9 @@ function radialGradient(_ref) {
       position = _ref.position,
       shape = _ref.shape;
 
-  if (!colorStops || colorStops.length < 2) throw new Error('radialGradient requries at least 2 color-stops to properly render.');
+  if (!colorStops || colorStops.length < 2) {
+    throw new Error('radialGradient requries at least 2 color-stops to properly render.');
+  }
   return {
     backgroundColor: fallback || parseFallback(colorStops),
     backgroundImage: constructGradientValue(_templateObject, position, shape, extent, colorStops.join(', '))
@@ -1023,32 +1032,32 @@ function selection(styles) {
 
 /* eslint-disable key-spacing */
 var functionsMap = {
-  'easeInBack': 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
-  'easeInCirc': 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
-  'easeInCubic': 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
-  'easeInExpo': 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
-  'easeInQuad': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-  'easeInQuart': 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
-  'easeInQuint': 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
-  'easeInSine': 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
+  easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
+  easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
+  easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
+  easeInExpo: 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
+  easeInQuad: 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+  easeInQuart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
+  easeInQuint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
+  easeInSine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
 
-  'easeOutBack': 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
-  'easeOutCubic': 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
-  'easeOutCirc': 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
-  'easeOutExpo': 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
-  'easeOutQuad': 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
-  'easeOutQuart': 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
-  'easeOutQuint': 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
-  'easeOutSine': 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
+  easeOutBack: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
+  easeOutCubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
+  easeOutCirc: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
+  easeOutExpo: 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
+  easeOutQuad: 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+  easeOutQuart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
+  easeOutQuint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
+  easeOutSine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
 
-  'easeInOutBack': 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
-  'easeInOutCirc': 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
-  'easeInOutCubic': 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
-  'easeInOutExpo': 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
-  'easeInOutQuad': 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
-  'easeInOutQuart': 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
-  'easeInOutQuint': 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
-  'easeInOutSine': 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
+  easeInOutBack: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
+  easeInOutCirc: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
+  easeInOutCubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
+  easeInOutExpo: 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
+  easeInOutQuad: 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+  easeInOutQuart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
+  easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
+  easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
 };
 /* eslint-enable key-spacing */
 
@@ -1095,7 +1104,7 @@ var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
       return height / 2 + 'px 0 ' + height / 2 + 'px ' + width + 'px';
 
     default:
-      throw new Error('Passed invalid argument to triangle, please pass correct poitingDirection e.g. \'right\'.');
+      throw new Error("Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.");
   }
 };
 
@@ -1166,19 +1175,19 @@ function triangle(_ref) {
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...wordWrap('break-all')
+ *   ...wordWrap('break-word')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${wordWrap('break-all')}
+ *   ${wordWrap('break-word')}
  * `
  *
  * // CSS as JS Output
  *
  * const styles = {
- *   overflowWrap: 'break-all',
- *   wordWrap: 'break-all',
+ *   overflowWrap: 'break-word',
+ *   wordWrap: 'break-word',
  *   wordBreak: 'break-all',
  * }
  */
@@ -1251,154 +1260,154 @@ function hslToRgb(hue, saturation, lightness) {
 
 //      
 var namedColorMap = {
-  'aliceblue': 'f0f8ff',
-  'antiquewhite': 'faebd7',
-  'aqua': '00ffff',
-  'aquamarine': '7fffd4',
-  'azure': 'f0ffff',
-  'beige': 'f5f5dc',
-  'bisque': 'ffe4c4',
-  'black': '000',
-  'blanchedalmond': 'ffebcd',
-  'blue': '0000ff',
-  'blueviolet': '8a2be2',
-  'brown': 'a52a2a',
-  'burlywood': 'deb887',
-  'cadetblue': '5f9ea0',
-  'chartreuse': '7fff00',
-  'chocolate': 'd2691e',
-  'coral': 'ff7f50',
-  'cornflowerblue': '6495ed',
-  'cornsilk': 'fff8dc',
-  'crimson': 'dc143c',
-  'cyan': '00ffff',
-  'darkblue': '00008b',
-  'darkcyan': '008b8b',
-  'darkgoldenrod': 'b8860b',
-  'darkgray': 'a9a9a9',
-  'darkgreen': '006400',
-  'darkgrey': 'a9a9a9',
-  'darkkhaki': 'bdb76b',
-  'darkmagenta': '8b008b',
-  'darkolivegreen': '556b2f',
-  'darkorange': 'ff8c00',
-  'darkorchid': '9932cc',
-  'darkred': '8b0000',
-  'darksalmon': 'e9967a',
-  'darkseagreen': '8fbc8f',
-  'darkslateblue': '483d8b',
-  'darkslategray': '2f4f4f',
-  'darkslategrey': '2f4f4f',
-  'darkturquoise': '00ced1',
-  'darkviolet': '9400d3',
-  'deeppink': 'ff1493',
-  'deepskyblue': '00bfff',
-  'dimgray': '696969',
-  'dimgrey': '696969',
-  'dodgerblue': '1e90ff',
-  'firebrick': 'b22222',
-  'floralwhite': 'fffaf0',
-  'forestgreen': '228b22',
-  'fuchsia': 'ff00ff',
-  'gainsboro': 'dcdcdc',
-  'ghostwhite': 'f8f8ff',
-  'gold': 'ffd700',
-  'goldenrod': 'daa520',
-  'gray': '808080',
-  'green': '008000',
-  'greenyellow': 'adff2f',
-  'grey': '808080',
-  'honeydew': 'f0fff0',
-  'hotpink': 'ff69b4',
-  'indianred': 'cd5c5c',
-  'indigo': '4b0082',
-  'ivory': 'fffff0',
-  'khaki': 'f0e68c',
-  'lavender': 'e6e6fa',
-  'lavenderblush': 'fff0f5',
-  'lawngreen': '7cfc00',
-  'lemonchiffon': 'fffacd',
-  'lightblue': 'add8e6',
-  'lightcoral': 'f08080',
-  'lightcyan': 'e0ffff',
-  'lightgoldenrodyellow': 'fafad2',
-  'lightgray': 'd3d3d3',
-  'lightgreen': '90ee90',
-  'lightgrey': 'd3d3d3',
-  'lightpink': 'ffb6c1',
-  'lightsalmon': 'ffa07a',
-  'lightseagreen': '20b2aa',
-  'lightskyblue': '87cefa',
-  'lightslategray': '789',
-  'lightslategrey': '789',
-  'lightsteelblue': 'b0c4de',
-  'lightyellow': 'ffffe0',
-  'lime': '0f0',
-  'limegreen': '32cd32',
-  'linen': 'faf0e6',
-  'magenta': 'f0f',
-  'maroon': '800000',
-  'mediumaquamarine': '66cdaa',
-  'mediumblue': '0000cd',
-  'mediumorchid': 'ba55d3',
-  'mediumpurple': '9370db',
-  'mediumseagreen': '3cb371',
-  'mediumslateblue': '7b68ee',
-  'mediumspringgreen': '00fa9a',
-  'mediumturquoise': '48d1cc',
-  'mediumvioletred': 'c71585',
-  'midnightblue': '191970',
-  'mintcream': 'f5fffa',
-  'mistyrose': 'ffe4e1',
-  'moccasin': 'ffe4b5',
-  'navajowhite': 'ffdead',
-  'navy': '000080',
-  'oldlace': 'fdf5e6',
-  'olive': '808000',
-  'olivedrab': '6b8e23',
-  'orange': 'ffa500',
-  'orangered': 'ff4500',
-  'orchid': 'da70d6',
-  'palegoldenrod': 'eee8aa',
-  'palegreen': '98fb98',
-  'paleturquoise': 'afeeee',
-  'palevioletred': 'db7093',
-  'papayawhip': 'ffefd5',
-  'peachpuff': 'ffdab9',
-  'peru': 'cd853f',
-  'pink': 'ffc0cb',
-  'plum': 'dda0dd',
-  'powderblue': 'b0e0e6',
-  'purple': '800080',
-  'rebeccapurple': '639',
-  'red': 'f00',
-  'rosybrown': 'bc8f8f',
-  'royalblue': '4169e1',
-  'saddlebrown': '8b4513',
-  'salmon': 'fa8072',
-  'sandybrown': 'f4a460',
-  'seagreen': '2e8b57',
-  'seashell': 'fff5ee',
-  'sienna': 'a0522d',
-  'silver': 'c0c0c0',
-  'skyblue': '87ceeb',
-  'slateblue': '6a5acd',
-  'slategray': '708090',
-  'slategrey': '708090',
-  'snow': 'fffafa',
-  'springgreen': '00ff7f',
-  'steelblue': '4682b4',
-  'tan': 'd2b48c',
-  'teal': '008080',
-  'thistle': 'd8bfd8',
-  'tomato': 'ff6347',
-  'turquoise': '40e0d0',
-  'violet': 'ee82ee',
-  'wheat': 'f5deb3',
-  'white': 'fff',
-  'whitesmoke': 'f5f5f5',
-  'yellow': 'ff0',
-  'yellowgreen': '9acd32'
+  aliceblue: 'f0f8ff',
+  antiquewhite: 'faebd7',
+  aqua: '00ffff',
+  aquamarine: '7fffd4',
+  azure: 'f0ffff',
+  beige: 'f5f5dc',
+  bisque: 'ffe4c4',
+  black: '000',
+  blanchedalmond: 'ffebcd',
+  blue: '0000ff',
+  blueviolet: '8a2be2',
+  brown: 'a52a2a',
+  burlywood: 'deb887',
+  cadetblue: '5f9ea0',
+  chartreuse: '7fff00',
+  chocolate: 'd2691e',
+  coral: 'ff7f50',
+  cornflowerblue: '6495ed',
+  cornsilk: 'fff8dc',
+  crimson: 'dc143c',
+  cyan: '00ffff',
+  darkblue: '00008b',
+  darkcyan: '008b8b',
+  darkgoldenrod: 'b8860b',
+  darkgray: 'a9a9a9',
+  darkgreen: '006400',
+  darkgrey: 'a9a9a9',
+  darkkhaki: 'bdb76b',
+  darkmagenta: '8b008b',
+  darkolivegreen: '556b2f',
+  darkorange: 'ff8c00',
+  darkorchid: '9932cc',
+  darkred: '8b0000',
+  darksalmon: 'e9967a',
+  darkseagreen: '8fbc8f',
+  darkslateblue: '483d8b',
+  darkslategray: '2f4f4f',
+  darkslategrey: '2f4f4f',
+  darkturquoise: '00ced1',
+  darkviolet: '9400d3',
+  deeppink: 'ff1493',
+  deepskyblue: '00bfff',
+  dimgray: '696969',
+  dimgrey: '696969',
+  dodgerblue: '1e90ff',
+  firebrick: 'b22222',
+  floralwhite: 'fffaf0',
+  forestgreen: '228b22',
+  fuchsia: 'ff00ff',
+  gainsboro: 'dcdcdc',
+  ghostwhite: 'f8f8ff',
+  gold: 'ffd700',
+  goldenrod: 'daa520',
+  gray: '808080',
+  green: '008000',
+  greenyellow: 'adff2f',
+  grey: '808080',
+  honeydew: 'f0fff0',
+  hotpink: 'ff69b4',
+  indianred: 'cd5c5c',
+  indigo: '4b0082',
+  ivory: 'fffff0',
+  khaki: 'f0e68c',
+  lavender: 'e6e6fa',
+  lavenderblush: 'fff0f5',
+  lawngreen: '7cfc00',
+  lemonchiffon: 'fffacd',
+  lightblue: 'add8e6',
+  lightcoral: 'f08080',
+  lightcyan: 'e0ffff',
+  lightgoldenrodyellow: 'fafad2',
+  lightgray: 'd3d3d3',
+  lightgreen: '90ee90',
+  lightgrey: 'd3d3d3',
+  lightpink: 'ffb6c1',
+  lightsalmon: 'ffa07a',
+  lightseagreen: '20b2aa',
+  lightskyblue: '87cefa',
+  lightslategray: '789',
+  lightslategrey: '789',
+  lightsteelblue: 'b0c4de',
+  lightyellow: 'ffffe0',
+  lime: '0f0',
+  limegreen: '32cd32',
+  linen: 'faf0e6',
+  magenta: 'f0f',
+  maroon: '800000',
+  mediumaquamarine: '66cdaa',
+  mediumblue: '0000cd',
+  mediumorchid: 'ba55d3',
+  mediumpurple: '9370db',
+  mediumseagreen: '3cb371',
+  mediumslateblue: '7b68ee',
+  mediumspringgreen: '00fa9a',
+  mediumturquoise: '48d1cc',
+  mediumvioletred: 'c71585',
+  midnightblue: '191970',
+  mintcream: 'f5fffa',
+  mistyrose: 'ffe4e1',
+  moccasin: 'ffe4b5',
+  navajowhite: 'ffdead',
+  navy: '000080',
+  oldlace: 'fdf5e6',
+  olive: '808000',
+  olivedrab: '6b8e23',
+  orange: 'ffa500',
+  orangered: 'ff4500',
+  orchid: 'da70d6',
+  palegoldenrod: 'eee8aa',
+  palegreen: '98fb98',
+  paleturquoise: 'afeeee',
+  palevioletred: 'db7093',
+  papayawhip: 'ffefd5',
+  peachpuff: 'ffdab9',
+  peru: 'cd853f',
+  pink: 'ffc0cb',
+  plum: 'dda0dd',
+  powderblue: 'b0e0e6',
+  purple: '800080',
+  rebeccapurple: '639',
+  red: 'f00',
+  rosybrown: 'bc8f8f',
+  royalblue: '4169e1',
+  saddlebrown: '8b4513',
+  salmon: 'fa8072',
+  sandybrown: 'f4a460',
+  seagreen: '2e8b57',
+  seashell: 'fff5ee',
+  sienna: 'a0522d',
+  silver: 'c0c0c0',
+  skyblue: '87ceeb',
+  slateblue: '6a5acd',
+  slategray: '708090',
+  slategrey: '708090',
+  snow: 'fffafa',
+  springgreen: '00ff7f',
+  steelblue: '4682b4',
+  tan: 'd2b48c',
+  teal: '008080',
+  thistle: 'd8bfd8',
+  tomato: 'ff6347',
+  turquoise: '40e0d0',
+  violet: 'ee82ee',
+  wheat: 'f5deb3',
+  white: 'fff',
+  whitesmoke: 'f5f5f5',
+  yellow: 'ff0',
+  yellowgreen: '9acd32'
 };
 
 /**
@@ -1412,7 +1421,6 @@ function nameToHex(color) {
 }
 
 //      
-
 var hexRegex = /^#[a-fA-F0-9]{6}$/;
 var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
 var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
@@ -1432,7 +1440,9 @@ var hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-
  * const color2 = 'hsla(210, 10%, 40%, 0.75)';
  */
 function parseToRgb(color) {
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   var normalizedColor = nameToHex(color);
   if (normalizedColor.match(hexRegex)) {
     return {
@@ -1492,7 +1502,7 @@ function parseToRgb(color) {
       alpha: parseFloat('' + hslaMatched[4])
     };
   }
-  throw new Error('Couldn\'t parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.');
+  throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
 }
 
 //      
@@ -1573,7 +1583,6 @@ var reduceHexValue = function reduceHexValue(value) {
 };
 
 //      
-
 function numberToHex(value) {
   var hex = value.toString(16);
   return hex.length === 1 ? "0" + hex : hex;
@@ -1664,7 +1673,6 @@ function rgba(firstValue, secondValue, thirdValue, fourthValue) {
 }
 
 //      
-
 function colorToHex(color) {
   return numberToHex(Math.round(color * 255));
 }
@@ -1751,30 +1759,23 @@ function hsla(value, saturation, lightness, alpha) {
 }
 
 //      
-
 var isRgb = function isRgb(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha !== 'number';
+  return typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 };
 
 var isRgba = function isRgba(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha === 'number';
+  return typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && typeof color.alpha === 'number';
 };
 
 var isHsl = function isHsl(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha !== 'number';
+  return typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
 };
 
 var isHsla = function isHsla(color) {
-  return (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' &&
-  // $FlowIgnoreNextLine not sure why this complains
-  typeof color.alpha === 'number';
+  return typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' && typeof color.alpha === 'number';
 };
+
+var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.';
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
@@ -1806,21 +1807,15 @@ var isHsla = function isHsla(color) {
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
+
 function toColorString(color) {
-  if (isRgba(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return rgba(color);
-  } else if (isRgb(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return rgb(color);
-  } else if (isHsla(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return hsla(color);
-  } else if (isHsl(color)) {
-    // $FlowIgnoreNextLine not sure why this complains
-    return hsl(color);
-  }
-  throw new Error('Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.');
+  if ((typeof color === 'undefined' ? 'undefined' : _typeof(color)) !== 'object') throw new Error(errMsg);
+  if (isRgba(color)) return rgba(color);
+  if (isRgb(color)) return rgb(color);
+  if (isHsla(color)) return hsla(color);
+  if (isHsl(color)) return hsl(color);
+
+  throw new Error(errMsg);
 }
 
 //      
@@ -1844,6 +1839,7 @@ function curried(f, length, acc) {
   };
 }
 
+// eslint-disable-next-line no-redeclare
 function curry(f) {
   // eslint-disable-line no-redeclare
   return curried(f, f.length, []);
@@ -2368,8 +2364,12 @@ var curriedSetSaturation = /*#__PURE__*/curry(setSaturation); // eslint-disable-
  */
 
 function shade(percentage, color) {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
+    throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
+  }
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   return curriedMix(percentage, color, 'rgb(0, 0, 0)');
 }
 
@@ -2402,8 +2402,12 @@ var curriedShade = /*#__PURE__*/curry(shade); // eslint-disable-line spaced-comm
  */
 
 function tint(percentage, color) {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
-  if (typeof color !== 'string') throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
+    throw new Error('Passed an incorrect argument to tint, please pass a percentage less than or equal to 1 and larger than or equal to -1.');
+  }
+  if (typeof color !== 'string') {
+    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
+  }
   return curriedMix(percentage, color, 'rgb(255, 255, 255)');
 }
 
@@ -2502,7 +2506,7 @@ function animation() {
   }
   var code = args.map(function (arg) {
     if (multiMode && !Array.isArray(arg) || !multiMode && Array.isArray(arg)) {
-      throw new Error('To pass multiple animations please supply them in arrays, e.g. animation([\'rotate\', \'2s\'], [\'move\', \'1s\'])\nTo pass a single animation please supply them in simple values, e.g. animation(\'rotate\', \'2s\')');
+      throw new Error("To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')");
     }
     if (Array.isArray(arg) && arg.length > 8) {
       throw new Error('The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation');
@@ -2512,7 +2516,7 @@ function animation() {
   }).join(', ');
 
   return {
-    'animation': code
+    animation: code
   };
 }
 
@@ -2575,7 +2579,7 @@ function backgrounds() {
   }
 
   return {
-    'background': properties.join(', ')
+    background: properties.join(', ')
   };
 }
 
@@ -2635,7 +2639,9 @@ function borderColor() {
 
 function borderRadius(side, radius) {
   var uppercaseSide = capitalizeString(side);
-  if (!radius || typeof radius !== 'string') throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  if (!radius || typeof radius !== 'string') {
+    throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     var _ref;
 
@@ -2715,6 +2721,8 @@ function borderWidth() {
 }
 
 //      
+
+
 function generateSelectors(template, state) {
   var stateSuffix = state ? ':' + state : '';
   return template(stateSuffix);
@@ -2729,7 +2737,9 @@ function statefulSelectors(states, template, stateMap) {
   if (states.length === 0) return generateSelectors(template, null);
   var selectors = [];
   for (var i = 0; i < states.length; i += 1) {
-    if (stateMap && stateMap.indexOf(states[i]) < 0) throw new Error('You passed an unsupported selector state to this method.');
+    if (stateMap && stateMap.indexOf(states[i]) < 0) {
+      throw new Error('You passed an unsupported selector state to this method.');
+    }
     selectors.push(generateSelectors(template, states[i]));
   }
   selectors = selectors.join(',');
@@ -2742,8 +2752,6 @@ var stateMap = [undefined, null, 'active', 'focus', 'hover'];
 function template(state) {
   return 'button' + state + ',\n  input[type="button"]' + state + ',\n  input[type="reset"]' + state + ',\n  input[type="submit"]' + state;
 }
-
-/** */
 
 /**
  * Populates selectors that target all buttons. You can pass optional states to append to the selectors.
@@ -2944,8 +2952,6 @@ function template$1(state) {
   return 'input[type="color"]' + state + ',\n    input[type="date"]' + state + ',\n    input[type="datetime"]' + state + ',\n    input[type="datetime-local"]' + state + ',\n    input[type="email"]' + state + ',\n    input[type="month"]' + state + ',\n    input[type="number"]' + state + ',\n    input[type="password"]' + state + ',\n    input[type="search"]' + state + ',\n    input[type="tel"]' + state + ',\n    input[type="text"]' + state + ',\n    input[type="time"]' + state + ',\n    input[type="url"]' + state + ',\n    input[type="week"]' + state + ',\n    input:not([type])' + state + ',\n    textarea' + state;
 }
 
-/** */
-
 /**
  * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.
  * @example
@@ -3021,7 +3027,7 @@ function transitions() {
   }
 
   return {
-    'transition': properties.join(', ')
+    transition: properties.join(', ')
   };
 }
 

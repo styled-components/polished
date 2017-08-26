@@ -6,7 +6,7 @@ function colorToInt(color: number): number {
   return Math.round(color * 255)
 }
 
-function convertToInt(red, green, blue) {
+function convertToInt(red: number, green: number, blue: number): string {
   return `${colorToInt(red)},${colorToInt(green)},${colorToInt(blue)}`
 }
 

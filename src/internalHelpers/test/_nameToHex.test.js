@@ -19,7 +19,7 @@ describe('nameToHex', () => {
     expect({ background: nameToHex('hsl(180, 50%, 50%)') }).toMatchSnapshot()
   })
   it('should return a non-string value without mutation', () => {
-    // $FlowIgnoreNextLine since this is invalid code, flow complains
+    // $FlowFixMe
     expect({ background: nameToHex(2) }).toMatchSnapshot()
   })
 })

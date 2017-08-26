@@ -1,5 +1,4 @@
 // @flow
-
 import pixelsto from '../internalHelpers/_pxto'
 
 /**

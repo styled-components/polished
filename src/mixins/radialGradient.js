@@ -9,14 +9,14 @@ type RadialGradientConfiguration = {
   shape?: string,
 }
 
-function parseFallback(colorStops: Array<string>) {
+function parseFallback(colorStops: Array<string>): string {
   return colorStops[0].split(' ')[0]
 }
 
 function constructGradientValue(
   literals: Array<string>,
   ...substitutions: Array<string>
-) {
+): string {
   let template = ''
   for (let i = 0; i < literals.length; i += 1) {
     template += literals[i]
