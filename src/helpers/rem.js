@@ -27,5 +27,8 @@ import pixelsto from '../internalHelpers/_pxto'
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const rem = /*#__PURE__*/ pixelsto('rem') // eslint-disable-line spaced-comment
+const rem: (
+  value: string | number,
+  base?: string | number,
+) => string = /*#__PURE__*/ pixelsto('rem') // eslint-disable-line spaced-comment
 export default rem

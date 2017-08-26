@@ -1,5 +1,4 @@
 // @flow
-
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
