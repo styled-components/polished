@@ -46,7 +46,7 @@ Flow frequently updates and it is possible that the version you are running may 
 .*/node_modules/polished/.*
 ```
 
-## TypeScript
+## TypeScript Definitions
 
 `✨ polished` has [TypeScript](https://www.typescriptlang.org/) definitions to allow the library to be used in any TypeScript project.
 
