@@ -1,6 +1,5 @@
 // @flow
 import parseToRgb from './parseToRgb'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Returns a number (float) representing the luminance of a color.
@@ -39,6 +38,4 @@ function getLuminance(color: string): number {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedGetLuminance = /*#__PURE__*/ curry(getLuminance) // eslint-disable-line spaced-comment
-export default curriedGetLuminance
+export default getLuminance
