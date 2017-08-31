@@ -37,6 +37,7 @@
     "complement",
     "darken",
     "desaturate",
+    "getLuminance",
     "grayscale",
     "hsl",
     "hsla",
