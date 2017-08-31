@@ -1,9 +1,6 @@
 // @flow
-import parseToRgb from './parseToRgb'
+import getLuminance from './getLuminance'
 import curry from '../internalHelpers/_curry'
-
-const h = (c: number): number =>
-  c / 255 <= 0.03928 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4
 
 /**
  * Selects black or white for best contrast depending on the luminosity of the given color.
@@ -34,10 +31,7 @@ const h = (c: number): number =>
  */
 
 function readableColor(color: string): string {
-  const c = parseToRgb(color)
-  return h(c.red) * 0.2126 + h(c.green) * 0.7152 + h(c.blue) * 0.0722 > 0.179
-    ? '#000'
-    : '#fff'
+  return getLuminance(color) > 0.179 ? '#000' : '#fff'
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment

@@ -26,6 +26,7 @@ import adjustHue from './color/adjustHue'
 import complement from './color/complement'
 import darken from './color/darken'
 import desaturate from './color/desaturate'
+import getLuminance from './color/getLuminance'
 import grayscale from './color/grayscale'
 import hsl from './color/hsl'
 import hsla from './color/hsla'
@@ -81,6 +82,7 @@ export {
   ellipsis,
   em,
   fontFace,
+  getLuminance,
   grayscale,
   invert,
   hideText,

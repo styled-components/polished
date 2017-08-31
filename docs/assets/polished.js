@@ -394,7 +394,43 @@ var set = function set(object, property, value, receiver) {
   return value;
 };
 
+var slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
 
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
 
 
 
@@ -1990,6 +2026,48 @@ function desaturate(amount, color) {
 var curriedDesaturate = /*#__PURE__*/curry(desaturate); // eslint-disable-line spaced-comment
 
 //      
+/**
+ * Returns a number (float) representing the luminance of a color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: getLuminance('#CCCD64') >= getLuminance('#0000ff') ? '#CCCD64' : '#0000ff',
+ *   background: getLuminance('rgba(58, 133, 255, 1)') >= getLuminance('rgba(255, 57, 149, 1)') ?
+ *                             'rgba(58, 133, 255, 1)' :
+ *                             'rgba(255, 57, 149, 1)',
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${getLuminance('#CCCD64') >= getLuminance('#0000ff') ? '#CCCD64' : '#0000ff'};
+ *   background: ${getLuminance('rgba(58, 133, 255, 1)') >= getLuminance('rgba(255, 57, 149, 1)') ?
+ *                             'rgba(58, 133, 255, 1)' :
+ *                             'rgba(255, 57, 149, 1)'};
+ *
+ * // CSS in JS Output
+ *
+ * div {
+ *   background: "#CCCD64";
+ *   background: "rgba(58, 133, 255, 1)";
+ * }
+ */
+function getLuminance(color) {
+  var rgbColor = parseToRgb(color);
+
+  var _Object$keys$map = Object.keys(rgbColor).map(function (key) {
+    var channel = rgbColor[key] / 255;
+    return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
+  }),
+      _Object$keys$map2 = slicedToArray(_Object$keys$map, 3),
+      r = _Object$keys$map2[0],
+      g = _Object$keys$map2[1],
+      b = _Object$keys$map2[2];
+
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+//      
 
 /**
  * Converts the color to a grayscale, by reducing its saturation to 0.
@@ -2200,10 +2278,6 @@ function opacify(amount, color) {
 var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-comment
 
 //      
-var h = function h(c) {
-  return c / 255 <= 0.03928 ? c / 255 / 12.92 : Math.pow((c / 255 + 0.055) / 1.055, 2.4);
-};
-
 /**
  * Selects black or white for best contrast depending on the luminosity of the given color.
  * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
@@ -2233,8 +2307,7 @@ var h = function h(c) {
  */
 
 function readableColor(color) {
-  var c = parseToRgb(color);
-  return h(c.red) * 0.2126 + h(c.green) * 0.7152 + h(c.blue) * 0.0722 > 0.179 ? '#000' : '#fff';
+  return getLuminance(color) > 0.179 ? '#000' : '#fff';
 }
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
@@ -3095,6 +3168,7 @@ exports.directionalProperty = directionalProperty;
 exports.ellipsis = ellipsis;
 exports.em = em;
 exports.fontFace = fontFace;
+exports.getLuminance = getLuminance;
 exports.grayscale = grayscale;
 exports.invert = invert;
 exports.hideText = hideText;
