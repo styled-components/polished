@@ -16,7 +16,7 @@ yarn add polished
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? `✨ polished` is for you!
 
 - **Make your app look great without stress**
-- **Cross framework compatible**: No matter if you're using `styled-components`, aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Cross framework compatible**: No matter if you're using [`styled-components`](https://github.com/styled-components/styled-components), aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
 - **Switching from a pre-processor to styles in JS made easy**
 
 ## Docs
