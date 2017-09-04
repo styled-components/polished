@@ -4,6 +4,7 @@ import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
+type Mix = (weight?: number, color: string, otherColor: string) => string
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
  *
@@ -35,7 +36,20 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(weight?: number = 0.5, color: string, otherColor: string): string {
+const mix: Mix = (...args) => {
+  let weight: number = 0.5
+  let color: string
+  let otherColor: string
+
+  if (typeof args[0] === 'number') {
+    weight = args[0]
+    color = args[1]
+    otherColor = args[2]
+  } else {
+    color = args[0]
+    otherColor = args[1]
+  }
+
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,
