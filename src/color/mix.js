@@ -50,7 +50,7 @@ const mix: Mix = (...args) => {
     color = args[1]
     otherColor = args[2]
   } else {
-    color = args[0]
+    color = String(args[0])
     otherColor = args[1]
   }
 
