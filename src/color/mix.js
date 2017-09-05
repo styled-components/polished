@@ -4,7 +4,11 @@ import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
-type Mix = (weight?: number, color: string, otherColor: string) => string
+type Mix = (
+  weight?: number | string,
+  color: string,
+  otherColor: string,
+) => string
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
  *
