@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to style the selection psuedo-element.
+ * CSS to style the placeholder psuedo-element.
  *
  * @example
  * // Styles as object usage
