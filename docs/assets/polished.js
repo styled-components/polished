@@ -1,7 +1,7 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.polished = global.polished || {})));
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.polished = {})));
 }(this, (function (exports) { 'use strict';
 
 //      
@@ -123,7 +123,7 @@ function stripUnit(value) {
  * Factory function that creates pixel-to-x converters
  * @private
  */
-var pxtoFactory$1 = function pxtoFactory$1(to) {
+var pxtoFactory = function pxtoFactory(to) {
   return function (pxval) {
     var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '16px';
 
@@ -181,7 +181,7 @@ var pxtoFactory$1 = function pxtoFactory$1(to) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /* #__PURE__*/pxtoFactory$1('em'); // eslint-disable-line spaced-comment
+var em = /* #__PURE__*/pxtoFactory('em'); // eslint-disable-line spaced-comment
 
 //      
 
@@ -276,15 +276,13 @@ function modularScale(steps) {
  */
 
 // Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var rem = /*#__PURE__*/pxtoFactory$1('rem'); // eslint-disable-line spaced-comment
+var rem = /*#__PURE__*/pxtoFactory('rem'); // eslint-disable-line spaced-comment
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
   return typeof obj;
 } : function (obj) {
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
-
-
 
 
 
@@ -331,30 +329,6 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-var get = function get(object, property, receiver) {
-  if (object === null) object = Function.prototype;
-  var desc = Object.getOwnPropertyDescriptor(object, property);
-
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
-
-    if (parent === null) {
-      return undefined;
-    } else {
-      return get(parent, property, receiver);
-    }
-  } else if ("value" in desc) {
-    return desc.value;
-  } else {
-    var getter = desc.get;
-
-    if (getter === undefined) {
-      return undefined;
-    }
-
-    return getter.call(receiver);
-  }
-};
 
 
 
@@ -372,27 +346,8 @@ var get = function get(object, property, receiver) {
 
 
 
-var set = function set(object, property, value, receiver) {
-  var desc = Object.getOwnPropertyDescriptor(object, property);
 
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
 
-    if (parent !== null) {
-      set(parent, property, value, receiver);
-    }
-  } else if ("value" in desc && desc.writable) {
-    desc.value = value;
-  } else {
-    var setter = desc.set;
-
-    if (setter !== undefined) {
-      setter.call(receiver, value);
-    }
-  }
-
-  return value;
-};
 
 var slicedToArray = function () {
   function sliceIterator(arr, i) {
@@ -860,7 +815,7 @@ function normalize(excludeOpinionated) {
 //      
 
 /**
- * CSS to style the selection psuedo-element.
+ * CSS to style the placeholder psuedo-element.
  *
  * @example
  * // Styles as object usage
