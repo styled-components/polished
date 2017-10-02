@@ -34,6 +34,5 @@ function readableColor(color: string): string {
   return getLuminance(color) > 0.179 ? '#000' : '#fff'
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedReadableColor = /*#__PURE__*/ curry(readableColor) // eslint-disable-line spaced-comment
+const curriedReadableColor = curry(readableColor)
 export default curriedReadableColor

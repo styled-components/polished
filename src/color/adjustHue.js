@@ -36,6 +36,5 @@ function adjustHue(degree: number, color: string): string {
   })
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedAdjustHue = /*#__PURE__*/ curry(adjustHue) // eslint-disable-line spaced-comment
+const curriedAdjustHue = curry(adjustHue)
 export default curriedAdjustHue

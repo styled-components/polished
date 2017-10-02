@@ -56,6 +56,7 @@ const plugins = [
     plugins: [
       'external-helpers',
       'transform-object-rest-spread',
+      'annotate-pure-calls',
     ],
     // fixing temporary rollup's regression, remove when rollup/rollup#1595 gets solved
     externalHelpersWhitelist: babelHelpersList.filter(helperName => helperName !== 'asyncGenerator'),
