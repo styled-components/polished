@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to style the selection psuedo-element.
+ * CSS to style the selection pseudo-element.
  *
  * @example
  * // Styles as object usage
