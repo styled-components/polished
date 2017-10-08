@@ -6,11 +6,8 @@ describe('ellipsis', () => {
     expect({ ...ellipsis('300px') }).toMatchSnapshot()
   })
 
-  it('should properly add rules when block has existing rules', () => {
-    expect({
-      background: 'red',
-      ...ellipsis('300px'),
-    }).toMatchSnapshot()
+  it('should pass parameter of type integer to the value of max-width', () => {
+    expect({ ...ellipsis(300) }).toMatchSnapshot()
   })
 
   it('should default max-width to 100%', () => {

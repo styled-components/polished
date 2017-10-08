@@ -24,7 +24,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function margin(...values: Array<?string>): Object {
+function margin(...values: Array<?string | ?number>): Object {
   return directionalProperty('margin', ...values)
 }
 

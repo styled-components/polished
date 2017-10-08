@@ -14,20 +14,15 @@ describe('borderRadius', () => {
   it('returns the proper values for the left side', () => {
     expect(borderRadius('left', '5px')).toMatchSnapshot()
   })
-  it('should throw an error when an invalid radius value is provided', () => {
-    expect(() => {
-      // $FlowFixMe
-      borderRadius('top')
-    }).toThrow(
-      'borderRadius expects a radius value as a string as the second argument.',
-    )
+  it('returns the proper values when passed an integer', () => {
+    expect(borderRadius('left', 5)).toMatchSnapshot()
   })
   it('should throw an error when no radius value is provided', () => {
     expect(() => {
       // $FlowFixMe
-      borderRadius('top', 100)
+      borderRadius('top')
     }).toThrow(
-      'borderRadius expects a radius value as a string as the second argument.',
+      'borderRadius expects a radius value as a string or number as the second argument.',
     )
   })
   it('should throw an error when an invalid side value is provided', () => {

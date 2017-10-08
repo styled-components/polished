@@ -5,11 +5,10 @@ Object {
 }
 `;
 
-exports[`size should properly add rules when block has existing rules 1`] = `
+exports[`size should pass parameters to the values of height and width when passed integers 1`] = `
 Object {
-  "background": "red",
-  "height": "300px",
-  "width": "250px",
+  "height": 300,
+  "width": 250,
 }
 `;
 

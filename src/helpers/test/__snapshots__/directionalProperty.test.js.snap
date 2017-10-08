@@ -1,9 +1,35 @@
+exports[`directionalProperty properly applies a integer value when passed only one 1`] = `
+Object {
+  "borderBottom": 12,
+  "borderLeft": 12,
+  "borderRight": 12,
+  "borderTop": 12,
+}
+`;
+
 exports[`directionalProperty properly applies a value when passed only one 1`] = `
 Object {
   "borderBottom": "12px",
   "borderLeft": "12px",
   "borderRight": "12px",
   "borderTop": "12px",
+}
+`;
+
+exports[`directionalProperty properly applies values when passed a mixture of three value types 1`] = `
+Object {
+  "borderLeft": "24px",
+  "borderRight": "24px",
+  "borderTop": 12,
+}
+`;
+
+exports[`directionalProperty properly applies values when passed a string and an integer 1`] = `
+Object {
+  "borderBottom": 12,
+  "borderLeft": "24px",
+  "borderRight": "24px",
+  "borderTop": 12,
 }
 `;
 
@@ -31,6 +57,23 @@ Object {
   "borderLeft": "24px",
   "borderRight": "24px",
   "borderTop": "12px",
+}
+`;
+
+exports[`directionalProperty properly applies values when passed two integers 1`] = `
+Object {
+  "borderBottom": 12,
+  "borderLeft": 24,
+  "borderRight": 24,
+  "borderTop": 12,
+}
+`;
+
+exports[`directionalProperty properly applies valuew when passed a mixture of four value types 1`] = `
+Object {
+  "borderBottom": 36,
+  "borderRight": "24px",
+  "borderTop": 12,
 }
 `;
 

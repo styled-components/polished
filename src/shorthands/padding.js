@@ -24,7 +24,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function padding(...values: Array<?string>): Object {
+function padding(...values: Array<?string | ?number>): Object {
   return directionalProperty('padding', ...values)
 }
 

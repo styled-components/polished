@@ -18,6 +18,16 @@ Object {
 }
 `;
 
+exports[`position properly applies values when passed four integers 1`] = `
+Object {
+  "bottom": 36,
+  "left": 48,
+  "position": "relative",
+  "right": 24,
+  "top": 12,
+}
+`;
+
 exports[`position properly applies values when passed three 1`] = `
 Object {
   "bottom": "36px",

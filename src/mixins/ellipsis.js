@@ -26,7 +26,7 @@
  * }
  */
 
-function ellipsis(width?: string = '100%'): Object {
+function ellipsis(width?: string | number = '100%'): Object {
   return {
     display: 'inline-block',
     maxWidth: width,
