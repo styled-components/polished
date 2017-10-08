@@ -23,7 +23,7 @@ import directionalProperty from '../helpers/directionalProperty'
  *   'borderLeftWidth': '48px'
  * }
  */
-function borderWidth(...values: Array<?string>): Object {
+function borderWidth(...values: Array<?string | ?number>): Object {
   return directionalProperty('borderWidth', ...values)
 }
 

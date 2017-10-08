@@ -16,6 +16,15 @@ Object {
 }
 `;
 
+exports[`padding properly applies values when passed four 2`] = `
+Object {
+  "paddingBottom": 36,
+  "paddingLeft": 48,
+  "paddingRight": 24,
+  "paddingTop": 12,
+}
+`;
+
 exports[`padding properly applies values when passed three 1`] = `
 Object {
   "paddingBottom": "36px",

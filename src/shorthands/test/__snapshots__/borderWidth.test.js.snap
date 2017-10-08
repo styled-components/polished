@@ -16,6 +16,15 @@ Object {
 }
 `;
 
+exports[`borderWidth properly applies values when passed integers 1`] = `
+Object {
+  "borderBottomWidth": 36,
+  "borderLeftWidth": 48,
+  "borderRightWidth": 24,
+  "borderTopWidth": 12,
+}
+`;
+
 exports[`borderWidth properly applies values when passed three 1`] = `
 Object {
   "borderBottomWidth": "36px",

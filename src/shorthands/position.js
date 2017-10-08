@@ -48,7 +48,7 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
 
 function position(
   positionKeyword: string | null,
-  ...values: Array<?string>
+  ...values: Array<?string | ?number>
 ): Object {
   if (positionMap.indexOf(positionKeyword) >= 0) {
     return {

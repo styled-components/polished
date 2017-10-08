@@ -25,3 +25,10 @@ Object {
   "borderTopRightRadius": "5px",
 }
 `;
+
+exports[`borderRadius returns the proper values when passed an integer 1`] = `
+Object {
+  "borderBottomLeftRadius": 5,
+  "borderTopLeftRadius": 5,
+}
+`;

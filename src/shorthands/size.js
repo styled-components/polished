@@ -21,7 +21,10 @@
  * }
  */
 
-function size(height: string, width?: string = height): Object {
+function size(
+  height: string | number,
+  width?: string | number = height,
+): Object {
   return {
     height,
     width,
