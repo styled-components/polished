@@ -40,6 +40,5 @@ function shade(percentage: number, color: string): string {
   return mix(percentage, color, 'rgb(0, 0, 0)')
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-const curriedShade = /*#__PURE__*/ curry(shade) // eslint-disable-line spaced-comment
+const curriedShade = curry(shade)
 export default curriedShade
