@@ -19,9 +19,19 @@ describe('directionalProperty', () => {
     expect(directionalProperty('border', '12px')).toMatchSnapshot()
   })
 
+  it('properly applies a integer value when passed only one', () => {
+    expect(directionalProperty('border', 12)).toMatchSnapshot()
+  })
+
   // Two Params
   it('properly applies values when passed two', () => {
     expect(directionalProperty('border', '12px', '24px')).toMatchSnapshot()
+  })
+  it('properly applies values when passed two integers', () => {
+    expect(directionalProperty('border', 12, 24)).toMatchSnapshot()
+  })
+  it('properly applies values when passed a string and an integer', () => {
+    expect(directionalProperty('border', 12, '24px')).toMatchSnapshot()
   })
   it('properly skips top and bottom properties when first value is null', () => {
     expect(directionalProperty('border', null, '12px')).toMatchSnapshot()
@@ -51,6 +61,9 @@ describe('directionalProperty', () => {
       directionalProperty('border', '12px', '24px', null),
     ).toMatchSnapshot()
   })
+  it('properly applies values when passed a mixture of three value types', () => {
+    expect(directionalProperty('border', 12, '24px', null)).toMatchSnapshot()
+  })
 
   // Four Params
   it('properly applies values when passed four', () => {
@@ -76,6 +89,11 @@ describe('directionalProperty', () => {
   it('properly skips left property when fourth value is null', () => {
     expect(
       directionalProperty('border', '12px', '24px', '36px', null),
+    ).toMatchSnapshot()
+  })
+  it('properly applies valuew when passed a mixture of four value types', () => {
+    expect(
+      directionalProperty('border', 12, '24px', 36, null),
     ).toMatchSnapshot()
   })
 })

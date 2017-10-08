@@ -22,11 +22,11 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  * }
  */
 
-function borderRadius(side: string, radius: string): Object {
+function borderRadius(side: string, radius: string | number): Object {
   const uppercaseSide = capitalizeString(side)
-  if (!radius || typeof radius !== 'string') {
+  if (!radius) {
     throw new Error(
-      'borderRadius expects a radius value as a string as the second argument.',
+      'borderRadius expects a radius value as a string or number as the second argument.',
     )
   }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {

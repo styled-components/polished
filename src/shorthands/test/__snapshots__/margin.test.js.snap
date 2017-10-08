@@ -16,6 +16,15 @@ Object {
 }
 `;
 
+exports[`margin properly applies values when passed four 2`] = `
+Object {
+  "marginBottom": 36,
+  "marginLeft": 48,
+  "marginRight": 24,
+  "marginTop": 12,
+}
+`;
+
 exports[`margin properly applies values when passed three 1`] = `
 Object {
   "marginBottom": "36px",
