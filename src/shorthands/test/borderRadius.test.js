@@ -17,6 +17,9 @@ describe('borderRadius', () => {
   it('returns the proper values when passed an integer', () => {
     expect(borderRadius('left', 5)).toMatchSnapshot()
   })
+  it('returns the proper values when passed zero', () => {
+    expect(borderRadius('left', 0)).toMatchSnapshot()
+  })
   it('should throw an error when no radius value is provided', () => {
     expect(() => {
       // $FlowFixMe

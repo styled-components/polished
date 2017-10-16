@@ -17,4 +17,7 @@ describe('padding', () => {
   it('properly applies values when passed four', () => {
     expect(padding(12, 24, 36, 48)).toMatchSnapshot()
   })
+  it('properly applies zero value', () => {
+    expect(padding(0)).toMatchSnapshot()
+  })
 })

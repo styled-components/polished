@@ -17,4 +17,7 @@ describe('margin', () => {
   it('properly applies values when passed four', () => {
     expect(margin(12, 24, 36, 48)).toMatchSnapshot()
   })
+  it('properly applies zero value', () => {
+    expect(margin(0)).toMatchSnapshot()
+  })
 })

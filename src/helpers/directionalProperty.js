@@ -20,7 +20,7 @@ function generateStyles(
 ) {
   const styles = {}
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i]
     }
   }

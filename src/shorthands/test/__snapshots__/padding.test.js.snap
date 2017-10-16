@@ -42,3 +42,12 @@ Object {
   "paddingTop": "12px",
 }
 `;
+
+exports[`padding properly applies zero value 1`] = `
+Object {
+  "paddingBottom": 0,
+  "paddingLeft": 0,
+  "paddingRight": 0,
+  "paddingTop": 0,
+}
+`;

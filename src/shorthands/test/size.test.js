@@ -13,4 +13,8 @@ describe('size', () => {
   it('should pass parameters to the values of height and width when passed integers', () => {
     expect({ ...size(300, 250) }).toMatchSnapshot()
   })
+
+  it('should pass parameters to the values of height and width when passed zero', () => {
+    expect({ ...size(0) }).toMatchSnapshot()
+  })
 })

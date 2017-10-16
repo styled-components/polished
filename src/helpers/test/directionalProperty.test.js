@@ -14,6 +14,10 @@ describe('directionalProperty', () => {
     expect(directionalProperty('', '12px')).toMatchSnapshot()
   })
 
+  it('properly sets unitless 0', () => {
+    expect(directionalProperty('', 0)).toMatchSnapshot()
+  })
+
   // One Param
   it('properly applies a value when passed only one', () => {
     expect(directionalProperty('border', '12px')).toMatchSnapshot()

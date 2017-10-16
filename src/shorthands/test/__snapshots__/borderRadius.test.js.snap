@@ -32,3 +32,10 @@ Object {
   "borderTopLeftRadius": 5,
 }
 `;
+
+exports[`borderRadius returns the proper values when passed zero 1`] = `
+Object {
+  "borderBottomLeftRadius": 0,
+  "borderTopLeftRadius": 0,
+}
+`;

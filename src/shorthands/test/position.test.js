@@ -22,4 +22,7 @@ describe('position', () => {
   it('properly applies values when passed four integers', () => {
     expect(position('relative', 12, 24, 36, 48)).toMatchSnapshot()
   })
+  it('properly applies zero value', () => {
+    expect(position('relative', 0)).toMatchSnapshot()
+  })
 })
