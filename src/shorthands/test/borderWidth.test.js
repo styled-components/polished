@@ -17,4 +17,7 @@ describe('borderWidth', () => {
   it('properly applies values when passed integers', () => {
     expect(borderWidth(12, 24, 36, 48)).toMatchSnapshot()
   })
+  it('properly applies values when passed zero', () => {
+    expect(borderWidth(0)).toMatchSnapshot()
+  })
 })

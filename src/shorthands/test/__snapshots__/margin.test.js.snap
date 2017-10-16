@@ -42,3 +42,12 @@ Object {
   "marginTop": "12px",
 }
 `;
+
+exports[`margin properly applies zero value 1`] = `
+Object {
+  "marginBottom": 0,
+  "marginLeft": 0,
+  "marginRight": 0,
+  "marginTop": 0,
+}
+`;

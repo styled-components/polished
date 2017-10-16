@@ -48,6 +48,16 @@ Object {
 }
 `;
 
+exports[`position properly applies zero value 1`] = `
+Object {
+  "bottom": 0,
+  "left": 0,
+  "position": "relative",
+  "right": 0,
+  "top": 0,
+}
+`;
+
 exports[`position properly ignores position property, when not passed one 1`] = `
 Object {
   "bottom": "36px",

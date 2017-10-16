@@ -42,3 +42,12 @@ Object {
   "borderTopWidth": "12px",
 }
 `;
+
+exports[`borderWidth properly applies values when passed zero 1`] = `
+Object {
+  "borderBottomWidth": 0,
+  "borderLeftWidth": 0,
+  "borderRightWidth": 0,
+  "borderTopWidth": 0,
+}
+`;
