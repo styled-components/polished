@@ -21,7 +21,7 @@ Here are some useful commands for development:
 - Run tests via `npm test`.
 - Update Jest snapshots via `npm test -- -u`.
 - Rebuild library and docs with every change via `npm run build:watch`
-- Serve the docs locally via ``.
+- Serve the docs locally via `npm run docs`.
 
 ## Committing
 
