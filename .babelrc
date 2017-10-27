@@ -1,11 +1,14 @@
 {
   "presets": [
-    "env"
+    ["env", {
+      "loose": true
+    }]
   ],
   "plugins": [
     "transform-object-rest-spread",
     "add-module-exports",
     "transform-flow-strip-types",
-    "syntax-trailing-function-commas"
+    "syntax-trailing-function-commas",
+    "annotate-pure-calls"
   ]
 }
