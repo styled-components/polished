@@ -1,0 +1,38 @@
+exports[`border properly applies a value when passed only borderWidth 1`] = `
+Object {
+  "borderBottomWidth": "2px",
+  "borderLeftWidth": "2px",
+  "borderRightWidth": "2px",
+  "borderTopWidth": "2px",
+}
+`;
+
+exports[`border properly applies values when passed borderWidth and borderStyle 1`] = `
+Object {
+  "borderBottomStyle": "solid",
+  "borderBottomWidth": "2px",
+  "borderLeftStyle": "solid",
+  "borderLeftWidth": "2px",
+  "borderRightStyle": "solid",
+  "borderRightWidth": "2px",
+  "borderTopStyle": "solid",
+  "borderTopWidth": "2px",
+}
+`;
+
+exports[`border properly applies values when passed borderWidth, borderStyle and borderColor 1`] = `
+Object {
+  "borderBottomColor": "#000",
+  "borderBottomStyle": "dashed",
+  "borderBottomWidth": "2px",
+  "borderLeftColor": "#000",
+  "borderLeftStyle": "dashed",
+  "borderLeftWidth": "2px",
+  "borderRightColor": "#000",
+  "borderRightStyle": "dashed",
+  "borderRightWidth": "2px",
+  "borderTopColor": "#000",
+  "borderTopStyle": "dashed",
+  "borderTopWidth": "2px",
+}
+`;
