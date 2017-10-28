@@ -3,7 +3,7 @@ import directionalProperty from '../helpers/directionalProperty'
 const propertyMap = ['borderWidth', 'borderStyle', 'borderColor']
 
 /**
- * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
+ * Shorthand that accepts three values, one of each of the properties borderWidth, borderStyle and borderColor.
  * @example
  * // Styles as object usage
  * const styles = {
