@@ -51,7 +51,7 @@ const plugins = [
   babel({
     babelrc: false,
     presets: [
-      ['env', { 'modules': false }],
+      ['env', { 'loose': true, 'modules': false }],
     ],
     plugins: [
       'external-helpers',
