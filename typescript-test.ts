@@ -22,6 +22,7 @@ const fontFace: object = polished.fontFace({
 });
 
 const hideText: object = polished.hideText();
+const hideVisually: object = polished.hideVisually();
 
 let hiDPI: string = polished.hiDPI();
 hiDPI = polished.hiDPI(1.5);
