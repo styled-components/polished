@@ -11,6 +11,7 @@ import clearFix from './mixins/clearFix'
 import ellipsis from './mixins/ellipsis'
 import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
+import hideVisually from './mixins/hideVisually'
 import hiDPI from './mixins/hiDPI'
 import normalize from './mixins/normalize'
 import placeholder from './mixins/placeholder'
@@ -86,6 +87,7 @@ export {
   grayscale,
   invert,
   hideText,
+  hideVisually,
   hiDPI,
   hsl,
   hsla,
