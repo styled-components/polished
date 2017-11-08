@@ -22,6 +22,7 @@
     "fontFace",
     "hiDPI",
     "hideText",
+    "hideVisually",
     "normalize",
     "placeholder",
     "radialGradient",

@@ -30,7 +30,7 @@ function generateProperty(property, position) {
 function generateStyles(property, valuesWithDefaults) {
   var styles = {};
   for (var i = 0; i < valuesWithDefaults.length; i += 1) {
-    if (valuesWithDefaults[i]) {
+    if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
       styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
     }
   }
@@ -180,8 +180,7 @@ var pxtoFactory = function pxtoFactory(to) {
  * }
  */
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var em = /* #__PURE__*/pxtoFactory('em'); // eslint-disable-line spaced-comment
+var em = /*#__PURE__*/pxtoFactory('em');
 
 //      
 
@@ -275,127 +274,7 @@ function modularScale(steps) {
  * }
  */
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var rem = /*#__PURE__*/pxtoFactory('rem'); // eslint-disable-line spaced-comment
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var defineProperty = function (obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var slicedToArray = function () {
-  function sliceIterator(arr, i) {
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _e = undefined;
-
-    try {
-      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-        _arr.push(_s.value);
-
-        if (i && _arr.length === i) break;
-      }
-    } catch (err) {
-      _d = true;
-      _e = err;
-    } finally {
-      try {
-        if (!_n && _i["return"]) _i["return"]();
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-
-    return _arr;
-  }
-
-  return function (arr, i) {
-    if (Array.isArray(arr)) {
-      return arr;
-    } else if (Symbol.iterator in Object(arr)) {
-      return sliceIterator(arr, i);
-    } else {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
-    }
-  };
-}();
-
-
-
-var taggedTemplateLiteral = function (strings, raw) {
-  return Object.freeze(Object.defineProperties(strings, {
-    raw: {
-      value: Object.freeze(raw)
-    }
-  }));
-};
+var rem = /*#__PURE__*/pxtoFactory('rem');
 
 //      
 
@@ -423,14 +302,16 @@ var taggedTemplateLiteral = function (strings, raw) {
  */
 
 function clearFix() {
+  var _ref;
+
   var parent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '&';
 
   var pseudoSelector = parent + '::after';
-  return defineProperty({}, pseudoSelector, {
+  return _ref = {}, _ref[pseudoSelector] = {
     clear: 'both',
     content: '""',
     display: 'table'
-  });
+  }, _ref;
 }
 
 //      
@@ -608,6 +489,54 @@ function hideText() {
 //      
 
 /**
+ * CSS to hide content visually but remain accessible to screen readers.
+ * from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121)
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   ...hideVisually(),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${hideVisually()};
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * 'div': {
+ *   'border': '0',
+ *   'clip': 'rect(0 0 0 0)',
+ *   'clipPath': 'inset(50%)',
+ *   'height': '1px',
+ *   'margin': '-1px',
+ *   'overflow': 'hidden',
+ *   'padding': '0',
+ *   'position': 'absolute',
+ *   'whiteSpace': 'nowrap',
+ *   'width': '1px',
+ * }
+ */
+
+function hideVisually() {
+  return {
+    border: '0',
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: '1px',
+    margin: '-1px',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'absolute',
+    whiteSpace: 'nowrap',
+    width: '1px'
+  };
+}
+
+//      
+
+/**
  * Generates a media query to target HiDPI devices.
  *
  * @example
@@ -642,7 +571,77 @@ function hiDPI() {
   return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
 }
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var taggedTemplateLiteralLoose = function (strings, raw) {
+  strings.raw = raw;
+  return strings;
+};
+
 var _opinionatedRules;
+var _abbrTitle;
 var _unopinionatedRules;
 
 //      
@@ -655,13 +654,13 @@ var opinionatedRules = (_opinionatedRules = {
     margin: '0'
   }
 
-}, defineProperty(_opinionatedRules, 'a:active,\n  a:hover', {
+}, _opinionatedRules['a:active,\n  a:hover'] = {
   outlineWidth: '0'
-}), defineProperty(_opinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
+}, _opinionatedRules['button,\n  input,\n  optgroup,\n  select,\n  textarea'] = {
   fontFamily: 'sans-serif',
   fontSize: '100%',
   lineHeight: '1.15'
-}), _opinionatedRules);
+}, _opinionatedRules);
 
 var unopinionatedRules = (_unopinionatedRules = {
   html: {
@@ -669,111 +668,111 @@ var unopinionatedRules = (_unopinionatedRules = {
     textSizeAdjust: '100%'
   }
 
-}, defineProperty(_unopinionatedRules, 'article,\n  aside,\n  footer,\n  header,\n  nav,\n  section', {
+}, _unopinionatedRules['article,\n  aside,\n  footer,\n  header,\n  nav,\n  section'] = {
   display: 'block'
-}), defineProperty(_unopinionatedRules, 'h1', {
+}, _unopinionatedRules.h1 = {
   fontSize: '2em',
   margin: '0.67em 0'
-}), defineProperty(_unopinionatedRules, 'figcaption,\n  figure,\n  main', {
+}, _unopinionatedRules['figcaption,\n  figure,\n  main'] = {
   display: 'block'
-}), defineProperty(_unopinionatedRules, 'figure', {
+}, _unopinionatedRules.figure = {
   margin: '1em 40px'
-}), defineProperty(_unopinionatedRules, 'hr', {
+}, _unopinionatedRules.hr = {
   boxSizing: 'content-box',
   height: '0',
   overflow: 'visible'
-}), defineProperty(_unopinionatedRules, 'pre', {
+}, _unopinionatedRules.pre = {
   fontFamily: 'monospace, monospace',
   fontSize: '1em'
-}), defineProperty(_unopinionatedRules, 'a', {
+}, _unopinionatedRules.a = {
   'background-color': 'transparent',
   '-webkit-text-decoration-skip': 'objects'
-}), defineProperty(_unopinionatedRules, 'abbr[title]', defineProperty({
+}, _unopinionatedRules['abbr[title]'] = (_abbrTitle = {
   borderBottom: 'none',
   textDecoration: 'underline'
-}, 'textDecoration', 'underline dotted')), defineProperty(_unopinionatedRules, 'b,\n  strong', {
+}, _abbrTitle['textDecoration'] = 'underline dotted', _abbrTitle), _unopinionatedRules['b,\n  strong'] = {
   fontWeight: 'inherit'
-}), defineProperty(_unopinionatedRules, 'code,\n  kbd,\n  samp', {
+}, _unopinionatedRules['code,\n  kbd,\n  samp'] = {
   fontFamily: 'monospace, monospace',
   fontSize: '1em'
-}), defineProperty(_unopinionatedRules, 'dfn', {
+}, _unopinionatedRules.dfn = {
   fontStyle: 'italic'
-}), defineProperty(_unopinionatedRules, 'mark', {
+}, _unopinionatedRules.mark = {
   backgroundColor: '#ff0',
   color: '#000'
-}), defineProperty(_unopinionatedRules, 'small', {
+}, _unopinionatedRules.small = {
   fontSize: '80%'
-}), defineProperty(_unopinionatedRules, 'sub,\n  sup', {
+}, _unopinionatedRules['sub,\n  sup'] = {
   fontSize: '75%',
   lineHeight: '0',
   position: 'relative',
   verticalAlign: 'baseline'
-}), defineProperty(_unopinionatedRules, 'sub', {
+}, _unopinionatedRules.sub = {
   bottom: '-0.25em'
-}), defineProperty(_unopinionatedRules, 'sup', {
+}, _unopinionatedRules.sup = {
   top: '-0.5em'
-}), defineProperty(_unopinionatedRules, 'audio,\n  video', {
+}, _unopinionatedRules['audio,\n  video'] = {
   display: 'inline-block'
-}), defineProperty(_unopinionatedRules, 'audio:not([controls])', {
+}, _unopinionatedRules['audio:not([controls])'] = {
   display: 'none',
   height: '0'
-}), defineProperty(_unopinionatedRules, 'img', {
+}, _unopinionatedRules.img = {
   borderStyle: 'none'
-}), defineProperty(_unopinionatedRules, 'svg:not(:root)', {
+}, _unopinionatedRules['svg:not(:root)'] = {
   overflow: 'hidden'
-}), defineProperty(_unopinionatedRules, 'button,\n  input,\n  optgroup,\n  select,\n  textarea', {
+}, _unopinionatedRules['button,\n  input,\n  optgroup,\n  select,\n  textarea'] = {
   margin: '0'
-}), defineProperty(_unopinionatedRules, 'button,\n  input', {
+}, _unopinionatedRules['button,\n  input'] = {
   overflow: 'visible'
-}), defineProperty(_unopinionatedRules, 'button,\n  select', {
+}, _unopinionatedRules['button,\n  select'] = {
   textTransform: 'none'
-}), defineProperty(_unopinionatedRules, 'button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]', {
+}, _unopinionatedRules['button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]'] = {
   '-webkit-appearance': 'button'
-}), defineProperty(_unopinionatedRules, 'button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner', {
+}, _unopinionatedRules['button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner'] = {
   borderStyle: 'none',
   padding: '0'
-}), defineProperty(_unopinionatedRules, 'button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring', {
+}, _unopinionatedRules['button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring'] = {
   outline: '1px dotted ButtonText'
-}), defineProperty(_unopinionatedRules, 'fieldset', {
+}, _unopinionatedRules.fieldset = {
   border: '1px solid #c0c0c0',
   margin: '0 2px',
   padding: '0.35em 0.625em 0.75em'
-}), defineProperty(_unopinionatedRules, 'legend', {
+}, _unopinionatedRules.legend = {
   boxSizing: 'border-box',
   color: 'inherit',
   display: 'table',
   maxWidth: '100%',
   padding: '0',
   whiteSpace: 'normal'
-}), defineProperty(_unopinionatedRules, 'progress', {
+}, _unopinionatedRules.progress = {
   display: 'inline-block',
   verticalAlign: 'baseline'
-}), defineProperty(_unopinionatedRules, 'textarea', {
+}, _unopinionatedRules.textarea = {
   overflow: 'auto'
-}), defineProperty(_unopinionatedRules, '[type="checkbox"],\n  [type="radio"]', {
+}, _unopinionatedRules['[type="checkbox"],\n  [type="radio"]'] = {
   boxSizing: 'border-box',
   padding: '0'
-}), defineProperty(_unopinionatedRules, '[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button', {
+}, _unopinionatedRules['[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button'] = {
   height: 'auto'
-}), defineProperty(_unopinionatedRules, '[type="search"]', {
+}, _unopinionatedRules['[type="search"]'] = {
   '-webkit-appearance': 'textfield',
   outlineOffset: '-2px'
-}), defineProperty(_unopinionatedRules, '[type="search"]::-webkit-search-cancel-button,\n  [type="search"]::-webkit-search-decoration', {
+}, _unopinionatedRules['[type="search"]::-webkit-search-cancel-button,\n  [type="search"]::-webkit-search-decoration'] = {
   '-webkit-appearance': 'none'
-}), defineProperty(_unopinionatedRules, '::-webkit-file-upload-button', {
+}, _unopinionatedRules['::-webkit-file-upload-button'] = {
   '-webkit-appearance': 'button',
   font: 'inherit'
-}), defineProperty(_unopinionatedRules, 'details,\n  menu', {
+}, _unopinionatedRules['details,\n  menu'] = {
   display: 'block'
-}), defineProperty(_unopinionatedRules, 'summary', {
+}, _unopinionatedRules.summary = {
   display: 'list-item'
-}), defineProperty(_unopinionatedRules, 'canvas', {
+}, _unopinionatedRules.canvas = {
   display: 'inline-block'
-}), defineProperty(_unopinionatedRules, 'template', {
+}, _unopinionatedRules.template = {
   display: 'none'
-}), defineProperty(_unopinionatedRules, '[hidden]', {
+}, _unopinionatedRules['[hidden]'] = {
   display: 'none'
-}), _unopinionatedRules);
+}, _unopinionatedRules);
 
 function mergeRules(baseRules, additionalRules) {
   var mergedRules = _extends({}, baseRules);
@@ -851,10 +850,10 @@ function placeholder(styles) {
 
   var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '&';
 
-  return _ref = {}, defineProperty(_ref, parent + '::-webkit-input-placeholder', _extends({}, styles)), defineProperty(_ref, parent + ':-moz-placeholder', _extends({}, styles)), defineProperty(_ref, parent + '::-moz-placeholder', _extends({}, styles)), defineProperty(_ref, parent + ':-ms-input-placeholder', _extends({}, styles)), _ref;
+  return _ref = {}, _ref[parent + '::-webkit-input-placeholder'] = _extends({}, styles), _ref[parent + ':-moz-placeholder'] = _extends({}, styles), _ref[parent + '::-moz-placeholder'] = _extends({}, styles), _ref[parent + ':-ms-input-placeholder'] = _extends({}, styles), _ref;
 }
 
-var _templateObject = taggedTemplateLiteral(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
+var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
 
 //      
 
@@ -963,6 +962,9 @@ function radialGradient(_ref) {
  */
 function retinaImage(filename, backgroundSize) {
   var extension = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'png';
+
+  var _ref;
+
   var retinaFilename = arguments[3];
   var retinaSuffix = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '_2x';
 
@@ -973,18 +975,18 @@ function retinaImage(filename, backgroundSize) {
   var ext = extension.replace(/^\./, '');
   var rFilename = retinaFilename ? retinaFilename + '.' + ext : '' + filename + retinaSuffix + '.' + ext;
 
-  return defineProperty({
+  return _ref = {
     backgroundImage: 'url(' + filename + '.' + ext + ')'
-  }, hiDPI(), {
+  }, _ref[hiDPI()] = {
     backgroundImage: 'url(' + rFilename + ')',
     backgroundSize: backgroundSize
-  });
+  }, _ref;
 }
 
 //      
 
 /**
- * CSS to style the selection psuedo-element.
+ * CSS to style the selection pseudo-element.
  *
  * @example
  * // Styles as object usage
@@ -1016,7 +1018,7 @@ function selection(styles) {
 
   var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-  return _ref = {}, defineProperty(_ref, parent + '::-moz-selection', _extends({}, styles)), defineProperty(_ref, parent + '::selection', _extends({}, styles)), _ref;
+  return _ref = {}, _ref[parent + '::-moz-selection'] = _extends({}, styles), _ref[parent + '::selection'] = _extends({}, styles), _ref;
 }
 
 //      
@@ -1136,6 +1138,8 @@ var reverseDirection = {
  */
 
 function triangle(_ref) {
+  var _ref2;
+
   var pointingDirection = _ref.pointingDirection,
       height = _ref.height,
       width = _ref.width,
@@ -1149,13 +1153,13 @@ function triangle(_ref) {
     throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit');
   }
 
-  return defineProperty({
+  return _ref2 = {
     borderColor: backgroundColor,
     width: '0',
     height: '0',
     borderWidth: getBorderWidth(pointingDirection, unitlessHeight, unitlessWidth),
     borderStyle: 'solid'
-  }, 'border' + reverseDirection[pointingDirection] + 'Color', foregroundColor + ' !important');
+  }, _ref2['border' + reverseDirection[pointingDirection] + 'Color'] = foregroundColor + ' !important', _ref2;
 }
 
 //      
@@ -1869,8 +1873,7 @@ function adjustHue(degree, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedAdjustHue = /*#__PURE__*/curry(adjustHue); // eslint-disable-line spaced-comment
+var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
 
 //      
 
@@ -1941,8 +1944,7 @@ function darken(amount, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDarken = /*#__PURE__*/curry(darken); // eslint-disable-line spaced-comment
+var curriedDarken = /*#__PURE__*/curry(darken);
 
 //      
 
@@ -1977,8 +1979,7 @@ function desaturate(amount, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedDesaturate = /*#__PURE__*/curry(desaturate); // eslint-disable-line spaced-comment
+var curriedDesaturate = /*#__PURE__*/curry(desaturate);
 
 //      
 /**
@@ -2014,10 +2015,9 @@ function getLuminance(color) {
     var channel = rgbColor[key] / 255;
     return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
   }),
-      _Object$keys$map2 = slicedToArray(_Object$keys$map, 3),
-      r = _Object$keys$map2[0],
-      g = _Object$keys$map2[1],
-      b = _Object$keys$map2[2];
+      r = _Object$keys$map[0],
+      g = _Object$keys$map[1],
+      b = _Object$keys$map[2];
 
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
@@ -2119,8 +2119,7 @@ function lighten(amount, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedLighten = /*#__PURE__*/curry(lighten); // eslint-disable-line spaced-comment
+var curriedLighten = /*#__PURE__*/curry(lighten);
 
 //      
 
@@ -2189,8 +2188,7 @@ function mix() {
   return rgba(mixedColor);
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedMix = /*#__PURE__*/curry(mix); // eslint-disable-line spaced-comment
+var curriedMix = /*#__PURE__*/curry(mix);
 
 //      
 /**
@@ -2229,8 +2227,7 @@ function opacify(amount, color) {
   return rgba(colorWithAlpha);
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedOpacify = /*#__PURE__*/curry(opacify); // eslint-disable-line spaced-comment
+var curriedOpacify = /*#__PURE__*/curry(opacify);
 
 //      
 /**
@@ -2265,8 +2262,7 @@ function readableColor(color) {
   return getLuminance(color) > 0.179 ? '#000' : '#fff';
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedReadableColor = /*#__PURE__*/curry(readableColor); // eslint-disable-line spaced-comment
+var curriedReadableColor = /*#__PURE__*/curry(readableColor);
 
 //      
 
@@ -2302,8 +2298,7 @@ function saturate(amount, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSaturate = /*#__PURE__*/curry(saturate); // eslint-disable-line spaced-comment
+var curriedSaturate = /*#__PURE__*/curry(saturate);
 
 //      
 
@@ -2336,8 +2331,7 @@ function setHue(hue, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetHue = /*#__PURE__*/curry(setHue); // eslint-disable-line spaced-comment
+var curriedSetHue = /*#__PURE__*/curry(setHue);
 
 //      
 
@@ -2370,8 +2364,7 @@ function setLightness(lightness, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetLightness = /*#__PURE__*/curry(setLightness); // eslint-disable-line spaced-comment
+var curriedSetLightness = /*#__PURE__*/curry(setLightness);
 
 //      
 
@@ -2404,8 +2397,7 @@ function setSaturation(saturation, color) {
   }));
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedSetSaturation = /*#__PURE__*/curry(setSaturation); // eslint-disable-line spaced-comment
+var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
 
 //      
 
@@ -2442,8 +2434,7 @@ function shade(percentage, color) {
   return curriedMix(percentage, color, 'rgb(0, 0, 0)');
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedShade = /*#__PURE__*/curry(shade); // eslint-disable-line spaced-comment
+var curriedShade = /*#__PURE__*/curry(shade);
 
 //      
 
@@ -2480,8 +2471,7 @@ function tint(percentage, color) {
   return curriedMix(percentage, color, 'rgb(255, 255, 255)');
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTint = /*#__PURE__*/curry(tint); // eslint-disable-line spaced-comment
+var curriedTint = /*#__PURE__*/curry(tint);
 
 //      
 /**
@@ -2520,8 +2510,7 @@ function transparentize(amount, color) {
   return rgba(colorWithAlpha);
 }
 
-// Don’t inline this variable into export because Rollup will remove the /*#__PURE__*/ comment
-var curriedTransparentize = /*#__PURE__*/curry(transparentize); // eslint-disable-line spaced-comment
+var curriedTransparentize = /*#__PURE__*/curry(transparentize);
 
 //      
 
@@ -2708,19 +2697,19 @@ function borderColor() {
 
 function borderRadius(side, radius) {
   var uppercaseSide = capitalizeString(side);
-  if (!radius || typeof radius !== 'string') {
-    throw new Error('borderRadius expects a radius value as a string as the second argument.');
+  if (!radius && radius !== 0) {
+    throw new Error('borderRadius expects a radius value as a string or number as the second argument.');
   }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     var _ref;
 
-    return _ref = {}, defineProperty(_ref, 'border' + uppercaseSide + 'RightRadius', radius), defineProperty(_ref, 'border' + uppercaseSide + 'LeftRadius', radius), _ref;
+    return _ref = {}, _ref['border' + uppercaseSide + 'RightRadius'] = radius, _ref['border' + uppercaseSide + 'LeftRadius'] = radius, _ref;
   }
 
   if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
     var _ref2;
 
-    return _ref2 = {}, defineProperty(_ref2, 'borderTop' + uppercaseSide + 'Radius', radius), defineProperty(_ref2, 'borderBottom' + uppercaseSide + 'Radius', radius), _ref2;
+    return _ref2 = {}, _ref2['borderTop' + uppercaseSide + 'Radius'] = radius, _ref2['borderBottom' + uppercaseSide + 'Radius'] = radius, _ref2;
   }
 
   throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
@@ -3127,6 +3116,7 @@ exports.getLuminance = getLuminance;
 exports.grayscale = grayscale;
 exports.invert = invert;
 exports.hideText = hideText;
+exports.hideVisually = hideVisually;
 exports.hiDPI = hiDPI;
 exports.hsl = hsl;
 exports.hsla = hsla;
