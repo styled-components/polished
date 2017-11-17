@@ -1,5 +1,6 @@
 // @flow
 import type { Calculation } from '../types/calc'
+import extractUnit from './extractUnit'
 
 /**
  * Strip the unit from a given CSS value, perform calculation on it and return unit suffixed value
@@ -21,14 +22,6 @@ import type { Calculation } from '../types/calc'
  *   '--dimension': '200px'
  * }
  */
-
-const reverseString = v => v.split('').reverse().join('')
-// because we dont have lookbehind support in js yet ->
-const extractUnit = v =>
-  typeof v === 'string'
-    ? reverseString(reverseString(v).match(/.+?(?=\d)/)[0])
-    : null
-
 function calc(
   value: string,
   calculation: Calculation = v => v,

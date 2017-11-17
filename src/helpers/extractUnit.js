@@ -1,0 +1,30 @@
+// @flow
+
+const reverseString = v => v.split('').reverse().join('')
+
+/**
+ * Extract the unit from a given CSS value and return it
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   '--dimension': `200${extractUnit('100px')}`
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   --dimension: `200${extractUnit('100px')}`
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   '--dimension': '200px'
+ * }
+ */
+const extractUnit = (v: string | number) =>
+  typeof v === 'string'
+    ? reverseString(reverseString(v).match(/.+?(?=\d)/)[0])
+    : null
+
+export default extractUnit
