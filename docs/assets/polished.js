@@ -10,6 +10,10 @@ var reverseString = function reverseString(v) {
   return v.split('').reverse().join('');
 };
 
+var hasNoUnit = function hasNoUnit(v) {
+  return v.match(/^\d/);
+};
+
 /**
  * Extract the unit from a given CSS value and return it
  *
@@ -33,6 +37,9 @@ var reverseString = function reverseString(v) {
 
 function extractUnit(v) {
   if (typeof v === 'string') {
+    // if string starts with digit, no unit was passed
+    if (hasNoUnit(reverseString(v))) return '';
+
     var matches = reverseString(v).match(/.+?(?=\d)/);
     if (!matches || matches.length < 1) return '';
     return reverseString(matches[0]);
