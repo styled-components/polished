@@ -11,7 +11,7 @@ var reverseString = function reverseString(v) {
 };
 
 var hasNoUnit = function hasNoUnit(v) {
-  return v.match(/^\d/);
+  return !!v.match(/^\d/);
 };
 
 /**
