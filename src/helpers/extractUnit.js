@@ -2,7 +2,7 @@
 
 const reverseString = (v: string): string => v.split('').reverse().join('')
 
-const hasNoUnit = (v: string): boolean => v.match(/^\d/)
+const hasNoUnit = (v: string): boolean => !!v.match(/^\d/)
 
 /**
  * Extract the unit from a given CSS value and return it
