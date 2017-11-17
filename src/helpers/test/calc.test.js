@@ -1,8 +1,15 @@
 // @flow
 import calc from '../calc'
+import units from './__unitTypes__'
 
-const performCalculations = (unit: string) =>
+// eslint-disable-next-line no-undef
+const performCalculations = (unit: $Values<units>) =>
   describe(unit, () => {
+    it(`should add ${unit} values with decimals`, () => {
+      const base = `12.4${unit}`
+      const expected = `14.1${unit}`
+      expect(calc(base, baseAsNumber => baseAsNumber + 1.7)).toBe(expected)
+    })
     it(`should add ${unit} values`, () => {
       const base = `12${unit}`
       const expected = `14${unit}`
@@ -25,11 +32,15 @@ const performCalculations = (unit: string) =>
     })
   })
 
-const units = ['px', '%', 'em', 'rem', 'ch', 'vw', 'vh', 'vmin', 'vmax']
 describe('calc', () => {
   units.map(performCalculations)
 
   describe('without unit', () => {
+    it('should add values with decimals', () => {
+      const base = 12.4
+      const expected = 14.1
+      expect(calc(base, baseAsNumber => baseAsNumber + 1.7)).toBe(expected)
+    })
     it('should add values', () => {
       const base = 12
       const expected = 14
