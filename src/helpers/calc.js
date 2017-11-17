@@ -1,6 +1,7 @@
 // @flow
-import type { Calculation } from '../types/calc'
 import extractUnit from './extractUnit'
+
+type Calculation = number => string | number
 
 /**
  * Strip the unit from a given CSS value, perform calculation on it and return unit suffixed value
@@ -22,6 +23,7 @@ import extractUnit from './extractUnit'
  *   '--dimension': '200px'
  * }
  */
+
 function calc(
   value: string | number,
   calculation: Calculation = v => v,

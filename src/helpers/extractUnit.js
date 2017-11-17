@@ -22,7 +22,8 @@ const reverseString = (v: string): string => v.split('').reverse().join('')
  *   '--dimension': '200px'
  * }
  */
-const extractUnit = (v: string | number): string => {
+
+function extractUnit(v: string | number): string {
   if (typeof v === 'string') {
     const matches = reverseString(v).match(/.+?(?=\d)/)
     if (!matches || matches.length < 1) return ''
