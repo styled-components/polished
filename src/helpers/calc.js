@@ -30,6 +30,9 @@ function calc(
 ): number | string {
   if (typeof value === 'string') {
     const unit = extractUnit(value)
+    const unitlessValue = parseFloat(value)
+
+    if (isNaN(unitlessValue)) return ''
 
     return `${calculation(parseFloat(value))}${unit}`
   }

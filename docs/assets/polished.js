@@ -69,6 +69,9 @@ function calc(value) {
 
   if (typeof value === 'string') {
     var unit = extractUnit(value);
+    var unitlessValue = parseFloat(value);
+
+    if (isNaN(unitlessValue)) return '';
 
     return '' + calculation(parseFloat(value)) + unit;
   }

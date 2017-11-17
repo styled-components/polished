@@ -62,4 +62,8 @@ describe('calc', () => {
       expect(calc(base, baseAsNumber => baseAsNumber / 2)).toBe(expected)
     })
   })
+
+  it('returns an empty string if an empty string is passed', () => {
+    expect(calc('', baseAsNumber => baseAsNumber / 2)).toBe('')
+  })
 })
