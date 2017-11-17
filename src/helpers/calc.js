@@ -23,7 +23,7 @@ import extractUnit from './extractUnit'
  * }
  */
 function calc(
-  value: string,
+  value: string | number,
   calculation: Calculation = v => v,
 ): number | string {
   if (typeof value === 'string') {

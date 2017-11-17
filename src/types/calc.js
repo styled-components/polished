@@ -6,4 +6,4 @@
 /**
  * @property {function} Calculation
  */
-export type Calculation = (string | number) => string | number
+export type Calculation = number => string | number

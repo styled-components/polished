@@ -1,6 +1,6 @@
 // @flow
 
-const reverseString = v => v.split('').reverse().join('')
+const reverseString = (v: string): string => v.split('').reverse().join('')
 
 /**
  * Extract the unit from a given CSS value and return it
@@ -22,9 +22,13 @@ const reverseString = v => v.split('').reverse().join('')
  *   '--dimension': '200px'
  * }
  */
-const extractUnit = (v: string | number) =>
-  typeof v === 'string'
-    ? reverseString(reverseString(v).match(/.+?(?=\d)/)[0])
-    : null
+const extractUnit = (v: string | number): string => {
+  if (typeof v === 'string') {
+    const matches = reverseString(v).match(/.+?(?=\d)/)
+    if (!matches || matches.length < 1) return ''
+    return reverseString(matches[0])
+  }
+  return ''
+}
 
 export default extractUnit
