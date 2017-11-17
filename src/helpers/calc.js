@@ -18,21 +18,27 @@ import type { Calculation } from '../types/calc'
  * // CSS in JS Output
  *
  * element {
- *   '--dimension': '200'px
+ *   '--dimension': '200px'
  * }
  */
 
 const reverseString = v => v.split('').reverse().join('')
 // because we dont have lookbehind support in js yet ->
-const extractUnit = v => reverseString(reverseString(v).match(/.+?(?=\d)/)[0])
+const extractUnit = v =>
+  typeof v === 'string'
+    ? reverseString(reverseString(v).match(/.+?(?=\d)/)[0])
+    : null
 
 function calc(
   value: string,
   calculation: Calculation = v => v,
 ): number | string {
-  const unit = extractUnit(value)
+  if (typeof value === 'string') {
+    const unit = extractUnit(value)
 
-  return `${calculation(parseFloat(value))}${unit}`
+    return `${calculation(parseFloat(value))}${unit}`
+  }
+  return calculation(parseFloat(value))
 }
 
 export default calc
