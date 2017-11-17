@@ -78,13 +78,13 @@
     {
       "name": "Helpers"
     },
+    "calc",
     "directionalProperty",
     "em",
+    "extractUnit",
     "modularScale",
     "rem",
     "stripUnit",
-    "extractUnit",
-    "calc",
     {
       "name": "Types"
     },

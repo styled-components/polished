@@ -1,7 +1,7 @@
 // @flow
 import extractUnit from './extractUnit'
 
-type Calculation = number => string | number
+type Calculation = (n: number) => string | number
 
 /**
  * Strip the unit from a given CSS value, perform calculation on it and return unit suffixed value
