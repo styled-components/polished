@@ -28,7 +28,7 @@ const getBorderWidth = (
 
     default:
       throw new Error(
-        "Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.",
+        "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
       )
   }
 }
