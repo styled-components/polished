@@ -93,7 +93,20 @@ describe('triangle', () => {
     }).toMatchSnapshot()
   })
 
-  it('should throw an error when pointingDirection is not provided or does not match corresponding options', () => {
+  it('should throw an error when pointingDirection is not provided', () => {
+    expect(() => {
+      // $FlowFixMe
+      triangle({
+        foregroundColor: 'blue',
+        height: 20,
+        width: 10,
+      })
+    }).toThrow(
+      "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
+    )
+  })
+
+  it('should throw an error when pointingDirection does not match corresponding options', () => {
     expect(() => {
       // $FlowFixMe
       triangle({
