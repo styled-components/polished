@@ -95,6 +95,7 @@ describe('triangle', () => {
 
   it('should throw an error when pointingDirection is not provided or does not match corresponding options', () => {
     expect(() => {
+      // $FlowFixMe
       triangle({
         foregroundColor: 'blue',
         height: 20,
@@ -112,7 +113,7 @@ describe('triangle', () => {
         foregroundColor: 'blue',
         height: 'inherit',
         width: 'inherit',
-        pointingDirection: false,
+        pointingDirection: 'bottom',
       })
     }).toThrow(
       'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
