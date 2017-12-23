@@ -8,7 +8,7 @@ Want to know where to start helping? Check out our [ROADMAP.md](./ROADMAP.md) or
 Please note that this project is released with a Contributor [Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Setup
-`✨ polished` supports both `npm` and `yarn`. If using `yarn` just subsitute the below commands with the `yarn` equivalent.
+`✨ polished` supports both `npm` and `yarn`. If using `yarn` just substitute the below commands with the `yarn` equivalent.
 
 ```bash
 npm install
