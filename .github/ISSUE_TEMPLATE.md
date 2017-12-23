@@ -9,7 +9,7 @@ understand the issue that you are seeing and address it.
 - `JSS-in_CSS` library and version: <!-- styled-components 1.4.5 -->
 - Any relevant JS library and version: <!-- React 15.5 -->
 
-Mixin/Helper/Shortand you were using and how you were using it:
+Mixin/Helper/Shorthand you were using and how you were using it:
 
 ```javascript
 
