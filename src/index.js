@@ -1,7 +1,9 @@
 // @flow
 // Helpers
+import calc from './helpers/calc'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
+import extractUnit from './helpers/extractUnit'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
@@ -75,6 +77,7 @@ export {
   borderStyle,
   borderWidth,
   buttons,
+  calc,
   clearFix,
   complement,
   darken,
@@ -82,6 +85,7 @@ export {
   directionalProperty,
   ellipsis,
   em,
+  extractUnit,
   fontFace,
   getLuminance,
   grayscale,
