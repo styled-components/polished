@@ -11,6 +11,9 @@ type FontFaceConfiguration = {
   fileFormats?: Array<string>,
   localFonts?: Array<string>,
   unicodeRange?: string,
+  fontDisplay?: string,
+  fontVariationSettings?: string,
+  fontFeatureSettings?: string,
 }
 
 function generateFileReferences(
@@ -79,6 +82,9 @@ function fontFace({
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
   localFonts,
   unicodeRange,
+  fontDisplay,
+  fontVariationSettings,
+  fontFeatureSettings,
 }: FontFaceConfiguration): Object {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
@@ -103,6 +109,9 @@ function fontFace({
       fontStyle,
       fontVariant,
       fontWeight,
+      fontDisplay,
+      fontVariationSettings,
+      fontFeatureSettings,
     },
   }
 

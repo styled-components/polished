@@ -60,6 +60,9 @@ describe('fontFace', () => {
         fontWeight: 'bold',
         fontVariant: 'small-caps',
         unicodeRange: 'U+26',
+        fontDisplay: 'swap',
+        fontVariationSettings: '"XHGT" 0.7',
+        fontFeatureSettings: '"smcp" on',
       }),
     }).toMatchSnapshot()
   })
