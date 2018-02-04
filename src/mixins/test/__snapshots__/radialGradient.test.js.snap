@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`radialGradient properly overrides the fallback when it is passed 1`] = `
 Object {
   "backgroundColor": "#FFF",

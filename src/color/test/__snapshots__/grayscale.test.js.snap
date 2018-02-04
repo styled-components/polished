@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`grayscale should grayscale a color with opacity 1`] = `"rgba(153,153,153,0.7)"`;
 
 exports[`grayscale should grayscale a hex color 1`] = `"#999"`;

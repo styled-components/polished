@@ -25,7 +25,5 @@ import pixelsto from '../internalHelpers/_pxto'
  * }
  */
 
-const em: (value: string | number, base?: string | number) => string = pixelsto(
-  'em',
-)
+const em: (value: string | number, base?: string | number) => string = pixelsto('em')
 export default em

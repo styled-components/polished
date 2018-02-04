@@ -1,74 +1,74 @@
-// flow-typed signature: 04965d796c54f045f5f5c8a2aa474600
-// flow-typed version: fc5874dbeb/jest_v16.x.x/flow_>=v0.33.x
+// flow-typed signature: 1da147c1e5c2cc27e2181d3a9439191b
+// flow-typed version: da30fe6876/jest_v16.x.x/flow_>=v0.25.x
 
 type JestMockFn = {
-  (...args: Array<any>): any;
+  (...args: Array<any>): any,
   mock: {
-    calls: Array<Array<any>>;
-    instances: mixed;
-  };
-  mockClear(): Function;
-  mockImplementation(fn: Function): JestMockFn;
-  mockImplementationOnce(fn: Function): JestMockFn;
-  mockReturnThis(): void;
-  mockReturnValue(value: any): JestMockFn;
-  mockReturnValueOnce(value: any): JestMockFn;
-}
+    calls: Array<Array<any>>,
+    instances: mixed
+  },
+  mockClear(): Function,
+  mockImplementation(fn: Function): JestMockFn,
+  mockImplementationOnce(fn: Function): JestMockFn,
+  mockReturnThis(): void,
+  mockReturnValue(value: any): JestMockFn,
+  mockReturnValueOnce(value: any): JestMockFn
+};
 
 type JestAsymmetricEqualityType = {
-  asymmetricMatch(value: mixed): boolean;
-}
+  asymmetricMatch(value: mixed): boolean
+};
 
 type JestCallsType = {
-  allArgs(): mixed;
-  all(): mixed;
-  any(): boolean;
-  count(): number;
-  first(): mixed;
-  mostRecent(): mixed;
-  reset(): void;
-}
+  allArgs(): mixed,
+  all(): mixed,
+  any(): boolean,
+  count(): number,
+  first(): mixed,
+  mostRecent(): mixed,
+  reset(): void
+};
 
 type JestClockType = {
-  install(): void;
-  mockDate(date: Date): void;
-  tick(): void;
-  uninstall(): void;
-}
+  install(): void,
+  mockDate(date: Date): void,
+  tick(milliseconds?: number): void,
+  uninstall(): void
+};
 
 type JestExpectType = {
-  not: JestExpectType;
-  lastCalledWith(...args: Array<any>): void;
-  toBe(value: any): void;
-  toBeCalled(): void;
-  toBeCalledWith(...args: Array<any>): void;
-  toBeCloseTo(num: number, delta: any): void;
-  toBeDefined(): void;
-  toBeFalsy(): void;
-  toBeGreaterThan(number: number): void;
-  toBeGreaterThanOrEqual(number: number): void;
-  toBeLessThan(number: number): void;
-  toBeLessThanOrEqual(number: number): void;
-  toBeInstanceOf(cls: Class<*>): void;
-  toBeNull(): void;
-  toBeTruthy(): void;
-  toBeUndefined(): void;
-  toContain(item: any): void;
-  toContainEqual(item: any): void;
-  toEqual(value: any): void;
-  toHaveBeenCalled(): void;
-  toHaveBeenCalledTimes(number: number): void;
-  toHaveBeenCalledWith(...args: Array<any>): void;
-  toMatch(regexp: RegExp): void;
-  toMatchSnapshot(): void;
-  toThrow(message?: string | Error): void;
-  toThrowError(message?: string | Error | RegExp): void;
-  toThrowErrorMatchingSnapshot(): void;
-}
+  not: JestExpectType,
+  lastCalledWith(...args: Array<any>): void,
+  toBe(value: any): void,
+  toBeCalled(): void,
+  toBeCalledWith(...args: Array<any>): void,
+  toBeCloseTo(num: number, delta: any): void,
+  toBeDefined(): void,
+  toBeFalsy(): void,
+  toBeGreaterThan(number: number): void,
+  toBeGreaterThanOrEqual(number: number): void,
+  toBeLessThan(number: number): void,
+  toBeLessThanOrEqual(number: number): void,
+  toBeInstanceOf(cls: Class<*>): void,
+  toBeNull(): void,
+  toBeTruthy(): void,
+  toBeUndefined(): void,
+  toContain(item: any): void,
+  toContainEqual(item: any): void,
+  toEqual(value: any): void,
+  toHaveBeenCalled(): void,
+  toHaveBeenCalledTimes(number: number): void,
+  toHaveBeenCalledWith(...args: Array<any>): void,
+  toMatch(regexp: RegExp): void,
+  toMatchSnapshot(): void,
+  toThrow(message?: string | Error): void,
+  toThrowError(message?: string | Error | RegExp): void,
+  toThrowErrorMatchingSnapshot(): void
+};
 
 type JestSpyType = {
-  calls: JestCallsType;
-}
+  calls: JestCallsType
+};
 
 declare function afterEach(fn: Function): void;
 declare function beforeEach(fn: Function): void;
@@ -76,9 +76,10 @@ declare function afterAll(fn: Function): void;
 declare function beforeAll(fn: Function): void;
 declare function describe(name: string, fn: Function): void;
 declare var it: {
-  (name: string, fn: Function): ?Promise<void>;
-  only(name: string, fn: Function): ?Promise<void>;
-  skip(name: string, fn: Function): ?Promise<void>;
+  (name: string, fn: Function): ?Promise<void>,
+  only(name: string, fn: Function): ?Promise<void>,
+  skip(name: string, fn: Function): ?Promise<void>,
+  concurrent(name: string, fn: Function): ?Promise<void>
 };
 declare function fit(name: string, fn: Function): ?Promise<void>;
 declare var test: typeof it;
@@ -94,37 +95,37 @@ declare function expect(value: any): JestExpectType;
 declare function spyOn(value: mixed, method: string): Object;
 
 declare var jest: {
-  autoMockOff(): void;
-  autoMockOn(): void;
-  clearAllMocks(): void;
-  clearAllTimers(): void;
-  currentTestPath(): void;
-  disableAutomock(): void;
-  doMock(moduleName: string, moduleFactory?: any): void;
-  dontMock(moduleName: string): void;
-  enableAutomock(): void;
-  fn(implementation?: Function): JestMockFn;
-  isMockFunction(fn: Function): boolean;
-  genMockFromModule(moduleName: string): any;
-  mock(moduleName: string, moduleFactory?: any): void;
-  resetModules(): void;
-  runAllTicks(): void;
-  runAllTimers(): void;
-  runTimersToTime(msToRun: number): void;
-  runOnlyPendingTimers(): void;
-  setMock(moduleName: string, moduleExports: any): void;
-  unmock(moduleName: string): void;
-  useFakeTimers(): void;
-  useRealTimers(): void;
-}
+  autoMockOff(): void,
+  autoMockOn(): void,
+  clearAllMocks(): void,
+  clearAllTimers(): void,
+  currentTestPath(): void,
+  disableAutomock(): void,
+  doMock(moduleName: string, moduleFactory?: any): void,
+  dontMock(moduleName: string): void,
+  enableAutomock(): void,
+  fn(implementation?: Function): JestMockFn,
+  isMockFunction(fn: Function): boolean,
+  genMockFromModule(moduleName: string): any,
+  mock(moduleName: string, moduleFactory?: any): void,
+  resetModules(): void,
+  runAllTicks(): void,
+  runAllTimers(): void,
+  runTimersToTime(msToRun: number): void,
+  runOnlyPendingTimers(): void,
+  setMock(moduleName: string, moduleExports: any): void,
+  unmock(moduleName: string): void,
+  useFakeTimers(): void,
+  useRealTimers(): void
+};
 
 declare var jasmine: {
-  DEFAULT_TIMEOUT_INTERVAL: number;
-  any(value: mixed): JestAsymmetricEqualityType;
-  anything(): void;
-  arrayContaining(value: mixed[]): void;
-  clock(): JestClockType;
-  createSpy(name: string): JestSpyType;
-  objectContaining(value: Object): void;
-  stringMatching(value: string): void;
-}
+  DEFAULT_TIMEOUT_INTERVAL: number,
+  any(value: mixed): JestAsymmetricEqualityType,
+  anything(): void,
+  arrayContaining(value: mixed[]): void,
+  clock(): JestClockType,
+  createSpy(name: string): JestSpyType,
+  objectContaining(value: Object): void,
+  stringMatching(value: string): void
+};

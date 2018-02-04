@@ -41,10 +41,6 @@ describe('transparentize', () => {
   it('should throw an error when enter an invalid color', () => {
     expect(() => {
       transparentize(0.5, 'not a color')
-    }).toThrow(
-      new Error(
-        "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
-      ),
-    )
+    }).toThrow(new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation."))
   })
 })

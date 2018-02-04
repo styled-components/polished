@@ -1,11 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`backgrounds should generate a multiple backgrounds from multiple parameters 1`] = `
 Object {
-  "background": "url(\"/image/background.jpg\"), linear-gradient(red, green), center no-repeat",
+  "background": "url(\\"/image/background.jpg\\"), linear-gradient(red, green), center no-repeat",
 }
 `;
 
 exports[`backgrounds should generate a single background from a parameter 1`] = `
 Object {
-  "background": "url(\"/image/background.jpg\")",
+  "background": "url(\\"/image/background.jpg\\")",
 }
 `;

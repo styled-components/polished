@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`nameToHex should convert a camel-cased named color to a hex value 1`] = `
 Object {
   "background": "#b0e0e6",

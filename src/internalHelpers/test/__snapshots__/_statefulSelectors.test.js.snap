@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`statefulSelectors populates both base selectors and selectors for a single state 1`] = `
 Object {
   "section a,

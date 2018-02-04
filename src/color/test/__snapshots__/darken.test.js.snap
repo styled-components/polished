@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`darken should darken a color but not go below 0 1`] = `"rgba(0,0,0,0.7)"`;
 
 exports[`darken should darken a color by 20% 1`] = `"#111"`;

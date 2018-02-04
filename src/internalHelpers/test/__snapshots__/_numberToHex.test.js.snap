@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`numberToHex should convert 0 to "00" 1`] = `"00"`;
 
 exports[`numberToHex should convert 15 to "0f" 1`] = `"0f"`;

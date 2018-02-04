@@ -18,11 +18,11 @@ console.log(`Creating ${mode} bundle...`)
 
 const output = prod ?
 [
-  { file: 'dist/polished.min.js', format: 'umd' },
+  { file: 'dist/polished.min.js', format: 'umd', name: 'polished', exports: 'named' },
 ] :
 [
-  { file: 'dist/polished.js', format: 'umd' },
-  { file: 'dist/polished.es.js', format: 'es' },
+  { file: 'dist/polished.js', format: 'umd', name: 'polished', exports: 'named' },
+  { file: 'dist/polished.es.js', format: 'es', name: 'polished', exports: 'named' },
 ]
 
 const plugins = [
@@ -54,8 +54,10 @@ const plugins = [
       ['env', { 'loose': true, 'modules': false }],
     ],
     plugins: [
-      'external-helpers',
       'transform-object-rest-spread',
+      'add-module-exports',
+      'transform-flow-strip-types',
+      'syntax-trailing-function-commas',
       'annotate-pure-calls',
     ],
     // fixing temporary rollup's regression, remove when rollup/rollup#1595 gets solved
@@ -68,8 +70,6 @@ if (prod) plugins.push(uglify())
 
 export default {
   input: 'src/index.js',
-  name: 'polished',
-  exports: 'named',
   output,
   plugins,
 }

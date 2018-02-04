@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`adjustHue should adjustHue of a color and not go beyond 360 1`] = `"#444f88"`;
 
 exports[`adjustHue should adjustHue of a color with opacity 1`] = `"rgba(136,100,205,0.7)"`;

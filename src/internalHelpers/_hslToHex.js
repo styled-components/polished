@@ -8,9 +8,7 @@ function colorToHex(color: number): string {
 }
 
 function convertToHex(red: number, green: number, blue: number): string {
-  return reduceHexValue(
-    `#${colorToHex(red)}${colorToHex(green)}${colorToHex(blue)}`,
-  )
+  return reduceHexValue(`#${colorToHex(red)}${colorToHex(green)}${colorToHex(blue)}`)
 }
 
 function hslToHex(hue: number, saturation: number, lightness: number): string {
