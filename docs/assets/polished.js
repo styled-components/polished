@@ -1097,7 +1097,7 @@ var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
       return height / 2 + 'px 0 ' + height / 2 + 'px ' + width + 'px';
 
     default:
-      throw new Error("Passed invalid argument to triangle, please pass correct poitingDirection e.g. 'right'.");
+      throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.");
   }
 };
 
