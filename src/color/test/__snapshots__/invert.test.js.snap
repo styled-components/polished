@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`invert should invert a color with opacity 1`] = `"rgba(154,155,50,0.7)"`;
 
 exports[`invert should invert a hex color 1`] = `"#33329b"`;

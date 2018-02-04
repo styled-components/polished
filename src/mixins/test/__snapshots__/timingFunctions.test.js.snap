@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`timingFunctions should return easeInBack cubic-bezier 1`] = `
 Object {
   "transition-timing-function": "cubic-bezier(0.600, -0.280, 0.735, 0.045)",

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hslToHex should convert black 1`] = `
 Object {
   "background": Object {

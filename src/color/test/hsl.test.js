@@ -19,8 +19,6 @@ describe('hsl', () => {
   it('should throw an error if an object and multiple arguments are passed', () => {
     expect(() => ({
       background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }, 250, 100),
-    })).toThrow(
-      'Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).',
-    )
+    })).toThrow('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).')
   })
 })

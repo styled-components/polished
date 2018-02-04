@@ -46,7 +46,9 @@ function rgba(
 ): string {
   if (typeof firstValue === 'string' && typeof secondValue === 'number') {
     const rgbValue = parseToRGB(firstValue)
-    return `rgba(${rgbValue.red},${rgbValue.green},${rgbValue.blue},${secondValue})`
+    return `rgba(${rgbValue.red},${rgbValue.green},${
+      rgbValue.blue
+    },${secondValue})`
   } else if (
     typeof firstValue === 'number' &&
     typeof secondValue === 'number' &&
@@ -64,12 +66,12 @@ function rgba(
   ) {
     return firstValue.alpha >= 1
       ? rgb(firstValue.red, firstValue.green, firstValue.blue)
-      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${firstValue.alpha})`
+      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${
+        firstValue.alpha
+      })`
   }
 
-  throw new Error(
-    'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).',
-  )
+  throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).')
 }
 
 export default rgba

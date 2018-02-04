@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`mix should mix two colors 1`] = `"#7f007f"`;
 
 exports[`mix should mix two colors with by a weight of 25% 1`] = `"#3f00bf"`;

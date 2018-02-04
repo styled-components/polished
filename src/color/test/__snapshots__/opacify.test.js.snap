@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`opacify should increase the opacity of hex #fff by 0.1 and still be 1 1`] = `"#fff"`;
 
 exports[`opacify should increase the opacity of hsl(0, 0%, 100%) by 0.2 and still be 1 1`] = `"#fff"`;

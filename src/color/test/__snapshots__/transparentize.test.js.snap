@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`transparentize should not increase the opacity beyond 1 1`] = `"#f00"`;
 
 exports[`transparentize should not reduce the opacity below 0 1`] = `"rgba(255,0,0,0)"`;

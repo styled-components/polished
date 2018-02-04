@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`position properly applies a value when passed only one 1`] = `
 Object {
   "bottom": "12px",

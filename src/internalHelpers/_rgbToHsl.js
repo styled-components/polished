@@ -15,7 +15,12 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   if (max === min) {
     // achromatic
     if (color.alpha !== undefined) {
-      return { hue: 0, saturation: 0, lightness, alpha: color.alpha }
+      return {
+        hue: 0,
+        saturation: 0,
+        lightness,
+        alpha: color.alpha,
+      }
     } else {
       return { hue: 0, saturation: 0, lightness }
     }
@@ -40,7 +45,12 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
 
   hue *= 60
   if (color.alpha !== undefined) {
-    return { hue, saturation, lightness, alpha: color.alpha }
+    return {
+      hue,
+      saturation,
+      lightness,
+      alpha: color.alpha,
+    }
   }
   return { hue, saturation, lightness }
 }

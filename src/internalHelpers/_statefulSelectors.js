@@ -23,9 +23,7 @@ function statefulSelectors(
   let selectors = []
   for (let i = 0; i < states.length; i += 1) {
     if (stateMap && stateMap.indexOf(states[i]) < 0) {
-      throw new Error(
-        'You passed an unsupported selector state to this method.',
-      )
+      throw new Error('You passed an unsupported selector state to this method.')
     }
     selectors.push(generateSelectors(template, states[i]))
   }

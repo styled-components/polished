@@ -38,9 +38,7 @@ function retinaImage(
   retinaSuffix?: string = '_2x',
 ): Object {
   if (!filename) {
-    throw new Error(
-      'Please supply a filename to retinaImage() as the first argument.',
-    )
+    throw new Error('Please supply a filename to retinaImage() as the first argument.')
   }
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')

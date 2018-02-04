@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`wordWrap should accept other values 1`] = `
 Object {
   "overflowWrap": "break-all",

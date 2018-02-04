@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`parseToHsl should parse a hex color representation 1`] = `
 Object {
   "hue": 325.8510638297872,

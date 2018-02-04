@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`retinaImage should allow passing in a separate filename for the retina version 1`] = `
 Object {
   "
