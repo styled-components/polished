@@ -26,7 +26,8 @@
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
     "docs": "pushstate-server docs",
-    "prepublish": "npm run build && npm run typescript"
+    "prepublish": "npm run build && npm run typescript",
+    "semantic-release": "semantic-release"
   },
   "lint-staged": {
     "src/**/!(*.test).js": [
@@ -53,6 +54,9 @@
   "keywords": [
     "styled-components",
     "polished",
+    "glamorous",
+    "motion",
+    "glamor",
     "css-in-js",
     "inline-styles",
     "react"
@@ -103,6 +107,7 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
+    "semantic-release": "^12.4.1",
     "shx": "^0.2.2",
     "tsgen": "^1.0.0",
     "typescript": "^2.7.1",

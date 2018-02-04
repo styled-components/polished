@@ -1492,7 +1492,10 @@ function rgbToHsl(color) {
     // achromatic
     if (color.alpha !== undefined) {
       return {
-        hue: 0, saturation: 0, lightness: lightness, alpha: color.alpha
+        hue: 0,
+        saturation: 0,
+        lightness: lightness,
+        alpha: color.alpha
       };
     } else {
       return { hue: 0, saturation: 0, lightness: lightness };
@@ -1518,7 +1521,10 @@ function rgbToHsl(color) {
   hue *= 60;
   if (color.alpha !== undefined) {
     return {
-      hue: hue, saturation: saturation, lightness: lightness, alpha: color.alpha
+      hue: hue,
+      saturation: saturation,
+      lightness: lightness,
+      alpha: color.alpha
     };
   }
   return { hue: hue, saturation: saturation, lightness: lightness };
