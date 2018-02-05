@@ -7,8 +7,6 @@ import json from 'rollup-plugin-json'
 import flow from 'rollup-plugin-flow'
 import uglify from 'rollup-plugin-uglify'
 
-import { list as babelHelpersList } from 'babel-helpers'
-
 const processShim = '\0process-shim'
 
 const prod = process.env.PRODUCTION
@@ -49,19 +47,9 @@ const plugins = [
     process: processShim,
   }),
   babel({
-    babelrc: false,
-    presets: [
-      ['env', { 'loose': true, 'modules': false }],
-    ],
     plugins: [
-      'transform-object-rest-spread',
-      'add-module-exports',
-      'transform-flow-strip-types',
-      'syntax-trailing-function-commas',
-      'annotate-pure-calls',
+      'external-helpers',
     ],
-    // fixing temporary rollup's regression, remove when rollup/rollup#1595 gets solved
-    externalHelpersWhitelist: babelHelpersList.filter(helperName => helperName !== 'asyncGenerator'),
   }),
   json(),
 ]
