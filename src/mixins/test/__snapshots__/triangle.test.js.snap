@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`triangle should default to a transparent background when not passed a backgroundColor 1`] = `
 Object {
   "borderColor": "transparent",

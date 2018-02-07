@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ellipsis should default max-width to 100% 1`] = `
 Object {
   "display": "inline-block",

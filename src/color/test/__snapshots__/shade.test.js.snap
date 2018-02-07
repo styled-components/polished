@@ -1,1 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`shade should shade the provided color with white by the given percentage 1`] = `"#00003f"`;

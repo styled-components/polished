@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hsl should convert a hls object to a hex color 1`] = `
 Object {
   "background": "#b31919",

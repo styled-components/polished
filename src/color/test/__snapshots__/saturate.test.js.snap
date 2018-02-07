@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`saturate should saturate a color but not go beyond 255 1`] = `"rgba(255,200,200,0.7)"`;
 
 exports[`saturate should saturate a color by 10% 1`] = `"#4b3d3d"`;

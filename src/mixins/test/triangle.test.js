@@ -101,9 +101,7 @@ describe('triangle', () => {
         height: 20,
         width: 10,
       })
-    }).toThrow(
-      "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-    )
+    }).toThrow("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
   })
 
   it('should throw an error when pointingDirection does not match corresponding options', () => {
@@ -115,9 +113,7 @@ describe('triangle', () => {
         width: 10,
         pointingDirection: false,
       })
-    }).toThrow(
-      "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-    )
+    }).toThrow("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
   })
 
   it('should throw an error when height or width is not a unit based value.', () => {
@@ -128,8 +124,6 @@ describe('triangle', () => {
         width: 'inherit',
         pointingDirection: 'bottom',
       })
-    }).toThrow(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+    }).toThrow('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   })
 })

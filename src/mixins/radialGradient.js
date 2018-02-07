@@ -83,15 +83,11 @@ function radialGradient({
   shape,
 }: RadialGradientConfiguration): Object {
   if (!colorStops || colorStops.length < 2) {
-    throw new Error(
-      'radialGradient requries at least 2 color-stops to properly render.',
-    )
+    throw new Error('radialGradient requries at least 2 color-stops to properly render.')
   }
   return {
     backgroundColor: fallback || parseFallback(colorStops),
-    backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(
-      ', ',
-    )})`,
+    backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(', ')})`,
   }
 }
 

@@ -57,8 +57,6 @@ describe('radialGradient', () => {
         extent: 'farthest-corner at 45px 45px',
         fallback: '#FFF',
       })
-    }).toThrow(
-      'radialGradient requries at least 2 color-stops to properly render.',
-    )
+    }).toThrow('radialGradient requries at least 2 color-stops to properly render.')
   })
 })

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`borderRadius returns the proper values for the bottom side 1`] = `
 Object {
   "borderBottomLeftRadius": "5px",

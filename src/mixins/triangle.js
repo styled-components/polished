@@ -27,9 +27,7 @@ const getBorderWidth = (
       return `${height / 2}px 0 ${height / 2}px ${width}px`
 
     default:
-      throw new Error(
-        "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-      )
+      throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
   }
 }
 
@@ -79,9 +77,7 @@ function triangle({
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
-    throw new Error(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+    throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   }
 
   return {
@@ -99,9 +95,9 @@ function triangle({
     * (bottom-b) is before (bottom-c) - !important is needed
     * { border-bottom-color: 'red', border-color: 'transparent' }
     */
-    [`border${reverseDirection[
-      pointingDirection
-    ]}Color`]: `${foregroundColor} !important`,
+    [`border${
+      reverseDirection[pointingDirection]
+    }Color`]: `${foregroundColor} !important`,
   }
 }
 

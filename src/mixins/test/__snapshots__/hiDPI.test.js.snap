@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hiDPI should pass ratio to media query 1`] = `
 Object {
   "

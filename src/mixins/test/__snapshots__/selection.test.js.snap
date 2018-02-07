@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`selection should properly add rules when block has existing rules 1`] = `
 Object {
   "div": Object {

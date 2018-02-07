@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`desaturate should desaturate a color but not go below 0 1`] = `"rgba(25,25,25,0.7)"`;
 
 exports[`desaturate should desaturate a color with opacity by 20% 1`] = `"rgba(184,185,121,0.7)"`;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`getLuminance should return the luminance of a hex color 1`] = `0.05780543019106723`;
 
 exports[`getLuminance should return the luminance of a named CSS color 1`] = `0.877971001998354`;

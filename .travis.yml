@@ -7,7 +7,6 @@ node_js:
   - '8'
 before_script:
   - yarn global add codecov
-  - yarn global add semantic-release
 script:
   - yarn test
   - yarn lint
@@ -20,7 +19,8 @@ after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
-  - semantic-release pre && npm publish && semantic-release post
+  - yarn global add travis-deploy-once
+  - travis-deploy-once 'yarn semantic-release'
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

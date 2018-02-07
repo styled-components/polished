@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`pxto converter should allow changing the base with a number 1`] = `
 Object {
   "height": "2em",

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`reduceHexValue should not reduce #112234 1`] = `"#112234"`;
 
 exports[`reduceHexValue should not reduce #fff 1`] = `"#fff"`;

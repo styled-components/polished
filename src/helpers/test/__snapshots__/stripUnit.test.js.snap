@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`stripUnit should return a unitless value when passed one 1`] = `
 Object {
   "--dimension": 100,
