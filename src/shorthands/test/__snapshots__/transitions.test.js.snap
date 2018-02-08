@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`transitions should apply the same transition to an array of properties 1`] = `
 Object {
   "transition": "color 2.0s ease-in 2s, background-color 2.0s ease-in 2s",

@@ -23,9 +23,7 @@
  * }
  */
 
-function transitions(
-  ...properties: Array<string> | [Array<string>, string]
-): Object {
+function transitions(...properties: Array<string> | [Array<string>, string]): Object {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const transitionsString = properties[0]
       .map((property: string): string => `${property} ${properties[1]}`)
