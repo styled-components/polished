@@ -17,6 +17,7 @@
     "class-methods-use-this": 0,
     "import/no-extraneous-dependencies": 0,
     "no-confusing-arrow": 0,
+    "no-dupe-keys": 0,
     "no-duplicate-imports": 0,
     "no-else-return": 0,
     "no-mixed-operators": 0,
