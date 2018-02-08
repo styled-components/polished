@@ -12,8 +12,6 @@ script:
   - yarn lint
   - yarn flow
   - yarn build:flow
-  - yarn build:typescript
-  - yarn typescript
 after_success:
   - codecov
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
