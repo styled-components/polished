@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`transitions should apply the same transition to an array of properties 1`] = `
+Object {
+  "transition": "color 2.0s ease-in 2s, background-color 2.0s ease-in 2s",
+}
+`;
+
 exports[`transitions should generate a multiple transitions from multiple parameters 1`] = `
 Object {
   "transition": "opacity 1.0s ease-in 0s, width 2.0s ease-in 2s",
