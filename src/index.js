@@ -53,6 +53,7 @@ import transparentize from './color/transparentize'
 import animation from './shorthands/animation'
 import backgroundImages from './shorthands/backgroundImages'
 import backgrounds from './shorthands/backgrounds'
+import border from './shorthands/border'
 import borderColor from './shorthands/borderColor'
 import borderRadius from './shorthands/borderRadius'
 import borderStyle from './shorthands/borderStyle'
@@ -70,6 +71,7 @@ export {
   animation,
   backgroundImages,
   backgrounds,
+  border,
   borderColor,
   borderRadius,
   borderStyle,
