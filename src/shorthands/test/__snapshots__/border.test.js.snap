@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`border properly returns separated border styles 1`] = `
+Object {
+  "borderColor": "red",
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+}
+`;
+
+exports[`border properly returns separated border styles for a specific side 1`] = `
+Object {
+  "borderTopColor": "red",
+  "borderTopStyle": "solid",
+  "borderTopWidth": "1px",
+}
+`;
+
+exports[`border properly returns separated border styles for a specific side when passed a number for borderWidth 1`] = `
+Object {
+  "borderTopColor": "red",
+  "borderTopStyle": "solid",
+  "borderTopWidth": 1,
+}
+`;
+
+exports[`border properly returns separated border styles when passed a number for borderWidth 1`] = `
+Object {
+  "borderColor": "red",
+  "borderStyle": "solid",
+  "borderWidth": 1,
+}
+`;
