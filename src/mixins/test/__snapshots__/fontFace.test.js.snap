@@ -48,10 +48,13 @@ Object {
 exports[`fontFace should set passed font configuration variables 1`] = `
 Object {
   "@font-face": Object {
+    "fontDisplay": "swap",
     "fontFamily": "Sans Pro",
+    "fontFeatureSettings": "\"smcp\" on",
     "fontStretch": "condensed",
     "fontStyle": "italic",
     "fontVariant": "small-caps",
+    "fontVariationSettings": "\"XHGT\" 0.7",
     "fontWeight": "bold",
     "src": "url(\\"path/to/file.eot\\"), url(\\"path/to/file.woff2\\"), url(\\"path/to/file.woff\\"), url(\\"path/to/file.ttf\\"), url(\\"path/to/file.svg\\")",
     "unicodeRange": "U+26",
