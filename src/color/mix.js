@@ -4,11 +4,6 @@ import rgba from './rgba'
 import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
-type Mix = (
-  weight?: number | string,
-  color: string,
-  otherColor: string,
-) => string
 /**
  * Mixes two colors together by calculating the average of each of the RGB components.
  *
@@ -20,14 +15,14 @@ type Mix = (
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: mix(0.5, '#f00', '#00f')
+ *   background: mix('#f00', '#00f')
  *   background: mix(0.25, '#f00', '#00f')
  *   background: mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${mix(0.5, '#f00', '#00f')};
+ *   background: ${mix('#f00', '#00f')};
  *   background: ${mix(0.25, '#f00', '#00f')};
  *   background: ${mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')};
  * `
@@ -40,19 +35,12 @@ type Mix = (
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-const mix: Mix = (...args) => {
-  let weight: number = 0.5
-  let color: string
-  let otherColor: string
-
-  if (typeof args[0] === 'number') {
-    weight = args[0]
-    color = args[1]
-    otherColor = args[2]
-  } else {
-    color = String(args[0])
-    otherColor = args[1]
-  }
+function mix(...args): string {
+  const weight: number | string =
+    typeof args[0] === 'number' ? parseFloat(args[0], 10) : 0.5
+  const color: string = typeof args[0] === 'number' ? args[1] : args[0]
+  const otherColor: string =
+    typeof args[0] === 'number' && args.length === 3 ? args[2] : args[1]
 
   const parsedColor1 = parseToRgb(color)
   const color1 = {
