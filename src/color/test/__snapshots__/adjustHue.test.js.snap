@@ -7,3 +7,5 @@ exports[`adjustHue should adjustHue of a color with opacity 1`] = `"rgba(136,100
 exports[`adjustHue should adjustHue of a hex color 1`] = `"#a9cd64"`;
 
 exports[`adjustHue should adjustHue of a reduced hex color 1`] = `"#5b4488"`;
+
+exports[`adjustHue should adjustHue when passed a string for adjustment 1`] = `"#5b4488"`;

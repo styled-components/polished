@@ -10,6 +10,8 @@ exports[`opacify should increase the opacity of rgba(255, 0, 0, .5) by 0.5 1`] =
 
 exports[`opacify should increase the opacity of rgba(255, 0, 0, 0.5) by 0.2 1`] = `"rgba(255,0,0,0.7)"`;
 
+exports[`opacify should increase the opacity when passed a string for amount 1`] = `"#fff"`;
+
 exports[`opacify should not decrease the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
 
 exports[`opacify should not increase the opacity beyond 1 1`] = `"#f00"`;

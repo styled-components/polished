@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`shade should shade the provided color when passed a string for amount 1`] = `"#00003f"`;
+
 exports[`shade should shade the provided color with white by the given percentage 1`] = `"#00003f"`;

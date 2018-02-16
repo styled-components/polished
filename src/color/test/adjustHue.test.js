@@ -17,4 +17,8 @@ describe('adjustHue', () => {
   it('should adjustHue of a color and not go beyond 360', () => {
     expect(adjustHue(350, '#448')).toMatchSnapshot()
   })
+
+  it('should adjustHue when passed a string for adjustment', () => {
+    expect(adjustHue('20', '#448')).toMatchSnapshot()
+  })
 })

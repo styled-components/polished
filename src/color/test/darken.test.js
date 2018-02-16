@@ -17,4 +17,8 @@ describe('darken', () => {
   it('should darken a color but not go below 0', () => {
     expect(darken(0.8, 'rgba(40,20,10,0.7)')).toMatchSnapshot()
   })
+
+  it('should darken a color by when passed a string for amount', () => {
+    expect(darken('0.2', '#444')).toMatchSnapshot()
+  })
 })
