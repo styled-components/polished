@@ -17,4 +17,8 @@ describe('lighten', () => {
   it('should lighten a color but not go beyond 255', () => {
     expect(lighten(0.8, 'rgba(255,200,200,0.7)')).toMatchSnapshot()
   })
+
+  it('should lighten a color when passed a string for amount', () => {
+    expect(lighten('0.1', '#444')).toMatchSnapshot()
+  })
 })

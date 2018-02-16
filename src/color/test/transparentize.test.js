@@ -38,6 +38,10 @@ describe('transparentize', () => {
     expect(transparentize(-0.5, 'rgba(255, 0, 0, .8)')).toMatchSnapshot()
   })
 
+  it('should reduce the opacity when passed a string for amount', () => {
+    expect(transparentize('0.1', '#fff')).toMatchSnapshot()
+  })
+
   it('should throw an error when enter an invalid color', () => {
     expect(() => {
       transparentize(0.5, 'not a color')
