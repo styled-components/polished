@@ -13,13 +13,13 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: adjustHue(180, '#448'),
- *   background: adjustHue(180, 'rgba(101,100,205,0.7)'),
+ *   background: adjustHue('180', 'rgba(101,100,205,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${adjustHue(180, '#448')};
- *   background: ${adjustHue(180, 'rgba(101,100,205,0.7)')};
+ *   background: ${adjustHue('180', 'rgba(101,100,205,0.7)')};
  * `
  *
  * // CSS in JS Output
@@ -28,11 +28,11 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(136,136,68,0.7)";
  * }
  */
-function adjustHue(degree: number, color: string): string {
+function adjustHue(degree: number | string, color: string): string {
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,
-    hue: (hslColor.hue + degree) % 360,
+    hue: (hslColor.hue + parseFloat(degree)) % 360,
   })
 }
 

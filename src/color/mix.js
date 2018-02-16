@@ -17,14 +17,14 @@ import curry from '../internalHelpers/_curry'
  * const styles = {
  *   background: mix(0.5, '#f00', '#00f')
  *   background: mix(0.25, '#f00', '#00f')
- *   background: mix(0.5, 'rgba(255, 0, 0, 0.5)', '#00f')
+ *   background: mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${mix(0.5, '#f00', '#00f')};
  *   background: ${mix(0.25, '#f00', '#00f')};
- *   background: ${mix(0.5, 'rgba(255, 0, 0, 0.5)', '#00f')};
+ *   background: ${mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')};
  * `
  *
  * // CSS in JS Output
@@ -51,7 +51,7 @@ function mix(weight?: number = 0.5, color: string, otherColor: string): string {
   // The formular is copied from the original Sass implementation:
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
-  const x = weight * 2 - 1
+  const x = parseFloat(weight) * 2 - 1
   const y = x * alphaDelta === -1 ? x : x + alphaDelta
   const z = 1 + x * alphaDelta
   const weight1 = (y / z + 1) / 2.0
