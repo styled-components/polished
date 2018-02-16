@@ -14,13 +14,13 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: desaturate(0.2, '#CCCD64'),
- *   background: desaturate(0.2, 'rgba(204,205,100,0.7)'),
+ *   background: desaturate('0.2', 'rgba(204,205,100,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${desaturate(0.2, '#CCCD64')};
- *   background: ${desaturate(0.2, 'rgba(204,205,100,0.7)')};
+ *   background: ${desaturate('0.2', 'rgba(204,205,100,0.7)')};
  * `
  *
  * // CSS in JS Output
@@ -29,11 +29,11 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(184,185,121,0.7)";
  * }
  */
-function desaturate(amount: number, color: string): string {
+function desaturate(amount: number | string, color: string): string {
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,
-    saturation: guard(0, 1, hslColor.saturation - amount),
+    saturation: guard(0, 1, hslColor.saturation - parseFloat(amount)),
   })
 }
 
