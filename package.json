@@ -28,7 +28,8 @@
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
     "docs": "pushstate-server docs",
     "prepublish": "npm run build && npm run typescript",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "postinstall": "opencollective postinstall"
   },
   "lint-staged": {
     "src/**/!(*.test).js": [
@@ -125,5 +126,12 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "dependencies": {
+    "opencollective": "^1.0.3"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/polished"
   }
 }
