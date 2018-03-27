@@ -6,6 +6,7 @@
 A lightweight toolset for writing styles in JavaScript. ✨
 
 [![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
+[![Backers on Open Collective](https://opencollective.com/polished/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/polished/sponsors/badge.svg)](#sponsors) 
 
 ```sh
 npm install --save polished
@@ -85,6 +86,36 @@ Specifically most other packages that provide color functions do so in an object
 ✨ polished is **compatible with any library that accepts styles as JS objects**. This includes, but is by far not limited to, `styled-components`, radium, aphrodite, glamor, glamorous, jss and many more!
 
 No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="graphs/contributors"><img src="https://opencollective.com/polished/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/polished#backer)]
+
+<a href="https://opencollective.com/polished#backers" target="_blank"><img src="https://opencollective.com/polished/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/polished#sponsor)]
+
+<a href="https://opencollective.com/polished/sponsor/0/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/1/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/2/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/3/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/4/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/5/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/6/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/7/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/8/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/9/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/9/avatar.svg"></a>
+
+
 
 ## License
 

@@ -5,7 +5,7 @@
   "jsnext:main": "dist/polished.es.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
-  "version": "1.9.0",
+  "version": "1.9.2",
   "scripts": {
     "build": "npm run build:lib && npm run build:dist && npm run build:flow && npm run build:docs && npm run build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
@@ -125,5 +125,9 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/polished"
   }
 }
