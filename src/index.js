@@ -8,6 +8,7 @@ import stripUnit from './helpers/stripUnit'
 
 // Mixins
 import clearFix from './mixins/clearFix'
+import cover from './mixins/cover'
 import ellipsis from './mixins/ellipsis'
 import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
@@ -79,6 +80,7 @@ export {
   buttons,
   clearFix,
   complement,
+  cover,
   darken,
   desaturate,
   directionalProperty,
