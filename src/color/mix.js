@@ -35,7 +35,7 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(...args): string {
+function mix(...args: [number | string, string, string] | [string, string]): string {
   const weight: number | string =
     typeof args[0] === 'number' ? parseFloat(args[0], 10) : 0.5
   const color: string = typeof args[0] === 'number' ? args[1] : args[0]
