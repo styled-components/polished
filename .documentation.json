@@ -36,6 +36,7 @@
     },
     "adjustHue",
     "complement",
+    "contrastRatio",
     "darken",
     "desaturate",
     "getLuminance",

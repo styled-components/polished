@@ -85,6 +85,7 @@ const opacify: string = polished.opacify(0.1, "rgba(255, 255, 255, 0.9)");
 const parseToHsl = polished.parseToHsl("rgb(255, 0, 0)");
 const parseToRgb = polished.parseToRgb("rgb(255, 0, 0)");
 const readableColor = polished.readableColor("rgb(255,0,0)");
+const contrastRatio = polished.contrastRatio("rgb(255,0,0)", "rgb(0,255,255)");
 
 let rgb: string = polished.rgb(255, 205, 100);
 rgb = polished.rgb({ red: 255, green: 205, blue: 100 });

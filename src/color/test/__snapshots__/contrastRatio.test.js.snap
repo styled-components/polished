@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contrastRatio should return the contrast ratio between two hex colors 1`] = `0.07183009969244383`;
+
+exports[`contrastRatio should return the contrast ratio between two named CSS colors 1`] = `0.8057710019983539`;
+
+exports[`contrastRatio should return the contrast ratio between twon hls colors 1`] = `0.4314568366064737`;
+
+exports[`contrastRatio should return the contrast ratio between twon hlsa colors 1`] = `0.9226640873414479`;
+
+exports[`contrastRatio should return the contrast ratio between twon rgb colors 1`] = `0.26655143220211924`;
+
+exports[`contrastRatio should return the contrast ratio between twon rgba colors 1`] = `0.4749078741492648`;
+
+exports[`contrastRatio should return the contrast ratio given black (#000) and black (#000) 1`] = `0`;
+
+exports[`contrastRatio should return the contrast ratio given black (#000) and white (#fff) 1`] = `1`;
+
+exports[`contrastRatio should return the contrast ratio given white (#fff) and black (#000) 1`] = `1`;
+
+exports[`contrastRatio should return the contrast ratio given white (#fff) and white (#fff) 1`] = `0`;

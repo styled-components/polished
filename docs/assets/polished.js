@@ -11,8 +11,6 @@ function capitalizeString(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-module.exports = exports["default"];
-
 //      
 var positionMap = ['Top', 'Right', 'Bottom', 'Left'];
 
@@ -80,14 +78,11 @@ function directionalProperty(property) {
   return generateStyles(property, valuesWithDefaults);
 }
 
-module.exports = exports['default'];
-
 //      
 
 function endsWith (string, suffix) {
   return string.substr(-suffix.length) === suffix;
 }
-module.exports = exports["default"];
 
 //      
 
@@ -117,8 +112,6 @@ function stripUnit(value) {
   if (isNaN(unitlessValue)) return value;
   return unitlessValue;
 }
-
-module.exports = exports["default"];
 
 //      
 
@@ -158,8 +151,6 @@ var pxtoFactory = function pxtoFactory(to) {
   };
 };
 
-module.exports = exports['default'];
-
 //      
 /**
  * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
@@ -186,7 +177,6 @@ module.exports = exports['default'];
  */
 
 var em = /*#__PURE__*/pxtoFactory('em');
-module.exports = exports['default'];
 
 //      
 
@@ -280,7 +270,6 @@ var ratioNames = {
  */
 
 var rem = /*#__PURE__*/pxtoFactory('rem');
-module.exports = exports['default'];
 
 //      
 
@@ -319,8 +308,6 @@ function clearFix() {
     display: 'table'
   }, _ref;
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -362,8 +349,6 @@ function ellipsis() {
     wordWrap: 'normal'
   };
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -459,8 +444,6 @@ function fontFace(_ref) {
   };return JSON.parse(JSON.stringify(fontFaceDeclaration));
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -496,8 +479,6 @@ function hideText() {
     whiteSpace: 'nowrap'
   };
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -547,8 +528,6 @@ function hideVisually() {
   };
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -586,9 +565,50 @@ function hiDPI() {
   return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
 }
 
-module.exports = exports["default"];
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var taggedTemplateLiteralLoose = function (strings, raw) {
+  strings.raw = raw;
+  return strings;
+};
 
 var _opinionatedRules;
 var _abbrTitle;
@@ -761,10 +781,6 @@ function normalize(excludeOpinionated) {
   return mergeRules(unopinionatedRules, opinionatedRules);
 }
 
-module.exports = exports['default'];
-
-var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 //      
 
 /**
@@ -804,14 +820,10 @@ function placeholder(styles) {
 
   var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '&';
 
-  return _ref = {}, _ref[parent + '::-webkit-input-placeholder'] = _extends$1({}, styles), _ref[parent + ':-moz-placeholder'] = _extends$1({}, styles), _ref[parent + '::-moz-placeholder'] = _extends$1({}, styles), _ref[parent + ':-ms-input-placeholder'] = _extends$1({}, styles), _ref;
+  return _ref = {}, _ref[parent + '::-webkit-input-placeholder'] = _extends({}, styles), _ref[parent + ':-moz-placeholder'] = _extends({}, styles), _ref[parent + '::-moz-placeholder'] = _extends({}, styles), _ref[parent + ':-ms-input-placeholder'] = _extends({}, styles), _ref;
 }
 
-module.exports = exports['default'];
-
-var _templateObject = /*#__PURE__*/ _taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
+var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
 
 //      
 
@@ -888,8 +900,6 @@ function radialGradient(_ref) {
   };
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -943,10 +953,6 @@ function retinaImage(filename, backgroundSize) {
   }, _ref;
 }
 
-module.exports = exports['default'];
-
-var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 //      
 
 /**
@@ -982,10 +988,8 @@ function selection(styles) {
 
   var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-  return _ref = {}, _ref[parent + '::-moz-selection'] = _extends$2({}, styles), _ref[parent + '::selection'] = _extends$2({}, styles), _ref;
+  return _ref = {}, _ref[parent + '::-moz-selection'] = _extends({}, styles), _ref[parent + '::selection'] = _extends({}, styles), _ref;
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -1045,8 +1049,6 @@ var functionsMap = {
 };function timingFunctions(timingFunction) {
   return functionsMap[timingFunction];
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -1128,8 +1130,6 @@ var reverseDirection = {
   }, _ref2['border' + reverseDirection[pointingDirection] + 'Color'] = foregroundColor + ' !important', _ref2;
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -1165,8 +1165,6 @@ function wordWrap() {
     wordBreak: wordBreak
   };
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -1222,8 +1220,6 @@ function hslToRgb(hue, saturation, lightness) {
   var finalBlue = blue + lightnessModification;
   return convert(finalRed, finalGreen, finalBlue);
 }
-
-module.exports = exports["default"];
 
 //      
 var namedColorMap = {
@@ -1386,8 +1382,6 @@ var namedColorMap = {
   return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
 }
 
-module.exports = exports['default'];
-
 //      
 var hexRegex = /^#[a-fA-F0-9]{6}$/;
 var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
@@ -1473,8 +1467,6 @@ function parseToRgb(color) {
   throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
 }
 
-module.exports = exports['default'];
-
 //      
 
 
@@ -1530,8 +1522,6 @@ function rgbToHsl(color) {
   return { hue: hue, saturation: saturation, lightness: lightness };
 }
 
-module.exports = exports["default"];
-
 //      
 
 /**
@@ -1551,8 +1541,6 @@ function parseToHsl(color) {
   return rgbToHsl(parseToRgb(color));
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -1566,17 +1554,11 @@ var reduceHexValue = function reduceHexValue(value) {
   return value;
 };
 
-module.exports = exports["default"];
-
 //      
 function numberToHex(value) {
   var hex = value.toString(16);
   return hex.length === 1 ? "0" + hex : hex;
 }
-
-module.exports = exports["default"];
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //      
 
@@ -1606,16 +1588,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function rgb(value, green, blue) {
   if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
     return reduceHexValue('#' + numberToHex(value) + numberToHex(green) + numberToHex(blue));
-  } else if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && green === undefined && blue === undefined) {
+  } else if (typeof value === 'object' && green === undefined && blue === undefined) {
     return reduceHexValue('#' + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
   }
 
   throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
 }
-
-module.exports = exports['default'];
-
-var _typeof$1 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //      
 
@@ -1659,14 +1637,12 @@ function rgba(firstValue, secondValue, thirdValue, fourthValue) {
     return 'rgba(' + rgbValue.red + ',' + rgbValue.green + ',' + rgbValue.blue + ',' + secondValue + ')';
   } else if (typeof firstValue === 'number' && typeof secondValue === 'number' && typeof thirdValue === 'number' && typeof fourthValue === 'number') {
     return fourthValue >= 1 ? rgb(firstValue, secondValue, thirdValue) : 'rgba(' + firstValue + ',' + secondValue + ',' + thirdValue + ',' + fourthValue + ')';
-  } else if ((typeof firstValue === 'undefined' ? 'undefined' : _typeof$1(firstValue)) === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
+  } else if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
     return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : 'rgba(' + firstValue.red + ',' + firstValue.green + ',' + firstValue.blue + ',' + firstValue.alpha + ')';
   }
 
   throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
 }
-
-module.exports = exports['default'];
 
 //      
 function colorToHex(color) {
@@ -1680,10 +1656,6 @@ function convertToHex(red, green, blue) {
 function hslToHex(hue, saturation, lightness) {
   return hslToRgb(hue, saturation, lightness, convertToHex);
 }
-
-module.exports = exports['default'];
-
-var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //      
 
@@ -1713,16 +1685,12 @@ var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symb
 function hsl(value, saturation, lightness) {
   if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
     return hslToHex(value, saturation, lightness);
-  } else if ((typeof value === 'undefined' ? 'undefined' : _typeof$2(value)) === 'object' && saturation === undefined && lightness === undefined) {
+  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined) {
     return hslToHex(value.hue, value.saturation, value.lightness);
   }
 
   throw new Error('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).');
 }
-
-module.exports = exports['default'];
-
-var _typeof$3 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //      
 
@@ -1755,16 +1723,12 @@ var _typeof$3 = typeof Symbol === "function" && typeof Symbol.iterator === "symb
 function hsla(value, saturation, lightness, alpha) {
   if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number' && typeof alpha === 'number') {
     return alpha >= 1 ? hslToHex(value, saturation, lightness) : 'rgba(' + hslToRgb(value, saturation, lightness) + ',' + alpha + ')';
-  } else if ((typeof value === 'undefined' ? 'undefined' : _typeof$3(value)) === 'object' && saturation === undefined && lightness === undefined && alpha === undefined) {
+  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined && alpha === undefined) {
     return value.alpha >= 1 ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
   }
 
   throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
 }
-
-module.exports = exports['default'];
-
-var _typeof$4 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 //      
 var isRgb = function isRgb(color) {
@@ -1817,7 +1781,7 @@ var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, 
  */
 
 function toColorString(color) {
-  if ((typeof color === 'undefined' ? 'undefined' : _typeof$4(color)) !== 'object') throw new Error(errMsg);
+  if (typeof color !== 'object') throw new Error(errMsg);
   if (isRgba(color)) return rgba(color);
   if (isRgb(color)) return rgb(color);
   if (isHsla(color)) return hsla(color);
@@ -1825,8 +1789,6 @@ function toColorString(color) {
 
   throw new Error(errMsg);
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -1854,9 +1816,6 @@ function curry(f) {
   // eslint-disable-line no-redeclare
   return curried(f, f.length, []);
 }
-module.exports = exports["default"];
-
-var _extends$3 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -1886,15 +1845,12 @@ var _extends$3 = Object.assign || function (target) { for (var i = 1; i < argume
  */
 function adjustHue(degree, color) {
   var hslColor = parseToHsl(color);
-  return toColorString(_extends$3({}, hslColor, {
+  return toColorString(_extends({}, hslColor, {
     hue: (hslColor.hue + degree) % 360
   }));
 }
 
 var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
-module.exports = exports['default'];
-
-var _extends$4 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -1922,95 +1878,10 @@ var _extends$4 = Object.assign || function (target) { for (var i = 1; i < argume
  */
 function complement(color) {
   var hslColor = parseToHsl(color);
-  return toColorString(_extends$4({}, hslColor, {
+  return toColorString(_extends({}, hslColor, {
     hue: (hslColor.hue + 180) % 360
   }));
 }
-
-module.exports = exports['default'];
-
-//      
-
-function guard(lowerBoundary, upperBoundary, value) {
-  return Math.max(lowerBoundary, Math.min(upperBoundary, value));
-}
-
-module.exports = exports["default"];
-
-var _extends$5 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-//      
-
-/**
- * Returns a string value for the darkened color.
- *
- * @example
- * // Styles as object usage
- * const styles = {
- *   background: darken(0.2, '#FFCD64'),
- *   background: darken(0.2, 'rgba(255,205,100,0.7)'),
- * }
- *
- * // styled-components usage
- * const div = styled.div`
- *   background: ${darken(0.2, '#FFCD64')};
- *   background: ${darken(0.2, 'rgba(255,205,100,0.7)')};
- * `
- *
- * // CSS in JS Output
- *
- * element {
- *   background: "#ffbd31";
- *   background: "rgba(255,189,49,0.7)";
- * }
- */
-function darken(amount, color) {
-  var hslColor = parseToHsl(color);
-  return toColorString(_extends$5({}, hslColor, {
-    lightness: guard(0, 1, hslColor.lightness - amount)
-  }));
-}
-
-var curriedDarken = /*#__PURE__*/curry(darken);
-module.exports = exports['default'];
-
-var _extends$6 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-//      
-
-/**
- * Decreases the intensity of a color. Its range is between 0 to 1. The first
- * argument of the desaturate function is the amount by how much the color
- * intensity should be decreased.
- *
- * @example
- * // Styles as object usage
- * const styles = {
- *   background: desaturate(0.2, '#CCCD64'),
- *   background: desaturate(0.2, 'rgba(204,205,100,0.7)'),
- * }
- *
- * // styled-components usage
- * const div = styled.div`
- *   background: ${desaturate(0.2, '#CCCD64')};
- *   background: ${desaturate(0.2, 'rgba(204,205,100,0.7)')};
- * `
- *
- * // CSS in JS Output
- * element {
- *   background: "#b8b979";
- *   background: "rgba(184,185,121,0.7)";
- * }
- */
-function desaturate(amount, color) {
-  var hslColor = parseToHsl(color);
-  return toColorString(_extends$6({}, hslColor, {
-    saturation: guard(0, 1, hslColor.saturation - amount)
-  }));
-}
-
-var curriedDesaturate = /*#__PURE__*/curry(desaturate);
-module.exports = exports['default'];
 
 //      
 /**
@@ -2053,9 +1924,115 @@ function getLuminance(color) {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
-module.exports = exports['default'];
+//      
+/**
+ * Selects black or white for best contrast depending on the luminosity of the given color.
+ * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   color: readableColor('#000'),
+ *   color: readableColor('papayawhip'),
+ *   color: readableColor('rgb(255,0,0)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   color: ${readableColor('#000')};
+ *   color: ${readableColor('papayawhip')};
+ *   color: ${readableColor('rgb(255,0,0)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   color: "#fff";
+ *   color: "#fff";
+ *   color: "#000";
+ * }
+ */
 
-var _extends$7 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function contrastRatio(color1, color2) {
+  return Math.abs(getLuminance(color1) - getLuminance(color2));
+}
+
+var curriedContrastRatio = /*#__PURE__*/curry(contrastRatio);
+
+//      
+
+function guard(lowerBoundary, upperBoundary, value) {
+  return Math.max(lowerBoundary, Math.min(upperBoundary, value));
+}
+
+//      
+
+/**
+ * Returns a string value for the darkened color.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: darken(0.2, '#FFCD64'),
+ *   background: darken(0.2, 'rgba(255,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${darken(0.2, '#FFCD64')};
+ *   background: ${darken(0.2, 'rgba(255,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ *
+ * element {
+ *   background: "#ffbd31";
+ *   background: "rgba(255,189,49,0.7)";
+ * }
+ */
+function darken(amount, color) {
+  var hslColor = parseToHsl(color);
+  return toColorString(_extends({}, hslColor, {
+    lightness: guard(0, 1, hslColor.lightness - amount)
+  }));
+}
+
+var curriedDarken = /*#__PURE__*/curry(darken);
+
+//      
+
+/**
+ * Decreases the intensity of a color. Its range is between 0 to 1. The first
+ * argument of the desaturate function is the amount by how much the color
+ * intensity should be decreased.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   background: desaturate(0.2, '#CCCD64'),
+ *   background: desaturate(0.2, 'rgba(204,205,100,0.7)'),
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   background: ${desaturate(0.2, '#CCCD64')};
+ *   background: ${desaturate(0.2, 'rgba(204,205,100,0.7)')};
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   background: "#b8b979";
+ *   background: "rgba(184,185,121,0.7)";
+ * }
+ */
+function desaturate(amount, color) {
+  var hslColor = parseToHsl(color);
+  return toColorString(_extends({}, hslColor, {
+    saturation: guard(0, 1, hslColor.saturation - amount)
+  }));
+}
+
+var curriedDesaturate = /*#__PURE__*/curry(desaturate);
 
 //      
 
@@ -2082,14 +2059,10 @@ var _extends$7 = Object.assign || function (target) { for (var i = 1; i < argume
  * }
  */
 function grayscale(color) {
-  return toColorString(_extends$7({}, parseToHsl(color), {
+  return toColorString(_extends({}, parseToHsl(color), {
     saturation: 0
   }));
 }
-
-module.exports = exports['default'];
-
-var _extends$8 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2119,16 +2092,12 @@ var _extends$8 = Object.assign || function (target) { for (var i = 1; i < argume
 function invert(color) {
   // parse color string to rgb
   var value = parseToRgb(color);
-  return toColorString(_extends$8({}, value, {
+  return toColorString(_extends({}, value, {
     red: 255 - value.red,
     green: 255 - value.green,
     blue: 255 - value.blue
   }));
 }
-
-module.exports = exports['default'];
-
-var _extends$9 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2157,15 +2126,12 @@ var _extends$9 = Object.assign || function (target) { for (var i = 1; i < argume
  */
 function lighten(amount, color) {
   var hslColor = parseToHsl(color);
-  return toColorString(_extends$9({}, hslColor, {
+  return toColorString(_extends({}, hslColor, {
     lightness: guard(0, 1, hslColor.lightness + amount)
   }));
 }
 
 var curriedLighten = /*#__PURE__*/curry(lighten);
-module.exports = exports['default'];
-
-var _extends$10 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2206,12 +2172,12 @@ function mix() {
   var otherColor = arguments[2];
 
   var parsedColor1 = parseToRgb(color);
-  var color1 = _extends$10({}, parsedColor1, {
+  var color1 = _extends({}, parsedColor1, {
     alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
   });
 
   var parsedColor2 = parseToRgb(otherColor);
-  var color2 = _extends$10({}, parsedColor2, {
+  var color2 = _extends({}, parsedColor2, {
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
 
     // The formular is copied from the original Sass implementation:
@@ -2234,9 +2200,6 @@ function mix() {
 }
 
 var curriedMix = /*#__PURE__*/curry(mix);
-module.exports = exports['default'];
-
-var _extends$11 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 /**
@@ -2269,14 +2232,13 @@ var _extends$11 = Object.assign || function (target) { for (var i = 1; i < argum
 function opacify(amount, color) {
   var parsedColor = parseToRgb(color);
   var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
-  var colorWithAlpha = _extends$11({}, parsedColor, {
+  var colorWithAlpha = _extends({}, parsedColor, {
     alpha: guard(0, 1, (alpha * 100 + amount * 100) / 100)
   });
   return rgba(colorWithAlpha);
 }
 
 var curriedOpacify = /*#__PURE__*/curry(opacify);
-module.exports = exports['default'];
 
 //      
 /**
@@ -2312,9 +2274,6 @@ function readableColor(color) {
 }
 
 var curriedReadableColor = /*#__PURE__*/curry(readableColor);
-module.exports = exports['default'];
-
-var _extends$12 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2345,15 +2304,12 @@ var _extends$12 = Object.assign || function (target) { for (var i = 1; i < argum
  */
 function saturate(amount, color) {
   var hslColor = parseToHsl(color);
-  return toColorString(_extends$12({}, hslColor, {
+  return toColorString(_extends({}, hslColor, {
     saturation: guard(0, 1, hslColor.saturation + amount)
   }));
 }
 
 var curriedSaturate = /*#__PURE__*/curry(saturate);
-module.exports = exports['default'];
-
-var _extends$13 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2381,15 +2337,12 @@ var _extends$13 = Object.assign || function (target) { for (var i = 1; i < argum
  * }
  */
 function setHue(hue, color) {
-  return toColorString(_extends$13({}, parseToHsl(color), {
+  return toColorString(_extends({}, parseToHsl(color), {
     hue: hue
   }));
 }
 
 var curriedSetHue = /*#__PURE__*/curry(setHue);
-module.exports = exports['default'];
-
-var _extends$14 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2417,15 +2370,12 @@ var _extends$14 = Object.assign || function (target) { for (var i = 1; i < argum
  * }
  */
 function setLightness(lightness, color) {
-  return toColorString(_extends$14({}, parseToHsl(color), {
+  return toColorString(_extends({}, parseToHsl(color), {
     lightness: lightness
   }));
 }
 
 var curriedSetLightness = /*#__PURE__*/curry(setLightness);
-module.exports = exports['default'];
-
-var _extends$15 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 
@@ -2453,13 +2403,12 @@ var _extends$15 = Object.assign || function (target) { for (var i = 1; i < argum
  * }
  */
 function setSaturation(saturation, color) {
-  return toColorString(_extends$15({}, parseToHsl(color), {
+  return toColorString(_extends({}, parseToHsl(color), {
     saturation: saturation
   }));
 }
 
 var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
-module.exports = exports['default'];
 
 //      
 
@@ -2497,7 +2446,6 @@ function shade(percentage, color) {
 }
 
 var curriedShade = /*#__PURE__*/curry(shade);
-module.exports = exports['default'];
 
 //      
 
@@ -2535,9 +2483,6 @@ function tint(percentage, color) {
 }
 
 var curriedTint = /*#__PURE__*/curry(tint);
-module.exports = exports['default'];
-
-var _extends$16 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 /**
@@ -2570,14 +2515,13 @@ var _extends$16 = Object.assign || function (target) { for (var i = 1; i < argum
 function transparentize(amount, color) {
   var parsedColor = parseToRgb(color);
   var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
-  var colorWithAlpha = _extends$16({}, parsedColor, {
+  var colorWithAlpha = _extends({}, parsedColor, {
     alpha: guard(0, 1, (alpha * 100 - amount * 100) / 100)
   });
   return rgba(colorWithAlpha);
 }
 
 var curriedTransparentize = /*#__PURE__*/curry(transparentize);
-module.exports = exports['default'];
 
 //      
 
@@ -2645,8 +2589,6 @@ function animation() {
   };
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -2679,8 +2621,6 @@ function backgroundImages() {
   };
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -2711,8 +2651,6 @@ function backgrounds() {
     background: properties.join(', ')
   };
 }
-
-module.exports = exports['default'];
 
 //      
 /**
@@ -2745,8 +2683,6 @@ function borderColor() {
 
   return directionalProperty.apply(undefined, ['borderColor'].concat(values));
 }
-
-module.exports = exports['default'];
 
 //      
 /**
@@ -2790,8 +2726,6 @@ function borderRadius(side, radius) {
   throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
 }
 
-module.exports = exports['default'];
-
 //      
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -2824,8 +2758,6 @@ function borderStyle() {
   return directionalProperty.apply(undefined, ['borderStyle'].concat(values));
 }
 
-module.exports = exports['default'];
-
 //      
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -2857,8 +2789,6 @@ function borderWidth() {
   return directionalProperty.apply(undefined, ['borderWidth'].concat(values));
 }
 
-module.exports = exports['default'];
-
 //      
 
 
@@ -2884,8 +2814,6 @@ function statefulSelectors(states, template, stateMap) {
   selectors = selectors.join(',');
   return selectors;
 }
-
-module.exports = exports['default'];
 
 //      
 var stateMap = [undefined, null, 'active', 'focus', 'hover'];
@@ -2929,8 +2857,6 @@ function buttons() {
   return statefulSelectors(states, template, stateMap);
 }
 
-module.exports = exports['default'];
-
 //      
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -2963,8 +2889,6 @@ function margin() {
   return directionalProperty.apply(undefined, ['margin'].concat(values));
 }
 
-module.exports = exports['default'];
-
 //      
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -2996,10 +2920,6 @@ function padding() {
 
   return directionalProperty.apply(undefined, ['padding'].concat(values));
 }
-
-module.exports = exports['default'];
-
-var _extends$17 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //      
 var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
@@ -3053,7 +2973,7 @@ function position(positionKeyword) {
   }
 
   if (positionMap$1.indexOf(positionKeyword) >= 0) {
-    return _extends$17({
+    return _extends({
       position: positionKeyword
     }, directionalProperty.apply(undefined, [''].concat(values)));
   } else {
@@ -3061,8 +2981,6 @@ function position(positionKeyword) {
     return directionalProperty.apply(undefined, ['', firstValue].concat(values));
   }
 }
-
-module.exports = exports['default'];
 
 //      
 
@@ -3095,8 +3013,6 @@ function size(height) {
     width: width
   };
 }
-
-module.exports = exports["default"];
 
 //      
 var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
@@ -3152,8 +3068,6 @@ function textInputs() {
   return statefulSelectors(states, template$1, stateMap$1);
 }
 
-module.exports = exports['default'];
-
 //      
 
 /**
@@ -3186,8 +3100,6 @@ function transitions() {
   };
 }
 
-module.exports = exports['default'];
-
 //      
 // Helpers
 // Mixins
@@ -3205,6 +3117,7 @@ exports.borderWidth = borderWidth;
 exports.buttons = buttons;
 exports.clearFix = clearFix;
 exports.complement = complement;
+exports.contrastRatio = curriedContrastRatio;
 exports.darken = curriedDarken;
 exports.desaturate = curriedDesaturate;
 exports.directionalProperty = directionalProperty;

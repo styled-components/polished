@@ -25,6 +25,7 @@ import wordWrap from './mixins/wordWrap'
 // Color
 import adjustHue from './color/adjustHue'
 import complement from './color/complement'
+import contrastRatio from './color/contrastRatio'
 import darken from './color/darken'
 import desaturate from './color/desaturate'
 import getLuminance from './color/getLuminance'
@@ -77,6 +78,7 @@ export {
   buttons,
   clearFix,
   complement,
+  contrastRatio,
   darken,
   desaturate,
   directionalProperty,
