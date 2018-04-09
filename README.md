@@ -90,7 +90,7 @@ No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/1
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="graphs/contributors"><img src="https://opencollective.com/polished/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/styled-components/polished/graphs/contributors"><img src="https://opencollective.com/polished/contributors.svg?width=890&button=false" /></a>
 
 
 ## Backers
