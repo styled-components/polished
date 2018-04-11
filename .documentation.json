@@ -15,6 +15,11 @@
       "markdown": false
     },
     {
+      "name": "Babel",
+      "description": "<div class='babel'><code class='command'>npm install --save-dev babel-plugin-polished</code><code class='javascript'>{ plugins: [\"babel-plugin-polished\"] }</code></div>",
+      "markdown": false
+    },
+    {
       "name": "Mixins"
     },
     "clearFix",
