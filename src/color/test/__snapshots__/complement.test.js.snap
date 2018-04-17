@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`complement should return the complement of a 8-digit hex color 1`] = `"rgba(101,100,205,0.4980392156862745)"`;
+
 exports[`complement should return the complement of a color with opacity 1`] = `"rgba(204,205,100,0.7)"`;
 
 exports[`complement should return the complement of a hex color 1`] = `"#6564cd"`;

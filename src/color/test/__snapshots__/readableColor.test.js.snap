@@ -24,6 +24,10 @@ exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, #000 1`] = `"#fff"`;
 
+exports[`readableColor should return white given black, #0000001A 1`] = `"#fff"`;
+
+exports[`readableColor should return white given black, #000000BF 1`] = `"#fff"`;
+
 exports[`readableColor should return white given black, rgb(0,0,0) 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, rgba(0,0,0,0.1) 1`] = `"#fff"`;

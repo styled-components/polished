@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parseToHsl should parse a 8-digit hex color representation 1`] = `
+Object {
+  "alpha": 0.6549019607843137,
+  "hue": 325.8510638297872,
+  "lightness": 0.6313725490196078,
+  "saturation": 1,
+}
+`;
+
 exports[`parseToHsl should parse a hex color representation 1`] = `
 Object {
   "hue": 325.8510638297872,
