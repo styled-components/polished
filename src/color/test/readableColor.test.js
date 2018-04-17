@@ -22,6 +22,12 @@ describe('readableColor', () => {
   it('should return white given gray, #757575', () => {
     expect(readableColor('#757575')).toMatchSnapshot()
   })
+  it('should return white given black, #0000001A', () => {
+    expect(readableColor('#0000001A')).toMatchSnapshot()
+  })
+  it('should return white given black, #000000BF', () => {
+    expect(readableColor('#000000BF')).toMatchSnapshot()
+  })
   it('should return black given white, rgb(255,255,255)', () => {
     expect(readableColor('rgb(255,255,255)')).toMatchSnapshot()
   })

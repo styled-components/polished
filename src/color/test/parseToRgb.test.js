@@ -5,6 +5,10 @@ describe('parseToRgb', () => {
     expect(parseToRgb('#Ff43AE')).toMatchSnapshot()
   })
 
+  it('should parse a 8-digit hex color representation', () => {
+    expect(parseToRgb('#Ff43AEFF')).toMatchSnapshot()
+  })
+
   it('should parse a reduced hex color representation', () => {
     expect(parseToRgb('#45a')).toMatchSnapshot()
   })
