@@ -14,13 +14,15 @@ Interested in contributing? Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for d
 - CSS-Locks Mixin. (#129)
 - Cover Mixin. (#258)
 - Font Smoothing Mixin. (#209)
-- React Native mixins for dealing with `Device` width and height. (#143)
 - Border shorthand to address issues with shorthand properties in tools like Fela. (#264)
 - Add support for `font-display`, `font-variation-settings`, `font-feature-settings` to `FontFace` mixin. (#286)
 - Add support for giving multiple properties the same transition in `transitions` shorthand. (#232)
 - Accept string as a valid parameter type for float parameters in all color modules. (#243)
 - Fix for `ellipsis` helper to deal better with whitespace problem caused by `inline-block`.
+- Support for `#rrggbbaa` format for color modules. (#306)
+- Fix for typings for `mix` module. (#244)
 - Updated contributor guidelines and instructions.
+- Fix for documentation build issues for contributors.
 
 ## Features Being Considered For Inclusion In Future Releases
 
