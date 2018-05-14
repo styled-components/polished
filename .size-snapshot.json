@@ -1,0 +1,21 @@
+{
+  "dist/polished.js": {
+    "bundled": 87207,
+    "minified": 27455,
+    "gzipped": 8808
+  },
+  "dist/polished.es.js": {
+    "bundled": 85897,
+    "minified": 31176,
+    "gzipped": 9263,
+    "treeshaked": {
+      "rollup": 2870,
+      "webpack": 3436
+    }
+  },
+  "dist/polished.min.js": {
+    "bundled": 87207,
+    "minified": 27455,
+    "gzipped": 8808
+  }
+}
