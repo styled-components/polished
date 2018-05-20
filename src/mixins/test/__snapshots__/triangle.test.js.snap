@@ -22,6 +22,17 @@ Object {
 }
 `;
 
+exports[`triangle should generate a proper triangle when passed all parameters with units on width/height 1`] = `
+Object {
+  "borderColor": "black",
+  "borderLeftColor": "red !important",
+  "borderStyle": "solid",
+  "borderWidth": "5em 0 5em 20em",
+  "height": "0",
+  "width": "0",
+}
+`;
+
 exports[`triangle should generate a proper triangle when passed string values for height and width 1`] = `
 Object {
   "borderColor": "black",
