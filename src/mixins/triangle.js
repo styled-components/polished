@@ -1,5 +1,7 @@
 // @flow
 
+import borderColor from '../shorthands/borderColor'
+
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
 
@@ -37,12 +39,7 @@ const getBorderWidth = (
 }
 
 // needed for border-color
-const reverseDirection = {
-  left: 'Right',
-  right: 'Left',
-  top: 'Bottom',
-  bottom: 'Top',
-}
+const reverseDirection = ['bottom', 'left', 'top', 'right']
 
 /**
  * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
@@ -90,20 +87,15 @@ function triangle({
   if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
     throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   }
+
+  const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)
   return {
-    borderColor: backgroundColor,
     width: '0',
     height: '0',
     borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
     borderStyle: 'solid',
-    /*
-    * javascript Object sorting orders 'border-color' after 'border-bottom-color'
-    * (bottom-b) is before (bottom-c) - !important is needed
-    * { border-bottom-color: 'red', border-color: 'transparent' }
-    */
-    [`border${
-      reverseDirection[pointingDirection]
-    }Color`]: `${foregroundColor} !important`,
+    ...borderColor(...Array.from({ length: 4 }).map((_, index) =>
+      index === reverseDirectionIndex ? foregroundColor : backgroundColor)),
   }
 }
 
