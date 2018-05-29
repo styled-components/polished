@@ -1,5 +1,7 @@
 // @flow
 
+import borderColor from '../shorthands/borderColor'
+
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
 
@@ -13,18 +15,23 @@ type TriangleArgs = {
 
 const getBorderWidth = (
   pointingDirection: PointingDirection,
-  height: number,
-  width: number,
+  height: [number, string],
+  width: [number, string],
 ): string => {
   switch (pointingDirection) {
     case 'top':
-      return `0 ${width / 2}px ${height}px ${width / 2}px`
+      return `0 ${width[0] / 2}${width[1]} ${height[0]}${height[1]} ${width[0] /
+        2}${width[1]}`
     case 'left':
-      return `${height / 2}px ${width}px ${height / 2}px 0`
+      return `${height[0] / 2}${height[1]} ${width[0]}${width[1]} ${height[0] /
+        2}${height[1]} 0`
     case 'bottom':
-      return `${height}px ${width / 2}px 0 ${width / 2}px`
+      return `${height[0]}${height[1]} ${width[0] / 2}${width[1]} 0 ${width[0] /
+        2}${width[1]}`
     case 'right':
-      return `${height / 2}px 0 ${height / 2}px ${width}px`
+      return `${height[0] / 2}${height[1]} 0 ${height[0] / 2}${height[1]} ${
+        width[0]
+      }${width[1]}`
 
     default:
       throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
@@ -32,12 +39,7 @@ const getBorderWidth = (
 }
 
 // needed for border-color
-const reverseDirection = {
-  left: 'Right',
-  right: 'Left',
-  top: 'Bottom',
-  bottom: 'Top',
-}
+const reverseDirection = ['bottom', 'left', 'top', 'right']
 
 /**
  * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
@@ -74,30 +76,26 @@ function triangle({
   foregroundColor,
   backgroundColor = 'transparent',
 }: TriangleArgs): Object {
-  const unitlessHeight = parseFloat(height)
-  const unitlessWidth = parseFloat(width)
-  if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {
+  const widthAndUnit = [
+    parseFloat(width),
+    String(width).replace(/\d+/g, '') || 'px',
+  ]
+  const heightAndUnit = [
+    parseFloat(height),
+    String(height).replace(/\d+/g, '') || 'px',
+  ]
+  if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
     throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   }
 
+  const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)
   return {
-    borderColor: backgroundColor,
     width: '0',
     height: '0',
-    borderWidth: getBorderWidth(
-      pointingDirection,
-      unitlessHeight,
-      unitlessWidth,
-    ),
+    borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
     borderStyle: 'solid',
-    /*
-    * javascript Object sorting orders 'border-color' after 'border-bottom-color'
-    * (bottom-b) is before (bottom-c) - !important is needed
-    * { border-bottom-color: 'red', border-color: 'transparent' }
-    */
-    [`border${
-      reverseDirection[pointingDirection]
-    }Color`]: `${foregroundColor} !important`,
+    ...borderColor(...Array.from({ length: 4 }).map((_, index) =>
+      index === reverseDirectionIndex ? foregroundColor : backgroundColor)),
   }
 }
 
