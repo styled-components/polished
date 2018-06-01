@@ -1,11 +1,9 @@
 // @flow
+
+// Warning: opinionatedRules were removed in normalize.css 6.0 and will be deprecated in polished 3.0.
 const opinionatedRules = {
   html: {
     fontFamily: 'sans-serif',
-  },
-
-  body: {
-    margin: '0',
   },
 
   [`a:active,
@@ -30,28 +28,13 @@ const unopinionatedRules = {
     textSizeAdjust: '100%',
   },
 
-  [`article,
-  aside,
-  footer,
-  header,
-  nav,
-  section`]: {
-    display: 'block',
+  body: {
+    margin: '0',
   },
 
   h1: {
     fontSize: '2em',
     margin: '0.67em 0',
-  },
-
-  [`figcaption,
-  figure,
-  main`]: {
-    display: 'block',
-  },
-
-  figure: {
-    margin: '1em 40px',
   },
 
   hr: {
@@ -67,19 +50,21 @@ const unopinionatedRules = {
 
   a: {
     'background-color': 'transparent',
-    '-webkit-text-decoration-skip': 'objects',
   },
 
-  'abbr[title]': {
-    borderBottom: 'none',
-    textDecoration: 'underline',
-    // eslint-disable-next-line no-dupe-keys
-    textDecoration: 'underline dotted',
-  },
+  'abbr[title]': [
+    {
+      borderBottom: 'none',
+      textDecoration: 'underline',
+    },
+    {
+      textDecoration: 'underline dotted',
+    },
+  ],
 
   [`b,
   strong`]: {
-    fontWeight: 'inherit',
+    fontWeight: 'bolder',
   },
 
   [`code,
@@ -87,15 +72,6 @@ const unopinionatedRules = {
   samp`]: {
     fontFamily: 'monospace, monospace',
     fontSize: '1em',
-  },
-
-  dfn: {
-    fontStyle: 'italic',
-  },
-
-  mark: {
-    backgroundColor: '#ff0',
-    color: '#000',
   },
 
   small: {
@@ -118,22 +94,8 @@ const unopinionatedRules = {
     top: '-0.5em',
   },
 
-  [`audio,
-  video`]: {
-    display: 'inline-block',
-  },
-
-  'audio:not([controls])': {
-    display: 'none',
-    height: '0',
-  },
-
   img: {
     borderStyle: 'none',
-  },
-
-  'svg:not(:root)': {
-    overflow: 'hidden',
   },
 
   [`button,
@@ -141,6 +103,9 @@ const unopinionatedRules = {
   optgroup,
   select,
   textarea`]: {
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: '1.15',
     margin: '0',
   },
 
@@ -177,8 +142,6 @@ const unopinionatedRules = {
   },
 
   fieldset: {
-    border: '1px solid #c0c0c0',
-    margin: '0 2px',
     padding: '0.35em 0.625em 0.75em',
   },
 
@@ -192,7 +155,6 @@ const unopinionatedRules = {
   },
 
   progress: {
-    display: 'inline-block',
     verticalAlign: 'baseline',
   },
 
@@ -216,8 +178,7 @@ const unopinionatedRules = {
     outlineOffset: '-2px',
   },
 
-  [`[type="search"]::-webkit-search-cancel-button,
-  [type="search"]::-webkit-search-decoration`]: {
+  '[type="search"]::-webkit-search-decoration': {
     '-webkit-appearance': 'none',
   },
 
@@ -226,17 +187,12 @@ const unopinionatedRules = {
     font: 'inherit',
   },
 
-  [`details,
-  menu`]: {
+  details: {
     display: 'block',
   },
 
   summary: {
     display: 'list-item',
-  },
-
-  canvas: {
-    display: 'inline-block',
   },
 
   template: {
@@ -266,7 +222,7 @@ function mergeRules(baseRules: Object, additionalRules: Object): Object {
 }
 
 /**
- * CSS to normalize abnormalities across browsers (normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css)
+ * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
  *
  * @example
  * // Styles as object usage
@@ -280,7 +236,6 @@ function mergeRules(baseRules: Object, additionalRules: Object): Object {
  * // CSS as JS Output
  *
  * html {
- *   fontFamily: 'sans-serif',
  *   lineHeight: 1.15,
  *   textSizeAdjust: 100%,
  * } ...
