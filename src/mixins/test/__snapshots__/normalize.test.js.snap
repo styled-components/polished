@@ -22,41 +22,28 @@ Object {
     "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
   },
-  "[type=\\"search\\"]::-webkit-search-cancel-button,
-  [type=\\"search\\"]::-webkit-search-decoration": Object {
+  "[type=\\"search\\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
-    "-webkit-text-decoration-skip": "objects",
     "background-color": "transparent",
   },
   "a:active,
   a:hover": Object {
     "outlineWidth": "0",
   },
-  "abbr[title]": Object {
-    "borderBottom": "none",
-    "textDecoration": "underline dotted",
-  },
-  "article,
-  aside,
-  footer,
-  header,
-  nav,
-  section": Object {
-    "display": "block",
-  },
-  "audio,
-  video": Object {
-    "display": "inline-block",
-  },
-  "audio:not([controls])": Object {
-    "display": "none",
-    "height": "0",
-  },
+  "abbr[title]": Array [
+    Object {
+      "borderBottom": "none",
+      "textDecoration": "underline",
+    },
+    Object {
+      "textDecoration": "underline dotted",
+    },
+  ],
   "b,
   strong": Object {
-    "fontWeight": "inherit",
+    "fontWeight": "bolder",
   },
   "body": Object {
     "margin": "0",
@@ -98,34 +85,17 @@ Object {
     "borderStyle": "none",
     "padding": "0",
   },
-  "canvas": Object {
-    "display": "inline-block",
-  },
   "code,
   kbd,
   samp": Object {
     "fontFamily": "monospace, monospace",
     "fontSize": "1em",
   },
-  "details,
-  menu": Object {
+  "details": Object {
     "display": "block",
-  },
-  "dfn": Object {
-    "fontStyle": "italic",
   },
   "fieldset": Object {
-    "border": "1px solid #c0c0c0",
-    "margin": "0 2px",
     "padding": "0.35em 0.625em 0.75em",
-  },
-  "figcaption,
-  figure,
-  main": Object {
-    "display": "block",
-  },
-  "figure": Object {
-    "margin": "1em 40px",
   },
   "h1": Object {
     "fontSize": "2em",
@@ -152,16 +122,11 @@ Object {
     "padding": "0",
     "whiteSpace": "normal",
   },
-  "mark": Object {
-    "backgroundColor": "#ff0",
-    "color": "#000",
-  },
   "pre": Object {
     "fontFamily": "monospace, monospace",
     "fontSize": "1em",
   },
   "progress": Object {
-    "display": "inline-block",
     "verticalAlign": "baseline",
   },
   "small": Object {
@@ -182,9 +147,6 @@ Object {
   },
   "sup": Object {
     "top": "-0.5em",
-  },
-  "svg:not(:root)": Object {
-    "overflow": "hidden",
   },
   "template": Object {
     "display": "none",
@@ -217,37 +179,27 @@ Object {
     "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
   },
-  "[type=\\"search\\"]::-webkit-search-cancel-button,
-  [type=\\"search\\"]::-webkit-search-decoration": Object {
+  "[type=\\"search\\"]::-webkit-search-decoration": Object {
     "-webkit-appearance": "none",
   },
   "a": Object {
-    "-webkit-text-decoration-skip": "objects",
     "background-color": "transparent",
   },
-  "abbr[title]": Object {
-    "borderBottom": "none",
-    "textDecoration": "underline dotted",
-  },
-  "article,
-  aside,
-  footer,
-  header,
-  nav,
-  section": Object {
-    "display": "block",
-  },
-  "audio,
-  video": Object {
-    "display": "inline-block",
-  },
-  "audio:not([controls])": Object {
-    "display": "none",
-    "height": "0",
-  },
+  "abbr[title]": Array [
+    Object {
+      "borderBottom": "none",
+      "textDecoration": "underline",
+    },
+    Object {
+      "textDecoration": "underline dotted",
+    },
+  ],
   "b,
   strong": Object {
-    "fontWeight": "inherit",
+    "fontWeight": "bolder",
+  },
+  "body": Object {
+    "margin": "0",
   },
   "button,
   html [type=\\"button\\"],
@@ -264,6 +216,9 @@ Object {
   optgroup,
   select,
   textarea": Object {
+    "fontFamily": "inherit",
+    "fontSize": "100%",
+    "lineHeight": "1.15",
     "margin": "0",
   },
   "button,
@@ -283,34 +238,17 @@ Object {
     "borderStyle": "none",
     "padding": "0",
   },
-  "canvas": Object {
-    "display": "inline-block",
-  },
   "code,
   kbd,
   samp": Object {
     "fontFamily": "monospace, monospace",
     "fontSize": "1em",
   },
-  "details,
-  menu": Object {
+  "details": Object {
     "display": "block",
-  },
-  "dfn": Object {
-    "fontStyle": "italic",
   },
   "fieldset": Object {
-    "border": "1px solid #c0c0c0",
-    "margin": "0 2px",
     "padding": "0.35em 0.625em 0.75em",
-  },
-  "figcaption,
-  figure,
-  main": Object {
-    "display": "block",
-  },
-  "figure": Object {
-    "margin": "1em 40px",
   },
   "h1": Object {
     "fontSize": "2em",
@@ -336,16 +274,11 @@ Object {
     "padding": "0",
     "whiteSpace": "normal",
   },
-  "mark": Object {
-    "backgroundColor": "#ff0",
-    "color": "#000",
-  },
   "pre": Object {
     "fontFamily": "monospace, monospace",
     "fontSize": "1em",
   },
   "progress": Object {
-    "display": "inline-block",
     "verticalAlign": "baseline",
   },
   "small": Object {
@@ -366,9 +299,6 @@ Object {
   },
   "sup": Object {
     "top": "-0.5em",
-  },
-  "svg:not(:root)": Object {
-    "overflow": "hidden",
   },
   "template": Object {
     "display": "none",
