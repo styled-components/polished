@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tracking should convert a tracking target to em 1`] = `
+Object {
+  "letterSpacing": "0.05em",
+}
+`;
