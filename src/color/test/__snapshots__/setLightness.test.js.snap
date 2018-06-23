@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`setLightness should update the lightness and return a color with opacity 1`] = `"rgba(223,224,159,0.7)"`;
+exports[`setLightness should update the lightness and return a color with opacity 1`] = `"rgba(25,25,77,0.7)"`;
 
 exports[`setLightness should update the lightness and return a hex color 1`] = `"#4d4d19"`;
+
+exports[`setLightness should update the lightness of an 8-digit hex color and return a hex color 1`] = `"rgba(25,25,77,0.7)"`;
 
 exports[`setLightness should update the lightness when passed a string 1`] = `"#4d4d19"`;

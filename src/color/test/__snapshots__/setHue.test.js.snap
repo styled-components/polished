@@ -4,4 +4,6 @@ exports[`setHue should update the hue and return a color with opacity 1`] = `"rg
 
 exports[`setHue should update the hue and return a hex color 1`] = `"#cdae64"`;
 
+exports[`setHue should update the hue of an 8-digit hex color and return a hex color 1`] = `"rgba(107,100,205,0.7)"`;
+
 exports[`setHue should update the hue when passed a string for hue 1`] = `"#cdae64"`;

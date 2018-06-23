@@ -6,8 +6,12 @@ describe('darken', () => {
     expect(darken(0.2, '#444')).toMatchSnapshot()
   })
 
-  it('should darken a color with opacity by 10%', () => {
-    expect(darken(0.1, 'rgba(220,140,140,0.7)')).toMatchSnapshot()
+  it('should darken an 8-digit hex color by 20%', () => {
+    expect(darken(0.2, '#6564CDB3')).toMatchSnapshot()
+  })
+
+  it('should darken a color with opacity by 20%', () => {
+    expect(darken(0.2, 'rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
 
   it('should darken a color with a value of 255 and opacity by 10%', () => {

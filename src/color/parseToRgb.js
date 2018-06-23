@@ -4,6 +4,7 @@ import nameToHex from '../internalHelpers/_nameToHex'
 import type { RgbColor, RgbaColor } from '../types/color'
 
 const hexRegex = /^#[a-fA-F0-9]{6}$/
+const hexRgbaRegex = /^#[a-fA-F0-9]{8}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
 const rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/
 const rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/
@@ -31,6 +32,17 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
       green: parseInt(`${normalizedColor[3]}${normalizedColor[4]}`, 16),
       blue: parseInt(`${normalizedColor[5]}${normalizedColor[6]}`, 16),
+    }
+  }
+  if (normalizedColor.match(hexRgbaRegex)) {
+    const alpha = parseFloat((
+      parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255
+    ).toFixed(2))
+    return {
+      red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
+      green: parseInt(`${normalizedColor[3]}${normalizedColor[4]}`, 16),
+      blue: parseInt(`${normalizedColor[5]}${normalizedColor[6]}`, 16),
+      alpha,
     }
   }
   if (normalizedColor.match(reducedHexRegex)) {
