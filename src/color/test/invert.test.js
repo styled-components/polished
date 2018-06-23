@@ -10,6 +10,10 @@ describe('invert', () => {
     expect(invert('#CCCD64')).toMatchSnapshot()
   })
 
+  it('should invert a 8-digit hex color', () => {
+    expect(invert('#CCCD64A7')).toMatchSnapshot()
+  })
+
   it('should invert a color with opacity', () => {
     expect(invert('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

@@ -5,6 +5,10 @@ describe('parseToHsl', () => {
     expect(parseToHsl('#Ff43AE')).toMatchSnapshot()
   })
 
+  it('should parse a 8-digit hex color representation', () => {
+    expect(parseToHsl('#Ff43AEA7')).toMatchSnapshot()
+  })
+
   it('should parse a reduced hex color representation', () => {
     expect(parseToHsl('#45a')).toMatchSnapshot()
   })

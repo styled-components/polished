@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`saturate should saturate a 8-digit hex color by 20% 1`] = `"rgba(224,226,80,0.4980392156862745)"`;
+
 exports[`saturate should saturate a color but not go beyond 255 1`] = `"rgba(255,200,200,0.7)"`;
 
 exports[`saturate should saturate a color by 10% 1`] = `"#4b3d3d"`;

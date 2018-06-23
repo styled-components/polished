@@ -10,6 +10,10 @@ describe('saturate', () => {
     expect(saturate(0.2, '#CCCD64')).toMatchSnapshot()
   })
 
+  it('should saturate a 8-digit hex color by 20%', () => {
+    expect(saturate(0.2, '#CCCD647F')).toMatchSnapshot()
+  })
+
   it('should saturate a color with opacity by 20%', () => {
     expect(saturate(0.2, 'rgba(204,205,100,0.7)')).toMatchSnapshot()
   })

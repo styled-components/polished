@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`lighten should lighten a 8-digit hex color by 20% 1`] = `"rgba(229,230,177,0.6549019607843137)"`;
+
 exports[`lighten should lighten a color but not go beyond 255 1`] = `"rgba(255,255,255,0.7)"`;
 
 exports[`lighten should lighten a color by 10% 1`] = `"#5e5e5e"`;
