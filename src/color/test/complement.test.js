@@ -11,7 +11,7 @@ describe('complement', () => {
   })
 
   it('should return the complement of an 8-digit hex color', () => {
-    expect(complement('#CCCD647F')).toMatchSnapshot()
+    expect(complement('#6564CDB3')).toMatchSnapshot()
   })
 
   it('should return the complement of a color with opacity', () => {

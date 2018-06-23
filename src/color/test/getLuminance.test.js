@@ -7,11 +7,11 @@ describe('getLuminance', () => {
   })
 
   it('should return the luminance of an 8-digit hex color', () => {
-    expect(getLuminance('#444444CC')).toMatchSnapshot()
+    expect(getLuminance('#6564CDB3')).toMatchSnapshot()
   })
 
   it('should return the luminance of an rgba color', () => {
-    expect(getLuminance('rgba(204,205,100,0.7)')).toMatchSnapshot()
+    expect(getLuminance('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
 
   it('should return the luminance of an rgb color', () => {

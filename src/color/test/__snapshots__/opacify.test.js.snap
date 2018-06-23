@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`opacify should increase the opacity of an 8-digit hex color by 0.1 and still be 1 1`] = `"rgba(68,68,68,0.9)"`;
+exports[`opacify should increase the opacity of an 8-digit hex color by 0.1 and still be 1 1`] = `"rgba(101,100,205,0.8)"`;
 
 exports[`opacify should increase the opacity of hex #fff by 0.1 and still be 1 1`] = `"#fff"`;
 
@@ -10,7 +10,7 @@ exports[`opacify should increase the opacity of hsla(0, 0%, 100%, .3) by 0.5 1`]
 
 exports[`opacify should increase the opacity of rgba(255, 0, 0, .5) by 0.5 1`] = `"#f00"`;
 
-exports[`opacify should increase the opacity of rgba(255, 0, 0, 0.5) by 0.2 1`] = `"rgba(255,0,0,0.7)"`;
+exports[`opacify should increase the opacity of rgba(255, 0, 0, 0.5) by 0.1 1`] = `"rgba(101,100,205,0.8)"`;
 
 exports[`opacify should increase the opacity when passed a string for amount 1`] = `"#fff"`;
 

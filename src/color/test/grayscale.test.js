@@ -11,10 +11,10 @@ describe('grayscale', () => {
   })
 
   it('should grayscale an 8-digit hex color', () => {
-    expect(grayscale('#CCCD647F')).toMatchSnapshot()
+    expect(grayscale('#6564CDB3')).toMatchSnapshot()
   })
 
   it('should grayscale a color with opacity', () => {
-    expect(grayscale('rgba(204,205,100,0.7)')).toMatchSnapshot()
+    expect(grayscale('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
 })

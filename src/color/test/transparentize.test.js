@@ -7,7 +7,7 @@ describe('transparentize', () => {
   })
 
   it('should reduce the opacity of an 8-digit hex color by 0.1', () => {
-    expect(transparentize(0.1, '#CCCD647F')).toMatchSnapshot()
+    expect(transparentize(0.1, '#6564CDB3')).toMatchSnapshot()
   })
 
   it('should reduce the opacity of rgb(255, 0, 255) by 0.1', () => {
@@ -15,7 +15,7 @@ describe('transparentize', () => {
   })
 
   it('should reduce the opacity of rgba(255, 0, 0, 1) by 0.1', () => {
-    expect(transparentize(0.1, 'rgba(255, 0, 0, 1)')).toMatchSnapshot()
+    expect(transparentize(0.1, 'rgba(101, 100, 205, .7)')).toMatchSnapshot()
   })
 
   it('should reduce the opacity of rgba(255, 0, 0, .5) by 0.3', () => {
