@@ -10,4 +10,4 @@ exports[`lighten should lighten a color with opacity by 20% 1`] = `"rgba(229,230
 
 exports[`lighten should lighten a hex color by 20% 1`] = `"#e5e6b1"`;
 
-exports[`lighten should lighten an 8-digit hex color by 20% 1`] = `"rgba(229,230,177,0.6549019607843137)"`;
+exports[`lighten should lighten an 8-digit hex color by 20% 1`] = `"rgba(229,230,177,0.65)"`;

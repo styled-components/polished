@@ -4,7 +4,7 @@ exports[`transparentize should not increase the opacity beyond 1 1`] = `"#f00"`;
 
 exports[`transparentize should not reduce the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
 
-exports[`transparentize should reduce the opacity of an 8-digit hex color by 0.1 1`] = `"rgba(204,205,100,0.39803921568627454)"`;
+exports[`transparentize should reduce the opacity of an 8-digit hex color by 0.1 1`] = `"rgba(204,205,100,0.4)"`;
 
 exports[`transparentize should reduce the opacity of hex #fff by 0.1 1`] = `"rgba(255,255,255,0.9)"`;
 

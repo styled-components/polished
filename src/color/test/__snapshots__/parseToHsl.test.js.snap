@@ -52,7 +52,7 @@ Object {
 
 exports[`parseToHsl should parse an 8-digit hex color representation 1`] = `
 Object {
-  "alpha": 0.6549019607843137,
+  "alpha": 0.65,
   "hue": 325.8510638297872,
   "lightness": 0.6313725490196078,
   "saturation": 1,

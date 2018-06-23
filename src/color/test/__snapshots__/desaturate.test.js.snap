@@ -8,4 +8,4 @@ exports[`desaturate should desaturate a hex color by 20% 1`] = `"#b8b979"`;
 
 exports[`desaturate should desaturate a reduced hex color by 10% 1`] = `"#444"`;
 
-exports[`desaturate should desaturate an 8-digit hex color by 20% 1`] = `"rgba(184,185,121,0.4980392156862745)"`;
+exports[`desaturate should desaturate an 8-digit hex color by 20% 1`] = `"rgba(184,185,121,0.5)"`;

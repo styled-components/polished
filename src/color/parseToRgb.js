@@ -35,8 +35,9 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     }
   }
   if (normalizedColor.match(hexRgbaRegex)) {
-    const alpha =
+    const alpha = parseFloat((
       parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255
+    ).toFixed(2))
     return {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
       green: parseInt(`${normalizedColor[3]}${normalizedColor[4]}`, 16),

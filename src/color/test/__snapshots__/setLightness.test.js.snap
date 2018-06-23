@@ -4,6 +4,6 @@ exports[`setLightness should update the lightness and return a color with opacit
 
 exports[`setLightness should update the lightness and return a hex color 1`] = `"#4d4d19"`;
 
-exports[`setLightness should update the lightness of an 8-digit hex color and return a hex color 1`] = `"rgba(77,77,25,0.4980392156862745)"`;
+exports[`setLightness should update the lightness of an 8-digit hex color and return a hex color 1`] = `"rgba(77,77,25,0.5)"`;
 
 exports[`setLightness should update the lightness when passed a string 1`] = `"#4d4d19"`;

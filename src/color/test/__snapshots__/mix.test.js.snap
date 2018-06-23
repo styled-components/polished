@@ -2,7 +2,7 @@
 
 exports[`mix should mix two colors 1`] = `"#7f007f"`;
 
-exports[`mix should mix two colors with an 8-digit hex color 1`] = `"rgba(63,0,191,0.7490196078431373)"`;
+exports[`mix should mix two colors with an 8-digit hex color 1`] = `"rgba(63,0,191,0.75)"`;
 
 exports[`mix should mix two colors with by a weight of 25% 1`] = `"#3f00bf"`;
 
