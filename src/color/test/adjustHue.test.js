@@ -10,7 +10,7 @@ describe('adjustHue', () => {
     expect(adjustHue(20, '#CCCD64')).toMatchSnapshot()
   })
 
-  it('should adjustHue of a 8-digit hex color', () => {
+  it('should adjustHue of an 8-digit hex color', () => {
     expect(adjustHue(20, '#CCCD647F')).toMatchSnapshot()
   })
 

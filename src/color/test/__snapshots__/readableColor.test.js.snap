@@ -18,6 +18,8 @@ exports[`readableColor should return black given white hex, #fff 1`] = `"#000"`;
 
 exports[`readableColor should return black given white, "white" 1`] = `"#000"`;
 
+exports[`readableColor should return black given white, #FFFFFFBF 1`] = `"#000"`;
+
 exports[`readableColor should return black given white, rgb(255,255,255) 1`] = `"#000"`;
 
 exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
@@ -25,8 +27,6 @@ exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
 exports[`readableColor should return white given black, #000 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, #0000001A 1`] = `"#fff"`;
-
-exports[`readableColor should return white given black, #000000BF 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, rgb(0,0,0) 1`] = `"#fff"`;
 

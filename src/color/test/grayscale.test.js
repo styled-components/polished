@@ -10,7 +10,7 @@ describe('grayscale', () => {
     expect(grayscale('#CCCD64')).toMatchSnapshot()
   })
 
-  it('should grayscale a 8-digit hex color', () => {
+  it('should grayscale an 8-digit hex color', () => {
     expect(grayscale('#CCCD647F')).toMatchSnapshot()
   })
 

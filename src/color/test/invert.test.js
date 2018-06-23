@@ -10,7 +10,7 @@ describe('invert', () => {
     expect(invert('#CCCD64')).toMatchSnapshot()
   })
 
-  it('should invert a 8-digit hex color', () => {
+  it('should invert an 8-digit hex color', () => {
     expect(invert('#CCCD64A7')).toMatchSnapshot()
   })
 

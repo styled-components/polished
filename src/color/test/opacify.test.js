@@ -6,6 +6,10 @@ describe('opacify', () => {
     expect(opacify(0.1, '#fff')).toMatchSnapshot()
   })
 
+  it('should increase the opacity of an 8-digit hex color by 0.1 and still be 1', () => {
+    expect(opacify(0.1, '#444444CC')).toMatchSnapshot()
+  })
+
   it('should increase the opacity of rgba(255, 0, 0, 0.5) by 0.2', () => {
     expect(opacify(0.2, 'rgba(255, 0, 0, 0.5)')).toMatchSnapshot()
   })

@@ -4,6 +4,8 @@ exports[`getLuminance should return the luminance of a hex color 1`] = `0.057805
 
 exports[`getLuminance should return the luminance of a named CSS color 1`] = `0.877971001998354`;
 
+exports[`getLuminance should return the luminance of an 8-digit hex color 1`] = `0.05780543019106723`;
+
 exports[`getLuminance should return the luminance of an hls color 1`] = `0.2126`;
 
 exports[`getLuminance should return the luminance of an hlsa color 1`] = `0.07733591265855211`;

@@ -10,7 +10,7 @@ describe('desaturate', () => {
     expect(desaturate(0.2, '#CCCD64')).toMatchSnapshot()
   })
 
-  it('should desaturate a 8-digit hex color by 20%', () => {
+  it('should desaturate an 8-digit hex color by 20%', () => {
     expect(desaturate(0.2, '#CCCD647F')).toMatchSnapshot()
   })
 

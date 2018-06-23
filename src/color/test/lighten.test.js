@@ -10,7 +10,7 @@ describe('lighten', () => {
     expect(lighten(0.2, '#CCCD64')).toMatchSnapshot()
   })
 
-  it('should lighten a 8-digit hex color by 20%', () => {
+  it('should lighten an 8-digit hex color by 20%', () => {
     expect(lighten(0.2, '#CCCD64A7')).toMatchSnapshot()
   })
 

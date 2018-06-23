@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`adjustHue should adjustHue of a 8-digit hex color 1`] = `"rgba(169,205,100,0.4980392156862745)"`;
-
 exports[`adjustHue should adjustHue of a color and not go beyond 360 1`] = `"#444f88"`;
 
 exports[`adjustHue should adjustHue of a color with opacity 1`] = `"rgba(136,100,205,0.7)"`;
@@ -9,5 +7,7 @@ exports[`adjustHue should adjustHue of a color with opacity 1`] = `"rgba(136,100
 exports[`adjustHue should adjustHue of a hex color 1`] = `"#a9cd64"`;
 
 exports[`adjustHue should adjustHue of a reduced hex color 1`] = `"#5b4488"`;
+
+exports[`adjustHue should adjustHue of an 8-digit hex color 1`] = `"rgba(169,205,100,0.4980392156862745)"`;
 
 exports[`adjustHue should adjustHue when passed a string for adjustment 1`] = `"#5b4488"`;

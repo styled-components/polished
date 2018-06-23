@@ -10,7 +10,7 @@ describe('complement', () => {
     expect(complement('#CCCD64')).toMatchSnapshot()
   })
 
-  it('should return the complement of a 8-digit hex color', () => {
+  it('should return the complement of an 8-digit hex color', () => {
     expect(complement('#CCCD647F')).toMatchSnapshot()
   })
 

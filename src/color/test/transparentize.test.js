@@ -6,6 +6,10 @@ describe('transparentize', () => {
     expect(transparentize(0.1, '#fff')).toMatchSnapshot()
   })
 
+  it('should reduce the opacity of an 8-digit hex color by 0.1', () => {
+    expect(transparentize(0.1, '#CCCD647F')).toMatchSnapshot()
+  })
+
   it('should reduce the opacity of rgb(255, 0, 255) by 0.1', () => {
     expect(transparentize(0.1, 'rgb(255, 0, 255)')).toMatchSnapshot()
   })

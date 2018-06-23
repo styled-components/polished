@@ -10,7 +10,7 @@ describe('mix', () => {
     expect(mix(0.25, '#f00', '#00f')).toMatchSnapshot()
   })
 
-  it('should mix two colors with 8-digit hex color', () => {
+  it('should mix two colors with an 8-digit hex color', () => {
     expect(mix(0.5, '#FF00007F', '#00f')).toMatchSnapshot()
   })
 
