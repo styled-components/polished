@@ -23,10 +23,14 @@
  * }
  */
 
-function transitions(...properties: Array<string> | [Array<string>, string]): Object {
+function transitions(...properties: Array<string | Array<string>>): Object {
   if (Array.isArray(properties[0]) && properties.length === 2) {
+    const value = properties[1]
+    if (typeof value !== 'string') {
+      throw new Error('string')
+    }
     const transitionsString = properties[0]
-      .map((property: string): string => `${property} ${properties[1]}`)
+      .map((property: string): string => `${property} ${value}`)
       .join(', ')
     return {
       transition: transitionsString,
