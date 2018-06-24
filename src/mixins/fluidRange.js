@@ -5,7 +5,7 @@ function fluidRange(
   cssProp: Array<Object> | Object,
   minScreen: string,
   maxScreen: string,
-) {
+): Object {
   if (
     (!Array.isArray(cssProp) && typeof cssProp !== 'object')
     || cssProp === null
