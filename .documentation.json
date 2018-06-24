@@ -17,12 +17,15 @@
     {
       "name": "Mixins"
     },
+    "between",
     "clearFix",
+    "cover",
     "ellipsis",
+    "fluidRange",
     "fontFace",
-    "hiDPI",
     "hideText",
     "hideVisually",
+    "hiDPI",
     "normalize",
     "placeholder",
     "radialGradient",
@@ -57,6 +60,7 @@
     "setSaturation",
     "shade",
     "tint",
+    "toColorString",
     "transparentize",
     {
       "name": "Shorthands"
@@ -64,6 +68,7 @@
     "animation",
     "backgroundImages",
     "backgrounds",
+    "border",
     "borderColor",
     "borderRadius",
     "borderStyle",
@@ -91,9 +96,11 @@
     "HslColor",
     "HslaColor",
     "InteractionState",
+    "ModularScaleRatio",
     "PointingDirection",
     "RadialGradientConfiguration",
     "RgbaColor",
-    "RgbColor"
+    "RgbColor",
+    "SideKeyword"
   ]
 }

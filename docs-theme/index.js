@@ -119,7 +119,7 @@ module.exports = function (comments, config, callback) {
               const compiled = mainTemplate(data)
               return new File({
                 path: page.path,
-                contents: new Buffer(compiled, 'utf8'),
+                contents: Buffer.from(compiled, 'utf8'),
               })
             })
           )
