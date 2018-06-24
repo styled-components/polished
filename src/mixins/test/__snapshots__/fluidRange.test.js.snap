@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fluidRange should return a valid object when passed a single cssValues object and min/max screen sizes 1`] = `
+Object {
+  "@media (min-width: 1000px)": Object {
+    "padding": "100px",
+  },
+  "@media (min-width: 400px)": Object {
+    "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+  },
+  "padding": "20px",
+}
+`;
+
+exports[`fluidRange should return a valid object when passed multiple cssValues in an array and min/max screen sizes 1`] = `
+Object {
+  "@media (min-width: 1000px)": Object {
+    "margin": "25px",
+    "padding": "100px",
+  },
+  "@media (min-width: 400px)": Object {
+    "margin": "calc(-8.333333333333336px + 3.3333333333333335vw)",
+    "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+  },
+  "margin": "5px",
+  "padding": "20px",
+}
+`;
+
+exports[`fluidRange should use defaults when min/maxScreen are not passed 1`] = `
+Object {
+  "@media (min-width: undefined)": Object {
+    "padding": "100px",
+  },
+  "padding": "20px",
+}
+`;
