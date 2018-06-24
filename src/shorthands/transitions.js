@@ -27,7 +27,7 @@ function transitions(...properties: Array<string | Array<string>>): Object {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const value = properties[1]
     if (typeof value !== 'string') {
-      throw new Error('string')
+      throw new Error('Property must be a string value.')
     }
     const transitionsString = properties[0]
       .map((property: string): string => `${property} ${value}`)
