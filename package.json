@@ -21,7 +21,7 @@
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
-    "prepublish": "npm run build && npm run typescript",
+    "prepublish": "yarn run build && yarn run typescript",
     "semantic-release": "semantic-release"
   },
   "lint-staged": {
