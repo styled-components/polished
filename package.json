@@ -6,7 +6,7 @@
   "module": "dist/polished.es.js",
   "version": "2.0.0",
   "scripts": {
-    "build": "yarn build:lib && npm run build:dist && npm run build:flow",
+    "build": "yarn run build:lib && yarn run build:dist && yarn run build:flow && yarn run build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
@@ -14,12 +14,14 @@
     "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
+    "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
     "test": "jest src",
+    "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
     "precommit": "lint-staged --debug",
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
-    "prepublish": "npm run build",
+    "prepublish": "yarn run build && yarn run typescript",
     "semantic-release": "semantic-release"
   },
   "lint-staged": {
@@ -98,6 +100,8 @@
     "rollup-plugin-uglify": "^4.0.0",
     "semantic-release": "^15.6.0",
     "shx": "^0.3.0",
+    "tsgen": "1.3.0",
+    "typescript": "2.9.2",
     "validate-commit-msg": "^2.14.0",
     "vinyl": "^2.2.0",
     "vinyl-fs": "^3.0.2"
