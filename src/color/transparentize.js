@@ -33,8 +33,7 @@ import curry from '../internalHelpers/_curry'
  */
 function transparentize(amount: number | string, color: string): string {
   const parsedColor = parseToRgb(color)
-  const alpha: number =
-    typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
+  const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
   const colorWithAlpha = {
     ...parsedColor,
     alpha: guard(0, 1, (alpha * 100 - parseFloat(amount) * 100) / 100),
