@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`fluidRange should return a valid object when passed a single cssValues object and min/max screen sizes 1`] = `
 Object {
   "@media (min-width: 1000px)": Object {

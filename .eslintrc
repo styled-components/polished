@@ -23,6 +23,7 @@
     "no-mixed-operators": 0,
     "no-prototype-builtins": 0,
     "no-restricted-globals": 0,
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
     "no-unused-vars": [2, { "varsIgnorePattern": "^_+$" }],
     "quote-props": 0,
     "semi": [2, "never"],
