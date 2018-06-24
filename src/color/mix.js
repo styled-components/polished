@@ -15,14 +15,14 @@ import curry from '../internalHelpers/_curry'
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: mix(0.5, '#f00', '#00f')
+ *   background: mix('#f00', '#00f')
  *   background: mix(0.25, '#f00', '#00f')
  *   background: mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${mix(0.5, '#f00', '#00f')};
+ *   background: ${mix('#f00', '#00f')};
  *   background: ${mix(0.25, '#f00', '#00f')};
  *   background: ${mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')};
  * `
@@ -35,7 +35,13 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(weight?: number = 0.5, color: string, otherColor: string): string {
+function mix(...args: [number | string, string, string] | [string, string]): string {
+  const weight: number | string =
+    typeof args[0] === 'number' ? parseFloat(args[0], 10) : 0.5
+  const color: string = typeof args[0] === 'number' ? args[1] : args[0]
+  const otherColor: string =
+    typeof args[0] === 'number' && args.length === 3 ? args[2] : args[1]
+
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,

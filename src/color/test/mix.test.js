@@ -3,7 +3,7 @@ import mix from '../mix'
 
 describe('mix', () => {
   it('should mix two colors', () => {
-    expect(mix(undefined, '#f00', '#00f')).toMatchSnapshot()
+    expect(mix('#f00', '#00f')).toMatchSnapshot()
   })
 
   it('should mix two colors with by a weight of 25%', () => {
