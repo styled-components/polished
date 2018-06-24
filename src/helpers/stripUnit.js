@@ -24,12 +24,16 @@
  * }
  */
 
-function stripUnit(value: string, returnUnit?: boolean): number|Array<number|string>|string {
+function stripUnit(
+  value: string | number,
+  returnUnit?: boolean,
+): number | Array<number | string | undefined> | string {
   const unitlessValue = parseFloat(value)
   if (returnUnit) {
     const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
     if (typeof value === 'number' || !value.match(cssRegex)) return [value, '']
-    return [unitlessValue, value.match(cssRegex)[2]]
+    const unit = value.match(cssRegex)[2] ? value.match(cssRegex)[2] : undefined
+    return [unitlessValue, unit]
   } else {
     if (isNaN(unitlessValue)) return value
     return unitlessValue

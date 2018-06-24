@@ -29,11 +29,8 @@ Object {
 
 exports[`fluidRange should use defaults when min/maxScreen are not passed 1`] = `
 Object {
-  "@media (min-width: 1200px)": Object {
+  "@media (min-width: undefined)": Object {
     "padding": "100px",
-  },
-  "@media (min-width: 320px)": Object {
-    "padding": "calc(-9.090909090909093px + 9.090909090909092vw)",
   },
   "padding": "20px",
 }

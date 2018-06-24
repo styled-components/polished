@@ -4,8 +4,8 @@ import stripUnit from '../helpers/stripUnit'
 function between(
   fromSize: string,
   toSize: string,
-  minScreen: number | string = 320,
-  maxScreen: number = 1200,
+  minScreen: string = '320px',
+  maxScreen: string = '1200px',
 ) {
   const [unitlessFromSize, fromSizeUnit] = stripUnit(fromSize, true)
   const [unitlessToSize, toSizeUnit] = stripUnit(toSize, true)
@@ -19,7 +19,7 @@ function between(
     !maxScreenUnit ||
     minScreenUnit !== maxScreenUnit
   ) {
-    throw new Error('minScreen and maxScreen must be provided as stringified numbers with units.')
+    throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.')
   }
 
   const unit = fromSizeUnit === toSizeUnit ? fromSizeUnit : undefined
