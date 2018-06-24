@@ -564,9 +564,9 @@ babel-core@^6.0.0, babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.7"
 
-babel-eslint@^8.2.1:
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.2.3.tgz#1a2e6681cc9bc4473c32899e59915e19cd6733cf"
+babel-eslint@^8.2.5:
+  version "8.2.5"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.2.5.tgz#dc2331c259d36782aa189da510c43dedd5adc7a3"
   dependencies:
     "@babel/code-frame" "7.0.0-beta.44"
     "@babel/traverse" "7.0.0-beta.44"
@@ -5025,9 +5025,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.10.2:
-  version "1.13.4"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.4.tgz#31bbae6990f13b1093187c731766a14036fa72e6"
+prettier@^1.13.5:
+  version "1.13.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.5.tgz#7ae2076998c8edce79d63834e9b7b09fead6bfd0"
 
 pretty-format@^21.2.1:
   version "21.2.1"
@@ -5529,9 +5529,9 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
-rollup-plugin-babel@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-3.0.4.tgz#41b3e762fe64450dd61da3105a2cf7ad76be4edc"
+rollup-plugin-babel@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-3.0.5.tgz#9769a7977098da1dce5b5888fe38dfd8666bf08d"
   dependencies:
     rollup-pluginutils "^1.5.0"
 
