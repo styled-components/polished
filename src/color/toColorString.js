@@ -4,32 +4,27 @@ import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
 
-const isRgb = (color: Object): boolean =>
-  typeof color.red === 'number' &&
-  typeof color.green === 'number' &&
-  typeof color.blue === 'number' &&
-  (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
+const isRgb = (color: Object): boolean => typeof color.red === 'number'
+  && typeof color.green === 'number'
+  && typeof color.blue === 'number'
+  && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
 
-const isRgba = (color: Object): boolean =>
-  typeof color.red === 'number' &&
-  typeof color.green === 'number' &&
-  typeof color.blue === 'number' &&
-  typeof color.alpha === 'number'
+const isRgba = (color: Object): boolean => typeof color.red === 'number'
+  && typeof color.green === 'number'
+  && typeof color.blue === 'number'
+  && typeof color.alpha === 'number'
 
-const isHsl = (color: Object): boolean =>
-  typeof color.hue === 'number' &&
-  typeof color.saturation === 'number' &&
-  typeof color.lightness === 'number' &&
-  (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
+const isHsl = (color: Object): boolean => typeof color.hue === 'number'
+  && typeof color.saturation === 'number'
+  && typeof color.lightness === 'number'
+  && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
 
-const isHsla = (color: Object): boolean =>
-  typeof color.hue === 'number' &&
-  typeof color.saturation === 'number' &&
-  typeof color.lightness === 'number' &&
-  typeof color.alpha === 'number'
+const isHsla = (color: Object): boolean => typeof color.hue === 'number'
+  && typeof color.saturation === 'number'
+  && typeof color.lightness === 'number'
+  && typeof color.alpha === 'number'
 
-const errMsg =
-  'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
+const errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.

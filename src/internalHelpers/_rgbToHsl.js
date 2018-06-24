@@ -1,6 +1,8 @@
 // @flow
 
-import type { HslColor, HslaColor, RgbColor, RgbaColor } from '../types/color'
+import type {
+  HslColor, HslaColor, RgbColor, RgbaColor,
+} from '../types/color'
 
 function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   // make sure rgb are contained in a set of [0, 255]
@@ -28,8 +30,7 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
 
   let hue
   const delta = max - min
-  const saturation =
-    lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min)
+  const saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min)
   switch (max) {
     case red:
       hue = (green - blue) / delta + (green < blue ? 6 : 0)

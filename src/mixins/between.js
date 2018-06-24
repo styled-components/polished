@@ -13,24 +13,27 @@ function between(
   const [unitlessMaxScreen, maxScreenUnit] = stripUnit(maxScreen, true)
 
   if (
-    typeof unitlessMinScreen !== 'number' ||
-    typeof unitlessMaxScreen !== 'number' ||
-    !minScreenUnit ||
-    !maxScreenUnit ||
-    minScreenUnit !== maxScreenUnit
+    typeof unitlessMinScreen !== 'number'
+    || typeof unitlessMaxScreen !== 'number'
+    || !minScreenUnit
+    || !maxScreenUnit
+    || minScreenUnit !== maxScreenUnit
   ) {
-    throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.')
+    throw new Error(
+      'minScreen and maxScreen must be provided as stringified numbers with the same units.',
+    )
   }
 
   const unit = fromSizeUnit === toSizeUnit ? fromSizeUnit : undefined
 
   if (typeof unit !== 'string') {
-    throw new Error('fromSize and toSize must both have the same unit of measure.')
+    throw new Error(
+      'fromSize and toSize must both have the same unit of measure.',
+    )
   }
 
-  const slope =
-    (unitlessFromSize - unitlessToSize) /
-    (unitlessMinScreen - unitlessMaxScreen)
+  const slope = (unitlessFromSize - unitlessToSize)
+    / (unitlessMinScreen - unitlessMaxScreen)
   const base = unitlessToSize - slope * unitlessMaxScreen
   return `calc(${base}${unit} + ${100 * slope}vw)`
 }

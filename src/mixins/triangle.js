@@ -20,21 +20,23 @@ const getBorderWidth = (
 ): string => {
   switch (pointingDirection) {
     case 'top':
-      return `0 ${width[0] / 2}${width[1]} ${height[0]}${height[1]} ${width[0] /
-        2}${width[1]}`
+      return `0 ${width[0] / 2}${width[1]} ${height[0]}${height[1]} ${width[0]
+        / 2}${width[1]}`
     case 'left':
-      return `${height[0] / 2}${height[1]} ${width[0]}${width[1]} ${height[0] /
-        2}${height[1]} 0`
+      return `${height[0] / 2}${height[1]} ${width[0]}${width[1]} ${height[0]
+        / 2}${height[1]} 0`
     case 'bottom':
-      return `${height[0]}${height[1]} ${width[0] / 2}${width[1]} 0 ${width[0] /
-        2}${width[1]}`
+      return `${height[0]}${height[1]} ${width[0] / 2}${width[1]} 0 ${width[0]
+        / 2}${width[1]}`
     case 'right':
       return `${height[0] / 2}${height[1]} 0 ${height[0] / 2}${height[1]} ${
         width[0]
       }${width[1]}`
 
     default:
-      throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
+      throw new Error(
+        "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
+      )
   }
 }
 
@@ -85,7 +87,9 @@ function triangle({
     String(height).replace(/\d+/g, '') || 'px',
   ]
   if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-    throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
+    throw new Error(
+      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
+    )
   }
 
   const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)
@@ -94,8 +98,11 @@ function triangle({
     height: '0',
     borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
     borderStyle: 'solid',
-    ...borderColor(...Array.from({ length: 4 }).map((_, index) =>
-      index === reverseDirectionIndex ? foregroundColor : backgroundColor)),
+    ...borderColor(
+      ...Array.from({ length: 4 }).map(
+        (_, index) => index === reverseDirectionIndex ? foregroundColor : backgroundColor,
+      ),
+    ),
   }
 }
 
