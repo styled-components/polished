@@ -6,12 +6,16 @@
   "module": "dist/polished.es.js",
   "version": "2.0.0",
   "scripts": {
-    "build": "yarn run build:lib && yarn run build:dist && yarn run build:flow && yarn run build:typescript",
+    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
     "prebuild:dist": "shx rm -rf dist/*",
     "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
+    "build:docs": "yarn build:docs:site",
+    "prebuild:docs:site": "shx rm -rf docs/*",
+    "build:docs:site": "documentation build src/** -t docs-theme --github -o docs -f html -c ./.documentation.json",
+    "postbuild:docs:site": "shx cp CNAME docs/CNAME && shx cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
     "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
@@ -21,7 +25,8 @@
     "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
-    "prepublish": "yarn run build && yarn run typescript",
+    "docs": "pushstate-server docs",
+    "prepublish": "yarn build && yarn typescript",
     "semantic-release": "semantic-release"
   },
   "lint-staged": {
@@ -37,6 +42,7 @@
     ]
   },
   "watch": {
+    "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
   },
   "author": "Brian Hough <brian@brianhought.net> (https://polished.js.org)",
@@ -48,12 +54,12 @@
   "keywords": [
     "styled-components",
     "polished",
-    "glamorous",
     "emotion",
     "glamor",
     "css-in-js",
     "inline-styles",
-    "react"
+    "react",
+    "typescript"
   ],
   "bugs": {
     "url": "https://github.com/styled-components/polished/issues"
@@ -76,6 +82,7 @@
     "concat-stream": "^1.5.2",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
+    "documentation": "8.0.0",
     "eslint": "^5.0.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.8.0",
@@ -88,6 +95,7 @@
     "lodash": "^4.17.5",
     "npm-watch": "^0.3.0",
     "prettier": "^1.13.5",
+    "pushstate-server": "3.0.1",
     "ramda": "^0.25.0",
     "rollup": "^0.61.2",
     "rollup-plugin-babel": "^3.0.5",
