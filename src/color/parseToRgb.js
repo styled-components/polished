@@ -64,7 +64,9 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     const lightness = parseInt(`${hslMatched[3]}`, 10) / 100
     const rgbColorString = `rgb(${hslToRgb(hue, saturation, lightness)})`
     const hslRgbMatched = rgbRegex.exec(rgbColorString)
-    if (!hslRgbMatched) { throw new Error(`Couldn't parse ${rgbColorString} to hsl.`) }
+    if (!hslRgbMatched) {
+      throw new Error(`Couldn't generate valid rgb string from ${normalizedColor}, it returned ${rgbColorString}.`)
+    }
     return {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
       green: parseInt(`${hslRgbMatched[2]}`, 10),
@@ -78,7 +80,9 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     const lightness = parseInt(`${hslaMatched[3]}`, 10) / 100
     const rgbColorString = `rgb(${hslToRgb(hue, saturation, lightness)})`
     const hslRgbMatched = rgbRegex.exec(rgbColorString)
-    if (!hslRgbMatched) { throw new Error(`Couldn't parse ${rgbColorString} to hsl.`) }
+    if (!hslRgbMatched) {
+      throw new Error(`Couldn't generate valid rgb string from ${normalizedColor}, it returned ${rgbColorString}.`)
+    }
     return {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
       green: parseInt(`${hslRgbMatched[2]}`, 10),
