@@ -5,12 +5,7 @@ import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Mixes two colors together by calculating the average of each of the RGB components.
- *
- * By default the weight is 0.5 meaning that half of the first color and half the second
- * color should be used. Optionally the weight can be modified by providing a number
- * as the first argument. 0.25 means that a quarter of the first color and three quarters
- * of the second color should be used.
+ * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
  *
  * @example
  * // Styles as object usage
@@ -35,7 +30,11 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(weight?: number = 0.5, color: string, otherColor: string): string {
+function mix(
+  weight: number | string,
+  color: string,
+  otherColor: string,
+): string {
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,
@@ -61,7 +60,8 @@ function mix(weight?: number = 0.5, color: string, otherColor: string): string {
     red: Math.floor(color1.red * weight1 + color2.red * weight2),
     green: Math.floor(color1.green * weight1 + color2.green * weight2),
     blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
-    alpha: color1.alpha + (color2.alpha - color1.alpha) * (weight / 1.0),
+    alpha:
+      color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0),
   }
 
   return rgba(mixedColor)
