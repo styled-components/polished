@@ -7,9 +7,11 @@ import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
 
 // Mixins
+import between from './mixins/between'
 import clearFix from './mixins/clearFix'
 import cover from './mixins/cover'
 import ellipsis from './mixins/ellipsis'
+import fluidRange from './mixins/fluidRange'
 import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hideVisually from './mixins/hideVisually'
@@ -72,6 +74,7 @@ export {
   animation,
   backgroundImages,
   backgrounds,
+  between,
   border,
   borderColor,
   borderRadius,
@@ -86,6 +89,7 @@ export {
   directionalProperty,
   ellipsis,
   em,
+  fluidRange,
   fontFace,
   getLuminance,
   grayscale,
