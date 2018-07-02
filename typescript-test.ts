@@ -149,3 +149,4 @@ modularScale = polished.modularScale(2, 2, 5);
 modularScale = polished.modularScale(2, 2, "minorSecond");
 
 const stripUnit: number | string = polished.stripUnit("100px");
+const tracking: string = polished.tracking(50);

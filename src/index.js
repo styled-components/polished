@@ -5,6 +5,7 @@ import em from './helpers/em'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
+import tracking from './helpers/tracking'
 
 // Mixins
 import clearFix from './mixins/clearFix'
@@ -120,6 +121,7 @@ export {
   timingFunctions,
   tint,
   toColorString,
+  tracking,
   transitions,
   transparentize,
   triangle,
