@@ -250,7 +250,10 @@ const unopinionatedRules = {
   },
 }
 
-function mergeRules(baseRules: Styles, additionalRules: Styles): Styles {
+function mergeRules(
+  baseRules: Styles,
+  additionalRules: { [rule: string]: Styles },
+): Styles {
   const mergedRules = { ...baseRules }
   Object.keys(additionalRules).forEach(key => {
     if (mergedRules[key]) {
