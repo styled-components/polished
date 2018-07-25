@@ -127,33 +127,33 @@
     into-stream "^3.1.0"
     lodash "^4.17.4"
 
-"@types/babel-code-frame@^6.20.1":
+"@types/babel-code-frame@*":
   version "6.20.1"
   resolved "https://registry.yarnpkg.com/@types/babel-code-frame/-/babel-code-frame-6.20.1.tgz#e79a40ea81435034df7b46b5e32e8ed638aea4dd"
 
-"@types/babel-types@*", "@types/babel-types@^6.7.16":
+"@types/babel-types@*":
   version "6.25.1"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-6.25.1.tgz#ce8f126a4403e11e1b0033a424f11638afac7889"
 
-"@types/babylon@^6.16.1":
-  version "6.16.2"
-  resolved "https://registry.yarnpkg.com/@types/babylon/-/babylon-6.16.2.tgz#062ce63b693d9af1c246f5aedf928bc9c30589c8"
+"@types/babylon@*":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@types/babylon/-/babylon-6.16.3.tgz#c2937813a89fcb5e79a00062fc4a8b143e7237bb"
   dependencies:
     "@types/babel-types" "*"
 
-"@types/micromatch@^2.3.29":
-  version "2.3.29"
-  resolved "https://registry.yarnpkg.com/@types/micromatch/-/micromatch-2.3.29.tgz#6ce0280fe96f500127f0c8c0addf2d3f207e8cec"
+"@types/braces@*":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@types/braces/-/braces-2.3.0.tgz#d00ec0a76562b2acb6f29330be33a093e33ed25c"
+
+"@types/micromatch@*":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@types/micromatch/-/micromatch-3.1.0.tgz#514c8a3d24b2680a9b838eeb80e6d7d724545433"
   dependencies:
-    "@types/parse-glob" "*"
+    "@types/braces" "*"
 
 "@types/node@^7.0.31":
   version "7.0.43"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.43.tgz#a187e08495a075f200ca946079c914e1a5fe962c"
-
-"@types/parse-glob@*":
-  version "3.0.29"
-  resolved "https://registry.yarnpkg.com/@types/parse-glob/-/parse-glob-3.0.29.tgz#6a40ec7ebd2418ee69ee397e48e42169268a10bf"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.1"
@@ -7455,14 +7455,14 @@ tryit@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tryit/-/tryit-1.0.3.tgz#393be730a9446fd1ead6da59a014308f36c289cb"
 
-tsgen@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tsgen/-/tsgen-1.0.0.tgz#04632d4b78df4ba035460205b6f26930a6557ae0"
+tsgen@^1.3:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/tsgen/-/tsgen-1.3.0.tgz#2b4a9a23d7619816a191bc236b4d88dd467221e3"
   dependencies:
-    "@types/babel-code-frame" "^6.20.1"
-    "@types/babel-types" "^6.7.16"
-    "@types/babylon" "^6.16.1"
-    "@types/micromatch" "^2.3.29"
+    "@types/babel-code-frame" "*"
+    "@types/babel-types" "*"
+    "@types/babylon" "*"
+    "@types/micromatch" "*"
     babel-code-frame "^6.22.0"
     babel-types "^6.25.0"
     babylon "^6.17.4"

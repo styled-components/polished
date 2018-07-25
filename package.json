@@ -111,7 +111,7 @@
     "rollup-plugin-uglify": "^3.0.0",
     "semantic-release": "^12.4.1",
     "shx": "^0.2.2",
-    "tsgen": "^1.0.0",
+    "tsgen": "^1.3",
     "typescript": "^2.7.1",
     "validate-commit-msg": "^2.14.0",
     "vinyl": "^2.1.0",
