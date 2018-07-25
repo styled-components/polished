@@ -20,7 +20,7 @@
  * }
  */
 
-function transitions(...properties: Array<string>): Object {
+function transitions(...properties: Array<string>): { transition: string } {
   return {
     transition: properties.join(', '),
   }

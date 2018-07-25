@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 import hiDPI from './hiDPI'
 
@@ -36,7 +37,7 @@ function retinaImage(
   extension?: string = 'png',
   retinaFilename?: string,
   retinaSuffix?: string = '_2x',
-): Object {
+): Styles {
   if (!filename) {
     throw new Error('Please supply a filename to retinaImage() as the first argument.')
   }

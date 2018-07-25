@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /** */
 type RadialGradientConfiguration = {
@@ -81,7 +82,7 @@ function radialGradient({
   fallback,
   position,
   shape,
-}: RadialGradientConfiguration): Object {
+}: RadialGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
     throw new Error('radialGradient requries at least 2 color-stops to properly render.')
   }

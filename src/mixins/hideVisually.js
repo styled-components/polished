@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to hide content visually but remain accessible to screen readers.
@@ -31,7 +32,7 @@
  * }
  */
 
-function hideVisually(): Object {
+function hideVisually(): Styles {
   return {
     border: '0',
     clip: 'rect(0 0 0 0)',

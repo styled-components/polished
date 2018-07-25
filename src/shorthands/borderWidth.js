@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
@@ -23,7 +24,7 @@ import directionalProperty from '../helpers/directionalProperty'
  *   'borderLeftWidth': '48px'
  * }
  */
-function borderWidth(...values: Array<?string | ?number>): Object {
+function borderWidth(...values: Array<?string | ?number>): Styles {
   return directionalProperty('borderWidth', ...values)
 }
 

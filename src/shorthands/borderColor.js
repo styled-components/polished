@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
@@ -24,7 +25,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function borderColor(...values: Array<?string>): Object {
+function borderColor(...values: Array<?string>): Styles {
   return directionalProperty('borderColor', ...values)
 }
 

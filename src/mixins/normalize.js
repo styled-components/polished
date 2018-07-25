@@ -1,4 +1,6 @@
 // @flow
+import type { Styles } from '../types/style'
+
 const opinionatedRules = {
   html: {
     fontFamily: 'sans-serif',
@@ -248,7 +250,7 @@ const unopinionatedRules = {
   },
 }
 
-function mergeRules(baseRules: Object, additionalRules: Object): Object {
+function mergeRules(baseRules: Styles, additionalRules: Styles): Styles {
   const mergedRules = { ...baseRules }
   Object.keys(additionalRules).forEach(key => {
     if (mergedRules[key]) {
@@ -285,7 +287,7 @@ function mergeRules(baseRules: Object, additionalRules: Object): Object {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean): Object {
+function normalize(excludeOpinionated?: boolean): Styles {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

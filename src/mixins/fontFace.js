@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /** */
 type FontFaceConfiguration = {
@@ -77,7 +78,7 @@ function fontFace({
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
   localFonts,
   unicodeRange,
-}: FontFaceConfiguration): Object {
+}: FontFaceConfiguration): Styles {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {

@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 import directionalProperty from '../helpers/directionalProperty'
 
 /**
@@ -24,7 +25,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function margin(...values: Array<?string | ?number>): Object {
+function margin(...values: Array<?string | ?number>): Styles {
   return directionalProperty('margin', ...values)
 }
 

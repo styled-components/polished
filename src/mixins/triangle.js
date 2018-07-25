@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /** */
 type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
@@ -73,7 +74,7 @@ function triangle({
   width,
   foregroundColor,
   backgroundColor = 'transparent',
-}: TriangleArgs): Object {
+}: TriangleArgs): Styles {
   const unitlessHeight = parseFloat(height)
   const unitlessWidth = parseFloat(width)
   if (isNaN(unitlessHeight) || isNaN(unitlessWidth)) {

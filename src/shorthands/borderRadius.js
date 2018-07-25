@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 import capitalizeString from '../internalHelpers/_capitalizeString'
 
 /**
@@ -22,7 +23,7 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  * }
  */
 
-function borderRadius(side: string, radius: string | number): Object {
+function borderRadius(side: string, radius: string | number): Styles {
   const uppercaseSide = capitalizeString(side)
   if (!radius && radius !== 0) {
     throw new Error('borderRadius expects a radius value as a string or number as the second argument.')
