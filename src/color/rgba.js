@@ -50,19 +50,19 @@ function rgba(
       rgbValue.blue
     },${secondValue})`
   } else if (
-    typeof firstValue === 'number'
-    && typeof secondValue === 'number'
-    && typeof thirdValue === 'number'
-    && typeof fourthValue === 'number'
+    typeof firstValue === 'number' &&
+    typeof secondValue === 'number' &&
+    typeof thirdValue === 'number' &&
+    typeof fourthValue === 'number'
   ) {
     return fourthValue >= 1
       ? rgb(firstValue, secondValue, thirdValue)
       : `rgba(${firstValue},${secondValue},${thirdValue},${fourthValue})`
   } else if (
-    typeof firstValue === 'object'
-    && secondValue === undefined
-    && thirdValue === undefined
-    && fourthValue === undefined
+    typeof firstValue === 'object' &&
+    secondValue === undefined &&
+    thirdValue === undefined &&
+    fourthValue === undefined
   ) {
     return firstValue.alpha >= 1
       ? rgb(firstValue.red, firstValue.green, firstValue.blue)
@@ -71,9 +71,7 @@ function rgba(
       })`
   }
 
-  throw new Error(
-    'Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).',
-  )
+  throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).')
 }
 
 export default rgba

@@ -22,17 +22,17 @@ function constructGradientValue(
     template += literals[i]
     // Adds leading coma if properties preceed color-stops
     if (
-      i === 3
-      && substitutions[i]
-      && (substitutions[0] || substitutions[1] || substitutions[2])
+      i === 3 &&
+      substitutions[i] &&
+      (substitutions[0] || substitutions[1] || substitutions[2])
     ) {
       template = template.slice(0, -1)
       template += `, ${substitutions[i]}`
       // No trailing space if color-stops is the only param provided
     } else if (
-      i === 3
-      && substitutions[i]
-      && (!substitutions[0] && !substitutions[1] && !substitutions[2])
+      i === 3 &&
+      substitutions[i] &&
+      (!substitutions[0] && !substitutions[1] && !substitutions[2])
     ) {
       template += `${substitutions[i]}`
       // Only adds substitution if it is defined
@@ -83,15 +83,11 @@ function radialGradient({
   shape,
 }: RadialGradientConfiguration): Object {
   if (!colorStops || colorStops.length < 2) {
-    throw new Error(
-      'radialGradient requries at least 2 color-stops to properly render.',
-    )
+    throw new Error('radialGradient requries at least 2 color-stops to properly render.')
   }
   return {
     backgroundColor: fallback || parseFallback(colorStops),
-    backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(
-      ', ',
-    )})`,
+    backgroundImage: constructGradientValue`radial-gradient(${position}${shape}${extent}${colorStops.join(', ')})`,
   }
 }
 
