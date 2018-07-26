@@ -3974,14 +3974,10 @@ element {
   </div>
   
 
-  <p>Mixes two colors together by calculating the average of each of the RGB components.</p>
-<p>By default the weight is 0.5 meaning that half of the first color and half the second
-color should be used. Optionally the weight can be modified by providing a number
-as the first argument. 0.25 means that a quarter of the first color and three quarters
-of the second color should be used.</p>
+  <p>Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.</p>
 
 
-  <div class='pre p1 fill-light mt0'>mix(weight: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, otherColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>mix(weight: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, otherColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -4004,8 +4000,7 @@ of the second color should be used.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>weight</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
-            = <code>0.5</code>)</code>
+            <span class='code bold'>weight</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
 	    
           </div>
           

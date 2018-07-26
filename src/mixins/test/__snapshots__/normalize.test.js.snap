@@ -3,8 +3,8 @@
 exports[`normalize should default to all rules 1`] = `
 Object {
   "::-webkit-file-upload-button": Object {
-    "-webkit-appearance": "button",
     "font": "inherit",
+    "webkitAppearance": "button",
   },
   "[hidden]": Object {
     "display": "none",
@@ -19,11 +19,11 @@ Object {
     "height": "auto",
   },
   "[type=\\"search\\"]": Object {
-    "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
+    "webkitAppearance": "textfield",
   },
   "[type=\\"search\\"]::-webkit-search-decoration": Object {
-    "-webkit-appearance": "none",
+    "webkitAppearance": "none",
   },
   "a": Object {
     "background-color": "transparent",
@@ -52,7 +52,7 @@ Object {
   html [type=\\"button\\"],
   [type=\\"reset\\"],
   [type=\\"submit\\"]": Object {
-    "-webkit-appearance": "button",
+    "webkitAppearance": "button",
   },
   "button,
   input": Object {
@@ -160,8 +160,8 @@ Object {
 exports[`normalize should only return unopinionated rules, when passed true 1`] = `
 Object {
   "::-webkit-file-upload-button": Object {
-    "-webkit-appearance": "button",
     "font": "inherit",
+    "webkitAppearance": "button",
   },
   "[hidden]": Object {
     "display": "none",
@@ -176,11 +176,11 @@ Object {
     "height": "auto",
   },
   "[type=\\"search\\"]": Object {
-    "-webkit-appearance": "textfield",
     "outlineOffset": "-2px",
+    "webkitAppearance": "textfield",
   },
   "[type=\\"search\\"]::-webkit-search-decoration": Object {
-    "-webkit-appearance": "none",
+    "webkitAppearance": "none",
   },
   "a": Object {
     "background-color": "transparent",
@@ -205,7 +205,7 @@ Object {
   html [type=\\"button\\"],
   [type=\\"reset\\"],
   [type=\\"submit\\"]": Object {
-    "-webkit-appearance": "button",
+    "webkitAppearance": "button",
   },
   "button,
   input": Object {

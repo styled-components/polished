@@ -3,8 +3,8 @@ import between from './between'
 
 function fluidRange(
   cssProp: Array<Object> | Object,
-  minScreen: string,
-  maxScreen: string,
+  minScreen?: string = '320px',
+  maxScreen?: string = '1200px',
 ): Object {
   if (
     (!Array.isArray(cssProp) && typeof cssProp !== 'object')

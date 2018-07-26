@@ -123,7 +123,7 @@ const unopinionatedRules = {
   html [type="button"],
   [type="reset"],
   [type="submit"]`]: {
-    '-webkit-appearance': 'button',
+    webkitAppearance: 'button',
   },
 
   [`button::-moz-focus-inner,
@@ -174,16 +174,16 @@ const unopinionatedRules = {
   },
 
   '[type="search"]': {
-    '-webkit-appearance': 'textfield',
+    webkitAppearance: 'textfield',
     outlineOffset: '-2px',
   },
 
   '[type="search"]::-webkit-search-decoration': {
-    '-webkit-appearance': 'none',
+    webkitAppearance: 'none',
   },
 
   '::-webkit-file-upload-button': {
-    '-webkit-appearance': 'button',
+    webkitAppearance: 'button',
     font: 'inherit',
   },
 

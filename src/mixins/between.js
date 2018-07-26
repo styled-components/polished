@@ -10,8 +10,8 @@ function getValueAndUnit(value: string): [number | string, string | void] {
 function between(
   fromSize: string,
   toSize: string,
-  minScreen: string = '320px',
-  maxScreen: string = '1200px',
+  minScreen?: string = '320px',
+  maxScreen?: string = '1200px',
 ): string {
   const [unitlessFromSize, fromSizeUnit] = getValueAndUnit(fromSize)
   const [unitlessToSize, toSizeUnit] = getValueAndUnit(toSize)
