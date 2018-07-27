@@ -274,6 +274,48 @@
   var rem = /*#__PURE__*/pxtoFactory('rem');
 
   //      
+  function getValueAndUnit(value) {
+    var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+    if (typeof value !== 'string') return [value, ''];
+    var matchedValue = value.match(cssRegex);
+    if (matchedValue) return [parseFloat(value), matchedValue[2]];
+    return [value, undefined];
+  }
+
+  function between(fromSize, toSize) {
+    var minScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '320px';
+    var maxScreen = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '1200px';
+
+    var _getValueAndUnit = getValueAndUnit(fromSize),
+        unitlessFromSize = _getValueAndUnit[0],
+        fromSizeUnit = _getValueAndUnit[1];
+
+    var _getValueAndUnit2 = getValueAndUnit(toSize),
+        unitlessToSize = _getValueAndUnit2[0],
+        toSizeUnit = _getValueAndUnit2[1];
+
+    var _getValueAndUnit3 = getValueAndUnit(minScreen),
+        unitlessMinScreen = _getValueAndUnit3[0],
+        minScreenUnit = _getValueAndUnit3[1];
+
+    var _getValueAndUnit4 = getValueAndUnit(maxScreen),
+        unitlessMaxScreen = _getValueAndUnit4[0],
+        maxScreenUnit = _getValueAndUnit4[1];
+
+    if (typeof unitlessMinScreen !== 'number' || typeof unitlessMaxScreen !== 'number' || !minScreenUnit || !maxScreenUnit || minScreenUnit !== maxScreenUnit) {
+      throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.');
+    }
+
+    if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || !fromSizeUnit || !toSizeUnit || fromSizeUnit !== toSizeUnit) {
+      throw new Error('fromSize and toSize must be provided as stringified numbers with the same units.');
+    }
+
+    var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
+    var base = unitlessToSize - slope * unitlessMaxScreen;
+    return 'calc(' + base + fromSizeUnit + ' + ' + 100 * slope + 'vw)';
+  }
+
+  //      
 
   /**
    * CSS to contain a float (credit to CSSMojo).
@@ -391,6 +433,75 @@
     }, {
       display: 'inline-flex'
     }];
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var taggedTemplateLiteralLoose = function (strings, raw) {
+    strings.raw = raw;
+    return strings;
+  };
+
+  //      
+
+  function fluidRange(cssProp) {
+    var minScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '320px';
+    var maxScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1200px';
+
+    if (!Array.isArray(cssProp) && typeof cssProp !== 'object' || cssProp === null) {
+      throw new Error('expects either an array of objects or a single object with the properties prop, fromSize, and toSize.');
+    }
+
+    if (Array.isArray(cssProp)) {
+      var mediaQueries = {};
+      var fallbacks = {};
+      for (var _iterator = cssProp, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _babelHelpers$extends, _babelHelpers$extends2;
+
+        var _ref;
+
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
+
+        var obj = _ref;
+
+        if (!obj.prop || !obj.fromSize || !obj.toSize) {
+          throw new Error('expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.');
+        }
+
+        fallbacks[obj.prop] = obj.fromSize;
+        mediaQueries['@media (min-width: ' + minScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + minScreen + ')'], (_babelHelpers$extends = {}, _babelHelpers$extends[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _babelHelpers$extends));
+        mediaQueries['@media (min-width: ' + maxScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + maxScreen + ')'], (_babelHelpers$extends2 = {}, _babelHelpers$extends2[obj.prop] = obj.toSize, _babelHelpers$extends2));
+      }
+
+      return _extends({}, fallbacks, mediaQueries);
+    } else {
+      var _ref2, _ref3, _ref4;
+
+      if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) {
+        throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.');
+      }
+
+      return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4['@media (min-width: ' + minScreen + ')'] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4['@media (min-width: ' + maxScreen + ')'] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
+    }
   }
 
   //      
@@ -614,25 +725,6 @@
     return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
   }
 
-  var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  var taggedTemplateLiteralLoose = function (strings, raw) {
-    strings.raw = raw;
-    return strings;
-  };
-
   var _opinionatedRules, _unopinionatedRules;
 
   //      
@@ -716,7 +808,7 @@
   }, _unopinionatedRules['button,\n  select'] = {
     textTransform: 'none'
   }, _unopinionatedRules['button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]'] = {
-    '-webkit-appearance': 'button'
+    webkitAppearance: 'button'
   }, _unopinionatedRules['button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner'] = {
     borderStyle: 'none',
     padding: '0'
@@ -741,12 +833,12 @@
   }, _unopinionatedRules['[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button'] = {
     height: 'auto'
   }, _unopinionatedRules['[type="search"]'] = {
-    '-webkit-appearance': 'textfield',
+    webkitAppearance: 'textfield',
     outlineOffset: '-2px'
   }, _unopinionatedRules['[type="search"]::-webkit-search-decoration'] = {
-    '-webkit-appearance': 'none'
+    webkitAppearance: 'none'
   }, _unopinionatedRules['::-webkit-file-upload-button'] = {
-    '-webkit-appearance': 'button',
+    webkitAppearance: 'button',
     font: 'inherit'
   }, _unopinionatedRules.details = {
     display: 'block'
@@ -2161,12 +2253,7 @@
   //      
 
   /**
-   * Mixes two colors together by calculating the average of each of the RGB components.
-   *
-   * By default the weight is 0.5 meaning that half of the first color and half the second
-   * color should be used. Optionally the weight can be modified by providing a number
-   * as the first argument. 0.25 means that a quarter of the first color and three quarters
-   * of the second color should be used.
+   * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
    *
    * @example
    * // Styles as object usage
@@ -2191,11 +2278,7 @@
    *   background: "rgba(63, 0, 191, 0.75)";
    * }
    */
-  function mix() {
-    var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.5;
-    var color = arguments[1];
-    var otherColor = arguments[2];
-
+  function mix(weight, color, otherColor) {
     var parsedColor1 = parseToRgb(color);
     var color1 = _extends({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
@@ -2218,7 +2301,7 @@
       red: Math.floor(color1.red * weight1 + color2.red * weight2),
       green: Math.floor(color1.green * weight1 + color2.green * weight2),
       blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
-      alpha: color1.alpha + (color2.alpha - color1.alpha) * (weight / 1.0)
+      alpha: color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0)
     };
 
     return rgba(mixedColor);
@@ -3178,6 +3261,7 @@
   exports.animation = animation;
   exports.backgroundImages = backgroundImages;
   exports.backgrounds = backgrounds;
+  exports.between = between;
   exports.border = border;
   exports.borderColor = borderColor;
   exports.borderRadius = borderRadius;
@@ -3192,6 +3276,7 @@
   exports.directionalProperty = directionalProperty;
   exports.ellipsis = ellipsis;
   exports.em = em;
+  exports.fluidRange = fluidRange;
   exports.fontFace = fontFace;
   exports.getLuminance = getLuminance;
   exports.grayscale = grayscale;
