@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * Provides an easy way to change the `wordWrap` property.
@@ -22,8 +23,7 @@
  *   wordBreak: 'break-all',
  * }
  */
-
-function wordWrap(wrap?: string = 'break-word'): Object {
+function wordWrap(wrap?: string = 'break-word'): Styles {
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
     overflowWrap: wrap,

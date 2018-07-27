@@ -62,7 +62,6 @@ function template(state: string): string {
  *   'border': 'none'
  * }
  */
-
 function textInputs(...states: Array<InteractionState>): string {
   return statefulSelectors(states, template, stateMap)
 }

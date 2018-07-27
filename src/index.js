@@ -2,6 +2,7 @@
 // Helpers
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
+import getValueAndUnit from './helpers/getValueAndUnit'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
@@ -92,6 +93,7 @@ export {
   fluidRange,
   fontFace,
   getLuminance,
+  getValueAndUnit,
   grayscale,
   invert,
   hideText,

@@ -1,6 +1,7 @@
 // @flow
-
 import hiDPI from './hiDPI'
+
+import type { Styles } from '../types/style'
 
 /**
  * A helper to generate a retina background image and non-retina
@@ -36,9 +37,11 @@ function retinaImage(
   extension?: string = 'png',
   retinaFilename?: string,
   retinaSuffix?: string = '_2x',
-): Object {
+): Styles {
   if (!filename) {
-    throw new Error('Please supply a filename to retinaImage() as the first argument.')
+    throw new Error(
+      'Please supply a filename to retinaImage() as the first argument.',
+    )
   }
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')

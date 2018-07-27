@@ -1,7 +1,6 @@
 // @flow
-
-import mix from './mix'
 import curry from '../internalHelpers/_curry'
+import mix from './mix'
 
 /**
  * Tints a color by mixing it with white. `tint` can produce

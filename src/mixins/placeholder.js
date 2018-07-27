@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to style the placeholder pseudo-element.
@@ -31,8 +32,7 @@
  *   },
  * },
  */
-
-function placeholder(styles: Object, parent?: string = '&'): Object {
+function placeholder(styles: Styles, parent?: string = '&'): Styles {
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,

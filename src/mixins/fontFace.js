@@ -1,26 +1,14 @@
 // @flow
-
-/** */
-type FontFaceConfiguration = {
-  fontFamily: string,
-  fontFilePath?: string,
-  fontStretch?: string,
-  fontStyle?: string,
-  fontVariant?: string,
-  fontWeight?: string,
-  fileFormats?: Array<string>,
-  localFonts?: Array<string>,
-  unicodeRange?: string,
-  fontDisplay?: string,
-  fontVariationSettings?: string,
-  fontFeatureSettings?: string,
-}
+import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
+import type { Styles } from '../types/style'
 
 function generateFileReferences(
   fontFilePath: string,
   fileFormats: Array<string>,
 ): string {
-  const fileFontReferences = fileFormats.map(format => `url("${fontFilePath}.${format}")`)
+  const fileFontReferences = fileFormats.map(
+    format => `url("${fontFilePath}.${format}")`,
+  )
   return fileFontReferences.join(', ')
 }
 
@@ -69,7 +57,6 @@ function generateSources(
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
-
 function fontFace({
   fontFamily,
   fontFilePath,
@@ -83,11 +70,13 @@ function fontFace({
   fontDisplay,
   fontVariationSettings,
   fontFeatureSettings,
-}: FontFaceConfiguration): Object {
+}: FontFaceConfiguration): Styles {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {
-    throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.')
+    throw new Error(
+      'fontFace expects either the path to the font file(s) or a name of a local copy.',
+    )
   }
   if (localFonts && !Array.isArray(localFonts)) {
     throw new Error('fontFace expects localFonts to be an array.')

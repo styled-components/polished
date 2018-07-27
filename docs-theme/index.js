@@ -109,7 +109,7 @@ module.exports = function (comments, config, callback) {
   // push assets into the pipeline as well.
   return new Promise(resolve => {
     vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname })
-    .pipe(concat(function (files) {
+      .pipe(concat(function (files) {
         resolve(
           files.concat(
             pages.map((page) => {
@@ -125,6 +125,6 @@ module.exports = function (comments, config, callback) {
           )
         )
       })
-    )
+      )
   })
 }

@@ -85,22 +85,24 @@
     },
     "directionalProperty",
     "em",
+    "getValueAndUnit",
     "modularScale",
     "rem",
     "stripUnit",
     {
       "name": "Types"
     },
-    "AnimationProperty",
+    "FluidRangeConfiguration",
     "FontFaceConfiguration",
     "HslColor",
     "HslaColor",
     "InteractionState",
     "ModularScaleRatio",
-    "PointingDirection",
     "RadialGradientConfiguration",
     "RgbaColor",
     "RgbColor",
-    "SideKeyword"
+    "SideKeyword",
+    "Styles",
+    "TriangleConfiguration"
   ]
 }

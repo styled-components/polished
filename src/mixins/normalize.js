@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 // Warning: opinionatedRules were removed in normalize.css 6.0 and will be deprecated in polished 3.0.
 const opinionatedRules = {
@@ -123,7 +124,7 @@ const unopinionatedRules = {
   html [type="button"],
   [type="reset"],
   [type="submit"]`]: {
-    webkitAppearance: 'button',
+    WebkitAppearance: 'button',
   },
 
   [`button::-moz-focus-inner,
@@ -174,16 +175,16 @@ const unopinionatedRules = {
   },
 
   '[type="search"]': {
-    webkitAppearance: 'textfield',
+    WebkitAppearance: 'textfield',
     outlineOffset: '-2px',
   },
 
   '[type="search"]::-webkit-search-decoration': {
-    webkitAppearance: 'none',
+    WebkitAppearance: 'none',
   },
 
   '::-webkit-file-upload-button': {
-    webkitAppearance: 'button',
+    WebkitAppearance: 'button',
     font: 'inherit',
   },
 
@@ -204,7 +205,10 @@ const unopinionatedRules = {
   },
 }
 
-function mergeRules(baseRules: Object, additionalRules: Object): Object {
+function mergeRules(
+  baseRules: Styles,
+  additionalRules: { [rule: string]: Styles },
+): Styles {
   const mergedRules = { ...baseRules }
   Object.keys(additionalRules).forEach(key => {
     if (mergedRules[key]) {
@@ -240,7 +244,7 @@ function mergeRules(baseRules: Object, additionalRules: Object): Object {
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean): Object {
+function normalize(excludeOpinionated?: boolean): Styles {
   if (excludeOpinionated) return unopinionatedRules
   return mergeRules(unopinionatedRules, opinionatedRules)
 }

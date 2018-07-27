@@ -1,4 +1,5 @@
 // @flow
+import type { TimingFunction } from '../types/timingFunction'
 
 /* eslint-disable key-spacing */
 const functionsMap = {
@@ -31,32 +32,9 @@ const functionsMap = {
 }
 /* eslint-enable key-spacing */
 
-/** */
-type TimingFunction =
-  | 'easeInBack'
-  | 'easeInCirc'
-  | 'easeInCubic'
-  | 'easeInExpo'
-  | 'easeInQuad'
-  | 'easeInQuart'
-  | 'easeInQuint'
-  | 'easeInSine'
-  | 'easeOutBack'
-  | 'easeOutCubic'
-  | 'easeOutCirc'
-  | 'easeOutExpo'
-  | 'easeOutQuad'
-  | 'easeOutQuart'
-  | 'easeOutQuint'
-  | 'easeOutSine'
-  | 'easeInOutBack'
-  | 'easeInOutCirc'
-  | 'easeInOutCubic'
-  | 'easeInOutExpo'
-  | 'easeInOutQuad'
-  | 'easeInOutQuart'
-  | 'easeInOutQuint'
-  | 'easeInOutSine'
+function getTimingFunction(functionName: string): string {
+  return functionsMap[functionName]
+}
 
 /**
  * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
@@ -80,7 +58,7 @@ type TimingFunction =
  */
 
 function timingFunctions(timingFunction: TimingFunction): string {
-  return functionsMap[timingFunction]
+  return getTimingFunction(timingFunction)
 }
 
 export default timingFunctions

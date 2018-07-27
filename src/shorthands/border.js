@@ -2,6 +2,7 @@
 import capitalizeString from '../internalHelpers/_capitalizeString'
 
 import type { SideKeyword } from '../types/sideKeyword'
+import type { Styles } from '../types/style'
 
 const sideMap = ['top', 'right', 'bottom', 'left']
 
@@ -49,7 +50,7 @@ const sideMap = ['top', 'right', 'bottom', 'left']
 function border(
   sideKeyword: SideKeyword | string | number,
   ...values: Array<string | number>
-): Object {
+): Styles {
   if (typeof sideKeyword === 'string' && sideMap.indexOf(sideKeyword) >= 0) {
     return {
       [`border${capitalizeString(sideKeyword)}Width`]: values[0],

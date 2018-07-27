@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to style the selection pseudo-element.
@@ -27,8 +28,7 @@
  *   }
  * }
  */
-
-function selection(styles: Object, parent?: string = ''): Object {
+function selection(styles: Styles, parent?: string = ''): Styles {
   return {
     [`${parent}::-moz-selection`]: {
       ...styles,

@@ -1,8 +1,7 @@
 // @flow
-
+import curry from '../internalHelpers/_curry'
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the lightness of a color to the provided value. The lightness range can be
