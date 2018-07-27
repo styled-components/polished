@@ -2,24 +2,24 @@
 
 type Direction = 'top' | 'right' | 'bottom' | 'left'
 
-interface BorderStyles {
-  content: '""';
-  position: 'absolute';
-  top?: number | string;
-  right?: number | string;
-  bottom?: number | string;
-  left?: number | string;
-  width?: number | string;
-  height?: number | string;
-  color?: string;
-  border?: string;
-  borderTop?: string;
-  borderRight?: string;
-  borderBottom?: string;
-  borderLeft?: string;
-  transformOrigin?: string;
-  transform?: string;
-  boxSizing?: 'border-box';
+type BorderStyles = {
+  content: '""',
+  position: 'absolute',
+  top?: number | string,
+  right?: number | string,
+  bottom?: number | string,
+  left?: number | string,
+  width?: number | string,
+  height?: number | string,
+  color?: string,
+  border?: string,
+  borderTop?: string,
+  borderRight?: string,
+  borderBottom?: string,
+  borderLeft?: string,
+  transformOrigin?: string,
+  transform?: string,
+  boxSizing?: 'border-box',
 }
 
 /**
