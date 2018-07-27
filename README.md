@@ -70,7 +70,7 @@ import { compose } from 'ramda' // Replace with any compose() function of your c
 import { lighten, desaturate } from 'polished'
 
 // Create tone() helper
-const tone = compose(lighten(10), desaturate(10))
+const tone = compose(lighten(0.1), desaturate(0.1))
 ```
 
 ### Why not `package-xyz`?

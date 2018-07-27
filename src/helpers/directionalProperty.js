@@ -1,6 +1,8 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
 
+import type { Styles } from '../types/style'
+
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
 function generateProperty(property: string, position: string) {
@@ -53,7 +55,7 @@ function generateStyles(
 function directionalProperty(
   property: string,
   ...values: Array<?string | ?number>
-): Object {
+): Styles {
   //  prettier-ignore
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]

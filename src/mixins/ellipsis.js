@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -27,7 +28,7 @@
  * }
  */
 
-function ellipsis(width?: string | number = '100%'): Array<Object> {
+function ellipsis(width?: string | number = '100%'): Array<Styles> {
   return [
     {
       display: 'inline-block',

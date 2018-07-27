@@ -93,6 +93,7 @@
     },
     "AnimationProperty",
     "FontFaceConfiguration",
+    "Styles",
     "HslColor",
     "HslaColor",
     "InteractionState",

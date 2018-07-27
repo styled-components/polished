@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
@@ -20,7 +21,7 @@
  * }
  */
 
-function backgroundImages(...properties: Array<string>): Object {
+function backgroundImages(...properties: Array<string>): Styles {
   return {
     backgroundImage: properties.join(', '),
   }
