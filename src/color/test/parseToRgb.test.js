@@ -36,12 +36,32 @@ describe('parseToRgb', () => {
   it('should throw an error if an invalid color string is provided', () => {
     expect(() => {
       parseToRgb('(174,67,255)')
-    }).toThrow("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.")
+    }).toThrow(
+      "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
+    )
   })
 
   it('should throw an error if an invalid color string is provided', () => {
     expect(() => {
       parseToRgb(12345)
-    }).toThrow('Passed an incorrect argument to a color function, please pass a string representation of a color.')
+    }).toThrow(
+      'Passed an incorrect argument to a color function, please pass a string representation of a color.',
+    )
+  })
+
+  it('should throw an error if an invalid hsl string is provided', () => {
+    expect(() => {
+      parseToRgb('hsl(210,120%,4%)')
+    }).toThrow(
+      `Couldn't generate valid rgb string from ${'hsl(210,120%,4%)'}, it returned ${'rgb(-2,10,22)'}.`,
+    )
+  })
+
+  it('should throw an error if an unparsable hsla string is provided', () => {
+    expect(() => {
+      parseToRgb('hsla(210,120%,4%,0.7)')
+    }).toThrow(
+      `Couldn't generate valid rgb string from ${'hsla(210,120%,4%,0.7)'}, it returned ${'rgb(-2,10,22)'}.`,
+    )
   })
 })

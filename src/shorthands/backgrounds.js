@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * Shorthand that accepts any number of background values as parameters for creating a single background statement.
@@ -19,7 +20,7 @@
  *   'background': 'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat'
  * }
  */
-function backgrounds(...properties: Array<string>): Object {
+function backgrounds(...properties: Array<string>): Styles {
   return {
     background: properties.join(', '),
   }

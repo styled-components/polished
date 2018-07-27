@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /** */
 type FontFaceConfiguration = {
@@ -20,7 +21,9 @@ function generateFileReferences(
   fontFilePath: string,
   fileFormats: Array<string>,
 ): string {
-  const fileFontReferences = fileFormats.map(format => `url("${fontFilePath}.${format}")`)
+  const fileFontReferences = fileFormats.map(
+    format => `url("${fontFilePath}.${format}")`,
+  )
   return fileFontReferences.join(', ')
 }
 
@@ -83,11 +86,13 @@ function fontFace({
   fontDisplay,
   fontVariationSettings,
   fontFeatureSettings,
-}: FontFaceConfiguration): Object {
+}: FontFaceConfiguration): Styles {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {
-    throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.')
+    throw new Error(
+      'fontFace expects either the path to the font file(s) or a name of a local copy.',
+    )
   }
   if (localFonts && !Array.isArray(localFonts)) {
     throw new Error('fontFace expects localFonts to be an array.')

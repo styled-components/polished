@@ -1,6 +1,8 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
 
+import type { Styles } from '../types/style'
+
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
@@ -24,7 +26,7 @@ import directionalProperty from '../helpers/directionalProperty'
  * }
  */
 
-function margin(...values: Array<?string | ?number>): Object {
+function margin(...values: Array<?string | ?number>): Styles {
   return directionalProperty('margin', ...values)
 }
 

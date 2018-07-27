@@ -317,6 +317,7 @@
 
   //      
 
+
   /**
    * CSS to contain a float (credit to CSSMojo).
    *
@@ -392,6 +393,7 @@
   }
 
   //      
+
 
   /**
    * CSS to represent truncated text with an ellipsis.
@@ -505,6 +507,7 @@
   }
 
   //      
+
 
   /** */
 
@@ -642,6 +645,7 @@
 
   //      
 
+
   /**
    * CSS to hide content visually but remain accessible to screen readers.
    * from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121)
@@ -729,6 +733,7 @@
 
   //      
 
+
   // Warning: opinionatedRules were removed in normalize.css 6.0 and will be deprecated in polished 3.0.
   var opinionatedRules = (_opinionatedRules = {
     html: {
@@ -808,7 +813,7 @@
   }, _unopinionatedRules['button,\n  select'] = {
     textTransform: 'none'
   }, _unopinionatedRules['button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]'] = {
-    webkitAppearance: 'button'
+    WebkitAppearance: 'button'
   }, _unopinionatedRules['button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner'] = {
     borderStyle: 'none',
     padding: '0'
@@ -833,12 +838,12 @@
   }, _unopinionatedRules['[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button'] = {
     height: 'auto'
   }, _unopinionatedRules['[type="search"]'] = {
-    webkitAppearance: 'textfield',
+    WebkitAppearance: 'textfield',
     outlineOffset: '-2px'
   }, _unopinionatedRules['[type="search"]::-webkit-search-decoration'] = {
-    webkitAppearance: 'none'
+    WebkitAppearance: 'none'
   }, _unopinionatedRules['::-webkit-file-upload-button'] = {
-    webkitAppearance: 'button',
+    WebkitAppearance: 'button',
     font: 'inherit'
   }, _unopinionatedRules.details = {
     display: 'block'
@@ -888,6 +893,7 @@
 
   //      
 
+
   /**
    * CSS to style the placeholder pseudo-element.
    *
@@ -931,6 +937,7 @@
   var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
 
   //      
+
 
   /** */
 
@@ -1059,6 +1066,7 @@
   }
 
   //      
+
 
   /**
    * CSS to style the selection pseudo-element.
@@ -1265,6 +1273,7 @@
   }
 
   //      
+
 
   /**
    * Provides an easy way to change the `wordWrap` property.
@@ -1589,13 +1598,14 @@
       var lightness = parseInt('' + hslMatched[3], 10) / 100;
       var rgbColorString = 'rgb(' + hslToRgb(hue, saturation, lightness) + ')';
       var hslRgbMatched = rgbRegex.exec(rgbColorString);
-      if (hslRgbMatched) {
-        return {
-          red: parseInt('' + hslRgbMatched[1], 10),
-          green: parseInt('' + hslRgbMatched[2], 10),
-          blue: parseInt('' + hslRgbMatched[3], 10)
-        };
+      if (!hslRgbMatched) {
+        throw new Error('Couldn\'t generate valid rgb string from ' + normalizedColor + ', it returned ' + rgbColorString + '.');
       }
+      return {
+        red: parseInt('' + hslRgbMatched[1], 10),
+        green: parseInt('' + hslRgbMatched[2], 10),
+        blue: parseInt('' + hslRgbMatched[3], 10)
+      };
     }
     var hslaMatched = hslaRegex.exec(normalizedColor);
     if (hslaMatched) {
@@ -1604,14 +1614,15 @@
       var _lightness = parseInt('' + hslaMatched[3], 10) / 100;
       var _rgbColorString = 'rgb(' + hslToRgb(_hue, _saturation, _lightness) + ')';
       var _hslRgbMatched = rgbRegex.exec(_rgbColorString);
-      if (_hslRgbMatched) {
-        return {
-          red: parseInt('' + _hslRgbMatched[1], 10),
-          green: parseInt('' + _hslRgbMatched[2], 10),
-          blue: parseInt('' + _hslRgbMatched[3], 10),
-          alpha: parseFloat('' + hslaMatched[4])
-        };
+      if (!_hslRgbMatched) {
+        throw new Error('Couldn\'t generate valid rgb string from ' + normalizedColor + ', it returned ' + _rgbColorString + '.');
       }
+      return {
+        red: parseInt('' + _hslRgbMatched[1], 10),
+        green: parseInt('' + _hslRgbMatched[2], 10),
+        blue: parseInt('' + _hslRgbMatched[3], 10),
+        alpha: parseFloat('' + hslaMatched[4])
+      };
     }
     throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
   }
@@ -2624,6 +2635,7 @@
 
   //      
 
+
   /** */
 
   /**
@@ -2690,6 +2702,7 @@
 
   //      
 
+
   /**
    * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
    * @example
@@ -2721,6 +2734,7 @@
   }
 
   //      
+
 
   /**
    * Shorthand that accepts any number of background values as parameters for creating a single background statement.
@@ -3122,6 +3136,7 @@
 
   //      
 
+
   /**
    * Shorthand to set the height and width properties in a single statement.
    * @example
@@ -3208,6 +3223,7 @@
   }
 
   //      
+
 
   /**
    * Shorthand that accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).

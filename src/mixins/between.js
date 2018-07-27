@@ -19,28 +19,31 @@ function between(
   const [unitlessMaxScreen, maxScreenUnit] = getValueAndUnit(maxScreen)
 
   if (
-    typeof unitlessMinScreen !== 'number' ||
-    typeof unitlessMaxScreen !== 'number' ||
-    !minScreenUnit ||
-    !maxScreenUnit ||
-    minScreenUnit !== maxScreenUnit
+    typeof unitlessMinScreen !== 'number'
+    || typeof unitlessMaxScreen !== 'number'
+    || !minScreenUnit
+    || !maxScreenUnit
+    || minScreenUnit !== maxScreenUnit
   ) {
-    throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.')
+    throw new Error(
+      'minScreen and maxScreen must be provided as stringified numbers with the same units.',
+    )
   }
 
   if (
-    typeof unitlessFromSize !== 'number' ||
-    typeof unitlessToSize !== 'number' ||
-    !fromSizeUnit ||
-    !toSizeUnit ||
-    fromSizeUnit !== toSizeUnit
+    typeof unitlessFromSize !== 'number'
+    || typeof unitlessToSize !== 'number'
+    || !fromSizeUnit
+    || !toSizeUnit
+    || fromSizeUnit !== toSizeUnit
   ) {
-    throw new Error('fromSize and toSize must be provided as stringified numbers with the same units.')
+    throw new Error(
+      'fromSize and toSize must be provided as stringified numbers with the same units.',
+    )
   }
 
-  const slope =
-    (unitlessFromSize - unitlessToSize) /
-    (unitlessMinScreen - unitlessMaxScreen)
+  const slope = (unitlessFromSize - unitlessToSize)
+    / (unitlessMinScreen - unitlessMaxScreen)
   const base = unitlessToSize - slope * unitlessMaxScreen
   return `calc(${base}${fromSizeUnit} + ${100 * slope}vw)`
 }
