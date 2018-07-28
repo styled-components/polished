@@ -506,29 +506,45 @@
   //      
 
   /**
-   * CSS to represent truncated text with an ellipsis.
+   * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
    *
    * @example
    * // Styles as object usage
    * const styles = {
-   *   ...ellipsis('250px')
+   *   ...fluidRange(
+   *    {
+   *        prop: 'padding',
+   *        fromSize: '20px',
+   *        toSize: '100px',
+   *      },
+   *      '400px',
+   *      '1000px',
+   *    )
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   ${ellipsis('250px')}
+   *   ${fluidRange(
+   *      {
+   *        prop: 'padding',
+   *        fromSize: '20px',
+   *        toSize: '100px',
+   *      },
+   *      '400px',
+   *      '1000px',
+   *    )}
    * `
    *
    * // CSS as JS Output
    *
    * div: {
-   *   'display': 'inline-block',
-   *   'display': 'inline-flex',
-   *   'maxWidth': '250px',
-   *   'overflow': 'hidden',
-   *   'textOverflow': 'ellipsis',
-   *   'whiteSpace': 'nowrap',
-   *   'wordWrap': 'normal'
+   *   "@media (min-width: 1000px)": Object {
+   *     "padding": "100px",
+   *   },
+   *   "@media (min-width: 400px)": Object {
+   *     "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+   *   },
+   *   "padding": "20px",
    * }
    */
   function fluidRange(cssProp) {

@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mix should mix two colors when weight is a string 1`] = `"rgba(63,0,191,0.75)"`;
+
 exports[`mix should mix two colors with an 8-digit hex color 1`] = `"rgba(63,0,191,0.75)"`;
 
 exports[`mix should mix two colors with by a weight of 25% 1`] = `"#3f00bf"`;

@@ -1408,7 +1408,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   </div>
   
 
-  <p>CSS to represent truncated text with an ellipsis.</p>
+  <p>Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.</p>
 
 
   <div class='pre p1 fill-light mt0'>fluidRange(cssProp: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="#fluidrangeconfiguration">FluidRangeConfiguration</a>> | <a href="#fluidrangeconfiguration">FluidRangeConfiguration</a>), minScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, maxScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styles">Styles</a></div>
@@ -1486,26 +1486,42 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
 const styles = {
-  ...ellipsis(<span class="hljs-string">'250px'</span>)
+  ...fluidRange(
+   {
+       prop: <span class="hljs-string">'padding'</span>,
+       fromSize: <span class="hljs-string">'20px'</span>,
+       toSize: <span class="hljs-string">'100px'</span>,
+     },
+     <span class="hljs-string">'400px'</span>,
+     <span class="hljs-string">'1000px'</span>,
+   )
 }
 
-<span class="hljs-comment">// styled-components usage</span>
-const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
-  <span class="hljs-symbol">$</span>{ellipsis(<span class="hljs-string">'250px'</span>)}
+// styled-components usage
+const div = styled.div`
+  ${fluidRange(
+     {
+       prop: <span class="hljs-string">'padding'</span>,
+       fromSize: <span class="hljs-string">'20px'</span>,
+       toSize: <span class="hljs-string">'100px'</span>,
+     },
+     <span class="hljs-string">'400px'</span>,
+     <span class="hljs-string">'1000px'</span>,
+   )}
 `
 
-<span class="hljs-comment">// CSS as JS Output</span>
+// CSS <span class="hljs-keyword">as</span> JS Output
 
-<span class="hljs-built-in">div</span>: {
-  <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-block'</span>,
-  <span class="hljs-string">'display'</span>: <span class="hljs-string">'inline-flex'</span>,
-  <span class="hljs-string">'maxWidth'</span>: <span class="hljs-string">'250px'</span>,
-  <span class="hljs-string">'overflow'</span>: <span class="hljs-string">'hidden'</span>,
-  <span class="hljs-string">'textOverflow'</span>: <span class="hljs-string">'ellipsis'</span>,
-  <span class="hljs-string">'whiteSpace'</span>: <span class="hljs-string">'nowrap'</span>,
-  <span class="hljs-string">'wordWrap'</span>: <span class="hljs-string">'normal'</span>
+div: {
+  <span class="hljs-string">"@media (min-width: 1000px)"</span>: Object {
+    <span class="hljs-string">"padding"</span>: <span class="hljs-string">"100px"</span>,
+  },
+  <span class="hljs-string">"@media (min-width: 400px)"</span>: Object {
+    <span class="hljs-string">"padding"</span>: <span class="hljs-string">"calc(-33.33333333333334px + 13.333333333333334vw)"</span>,
+  },
+  <span class="hljs-string">"padding"</span>: <span class="hljs-string">"20px"</span>,
 }</pre>
     
   
