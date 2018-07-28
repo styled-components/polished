@@ -47,7 +47,6 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  *   'left': '48px'
  * }
  */
-
 function position(
   positionKeyword: string | null,
   ...values: Array<?string | ?number>

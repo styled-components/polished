@@ -1,9 +1,8 @@
 // @flow
-
+import curry from '../internalHelpers/_curry'
+import guard from '../internalHelpers/_guard'
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import guard from '../internalHelpers/_guard'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Returns a string value for the darkened color.

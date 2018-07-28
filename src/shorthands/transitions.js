@@ -2,7 +2,7 @@
 import type { Styles } from '../types/style'
 
 /**
- * Shorthand that accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
+ * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
  * @example
  * // Styles as object usage
  * const styles = {
@@ -23,7 +23,6 @@ import type { Styles } from '../types/style'
  *   'transition': 'color 2.0s ease-in 2s, background-color 2.0s ease-in 2s',
  * }
  */
-
 function transitions(...properties: Array<string | Array<string>>): Styles {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const value = properties[1]

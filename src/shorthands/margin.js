@@ -25,7 +25,6 @@ import type { Styles } from '../types/style'
  *   'marginLeft': '48px'
  * }
  */
-
 function margin(...values: Array<?string | ?number>): Styles {
   return directionalProperty('margin', ...values)
 }

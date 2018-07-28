@@ -27,7 +27,6 @@ import type { Styles } from '../types/style'
  *   'wordWrap': 'normal'
  * }
  */
-
 function ellipsis(width?: string | number = '100%'): Array<Styles> {
   return [
     {

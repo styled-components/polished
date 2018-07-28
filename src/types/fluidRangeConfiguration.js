@@ -4,11 +4,12 @@
 // exported types yet. See https://github.com/documentationjs/documentation/issues/680
 
 /**
- * @property {undefined, null, 'active', 'focus', 'hover'} InteractionState
+ * @property {string}  prop
+ * @property {string}  fromSize
+ * @property {string}  toSize
  */
-export type InteractionState =
-  | typeof undefined
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover'
+export type FluidRangeConfiguration = {|
+  prop: string,
+  fromSize: string,
+  toSize: string,
+|}

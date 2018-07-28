@@ -1,21 +1,6 @@
 // @flow
+import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
 import type { Styles } from '../types/style'
-
-/** */
-type FontFaceConfiguration = {
-  fontFamily: string,
-  fontFilePath?: string,
-  fontStretch?: string,
-  fontStyle?: string,
-  fontVariant?: string,
-  fontWeight?: string,
-  fileFormats?: Array<string>,
-  localFonts?: Array<string>,
-  unicodeRange?: string,
-  fontDisplay?: string,
-  fontVariationSettings?: string,
-  fontFeatureSettings?: string,
-}
 
 function generateFileReferences(
   fontFilePath: string,
@@ -72,7 +57,6 @@ function generateSources(
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
-
 function fontFace({
   fontFamily,
   fontFilePath,

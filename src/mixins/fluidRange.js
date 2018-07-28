@@ -1,11 +1,56 @@
 // @flow
 import between from './between'
 
+import type { FluidRangeConfiguration } from '../types/fluidRangeConfiguration'
+import type { Styles } from '../types/style'
+
+/**
+ * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   ...fluidRange(
+ *    {
+ *        prop: 'padding',
+ *        fromSize: '20px',
+ *        toSize: '100px',
+ *      },
+ *      '400px',
+ *      '1000px',
+ *    )
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${fluidRange(
+ *      {
+ *        prop: 'padding',
+ *        fromSize: '20px',
+ *        toSize: '100px',
+ *      },
+ *      '400px',
+ *      '1000px',
+ *    )}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div: {
+ *   "@media (min-width: 1000px)": Object {
+ *     "padding": "100px",
+ *   },
+ *   "@media (min-width: 400px)": Object {
+ *     "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+ *   },
+ *   "padding": "20px",
+ * }
+ */
 function fluidRange(
-  cssProp: Array<Object> | Object,
+  cssProp: Array<FluidRangeConfiguration> | FluidRangeConfiguration,
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
-): Object {
+): Styles {
   if (
     (!Array.isArray(cssProp) && typeof cssProp !== 'object')
     || cssProp === null

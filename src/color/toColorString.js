@@ -1,8 +1,8 @@
 // @flow
-import rgb from './rgb'
-import rgba from './rgba'
 import hsl from './hsl'
 import hsla from './hsla'
+import rgb from './rgb'
+import rgba from './rgba'
 
 const isRgb = (color: Object): boolean => typeof color.red === 'number'
   && typeof color.green === 'number'

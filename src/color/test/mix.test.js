@@ -13,4 +13,8 @@ describe('mix', () => {
   it('should mix two colors with opacity lower than 1', () => {
     expect(mix(0.5, 'rgba(255, 0, 0, 0.5)', '#00f')).toMatchSnapshot()
   })
+
+  it('should mix two colors when weight is a string', () => {
+    expect(mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')).toMatchSnapshot()
+  })
 })

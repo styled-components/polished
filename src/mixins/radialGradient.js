@@ -1,14 +1,6 @@
 // @flow
+import type { RadialGradientConfiguration } from '../types/radialGradientConfiguration'
 import type { Styles } from '../types/style'
-
-/** */
-type RadialGradientConfiguration = {
-  colorStops: Array<string>,
-  extent?: string,
-  fallback?: string,
-  position?: string,
-  shape?: string,
-}
 
 function parseFallback(colorStops: Array<string>): string {
   return colorStops[0].split(' ')[0]
@@ -75,7 +67,6 @@ function constructGradientValue(
  *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
-
 function radialGradient({
   colorStops,
   extent,

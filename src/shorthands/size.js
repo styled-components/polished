@@ -21,7 +21,6 @@ import type { Styles } from '../types/style'
  *   'width': '250px',
  * }
  */
-
 function size(
   height: string | number,
   width?: string | number = height,

@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
@@ -24,7 +25,7 @@
  *   'left: '0'
  * }
  */
-function cover(offset?: number | string = 0): Object {
+function cover(offset?: number | string = 0): Styles {
   return {
     position: 'absolute',
     top: offset,

@@ -23,7 +23,6 @@ import type { Styles } from '../types/style'
  *   'borderTopLeftRadius': '5px',
  * }
  */
-
 function borderRadius(side: string, radius: string | number): Styles {
   const uppercaseSide = capitalizeString(side)
   if (!radius && radius !== 0) {

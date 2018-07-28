@@ -31,7 +31,6 @@ import type { Styles } from '../types/style'
  *   'width': '1px',
  * }
  */
-
 function hideVisually(): Styles {
   return {
     border: '0',

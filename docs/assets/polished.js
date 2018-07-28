@@ -39,7 +39,7 @@
   }
 
   /**
-   * A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
+   * Enables shorthand for direction-based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
    * @example
    * // Styles as object usage
    * const styles = {
@@ -60,7 +60,6 @@
    *   'paddingLeft': '48px'
    * }
    */
-
   function directionalProperty(property) {
     for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
@@ -88,7 +87,7 @@
   //      
 
   /**
-   * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+   * Returns a given CSS value minus its unit (or the original value if an invalid string is passed).
    *
    * @example
    * // Styles as object usage
@@ -107,7 +106,6 @@
    *   '--dimension': 100
    * }
    */
-
   function stripUnit(value) {
     var unitlessValue = parseFloat(value);
     if (isNaN(unitlessValue)) return value;
@@ -177,8 +175,40 @@
    *   'height': '1em'
    * }
    */
-
   var em = /*#__PURE__*/pxtoFactory('em');
+
+  //      
+  var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+
+  /**
+   * Returns a given CSS value and its unit as elements of an array.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   '--dimension': getUnitandValue('100px')[0]
+   *   '--unit': getUnitandValue('100px')[1]
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   --dimension: ${getUnitandValue('100px')[0]}
+   *   --unit: ${getUnitandValue('100px')[1]}
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   '--dimension': 100
+   *   '--unit': 'px'
+   * }
+   */
+  function getValueAndUnit(value) {
+    if (typeof value !== 'string') return [value, ''];
+    var matchedValue = value.match(cssRegex);
+    if (matchedValue) return [parseFloat(value), matchedValue[2]];
+    return [value, undefined];
+  }
 
   //      
 
@@ -200,31 +230,34 @@
     majorEleventh: 2.667,
     majorTwelfth: 3,
     doubleOctave: 4
+  };
 
-    /** */
+  function getRatio(ratioName) {
+    return ratioNames[ratioName];
+  }
 
-    /**
-     * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
-     * @example
-     * // Styles as object usage
-     * const styles = {
-     *    // Increment two steps up the default scale
-     *   'fontSize': modularScale(2)
-     * }
-     *
-     * // styled-components usage
-     * const div = styled.div`
-     *    // Increment two steps up the default scale
-     *   fontSize: ${modularScale(2)}
-     * `
-     *
-     * // CSS in JS Output
-     *
-     * element {
-     *   'fontSize': '1.77689em'
-     * }
-     */
-  };function modularScale(steps) {
+  /**
+   * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *    // Increment two steps up the default scale
+   *   'fontSize': modularScale(2)
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *    // Increment two steps up the default scale
+   *   fontSize: ${modularScale(2)}
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   'fontSize': '1.77689em'
+   * }
+   */
+  function modularScale(steps) {
     var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
     var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
 
@@ -236,7 +269,7 @@
     }
 
     var realBase = typeof base === 'string' ? stripUnit(base) : base;
-    var realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio;
+    var realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio;
 
     if (typeof realBase === 'string') {
       throw new Error('Invalid value passed as base to modularScale, expected number or em string but got "' + base + '"');
@@ -270,18 +303,33 @@
    *   'height': '1rem'
    * }
    */
-
   var rem = /*#__PURE__*/pxtoFactory('rem');
 
   //      
-  function getValueAndUnit(value) {
-    var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
-    if (typeof value !== 'string') return [value, ''];
-    var matchedValue = value.match(cssRegex);
-    if (matchedValue) return [parseFloat(value), matchedValue[2]];
-    return [value, undefined];
-  }
 
+  /**
+   * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   fontSize: between('20px', '100px', '400px', '1000px'),
+   *   fontSize: between('20px', '100px')
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   fontSize: ${fontSize: between('20px', '100px', '400px', '1000px')};
+   *   fontSize: ${fontSize: between('20px', '100px')}
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * h1: {
+   *   'fontSize': 'calc(-33.33333333333334px + 13.333333333333334vw)',
+   *   'fontSize': 'calc(-9.090909090909093px + 9.090909090909092vw)'
+   * }
+   */
   function between(fromSize, toSize) {
     var minScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '320px';
     var maxScreen = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '1200px';
@@ -340,7 +388,6 @@
    *   'display': 'table'
    * }
    */
-
   function clearFix() {
     var _ref;
 
@@ -355,6 +402,7 @@
   }
 
   //      
+
 
   /**
    * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
@@ -421,7 +469,6 @@
    *   'wordWrap': 'normal'
    * }
    */
-
   function ellipsis() {
     var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '100%';
 
@@ -458,6 +505,48 @@
 
   //      
 
+  /**
+   * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   ...fluidRange(
+   *    {
+   *        prop: 'padding',
+   *        fromSize: '20px',
+   *        toSize: '100px',
+   *      },
+   *      '400px',
+   *      '1000px',
+   *    )
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${fluidRange(
+   *      {
+   *        prop: 'padding',
+   *        fromSize: '20px',
+   *        toSize: '100px',
+   *      },
+   *      '400px',
+   *      '1000px',
+   *    )}
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *   "@media (min-width: 1000px)": Object {
+   *     "padding": "100px",
+   *   },
+   *   "@media (min-width: 400px)": Object {
+   *     "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+   *   },
+   *   "padding": "20px",
+   * }
+   */
   function fluidRange(cssProp) {
     var minScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '320px';
     var maxScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1200px';
@@ -509,8 +598,6 @@
   //      
 
 
-  /** */
-
   function generateFileReferences(fontFilePath, fileFormats) {
     var fileFontReferences = fileFormats.map(function (format) {
       return 'url("' + fontFilePath + '.' + format + '")';
@@ -561,7 +648,6 @@
    *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
    * }
    */
-
   function fontFace(_ref) {
     var fontFamily = _ref.fontFamily,
         fontFilePath = _ref.fontFilePath,
@@ -608,6 +694,7 @@
   }
 
   //      
+
 
   /**
    * CSS to hide text to show a background image in a SEO-friendly way.
@@ -676,7 +763,6 @@
    *   'width': '1px',
    * }
    */
-
   function hideVisually() {
     return {
       border: '0',
@@ -925,7 +1011,6 @@
    *   },
    * },
    */
-
   function placeholder(styles) {
     var _ref;
 
@@ -938,8 +1023,6 @@
 
   //      
 
-
-  /** */
 
   function parseFallback(colorStops) {
     return colorStops[0].split(' ')[0];
@@ -995,7 +1078,6 @@
    *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
    * }
    */
-
   function radialGradient(_ref) {
     var colorStops = _ref.colorStops,
         extent = _ref.extent,
@@ -1095,7 +1177,6 @@
    *   }
    * }
    */
-
   function selection(styles) {
     var _ref;
 
@@ -1105,6 +1186,7 @@
   }
 
   //      
+
 
   /* eslint-disable key-spacing */
   var functionsMap = {
@@ -1136,31 +1218,33 @@
     easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
     /* eslint-enable key-spacing */
 
-    /** */
+  };function getTimingFunction(functionName) {
+    return functionsMap[functionName];
+  }
 
-    /**
-     * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
-     *
-     * @example
-     * // Styles as object usage
-     * const styles = {
-     *   'transitionTimingFunction': timingFunctions('easeInQuad')
-     * }
-     *
-     * // styled-components usage
-     *  const div = styled.div`
-     *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
-     * `
-     *
-     * // CSS as JS Output
-     *
-     * 'div': {
-     *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-     * }
-     */
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': timingFunctions('easeInQuad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+   * }
+   */
 
-  };function timingFunctions(timingFunction) {
-    return functionsMap[timingFunction];
+  function timingFunctions(timingFunction) {
+    return getTimingFunction(timingFunction);
   }
 
   //      
@@ -1187,7 +1271,6 @@
    *   'borderLeftColor': 'yellow'
    * }
    */
-
   function borderColor() {
     for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -1197,8 +1280,6 @@
   }
 
   //      
-
-  /** */
 
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
     switch (pointingDirection) {
@@ -1246,7 +1327,6 @@
    *  'width': '0',
    * }
    */
-
   function triangle(_ref) {
     var pointingDirection = _ref.pointingDirection,
         height = _ref.height,
@@ -1297,7 +1377,6 @@
    *   wordBreak: 'break-all',
    * }
    */
-
   function wordWrap() {
     var wrap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'break-word';
 
@@ -1722,90 +1801,6 @@
 
   //      
 
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible hex notation.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: rgb(255, 205, 100),
-   *   background: rgb({ red: 255, green: 205, blue: 100 }),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${rgb(255, 205, 100)};
-   *   background: ${rgb({ red: 255, green: 205, blue: 100 })};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "#ffcd64";
-   *   background: "#ffcd64";
-   * }
-   */
-  function rgb(value, green, blue) {
-    if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
-      return reduceHexValue('#' + numberToHex(value) + numberToHex(green) + numberToHex(blue));
-    } else if (typeof value === 'object' && green === undefined && blue === undefined) {
-      return reduceHexValue('#' + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
-    }
-
-    throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
-  }
-
-  //      
-
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
-   *
-   * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: rgba(255, 205, 100, 0.7),
-   *   background: rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 }),
-   *   background: rgba(255, 205, 100, 1),
-   *   background: rgba('#ffffff', 0.4),
-   *   background: rgba('black', 0.7),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${rgba(255, 205, 100, 0.7)};
-   *   background: ${rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 })};
-   *   background: ${rgba(255, 205, 100, 1)};
-   *   background: ${rgba('#ffffff', 0.4)};
-   *   background: ${rgba('black', 0.7)};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "rgba(255,205,100,0.7)";
-   *   background: "rgba(255,205,100,0.7)";
-   *   background: "#ffcd64";
-   *   background: "rgba(255,255,255,0.4)";
-   *   background: "rgba(0,0,0,0.7)";
-   * }
-   */
-  function rgba(firstValue, secondValue, thirdValue, fourthValue) {
-    if (typeof firstValue === 'string' && typeof secondValue === 'number') {
-      var rgbValue = parseToRgb(firstValue);
-      return 'rgba(' + rgbValue.red + ',' + rgbValue.green + ',' + rgbValue.blue + ',' + secondValue + ')';
-    } else if (typeof firstValue === 'number' && typeof secondValue === 'number' && typeof thirdValue === 'number' && typeof fourthValue === 'number') {
-      return fourthValue >= 1 ? rgb(firstValue, secondValue, thirdValue) : 'rgba(' + firstValue + ',' + secondValue + ',' + thirdValue + ',' + fourthValue + ')';
-    } else if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
-      return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : 'rgba(' + firstValue.red + ',' + firstValue.green + ',' + firstValue.blue + ',' + firstValue.alpha + ')';
-    }
-
-    throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
-  }
-
-  //      
-
   function colorToHex(color) {
     return numberToHex(Math.round(color * 255));
   }
@@ -1889,6 +1884,90 @@
     }
 
     throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
+  }
+
+  //      
+
+  /**
+   * Returns a string value for the color. The returned result is the smallest possible hex notation.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   background: rgb(255, 205, 100),
+   *   background: rgb({ red: 255, green: 205, blue: 100 }),
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   background: ${rgb(255, 205, 100)};
+   *   background: ${rgb({ red: 255, green: 205, blue: 100 })};
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   background: "#ffcd64";
+   *   background: "#ffcd64";
+   * }
+   */
+  function rgb(value, green, blue) {
+    if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
+      return reduceHexValue('#' + numberToHex(value) + numberToHex(green) + numberToHex(blue));
+    } else if (typeof value === 'object' && green === undefined && blue === undefined) {
+      return reduceHexValue('#' + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
+    }
+
+    throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
+  }
+
+  //      
+
+  /**
+   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+   *
+   * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   background: rgba(255, 205, 100, 0.7),
+   *   background: rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 }),
+   *   background: rgba(255, 205, 100, 1),
+   *   background: rgba('#ffffff', 0.4),
+   *   background: rgba('black', 0.7),
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   background: ${rgba(255, 205, 100, 0.7)};
+   *   background: ${rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 })};
+   *   background: ${rgba(255, 205, 100, 1)};
+   *   background: ${rgba('#ffffff', 0.4)};
+   *   background: ${rgba('black', 0.7)};
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   background: "rgba(255,205,100,0.7)";
+   *   background: "rgba(255,205,100,0.7)";
+   *   background: "#ffcd64";
+   *   background: "rgba(255,255,255,0.4)";
+   *   background: "rgba(0,0,0,0.7)";
+   * }
+   */
+  function rgba(firstValue, secondValue, thirdValue, fourthValue) {
+    if (typeof firstValue === 'string' && typeof secondValue === 'number') {
+      var rgbValue = parseToRgb(firstValue);
+      return 'rgba(' + rgbValue.red + ',' + rgbValue.green + ',' + rgbValue.blue + ',' + secondValue + ')';
+    } else if (typeof firstValue === 'number' && typeof secondValue === 'number' && typeof thirdValue === 'number' && typeof fourthValue === 'number') {
+      return fourthValue >= 1 ? rgb(firstValue, secondValue, thirdValue) : 'rgba(' + firstValue + ',' + secondValue + ',' + thirdValue + ',' + fourthValue + ')';
+    } else if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
+      return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : 'rgba(' + firstValue.red + ',' + firstValue.green + ',' + firstValue.blue + ',' + firstValue.alpha + ')';
+    }
+
+    throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
   }
 
   //      
@@ -2363,7 +2442,7 @@
   //      
 
   /**
-   * Selects black or white for best contrast depending on the luminosity of the given color.
+   * Returns black or white for best contrast depending on the luminosity of the given color.
    * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
    *
    * @example
@@ -2636,8 +2715,6 @@
   //      
 
 
-  /** */
-
   /**
    * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
    * or a single animation spread over the arguments.
@@ -2722,7 +2799,6 @@
    *   'backgroundImage': 'url("/image/background.jpg"), linear-gradient(red, green)'
    * }
    */
-
   function backgroundImages() {
     for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
@@ -2851,7 +2927,6 @@
    *   'borderTopLeftRadius': '5px',
    * }
    */
-
   function borderRadius(side, radius) {
     var uppercaseSide = capitalizeString(side);
     if (!radius && radius !== 0) {
@@ -2896,7 +2971,6 @@
    *   'borderLeftStyle': 'double'
    * }
    */
-
   function borderStyle() {
     for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -2997,7 +3071,6 @@
    *   'border': 'none'
    * }
    */
-
   function buttons() {
     for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
       states[_key] = arguments[_key];
@@ -3030,7 +3103,6 @@
    *   'marginLeft': '48px'
    * }
    */
-
   function margin() {
     for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3063,7 +3135,6 @@
    *   'paddingLeft': '48px'
    * }
    */
-
   function padding() {
     for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3118,7 +3189,6 @@
    *   'left': '48px'
    * }
    */
-
   function position(positionKeyword) {
     for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
@@ -3157,7 +3227,6 @@
    *   'width': '250px',
    * }
    */
-
   function size(height) {
     var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : height;
 
@@ -3213,7 +3282,6 @@
    *   'border': 'none'
    * }
    */
-
   function textInputs() {
     for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
       states[_key] = arguments[_key];
@@ -3226,7 +3294,7 @@
 
 
   /**
-   * Shorthand that accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
+   * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
    * @example
    * // Styles as object usage
    * const styles = {
@@ -3247,7 +3315,6 @@
    *   'transition': 'color 2.0s ease-in 2s, background-color 2.0s ease-in 2s',
    * }
    */
-
   function transitions() {
     for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
@@ -3295,6 +3362,7 @@
   exports.fluidRange = fluidRange;
   exports.fontFace = fontFace;
   exports.getLuminance = getLuminance;
+  exports.getValueAndUnit = getValueAndUnit;
   exports.grayscale = grayscale;
   exports.invert = invert;
   exports.hideText = hideText;

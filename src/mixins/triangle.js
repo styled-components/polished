@@ -1,21 +1,12 @@
 // @flow
 import borderColor from '../shorthands/borderColor'
 
+import type { SideKeyword } from '../types/sideKeyword'
 import type { Styles } from '../types/style'
-
-/** */
-type PointingDirection = 'top' | 'right' | 'bottom' | 'left'
-
-type TriangleArgs = {
-  backgroundColor?: string,
-  foregroundColor: string,
-  height: number | string,
-  width: number | string,
-  pointingDirection: PointingDirection,
-}
+import type { TriangleConfiguration } from '../types/triangleConfiguration'
 
 const getBorderWidth = (
-  pointingDirection: PointingDirection,
+  pointingDirection: SideKeyword,
   height: [number, string],
   width: [number, string],
 ): string => {
@@ -71,14 +62,13 @@ const reverseDirection = ['bottom', 'left', 'top', 'right']
  *  'width': '0',
  * }
  */
-
 function triangle({
   pointingDirection,
   height,
   width,
   foregroundColor,
   backgroundColor = 'transparent',
-}: TriangleArgs): Styles {
+}: TriangleConfiguration): Styles {
   const widthAndUnit = [
     parseFloat(width),
     String(width).replace(/\d+/g, '') || 'px',

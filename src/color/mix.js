@@ -1,8 +1,7 @@
 // @flow
-
+import curry from '../internalHelpers/_curry'
 import rgba from './rgba'
 import parseToRgb from './parseToRgb'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.

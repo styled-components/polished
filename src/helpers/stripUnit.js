@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+ * Returns a given CSS value minus its unit (or the original value if an invalid string is passed).
  *
  * @example
  * // Styles as object usage
@@ -20,7 +20,6 @@
  *   '--dimension': 100
  * }
  */
-
 function stripUnit(value: string): number | string {
   const unitlessValue = parseFloat(value)
   if (isNaN(unitlessValue)) return value

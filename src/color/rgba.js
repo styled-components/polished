@@ -1,7 +1,7 @@
 // @flow
-
-import rgb from './rgb'
 import parseToRGB from './parseToRgb'
+import rgb from './rgb'
+
 import type { RgbaColor } from '../types/color'
 
 /**

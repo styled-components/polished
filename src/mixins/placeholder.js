@@ -32,7 +32,6 @@ import type { Styles } from '../types/style'
  *   },
  * },
  */
-
 function placeholder(styles: Styles, parent?: string = '&'): Styles {
   return {
     [`${parent}::-webkit-input-placeholder`]: {

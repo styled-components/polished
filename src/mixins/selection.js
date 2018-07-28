@@ -28,7 +28,6 @@ import type { Styles } from '../types/style'
  *   }
  * }
  */
-
 function selection(styles: Styles, parent?: string = ''): Styles {
   return {
     [`${parent}::-moz-selection`]: {

@@ -1,9 +1,6 @@
 // @flow
 import type { Styles } from '../types/style'
 
-/** */
-type AnimationProperty = string | number
-
 /**
  * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
  * or a single animation spread over the arguments.
@@ -41,7 +38,7 @@ type AnimationProperty = string | number
  * }
  */
 function animation(
-  ...args: Array<Array<AnimationProperty> | AnimationProperty>
+  ...args: Array<Array<string | number> | string | number>
 ): Styles {
   // Allow single or multiple animations passed
   const multiMode = Array.isArray(args[0])

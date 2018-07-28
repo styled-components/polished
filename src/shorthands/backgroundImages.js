@@ -20,7 +20,6 @@ import type { Styles } from '../types/style'
  *   'backgroundImage': 'url("/image/background.jpg"), linear-gradient(red, green)'
  * }
  */
-
 function backgroundImages(...properties: Array<string>): Styles {
   return {
     backgroundImage: properties.join(', '),

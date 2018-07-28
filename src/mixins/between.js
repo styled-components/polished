@@ -1,12 +1,29 @@
 // @flow
-function getValueAndUnit(value: string): [number | string, string | void] {
-  const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
-  if (typeof value !== 'string') return [value, '']
-  const matchedValue = value.match(cssRegex)
-  if (matchedValue) return [parseFloat(value), matchedValue[2]]
-  return [value, undefined]
-}
+import getValueAndUnit from '../helpers/getValueAndUnit'
 
+/**
+ * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   fontSize: between('20px', '100px', '400px', '1000px'),
+ *   fontSize: between('20px', '100px')
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   fontSize: ${fontSize: between('20px', '100px', '400px', '1000px')};
+ *   fontSize: ${fontSize: between('20px', '100px')}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * h1: {
+ *   'fontSize': 'calc(-33.33333333333334px + 13.333333333333334vw)',
+ *   'fontSize': 'calc(-9.090909090909093px + 9.090909090909092vw)'
+ * }
+ */
 function between(
   fromSize: string,
   toSize: string,
