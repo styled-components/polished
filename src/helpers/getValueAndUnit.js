@@ -7,14 +7,14 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': getUnitandValue('100px')[0]
- *   '--unit': getUnitandValue('100px')[1]
+ *   '--dimension': getValueAndUnit('100px')[0]
+ *   '--unit': getValueAndUnit('100px')[1]
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${getUnitandValue('100px')[0]}
- *   --unit: ${getUnitandValue('100px')[1]}
+ *   --dimension: ${getValueAndUnit('100px')[0]}
+ *   --unit: ${getValueAndUnit('100px')[1]}
  * `
  *
  * // CSS in JS Output

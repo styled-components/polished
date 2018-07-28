@@ -8069,14 +8069,14 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: getUnitandValue(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]
-  <span class="hljs-string">'--unit'</span>: getUnitandValue(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]
+  <span class="hljs-string">'--dimension'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]
+  <span class="hljs-string">'--unit'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  --dimension: <span class="hljs-subst">${getUnitandValue(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]}</span>
-  --unit: <span class="hljs-subst">${getUnitandValue(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>
+  --dimension: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]}</span>
+  --unit: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>
 `</span>
 
 <span class="hljs-comment">// CSS in JS Output</span>

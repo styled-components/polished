@@ -1,13 +1,53 @@
 import * as polished from "./lib/index";
+import { ENGINE_METHOD_NONE } from "constants";
 
 /*
  * Mixins
  */
+let between: string = polished.between("20px", "100px", "400px", "1000px");
+between = polished.between("20px", "100px");
+
 let clearFix: object = polished.clearFix();
 clearFix = polished.clearFix("&");
 
+let cover: object = polished.cover();
+cover = polished.cover("100px");
+
 let ellipsis: object = polished.ellipsis();
 ellipsis = polished.ellipsis("250px");
+
+let fluidRange: object = polished.fluidRange(
+  {
+    prop: 'padding',
+    fromSize: '20px',
+    toSize: '100px',
+  },
+  '400px',
+  '1000px',
+);
+
+fluidRange = polished.fluidRange(
+  [
+    {
+      prop: 'padding',
+      fromSize: '20px',
+      toSize: '100px',
+    },
+    {
+      prop: 'margin',
+      fromSize: '5px',
+      toSize: '25px',
+    },
+  ],
+  '400px',
+  '1000px',
+);
+
+fluidRange = polished.fluidRange({
+  prop: 'padding',
+  fromSize: '20px',
+  toSize: '100px',
+});
 
 const fontFace: object = polished.fontFace({
   fontFamily: "Sans-Pro",
@@ -70,6 +110,7 @@ const adjustHue: string = polished.adjustHue(180, "#448");
 const complement: string = polished.complement("#448");
 const darken: string = polished.darken(0.2, "#FFCD64");
 const desaturate: string = polished.desaturate(0.2, "#CCCD64");
+const getLuminance: number = polished.getLuminance('#6564CDB3');
 const grayscale: string = polished.grayscale("#CCCD64");
 
 let hsl: string = polished.hsl(359, 0.75, 0.4);
@@ -110,8 +151,9 @@ const transparentize: string = polished.transparentize(0.1, "#fff");
  * Shorthands
  */
 const animation: object = polished.animation(["rotate", 1, "ease-in-out"], ["colorchange", "2s"]);
-const backgroundImages: object = polished.backgroundImages("url('/image/background.jpg')", "linear-gradient(red, green)");
-const backgrounds: object = polished.backgrounds("url('/image/background.jpg')", "linear-gradient(red, green)", "center no-repeat");
+const backgroundImages: object = polished.backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)');
+const backgrounds: object = polished.backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)", "center no-repeat");
+const border: object = polished.border('top', '1px', 'solid', 'red');
 const borderColor: object = polished.borderColor("red", null, undefined, "green");
 const borderRadius: object = polished.borderRadius("top", "5px");
 const borderStyle: object = polished.borderStyle("solid", null, undefined, "dashed");
@@ -139,13 +181,15 @@ const directionalProperty: object = polished.directionalProperty("padding", "12p
 let em: string = polished.em("12px");
 em = polished.em(12);
 
-let rem: string = polished.rem("12px");
-rem = polished.rem(12);
+const getValueAndUnit: [number | string, string | void] = polished.getValueAndUnit('100px');
 
 let modularScale: string = polished.modularScale(2);
 modularScale = polished.modularScale(2, 2);
 modularScale = polished.modularScale(2, "");
 modularScale = polished.modularScale(2, 2, 5);
 modularScale = polished.modularScale(2, 2, "minorSecond");
+
+let rem: string = polished.rem("12px");
+rem = polished.rem(12);
 
 const stripUnit: number | string = polished.stripUnit("100px");
