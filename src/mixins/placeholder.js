@@ -1,10 +1,10 @@
 // @flow
-import { warning } from '../internalHelpers/_messageHandler'
-
 import type { Styles } from '../types/style'
 
 /**
  * CSS to style the placeholder pseudo-element.
+ *
+ * @deprecated - placeholder has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed placeholder pseudo-element.
  *
  * @example
  * // Styles as object usage
@@ -35,12 +35,6 @@ import type { Styles } from '../types/style'
  * },
  */
 function placeholder(styles: Styles, parent?: string = '&'): Styles {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      'placeholder has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed placeholder pseudo-element.',
-    )
-  }
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,

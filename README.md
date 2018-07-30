@@ -17,7 +17,7 @@ yarn add polished
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? `✨ polished` is for you!
 
 - **Make your app look great without stress**
-- **Cross framework compatible**: No matter if you're using [`styled-components`](https://github.com/styled-components/styled-components), aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Cross framework compatible**: No matter if you're using [`styled-components`](https://github.com/styled-components/styled-components), emotion, jss, aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
 - **Switching from a pre-processor to styles in JS made easy**
 
 ## Docs
@@ -32,7 +32,7 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 ~`import * as polished from 'polished`~
 ~`import polished from 'polished'`~
 
-When `✨ polished` modules are imported properly, tree shaking in [webpack 2](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
+When `✨ polished` modules are imported properly, tree shaking in [webpack](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
 ## Flow Type Definitions
 
@@ -119,4 +119,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## License
 
-Copyright © 2016-2018 Brian Hough & Maximilian Stoiber. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
+Copyright © 2016-2018 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
