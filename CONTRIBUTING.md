@@ -5,6 +5,8 @@ Is this your first Pull Request on GitHub? Learn more by reading [How to Contrib
 
 Want to know where to start helping? Check out our [ROADMAP.md](./ROADMAP.md) or our [active issues](https://github.com/styled-components/polished/issues) for places to start.
 
+Have an idea for a new module? Please file an issue first as we use these issues to gauge interest in any particular feature. The nature of `✨ polished` means we could almost include anything, so this helps us narrow out focus. If you submit a PR directly for a new feature, we are unlikely to merge it.
+
 Please note that this project is released with a Contributor [Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Setup
