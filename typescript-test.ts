@@ -67,8 +67,7 @@ const hideVisually: object = polished.hideVisually();
 let hiDPI: string = polished.hiDPI();
 hiDPI = polished.hiDPI(1.5);
 
-let normalize: object = polished.normalize();
-normalize = polished.normalize(true);
+const normalize: object = polished.normalize();
 
 let placeholder: object = polished.placeholder({});
 placeholder = polished.placeholder({}, "");
