@@ -1,6 +1,4 @@
 // @flow
-import { warning } from '../internalHelpers/_messageHandler'
-
 import type { Styles } from '../types/style'
 
 /**
@@ -22,14 +20,7 @@ import type { Styles } from '../types/style'
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(excludeOpinionated?: boolean): Styles {
-  if (process.env.NODE_ENV !== 'production') {
-    if (excludeOpinionated) {
-      warning(
-        'The excludeOpinionated option for normalize has been removed in polished 2.0. opinionatedRules were removed from normalize.css in 6.0 and no longer need to be explicitly excluded from normalize.',
-      )
-    }
-  }
+function normalize(): Styles {
   return {
     html: {
       lineHeight: '1.15',
