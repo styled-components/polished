@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getLuminance should return the luminance of a hex color 1`] = `0.05780543019106723`;
+exports[`getLuminance should return the luminance of a hex color 1`] = `0.058`;
 
-exports[`getLuminance should return the luminance of a named CSS color 1`] = `0.877971001998354`;
+exports[`getLuminance should return the luminance of a named CSS color 1`] = `0.878`;
 
-exports[`getLuminance should return the luminance of an 8-digit hex color 1`] = `0.16288822420427432`;
+exports[`getLuminance should return the luminance of an 8-digit hex color 1`] = `0.163`;
 
-exports[`getLuminance should return the luminance of an hls color 1`] = `0.2126`;
+exports[`getLuminance should return the luminance of an hls color 1`] = `0.213`;
 
-exports[`getLuminance should return the luminance of an hlsa color 1`] = `0.07733591265855211`;
+exports[`getLuminance should return the luminance of an hlsa color 1`] = `0.077`;
 
-exports[`getLuminance should return the luminance of an rgb color 1`] = `0.5742011250098834`;
+exports[`getLuminance should return the luminance of an rgb color 1`] = `0.574`;
 
-exports[`getLuminance should return the luminance of an rgba color 1`] = `0.16288822420427432`;
+exports[`getLuminance should return the luminance of an rgba color 1`] = `0.163`;

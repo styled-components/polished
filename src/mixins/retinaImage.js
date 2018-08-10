@@ -53,7 +53,7 @@ function retinaImage(
     backgroundImage: `url(${filename}.${ext})`,
     [hiDPI()]: {
       backgroundImage: `url(${rFilename})`,
-      backgroundSize,
+      ...(backgroundSize ? { backgroundSize } : {}),
     },
   }
 }
