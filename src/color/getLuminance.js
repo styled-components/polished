@@ -35,7 +35,7 @@ function getLuminance(color: string): number {
       ? channel / 12.92
       : ((channel + 0.055) / 1.055) ** 2.4
   })
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b
+  return parseFloat((0.2126 * r + 0.7152 * g + 0.0722 * b).toFixed(3))
 }
 
 export default getLuminance

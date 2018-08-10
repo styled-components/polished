@@ -6,7 +6,7 @@ Object {
     "padding": "100px",
   },
   "@media (min-width: 400px)": Object {
-    "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+    "padding": "calc(-33.33px + 13.33vw)",
   },
   "padding": "20px",
 }
@@ -19,8 +19,8 @@ Object {
     "padding": "100px",
   },
   "@media (min-width: 400px)": Object {
-    "margin": "calc(-8.333333333333336px + 3.3333333333333335vw)",
-    "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
+    "margin": "calc(-8.33px + 3.33vw)",
+    "padding": "calc(-33.33px + 13.33vw)",
   },
   "margin": "5px",
   "padding": "20px",
@@ -33,7 +33,7 @@ Object {
     "padding": "100px",
   },
   "@media (min-width: 320px)": Object {
-    "padding": "calc(-9.090909090909093px + 9.090909090909092vw)",
+    "padding": "calc(-9.09px + 9.09vw)",
   },
   "padding": "20px",
 }
