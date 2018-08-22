@@ -1,17 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`stripUnit should return a unitless value when passed one 1`] = `
-Object {
-  "--dimension": 100,
-}
-`;
-
-exports[`stripUnit should return an untouched string when passed 1`] = `
-Object {
-  "--dimension": "red",
-}
-`;
-
 exports[`stripUnit should strip % from decimal values 1`] = `
 Object {
   "--dimension": 33.3,

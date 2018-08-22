@@ -6,72 +6,82 @@ const _ = require('lodash')
 const concat = require('concat-stream')
 const GithubSlugger = require('github-slugger')
 const createFormatters = require('documentation').util.createFormatters
-const createLinkerStack = require('documentation').util.createLinkerStack
+const LinkerStack = require('documentation').util.LinkerStack
 const hljs = require('highlight.js')
 
-module.exports = function (comments, options, callback) {
-  const linkerStack = createLinkerStack(options)
-    .namespaceResolver(comments, (namespace) => {
+function isFunction(section) {
+  return (
+    section.kind === 'function' ||
+    (section.kind === 'typedef' &&
+      section.type.type === 'NameExpression' &&
+      section.type.name === 'Function')
+  )
+}
+
+module.exports = function (comments, config, callback) {
+  const linkerStack = new LinkerStack(config).namespaceResolver(
+    comments,
+    function (namespace) {
       const slugger = new GithubSlugger()
-      return `#${slugger.slug(namespace)}`
-    })
+      return '#' + slugger.slug(namespace)
+    }
+  )
 
   const formatters = createFormatters(linkerStack.link)
 
-  hljs.configure(options.hljs || {})
-
+  hljs.configure(config.hljs || {})
 
   const sharedImports = {
     imports: {
-      slug (str) {
-        const slugger = new GithubSlugger()
+      slug(str) {
+        let slugger = new GithubSlugger()
         return slugger.slug(str)
       },
-      lowercase (str) {
-        return str.toLowerCase()
-      },
-      shortSignature (section) {
+      shortSignature(section) {
         let prefix = ''
         if (section.kind === 'class') {
           prefix = 'new '
-        } else if (section.kind !== 'function') {
+        } else if (!isFunction(section)) {
           return section.name
         }
         return prefix + section.name + formatters.parameters(section, true)
       },
-      signature (section) {
+      signature(section) {
         let returns = ''
         let prefix = ''
         if (section.kind === 'class') {
           prefix = 'new '
-        } else if (section.kind !== 'function') {
+        } else if (!isFunction(section)) {
           return section.name
         }
-        if (section.returns) {
-          returns = `: ${
-            formatters.type(section.returns[0].type)}`
+        if (section.returns.length) {
+          returns = ': ' + formatters.type(section.returns[0].type)
         }
         return prefix + section.name + formatters.parameters(section) + returns
       },
-      md (ast, inline) {
-        let newAst = ast
-        if (inline && ast && ast.children.length && ast.children[0].type === 'paragraph') {
-          newAst = {
+      md(ast, inline) {
+        if (
+          inline &&
+          ast &&
+          ast.children.length &&
+          ast.children[0].type === 'paragraph'
+        ) {
+          ast = {
             type: 'root',
-            children: ast.children[0].children.concat(ast.children.slice(1)),
+            children: ast.children[0].children.concat(ast.children.slice(1))
           }
         }
-        return formatters.markdown(newAst)
+        return formatters.markdown(ast)
       },
       formatType: formatters.type,
       autolink: formatters.autolink,
-      highlight (example, language) {
-        if (!language && options.hljs && options.hljs.highlightAuto) {
+      highlight(example) {
+        if (config.hljs && config.hljs.highlightAuto) {
           return hljs.highlightAuto(example).value
         }
-        return hljs.highlight(language || 'js', example).value
-      },
-    },
+        return hljs.highlight('js', example).value
+      }
+    }
   }
 
   sharedImports.imports.renderSectionList = _.template(fs.readFileSync(path.join(__dirname, 'partials/section_list._'), 'utf8'), sharedImports)
@@ -91,18 +101,30 @@ module.exports = function (comments, options, callback) {
     },
   }]
 
+  const pageTemplate = _.template(
+    fs.readFileSync(path.join(__dirname, 'index._'), 'utf8'),
+    sharedImports
+  )
+
   // push assets into the pipeline as well.
-  vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname })
-    .pipe(concat((files) => {
-      callback(null, files.concat(pages.map((page) => {
-        const data = Object.assign({}, {
-          options,
-        }, page.data)
-        const compiled = mainTemplate(data)
-        return new File({
-          path: page.path,
-          contents: new Buffer(compiled, 'utf8'),
-        })
-      })))
-    }))
+  return new Promise(resolve => {
+    vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname })
+      .pipe(concat(function (files) {
+        resolve(
+          files.concat(
+            pages.map((page) => {
+              const data = Object.assign({}, {
+                config,
+              }, page.data)
+              const compiled = mainTemplate(data)
+              return new File({
+                path: page.path,
+                contents: Buffer.from(compiled, 'utf8'),
+              })
+            })
+          )
+        )
+      })
+      )
+  })
 }

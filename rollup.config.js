@@ -5,7 +5,7 @@ import inject from 'rollup-plugin-inject'
 import babel from 'rollup-plugin-babel'
 import json from 'rollup-plugin-json'
 import flow from 'rollup-plugin-flow'
-import uglify from 'rollup-plugin-uglify'
+import { uglify } from 'rollup-plugin-uglify'
 
 const processShim = '\0process-shim'
 

@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to contain a float (credit to CSSMojo).
@@ -22,8 +23,7 @@
  *   'display': 'table'
  * }
  */
-
-function clearFix(parent?: string = '&'): Object {
+function clearFix(parent?: string = '&'): Styles {
   const pseudoSelector = `${parent}::after`
   return {
     [pseudoSelector]: {

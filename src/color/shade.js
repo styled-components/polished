@@ -1,7 +1,6 @@
 // @flow
-
-import mix from './mix'
 import curry from '../internalHelpers/_curry'
+import mix from './mix'
 
 /**
  * Shades a color by mixing it with black. `shade` can produce
@@ -26,14 +25,8 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 
-function shade(percentage: number, color: string): string {
-  if (typeof percentage !== 'number' || percentage > 1 || percentage < -1) {
-    throw new Error('Passed an incorrect argument to shade, please pass a percentage less than or equal to 1 and larger than or equal to -1.')
-  }
-  if (typeof color !== 'string') {
-    throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.')
-  }
-  return mix(percentage, color, 'rgb(0, 0, 0)')
+function shade(percentage: number | string, color: string): string {
+  return mix(parseFloat(percentage), color, 'rgb(0, 0, 0)')
 }
 
 const curriedShade = curry(shade)

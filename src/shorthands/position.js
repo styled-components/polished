@@ -1,6 +1,8 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
 
+import type { Styles } from '../types/style'
+
 const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
 
 /**
@@ -45,11 +47,10 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  *   'left': '48px'
  * }
  */
-
 function position(
   positionKeyword: string | null,
   ...values: Array<?string | ?number>
-): Object {
+): Styles {
   if (positionMap.indexOf(positionKeyword) >= 0) {
     return {
       position: positionKeyword,

@@ -31,5 +31,5 @@
 </header>
 
 <footer class="footer">
-	<p>Made by <a href="https://github.com/mxstbr">@mxstbr</a>, <a href="https://github.com/bhough">@bhough</a>, <a href="https://github.com/nikgraf">@nikgraf</a> and <a href="https://github.com/styled-components/polished/graphs/contributors">collaborators</a>.</p>
+	<p>Made by <a href="https://github.com/bhough">@bhough</a>, <a href="https://github.com/mxstbr">@mxstbr</a>, <a href="https://github.com/nikgraf">@nikgraf</a> and our <a href="https://github.com/styled-components/polished/graphs/contributors">awesome contributors</a>.</p>
 </footer>

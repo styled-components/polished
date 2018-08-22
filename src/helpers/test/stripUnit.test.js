@@ -2,6 +2,7 @@
 import stripUnit from '../stripUnit'
 
 describe('stripUnit', () => {
+  // Number Returns
   it('should strip px from whole values', () => {
     expect({ '--dimension': stripUnit('1px') }).toMatchSnapshot()
   })
@@ -128,13 +129,5 @@ describe('stripUnit', () => {
 
   it('should strip % from decimal values', () => {
     expect({ '--dimension': stripUnit('33.3%') }).toMatchSnapshot()
-  })
-
-  it('should return a unitless value when passed one', () => {
-    expect({ '--dimension': stripUnit('100') }).toMatchSnapshot()
-  })
-
-  it('should return an untouched string when passed', () => {
-    expect({ '--dimension': stripUnit('red') }).toMatchSnapshot()
   })
 })

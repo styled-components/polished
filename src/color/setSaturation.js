@@ -1,8 +1,7 @@
 // @flow
-
+import curry from '../internalHelpers/_curry'
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the saturation of a color to the provided value. The lightness range can be
@@ -12,13 +11,13 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: setSaturation(0.2, '#CCCD64'),
- *   background: setSaturation(0.75, 'rgba(204,205,100,0.7)'),
+ *   background: setSaturation('0.75', 'rgba(204,205,100,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${setSaturation(0.2, '#CCCD64')};
- *   background: ${setSaturation(0.75, 'rgba(204,205,100,0.7)')};
+ *   background: ${setSaturation('0.75', 'rgba(204,205,100,0.7)')};
  * `
  *
  * // CSS in JS Output
@@ -27,10 +26,10 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(228,229,76,0.7)";
  * }
  */
-function setSaturation(saturation: number, color: string): string {
+function setSaturation(saturation: number | string, color: string): string {
   return toColorString({
     ...parseToHsl(color),
-    saturation,
+    saturation: parseFloat(saturation),
   })
 }
 

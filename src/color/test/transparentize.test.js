@@ -6,12 +6,16 @@ describe('transparentize', () => {
     expect(transparentize(0.1, '#fff')).toMatchSnapshot()
   })
 
+  it('should reduce the opacity of an 8-digit hex color by 0.1', () => {
+    expect(transparentize(0.1, '#6564CDB3')).toMatchSnapshot()
+  })
+
   it('should reduce the opacity of rgb(255, 0, 255) by 0.1', () => {
     expect(transparentize(0.1, 'rgb(255, 0, 255)')).toMatchSnapshot()
   })
 
   it('should reduce the opacity of rgba(255, 0, 0, 1) by 0.1', () => {
-    expect(transparentize(0.1, 'rgba(255, 0, 0, 1)')).toMatchSnapshot()
+    expect(transparentize(0.1, 'rgba(101, 100, 205, .7)')).toMatchSnapshot()
   })
 
   it('should reduce the opacity of rgba(255, 0, 0, .5) by 0.3', () => {
@@ -36,6 +40,10 @@ describe('transparentize', () => {
 
   it('should not increase the opacity beyond 1', () => {
     expect(transparentize(-0.5, 'rgba(255, 0, 0, .8)')).toMatchSnapshot()
+  })
+
+  it('should reduce the opacity when passed a string for amount', () => {
+    expect(transparentize('0.1', '#fff')).toMatchSnapshot()
   })
 
   it('should throw an error when enter an invalid color', () => {

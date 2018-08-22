@@ -1,8 +1,7 @@
 // @flow
-
+import curry from '../internalHelpers/_curry'
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
-import curry from '../internalHelpers/_curry'
 
 /**
  * Sets the lightness of a color to the provided value. The lightness range can be
@@ -12,13 +11,13 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: setLightness(0.2, '#CCCD64'),
- *   background: setLightness(0.75, 'rgba(204,205,100,0.7)'),
+ *   background: setLightness('0.75', 'rgba(204,205,100,0.7)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${setLightness(0.2, '#CCCD64')};
- *   background: ${setLightness(0.75, 'rgba(204,205,100,0.7)')};
+ *   background: ${setLightness('0.75', 'rgba(204,205,100,0.7)')};
  * `
  *
  * // CSS in JS Output
@@ -27,10 +26,10 @@ import curry from '../internalHelpers/_curry'
  *   background: "rgba(223,224,159,0.7)";
  * }
  */
-function setLightness(lightness: number, color: string): string {
+function setLightness(lightness: number | string, color: string): string {
   return toColorString({
     ...parseToHsl(color),
-    lightness,
+    lightness: parseFloat(lightness),
   })
 }
 

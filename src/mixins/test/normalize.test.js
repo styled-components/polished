@@ -2,10 +2,7 @@
 import normalize from '../normalize'
 
 describe('normalize', () => {
-  it('should default to all rules', () => {
+  it('should return rules', () => {
     expect(normalize()).toMatchSnapshot()
-  })
-  it('should only return unopinionated rules, when passed true', () => {
-    expect(normalize(true)).toMatchSnapshot()
   })
 })

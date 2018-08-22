@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to represent truncated text with an ellipsis.
@@ -18,6 +19,7 @@
  *
  * div: {
  *   'display': 'inline-block',
+ *   'display': 'inline-flex',
  *   'maxWidth': '250px',
  *   'overflow': 'hidden',
  *   'textOverflow': 'ellipsis',
@@ -25,16 +27,20 @@
  *   'wordWrap': 'normal'
  * }
  */
-
-function ellipsis(width?: string | number = '100%'): Object {
-  return {
-    display: 'inline-block',
-    maxWidth: width,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    wordWrap: 'normal',
-  }
+function ellipsis(width?: string | number = '100%'): Array<Styles> {
+  return [
+    {
+      display: 'inline-block',
+      maxWidth: width,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      wordWrap: 'normal',
+    },
+    {
+      display: 'inline-flex',
+    },
+  ]
 }
 
 export default ellipsis

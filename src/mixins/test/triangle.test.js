@@ -14,6 +14,18 @@ describe('triangle', () => {
     }).toMatchSnapshot()
   })
 
+  it('should generate a proper triangle when passed all parameters with units on width/height', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'red',
+        backgroundColor: 'black',
+        pointingDirection: 'right',
+        height: '10em',
+        width: '20em',
+      }),
+    }).toMatchSnapshot()
+  })
+
   it('should default to a transparent background when not passed a backgroundColor', () => {
     expect({
       ...triangle({

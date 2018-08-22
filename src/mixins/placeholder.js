@@ -1,7 +1,10 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to style the placeholder pseudo-element.
+ *
+ * @deprecated - placeholder has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed placeholder pseudo-element.
  *
  * @example
  * // Styles as object usage
@@ -31,8 +34,7 @@
  *   },
  * },
  */
-
-function placeholder(styles: Object, parent?: string = '&'): Object {
+function placeholder(styles: Styles, parent?: string = '&'): Styles {
   return {
     [`${parent}::-webkit-input-placeholder`]: {
       ...styles,

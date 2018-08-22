@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`between should return a valid calc formula when not passed min/max screen sizes 1`] = `"calc(-9.09px + 9.09vw)"`;
+
+exports[`between should return a valid calc formula when passed min/max screen sizes 1`] = `"calc(-33.33px + 13.33vw)"`;

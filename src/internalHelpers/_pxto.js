@@ -1,6 +1,6 @@
 // @flow
 
-import endsWith from '../internalHelpers/_endsWith'
+import endsWith from './_endsWith'
 import stripUnit from '../helpers/stripUnit'
 
 /**

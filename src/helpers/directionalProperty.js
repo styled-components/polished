@@ -1,6 +1,8 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
 
+import type { Styles } from '../types/style'
+
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 
 function generateProperty(property: string, position: string) {
@@ -28,7 +30,7 @@ function generateStyles(
 }
 
 /**
- * A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
+ * Enables shorthand for direction-based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -49,11 +51,10 @@ function generateStyles(
  *   'paddingLeft': '48px'
  * }
  */
-
 function directionalProperty(
   property: string,
   ...values: Array<?string | ?number>
-): Object {
+): Styles {
   //  prettier-ignore
   const [firstValue, secondValue = firstValue, thirdValue = firstValue, fourthValue = secondValue] = values
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]

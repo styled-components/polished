@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`setSaturation should update the lightness and return a color with opacity 1`] = `"rgba(228,229,76,0.7)"`;
+exports[`setSaturation should update the saturation of an 8-digit hex color and return an rgba color 1`] = `"rgba(132,132,173,0.7)"`;
 
-exports[`setSaturation should update the lightness and return a hex color 1`] = `"#adad84"`;
+exports[`setSaturation should update the saturation of an hex color and return a hex color 1`] = `"#adad84"`;
+
+exports[`setSaturation should update the saturation of an rgb color and return a hex color 1`] = `"#8484ad"`;
+
+exports[`setSaturation should update the saturation of an rgba color and return an rgba color 1`] = `"rgba(132,132,173,0.7)"`;
+
+exports[`setSaturation should update the saturation when passed a string 1`] = `"rgba(228,229,76,0.7)"`;

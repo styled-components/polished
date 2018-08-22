@@ -1,6 +1,8 @@
 // @flow
 import directionalProperty from '../helpers/directionalProperty'
 
+import type { Styles } from '../types/style'
+
 /**
  * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
  * @example
@@ -23,7 +25,7 @@ import directionalProperty from '../helpers/directionalProperty'
  *   'borderLeftWidth': '48px'
  * }
  */
-function borderWidth(...values: Array<?string | ?number>): Object {
+function borderWidth(...values: Array<?string | ?number>): Styles {
   return directionalProperty('borderWidth', ...values)
 }
 

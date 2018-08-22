@@ -4,6 +4,8 @@ exports[`transparentize should not increase the opacity beyond 1 1`] = `"#f00"`;
 
 exports[`transparentize should not reduce the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
 
+exports[`transparentize should reduce the opacity of an 8-digit hex color by 0.1 1`] = `"rgba(101,100,205,0.6)"`;
+
 exports[`transparentize should reduce the opacity of hex #fff by 0.1 1`] = `"rgba(255,255,255,0.9)"`;
 
 exports[`transparentize should reduce the opacity of hsl(0, 0%, 100%) by 0.2 1`] = `"rgba(255,255,255,0.8)"`;
@@ -16,4 +18,6 @@ exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.3 
 
 exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.5 1`] = `"rgba(255,0,0,0)"`;
 
-exports[`transparentize should reduce the opacity of rgba(255, 0, 0, 1) by 0.1 1`] = `"rgba(255,0,0,0.9)"`;
+exports[`transparentize should reduce the opacity of rgba(255, 0, 0, 1) by 0.1 1`] = `"rgba(101,100,205,0.6)"`;
+
+exports[`transparentize should reduce the opacity when passed a string for amount 1`] = `"rgba(255,255,255,0.9)"`;
