@@ -2,7 +2,6 @@
   "name": "polished",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "main": "lib/index.js",
-  "jsnext:main": "dist/polished.es.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
   "version": "2.0.2",
