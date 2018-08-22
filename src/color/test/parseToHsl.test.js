@@ -25,13 +25,23 @@ describe('parseToHsl', () => {
     expect(parseToHsl('hsl(210,10%,4%)')).toMatchSnapshot()
   })
 
+  it('should parse a hsl color representation with a float', () => {
+    expect(parseToHsl('hsl(210.99,10%,4%)')).toMatchSnapshot()
+  })
+
   it('should parse a hsla color representation', () => {
     expect(parseToHsl('hsla(210,10%,40%,0.75)')).toMatchSnapshot()
+  })
+
+  it('should parse a hsla color representation with a float', () => {
+    expect(parseToHsl('hsla(210.99,10%,40%,0.75)')).toMatchSnapshot()
   })
 
   it('should throw an error if an invalid color string is provided', () => {
     expect(() => {
       parseToHsl('(174,67,255)')
-    }).toThrow("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.")
+    }).toThrow(
+      "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
+    )
   })
 })
