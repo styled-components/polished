@@ -5,7 +5,7 @@
   "jsnext:main": "dist/polished.es.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",

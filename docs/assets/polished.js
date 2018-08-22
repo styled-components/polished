@@ -840,7 +840,7 @@
   function normalize() {
     var _ref;
 
-    return _ref = {
+    return [(_ref = {
       html: {
         lineHeight: '1.15',
         textSizeAdjust: '100%'
@@ -870,21 +870,19 @@
         'background-color': 'transparent'
       },
 
-      'abbr[title]': [{
+      'abbr[title]': {
         borderBottom: 'none',
         textDecoration: 'underline'
-      }, {
-        textDecoration: 'underline dotted'
-      }]
+      }
 
-    }, _ref['b,\n  strong'] = {
+    }, _ref['b,\n    strong'] = {
       fontWeight: 'bolder'
-    }, _ref['code,\n  kbd,\n  samp'] = {
+    }, _ref['code,\n    kbd,\n    samp'] = {
       fontFamily: 'monospace, monospace',
       fontSize: '1em'
     }, _ref.small = {
       fontSize: '80%'
-    }, _ref['sub,\n  sup'] = {
+    }, _ref['sub,\n    sup'] = {
       fontSize: '75%',
       lineHeight: '0',
       position: 'relative',
@@ -895,21 +893,21 @@
       top: '-0.5em'
     }, _ref.img = {
       borderStyle: 'none'
-    }, _ref['button,\n  input,\n  optgroup,\n  select,\n  textarea'] = {
+    }, _ref['button,\n    input,\n    optgroup,\n    select,\n    textarea'] = {
       fontFamily: 'inherit',
       fontSize: '100%',
       lineHeight: '1.15',
       margin: '0'
-    }, _ref['button,\n  input'] = {
+    }, _ref['button,\n    input'] = {
       overflow: 'visible'
-    }, _ref['button,\n  select'] = {
+    }, _ref['button,\n    select'] = {
       textTransform: 'none'
-    }, _ref['button,\n  html [type="button"],\n  [type="reset"],\n  [type="submit"]'] = {
+    }, _ref['button,\n    html [type="button"],\n    [type="reset"],\n    [type="submit"]'] = {
       WebkitAppearance: 'button'
-    }, _ref['button::-moz-focus-inner,\n  [type="button"]::-moz-focus-inner,\n  [type="reset"]::-moz-focus-inner,\n  [type="submit"]::-moz-focus-inner'] = {
+    }, _ref['button::-moz-focus-inner,\n    [type="button"]::-moz-focus-inner,\n    [type="reset"]::-moz-focus-inner,\n    [type="submit"]::-moz-focus-inner'] = {
       borderStyle: 'none',
       padding: '0'
-    }, _ref['button:-moz-focusring,\n  [type="button"]:-moz-focusring,\n  [type="reset"]:-moz-focusring,\n  [type="submit"]:-moz-focusring'] = {
+    }, _ref['button:-moz-focusring,\n    [type="button"]:-moz-focusring,\n    [type="reset"]:-moz-focusring,\n    [type="submit"]:-moz-focusring'] = {
       outline: '1px dotted ButtonText'
     }, _ref.fieldset = {
       padding: '0.35em 0.625em 0.75em'
@@ -924,10 +922,10 @@
       verticalAlign: 'baseline'
     }, _ref.textarea = {
       overflow: 'auto'
-    }, _ref['[type="checkbox"],\n  [type="radio"]'] = {
+    }, _ref['[type="checkbox"],\n    [type="radio"]'] = {
       boxSizing: 'border-box',
       padding: '0'
-    }, _ref['[type="number"]::-webkit-inner-spin-button,\n  [type="number"]::-webkit-outer-spin-button'] = {
+    }, _ref['[type="number"]::-webkit-inner-spin-button,\n    [type="number"]::-webkit-outer-spin-button'] = {
       height: 'auto'
     }, _ref['[type="search"]'] = {
       WebkitAppearance: 'textfield',
@@ -945,7 +943,11 @@
       display: 'none'
     }, _ref['[hidden]'] = {
       display: 'none'
-    }, _ref;
+    }, _ref), {
+      'abbr[title]': {
+        textDecoration: 'underline dotted'
+      }
+    }];
   }
 
   //      
@@ -1585,8 +1587,8 @@
   var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
   var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
   var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
-  var hslRegex = /^hsl\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
-  var hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
+  var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
+  var hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
 
   /**
    * Returns an RgbColor or RgbaColor object. This utility function is only useful
