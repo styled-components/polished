@@ -15,6 +15,6 @@ module.exports = {
     'transform-object-rest-spread',
     'transform-flow-strip-types',
     'syntax-trailing-function-commas',
-    'annotate-pure-calls'
+    'annotate-pure-calls',
   ].filter(Boolean)
 }
