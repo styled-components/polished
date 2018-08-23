@@ -45,7 +45,7 @@
     "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
   },
-  "author": "Brian Hough <brian@brianhought.net> (https://polished.js.org)",
+  "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
   "license": "MIT",
   "repository": {
     "type": "git",
