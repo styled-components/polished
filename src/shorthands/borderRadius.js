@@ -1,5 +1,6 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
+import PolishedError from '../error'
 
 import type { Styles } from '../types/style'
 
@@ -26,9 +27,7 @@ import type { Styles } from '../types/style'
 function borderRadius(side: string, radius: string | number): Styles {
   const uppercaseSide = capitalizeString(side)
   if (!radius && radius !== 0) {
-    throw new Error(
-      'borderRadius expects a radius value as a string or number as the second argument.',
-    )
+    throw new PolishedError(34)
   }
   if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
     return {
@@ -44,9 +43,7 @@ function borderRadius(side: string, radius: string | number): Styles {
     }
   }
 
-  throw new Error(
-    'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
-  )
+  throw new PolishedError(35)
 }
 
 export default borderRadius

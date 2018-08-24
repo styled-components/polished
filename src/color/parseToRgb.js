@@ -1,6 +1,7 @@
 // @flow
 import hslToRgb from '../internalHelpers/_hslToRgb'
 import nameToHex from '../internalHelpers/_nameToHex'
+import PolishedError from '../error'
 
 import type { RgbColor, RgbaColor } from '../types/color'
 
@@ -25,9 +26,7 @@ const hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3}
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
   if (typeof color !== 'string') {
-    throw new Error(
-      'Passed an incorrect argument to a color function, please pass a string representation of a color.',
-    )
+    throw new PolishedError(3)
   }
   const normalizedColor = nameToHex(color)
   if (normalizedColor.match(hexRegex)) {
@@ -82,9 +81,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     const rgbColorString = `rgb(${hslToRgb(hue, saturation, lightness)})`
     const hslRgbMatched = rgbRegex.exec(rgbColorString)
     if (!hslRgbMatched) {
-      throw new Error(
-        `Couldn't generate valid rgb string from ${normalizedColor}, it returned ${rgbColorString}.`,
-      )
+      throw new PolishedError(4, normalizedColor, rgbColorString)
     }
     return {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
@@ -100,9 +97,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
     const rgbColorString = `rgb(${hslToRgb(hue, saturation, lightness)})`
     const hslRgbMatched = rgbRegex.exec(rgbColorString)
     if (!hslRgbMatched) {
-      throw new Error(
-        `Couldn't generate valid rgb string from ${normalizedColor}, it returned ${rgbColorString}.`,
-      )
+      throw new PolishedError(4, normalizedColor, rgbColorString)
     }
     return {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
@@ -111,9 +106,7 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       alpha: parseFloat(`${hslaMatched[4]}`),
     }
   }
-  throw new Error(
-    "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
-  )
+  throw new PolishedError(5)
 }
 
 export default parseToRgb

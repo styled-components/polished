@@ -1,6 +1,7 @@
 // @flow
 import hslToHex from '../internalHelpers/_hslToHex'
 import hslToRgb from '../internalHelpers/_hslToRgb'
+import PolishedError from '../error'
 
 import type { HslaColor } from '../types/color'
 
@@ -58,9 +59,7 @@ function hsla(
       })`
   }
 
-  throw new Error(
-    'Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).',
-  )
+  throw new PolishedError(2)
 }
 
 export default hsla

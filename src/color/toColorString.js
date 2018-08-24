@@ -3,6 +3,7 @@ import hsl from './hsl'
 import hsla from './hsla'
 import rgb from './rgb'
 import rgba from './rgba'
+import PolishedError from '../error'
 
 const isRgb = (color: Object): boolean => typeof color.red === 'number'
   && typeof color.green === 'number'
@@ -23,8 +24,6 @@ const isHsla = (color: Object): boolean => typeof color.hue === 'number'
   && typeof color.saturation === 'number'
   && typeof color.lightness === 'number'
   && typeof color.alpha === 'number'
-
-const errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
@@ -58,13 +57,13 @@ const errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor
  */
 
 function toColorString(color: Object): string {
-  if (typeof color !== 'object') throw new Error(errMsg)
+  if (typeof color !== 'object') throw new PolishedError(8)
   if (isRgba(color)) return rgba(color)
   if (isRgb(color)) return rgb(color)
   if (isHsla(color)) return hsla(color)
   if (isHsl(color)) return hsl(color)
 
-  throw new Error(errMsg)
+  throw new PolishedError(8)
 }
 
 export default toColorString

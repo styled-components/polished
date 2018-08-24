@@ -16,5 +16,6 @@ module.exports = {
     'transform-flow-strip-types',
     'syntax-trailing-function-commas',
     'annotate-pure-calls',
+    'preval',
   ].filter(Boolean)
 }

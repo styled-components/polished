@@ -1,5 +1,6 @@
 // @flow
 import stripUnit from './stripUnit'
+import PolishedError from '../error'
 
 import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
@@ -54,23 +55,17 @@ function modularScale(
   ratio?: ModularScaleRatio = 'perfectFourth',
 ): string {
   if (typeof steps !== 'number') {
-    throw new Error(
-      'Please provide a number of steps to the modularScale helper.',
-    )
+    throw new PolishedError(9)
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
-    throw new Error(
-      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.',
-    )
+    throw new PolishedError(10)
   }
 
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
   if (typeof realBase === 'string') {
-    throw new Error(
-      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
-    )
+    throw new PolishedError(11, base)
   }
 
   return `${realBase * realRatio ** steps}em`

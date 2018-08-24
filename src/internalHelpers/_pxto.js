@@ -2,6 +2,7 @@
 
 import endsWith from './_endsWith'
 import stripUnit from '../helpers/stripUnit'
+import PolishedError from '../error'
 
 /**
  * Factory function that creates pixel-to-x converters
@@ -15,24 +16,24 @@ const pxtoFactory = (to: string) => (
   let newBase = base
   if (typeof pxval === 'string') {
     if (!endsWith(pxval, 'px')) {
-      throw new Error(`Expected a string ending in "px" or a number passed as the first argument to ${to}(), got "${pxval}" instead.`)
+      throw new PolishedError(12, to, pxval)
     }
     newPxval = stripUnit(pxval)
   }
 
   if (typeof base === 'string') {
     if (!endsWith(base, 'px')) {
-      throw new Error(`Expected a string ending in "px" or a number passed as the second argument to ${to}(), got "${base}" instead.`)
+      throw new PolishedError(13, to, base)
     }
     newBase = stripUnit(base)
   }
 
   if (typeof newPxval === 'string') {
-    throw new Error(`Passed invalid pixel value ("${pxval}") to ${to}(), please pass a value like "12px" or 12.`)
+    throw new PolishedError(14, pxval, to)
   }
 
   if (typeof newBase === 'string') {
-    throw new Error(`Passed invalid base value ("${base}") to ${to}(), please pass a value like "12px" or 12.`)
+    throw new PolishedError(15, base, to)
   }
 
   return `${newPxval / newBase}${to}`

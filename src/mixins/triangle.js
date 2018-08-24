@@ -1,5 +1,6 @@
 // @flow
 import borderColor from '../shorthands/borderColor'
+import PolishedError from '../error'
 
 import type { SideKeyword } from '../types/sideKeyword'
 import type { Styles } from '../types/style'
@@ -26,9 +27,7 @@ const getBorderWidth = (
       }${width[1]}`
 
     default:
-      throw new Error(
-        "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-      )
+      throw new PolishedError(29)
   }
 }
 
@@ -78,9 +77,7 @@ function triangle({
     String(height).replace(/\d+/g, '') || 'px',
   ]
   if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-    throw new Error(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+    throw new PolishedError(30)
   }
 
   const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)

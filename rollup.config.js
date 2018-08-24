@@ -1,39 +1,35 @@
-import babel from "rollup-plugin-babel";
-import replace from "rollup-plugin-replace";
-import { uglify } from "rollup-plugin-uglify";
+import nodeResolve from 'rollup-plugin-node-resolve'
+import babel from 'rollup-plugin-babel'
+import replace from 'rollup-plugin-replace'
+import { uglify } from 'rollup-plugin-uglify'
+import pkg from './package.json'
 
-const input = "src/index.js";
-const name = "polished";
-const babelOptions = { plugins: ["external-helpers"] };
+const createConfig = ({
+  output,
+  env,
+  min = false,
+}) => ({
+  input: 'src/index.js',
+  output: Object.assign({ name: 'polished', exports: 'named' }, output),
+  plugins: [
+    nodeResolve(),
+    babel({ plugins: ['external-helpers'] }),
+    env && replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
+    min && uglify(),
+  ].filter(Boolean),
+})
 
 export default [
-  {
-    input,
-    output: { file: "dist/polished.es.js", format: "es" },
-    plugins: [babel(babelOptions)]
-  },
-
-  {
-    input,
-    output: { file: "dist/polished.js", format: "umd", name, exports: "named" },
-    plugins: [
-      babel(babelOptions),
-      replace({ "process.env.NODE_ENV": JSON.stringify("development") })
-    ]
-  },
-
-  {
-    input,
-    output: {
-      file: "dist/polished.min.js",
-      format: "umd",
-      name,
-      exports: "named"
-    },
-    plugins: [
-      babel(babelOptions),
-      replace({ "process.env.NODE_ENV": JSON.stringify("production") }),
-      uglify()
-    ]
-  }
-];
+  createConfig({
+    output: { file: pkg.module, format: 'esm' },
+  }),
+  createConfig({
+    output: { file: 'dist/polished.js', format: 'umd' },
+    env: 'development',
+  }),
+  createConfig({
+    output: { file: 'dist/polished.min.js', format: 'umd' },
+    env: 'production',
+    min: true,
+  }),
+]

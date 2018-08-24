@@ -1,5 +1,6 @@
 // @flow
 import type { InteractionState } from '../types/interactionState'
+import PolishedError from '../error'
 
 function generateSelectors(
   template: Function,
@@ -18,12 +19,12 @@ function statefulSelectors(
   template: Function,
   stateMap?: Array<InteractionState>,
 ): string {
-  if (!template) throw new Error('You must provide a template to this method.')
+  if (!template) throw new PolishedError(16)
   if (states.length === 0) return generateSelectors(template, null)
   let selectors = []
   for (let i = 0; i < states.length; i += 1) {
     if (stateMap && stateMap.indexOf(states[i]) < 0) {
-      throw new Error('You passed an unsupported selector state to this method.')
+      throw new PolishedError(17)
     }
     selectors.push(generateSelectors(template, states[i]))
   }

@@ -1,4 +1,6 @@
 // @flow
+import PolishedError from '../error'
+
 import type { Styles } from '../types/style'
 
 /**
@@ -27,7 +29,7 @@ function transitions(...properties: Array<string | Array<string>>): Styles {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const value = properties[1]
     if (typeof value !== 'string') {
-      throw new Error('Property must be a string value.')
+      throw new PolishedError(36)
     }
     const transitionsString = properties[0]
       .map((property: string): string => `${property} ${value}`)

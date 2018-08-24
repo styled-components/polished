@@ -1,4 +1,6 @@
 // @flow
+import PolishedError from '../error'
+
 import type { RadialGradientConfiguration } from '../types/radialGradientConfiguration'
 import type { Styles } from '../types/style'
 
@@ -75,9 +77,7 @@ function radialGradient({
   shape,
 }: RadialGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
-    throw new Error(
-      'radialGradient requries at least 2 color-stops to properly render.',
-    )
+    throw new PolishedError(27)
   }
   return {
     backgroundColor: fallback || parseFallback(colorStops),

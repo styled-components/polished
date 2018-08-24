@@ -4,14 +4,10 @@
   (factory((global.polished = {})));
 }(this, (function (exports) { 'use strict';
 
-  //      
-
   // @private
   function capitalizeString(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  //      
 
   var positionMap = ['Top', 'Right', 'Bottom', 'Left'];
 
@@ -78,13 +74,9 @@
     return generateStyles(property, valuesWithDefaults);
   }
 
-  //      
-
   function endsWith (string, suffix) {
     return string.substr(-suffix.length) === suffix;
   }
-
-  //      
 
   /**
    * Returns a given CSS value minus its unit (or the original value if an invalid string is passed).
@@ -111,8 +103,6 @@
     if (isNaN(unitlessValue)) return value;
     return unitlessValue;
   }
-
-  //      
 
   /**
    * Factory function that creates pixel-to-x converters
@@ -150,8 +140,6 @@
     };
   };
 
-  //      
-
   /**
    * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
    * second argument to the function.
@@ -177,7 +165,6 @@
    */
   var em = /*#__PURE__*/pxtoFactory('em');
 
-  //      
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
 
   /**
@@ -209,8 +196,6 @@
     if (matchedValue) return [parseFloat(value), matchedValue[2]];
     return [value, undefined];
   }
-
-  //      
 
   var ratioNames = {
     minorSecond: 1.067,
@@ -278,8 +263,6 @@
     return realBase * Math.pow(realRatio, steps) + 'em';
   }
 
-  //      
-
   /**
    * Convert pixel value to rems. The default base value is 16px, but can be changed by passing a
    * second argument to the function.
@@ -304,8 +287,6 @@
    * }
    */
   var rem = /*#__PURE__*/pxtoFactory('rem');
-
-  //      
 
   /**
    * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
@@ -363,9 +344,6 @@
     return 'calc(' + base.toFixed(2) + fromSizeUnit + ' + ' + (100 * slope).toFixed(2) + 'vw)';
   }
 
-  //      
-
-
   /**
    * CSS to contain a float (credit to CSSMojo).
    *
@@ -400,9 +378,6 @@
       display: 'table'
     }, _ref;
   }
-
-  //      
-
 
   /**
    * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
@@ -439,9 +414,6 @@
       left: offset
     };
   }
-
-  //      
-
 
   /**
    * CSS to represent truncated text with an ellipsis.
@@ -502,8 +474,6 @@
     strings.raw = raw;
     return strings;
   };
-
-  //      
 
   /**
    * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
@@ -594,9 +564,6 @@
       return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4['@media (min-width: ' + minScreen + ')'] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4['@media (min-width: ' + maxScreen + ')'] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
     }
   }
-
-  //      
-
 
   function generateFileReferences(fontFilePath, fileFormats) {
     var fileFontReferences = fileFormats.map(function (format) {
@@ -693,9 +660,6 @@
     };return JSON.parse(JSON.stringify(fontFaceDeclaration));
   }
 
-  //      
-
-
   /**
    * CSS to hide text to show a background image in a SEO-friendly way.
    *
@@ -729,9 +693,6 @@
       whiteSpace: 'nowrap'
     };
   }
-
-  //      
-
 
   /**
    * CSS to hide content visually but remain accessible to screen readers.
@@ -778,8 +739,6 @@
     };
   }
 
-  //      
-
   /**
    * Generates a media query to target HiDPI devices.
    *
@@ -814,9 +773,6 @@
 
     return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
   }
-
-  //      
-
 
   /**
    * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
@@ -950,9 +906,6 @@
     }];
   }
 
-  //      
-
-
   /**
    * CSS to style the placeholder pseudo-element.
    *
@@ -995,9 +948,6 @@
   }
 
   var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
-
-  //      
-
 
   function parseFallback(colorStops) {
     return colorStops[0].split(' ')[0];
@@ -1069,8 +1019,6 @@
     };
   }
 
-  //      
-
   /**
    * A helper to generate a retina background image and non-retina
    * background image. The retina background image will output to a HiDPI media query. The mixin uses
@@ -1121,9 +1069,6 @@
     }, backgroundSize ? { backgroundSize: backgroundSize } : {}), _ref;
   }
 
-  //      
-
-
   /**
    * CSS to style the selection pseudo-element.
    *
@@ -1161,9 +1106,6 @@
     return _ref = {}, _ref[parent + '::-moz-selection'] = _extends({}, styles), _ref[parent + '::selection'] = _extends({}, styles), _ref;
   }
 
-  //      
-
-
   /* eslint-disable key-spacing */
   var functionsMap = {
     easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
@@ -1194,7 +1136,8 @@
     easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
     /* eslint-enable key-spacing */
 
-  };function getTimingFunction(functionName) {
+  };
+  function getTimingFunction(functionName) {
     return functionsMap[functionName];
   }
 
@@ -1222,8 +1165,6 @@
   function timingFunctions(timingFunction) {
     return getTimingFunction(timingFunction);
   }
-
-  //      
 
   /**
    * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -1254,8 +1195,6 @@
 
     return directionalProperty.apply(undefined, ['borderColor'].concat(values));
   }
-
-  //      
 
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
     switch (pointingDirection) {
@@ -1328,9 +1267,6 @@
     })));
   }
 
-  //      
-
-
   /**
    * Provides an easy way to change the `wordWrap` property.
    *
@@ -1363,9 +1299,6 @@
       wordBreak: wordBreak
     };
   }
-
-  //      
-
 
   function colorToInt(color) {
     return Math.round(color * 255);
@@ -1419,7 +1352,6 @@
     return convert(finalRed, finalGreen, finalBlue);
   }
 
-  //      
   var namedColorMap = {
     aliceblue: 'f0f8ff',
     antiquewhite: 'faebd7',
@@ -1580,8 +1512,6 @@
     return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
   }
 
-  //      
-
   var hexRegex = /^#[a-fA-F0-9]{6}$/;
   var hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;
   var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
@@ -1682,9 +1612,6 @@
     throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
   }
 
-  //      
-
-
   function rgbToHsl(color) {
     // make sure rgb are contained in a set of [0, 255]
     var red = color.red / 255;
@@ -1737,8 +1664,6 @@
     return { hue: hue, saturation: saturation, lightness: lightness };
   }
 
-  //      
-
   /**
    * Returns an HslColor or HslaColor object. This utility function is only useful
    * if want to extract a color component. With the color util `toColorString` you
@@ -1756,8 +1681,6 @@
     return rgbToHsl(parseToRgb(color));
   }
 
-  //      
-
   /**
    * Reduces hex values if possible e.g. #ff8866 to #f86
    * @private
@@ -1769,13 +1692,10 @@
     return value;
   };
 
-  //      
   function numberToHex(value) {
     var hex = value.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
   }
-
-  //      
 
   function colorToHex(color) {
     return numberToHex(Math.round(color * 255));
@@ -1788,8 +1708,6 @@
   function hslToHex(hue, saturation, lightness) {
     return hslToRgb(hue, saturation, lightness, convertToHex);
   }
-
-  //      
 
   /**
    * Returns a string value for the color. The returned result is the smallest possible hex notation.
@@ -1823,8 +1741,6 @@
 
     throw new Error('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).');
   }
-
-  //      
 
   /**
    * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -1862,8 +1778,6 @@
     throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
   }
 
-  //      
-
   /**
    * Returns a string value for the color. The returned result is the smallest possible hex notation.
    *
@@ -1896,8 +1810,6 @@
 
     throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
   }
-
-  //      
 
   /**
    * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
@@ -1945,8 +1857,6 @@
 
     throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
   }
-
-  //      
 
   var isRgb = function isRgb(color) {
     return typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number' && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined');
@@ -2007,19 +1917,7 @@
     throw new Error(errMsg);
   }
 
-  //      
-
-  // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
-
-
   // eslint-disable-next-line no-unused-vars
-
-
-  // eslint-disable-next-line no-unused-vars
-
-  // eslint-disable-next-line no-redeclare
-
-
   function curried(f, length, acc) {
     return function fn() {
       // eslint-disable-next-line prefer-rest-params
@@ -2029,12 +1927,17 @@
   }
 
   // eslint-disable-next-line no-redeclare
+
+  // eslint-disable-next-line no-redeclare
+
+  // eslint-disable-next-line no-unused-vars
+
+
+  // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
   function curry(f) {
     // eslint-disable-line no-redeclare
     return curried(f, f.length, []);
   }
-
-  //      
 
   /**
    * Changes the hue of the color. Hue is a number between 0 to 360. The first
@@ -2069,8 +1972,6 @@
 
   var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
 
-  //      
-
   /**
    * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
    *
@@ -2100,13 +2001,9 @@
     }));
   }
 
-  //      
-
   function guard(lowerBoundary, upperBoundary, value) {
     return Math.max(lowerBoundary, Math.min(upperBoundary, value));
   }
-
-  //      
 
   /**
    * Returns a string value for the darkened color.
@@ -2140,8 +2037,6 @@
 
   var curriedDarken = /*#__PURE__*/curry(darken);
 
-  //      
-
   /**
    * Decreases the intensity of a color. Its range is between 0 to 1. The first
    * argument of the desaturate function is the amount by how much the color
@@ -2174,8 +2069,6 @@
   }
 
   var curriedDesaturate = /*#__PURE__*/curry(desaturate);
-
-  //      
 
   /**
    * Returns a number (float) representing the luminance of a color.
@@ -2217,8 +2110,6 @@
     return parseFloat((0.2126 * r + 0.7152 * g + 0.0722 * b).toFixed(3));
   }
 
-  //      
-
   /**
    * Converts the color to a grayscale, by reducing its saturation to 0.
    *
@@ -2246,8 +2137,6 @@
       saturation: 0
     }));
   }
-
-  //      
 
   /**
    * Inverts the red, green and blue values of a color.
@@ -2282,8 +2171,6 @@
     }));
   }
 
-  //      
-
   /**
    * Returns a string value for the lightened color.
    *
@@ -2315,8 +2202,6 @@
   }
 
   var curriedLighten = /*#__PURE__*/curry(lighten);
-
-  //      
 
   /**
    * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
@@ -2375,8 +2260,6 @@
 
   var curriedMix = /*#__PURE__*/curry(mix);
 
-  //      
-
   /**
    * Increases the opacity of a color. Its range for the amount is between 0 to 1.
    *
@@ -2415,8 +2298,6 @@
 
   var curriedOpacify = /*#__PURE__*/curry(opacify);
 
-  //      
-
   /**
    * Returns black or white for best contrast depending on the luminosity of the given color.
    * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
@@ -2450,8 +2331,6 @@
   }
 
   var curriedReadableColor = /*#__PURE__*/curry(readableColor);
-
-  //      
 
   /**
    * Increases the intensity of a color. Its range is between 0 to 1. The first
@@ -2487,8 +2366,6 @@
 
   var curriedSaturate = /*#__PURE__*/curry(saturate);
 
-  //      
-
   /**
    * Sets the hue of a color to the provided value. The hue range can be
    * from 0 and 359.
@@ -2519,8 +2396,6 @@
   }
 
   var curriedSetHue = /*#__PURE__*/curry(setHue);
-
-  //      
 
   /**
    * Sets the lightness of a color to the provided value. The lightness range can be
@@ -2553,8 +2428,6 @@
 
   var curriedSetLightness = /*#__PURE__*/curry(setLightness);
 
-  //      
-
   /**
    * Sets the saturation of a color to the provided value. The lightness range can be
    * from 0 and 1.
@@ -2586,8 +2459,6 @@
 
   var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
 
-  //      
-
   /**
    * Shades a color by mixing it with black. `shade` can produce
    * hue shifts, where as `darken` manipulates the luminance channel and therefore
@@ -2617,8 +2488,6 @@
 
   var curriedShade = /*#__PURE__*/curry(shade);
 
-  //      
-
   /**
    * Tints a color by mixing it with white. `tint` can produce
    * hue shifts, where as `lighten` manipulates the luminance channel and therefore
@@ -2647,8 +2516,6 @@
   }
 
   var curriedTint = /*#__PURE__*/curry(tint);
-
-  //      
 
   /**
    * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -2687,9 +2554,6 @@
   }
 
   var curriedTransparentize = /*#__PURE__*/curry(transparentize);
-
-  //      
-
 
   /**
    * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
@@ -2753,9 +2617,6 @@
     };
   }
 
-  //      
-
-
   /**
    * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
    * @example
@@ -2785,9 +2646,6 @@
     };
   }
 
-  //      
-
-
   /**
    * Shorthand that accepts any number of background values as parameters for creating a single background statement.
    * @example
@@ -2816,8 +2674,6 @@
       background: properties.join(', ')
     };
   }
-
-  //      
 
   var sideMap = ['top', 'right', 'bottom', 'left'];
 
@@ -2881,8 +2737,6 @@
     }
   }
 
-  //      
-
   /**
    * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
    * @example
@@ -2923,8 +2777,6 @@
     throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
   }
 
-  //      
-
   /**
    * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
    * @example
@@ -2954,8 +2806,6 @@
 
     return directionalProperty.apply(undefined, ['borderStyle'].concat(values));
   }
-
-  //      
 
   /**
    * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
@@ -2987,9 +2837,6 @@
     return directionalProperty.apply(undefined, ['borderWidth'].concat(values));
   }
 
-  //      
-
-
   function generateSelectors(template, state) {
     var stateSuffix = state ? ':' + state : '';
     return template(stateSuffix);
@@ -2999,6 +2846,7 @@
    * Function helper that adds an array of states to a template of selectors. Used in textInputs and buttons.
    * @private
    */
+
   function statefulSelectors(states, template, stateMap) {
     if (!template) throw new Error('You must provide a template to this method.');
     if (states.length === 0) return generateSelectors(template, null);
@@ -3012,8 +2860,6 @@
     selectors = selectors.join(',');
     return selectors;
   }
-
-  //      
 
   var stateMap = [undefined, null, 'active', 'focus', 'hover'];
 
@@ -3055,8 +2901,6 @@
     return statefulSelectors(states, template, stateMap);
   }
 
-  //      
-
   /**
    * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
    * @example
@@ -3087,8 +2931,6 @@
     return directionalProperty.apply(undefined, ['margin'].concat(values));
   }
 
-  //      
-
   /**
    * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
    * @example
@@ -3118,8 +2960,6 @@
 
     return directionalProperty.apply(undefined, ['padding'].concat(values));
   }
-
-  //      
 
   var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
 
@@ -3180,9 +3020,6 @@
     }
   }
 
-  //      
-
-
   /**
    * Shorthand to set the height and width properties in a single statement.
    * @example
@@ -3211,8 +3048,6 @@
       width: width
     };
   }
-
-  //      
 
   var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
 
@@ -3266,9 +3101,6 @@
     return statefulSelectors(states, template$1, stateMap$1);
   }
 
-  //      
-
-
   /**
    * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
    * @example
@@ -3313,8 +3145,6 @@
       };
     }
   }
-
-  //
 
   exports.adjustHue = curriedAdjustHue;
   exports.animation = animation;

@@ -1,4 +1,6 @@
 // @flow
+import PolishedError from '../error'
+
 import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
 import type { Styles } from '../types/style'
 
@@ -72,17 +74,15 @@ function fontFace({
   fontFeatureSettings,
 }: FontFaceConfiguration): Styles {
   // Error Handling
-  if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
+  if (!fontFamily) throw new PolishedError(23)
   if (!fontFilePath && !localFonts) {
-    throw new Error(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
-    )
+    throw new PolishedError(24)
   }
   if (localFonts && !Array.isArray(localFonts)) {
-    throw new Error('fontFace expects localFonts to be an array.')
+    throw new PolishedError(25)
   }
   if (!Array.isArray(fileFormats)) {
-    throw new Error('fontFace expects fileFormats to be an array.')
+    throw new PolishedError(26)
   }
 
   const fontFaceDeclaration = {
