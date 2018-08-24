@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`retinaBorder should be the default when no color and direction are passed 1`] = `
+Object {
+  "border": "1px solid #c7c7c7",
+  "boxSizing": "border-box",
+  "content": "\\"\\"",
+  "height": "200%",
+  "left": 0,
+  "position": "absolute",
+  "top": 0,
+  "transform": "scale(0.5)",
+  "transformOrigin": "0 0",
+  "width": "200%",
+}
+`;
+
+exports[`retinaBorder should set the bottom border 1`] = `
+Object {
+  "borderBottom": "1px solid #c7c7c7",
+  "bottom": 0,
+  "content": "\\"\\"",
+  "height": "1px",
+  "left": 0,
+  "position": "absolute",
+  "right": 0,
+  "transform": "scaleY(0.5)",
+  "transformOrigin": "0 100%",
+}
+`;
+
+exports[`retinaBorder should set the left border 1`] = `
+Object {
+  "borderLeft": "1px solid #c7c7c7",
+  "bottom": 0,
+  "content": "\\"\\"",
+  "left": 0,
+  "position": "absolute",
+  "top": 0,
+  "transform": "scaleX(0.5)",
+  "transformOrigin": "0 0",
+  "width": "1px",
+}
+`;
+
+exports[`retinaBorder should set the right border 1`] = `
+Object {
+  "borderRight": "1px solid #c7c7c7",
+  "bottom": 0,
+  "content": "\\"\\"",
+  "position": "absolute",
+  "right": 0,
+  "top": 0,
+  "transform": "scaleX(0.5)",
+  "transformOrigin": "100% 0",
+  "width": "1px",
+}
+`;
+
+exports[`retinaBorder should set the top border 1`] = `
+Object {
+  "borderTop": "1px solid #c7c7c7",
+  "content": "\\"\\"",
+  "height": "1px",
+  "left": 0,
+  "position": "absolute",
+  "right": 0,
+  "top": 0,
+  "transform": "scaleY(0.5)",
+  "transformOrigin": "0 0",
+}
+`;

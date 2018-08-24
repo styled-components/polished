@@ -20,6 +20,7 @@ import hiDPI from './mixins/hiDPI'
 import normalize from './mixins/normalize'
 import placeholder from './mixins/placeholder'
 import radialGradient from './mixins/radialGradient'
+import retinaBorder from './mixins/retinaBorder'
 import retinaImage from './mixins/retinaImage'
 import selection from './mixins/selection'
 import timingFunctions from './mixins/timingFunctions'
@@ -115,6 +116,7 @@ export {
   radialGradient,
   readableColor,
   rem,
+  retinaBorder,
   retinaImage,
   rgb,
   rgba,

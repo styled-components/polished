@@ -80,6 +80,13 @@ const radialGradient: object = polished.radialGradient({
   fallback: ""
 });
 
+let retinaBorder: object = polished.retinaBorder();
+retinaBorder = polished.retinaBorder("");
+retinaBorder = polished.retinaBorder("", "top");
+retinaBorder = polished.retinaBorder("", "right");
+retinaBorder = polished.retinaBorder("", "bottom");
+retinaBorder = polished.retinaBorder("", "left");
+
 let retinaImage: object = polished.retinaImage("");
 retinaImage = polished.retinaImage("", "");
 retinaImage = polished.retinaImage("", "", "");
