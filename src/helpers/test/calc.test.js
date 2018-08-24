@@ -3,34 +3,33 @@ import calc from '../calc'
 import units from './__unitTypes__'
 
 // eslint-disable-next-line no-undef
-const performCalculations = (unit: $Values<units>) =>
-  describe(unit, () => {
-    it(`should add ${unit} values with decimals`, () => {
-      const base = `12.4${unit}`
-      const expected = `14.1${unit}`
-      expect(calc(base, baseAsNumber => baseAsNumber + 1.7)).toBe(expected)
-    })
-    it(`should add ${unit} values`, () => {
-      const base = `12${unit}`
-      const expected = `14${unit}`
-      expect(calc(base, baseAsNumber => baseAsNumber + 2)).toBe(expected)
-    })
-    it(`should subtract ${unit} values`, () => {
-      const base = `12${unit}`
-      const expected = `10${unit}`
-      expect(calc(base, baseAsNumber => baseAsNumber - 2)).toBe(expected)
-    })
-    it(`should multiply ${unit} values`, () => {
-      const base = `12${unit}`
-      const expected = `24${unit}`
-      expect(calc(base, baseAsNumber => baseAsNumber * 2)).toBe(expected)
-    })
-    it(`should divide ${unit} values`, () => {
-      const base = `12${unit}`
-      const expected = `6${unit}`
-      expect(calc(base, baseAsNumber => baseAsNumber / 2)).toBe(expected)
-    })
+const performCalculations = (unit: $Values<units>) => describe(unit, () => {
+  it(`should add ${unit} values with decimals`, () => {
+    const base = `12.4${unit}`
+    const expected = `14.1${unit}`
+    expect(calc(base, baseAsNumber => baseAsNumber + 1.7)).toBe(expected)
   })
+  it(`should add ${unit} values`, () => {
+    const base = `12${unit}`
+    const expected = `14${unit}`
+    expect(calc(base, baseAsNumber => baseAsNumber + 2)).toBe(expected)
+  })
+  it(`should subtract ${unit} values`, () => {
+    const base = `12${unit}`
+    const expected = `10${unit}`
+    expect(calc(base, baseAsNumber => baseAsNumber - 2)).toBe(expected)
+  })
+  it(`should multiply ${unit} values`, () => {
+    const base = `12${unit}`
+    const expected = `24${unit}`
+    expect(calc(base, baseAsNumber => baseAsNumber * 2)).toBe(expected)
+  })
+  it(`should divide ${unit} values`, () => {
+    const base = `12${unit}`
+    const expected = `6${unit}`
+    expect(calc(base, baseAsNumber => baseAsNumber / 2)).toBe(expected)
+  })
+})
 
 describe('calc', () => {
   units.map(performCalculations)
