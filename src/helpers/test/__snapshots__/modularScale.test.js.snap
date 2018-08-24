@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`modularScale should allow adjusting the base 1`] = `
 Object {
   "font-size": "2.666em",

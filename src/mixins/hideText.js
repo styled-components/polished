@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.
@@ -26,7 +27,7 @@
  * }
  */
 
-function hideText(): Object {
+function hideText(): Styles {
   return {
     textIndent: '101%',
     overflow: 'hidden',

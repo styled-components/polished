@@ -1,4 +1,5 @@
 // @flow
+import type { Styles } from '../types/style'
 
 /**
  * Shorthand to set the height and width properties in a single statement.
@@ -20,11 +21,10 @@
  *   'width': '250px',
  * }
  */
-
 function size(
   height: string | number,
   width?: string | number = height,
-): Object {
+): Styles {
   return {
     height,
     width,

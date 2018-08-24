@@ -1,17 +1,6 @@
 // @flow
-
-/** */
-type FontFaceConfiguration = {
-  fontFamily: string,
-  fontFilePath?: string,
-  fontStretch?: string,
-  fontStyle?: string,
-  fontVariant?: string,
-  fontWeight?: string,
-  fileFormats?: Array<string>,
-  localFonts?: Array<string>,
-  unicodeRange?: string,
-}
+import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
+import type { Styles } from '../types/style'
 
 function generateFileReferences(
   fontFilePath: string,
@@ -68,7 +57,6 @@ function generateSources(
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
-
 function fontFace({
   fontFamily,
   fontFilePath,
@@ -79,7 +67,10 @@ function fontFace({
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
   localFonts,
   unicodeRange,
-}: FontFaceConfiguration): Object {
+  fontDisplay,
+  fontVariationSettings,
+  fontFeatureSettings,
+}: FontFaceConfiguration): Styles {
   // Error Handling
   if (!fontFamily) throw new Error('fontFace expects a name of a font-family.')
   if (!fontFilePath && !localFonts) {
@@ -103,6 +94,9 @@ function fontFace({
       fontStyle,
       fontVariant,
       fontWeight,
+      fontDisplay,
+      fontVariationSettings,
+      fontFeatureSettings,
     },
   }
 

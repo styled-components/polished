@@ -8,10 +8,10 @@
 
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@mxstbr">
+  <meta name="twitter:site" content="@b_hough">
   <meta name="twitter:title" content="✨ polished | <% if (typeof docs !== 'undefined') { %>Documentation<% } else { %>A lightweight toolset for writing styles in JavaScript<% } %>">
   <meta name="twitter:description" content="A lightweight toolset for writing styles in JavaScript.">
-  <meta name="twitter:creator" content="@mxstbr">
+  <meta name="twitter:creator" content="@b_hough">
   <meta name="twitter:image" content="/assets/meta.png">
 
   <!-- Open Graph data -->
@@ -30,7 +30,7 @@
 <body class='<% if (typeof docs !== 'undefined') { %>documentation<% } else { %>home<% } %>'>
   <% if (typeof docs !== 'undefined') { %>
     <%= renderDocs({
-      options: options,
+      config: config,
       docs: docs,
       renderSection: renderSection,
       renderSectionList: renderSectionList,
@@ -38,7 +38,7 @@
     }) %>
   <% } else { %>
     <%= renderHome({
-      options: options,
+      config: config,
     }) %>
   <% } %>
   <% if (typeof docs !== 'undefined') { %>

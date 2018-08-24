@@ -1,6 +1,6 @@
 // @flow
-
 import hslToHex from '../internalHelpers/_hslToHex'
+
 import type { HslColor } from '../types/color'
 
 /**
@@ -32,15 +32,15 @@ function hsl(
   lightness?: number,
 ): string {
   if (
-    typeof value === 'number' &&
-    typeof saturation === 'number' &&
-    typeof lightness === 'number'
+    typeof value === 'number'
+    && typeof saturation === 'number'
+    && typeof lightness === 'number'
   ) {
     return hslToHex(value, saturation, lightness)
   } else if (
-    typeof value === 'object' &&
-    saturation === undefined &&
-    lightness === undefined
+    typeof value === 'object'
+    && saturation === undefined
+    && lightness === undefined
   ) {
     return hslToHex(value.hue, value.saturation, value.lightness)
   }

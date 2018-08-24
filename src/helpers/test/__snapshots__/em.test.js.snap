@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`em should convert a simple number to ems 1`] = `
 Object {
   "height": "1em",

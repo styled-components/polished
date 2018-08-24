@@ -1,7 +1,5 @@
 // @flow
-
-/** */
-type AnimationProperty = string | number
+import type { Styles } from '../types/style'
 
 /**
  * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
@@ -40,8 +38,8 @@ type AnimationProperty = string | number
  * }
  */
 function animation(
-  ...args: Array<Array<AnimationProperty> | AnimationProperty>
-): Object {
+  ...args: Array<Array<string | number> | string | number>
+): Styles {
   // Allow single or multiple animations passed
   const multiMode = Array.isArray(args[0])
   if (!multiMode && args.length > 8) {
@@ -52,8 +50,8 @@ function animation(
   const code = args
     .map(arg => {
       if (
-        (multiMode && !Array.isArray(arg)) ||
-        (!multiMode && Array.isArray(arg))
+        (multiMode && !Array.isArray(arg))
+        || (!multiMode && Array.isArray(arg))
       ) {
         throw new Error(
           "To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')",

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`parseToRgb should parse a hex color representation 1`] = `
 Object {
   "blue": 174,
@@ -79,5 +81,14 @@ Object {
   "blue": 255,
   "green": 67,
   "red": 174,
+}
+`;
+
+exports[`parseToRgb should parse an 8-digit hex color representation 1`] = `
+Object {
+  "alpha": 1,
+  "blue": 174,
+  "green": 67,
+  "red": 255,
 }
 `;

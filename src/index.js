@@ -4,22 +4,24 @@ import calc from './helpers/calc'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
 import extractUnit from './helpers/extractUnit'
+import getValueAndUnit from './helpers/getValueAndUnit'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
 
 // Mixins
+import between from './mixins/between'
 import clearFix from './mixins/clearFix'
+import cover from './mixins/cover'
 import ellipsis from './mixins/ellipsis'
+import fluidRange from './mixins/fluidRange'
 import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hideVisually from './mixins/hideVisually'
 import hiDPI from './mixins/hiDPI'
 import normalize from './mixins/normalize'
-import placeholder from './mixins/placeholder'
 import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
-import selection from './mixins/selection'
 import timingFunctions from './mixins/timingFunctions'
 import triangle from './mixins/triangle'
 import wordWrap from './mixins/wordWrap'
@@ -55,6 +57,7 @@ import transparentize from './color/transparentize'
 import animation from './shorthands/animation'
 import backgroundImages from './shorthands/backgroundImages'
 import backgrounds from './shorthands/backgrounds'
+import border from './shorthands/border'
 import borderColor from './shorthands/borderColor'
 import borderRadius from './shorthands/borderRadius'
 import borderStyle from './shorthands/borderStyle'
@@ -72,6 +75,8 @@ export {
   animation,
   backgroundImages,
   backgrounds,
+  between,
+  border,
   borderColor,
   borderRadius,
   borderStyle,
@@ -80,14 +85,17 @@ export {
   calc,
   clearFix,
   complement,
+  cover,
   darken,
   desaturate,
   directionalProperty,
   ellipsis,
   em,
   extractUnit,
+  fluidRange,
   fontFace,
   getLuminance,
+  getValueAndUnit,
   grayscale,
   invert,
   hideText,
@@ -104,7 +112,6 @@ export {
   padding,
   parseToHsl,
   parseToRgb,
-  placeholder,
   position,
   radialGradient,
   readableColor,
@@ -113,7 +120,6 @@ export {
   rgb,
   rgba,
   saturate,
-  selection,
   setHue,
   setLightness,
   setSaturation,

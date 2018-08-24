@@ -10,8 +10,12 @@ describe('desaturate', () => {
     expect(desaturate(0.2, '#CCCD64')).toMatchSnapshot()
   })
 
+  it('should desaturate an 8-digit hex color by 20%', () => {
+    expect(desaturate(0.2, '#6564CDB3')).toMatchSnapshot()
+  })
+
   it('should desaturate a color with opacity by 20%', () => {
-    expect(desaturate(0.2, 'rgba(204,205,100,0.7)')).toMatchSnapshot()
+    expect(desaturate(0.2, 'rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
 
   it('should desaturate a color but not go below 0', () => {

@@ -1,13 +1,6 @@
 // @flow
-
-/** */
-type RadialGradientConfiguration = {
-  colorStops: Array<string>,
-  extent?: string,
-  fallback?: string,
-  position?: string,
-  shape?: string,
-}
+import type { RadialGradientConfiguration } from '../types/radialGradientConfiguration'
+import type { Styles } from '../types/style'
 
 function parseFallback(colorStops: Array<string>): string {
   return colorStops[0].split(' ')[0]
@@ -22,17 +15,17 @@ function constructGradientValue(
     template += literals[i]
     // Adds leading coma if properties preceed color-stops
     if (
-      i === 3 &&
-      substitutions[i] &&
-      (substitutions[0] || substitutions[1] || substitutions[2])
+      i === 3
+      && substitutions[i]
+      && (substitutions[0] || substitutions[1] || substitutions[2])
     ) {
       template = template.slice(0, -1)
       template += `, ${substitutions[i]}`
       // No trailing space if color-stops is the only param provided
     } else if (
-      i === 3 &&
-      substitutions[i] &&
-      (!substitutions[0] && !substitutions[1] && !substitutions[2])
+      i === 3
+      && substitutions[i]
+      && (!substitutions[0] && !substitutions[1] && !substitutions[2])
     ) {
       template += `${substitutions[i]}`
       // Only adds substitution if it is defined
@@ -74,14 +67,13 @@ function constructGradientValue(
  *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
-
 function radialGradient({
   colorStops,
   extent,
   fallback,
   position,
   shape,
-}: RadialGradientConfiguration): Object {
+}: RadialGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
     throw new Error(
       'radialGradient requries at least 2 color-stops to properly render.',

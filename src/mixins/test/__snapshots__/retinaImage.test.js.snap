@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`retinaImage should allow passing in a separate filename for the retina version 1`] = `
 Object {
   "
@@ -8,7 +10,6 @@ Object {
     only screen and (min-resolution: 1.3dppx)
   ": Object {
     "backgroundImage": "url(retina_img.png)",
-    "backgroundSize": undefined,
   },
   "backgroundImage": "url(img.png)",
 }
@@ -24,7 +25,6 @@ Object {
     only screen and (min-resolution: 1.3dppx)
   ": Object {
     "backgroundImage": "url(img_5x.png)",
-    "backgroundSize": undefined,
   },
   "backgroundImage": "url(img.png)",
 }
@@ -40,7 +40,6 @@ Object {
     only screen and (min-resolution: 1.3dppx)
   ": Object {
     "backgroundImage": "url(img_2x.jpg)",
-    "backgroundSize": undefined,
   },
   "backgroundImage": "url(img.jpg)",
 }
@@ -72,7 +71,6 @@ Object {
     only screen and (min-resolution: 1.3dppx)
   ": Object {
     "backgroundImage": "url(img_2x.jpg)",
-    "backgroundSize": undefined,
   },
   "backgroundImage": "url(img.jpg)",
 }
@@ -88,7 +86,6 @@ Object {
     only screen and (min-resolution: 1.3dppx)
   ": Object {
     "backgroundImage": "url(img_2x.png)",
-    "backgroundSize": undefined,
   },
   "backgroundImage": "url(img.png)",
 }

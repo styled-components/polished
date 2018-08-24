@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`padding properly applies a value when passed only one 1`] = `
 Object {
   "paddingBottom": "12px",

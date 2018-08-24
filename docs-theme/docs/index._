@@ -2,8 +2,7 @@
   <div class='clearfix md-mxn2'>
     <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
       <div class='py1 px2'>
-        <h3 class='mb0 no-anchor'><%- options.name %></h3>
-        <div class='mb1'><code><%- options.version %></code></div>
+        <h3 class='mb0 no-anchor'><%- config.name %></h3>
         <input
           placeholder='Filter'
           id='filter-input'

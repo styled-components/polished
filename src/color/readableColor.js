@@ -1,9 +1,9 @@
 // @flow
-import getLuminance from './getLuminance'
 import curry from '../internalHelpers/_curry'
+import getLuminance from './getLuminance'
 
 /**
- * Selects black or white for best contrast depending on the luminosity of the given color.
+ * Returns black or white for best contrast depending on the luminosity of the given color.
  * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
  *
  * @example

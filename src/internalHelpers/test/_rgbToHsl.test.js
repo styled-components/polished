@@ -29,13 +29,23 @@ describe('hslToHex', () => {
 
   it('should convert the color red with a transparency of 0.6', () => {
     expect({
-      background: rgbToHsl({ red: 255, green: 0, blue: 0, alpha: 0.5 }),
+      background: rgbToHsl({
+        red: 255,
+        green: 0,
+        blue: 0,
+        alpha: 0.5,
+      }),
     }).toMatchSnapshot()
   })
 
   it('should convert black with a transparency of 0.6', () => {
     expect({
-      background: rgbToHsl({ red: 0, green: 0, blue: 0, alpha: 0.5 }),
+      background: rgbToHsl({
+        red: 0,
+        green: 0,
+        blue: 0,
+        alpha: 0.5,
+      }),
     }).toMatchSnapshot()
   })
 })

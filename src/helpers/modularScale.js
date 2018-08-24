@@ -1,6 +1,7 @@
 // @flow
-
 import stripUnit from './stripUnit'
+
+import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -22,29 +23,12 @@ const ratioNames = {
   doubleOctave: 4,
 }
 
-/** */
-type Ratio =
-  | number
-  | 'minorSecond'
-  | 'majorSecond'
-  | 'minorThird'
-  | 'majorThird'
-  | 'perfectFourth'
-  | 'augFourth'
-  | 'perfectFifth'
-  | 'minorSixth'
-  | 'goldenSection'
-  | 'majorSixth'
-  | 'minorSeventh'
-  | 'majorSeventh'
-  | 'octave'
-  | 'majorTenth'
-  | 'majorEleventh'
-  | 'majorTwelfth'
-  | 'doubleOctave'
+function getRatio(ratioName: string): number {
+  return ratioNames[ratioName]
+}
 
 /**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+ * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -67,7 +51,7 @@ type Ratio =
 function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: Ratio = 'perfectFourth',
+  ratio?: ModularScaleRatio = 'perfectFourth',
 ): string {
   if (typeof steps !== 'number') {
     throw new Error(
@@ -81,7 +65,7 @@ function modularScale(
   }
 
   const realBase = typeof base === 'string' ? stripUnit(base) : base
-  const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
+  const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
   if (typeof realBase === 'string') {
     throw new Error(

@@ -24,7 +24,6 @@ import pixelsto from '../internalHelpers/_pxto'
  *   'height': '1em'
  * }
  */
-
 const em: (value: string | number, base?: string | number) => string = pixelsto(
   'em',
 )

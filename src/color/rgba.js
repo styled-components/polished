@@ -1,7 +1,7 @@
 // @flow
-
-import rgb from './rgb'
 import parseToRGB from './parseToRgb'
+import rgb from './rgb'
+
 import type { RgbaColor } from '../types/color'
 
 /**
@@ -46,25 +46,29 @@ function rgba(
 ): string {
   if (typeof firstValue === 'string' && typeof secondValue === 'number') {
     const rgbValue = parseToRGB(firstValue)
-    return `rgba(${rgbValue.red},${rgbValue.green},${rgbValue.blue},${secondValue})`
+    return `rgba(${rgbValue.red},${rgbValue.green},${
+      rgbValue.blue
+    },${secondValue})`
   } else if (
-    typeof firstValue === 'number' &&
-    typeof secondValue === 'number' &&
-    typeof thirdValue === 'number' &&
-    typeof fourthValue === 'number'
+    typeof firstValue === 'number'
+    && typeof secondValue === 'number'
+    && typeof thirdValue === 'number'
+    && typeof fourthValue === 'number'
   ) {
     return fourthValue >= 1
       ? rgb(firstValue, secondValue, thirdValue)
       : `rgba(${firstValue},${secondValue},${thirdValue},${fourthValue})`
   } else if (
-    typeof firstValue === 'object' &&
-    secondValue === undefined &&
-    thirdValue === undefined &&
-    fourthValue === undefined
+    typeof firstValue === 'object'
+    && secondValue === undefined
+    && thirdValue === undefined
+    && fourthValue === undefined
   ) {
     return firstValue.alpha >= 1
       ? rgb(firstValue.red, firstValue.green, firstValue.blue)
-      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${firstValue.alpha})`
+      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${
+        firstValue.alpha
+      })`
   }
 
   throw new Error(

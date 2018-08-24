@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`directionalProperty properly applies a integer value when passed only one 1`] = `
 Object {
   "borderBottom": 12,

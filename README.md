@@ -6,6 +6,7 @@
 A lightweight toolset for writing styles in JavaScript. ✨
 
 [![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
+[![Backers on Open Collective](https://opencollective.com/polished/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/polished/sponsors/badge.svg)](#sponsors)
 
 ```sh
 npm install --save polished
@@ -16,7 +17,7 @@ yarn add polished
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? `✨ polished` is for you!
 
 - **Make your app look great without stress**
-- **Cross framework compatible**: No matter if you're using [`styled-components`](https://github.com/styled-components/styled-components), aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
+- **Cross framework compatible**: No matter if you're using [`styled-components`](https://github.com/styled-components/styled-components), emotion, jss, aphrodite, radium, or plain inline styles, as long as you're writing your styles in JavaScript you can use polished!
 - **Switching from a pre-processor to styles in JS made easy**
 
 ## Docs
@@ -31,7 +32,7 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 ~`import * as polished from 'polished`~
 ~`import polished from 'polished'`~
 
-When `✨ polished` modules are imported properly, tree shaking in [webpack 2](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
+When `✨ polished` modules are imported properly, tree shaking in [webpack](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
 ## Flow Type Definitions
 
@@ -69,7 +70,7 @@ import { compose } from 'ramda' // Replace with any compose() function of your c
 import { lighten, desaturate } from 'polished'
 
 // Create tone() helper
-const tone = compose(lighten(10), desaturate(10))
+const tone = compose(lighten(0.1), desaturate(0.1))
 ```
 
 ### Why not `package-xyz`?
@@ -86,6 +87,36 @@ Specifically most other packages that provide color functions do so in an object
 
 No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/11/inline-styles-vs-css-in-js/), polished is for you.
 
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/styled-components/polished/graphs/contributors"><img src="https://opencollective.com/polished/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/polished#backer)]
+
+<a href="https://opencollective.com/polished#backers" target="_blank"><img src="https://opencollective.com/polished/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/polished#sponsor)]
+
+<a href="https://opencollective.com/polished/sponsor/0/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/1/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/2/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/3/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/4/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/5/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/6/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/7/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/8/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/polished/sponsor/9/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/9/avatar.svg"></a>
+
+
+
 ## License
 
-Copyright © 2016 Maximilian Stoiber. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
+Copyright © 2016-2018 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!

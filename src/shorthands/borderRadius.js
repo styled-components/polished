@@ -1,6 +1,8 @@
 // @flow
 import capitalizeString from '../internalHelpers/_capitalizeString'
 
+import type { Styles } from '../types/style'
+
 /**
  * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
  * @example
@@ -21,8 +23,7 @@ import capitalizeString from '../internalHelpers/_capitalizeString'
  *   'borderTopLeftRadius': '5px',
  * }
  */
-
-function borderRadius(side: string, radius: string | number): Object {
+function borderRadius(side: string, radius: string | number): Styles {
   const uppercaseSide = capitalizeString(side)
   if (!radius && radius !== 0) {
     throw new Error(

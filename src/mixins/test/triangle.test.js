@@ -14,6 +14,18 @@ describe('triangle', () => {
     }).toMatchSnapshot()
   })
 
+  it('should generate a proper triangle when passed all parameters with units on width/height', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'red',
+        backgroundColor: 'black',
+        pointingDirection: 'right',
+        height: '10em',
+        width: '20em',
+      }),
+    }).toMatchSnapshot()
+  })
+
   it('should default to a transparent background when not passed a backgroundColor', () => {
     expect({
       ...triangle({
@@ -101,9 +113,7 @@ describe('triangle', () => {
         height: 20,
         width: 10,
       })
-    }).toThrow(
-      "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-    )
+    }).toThrow("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
   })
 
   it('should throw an error when pointingDirection does not match corresponding options', () => {
@@ -115,9 +125,7 @@ describe('triangle', () => {
         width: 10,
         pointingDirection: false,
       })
-    }).toThrow(
-      "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-    )
+    }).toThrow("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.")
   })
 
   it('should throw an error when height or width is not a unit based value.', () => {
@@ -128,8 +136,6 @@ describe('triangle', () => {
         width: 'inherit',
         pointingDirection: 'bottom',
       })
-    }).toThrow(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+    }).toThrow('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   })
 })

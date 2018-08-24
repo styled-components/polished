@@ -3,7 +3,9 @@ Thank you for considering contributing to `✨ polished`. Below you will find us
 
 Is this your first Pull Request on GitHub? Learn more by reading [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
-Want to know where to start helping? Check out our [ROADMAP.md](./ROADMAP.md) or our [active issues](https://github.com/styled-components/polished/issues) for places to start.
+Want to know where you can help? Check out our [active issues](https://github.com/styled-components/polished/issues) for places to start.
+
+**Important** - Have an idea for a new module? Please file an issue first as we use these issues to gauge interest in any particular feature. The nature of `✨ polished` means we could almost include anything, so this helps us narrow our focus. If you submit a PR directly for a new feature, without a corresponding issue, that PR will be closed.
 
 Please note that this project is released with a Contributor [Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 

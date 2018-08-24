@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`size should pass parameters to the values of height and width 1`] = `
 Object {
   "height": "300px",

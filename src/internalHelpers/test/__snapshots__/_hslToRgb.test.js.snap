@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hslToRgb should convert black 1`] = `
 Object {
   "background": "rgb(102,102,102)",

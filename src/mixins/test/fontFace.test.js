@@ -60,6 +60,9 @@ describe('fontFace', () => {
         fontWeight: 'bold',
         fontVariant: 'small-caps',
         unicodeRange: 'U+26',
+        fontDisplay: 'swap',
+        fontVariationSettings: '"XHGT" 0.7',
+        fontFeatureSettings: '"smcp" on',
       }),
     }).toMatchSnapshot()
   })
@@ -78,9 +81,7 @@ describe('fontFace', () => {
       fontFace({
         fontFamily: 'Sans Pro',
       })
-    }).toThrow(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
-    )
+    }).toThrow('fontFace expects either the path to the font file(s) or a name of a local copy.')
   })
 
   it('should throw an error when localFonts is not an array', () => {

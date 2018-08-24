@@ -1,32 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ellipsis should default max-width to 100% 1`] = `
-Object {
-  "display": "inline-block",
-  "maxWidth": "100%",
-  "overflow": "hidden",
-  "textOverflow": "ellipsis",
-  "whiteSpace": "nowrap",
-  "wordWrap": "normal",
-}
+Array [
+  Object {
+    "display": "inline-block",
+    "maxWidth": "100%",
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "whiteSpace": "nowrap",
+    "wordWrap": "normal",
+  },
+  Object {
+    "display": "inline-flex",
+  },
+]
 `;
 
 exports[`ellipsis should pass parameter of type integer to the value of max-width 1`] = `
-Object {
-  "display": "inline-block",
-  "maxWidth": 300,
-  "overflow": "hidden",
-  "textOverflow": "ellipsis",
-  "whiteSpace": "nowrap",
-  "wordWrap": "normal",
-}
+Array [
+  Object {
+    "display": "inline-block",
+    "maxWidth": 300,
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "whiteSpace": "nowrap",
+    "wordWrap": "normal",
+  },
+  Object {
+    "display": "inline-flex",
+  },
+]
 `;
 
 exports[`ellipsis should pass parameter to the value of max-width 1`] = `
-Object {
-  "display": "inline-block",
-  "maxWidth": "300px",
-  "overflow": "hidden",
-  "textOverflow": "ellipsis",
-  "whiteSpace": "nowrap",
-  "wordWrap": "normal",
-}
+Array [
+  Object {
+    "display": "inline-block",
+    "maxWidth": "300px",
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "whiteSpace": "nowrap",
+    "wordWrap": "normal",
+  },
+  Object {
+    "display": "inline-flex",
+  },
+]
 `;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`hideVisually should return the CSS in JS 1`] = `
 Object {
   "border": "0",
