@@ -18,10 +18,8 @@ import hideText from './mixins/hideText'
 import hideVisually from './mixins/hideVisually'
 import hiDPI from './mixins/hiDPI'
 import normalize from './mixins/normalize'
-import placeholder from './mixins/placeholder'
 import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
-import selection from './mixins/selection'
 import timingFunctions from './mixins/timingFunctions'
 import triangle from './mixins/triangle'
 import wordWrap from './mixins/wordWrap'
@@ -110,7 +108,6 @@ export {
   padding,
   parseToHsl,
   parseToRgb,
-  placeholder,
   position,
   radialGradient,
   readableColor,
@@ -119,7 +116,6 @@ export {
   rgb,
   rgba,
   saturate,
-  selection,
   setHue,
   setLightness,
   setSaturation,

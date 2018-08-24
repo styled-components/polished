@@ -174,16 +174,6 @@
             
               
               <li><a
-                href='#placeholder'
-                class="">
-                placeholder
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
                 href='#radialgradient'
                 class="">
                 radialGradient
@@ -197,16 +187,6 @@
                 href='#retinaimage'
                 class="">
                 retinaImage
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#selection'
-                class="">
-                selection
                 
               </a>
               
@@ -1705,7 +1685,7 @@ div: {
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object basic usage</span>
 <span class="hljs-keyword">const</span> styles = {
    ...fontFace({
-     <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro'
+     <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro',
      <span class="hljs-symbol">'fontFilePath</span>': <span class="hljs-symbol">'path</span>/to/file'
    })
 }
@@ -1713,7 +1693,7 @@ div: {
 <span class="hljs-comment">// styled-components basic usage</span>
 injectGlobal`${
   fontFace({
-    <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro'
+    <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro',
     <span class="hljs-symbol">'fontFilePath</span>': <span class="hljs-symbol">'path</span>/to/file'
   }
 )}`
@@ -2161,131 +2141,6 @@ html {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='placeholder'>
-      placeholder
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>CSS to style the placeholder pseudo-element.</p>
-
-
-  <div class='pre p1 fill-light mt0'>placeholder(styles: <a href="#styles">Styles</a>, parent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styles">Styles</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="#styles">Styles</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>parent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&#39;&amp;&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#styles">Styles</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
-const styles = {
-  ...placeholder({<span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>})
-}
-
-// styled-components usage
-const div = styled.input`
-   ${placeholder({<span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>})}
-`
-
-// CSS <span class="hljs-keyword">as</span> JS Output
-
-<span class="hljs-string">'input'</span>: {
-  <span class="hljs-string">'&amp;:-moz-placeholder'</span>: {
-    <span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>,
-  },
-  <span class="hljs-string">'&amp;:-ms-input-placeholder'</span>: {
-    <span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>,
-  },
-  <span class="hljs-string">'&amp;::-moz-placeholder'</span>: {
-    <span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>,
-  },
-  <span class="hljs-string">'&amp;::-webkit-input-placeholder'</span>: {
-    <span class="hljs-string">'color'</span>: <span class="hljs-string">'blue'</span>,
-  },
-},</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='radialgradient'>
       radialGradient
     </h3>
@@ -2575,127 +2430,6 @@ a _2x.png filename suffix by default.</p>
    only screen <span class="hljs-keyword">and</span> (min-resolution: <span class="hljs-number">144</span>dpi),
    only screen <span class="hljs-keyword">and</span> (min-resolution: <span class="hljs-number">1</span>.<span class="hljs-number">5</span>dppx)': {
     backgroundImage: 'url(my-img_2x.png)',
-  }
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='selection'>
-      selection
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>CSS to style the selection pseudo-element.</p>
-
-
-  <div class='pre p1 fill-light mt0'>selection(styles: <a href="#styles">Styles</a>, parent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styles">Styles</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>styles</span> <code class='quiet'>(<a href="#styles">Styles</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>parent</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&#39;&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#styles">Styles</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
-const styles = {
-  ...selection({
-    <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>
-  }, <span class="hljs-string">'section'</span>)
-}
-
-// styled-components usage
-const div = styled.div`
-  ${selection({<span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>}, <span class="hljs-string">'section'</span>)}
-`
-
-// CSS <span class="hljs-keyword">as</span> JS Output
-
-<span class="hljs-string">'div'</span>: {
-  <span class="hljs-string">'section::-moz-selection'</span>: {
-    <span class="hljs-string">'backgroundColor'</span>:<span class="hljs-string">'blue'</span>,
-  },
-  <span class="hljs-string">'section::selection'</span>: {
-    <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'blue'</span>,
   }
 }</pre>
     

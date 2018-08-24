@@ -592,7 +592,7 @@
    * // Styles as object basic usage
    * const styles = {
    *    ...fontFace({
-   *      'fontFamily': 'Sans-Pro'
+   *      'fontFamily': 'Sans-Pro',
    *      'fontFilePath': 'path/to/file'
    *    })
    * }
@@ -600,7 +600,7 @@
    * // styled-components basic usage
    * injectGlobal`${
    *   fontFace({
-   *     'fontFamily': 'Sans-Pro'
+   *     'fontFamily': 'Sans-Pro',
    *     'fontFilePath': 'path/to/file'
    *   }
    * )}`
@@ -903,47 +903,6 @@
     }];
   }
 
-  /**
-   * CSS to style the placeholder pseudo-element.
-   *
-   * @deprecated - placeholder has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed placeholder pseudo-element.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...placeholder({'color': 'blue'})
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.input`
-   *    ${placeholder({'color': 'blue'})}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'input': {
-   *   '&:-moz-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&:-ms-input-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&::-moz-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&::-webkit-input-placeholder': {
-   *     'color': 'blue',
-   *   },
-   * },
-   */
-  function placeholder(styles) {
-    var _ref;
-
-    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '&';
-
-    return _ref = {}, _ref[parent + '::-webkit-input-placeholder'] = _extends({}, styles), _ref[parent + ':-moz-placeholder'] = _extends({}, styles), _ref[parent + '::-moz-placeholder'] = _extends({}, styles), _ref[parent + ':-ms-input-placeholder'] = _extends({}, styles), _ref;
-  }
-
   var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
 
   function parseFallback(colorStops) {
@@ -1064,43 +1023,6 @@
     }, _ref[hiDPI()] = _extends({
       backgroundImage: 'url(' + rFilename + ')'
     }, backgroundSize ? { backgroundSize: backgroundSize } : {}), _ref;
-  }
-
-  /**
-   * CSS to style the selection pseudo-element.
-   *
-   * @deprecated - selection has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed selection pseudo-element.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...selection({
-   *     'backgroundColor': 'blue'
-   *   }, 'section')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${selection({'backgroundColor': 'blue'}, 'section')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'section::-moz-selection': {
-   *     'backgroundColor':'blue',
-   *   },
-   *   'section::selection': {
-   *     'backgroundColor': 'blue',
-   *   }
-   * }
-   */
-  function selection(styles) {
-    var _ref;
-
-    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    return _ref = {}, _ref[parent + '::-moz-selection'] = _extends({}, styles), _ref[parent + '::selection'] = _extends({}, styles), _ref;
   }
 
   /* eslint-disable key-spacing */
@@ -3182,7 +3104,6 @@
   exports.padding = padding;
   exports.parseToHsl = parseToHsl;
   exports.parseToRgb = parseToRgb;
-  exports.placeholder = placeholder;
   exports.position = position;
   exports.radialGradient = radialGradient;
   exports.readableColor = curriedReadableColor;
@@ -3191,7 +3112,6 @@
   exports.rgb = rgb;
   exports.rgba = rgba;
   exports.saturate = curriedSaturate;
-  exports.selection = selection;
   exports.setHue = curriedSetHue;
   exports.setLightness = curriedSetLightness;
   exports.setSaturation = curriedSetSaturation;
