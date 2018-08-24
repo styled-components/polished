@@ -3,7 +3,7 @@ import extractUnit from '../extractUnit'
 import units from './__unitTypes__'
 
 // eslint-disable-next-line no-undef
-const performCalculations = (unit: $Values<units>) => {
+const performCalculations = (unit: $Values<typeof units>) => {
   describe(`with ${unit}`, () => {
     it(`should extract ${unit} from whole values`, () => {
       expect(extractUnit(`123${unit}`)).toBe(unit)
@@ -15,7 +15,7 @@ const performCalculations = (unit: $Values<units>) => {
 }
 
 describe('extractUnit', () => {
-  units.map(performCalculations)
+  Object.keys(units).map(performCalculations)
 
   describe('without unit', () => {
     it('should return an empty string from whole values', () => {

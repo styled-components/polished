@@ -3,7 +3,7 @@ import calc from '../calc'
 import units from './__unitTypes__'
 
 // eslint-disable-next-line no-undef
-const performCalculations = (unit: $Values<units>) => describe(unit, () => {
+const performCalculations = (unit: $Keys<typeof units>) => describe(unit, () => {
   it(`should add ${unit} values with decimals`, () => {
     const base = `12.4${unit}`
     const expected = `14.1${unit}`
@@ -32,7 +32,7 @@ const performCalculations = (unit: $Values<units>) => describe(unit, () => {
 })
 
 describe('calc', () => {
-  units.map(performCalculations)
+  Object.keys(units).map(performCalculations)
 
   describe('without unit', () => {
     it('should add values with decimals', () => {
