@@ -19,7 +19,6 @@ import type { Styles } from '../types/style'
  *
  * div: {
  *   'display': 'inline-block',
- *   'display': 'inline-flex',
  *   'maxWidth': '250px',
  *   'overflow': 'hidden',
  *   'textOverflow': 'ellipsis',
@@ -27,20 +26,15 @@ import type { Styles } from '../types/style'
  *   'wordWrap': 'normal'
  * }
  */
-function ellipsis(width?: string | number = '100%'): Array<Styles> {
-  return [
-    {
-      display: 'inline-block',
-      maxWidth: width,
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      wordWrap: 'normal',
-    },
-    {
-      display: 'inline-flex',
-    },
-  ]
+function ellipsis(width?: string | number = '100%'): Styles {
+  return {
+    display: 'inline-block',
+    maxWidth: width,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    wordWrap: 'normal',
+  }
 }
 
 export default ellipsis
