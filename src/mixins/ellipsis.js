@@ -5,11 +5,6 @@ import type { Styles } from '../types/style'
  * CSS to represent truncated text with an ellipsis.
  *
  * @example
- * // Styles as object usage
- * const styles = {
- *   ...ellipsis('250px')
- * }
- *
  * // styled-components usage
  * const div = styled.div`
  *   ${ellipsis('250px')}
