@@ -66,19 +66,18 @@
   },
   "homepage": "https://github.com/styled-components/polished#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.6",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-annotate-pure-calls": "^0.3.0",
-    "babel-plugin-external-helpers": "^6.18.0",
-    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
-    "babel-plugin-transform-flow-strip-types": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "concat-stream": "^1.5.2",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
@@ -97,8 +96,9 @@
     "prettier": "^1.14.2",
     "pushstate-server": "3.0.1",
     "ramda": "^0.25.0",
-    "rollup": "^0.64.1",
-    "rollup-plugin-babel": "^3.0.7",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^4.0.0",
     "semantic-release": "^15.9.9",
@@ -123,5 +123,8 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/polished"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0"
   }
 }
