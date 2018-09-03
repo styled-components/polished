@@ -37,7 +37,7 @@ function generateSources(
  * // Styles as object basic usage
  * const styles = {
  *    ...fontFace({
- *      'fontFamily': 'Sans-Pro'
+ *      'fontFamily': 'Sans-Pro',
  *      'fontFilePath': 'path/to/file'
  *    })
  * }
@@ -45,7 +45,7 @@ function generateSources(
  * // styled-components basic usage
  * injectGlobal`${
  *   fontFace({
- *     'fontFamily': 'Sans-Pro'
+ *     'fontFamily': 'Sans-Pro',
  *     'fontFilePath': 'path/to/file'
  *   }
  * )}`
