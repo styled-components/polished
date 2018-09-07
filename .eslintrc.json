@@ -1,16 +1,22 @@
 {
-  "extends": "airbnb-base",
+  "root": true,
+  "extends": [
+    "prettier"
+  ],
   "parser": "babel-eslint",
-    "parserOptions": {
-    "ecmaVersion": 7,
+  "parserOptions": {
+    "ecmaVersion": 9,
     "sourceType": "module",
     "ecmaFeatures": {
-      "impliedStrict": true,
-      "experimentalObjectRestSpread": true
+      "impliedStrict": true
     }
   },
+  "plugins": [
+    "prettier"
+  ],
   "env": {
     "jest": true,
+    "node": true
   },
   "rules": {
     "arrow-parens": 0,
@@ -23,10 +29,22 @@
     "no-mixed-operators": 0,
     "no-prototype-builtins": 0,
     "no-restricted-globals": 0,
-    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
-    "no-unused-vars": [2, { "varsIgnorePattern": "^_+$" }],
+    "no-restricted-syntax": [
+      "error",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "no-unused-vars": [
+      2,
+      {
+        "varsIgnorePattern": "^_+$"
+      }
+    ],
     "quote-props": 0,
-    "semi": [2, "never"],
+    "semi": [
+      2,
+      "never"
+    ],
     "space-before-function-paren": 0,
     "symbol-description": 0,
     "valid-jsdoc": 0,

@@ -1,6 +1,5 @@
 // @flow
-
-import curry from '../_curry'
+import curry from '../src/_curry'
 
 describe('curry', () => {
   it('should execute the function right now', () => {

@@ -1,5 +1,5 @@
 // @flow
-import borderRadius from '../borderRadius'
+import borderRadius from '../src/borderRadius'
 
 describe('borderRadius', () => {
   it('returns the proper values for the top side', () => {

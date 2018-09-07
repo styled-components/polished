@@ -1,5 +1,5 @@
 // @flow
-import invert from '../invert'
+import invert from '../src/invert'
 
 describe('invert', () => {
   it('should invert a reduced hex color', () => {

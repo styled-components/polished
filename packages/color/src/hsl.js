@@ -1,5 +1,5 @@
 // @flow
-import hslToHex from '../internalHelpers/_hslToHex'
+import hslToHex from './_hslToHex'
 
 import type { HslColor } from '../types/color'
 

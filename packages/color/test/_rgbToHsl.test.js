@@ -1,6 +1,6 @@
 // @flow
 
-import rgbToHsl from '../_rgbToHsl'
+import rgbToHsl from '../src/_rgbToHsl'
 
 describe('hslToHex', () => {
   it('should convert the color red', () => {

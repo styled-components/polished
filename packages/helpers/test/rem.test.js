@@ -1,5 +1,5 @@
 // @flow
-import rem from '../rem'
+import rem from '../src/rem'
 
 describe('rem', () => {
   it('should convert a simple number to rems', () => {

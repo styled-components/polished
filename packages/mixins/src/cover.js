@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../types/style'
+import type { Styles } from '../../../shared/types/style'
 
 /**
  * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".

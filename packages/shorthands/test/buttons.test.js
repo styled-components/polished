@@ -1,5 +1,5 @@
 // @flow
-import buttons from '../buttons'
+import buttons from '../src/buttons'
 
 describe('buttons', () => {
   it('populates base button selectors', () => {

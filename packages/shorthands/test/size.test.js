@@ -1,5 +1,5 @@
 // @flow
-import size from '../size'
+import size from '../src/size'
 
 describe('size', () => {
   it('should pass parameters to the values of height and width', () => {

@@ -1,5 +1,5 @@
 // @flow
-import retinaImage from '../retinaImage'
+import retinaImage from '../src/retinaImage'
 
 describe('retinaImage', () => {
   it('should throw an error if no filename is passed', () => {

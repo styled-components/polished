@@ -1,5 +1,5 @@
 // @flow
-import fluidRange from '../fluidRange'
+import fluidRange from '../src/fluidRange'
 
 describe('fluidRange', () => {
   it('should return a valid object when passed a single cssValues object and min/max screen sizes', () => {

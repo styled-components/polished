@@ -1,4 +1,5 @@
-import pxto from '../_pxto'
+// @flow
+import pxto from '../src/_pxto'
 
 describe('pxto', () => {
   let em

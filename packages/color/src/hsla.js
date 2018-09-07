@@ -1,6 +1,6 @@
 // @flow
-import hslToHex from '../internalHelpers/_hslToHex'
-import hslToRgb from '../internalHelpers/_hslToRgb'
+import hslToHex from './_hslToHex'
+import hslToRgb from './_hslToRgb'
 
 import type { HslaColor } from '../types/color'
 

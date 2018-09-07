@@ -1,5 +1,5 @@
 // @flow
-import transparentize from '../transparentize'
+import transparentize from '../src/transparentize'
 
 describe('transparentize', () => {
   it('should reduce the opacity of hex #fff by 0.1', () => {

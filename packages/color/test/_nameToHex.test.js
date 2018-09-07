@@ -1,6 +1,6 @@
 // @flow
 
-import nameToHex from '../_nameToHex'
+import nameToHex from '../src/_nameToHex'
 
 describe('nameToHex', () => {
   it('should convert a named color to a hex value', () => {

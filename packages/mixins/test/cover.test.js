@@ -1,5 +1,5 @@
 // @flow
-import cover from '../cover'
+import cover from '../src/cover'
 
 describe('cover', () => {
   it('should cover full screen when passed no parameters', () => {

@@ -1,5 +1,5 @@
 // @flow
-import curry from '../internalHelpers/_curry'
+import curry from './_curry'
 import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 

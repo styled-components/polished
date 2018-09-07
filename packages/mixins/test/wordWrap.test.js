@@ -1,5 +1,5 @@
 // @flow
-import wordWrap from '../wordWrap'
+import wordWrap from '../src/wordWrap'
 
 describe('wordWrap', () => {
   it('should accept other values', () => {

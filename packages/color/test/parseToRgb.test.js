@@ -1,4 +1,5 @@
-import parseToRgb from '../parseToRgb'
+// @flow
+import parseToRgb from '../src/parseToRgb'
 
 describe('parseToRgb', () => {
   it('should parse a hex color representation', () => {
@@ -43,6 +44,7 @@ describe('parseToRgb', () => {
 
   it('should throw an error if an invalid color string is provided', () => {
     expect(() => {
+      // $FlowFixMe
       parseToRgb(12345)
     }).toThrow(
       'Passed an incorrect argument to a color function, please pass a string representation of a color.',

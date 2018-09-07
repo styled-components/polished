@@ -1,5 +1,5 @@
 // @flow
-import toColorString from '../toColorString'
+import toColorString from '../src/toColorString'
 
 describe('toColorString', () => {
   it('should convert a RgbColor to a reduced hex string', () => {

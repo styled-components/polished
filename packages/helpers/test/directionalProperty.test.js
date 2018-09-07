@@ -1,5 +1,5 @@
 // @flow
-import directionalProperty from '../directionalProperty'
+import directionalProperty from '../src/directionalProperty'
 
 describe('directionalProperty', () => {
   it('properly generates properties when passed a hyphenated property', () => {

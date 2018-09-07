@@ -1,5 +1,5 @@
 // @flow
-import hiDPI from '../hiDPI'
+import hiDPI from '../src/hiDPI'
 
 describe('hiDPI', () => {
   it('should pass ratio to media query', () => {

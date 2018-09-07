@@ -1,5 +1,5 @@
 // @flow
-import desaturate from '../desaturate'
+import desaturate from '../src/desaturate'
 
 describe('desaturate', () => {
   it('should desaturate a reduced hex color by 10%', () => {

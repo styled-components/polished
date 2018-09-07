@@ -1,8 +1,8 @@
 // @flow
-import capitalizeString from '../internalHelpers/_capitalizeString'
+import capitalizeString from '../../../shared/src/_capitalizeString'
 
-import type { SideKeyword } from '../types/sideKeyword'
-import type { Styles } from '../types/style'
+import type { SideKeyword } from '../../../shared/types/sideKeyword'
+import type { Styles } from '../../../shared/types/style'
 
 const sideMap = ['top', 'right', 'bottom', 'left']
 

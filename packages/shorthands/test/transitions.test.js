@@ -1,4 +1,5 @@
-import transitions from '../transitions'
+// @flow
+import transitions from '../src/transitions'
 
 describe('transitions', () => {
   it('should generate a single transition from a parameter', () => {

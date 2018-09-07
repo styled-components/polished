@@ -1,5 +1,5 @@
 // @flow
-import capitalizeString from '../_capitalizeString'
+import capitalizeString from '../src/_capitalizeString'
 
 describe('capitalizeString', () => {
   it('capitalizes a string', () => {

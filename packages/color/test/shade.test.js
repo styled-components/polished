@@ -1,5 +1,5 @@
 // @flow
-import shade from '../shade'
+import shade from '../src/shade'
 
 describe('shade', () => {
   it('should shade the provided color with white by the given percentage', () => {

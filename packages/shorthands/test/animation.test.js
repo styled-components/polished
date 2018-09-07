@@ -1,5 +1,5 @@
 // @flow
-import animation from '../animation'
+import animation from '../src/animation'
 
 describe('animation', () => {
   describe('single mode', () => {

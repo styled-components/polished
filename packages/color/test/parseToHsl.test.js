@@ -1,4 +1,5 @@
-import parseToHsl from '../parseToHsl'
+// @flow
+import parseToHsl from '../src/parseToHsl'
 
 describe('parseToHsl', () => {
   it('should parse a hex color representation', () => {

@@ -1,5 +1,5 @@
 // @flow
-import rgba from '../rgba'
+import rgba from '../src/rgba'
 
 describe('rgb', () => {
   it('should convert a hex value and an alpha value to a rgba string', () => {

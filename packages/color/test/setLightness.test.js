@@ -1,5 +1,5 @@
 // @flow
-import setLightness from '../setLightness'
+import setLightness from '../src/setLightness'
 
 describe('setLightness', () => {
   it('should update the lightness and return a hex color', () => {

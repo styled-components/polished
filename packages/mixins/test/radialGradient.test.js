@@ -1,5 +1,5 @@
 // @flow
-import radialGradient from '../radialGradient'
+import radialGradient from '../src/radialGradient'
 
 describe('radialGradient', () => {
   it('returns the correct object when only passed two color stops, including parsed fallback with no percentage', () => {

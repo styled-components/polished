@@ -1,7 +1,7 @@
 // @flow
 
 import endsWith from './_endsWith'
-import stripUnit from '../helpers/stripUnit'
+import stripUnit from './stripUnit'
 
 /**
  * Factory function that creates pixel-to-x converters

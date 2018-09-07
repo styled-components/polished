@@ -1,5 +1,5 @@
 // @flow
-import getValueAndUnit from '../getValueAndUnit'
+import getValueAndUnit from '../src/getValueAndUnit'
 
 describe('getValueAndUnit', () => {
   it('should get value and px from whole values', () => {

@@ -1,5 +1,5 @@
 // @flow
-import borderWidth from '../borderWidth'
+import borderWidth from '../src/borderWidth'
 
 describe('borderWidth', () => {
   it('properly applies a value when passed only one', () => {

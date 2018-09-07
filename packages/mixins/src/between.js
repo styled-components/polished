@@ -1,5 +1,5 @@
 // @flow
-import getValueAndUnit from '../helpers/getValueAndUnit'
+import getValueAndUnit from '../../helpers/src/getValueAndUnit'
 
 /**
  * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').

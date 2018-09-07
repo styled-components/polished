@@ -1,5 +1,5 @@
 // @flow
-import timingFunctions from '../timingFunctions'
+import timingFunctions from '../src/timingFunctions'
 
 describe('timingFunctions', () => {
   it('should return easeInBack cubic-bezier', () => {

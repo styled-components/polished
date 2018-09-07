@@ -1,5 +1,5 @@
 // @flow
-import textInputs from '../textInputs'
+import textInputs from '../src/textInputs'
 
 describe('textInputs', () => {
   it('populates base text input selectors', () => {

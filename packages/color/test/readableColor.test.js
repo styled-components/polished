@@ -1,5 +1,5 @@
 // @flow
-import readableColor from '../readableColor'
+import readableColor from '../src/readableColor'
 
 describe('readableColor', () => {
   it('should return black given white hex, #fff', () => {

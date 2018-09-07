@@ -1,8 +1,8 @@
 // @flow
-import borderColor from '../shorthands/borderColor'
+import borderColor from '../../shorthands/src/borderColor'
 
-import type { SideKeyword } from '../types/sideKeyword'
-import type { Styles } from '../types/style'
+import type { SideKeyword } from '../../../shared/types/sideKeyword'
+import type { Styles } from '../../../shared/types/style'
 import type { TriangleConfiguration } from '../types/triangleConfiguration'
 
 const getBorderWidth = (

@@ -1,5 +1,5 @@
 // @flow
-import setSaturation from '../setSaturation'
+import setSaturation from '../src/setSaturation'
 
 describe('setSaturation', () => {
   it('should update the saturation of an hex color and return a hex color', () => {

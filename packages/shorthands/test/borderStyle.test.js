@@ -1,5 +1,5 @@
 // @flow
-import borderStyle from '../borderStyle'
+import borderStyle from '../src/borderStyle'
 
 describe('borderStyle', () => {
   it('properly applies a value when passed only one', () => {

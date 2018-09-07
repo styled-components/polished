@@ -1,5 +1,5 @@
 // @flow
-import lighten from '../lighten'
+import lighten from '../src/lighten'
 
 describe('lighten', () => {
   it('should lighten a color by 10%', () => {

@@ -1,5 +1,5 @@
 // @flow
-import between from '../between'
+import between from '../src/between'
 
 describe('between', () => {
   it('should return a valid calc formula when passed min/max screen sizes', () => {

@@ -1,5 +1,5 @@
 // @flow
-import adjustHue from '../adjustHue'
+import adjustHue from '../src/adjustHue'
 
 describe('adjustHue', () => {
   it('should adjustHue of a reduced hex color', () => {

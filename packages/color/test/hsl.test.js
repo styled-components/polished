@@ -1,5 +1,5 @@
 // @flow
-import hsl from '../hsl'
+import hsl from '../src/hsl'
 
 describe('hsl', () => {
   it('should convert numbers to a hex color', () => {

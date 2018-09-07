@@ -1,5 +1,5 @@
 // @flow
-import borderColor from '../borderColor'
+import borderColor from '../src/borderColor'
 
 describe('borderColor', () => {
   it('properly applies a value when passed only one', () => {

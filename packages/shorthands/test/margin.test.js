@@ -1,5 +1,5 @@
 // @flow
-import margin from '../margin'
+import margin from '../src/margin'
 
 describe('margin', () => {
   it('properly applies a value when passed only one', () => {

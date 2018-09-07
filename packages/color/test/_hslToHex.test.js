@@ -1,6 +1,6 @@
 // @flow
 
-import hslToHex from '../_hslToHex'
+import hslToHex from '../src/_hslToHex'
 
 describe('hslToHex', () => {
   it('should convert numbers to a hex color', () => {

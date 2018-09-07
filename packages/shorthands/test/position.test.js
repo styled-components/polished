@@ -1,5 +1,5 @@
 // @flow
-import position from '../position'
+import position from '../src/position'
 
 describe('position', () => {
   it('properly applies a value when passed only one', () => {

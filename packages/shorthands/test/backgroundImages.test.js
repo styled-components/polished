@@ -1,4 +1,5 @@
-import backgroundImages from '../backgroundImages'
+// @flow
+import backgroundImages from '../src/backgroundImages'
 
 describe('backgroundImages', () => {
   it('should generate a single background from a parameter', () => {

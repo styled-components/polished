@@ -1,5 +1,5 @@
 // @flow
-import hsla from '../hsla'
+import hsla from '../src/hsla'
 
 describe('hsla', () => {
   it('should convert numbers to a rgba color', () => {

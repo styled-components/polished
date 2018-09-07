@@ -1,5 +1,5 @@
 // @flow
-import ellipsis from '../ellipsis'
+import ellipsis from '../src/ellipsis'
 
 describe('ellipsis', () => {
   it('should pass parameter to the value of max-width', () => {

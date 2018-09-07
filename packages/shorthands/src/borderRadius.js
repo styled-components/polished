@@ -1,7 +1,7 @@
 // @flow
-import capitalizeString from '../internalHelpers/_capitalizeString'
+import capitalizeString from '../../../shared/src/_capitalizeString'
 
-import type { Styles } from '../types/style'
+import type { Styles } from '../../../shared/types/style'
 
 /**
  * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.

@@ -1,5 +1,5 @@
 // @flow
-import opacify from '../opacify'
+import opacify from '../src/opacify'
 
 describe('opacify', () => {
   it('should increase the opacity of hex #fff by 0.1 and still be 1', () => {

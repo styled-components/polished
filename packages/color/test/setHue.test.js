@@ -1,5 +1,5 @@
 // @flow
-import setHue from '../setHue'
+import setHue from '../src/setHue'
 
 describe('setHue', () => {
   it('should update the hue and return a hex color', () => {

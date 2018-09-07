@@ -1,5 +1,5 @@
 // @flow
-import modularScale, { ratioNames } from '../modularScale'
+import modularScale, { ratioNames } from '../src/modularScale'
 
 describe('modularScale', () => {
   it('should throw an error if no steps are provided', () => {

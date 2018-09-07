@@ -1,5 +1,5 @@
 // @flow
-import padding from '../padding'
+import padding from '../src/padding'
 
 describe('padding', () => {
   it('properly applies a value when passed only one', () => {

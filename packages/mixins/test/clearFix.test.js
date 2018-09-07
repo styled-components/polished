@@ -1,5 +1,5 @@
 // @flow
-import clearFix from '../clearFix'
+import clearFix from '../src/clearFix'
 
 describe('clearFix', () => {
   it('should pass parent to pseudo selector', () => {

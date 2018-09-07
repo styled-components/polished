@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../types/style'
+import type { Styles } from '../../../shared/types/style'
 
 /**
  * Shorthand to set the height and width properties in a single statement.

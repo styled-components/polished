@@ -1,5 +1,5 @@
 // @flow
-import fontFace from '../fontFace'
+import fontFace from '../src/fontFace'
 
 describe('fontFace', () => {
   it('should return a valid object when passed just a family and source', () => {

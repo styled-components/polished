@@ -1,5 +1,5 @@
 // @flow
-import pixelsto from '../internalHelpers/_pxto'
+import pixelsto from './_pxto'
 
 /**
  * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a

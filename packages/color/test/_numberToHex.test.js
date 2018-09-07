@@ -1,4 +1,4 @@
-import numberToHex from '../_numberToHex'
+import numberToHex from '../src/_numberToHex'
 
 describe('numberToHex', () => {
   it('should convert 0 to "00"', () => {

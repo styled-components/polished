@@ -1,5 +1,5 @@
 // @flow
-import em from '../em'
+import em from '../src/em'
 
 describe('em', () => {
   it('should convert a simple number to ems', () => {

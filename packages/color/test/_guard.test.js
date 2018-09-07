@@ -1,6 +1,6 @@
 // @flow
 
-import guard from '../_guard'
+import guard from '../src/_guard'
 
 describe('guard', () => {
   it('should return the value in case it is within the boundary', () => {

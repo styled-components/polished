@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../types/style'
+import type { Styles } from '../../../shared/types/style'
 
 /**
  * CSS to represent truncated text with an ellipsis.

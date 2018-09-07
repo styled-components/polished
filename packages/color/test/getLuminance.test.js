@@ -1,5 +1,5 @@
 // @flow
-import getLuminance from '../getLuminance'
+import getLuminance from '../src/getLuminance'
 
 describe('getLuminance', () => {
   it('should return the luminance of a hex color', () => {

@@ -1,5 +1,5 @@
 // @flow
-import stripUnit from '../stripUnit'
+import stripUnit from '../src/stripUnit'
 
 describe('stripUnit', () => {
   // Number Returns

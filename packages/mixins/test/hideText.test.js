@@ -1,5 +1,5 @@
 // @flow
-import hideText from '../hideText'
+import hideText from '../src/hideText'
 
 describe('hideText', () => {
   it('should return the CSS in JS', () => {

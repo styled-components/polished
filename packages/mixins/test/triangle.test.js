@@ -1,5 +1,5 @@
 // @flow
-import triangle from '../triangle'
+import triangle from '../src/triangle'
 
 describe('triangle', () => {
   it('should generate a proper triangle when passed all parameters', () => {

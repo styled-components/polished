@@ -1,4 +1,4 @@
-import reduceHexValue from '../_reduceHexValue'
+import reduceHexValue from '../src/_reduceHexValue'
 
 describe('reduceHexValue', () => {
   it('should reduce #ffffff to #fff', () => {

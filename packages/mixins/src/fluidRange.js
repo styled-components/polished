@@ -2,7 +2,7 @@
 import between from './between'
 
 import type { FluidRangeConfiguration } from '../types/fluidRangeConfiguration'
-import type { Styles } from '../types/style'
+import type { Styles } from '../../../shared/types/style'
 
 /**
  * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.

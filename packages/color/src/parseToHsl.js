@@ -1,6 +1,6 @@
 // @flow
 import parseToRgb from './parseToRgb'
-import rgbToHsl from '../internalHelpers/_rgbToHsl'
+import rgbToHsl from './_rgbToHsl'
 
 import type { HslColor, HslaColor } from '../types/color'
 

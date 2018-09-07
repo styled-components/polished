@@ -1,5 +1,5 @@
 // @flow
-import mix from '../mix'
+import mix from '../src/mix'
 
 describe('mix', () => {
   it('should mix two colors with by a weight of 25%', () => {

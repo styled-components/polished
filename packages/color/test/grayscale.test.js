@@ -1,5 +1,5 @@
 // @flow
-import grayscale from '../grayscale'
+import grayscale from '../src/grayscale'
 
 describe('grayscale', () => {
   it('should grayscale a reduced hex color', () => {

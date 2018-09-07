@@ -1,5 +1,5 @@
 // @flow
-import rgb from '../rgb'
+import rgb from '../src/rgb'
 
 describe('rgb', () => {
   it('should convert multiple numbers to a hex color', () => {
