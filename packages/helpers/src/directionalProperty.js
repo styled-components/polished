@@ -1,7 +1,7 @@
 // @flow
-import capitalizeString from '../../../shared/src/_capitalizeString'
+import capitalizeString from '../../_shared/src/_capitalizeString'
 
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 const positionMap = ['Top', 'Right', 'Bottom', 'Left']
 

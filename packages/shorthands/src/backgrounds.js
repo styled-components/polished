@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * Shorthand that accepts any number of background values as parameters for creating a single background statement.

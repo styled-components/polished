@@ -10,14 +10,14 @@
     "format": "make format",
     "lint": "make lint",
     "test": "make test",
-    "test:update": "make test-update",
-    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
+    "test:u": "make test-update",
+    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
-    "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
+    "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib packages/core --ignore test.js",
     "prebuild:dist": "shx rm -rf dist/*",
     "build:dist": "rollup -c",
     "build:watch": "npm-watch",
-    "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
+    "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' packages/core lib",
     "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
     "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
     "precommit": "lint-staged --debug",
@@ -26,11 +26,11 @@
     "semantic-release": "semantic-release"
   },
   "lint-staged": {
-    "src/**/!(*.test).js": [
+    "packages/**/!(*.test).js": [
       "make format",
       "git add"
     ],
-    "src/**/*.test.js": [
+    "packages/**/*.test.js": [
       "make format",
       "git add"
     ]
@@ -66,6 +66,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",

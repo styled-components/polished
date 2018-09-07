@@ -1,6 +1,6 @@
 // @flow
 import type { RadialGradientConfiguration } from '../types/radialGradientConfiguration'
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 function parseFallback(colorStops: Array<string>): string {
   return colorStops[0].split(' ')[0]

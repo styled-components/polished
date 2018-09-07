@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).

@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * Provides an easy way to change the `wordWrap` property.

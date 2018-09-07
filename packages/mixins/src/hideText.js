@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * CSS to hide text to show a background image in a SEO-friendly way.

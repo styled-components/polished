@@ -1,5 +1,5 @@
 // @flow
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * CSS to contain a float (credit to CSSMojo).

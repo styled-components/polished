@@ -1,8 +1,8 @@
 // @flow
-import capitalizeString from '../../../shared/src/_capitalizeString'
+import capitalizeString from '../../_shared/src/_capitalizeString'
 
-import type { SideKeyword } from '../../../shared/types/sideKeyword'
-import type { Styles } from '../../../shared/types/style'
+import type { SideKeyword } from '../../_shared/types/sideKeyword'
+import type { Styles } from '../../_shared/types/style'
 
 const sideMap = ['top', 'right', 'bottom', 'left']
 
@@ -48,23 +48,23 @@ const sideMap = ['top', 'right', 'bottom', 'left']
  */
 
 function border(
-  sideKeyword: SideKeyword | string | number,
-  ...values: Array<string | number>
+    sideKeyword: SideKeyword | string | number,
+    ...values: Array<string | number>
 ): Styles {
-  if (typeof sideKeyword === 'string' && sideMap.indexOf(sideKeyword) >= 0) {
-    return {
-      [`border${capitalizeString(sideKeyword)}Width`]: values[0],
-      [`border${capitalizeString(sideKeyword)}Style`]: values[1],
-      [`border${capitalizeString(sideKeyword)}Color`]: values[2],
+    if (typeof sideKeyword === 'string' && sideMap.indexOf(sideKeyword) >= 0) {
+        return {
+            [`border${capitalizeString(sideKeyword)}Width`]: values[0],
+            [`border${capitalizeString(sideKeyword)}Style`]: values[1],
+            [`border${capitalizeString(sideKeyword)}Color`]: values[2],
+        }
+    } else {
+        values.unshift(sideKeyword)
+        return {
+            borderWidth: values[0],
+            borderStyle: values[1],
+            borderColor: values[2],
+        }
     }
-  } else {
-    values.unshift(sideKeyword)
-    return {
-      borderWidth: values[0],
-      borderStyle: values[1],
-      borderColor: values[2],
-    }
-  }
 }
 
 export default border

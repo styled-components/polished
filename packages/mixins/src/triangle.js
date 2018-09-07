@@ -1,35 +1,35 @@
 // @flow
 import borderColor from '../../shorthands/src/borderColor'
 
-import type { SideKeyword } from '../../../shared/types/sideKeyword'
-import type { Styles } from '../../../shared/types/style'
+import type { SideKeyword } from '../../_shared/types/sideKeyword'
+import type { Styles } from '../../_shared/types/style'
 import type { TriangleConfiguration } from '../types/triangleConfiguration'
 
 const getBorderWidth = (
-  pointingDirection: SideKeyword,
-  height: [number, string],
-  width: [number, string],
+    pointingDirection: SideKeyword,
+    height: [number, string],
+    width: [number, string],
 ): string => {
-  switch (pointingDirection) {
-    case 'top':
-      return `0 ${width[0] / 2}${width[1]} ${height[0]}${height[1]} ${width[0]
-        / 2}${width[1]}`
-    case 'left':
-      return `${height[0] / 2}${height[1]} ${width[0]}${width[1]} ${height[0]
-        / 2}${height[1]} 0`
-    case 'bottom':
-      return `${height[0]}${height[1]} ${width[0] / 2}${width[1]} 0 ${width[0]
-        / 2}${width[1]}`
-    case 'right':
-      return `${height[0] / 2}${height[1]} 0 ${height[0] / 2}${height[1]} ${
-        width[0]
-      }${width[1]}`
+    switch (pointingDirection) {
+        case 'top':
+            return `0 ${width[0] / 2}${width[1]} ${height[0]}${height[1]} ${width[0]
+                / 2}${width[1]}`
+        case 'left':
+            return `${height[0] / 2}${height[1]} ${width[0]}${width[1]} ${height[0]
+                / 2}${height[1]} 0`
+        case 'bottom':
+            return `${height[0]}${height[1]} ${width[0] / 2}${width[1]} 0 ${width[0]
+                / 2}${width[1]}`
+        case 'right':
+            return `${height[0] / 2}${height[1]} 0 ${height[0] / 2}${height[1]} ${
+                width[0]
+                }${width[1]}`
 
-    default:
-      throw new Error(
-        "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
-      )
-  }
+        default:
+            throw new Error(
+                "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
+            )
+    }
 }
 
 // needed for border-color
@@ -63,38 +63,38 @@ const reverseDirection = ['bottom', 'left', 'top', 'right']
  * }
  */
 function triangle({
-  pointingDirection,
-  height,
-  width,
-  foregroundColor,
-  backgroundColor = 'transparent',
+    pointingDirection,
+    height,
+    width,
+    foregroundColor,
+    backgroundColor = 'transparent',
 }: TriangleConfiguration): Styles {
-  const widthAndUnit = [
-    parseFloat(width),
-    String(width).replace(/\d+/g, '') || 'px',
-  ]
-  const heightAndUnit = [
-    parseFloat(height),
-    String(height).replace(/\d+/g, '') || 'px',
-  ]
-  if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-    throw new Error(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
-  }
+    const widthAndUnit = [
+        parseFloat(width),
+        String(width).replace(/\d+/g, '') || 'px',
+    ]
+    const heightAndUnit = [
+        parseFloat(height),
+        String(height).replace(/\d+/g, '') || 'px',
+    ]
+    if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
+        throw new Error(
+            'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
+        )
+    }
 
-  const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)
-  return {
-    width: '0',
-    height: '0',
-    borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
-    borderStyle: 'solid',
-    ...borderColor(
-      ...Array.from({ length: 4 }).map(
-        (_, index) => index === reverseDirectionIndex ? foregroundColor : backgroundColor,
-      ),
-    ),
-  }
+    const reverseDirectionIndex = reverseDirection.indexOf(pointingDirection)
+    return {
+        width: '0',
+        height: '0',
+        borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
+        borderStyle: 'solid',
+        ...borderColor(
+            ...Array.from({ length: 4 }).map(
+                (_, index) => index === reverseDirectionIndex ? foregroundColor : backgroundColor,
+            ),
+        ),
+    }
 }
 
 export default triangle

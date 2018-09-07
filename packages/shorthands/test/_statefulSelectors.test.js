@@ -1,7 +1,7 @@
 // @flow
 import statefulSelectors from '../src/_statefulSelectors'
 
-const mockStateMap = [null, 'hover', 'focus']
+const mockStateMap = [null, 'active', 'hover', 'focus']
 
 function mockTemplate(pseudoSelector) {
   return `section a${pseudoSelector},

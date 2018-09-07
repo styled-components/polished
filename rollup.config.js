@@ -3,7 +3,7 @@ import babel from "rollup-plugin-babel";
 import replace from "rollup-plugin-replace";
 import { uglify } from "rollup-plugin-uglify";
 
-const input = "src/index.js";
+const input = "packages/core/index.js";
 const name = "polished";
 const babelOptions = {
   runtimeHelpers: true,

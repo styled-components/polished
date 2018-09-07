@@ -1,7 +1,7 @@
 // @flow
-import capitalizeString from '../../../shared/src/_capitalizeString'
+import capitalizeString from '../../_shared/src/_capitalizeString'
 
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
@@ -24,29 +24,29 @@ import type { Styles } from '../../../shared/types/style'
  * }
  */
 function borderRadius(side: string, radius: string | number): Styles {
-  const uppercaseSide = capitalizeString(side)
-  if (!radius && radius !== 0) {
+    const uppercaseSide = capitalizeString(side)
+    if (!radius && radius !== 0) {
+        throw new Error(
+            'borderRadius expects a radius value as a string or number as the second argument.',
+        )
+    }
+    if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
+        return {
+            [`border${uppercaseSide}RightRadius`]: radius,
+            [`border${uppercaseSide}LeftRadius`]: radius,
+        }
+    }
+
+    if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
+        return {
+            [`borderTop${uppercaseSide}Radius`]: radius,
+            [`borderBottom${uppercaseSide}Radius`]: radius,
+        }
+    }
+
     throw new Error(
-      'borderRadius expects a radius value as a string or number as the second argument.',
+        'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
     )
-  }
-  if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
-    return {
-      [`border${uppercaseSide}RightRadius`]: radius,
-      [`border${uppercaseSide}LeftRadius`]: radius,
-    }
-  }
-
-  if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
-    return {
-      [`borderTop${uppercaseSide}Radius`]: radius,
-      [`borderBottom${uppercaseSide}Radius`]: radius,
-    }
-  }
-
-  throw new Error(
-    'borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.',
-  )
 }
 
 export default borderRadius

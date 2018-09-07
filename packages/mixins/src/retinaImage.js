@@ -1,7 +1,7 @@
 // @flow
 import hiDPI from './hiDPI'
 
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 /**
  * A helper to generate a retina background image and non-retina

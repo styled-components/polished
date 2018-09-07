@@ -1,19 +1,19 @@
 # Fix color output until TravisCI fixes https://github.com/travis-ci/travis-ci/issues/7967
 export FORCE_COLOR = true
 
-SOURCES = packages shared
+SOURCE = packages
 
 flow:
-	flow check && flow-coverage-report -i "packages/**/!(*.test).js" "shared/**/!(*.test).js"
+	flow check && flow-coverage-report -i "${SOURCE}/**/!(*.test).js"
 
 lint:
-	eslint ${SOURCES}
+	eslint ${SOURCE}
 
 test:
-	jest ${SOURCES}
+	jest ${SOURCE}
 
 test-update:
-	jest ${SOURCES} -u
+	jest ${SOURCE} -u
 
 format:
-	eslint ${SOURCES} --fix
+	eslint ${SOURCE} --fix

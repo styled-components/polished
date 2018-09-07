@@ -1,6 +1,6 @@
 // @flow
 import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
-import type { Styles } from '../../../shared/types/style'
+import type { Styles } from '../../_shared/types/style'
 
 function generateFileReferences(
   fontFilePath: string,

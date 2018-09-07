@@ -3,8 +3,8 @@
 exports[`statefulSelectors populates both base selectors and selectors for a single state 1`] = `
 Object {
   "section a,
-  p a,section a::after,
-  p a::after": Object {
+  p a,section a:focus,
+  p a:focus": Object {
     "content": "hello",
   },
 }
@@ -13,8 +13,8 @@ Object {
 exports[`statefulSelectors populates both base selectors and selectors for a single state when not passed a stateMap 1`] = `
 Object {
   "section a,
-  p a,section a::after,
-  p a::after": Object {
+  p a,section a:focus,
+  p a:focus": Object {
     "content": "hello",
   },
 }
@@ -22,9 +22,9 @@ Object {
 
 exports[`statefulSelectors populates selectors for a multiple states 1`] = `
 Object {
-  "section a::before,
-  p a::before,section a::after,
-  p a::after": Object {
+  "section a:active,
+  p a:active,section a:focus,
+  p a:focus": Object {
     "content": "hello",
   },
 }
@@ -32,8 +32,8 @@ Object {
 
 exports[`statefulSelectors populates selectors for a single state 1`] = `
 Object {
-  "section a::before,
-  p a::before": Object {
+  "section a:focus,
+  p a:focus": Object {
     "content": "hello",
   },
 }
