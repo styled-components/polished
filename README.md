@@ -5,7 +5,7 @@
 
 A lightweight toolset for writing styles in JavaScript. ✨
 
-[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
+[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
 [![Backers on Open Collective](https://opencollective.com/polished/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/polished/sponsors/badge.svg)](#sponsors)
 
 ```sh
