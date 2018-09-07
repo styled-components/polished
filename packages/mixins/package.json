@@ -1,6 +1,6 @@
 {
   "name": "@polished/mixins",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0",
   "description": "A lightweight toolset for writing styles in JavaScript.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
