@@ -1,1 +1,26 @@
-{}
+{
+  "name": "@polished/mixins",
+  "version": "3.0.0-beta.0",
+  "description": "A lightweight toolset for writing styles in JavaScript.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
+  "homepage": "https://polished.js.org",
+  "license": "MIT",
+  "repository": "https: //github.com/styled-components/polished/tree/master/packages/mixins",
+  "keywords": [
+    "styled-components",
+    "polished",
+    "emotion",
+    "glamor",
+    "css-in-js",
+    "inline-styles",
+    "react",
+    "typescript",
+    "css",
+    "mixins"
+  ],
+  "bugs": {
+    "url": "https://github.com/styled-components/polished/issues"
+  }
+}

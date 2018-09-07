@@ -1,5 +1,6 @@
 {
   "name": "polished",
+  "private": true,
   "version": "3.0.0-beta.0",
   "description": "A lightweight toolset for writing styles in JavaScript.",
   "main": "lib/index.js",
@@ -85,6 +86,7 @@
     "flow-coverage-report": "^0.6.0",
     "husky": "^0.14.3",
     "jest": "^23.5.0",
+    "lerna": "^3.3.0",
     "lint-staged": "^7.2.2",
     "npm-watch": "^0.3.0",
     "prettier": "^1.14.2",
