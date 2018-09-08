@@ -15,7 +15,7 @@
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib packages/core --ignore test.js",
-    "prebuild:dist": "shx rm -rf dist/*",
+    "prebuild:dist": "shx rm -rf packages/**/dist/*",
     "build:dist": "rollup -c",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' packages/core lib",

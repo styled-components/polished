@@ -4,7 +4,7 @@ export FORCE_COLOR = true
 SOURCE = packages
 
 bootstrap:
-  npx lerna bootstrap
+	npx lerna bootstrap
 
 flow:
 	flow check && flow-coverage-report -i "${SOURCE}/**/!(*.test).js"
