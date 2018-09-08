@@ -7,7 +7,7 @@ bootstrap:
 	npx lerna bootstrap
 
 flow:
-	flow check && flow-coverage-report -i "${SOURCE}/**/!(*.test).js"
+	flow check && flow-coverage-report -i "${SOURCE}/**/!(*.test).js" -x "${SOURCE}/**/dist/*.js"
 
 lint:
 	eslint ${SOURCE}
