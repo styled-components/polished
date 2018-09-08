@@ -1,6 +1,4 @@
-# config files
-.babelrc
-.babelrc.js
+#  dotfiles
 .editorconfig
 .eslintignore
 .eslintrc
@@ -8,6 +6,7 @@
 .github
 .gitignore
 .npmignore
+.prettierrc
 .travis.yml
 
 # folders
@@ -17,11 +16,15 @@ src
 test
 flow-typed
 
-# markdown files
+# repo documentation
+CODE_OF_CONDUCT.md
+CODEOWNERS
 CONTRIBUTING.md
 
 # misc.
 lerna.json
+Makefile
 rollup.config.js
 travis_after_all.py
+typescript-test.ts
 yarn.lock
