@@ -1,10 +1,7 @@
 {
-  "name": "@polished/core",
+  "name": "polished",
   "version": "3.0.0",
   "description": "A lightweight toolset for writing styles in JavaScript.",
-  "main": "lib/index.js",
-  "module": "dist/polished.es.js",
-  "types": "lib/index.d.ts",
   "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
   "homepage": "https://polished.js.org",
   "license": "MIT",
@@ -12,6 +9,9 @@
     "type": "git",
     "url": "git+https://github.com/styled-components/polished.git"
   },
+  "main": "lib/index.js",
+  "module": "dist/polished.es.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "styled-components",
     "polished",
