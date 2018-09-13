@@ -19,9 +19,9 @@ const hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3}
  *
  * @example
  * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
- * const color1 = 'rgb(255, 0, 0)';
+ * const color1 = parseToRgb('rgb(255, 0, 0)');
  * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
- * const color2 = 'hsla(210, 10%, 40%, 0.75)';
+ * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
   if (typeof color !== 'string') {
