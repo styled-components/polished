@@ -5,8 +5,9 @@
 
 A lightweight toolset for writing styles in JavaScript. ✨
 
-[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished) [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished) [![Dependency Status](https://david-dm.org/styled-components/polished/status.svg)](https://david-dm.org/styled-components/polished) [![Supported by Thinkmill](https://thinkmill.github.io/badge/heart.svg)](http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=polished)
-[![Backers on Open Collective](https://opencollective.com/polished/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/polished/sponsors/badge.svg)](#sponsors)
+[![Build Status](https://travis-ci.org/styled-components/polished.svg?branch=master)](https://travis-ci.org/styled-components/polished)
+[![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished)
+[![Github All Releases](https://img.shields.io/npm/dm/polished.svg)](https://npmcharts.com/compare/polished)
 
 ```sh
 npm install --save polished
