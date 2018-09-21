@@ -14,26 +14,29 @@
   function generateProperty(property, position) {
     if (!property) return position.toLowerCase();
     var splitProperty = property.split('-');
+
     if (splitProperty.length > 1) {
       splitProperty.splice(1, 0, position);
       return splitProperty.reduce(function (acc, val) {
-        return '' + acc + capitalizeString(val);
+        return "" + acc + capitalizeString(val);
       });
     }
-    var joinedProperty = property.replace(/([a-z])([A-Z])/g, '$1' + position + '$2');
-    return property === joinedProperty ? '' + property + position : joinedProperty;
+
+    var joinedProperty = property.replace(/([a-z])([A-Z])/g, "$1" + position + "$2");
+    return property === joinedProperty ? "" + property + position : joinedProperty;
   }
 
   function generateStyles(property, valuesWithDefaults) {
     var styles = {};
+
     for (var i = 0; i < valuesWithDefaults.length; i += 1) {
       if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
         styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
       }
     }
+
     return styles;
   }
-
   /**
    * Enables shorthand for direction-based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
    * @example
@@ -56,20 +59,21 @@
    *   'paddingLeft': '48px'
    * }
    */
+
+
   function directionalProperty(property) {
-    for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
     }
 
     //  prettier-ignore
     var firstValue = values[0],
         _values$ = values[1],
-        secondValue = _values$ === undefined ? firstValue : _values$,
+        secondValue = _values$ === void 0 ? firstValue : _values$,
         _values$2 = values[2],
-        thirdValue = _values$2 === undefined ? firstValue : _values$2,
+        thirdValue = _values$2 === void 0 ? firstValue : _values$2,
         _values$3 = values[3],
-        fourthValue = _values$3 === undefined ? secondValue : _values$3;
-
+        fourthValue = _values$3 === void 0 ? secondValue : _values$3;
     var valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue];
     return generateStyles(property, valuesWithDefaults);
   }
@@ -108,35 +112,41 @@
    * Factory function that creates pixel-to-x converters
    * @private
    */
+
   var pxtoFactory = function pxtoFactory(to) {
-    return function (pxval) {
-      var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '16px';
+    return function (pxval, base) {
+      if (base === void 0) {
+        base = '16px';
+      }
 
       var newPxval = pxval;
       var newBase = base;
+
       if (typeof pxval === 'string') {
         if (!endsWith(pxval, 'px')) {
-          throw new Error('Expected a string ending in "px" or a number passed as the first argument to ' + to + '(), got "' + pxval + '" instead.');
+          throw new Error("Expected a string ending in \"px\" or a number passed as the first argument to " + to + "(), got \"" + pxval + "\" instead.");
         }
+
         newPxval = stripUnit(pxval);
       }
 
       if (typeof base === 'string') {
         if (!endsWith(base, 'px')) {
-          throw new Error('Expected a string ending in "px" or a number passed as the second argument to ' + to + '(), got "' + base + '" instead.');
+          throw new Error("Expected a string ending in \"px\" or a number passed as the second argument to " + to + "(), got \"" + base + "\" instead.");
         }
+
         newBase = stripUnit(base);
       }
 
       if (typeof newPxval === 'string') {
-        throw new Error('Passed invalid pixel value ("' + pxval + '") to ' + to + '(), please pass a value like "12px" or 12.');
+        throw new Error("Passed invalid pixel value (\"" + pxval + "\") to " + to + "(), please pass a value like \"12px\" or 12.");
       }
 
       if (typeof newBase === 'string') {
-        throw new Error('Passed invalid base value ("' + base + '") to ' + to + '(), please pass a value like "12px" or 12.');
+        throw new Error("Passed invalid base value (\"" + base + "\") to " + to + "(), please pass a value like \"12px\" or 12.");
       }
 
-      return '' + newPxval / newBase + to;
+      return "" + newPxval / newBase + to;
     };
   };
 
@@ -163,10 +173,12 @@
    *   'height': '1em'
    * }
    */
-  var em = /*#__PURE__*/pxtoFactory('em');
+
+  var em =
+  /*#__PURE__*/
+  pxtoFactory('em');
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
-
   /**
    * Returns a given CSS value and its unit as elements of an array.
    *
@@ -190,6 +202,7 @@
    *   '--unit': 'px'
    * }
    */
+
   function getValueAndUnit(value) {
     if (typeof value !== 'string') return [value, ''];
     var matchedValue = value.match(cssRegex);
@@ -220,7 +233,6 @@
   function getRatio(ratioName) {
     return ratioNames[ratioName];
   }
-
   /**
    * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
    * @example
@@ -242,13 +254,21 @@
    *   'fontSize': '1.77689em'
    * }
    */
-  function modularScale(steps) {
-    var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1em';
-    var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'perfectFourth';
+
+
+  function modularScale(steps, base, ratio) {
+    if (base === void 0) {
+      base = '1em';
+    }
+
+    if (ratio === void 0) {
+      ratio = 'perfectFourth';
+    }
 
     if (typeof steps !== 'number') {
       throw new Error('Please provide a number of steps to the modularScale helper.');
     }
+
     if (typeof ratio === 'string' && !ratioNames[ratio]) {
       throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.');
     }
@@ -257,10 +277,10 @@
     var realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio;
 
     if (typeof realBase === 'string') {
-      throw new Error('Invalid value passed as base to modularScale, expected number or em string but got "' + base + '"');
+      throw new Error("Invalid value passed as base to modularScale, expected number or em string but got \"" + base + "\"");
     }
 
-    return realBase * Math.pow(realRatio, steps) + 'em';
+    return realBase * Math.pow(realRatio, steps) + "em";
   }
 
   /**
@@ -286,7 +306,10 @@
    *   'height': '1rem'
    * }
    */
-  var rem = /*#__PURE__*/pxtoFactory('rem');
+
+  var rem =
+  /*#__PURE__*/
+  pxtoFactory('rem');
 
   /**
    * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
@@ -311,9 +334,15 @@
    *   'fontSize': 'calc(-9.090909090909093px + 9.090909090909092vw)'
    * }
    */
-  function between(fromSize, toSize) {
-    var minScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '320px';
-    var maxScreen = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '1200px';
+
+  function between(fromSize, toSize, minScreen, maxScreen) {
+    if (minScreen === void 0) {
+      minScreen = '320px';
+    }
+
+    if (maxScreen === void 0) {
+      maxScreen = '1200px';
+    }
 
     var _getValueAndUnit = getValueAndUnit(fromSize),
         unitlessFromSize = _getValueAndUnit[0],
@@ -341,7 +370,7 @@
 
     var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
     var base = unitlessToSize - slope * unitlessMaxScreen;
-    return 'calc(' + base.toFixed(2) + fromSizeUnit + ' + ' + (100 * slope).toFixed(2) + 'vw)';
+    return "calc(" + base.toFixed(2) + fromSizeUnit + " + " + (100 * slope).toFixed(2) + "vw)";
   }
 
   /**
@@ -366,12 +395,14 @@
    *   'display': 'table'
    * }
    */
-  function clearFix() {
+  function clearFix(parent) {
     var _ref;
 
-    var parent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '&';
+    if (parent === void 0) {
+      parent = '&';
+    }
 
-    var pseudoSelector = parent + '::after';
+    var pseudoSelector = parent + "::after";
     return _ref = {}, _ref[pseudoSelector] = {
       clear: 'both',
       content: '""',
@@ -403,8 +434,10 @@
    *   'left: '0'
    * }
    */
-  function cover() {
-    var offset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  function cover(offset) {
+    if (offset === void 0) {
+      offset = 0;
+    }
 
     return {
       position: 'absolute',
@@ -440,8 +473,10 @@
    *   'wordWrap': 'normal'
    * }
    */
-  function ellipsis() {
-    var width = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '100%';
+  function ellipsis(width) {
+    if (width === void 0) {
+      width = '100%';
+    }
 
     return {
       display: 'inline-block',
@@ -453,24 +488,23 @@
     };
   }
 
-  var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
         }
       }
-    }
 
-    return target;
-  };
+      return target;
+    };
 
-  var taggedTemplateLiteralLoose = function (strings, raw) {
-    strings.raw = raw;
-    return strings;
-  };
+    return _extends.apply(this, arguments);
+  }
 
   /**
    * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
@@ -514,9 +548,14 @@
    *   "padding": "20px",
    * }
    */
-  function fluidRange(cssProp) {
-    var minScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '320px';
-    var maxScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1200px';
+  function fluidRange(cssProp, minScreen, maxScreen) {
+    if (minScreen === void 0) {
+      minScreen = '320px';
+    }
+
+    if (maxScreen === void 0) {
+      maxScreen = '1200px';
+    }
 
     if (!Array.isArray(cssProp) && typeof cssProp !== 'object' || cssProp === null) {
       throw new Error('expects either an array of objects or a single object with the properties prop, fromSize, and toSize.');
@@ -525,8 +564,9 @@
     if (Array.isArray(cssProp)) {
       var mediaQueries = {};
       var fallbacks = {};
+
       for (var _iterator = cssProp, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-        var _babelHelpers$extends, _babelHelpers$extends2;
+        var _extends2, _extends3;
 
         var _ref;
 
@@ -546,8 +586,8 @@
         }
 
         fallbacks[obj.prop] = obj.fromSize;
-        mediaQueries['@media (min-width: ' + minScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + minScreen + ')'], (_babelHelpers$extends = {}, _babelHelpers$extends[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _babelHelpers$extends));
-        mediaQueries['@media (min-width: ' + maxScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + maxScreen + ')'], (_babelHelpers$extends2 = {}, _babelHelpers$extends2[obj.prop] = obj.toSize, _babelHelpers$extends2));
+        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
+        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
       }
 
       return _extends({}, fallbacks, mediaQueries);
@@ -558,20 +598,20 @@
         throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.');
       }
 
-      return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4['@media (min-width: ' + minScreen + ')'] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4['@media (min-width: ' + maxScreen + ')'] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
+      return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4["@media (min-width: " + minScreen + ")"] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4["@media (min-width: " + maxScreen + ")"] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
     }
   }
 
   function generateFileReferences(fontFilePath, fileFormats) {
     var fileFontReferences = fileFormats.map(function (format) {
-      return 'url("' + fontFilePath + '.' + format + '")';
+      return "url(\"" + fontFilePath + "." + format + "\")";
     });
     return fileFontReferences.join(', ');
   }
 
   function generateLocalReferences(localFonts) {
     var localFontReferences = localFonts.map(function (font) {
-      return 'local("' + font + '")';
+      return "local(\"" + font + "\")";
     });
     return localFontReferences.join(', ');
   }
@@ -579,12 +619,13 @@
   function generateSources(fontFilePath, localFonts, fileFormats) {
     var fontReferences = [];
     if (localFonts) fontReferences.push(generateLocalReferences(localFonts));
+
     if (fontFilePath) {
       fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
     }
+
     return fontReferences.join(', ');
   }
-
   /**
    * CSS for a @font-face declaration.
    *
@@ -612,6 +653,8 @@
    *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
    * }
    */
+
+
   function fontFace(_ref) {
     var fontFamily = _ref.fontFamily,
         fontFilePath = _ref.fontFilePath,
@@ -620,21 +663,23 @@
         fontVariant = _ref.fontVariant,
         fontWeight = _ref.fontWeight,
         _ref$fileFormats = _ref.fileFormats,
-        fileFormats = _ref$fileFormats === undefined ? ['eot', 'woff2', 'woff', 'ttf', 'svg'] : _ref$fileFormats,
+        fileFormats = _ref$fileFormats === void 0 ? ['eot', 'woff2', 'woff', 'ttf', 'svg'] : _ref$fileFormats,
         localFonts = _ref.localFonts,
         unicodeRange = _ref.unicodeRange,
         fontDisplay = _ref.fontDisplay,
         fontVariationSettings = _ref.fontVariationSettings,
         fontFeatureSettings = _ref.fontFeatureSettings;
-
     // Error Handling
     if (!fontFamily) throw new Error('fontFace expects a name of a font-family.');
+
     if (!fontFilePath && !localFonts) {
       throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
     }
+
     if (localFonts && !Array.isArray(localFonts)) {
       throw new Error('fontFace expects localFonts to be an array.');
     }
+
     if (!Array.isArray(fileFormats)) {
       throw new Error('fontFace expects fileFormats to be an array.');
     }
@@ -651,10 +696,10 @@
         fontDisplay: fontDisplay,
         fontVariationSettings: fontVariationSettings,
         fontFeatureSettings: fontFeatureSettings
-      }
+      } // Removes undefined fields for cleaner css object.
 
-      // Removes undefined fields for cleaner css object.
-    };return JSON.parse(JSON.stringify(fontFaceDeclaration));
+    };
+    return JSON.parse(JSON.stringify(fontFaceDeclaration));
   }
 
   /**
@@ -682,7 +727,6 @@
    *   'whiteSpace': 'nowrap',
    * }
    */
-
   function hideText() {
     return {
       textIndent: '101%',
@@ -764,9 +808,10 @@
    *   'width': '200px',
    * }
    */
-
-  function hiDPI() {
-    var ratio = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1.3;
+  function hiDPI(ratio) {
+    if (ratio === void 0) {
+      ratio = 1.3;
+    }
 
     return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
   }
@@ -798,44 +843,37 @@
         lineHeight: '1.15',
         textSizeAdjust: '100%'
       },
-
       body: {
         margin: '0'
       },
-
       h1: {
         fontSize: '2em',
         margin: '0.67em 0'
       },
-
       hr: {
         boxSizing: 'content-box',
         height: '0',
         overflow: 'visible'
       },
-
       pre: {
         fontFamily: 'monospace, monospace',
         fontSize: '1em'
       },
-
       a: {
         'background-color': 'transparent'
       },
-
       'abbr[title]': {
         borderBottom: 'none',
         textDecoration: 'underline'
       }
-
-    }, _ref['b,\n    strong'] = {
+    }, _ref["b,\n    strong"] = {
       fontWeight: 'bolder'
-    }, _ref['code,\n    kbd,\n    samp'] = {
+    }, _ref["code,\n    kbd,\n    samp"] = {
       fontFamily: 'monospace, monospace',
       fontSize: '1em'
     }, _ref.small = {
       fontSize: '80%'
-    }, _ref['sub,\n    sup'] = {
+    }, _ref["sub,\n    sup"] = {
       fontSize: '75%',
       lineHeight: '0',
       position: 'relative',
@@ -846,21 +884,21 @@
       top: '-0.5em'
     }, _ref.img = {
       borderStyle: 'none'
-    }, _ref['button,\n    input,\n    optgroup,\n    select,\n    textarea'] = {
+    }, _ref["button,\n    input,\n    optgroup,\n    select,\n    textarea"] = {
       fontFamily: 'inherit',
       fontSize: '100%',
       lineHeight: '1.15',
       margin: '0'
-    }, _ref['button,\n    input'] = {
+    }, _ref["button,\n    input"] = {
       overflow: 'visible'
-    }, _ref['button,\n    select'] = {
+    }, _ref["button,\n    select"] = {
       textTransform: 'none'
-    }, _ref['button,\n    html [type="button"],\n    [type="reset"],\n    [type="submit"]'] = {
+    }, _ref["button,\n    html [type=\"button\"],\n    [type=\"reset\"],\n    [type=\"submit\"]"] = {
       WebkitAppearance: 'button'
-    }, _ref['button::-moz-focus-inner,\n    [type="button"]::-moz-focus-inner,\n    [type="reset"]::-moz-focus-inner,\n    [type="submit"]::-moz-focus-inner'] = {
+    }, _ref["button::-moz-focus-inner,\n    [type=\"button\"]::-moz-focus-inner,\n    [type=\"reset\"]::-moz-focus-inner,\n    [type=\"submit\"]::-moz-focus-inner"] = {
       borderStyle: 'none',
       padding: '0'
-    }, _ref['button:-moz-focusring,\n    [type="button"]:-moz-focusring,\n    [type="reset"]:-moz-focusring,\n    [type="submit"]:-moz-focusring'] = {
+    }, _ref["button:-moz-focusring,\n    [type=\"button\"]:-moz-focusring,\n    [type=\"reset\"]:-moz-focusring,\n    [type=\"submit\"]:-moz-focusring"] = {
       outline: '1px dotted ButtonText'
     }, _ref.fieldset = {
       padding: '0.35em 0.625em 0.75em'
@@ -875,10 +913,10 @@
       verticalAlign: 'baseline'
     }, _ref.textarea = {
       overflow: 'auto'
-    }, _ref['[type="checkbox"],\n    [type="radio"]'] = {
+    }, _ref["[type=\"checkbox\"],\n    [type=\"radio\"]"] = {
       boxSizing: 'border-box',
       padding: '0'
-    }, _ref['[type="number"]::-webkit-inner-spin-button,\n    [type="number"]::-webkit-outer-spin-button'] = {
+    }, _ref["[type=\"number\"]::-webkit-inner-spin-button,\n    [type=\"number\"]::-webkit-outer-spin-button"] = {
       height: 'auto'
     }, _ref['[type="search"]'] = {
       WebkitAppearance: 'textfield',
@@ -936,15 +974,34 @@
    *   },
    * },
    */
-  function placeholder(styles) {
+  function placeholder(styles, parent) {
     var _ref;
 
-    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '&';
+    if (parent === void 0) {
+      parent = '&';
+    }
 
-    return _ref = {}, _ref[parent + '::-webkit-input-placeholder'] = _extends({}, styles), _ref[parent + ':-moz-placeholder'] = _extends({}, styles), _ref[parent + '::-moz-placeholder'] = _extends({}, styles), _ref[parent + ':-ms-input-placeholder'] = _extends({}, styles), _ref;
+    return _ref = {}, _ref[parent + "::-webkit-input-placeholder"] = _extends({}, styles), _ref[parent + ":-moz-placeholder"] = _extends({}, styles), _ref[parent + "::-moz-placeholder"] = _extends({}, styles), _ref[parent + ":-ms-input-placeholder"] = _extends({}, styles), _ref;
   }
 
-  var _templateObject = /*#__PURE__*/ taggedTemplateLiteralLoose(['radial-gradient(', '', '', '', ')'], ['radial-gradient(', '', '', '', ')']);
+  function _taggedTemplateLiteralLoose(strings, raw) {
+    if (!raw) {
+      raw = strings.slice(0);
+    }
+
+    strings.raw = raw;
+    return strings;
+  }
+
+  function _templateObject() {
+    var data = _taggedTemplateLiteralLoose(["radial-gradient(", "", "", "", ")"]);
+
+    _templateObject = function _templateObject() {
+      return data;
+    };
+
+    return data;
+  }
 
   function parseFallback(colorStops) {
     return colorStops[0].split(' ')[0];
@@ -952,23 +1009,22 @@
 
   function constructGradientValue(literals) {
     var template = '';
+
     for (var i = 0; i < literals.length; i += 1) {
-      template += literals[i];
-      // Adds leading coma if properties preceed color-stops
-      if (i === 3 && (arguments.length <= i + 1 ? undefined : arguments[i + 1]) && ((arguments.length <= 1 ? undefined : arguments[1]) || (arguments.length <= 2 ? undefined : arguments[2]) || (arguments.length <= 3 ? undefined : arguments[3]))) {
+      template += literals[i]; // Adds leading coma if properties preceed color-stops
+
+      if (i === 3 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && ((arguments.length <= 1 ? undefined : arguments[1]) || (arguments.length <= 2 ? undefined : arguments[2]) || (arguments.length <= 3 ? undefined : arguments[3]))) {
         template = template.slice(0, -1);
-        template += ', ' + (arguments.length <= i + 1 ? undefined : arguments[i + 1]);
-        // No trailing space if color-stops is the only param provided
-      } else if (i === 3 && (arguments.length <= i + 1 ? undefined : arguments[i + 1]) && !(arguments.length <= 1 ? undefined : arguments[1]) && !(arguments.length <= 2 ? undefined : arguments[2]) && !(arguments.length <= 3 ? undefined : arguments[3])) {
-        template += '' + (arguments.length <= i + 1 ? undefined : arguments[i + 1]);
-        // Only adds substitution if it is defined
-      } else if (arguments.length <= i + 1 ? undefined : arguments[i + 1]) {
-        template += (arguments.length <= i + 1 ? undefined : arguments[i + 1]) + ' ';
+        template += ", " + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // No trailing space if color-stops is the only param provided
+      } else if (i === 3 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && !(arguments.length <= 1 ? undefined : arguments[1]) && !(arguments.length <= 2 ? undefined : arguments[2]) && !(arguments.length <= 3 ? undefined : arguments[3])) {
+        template += "" + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // Only adds substitution if it is defined
+      } else if (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) {
+        template += (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) + " ";
       }
     }
+
     return template.trim();
   }
-
   /**
    * CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
    *
@@ -1000,6 +1056,8 @@
    *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
    * }
    */
+
+
   function radialGradient(_ref) {
     var colorStops = _ref.colorStops,
         extent = _ref.extent,
@@ -1010,9 +1068,10 @@
     if (!colorStops || colorStops.length < 2) {
       throw new Error('radialGradient requries at least 2 color-stops to properly render.');
     }
+
     return {
       backgroundColor: fallback || parseFallback(colorStops),
-      backgroundImage: constructGradientValue(_templateObject, position, shape, extent, colorStops.join(', '))
+      backgroundImage: constructGradientValue(_templateObject(), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -1044,26 +1103,31 @@
    *   }
    * }
    */
-  function retinaImage(filename, backgroundSize) {
-    var extension = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'png';
-
+  function retinaImage(filename, backgroundSize, extension, retinaFilename, retinaSuffix) {
     var _ref;
 
-    var retinaFilename = arguments[3];
-    var retinaSuffix = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '_2x';
+    if (extension === void 0) {
+      extension = 'png';
+    }
+
+    if (retinaSuffix === void 0) {
+      retinaSuffix = '_2x';
+    }
 
     if (!filename) {
       throw new Error('Please supply a filename to retinaImage() as the first argument.');
-    }
-    // Replace the dot at the beginning of the passed extension if one exists
-    var ext = extension.replace(/^\./, '');
-    var rFilename = retinaFilename ? retinaFilename + '.' + ext : '' + filename + retinaSuffix + '.' + ext;
+    } // Replace the dot at the beginning of the passed extension if one exists
 
+
+    var ext = extension.replace(/^\./, '');
+    var rFilename = retinaFilename ? retinaFilename + "." + ext : "" + filename + retinaSuffix + "." + ext;
     return _ref = {
-      backgroundImage: 'url(' + filename + '.' + ext + ')'
+      backgroundImage: "url(" + filename + "." + ext + ")"
     }, _ref[hiDPI()] = _extends({
-      backgroundImage: 'url(' + rFilename + ')'
-    }, backgroundSize ? { backgroundSize: backgroundSize } : {}), _ref;
+      backgroundImage: "url(" + rFilename + ")"
+    }, backgroundSize ? {
+      backgroundSize: backgroundSize
+    } : {}), _ref;
   }
 
   /**
@@ -1095,12 +1159,14 @@
    *   }
    * }
    */
-  function selection(styles) {
+  function selection(styles, parent) {
     var _ref;
 
-    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    if (parent === void 0) {
+      parent = '';
+    }
 
-    return _ref = {}, _ref[parent + '::-moz-selection'] = _extends({}, styles), _ref[parent + '::selection'] = _extends({}, styles), _ref;
+    return _ref = {}, _ref[parent + "::-moz-selection"] = _extends({}, styles), _ref[parent + "::selection"] = _extends({}, styles), _ref;
   }
 
   /* eslint-disable key-spacing */
@@ -1113,7 +1179,6 @@
     easeInQuart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
     easeInQuint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
     easeInSine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
-
     easeOutBack: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
     easeOutCubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
     easeOutCirc: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
@@ -1122,7 +1187,6 @@
     easeOutQuart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
     easeOutQuint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
     easeOutSine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
-
     easeInOutBack: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
     easeInOutCirc: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
     easeInOutCubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
@@ -1134,10 +1198,10 @@
     /* eslint-enable key-spacing */
 
   };
+
   function getTimingFunction(functionName) {
     return functionsMap[functionName];
   }
-
   /**
    * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
    *
@@ -1158,6 +1222,7 @@
    *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
    * }
    */
+
 
   function timingFunctions(timingFunction) {
     return getTimingFunction(timingFunction);
@@ -1186,32 +1251,34 @@
    * }
    */
   function borderColor() {
-    for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
     }
 
-    return directionalProperty.apply(undefined, ['borderColor'].concat(values));
+    return directionalProperty.apply(void 0, ['borderColor'].concat(values));
   }
 
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
     switch (pointingDirection) {
       case 'top':
-        return '0 ' + width[0] / 2 + width[1] + ' ' + height[0] + height[1] + ' ' + width[0] / 2 + width[1];
+        return "0 " + width[0] / 2 + width[1] + " " + height[0] + height[1] + " " + width[0] / 2 + width[1];
+
       case 'left':
-        return '' + height[0] / 2 + height[1] + ' ' + width[0] + width[1] + ' ' + height[0] / 2 + height[1] + ' 0';
+        return "" + height[0] / 2 + height[1] + " " + width[0] + width[1] + " " + height[0] / 2 + height[1] + " 0";
+
       case 'bottom':
-        return '' + height[0] + height[1] + ' ' + width[0] / 2 + width[1] + ' 0 ' + width[0] / 2 + width[1];
+        return "" + height[0] + height[1] + " " + width[0] / 2 + width[1] + " 0 " + width[0] / 2 + width[1];
+
       case 'right':
-        return '' + height[0] / 2 + height[1] + ' 0 ' + height[0] / 2 + height[1] + ' ' + width[0] + width[1];
+        return "" + height[0] / 2 + height[1] + " 0 " + height[0] / 2 + height[1] + " " + width[0] + width[1];
 
       default:
         throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.");
     }
-  };
+  }; // needed for border-color
 
-  // needed for border-color
+
   var reverseDirection = ['bottom', 'left', 'top', 'right'];
-
   /**
    * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
    *
@@ -1239,16 +1306,17 @@
    *  'width': '0',
    * }
    */
+
   function triangle(_ref) {
     var pointingDirection = _ref.pointingDirection,
         height = _ref.height,
         width = _ref.width,
         foregroundColor = _ref.foregroundColor,
         _ref$backgroundColor = _ref.backgroundColor,
-        backgroundColor = _ref$backgroundColor === undefined ? 'transparent' : _ref$backgroundColor;
-
+        backgroundColor = _ref$backgroundColor === void 0 ? 'transparent' : _ref$backgroundColor;
     var widthAndUnit = [parseFloat(width), String(width).replace(/\d+/g, '') || 'px'];
     var heightAndUnit = [parseFloat(height), String(height).replace(/\d+/g, '') || 'px'];
+
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
       throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit');
     }
@@ -1259,7 +1327,9 @@
       height: '0',
       borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
       borderStyle: 'solid'
-    }, borderColor.apply(undefined, Array.from({ length: 4 }).map(function (_, index) {
+    }, borderColor.apply(void 0, Array.from({
+      length: 4
+    }).map(function (_, index) {
       return index === reverseDirectionIndex ? foregroundColor : backgroundColor;
     })));
   }
@@ -1286,8 +1356,10 @@
    *   wordBreak: 'break-all',
    * }
    */
-  function wordWrap() {
-    var wrap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'break-word';
+  function wordWrap(wrap) {
+    if (wrap === void 0) {
+      wrap = 'break-word';
+    }
 
     var wordBreak = wrap === 'break-word' ? 'break-all' : wrap;
     return {
@@ -1305,19 +1377,20 @@
     return colorToInt(red) + "," + colorToInt(green) + "," + colorToInt(blue);
   }
 
-  function hslToRgb(hue, saturation, lightness) {
-    var convert = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : convertToInt;
+  function hslToRgb(hue, saturation, lightness, convert) {
+    if (convert === void 0) {
+      convert = convertToInt;
+    }
 
     if (saturation === 0) {
       // achromatic
       return convert(lightness, lightness, lightness);
-    }
+    } // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
 
-    // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
+
     var huePrime = hue % 360 / 60;
     var chroma = (1 - Math.abs(2 * lightness - 1)) * saturation;
     var secondComponent = chroma * (1 - Math.abs(huePrime % 2 - 1));
-
     var red = 0;
     var green = 0;
     var blue = 0;
@@ -1498,15 +1571,17 @@
     whitesmoke: 'f5f5f5',
     yellow: 'ff0',
     yellowgreen: '9acd32'
-
     /**
      * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
      * @private
      */
-  };function nameToHex(color) {
+
+  };
+
+  function nameToHex(color) {
     if (typeof color !== 'string') return color;
     var normalizedColorName = color.toLowerCase();
-    return namedColorMap[normalizedColorName] ? '#' + namedColorMap[normalizedColorName] : color;
+    return namedColorMap[normalizedColorName] ? "#" + namedColorMap[normalizedColorName] : color;
   }
 
   var hexRegex = /^#[a-fA-F0-9]{6}$/;
@@ -1517,7 +1592,6 @@
   var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
   var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
   var hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
-
   /**
    * Returns an RgbColor or RgbaColor object. This utility function is only useful
    * if want to extract a color component. With the color util `toColorString` you
@@ -1529,93 +1603,117 @@
    * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
    * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
    */
+
   function parseToRgb(color) {
     if (typeof color !== 'string') {
       throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
     }
+
     var normalizedColor = nameToHex(color);
+
     if (normalizedColor.match(hexRegex)) {
       return {
-        red: parseInt('' + normalizedColor[1] + normalizedColor[2], 16),
-        green: parseInt('' + normalizedColor[3] + normalizedColor[4], 16),
-        blue: parseInt('' + normalizedColor[5] + normalizedColor[6], 16)
+        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
+        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
+        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16)
       };
     }
+
     if (normalizedColor.match(hexRgbaRegex)) {
-      var alpha = parseFloat((parseInt('' + normalizedColor[7] + normalizedColor[8], 16) / 255).toFixed(2));
+      var alpha = parseFloat((parseInt("" + normalizedColor[7] + normalizedColor[8], 16) / 255).toFixed(2));
       return {
-        red: parseInt('' + normalizedColor[1] + normalizedColor[2], 16),
-        green: parseInt('' + normalizedColor[3] + normalizedColor[4], 16),
-        blue: parseInt('' + normalizedColor[5] + normalizedColor[6], 16),
+        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
+        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
+        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16),
         alpha: alpha
       };
     }
+
     if (normalizedColor.match(reducedHexRegex)) {
       return {
-        red: parseInt('' + normalizedColor[1] + normalizedColor[1], 16),
-        green: parseInt('' + normalizedColor[2] + normalizedColor[2], 16),
-        blue: parseInt('' + normalizedColor[3] + normalizedColor[3], 16)
+        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
+        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
+        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16)
       };
     }
+
     if (normalizedColor.match(reducedRgbaHexRegex)) {
-      var _alpha = parseFloat((parseInt('' + normalizedColor[4] + normalizedColor[4], 16) / 255).toFixed(2));
+      var _alpha = parseFloat((parseInt("" + normalizedColor[4] + normalizedColor[4], 16) / 255).toFixed(2));
+
       return {
-        red: parseInt('' + normalizedColor[1] + normalizedColor[1], 16),
-        green: parseInt('' + normalizedColor[2] + normalizedColor[2], 16),
-        blue: parseInt('' + normalizedColor[3] + normalizedColor[3], 16),
+        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
+        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
+        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16),
         alpha: _alpha
       };
     }
+
     var rgbMatched = rgbRegex.exec(normalizedColor);
+
     if (rgbMatched) {
       return {
-        red: parseInt('' + rgbMatched[1], 10),
-        green: parseInt('' + rgbMatched[2], 10),
-        blue: parseInt('' + rgbMatched[3], 10)
+        red: parseInt("" + rgbMatched[1], 10),
+        green: parseInt("" + rgbMatched[2], 10),
+        blue: parseInt("" + rgbMatched[3], 10)
       };
     }
+
     var rgbaMatched = rgbaRegex.exec(normalizedColor);
+
     if (rgbaMatched) {
       return {
-        red: parseInt('' + rgbaMatched[1], 10),
-        green: parseInt('' + rgbaMatched[2], 10),
-        blue: parseInt('' + rgbaMatched[3], 10),
-        alpha: parseFloat('' + rgbaMatched[4])
+        red: parseInt("" + rgbaMatched[1], 10),
+        green: parseInt("" + rgbaMatched[2], 10),
+        blue: parseInt("" + rgbaMatched[3], 10),
+        alpha: parseFloat("" + rgbaMatched[4])
       };
     }
+
     var hslMatched = hslRegex.exec(normalizedColor);
+
     if (hslMatched) {
-      var hue = parseInt('' + hslMatched[1], 10);
-      var saturation = parseInt('' + hslMatched[2], 10) / 100;
-      var lightness = parseInt('' + hslMatched[3], 10) / 100;
-      var rgbColorString = 'rgb(' + hslToRgb(hue, saturation, lightness) + ')';
+      var hue = parseInt("" + hslMatched[1], 10);
+      var saturation = parseInt("" + hslMatched[2], 10) / 100;
+      var lightness = parseInt("" + hslMatched[3], 10) / 100;
+      var rgbColorString = "rgb(" + hslToRgb(hue, saturation, lightness) + ")";
       var hslRgbMatched = rgbRegex.exec(rgbColorString);
+
       if (!hslRgbMatched) {
-        throw new Error('Couldn\'t generate valid rgb string from ' + normalizedColor + ', it returned ' + rgbColorString + '.');
+        throw new Error("Couldn't generate valid rgb string from " + normalizedColor + ", it returned " + rgbColorString + ".");
       }
+
       return {
-        red: parseInt('' + hslRgbMatched[1], 10),
-        green: parseInt('' + hslRgbMatched[2], 10),
-        blue: parseInt('' + hslRgbMatched[3], 10)
+        red: parseInt("" + hslRgbMatched[1], 10),
+        green: parseInt("" + hslRgbMatched[2], 10),
+        blue: parseInt("" + hslRgbMatched[3], 10)
       };
     }
+
     var hslaMatched = hslaRegex.exec(normalizedColor);
+
     if (hslaMatched) {
-      var _hue = parseInt('' + hslaMatched[1], 10);
-      var _saturation = parseInt('' + hslaMatched[2], 10) / 100;
-      var _lightness = parseInt('' + hslaMatched[3], 10) / 100;
-      var _rgbColorString = 'rgb(' + hslToRgb(_hue, _saturation, _lightness) + ')';
+      var _hue = parseInt("" + hslaMatched[1], 10);
+
+      var _saturation = parseInt("" + hslaMatched[2], 10) / 100;
+
+      var _lightness = parseInt("" + hslaMatched[3], 10) / 100;
+
+      var _rgbColorString = "rgb(" + hslToRgb(_hue, _saturation, _lightness) + ")";
+
       var _hslRgbMatched = rgbRegex.exec(_rgbColorString);
+
       if (!_hslRgbMatched) {
-        throw new Error('Couldn\'t generate valid rgb string from ' + normalizedColor + ', it returned ' + _rgbColorString + '.');
+        throw new Error("Couldn't generate valid rgb string from " + normalizedColor + ", it returned " + _rgbColorString + ".");
       }
+
       return {
-        red: parseInt('' + _hslRgbMatched[1], 10),
-        green: parseInt('' + _hslRgbMatched[2], 10),
-        blue: parseInt('' + _hslRgbMatched[3], 10),
-        alpha: parseFloat('' + hslaMatched[4])
+        red: parseInt("" + _hslRgbMatched[1], 10),
+        green: parseInt("" + _hslRgbMatched[2], 10),
+        blue: parseInt("" + _hslRgbMatched[3], 10),
+        alpha: parseFloat("" + hslaMatched[4])
       };
     }
+
     throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
   }
 
@@ -1624,7 +1722,6 @@
     var red = color.red / 255;
     var green = color.green / 255;
     var blue = color.blue / 255;
-
     var max = Math.max(red, green, blue);
     var min = Math.min(red, green, blue);
     var lightness = (max + min) / 2;
@@ -1639,20 +1736,27 @@
           alpha: color.alpha
         };
       } else {
-        return { hue: 0, saturation: 0, lightness: lightness };
+        return {
+          hue: 0,
+          saturation: 0,
+          lightness: lightness
+        };
       }
     }
 
-    var hue = void 0;
+    var hue;
     var delta = max - min;
     var saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
+
     switch (max) {
       case red:
         hue = (green - blue) / delta + (green < blue ? 6 : 0);
         break;
+
       case green:
         hue = (blue - red) / delta + 2;
         break;
+
       default:
         // blue case
         hue = (red - green) / delta + 4;
@@ -1660,6 +1764,7 @@
     }
 
     hue *= 60;
+
     if (color.alpha !== undefined) {
       return {
         hue: hue,
@@ -1668,7 +1773,12 @@
         alpha: color.alpha
       };
     }
-    return { hue: hue, saturation: saturation, lightness: lightness };
+
+    return {
+      hue: hue,
+      saturation: saturation,
+      lightness: lightness
+    };
   }
 
   /**
@@ -1696,6 +1806,7 @@
     if (value.length === 7 && value[1] === value[2] && value[3] === value[4] && value[5] === value[6]) {
       return "#" + value[1] + value[3] + value[5];
     }
+
     return value;
   };
 
@@ -1709,7 +1820,7 @@
   }
 
   function convertToHex(red, green, blue) {
-    return reduceHexValue('#' + colorToHex(red) + colorToHex(green) + colorToHex(blue));
+    return reduceHexValue("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
   }
 
   function hslToHex(hue, saturation, lightness) {
@@ -1777,9 +1888,9 @@
    */
   function hsla(value, saturation, lightness, alpha) {
     if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number' && typeof alpha === 'number') {
-      return alpha >= 1 ? hslToHex(value, saturation, lightness) : 'rgba(' + hslToRgb(value, saturation, lightness) + ',' + alpha + ')';
+      return alpha >= 1 ? hslToHex(value, saturation, lightness) : "rgba(" + hslToRgb(value, saturation, lightness) + "," + alpha + ")";
     } else if (typeof value === 'object' && saturation === undefined && lightness === undefined && alpha === undefined) {
-      return value.alpha >= 1 ? hslToHex(value.hue, value.saturation, value.lightness) : 'rgba(' + hslToRgb(value.hue, value.saturation, value.lightness) + ',' + value.alpha + ')';
+      return value.alpha >= 1 ? hslToHex(value.hue, value.saturation, value.lightness) : "rgba(" + hslToRgb(value.hue, value.saturation, value.lightness) + "," + value.alpha + ")";
     }
 
     throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
@@ -1810,9 +1921,9 @@
    */
   function rgb(value, green, blue) {
     if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
-      return reduceHexValue('#' + numberToHex(value) + numberToHex(green) + numberToHex(blue));
+      return reduceHexValue("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
     } else if (typeof value === 'object' && green === undefined && blue === undefined) {
-      return reduceHexValue('#' + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
+      return reduceHexValue("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
     }
 
     throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
@@ -1855,11 +1966,11 @@
   function rgba(firstValue, secondValue, thirdValue, fourthValue) {
     if (typeof firstValue === 'string' && typeof secondValue === 'number') {
       var rgbValue = parseToRgb(firstValue);
-      return 'rgba(' + rgbValue.red + ',' + rgbValue.green + ',' + rgbValue.blue + ',' + secondValue + ')';
+      return "rgba(" + rgbValue.red + "," + rgbValue.green + "," + rgbValue.blue + "," + secondValue + ")";
     } else if (typeof firstValue === 'number' && typeof secondValue === 'number' && typeof thirdValue === 'number' && typeof fourthValue === 'number') {
-      return fourthValue >= 1 ? rgb(firstValue, secondValue, thirdValue) : 'rgba(' + firstValue + ',' + secondValue + ',' + thirdValue + ',' + fourthValue + ')';
+      return fourthValue >= 1 ? rgb(firstValue, secondValue, thirdValue) : "rgba(" + firstValue + "," + secondValue + "," + thirdValue + "," + fourthValue + ")";
     } else if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
-      return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : 'rgba(' + firstValue.red + ',' + firstValue.green + ',' + firstValue.blue + ',' + firstValue.alpha + ')';
+      return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : "rgba(" + firstValue.red + "," + firstValue.green + "," + firstValue.blue + "," + firstValue.alpha + ")";
     }
 
     throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
@@ -1882,7 +1993,6 @@
   };
 
   var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.';
-
   /**
    * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
    * This util is useful in case you only know on runtime which color object is
@@ -1920,27 +2030,22 @@
     if (isRgb(color)) return rgb(color);
     if (isHsla(color)) return hsla(color);
     if (isHsl(color)) return hsl(color);
-
     throw new Error(errMsg);
   }
 
+  // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
   // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-redeclare
   function curried(f, length, acc) {
     return function fn() {
       // eslint-disable-next-line prefer-rest-params
       var combined = acc.concat(Array.prototype.slice.call(arguments));
       return combined.length >= length ? f.apply(this, combined) : curried(f, length, combined);
     };
-  }
-
-  // eslint-disable-next-line no-redeclare
-
-  // eslint-disable-next-line no-redeclare
-
-  // eslint-disable-next-line no-unused-vars
+  } // eslint-disable-next-line no-redeclare
 
 
-  // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
   function curry(f) {
     // eslint-disable-line no-redeclare
     return curried(f, f.length, []);
@@ -1970,6 +2075,7 @@
    *   background: "rgba(136,136,68,0.7)";
    * }
    */
+
   function adjustHue(degree, color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -1977,7 +2083,9 @@
     }));
   }
 
-  var curriedAdjustHue = /*#__PURE__*/curry(adjustHue);
+  var curriedAdjustHue =
+  /*#__PURE__*/
+  curry(adjustHue);
 
   /**
    * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
@@ -2001,6 +2109,7 @@
    *   background: "rgba(153,153,153,0.7)";
    * }
    */
+
   function complement(color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -2035,6 +2144,7 @@
    *   background: "rgba(255,189,49,0.7)";
    * }
    */
+
   function darken(amount, color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -2042,7 +2152,9 @@
     }));
   }
 
-  var curriedDarken = /*#__PURE__*/curry(darken);
+  var curriedDarken =
+  /*#__PURE__*/
+  curry(darken);
 
   /**
    * Decreases the intensity of a color. Its range is between 0 to 1. The first
@@ -2068,6 +2180,7 @@
    *   background: "rgba(184,185,121,0.7)";
    * }
    */
+
   function desaturate(amount, color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -2075,7 +2188,9 @@
     }));
   }
 
-  var curriedDesaturate = /*#__PURE__*/curry(desaturate);
+  var curriedDesaturate =
+  /*#__PURE__*/
+  curry(desaturate);
 
   /**
    * Returns a number (float) representing the luminance of a color.
@@ -2103,6 +2218,7 @@
    *   background: "rgba(58, 133, 255, 1)";
    * }
    */
+
   function getLuminance(color) {
     var rgbColor = parseToRgb(color);
 
@@ -2139,6 +2255,7 @@
    *   background: "rgba(153,153,153,0.7)";
    * }
    */
+
   function grayscale(color) {
     return toColorString(_extends({}, parseToHsl(color), {
       saturation: 0
@@ -2168,6 +2285,7 @@
    *   background: "rgba(154,155,50,0.7)";
    * }
    */
+
   function invert(color) {
     // parse color string to rgb
     var value = parseToRgb(color);
@@ -2201,6 +2319,7 @@
    *   background: "rgba(229,230,177,0.7)";
    * }
    */
+
   function lighten(amount, color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -2208,7 +2327,9 @@
     }));
   }
 
-  var curriedLighten = /*#__PURE__*/curry(lighten);
+  var curriedLighten =
+  /*#__PURE__*/
+  curry(lighten);
 
   /**
    * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
@@ -2236,36 +2357,40 @@
    *   background: "rgba(63, 0, 191, 0.75)";
    * }
    */
+
   function mix(weight, color, otherColor) {
     var parsedColor1 = parseToRgb(color);
+
     var color1 = _extends({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
     });
 
     var parsedColor2 = parseToRgb(otherColor);
-    var color2 = _extends({}, parsedColor2, {
-      alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
 
-      // The formular is copied from the original Sass implementation:
+    var color2 = _extends({}, parsedColor2, {
+      alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1 // The formular is copied from the original Sass implementation:
       // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
-    });var alphaDelta = color1.alpha - color2.alpha;
+
+    });
+
+    var alphaDelta = color1.alpha - color2.alpha;
     var x = parseFloat(weight) * 2 - 1;
     var y = x * alphaDelta === -1 ? x : x + alphaDelta;
     var z = 1 + x * alphaDelta;
     var weight1 = (y / z + 1) / 2.0;
     var weight2 = 1 - weight1;
-
     var mixedColor = {
       red: Math.floor(color1.red * weight1 + color2.red * weight2),
       green: Math.floor(color1.green * weight1 + color2.green * weight2),
       blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
       alpha: color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0)
     };
-
     return rgba(mixedColor);
   }
 
-  var curriedMix = /*#__PURE__*/curry(mix);
+  var curriedMix =
+  /*#__PURE__*/
+  curry(mix);
 
   /**
    * Increases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -2294,16 +2419,21 @@
    *   background: "rgba(255,0,0,0.7)";
    * }
    */
+
   function opacify(amount, color) {
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
+
     var colorWithAlpha = _extends({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 + parseFloat(amount) * 100) / 100)
     });
+
     return rgba(colorWithAlpha);
   }
 
-  var curriedOpacify = /*#__PURE__*/curry(opacify);
+  var curriedOpacify =
+  /*#__PURE__*/
+  curry(opacify);
 
   /**
    * Returns black or white for best contrast depending on the luminosity of the given color.
@@ -2337,7 +2467,9 @@
     return getLuminance(color) > 0.179 ? '#000' : '#fff';
   }
 
-  var curriedReadableColor = /*#__PURE__*/curry(readableColor);
+  var curriedReadableColor =
+  /*#__PURE__*/
+  curry(readableColor);
 
   /**
    * Increases the intensity of a color. Its range is between 0 to 1. The first
@@ -2364,6 +2496,7 @@
    *   background: "rgba(224,226,80,0.7)";
    * }
    */
+
   function saturate(amount, color) {
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
@@ -2371,7 +2504,9 @@
     }));
   }
 
-  var curriedSaturate = /*#__PURE__*/curry(saturate);
+  var curriedSaturate =
+  /*#__PURE__*/
+  curry(saturate);
 
   /**
    * Sets the hue of a color to the provided value. The hue range can be
@@ -2396,13 +2531,16 @@
    *   background: "rgba(107,100,205,0.7)";
    * }
    */
+
   function setHue(hue, color) {
     return toColorString(_extends({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
   }
 
-  var curriedSetHue = /*#__PURE__*/curry(setHue);
+  var curriedSetHue =
+  /*#__PURE__*/
+  curry(setHue);
 
   /**
    * Sets the lightness of a color to the provided value. The lightness range can be
@@ -2427,13 +2565,16 @@
    *   background: "rgba(223,224,159,0.7)";
    * }
    */
+
   function setLightness(lightness, color) {
     return toColorString(_extends({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
   }
 
-  var curriedSetLightness = /*#__PURE__*/curry(setLightness);
+  var curriedSetLightness =
+  /*#__PURE__*/
+  curry(setLightness);
 
   /**
    * Sets the saturation of a color to the provided value. The lightness range can be
@@ -2458,13 +2599,16 @@
    *   background: "rgba(228,229,76,0.7)";
    * }
    */
+
   function setSaturation(saturation, color) {
     return toColorString(_extends({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
   }
 
-  var curriedSetSaturation = /*#__PURE__*/curry(setSaturation);
+  var curriedSetSaturation =
+  /*#__PURE__*/
+  curry(setSaturation);
 
   /**
    * Shades a color by mixing it with black. `shade` can produce
@@ -2493,7 +2637,9 @@
     return curriedMix(parseFloat(percentage), color, 'rgb(0, 0, 0)');
   }
 
-  var curriedShade = /*#__PURE__*/curry(shade);
+  var curriedShade =
+  /*#__PURE__*/
+  curry(shade);
 
   /**
    * Tints a color by mixing it with white. `tint` can produce
@@ -2522,7 +2668,9 @@
     return curriedMix(parseFloat(percentage), color, 'rgb(255, 255, 255)');
   }
 
-  var curriedTint = /*#__PURE__*/curry(tint);
+  var curriedTint =
+  /*#__PURE__*/
+  curry(tint);
 
   /**
    * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -2551,16 +2699,21 @@
    *   background: "rgba(255,0,0,0.3)";
    * }
    */
+
   function transparentize(amount, color) {
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
+
     var colorWithAlpha = _extends({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 - parseFloat(amount) * 100) / 100)
     });
+
     return rgba(colorWithAlpha);
   }
 
-  var curriedTransparentize = /*#__PURE__*/curry(transparentize);
+  var curriedTransparentize =
+  /*#__PURE__*/
+  curry(transparentize);
 
   /**
    * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
@@ -2599,26 +2752,28 @@
    * }
    */
   function animation() {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
     // Allow single or multiple animations passed
     var multiMode = Array.isArray(args[0]);
+
     if (!multiMode && args.length > 8) {
       throw new Error('The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation');
     }
+
     var code = args.map(function (arg) {
       if (multiMode && !Array.isArray(arg) || !multiMode && Array.isArray(arg)) {
         throw new Error("To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')");
       }
+
       if (Array.isArray(arg) && arg.length > 8) {
         throw new Error('The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation');
       }
 
       return Array.isArray(arg) ? arg.join(' ') : arg;
     }).join(', ');
-
     return {
       animation: code
     };
@@ -2644,7 +2799,7 @@
    * }
    */
   function backgroundImages() {
-    for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
     }
 
@@ -2673,7 +2828,7 @@
    * }
    */
   function backgrounds() {
-    for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
     }
 
@@ -2683,7 +2838,6 @@
   }
 
   var sideMap = ['top', 'right', 'bottom', 'left'];
-
   /**
    * Shorthand for the border property that splits out individual properties for use with tools like Fela and Styletron. A side keyword can optionally be passed to target only one side's border properties.
    *
@@ -2726,14 +2880,14 @@
    */
 
   function border(sideKeyword) {
-    for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
     }
 
     if (typeof sideKeyword === 'string' && sideMap.indexOf(sideKeyword) >= 0) {
       var _ref;
 
-      return _ref = {}, _ref['border' + capitalizeString(sideKeyword) + 'Width'] = values[0], _ref['border' + capitalizeString(sideKeyword) + 'Style'] = values[1], _ref['border' + capitalizeString(sideKeyword) + 'Color'] = values[2], _ref;
+      return _ref = {}, _ref["border" + capitalizeString(sideKeyword) + "Width"] = values[0], _ref["border" + capitalizeString(sideKeyword) + "Style"] = values[1], _ref["border" + capitalizeString(sideKeyword) + "Color"] = values[2], _ref;
     } else {
       values.unshift(sideKeyword);
       return {
@@ -2766,19 +2920,21 @@
    */
   function borderRadius(side, radius) {
     var uppercaseSide = capitalizeString(side);
+
     if (!radius && radius !== 0) {
       throw new Error('borderRadius expects a radius value as a string or number as the second argument.');
     }
+
     if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
       var _ref;
 
-      return _ref = {}, _ref['border' + uppercaseSide + 'RightRadius'] = radius, _ref['border' + uppercaseSide + 'LeftRadius'] = radius, _ref;
+      return _ref = {}, _ref["border" + uppercaseSide + "RightRadius"] = radius, _ref["border" + uppercaseSide + "LeftRadius"] = radius, _ref;
     }
 
     if (uppercaseSide === 'Left' || uppercaseSide === 'Right') {
       var _ref2;
 
-      return _ref2 = {}, _ref2['borderTop' + uppercaseSide + 'Radius'] = radius, _ref2['borderBottom' + uppercaseSide + 'Radius'] = radius, _ref2;
+      return _ref2 = {}, _ref2["borderTop" + uppercaseSide + "Radius"] = radius, _ref2["borderBottom" + uppercaseSide + "Radius"] = radius, _ref2;
     }
 
     throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
@@ -2807,11 +2963,11 @@
    * }
    */
   function borderStyle() {
-    for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
     }
 
-    return directionalProperty.apply(undefined, ['borderStyle'].concat(values));
+    return directionalProperty.apply(void 0, ['borderStyle'].concat(values));
   }
 
   /**
@@ -2837,33 +2993,36 @@
    * }
    */
   function borderWidth() {
-    for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
     }
 
-    return directionalProperty.apply(undefined, ['borderWidth'].concat(values));
+    return directionalProperty.apply(void 0, ['borderWidth'].concat(values));
   }
 
   function generateSelectors(template, state) {
-    var stateSuffix = state ? ':' + state : '';
+    var stateSuffix = state ? ":" + state : '';
     return template(stateSuffix);
   }
-
   /**
    * Function helper that adds an array of states to a template of selectors. Used in textInputs and buttons.
    * @private
    */
 
+
   function statefulSelectors(states, template, stateMap) {
     if (!template) throw new Error('You must provide a template to this method.');
     if (states.length === 0) return generateSelectors(template, null);
     var selectors = [];
+
     for (var i = 0; i < states.length; i += 1) {
       if (stateMap && stateMap.indexOf(states[i]) < 0) {
         throw new Error('You passed an unsupported selector state to this method.');
       }
+
       selectors.push(generateSelectors(template, states[i]));
     }
+
     selectors = selectors.join(',');
     return selectors;
   }
@@ -2871,9 +3030,8 @@
   var stateMap = [undefined, null, 'active', 'focus', 'hover'];
 
   function template(state) {
-    return 'button' + state + ',\n  input[type="button"]' + state + ',\n  input[type="reset"]' + state + ',\n  input[type="submit"]' + state;
+    return "button" + state + ",\n  input[type=\"button\"]" + state + ",\n  input[type=\"reset\"]" + state + ",\n  input[type=\"submit\"]" + state;
   }
-
   /**
    * Populates selectors that target all buttons. You can pass optional states to append to the selectors.
    * @example
@@ -2900,8 +3058,10 @@
    *   'border': 'none'
    * }
    */
+
+
   function buttons() {
-    for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, states = new Array(_len), _key = 0; _key < _len; _key++) {
       states[_key] = arguments[_key];
     }
 
@@ -2931,11 +3091,11 @@
    * }
    */
   function margin() {
-    for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
     }
 
-    return directionalProperty.apply(undefined, ['margin'].concat(values));
+    return directionalProperty.apply(void 0, ['margin'].concat(values));
   }
 
   /**
@@ -2961,15 +3121,14 @@
    * }
    */
   function padding() {
-    for (var _len = arguments.length, values = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
     }
 
-    return directionalProperty.apply(undefined, ['padding'].concat(values));
+    return directionalProperty.apply(void 0, ['padding'].concat(values));
   }
 
   var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
-
   /**
    * Shorthand accepts up to five values, including null to skip a value, and maps them to their respective directions. The first value can optionally be a position keyword.
    * @example
@@ -3012,18 +3171,20 @@
    *   'left': '48px'
    * }
    */
+
   function position(positionKeyword) {
-    for (var _len = arguments.length, values = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    for (var _len = arguments.length, values = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
     }
 
     if (positionMap$1.indexOf(positionKeyword) >= 0) {
       return _extends({
         position: positionKeyword
-      }, directionalProperty.apply(undefined, [''].concat(values)));
+      }, directionalProperty.apply(void 0, [''].concat(values)));
     } else {
       var firstValue = positionKeyword; // in this case position is actually the first value
-      return directionalProperty.apply(undefined, ['', firstValue].concat(values));
+
+      return directionalProperty.apply(void 0, ['', firstValue].concat(values));
     }
   }
 
@@ -3047,8 +3208,10 @@
    *   'width': '250px',
    * }
    */
-  function size(height) {
-    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : height;
+  function size(height, width) {
+    if (width === void 0) {
+      width = height;
+    }
 
     return {
       height: height,
@@ -3059,9 +3222,8 @@
   var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
 
   function template$1(state) {
-    return 'input[type="color"]' + state + ',\n    input[type="date"]' + state + ',\n    input[type="datetime"]' + state + ',\n    input[type="datetime-local"]' + state + ',\n    input[type="email"]' + state + ',\n    input[type="month"]' + state + ',\n    input[type="number"]' + state + ',\n    input[type="password"]' + state + ',\n    input[type="search"]' + state + ',\n    input[type="tel"]' + state + ',\n    input[type="text"]' + state + ',\n    input[type="time"]' + state + ',\n    input[type="url"]' + state + ',\n    input[type="week"]' + state + ',\n    input:not([type])' + state + ',\n    textarea' + state;
+    return "input[type=\"color\"]" + state + ",\n    input[type=\"date\"]" + state + ",\n    input[type=\"datetime\"]" + state + ",\n    input[type=\"datetime-local\"]" + state + ",\n    input[type=\"email\"]" + state + ",\n    input[type=\"month\"]" + state + ",\n    input[type=\"number\"]" + state + ",\n    input[type=\"password\"]" + state + ",\n    input[type=\"search\"]" + state + ",\n    input[type=\"tel\"]" + state + ",\n    input[type=\"text\"]" + state + ",\n    input[type=\"time\"]" + state + ",\n    input[type=\"url\"]" + state + ",\n    input[type=\"week\"]" + state + ",\n    input:not([type])" + state + ",\n    textarea" + state;
   }
-
   /**
    * Populates selectors that target all text inputs. You can pass optional states to append to the selectors.
    * @example
@@ -3100,8 +3262,10 @@
    *   'border': 'none'
    * }
    */
+
+
   function textInputs() {
-    for (var _len = arguments.length, states = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, states = new Array(_len), _key = 0; _key < _len; _key++) {
       states[_key] = arguments[_key];
     }
 
@@ -3131,17 +3295,19 @@
    * }
    */
   function transitions() {
-    for (var _len = arguments.length, properties = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
     }
 
     if (Array.isArray(properties[0]) && properties.length === 2) {
       var value = properties[1];
+
       if (typeof value !== 'string') {
         throw new Error('Property must be a string value.');
       }
+
       var transitionsString = properties[0].map(function (property) {
-        return property + ' ' + value;
+        return property + " " + value;
       }).join(', ');
       return {
         transition: transitionsString
@@ -3152,6 +3318,8 @@
       };
     }
   }
+
+  // Helpers
 
   exports.adjustHue = curriedAdjustHue;
   exports.animation = animation;
