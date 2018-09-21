@@ -10,6 +10,10 @@ describe('darken', () => {
     expect(darken(0.2, '#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should darken an 4-digit hex color by 30%', () => {
+    expect(darken(0.3, '#0f08')).toMatchSnapshot()
+  })
+
   it('should darken a color with opacity by 20%', () => {
     expect(darken(0.2, 'rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

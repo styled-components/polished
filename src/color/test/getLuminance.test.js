@@ -10,6 +10,10 @@ describe('getLuminance', () => {
     expect(getLuminance('#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should return the luminance of an 4-digit hex color', () => {
+    expect(getLuminance('#0f08')).toMatchSnapshot()
+  })
+
   it('should return the luminance of an rgba color', () => {
     expect(getLuminance('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

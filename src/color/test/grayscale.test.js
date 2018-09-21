@@ -14,6 +14,10 @@ describe('grayscale', () => {
     expect(grayscale('#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should grayscale an 4-digit hex color', () => {
+    expect(grayscale('#0f08')).toMatchSnapshot()
+  })
+
   it('should grayscale a color with opacity', () => {
     expect(grayscale('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

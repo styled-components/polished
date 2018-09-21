@@ -10,6 +10,10 @@ describe('transparentize', () => {
     expect(transparentize(0.1, '#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should reduce the opacity of an 4-digit hex color by 0.1', () => {
+    expect(transparentize(0.1, '#0f08')).toMatchSnapshot()
+  })
+
   it('should reduce the opacity of rgb(255, 0, 255) by 0.1', () => {
     expect(transparentize(0.1, 'rgb(255, 0, 255)')).toMatchSnapshot()
   })
@@ -49,6 +53,10 @@ describe('transparentize', () => {
   it('should throw an error when enter an invalid color', () => {
     expect(() => {
       transparentize(0.5, 'not a color')
-    }).toThrow(new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation."))
+    }).toThrow(
+      new Error(
+        "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
+      ),
+    )
   })
 })
