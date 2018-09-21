@@ -14,6 +14,10 @@ describe('invert', () => {
     expect(invert('#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should invert an 4-digit hex color', () => {
+    expect(invert('#0f08')).toMatchSnapshot()
+  })
+
   it('should invert a color with opacity', () => {
     expect(invert('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

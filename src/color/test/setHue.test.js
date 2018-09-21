@@ -10,6 +10,10 @@ describe('setHue', () => {
     expect(setHue(244, '#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should update the hue of an 4-digit hex color and return a hex color', () => {
+    expect(setHue(244, '#0f08')).toMatchSnapshot()
+  })
+
   it('should update the hue and return a color with opacity', () => {
     expect(setHue(244, 'rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

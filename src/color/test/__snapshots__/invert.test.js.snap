@@ -6,4 +6,6 @@ exports[`invert should invert a hex color 1`] = `"#33329b"`;
 
 exports[`invert should invert a reduced hex color 1`] = `"#bb7"`;
 
+exports[`invert should invert an 4-digit hex color 1`] = `"rgba(255,0,255,0.53)"`;
+
 exports[`invert should invert an 8-digit hex color 1`] = `"rgba(154,155,50,0.7)"`;

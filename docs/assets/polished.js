@@ -1512,6 +1512,7 @@
   var hexRegex = /^#[a-fA-F0-9]{6}$/;
   var hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;
   var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
+  var reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/;
   var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
   var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
   var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
@@ -1554,6 +1555,15 @@
         red: parseInt('' + normalizedColor[1] + normalizedColor[1], 16),
         green: parseInt('' + normalizedColor[2] + normalizedColor[2], 16),
         blue: parseInt('' + normalizedColor[3] + normalizedColor[3], 16)
+      };
+    }
+    if (normalizedColor.match(reducedRgbaHexRegex)) {
+      var _alpha = parseFloat((parseInt('' + normalizedColor[4] + normalizedColor[4], 16) / 255).toFixed(2));
+      return {
+        red: parseInt('' + normalizedColor[1] + normalizedColor[1], 16),
+        green: parseInt('' + normalizedColor[2] + normalizedColor[2], 16),
+        blue: parseInt('' + normalizedColor[3] + normalizedColor[3], 16),
+        alpha: _alpha
       };
     }
     var rgbMatched = rgbRegex.exec(normalizedColor);
