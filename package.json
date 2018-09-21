@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
@@ -72,6 +72,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
@@ -123,8 +124,5 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/polished"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.0.0"
   }
 }
