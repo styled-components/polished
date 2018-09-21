@@ -84,6 +84,15 @@ Object {
 }
 `;
 
+exports[`parseToRgb should parse an 4-digit hex color representation 1`] = `
+Object {
+  "alpha": 0.53,
+  "blue": 0,
+  "green": 255,
+  "red": 0,
+}
+`;
+
 exports[`parseToRgb should parse an 8-digit hex color representation 1`] = `
 Object {
   "alpha": 1,

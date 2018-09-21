@@ -7,6 +7,7 @@ import type { RgbColor, RgbaColor } from '../types/color'
 const hexRegex = /^#[a-fA-F0-9]{6}$/
 const hexRgbaRegex = /^#[a-fA-F0-9]{8}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
+const reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/
 const rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/
 const rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/
 const hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/
@@ -19,9 +20,9 @@ const hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3}
  *
  * @example
  * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
- * const color1 = 'rgb(255, 0, 0)';
+ * const color1 = parseToRgb('rgb(255, 0, 0)');
  * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
- * const color2 = 'hsla(210, 10%, 40%, 0.75)';
+ * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
  */
 function parseToRgb(color: string): RgbColor | RgbaColor {
   if (typeof color !== 'string') {
@@ -55,6 +56,19 @@ function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[1]}`, 16),
       green: parseInt(`${normalizedColor[2]}${normalizedColor[2]}`, 16),
       blue: parseInt(`${normalizedColor[3]}${normalizedColor[3]}`, 16),
+    }
+  }
+  if (normalizedColor.match(reducedRgbaHexRegex)) {
+    const alpha = parseFloat(
+      (
+        parseInt(`${normalizedColor[4]}${normalizedColor[4]}`, 16) / 255
+      ).toFixed(2),
+    )
+    return {
+      red: parseInt(`${normalizedColor[1]}${normalizedColor[1]}`, 16),
+      green: parseInt(`${normalizedColor[2]}${normalizedColor[2]}`, 16),
+      blue: parseInt(`${normalizedColor[3]}${normalizedColor[3]}`, 16),
+      alpha,
     }
   }
   const rgbMatched = rgbRegex.exec(normalizedColor)

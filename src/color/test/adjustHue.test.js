@@ -14,6 +14,10 @@ describe('adjustHue', () => {
     expect(adjustHue(20, '#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should adjustHue of an 4-digit hex color', () => {
+    expect(adjustHue(20, '#0f08')).toMatchSnapshot()
+  })
+
   it('should adjustHue of a color with opacity', () => {
     expect(adjustHue(20, 'rgba(101,100,205,0.7)')).toMatchSnapshot()
   })

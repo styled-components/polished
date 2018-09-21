@@ -6,4 +6,6 @@ exports[`grayscale should grayscale a hex color 1`] = `"#999"`;
 
 exports[`grayscale should grayscale a reduced hex color 1`] = `"#444"`;
 
+exports[`grayscale should grayscale an 4-digit hex color 1`] = `"rgba(128,128,128,0.53)"`;
+
 exports[`grayscale should grayscale an 8-digit hex color 1`] = `"rgba(153,153,153,0.7)"`;

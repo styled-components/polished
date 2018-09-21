@@ -10,10 +10,10 @@ import type { HslColor, HslaColor } from '../types/color'
  * can convert a HslColor or HslaColor object back to a string.
  *
  * @example
- * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
- * const color1 = 'rgb(255, 0, 0)';
- * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
- * const color2 = 'hsla(210, 10%, 40%, 0.75)';
+ * // Assigns `{ hue: 0, saturation: 1, lightness: 0.5 }` to color1
+ * const color1 = parseToHsl('rgb(255, 0, 0)');
+ * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
+ * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
  */
 function parseToHsl(color: string): HslColor | HslaColor {
   // Note: At a later stage we can optimize this function as right now a hsl

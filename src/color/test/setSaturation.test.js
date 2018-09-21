@@ -10,6 +10,10 @@ describe('setSaturation', () => {
     expect(setSaturation(0.2, '#6564CDB3')).toMatchSnapshot()
   })
 
+  it('should update the saturation of an 4-digit hex color and return an rgba color', () => {
+    expect(setSaturation(0.2, '#0f08')).toMatchSnapshot()
+  })
+
   it('should update the saturation of an rgb color and return a hex color', () => {
     expect(setSaturation(0.2, 'rgb(101,100,205)')).toMatchSnapshot()
   })
