@@ -26,7 +26,7 @@ import mix from './mix'
  */
 
 function tint(percentage: number | string, color: string): string {
-  return mix(parseFloat(percentage), color, 'rgb(255, 255, 255)')
+  return mix(parseFloat(percentage), 'rgb(255, 255, 255)', color)
 }
 
 const curriedTint = curry(tint)
