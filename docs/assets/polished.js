@@ -2634,7 +2634,7 @@
    */
 
   function shade(percentage, color) {
-    return curriedMix(parseFloat(percentage), color, 'rgb(0, 0, 0)');
+    return curriedMix(parseFloat(percentage), 'rgb(0, 0, 0)', color);
   }
 
   var curriedShade =
@@ -2665,7 +2665,7 @@
    */
 
   function tint(percentage, color) {
-    return curriedMix(parseFloat(percentage), color, 'rgb(255, 255, 255)');
+    return curriedMix(parseFloat(percentage), 'rgb(255, 255, 255)', color);
   }
 
   var curriedTint =
