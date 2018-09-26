@@ -26,7 +26,7 @@ import mix from './mix'
  */
 
 function shade(percentage: number | string, color: string): string {
-  return mix(parseFloat(percentage), color, 'rgb(0, 0, 0)')
+  return mix(parseFloat(percentage), 'rgb(0, 0, 0)', color)
 }
 
 const curriedShade = curry(shade)
