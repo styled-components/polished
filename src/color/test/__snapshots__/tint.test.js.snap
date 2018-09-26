@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test should tint the provided 4-digit hex color with white by the given percentage 1`] = `"rgba(227,255,227,0.6475)"`;
+exports[`test should tint the provided 4-digit hex color with white by the given percentage 1`] = `"rgba(122,255,122,0.8825000000000001)"`;
 
-exports[`test should tint the provided 8-digit hex color with white by the given percentage 1`] = `"rgba(208,211,255,0.8500000000000001)"`;
+exports[`test should tint the provided 8-digit hex color with white by the given percentage 1`] = `"rgba(85,95,255,0.95)"`;
 
-exports[`test should tint the provided color when passed a string for amount 1`] = `"#bfbfff"`;
+exports[`test should tint the provided color when passed a string for amount 1`] = `"#3f3fff"`;
 
-exports[`test should tint the provided color with white by the given percentage 1`] = `"#bfbfff"`;
+exports[`test should tint the provided color with white by the given percentage 1`] = `"#3f3fff"`;
