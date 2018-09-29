@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
