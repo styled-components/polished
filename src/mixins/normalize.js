@@ -11,7 +11,7 @@ import type { Styles } from '../types/style'
  * }
  *
  * // styled-components usage
- * injectGlobal`${normalize()}`
+ * const GlobalStyle = createGlobalStyle`${normalize()}`
  *
  * // CSS as JS Output
  *

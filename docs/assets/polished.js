@@ -639,7 +639,7 @@
    * }
    *
    * // styled-components basic usage
-   * injectGlobal`${
+   * const GlobalStyle = createGlobalStyle`${
    *   fontFace({
    *     'fontFamily': 'Sans-Pro',
    *     'fontFilePath': 'path/to/file'
@@ -826,7 +826,7 @@
    * }
    *
    * // styled-components usage
-   * injectGlobal`${normalize()}`
+   * const GlobalStyle = createGlobalStyle`${normalize()}`
    *
    * // CSS as JS Output
    *
