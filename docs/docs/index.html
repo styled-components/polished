@@ -1711,7 +1711,7 @@ div: {
 }
 
 <span class="hljs-comment">// styled-components basic usage</span>
-injectGlobal`${
+<span class="hljs-keyword">const</span> GlobalStyle = createGlobalStyle`${
   fontFace({
     <span class="hljs-symbol">'fontFamily</span>': <span class="hljs-symbol">'Sans</span>-Pro',
     <span class="hljs-symbol">'fontFilePath</span>': <span class="hljs-symbol">'path</span>/to/file'
@@ -2135,7 +2135,7 @@ const styles = {
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-injectGlobal`${normalize()}`
+const GlobalStyle = createGlobalStyle`${normalize()}`
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
