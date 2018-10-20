@@ -1279,6 +1279,7 @@
 
 
   var reverseDirection = ['bottom', 'left', 'top', 'right'];
+  var NUMBER_AND_FLOAT = /(\d*\.?\d*)/;
   /**
    * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
    *
@@ -1314,8 +1315,8 @@
         foregroundColor = _ref.foregroundColor,
         _ref$backgroundColor = _ref.backgroundColor,
         backgroundColor = _ref$backgroundColor === void 0 ? 'transparent' : _ref$backgroundColor;
-    var widthAndUnit = [parseFloat(width), String(width).replace(/\d+/g, '') || 'px'];
-    var heightAndUnit = [parseFloat(height), String(height).replace(/\d+/g, '') || 'px'];
+    var widthAndUnit = [parseFloat(width), String(width).replace(NUMBER_AND_FLOAT, '') || 'px'];
+    var heightAndUnit = [parseFloat(height), String(height).replace(NUMBER_AND_FLOAT, '') || 'px'];
 
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
       throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit');

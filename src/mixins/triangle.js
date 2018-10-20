@@ -34,6 +34,7 @@ const getBorderWidth = (
 
 // needed for border-color
 const reverseDirection = ['bottom', 'left', 'top', 'right']
+const NUMBER_AND_FLOAT = /(\d*\.?\d*)/
 
 /**
  * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
@@ -71,11 +72,11 @@ function triangle({
 }: TriangleConfiguration): Styles {
   const widthAndUnit = [
     parseFloat(width),
-    String(width).replace(/\d+/g, '') || 'px',
+    String(width).replace(NUMBER_AND_FLOAT, '') || 'px',
   ]
   const heightAndUnit = [
     parseFloat(height),
-    String(height).replace(/\d+/g, '') || 'px',
+    String(height).replace(NUMBER_AND_FLOAT, '') || 'px',
   ]
   if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
     throw new Error(
