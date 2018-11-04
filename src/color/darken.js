@@ -35,5 +35,5 @@ function darken(amount: number | string, color: string): string {
   })
 }
 
-const curriedDarken = curry(darken)
+const curriedDarken = curry<number | string, string, string>(darken)
 export default curriedDarken

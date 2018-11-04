@@ -33,5 +33,7 @@ function setSaturation(saturation: number | string, color: string): string {
   })
 }
 
-const curriedSetSaturation = curry(setSaturation)
+const curriedSetSaturation = curry<number | string, string, string>(
+  setSaturation,
+)
 export default curriedSetSaturation

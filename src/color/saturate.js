@@ -37,5 +37,5 @@ function saturate(amount: number | string, color: string): string {
   })
 }
 
-const curriedSaturate = curry(saturate)
+const curriedSaturate = curry<number | string, string, string>(saturate)
 export default curriedSaturate

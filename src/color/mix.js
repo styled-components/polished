@@ -66,5 +66,5 @@ function mix(
   return rgba(mixedColor)
 }
 
-const curriedMix = curry(mix)
+const curriedMix = curry<number | string, string, string, string>(mix)
 export default curriedMix

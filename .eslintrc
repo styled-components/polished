@@ -10,7 +10,7 @@
     }
   },
   "env": {
-    "jest": true,
+    "jest": true
   },
   "rules": {
     "arrow-parens": 0,

@@ -36,5 +36,5 @@ function desaturate(amount: number | string, color: string): string {
   })
 }
 
-const curriedDesaturate = curry(desaturate)
+const curriedDesaturate = curry<number | string, string, string>(desaturate)
 export default curriedDesaturate

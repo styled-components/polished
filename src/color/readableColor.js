@@ -1,5 +1,4 @@
 // @flow
-import curry from '../internalHelpers/_curry'
 import getLuminance from './getLuminance'
 
 /**
@@ -34,5 +33,4 @@ function readableColor(color: string): string {
   return getLuminance(color) > 0.179 ? '#000' : '#fff'
 }
 
-const curriedReadableColor = curry(readableColor)
-export default curriedReadableColor
+export default readableColor

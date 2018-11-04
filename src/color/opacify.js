@@ -41,5 +41,5 @@ function opacify(amount: number | string, color: string): string {
   return rgba(colorWithAlpha)
 }
 
-const curriedOpacify = curry(opacify)
+const curriedOpacify = curry<number | string, string, string>(opacify)
 export default curriedOpacify

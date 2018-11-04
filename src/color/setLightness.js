@@ -33,5 +33,5 @@ function setLightness(lightness: number | string, color: string): string {
   })
 }
 
-const curriedSetLightness = curry(setLightness)
+const curriedSetLightness = curry<number | string, string, string>(setLightness)
 export default curriedSetLightness

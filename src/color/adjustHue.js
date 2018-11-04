@@ -35,5 +35,5 @@ function adjustHue(degree: number | string, color: string): string {
   })
 }
 
-const curriedAdjustHue = curry(adjustHue)
+const curriedAdjustHue = curry<number | string, string, string>(adjustHue)
 export default curriedAdjustHue

@@ -41,5 +41,7 @@ function transparentize(amount: number | string, color: string): string {
   return rgba(colorWithAlpha)
 }
 
-const curriedTransparentize = curry(transparentize)
+const curriedTransparentize = curry<number | string, string, string>(
+  transparentize,
+)
 export default curriedTransparentize
