@@ -17,6 +17,7 @@ import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hideVisually from './mixins/hideVisually'
 import hiDPI from './mixins/hiDPI'
+import media from './mixins/media'
 import normalize from './mixins/normalize'
 import placeholder from './mixins/placeholder'
 import radialGradient from './mixins/radialGradient'
@@ -103,6 +104,7 @@ export {
   hsla,
   lighten,
   margin,
+  media,
   mix,
   modularScale,
   normalize,

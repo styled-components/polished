@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`media should return a valid media query when passed a string 1`] = `"@media (orientation: portrait)"`;
+
+exports[`media should return a valid media query when passed max width 1`] = `"@media (max-width: 600px)"`;
+
+exports[`media should return a valid media query when passed min width 1`] = `"@media (min-width: 100px)"`;
+
+exports[`media should return a valid media query when passed min/max widths 1`] = `"@media (min-width: 100px) and (max-width: 600px)"`;
+
+exports[`media should return a valid media query when passed type 1`] = `"@media print"`;
+
+exports[`media should return a valid media query when passed type and min/max widths 1`] = `"@media all and (min-width: 10rem) and (max-width: 30rem)"`;
