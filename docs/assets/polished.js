@@ -323,8 +323,8 @@
    *
    * // styled-components usage
    * const div = styled.div`
-   *   fontSize: ${fontSize: between('20px', '100px', '400px', '1000px')};
-   *   fontSize: ${fontSize: between('20px', '100px')}
+   *   fontSize: ${between('20px', '100px', '400px', '1000px')};
+   *   fontSize: ${between('20px', '100px')}
    * `
    *
    * // CSS as JS Output
