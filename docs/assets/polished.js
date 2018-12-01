@@ -860,7 +860,7 @@
         fontSize: '1em'
       },
       a: {
-        'background-color': 'transparent'
+        backgroundColor: 'transparent'
       },
       'abbr[title]': {
         borderBottom: 'none',
