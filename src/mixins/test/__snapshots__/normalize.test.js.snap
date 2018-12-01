@@ -27,7 +27,7 @@ Array [
       "WebkitAppearance": "none",
     },
     "a": Object {
-      "background-color": "transparent",
+      "backgroundColor": "transparent",
     },
     "abbr[title]": Object {
       "borderBottom": "none",
