@@ -49,7 +49,7 @@ function normalize(): Array<Styles> {
       },
 
       a: {
-        'background-color': 'transparent',
+        backgroundColor: 'transparent',
       },
 
       'abbr[title]': {
