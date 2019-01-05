@@ -35,5 +35,6 @@ function darken(amount: number | string, color: string): string {
   })
 }
 
-const curriedDarken = curry(darken)
+// prettier-ignore
+const curriedDarken = curry/* ::<number | string, string, string> */(darken)
 export default curriedDarken

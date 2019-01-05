@@ -37,5 +37,6 @@ function saturate(amount: number | string, color: string): string {
   })
 }
 
-const curriedSaturate = curry(saturate)
+// prettier-ignore
+const curriedSaturate = curry/* ::<number | string, string, string> */(saturate)
 export default curriedSaturate
