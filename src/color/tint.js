@@ -29,5 +29,6 @@ function tint(percentage: number | string, color: string): string {
   return mix(parseFloat(percentage), 'rgb(255, 255, 255)', color)
 }
 
-const curriedTint = curry(tint)
+// prettier-ignore
+const curriedTint = curry/* ::<number | string, string, string> */(tint)
 export default curriedTint

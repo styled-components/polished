@@ -29,5 +29,6 @@ function shade(percentage: number | string, color: string): string {
   return mix(parseFloat(percentage), 'rgb(0, 0, 0)', color)
 }
 
-const curriedShade = curry(shade)
+// prettier-ignore
+const curriedShade = curry/* ::<number | string, string, string> */(shade)
 export default curriedShade

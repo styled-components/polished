@@ -66,5 +66,6 @@ function mix(
   return rgba(mixedColor)
 }
 
-const curriedMix = curry(mix)
+// prettier-ignore
+const curriedMix = curry/* ::<number | string, string, string, string> */(mix)
 export default curriedMix

@@ -33,5 +33,6 @@ function setHue(hue: number | string, color: string): string {
   })
 }
 
-const curriedSetHue = curry(setHue)
+// prettier-ignore
+const curriedSetHue = curry/* ::<number | string, string, string> */(setHue)
 export default curriedSetHue
