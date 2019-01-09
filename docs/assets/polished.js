@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.polished = {})));
-}(this, (function (exports) { 'use strict';
+  (global = global || self, factory(global.polished = {}));
+}(this, function (exports) { 'use strict';
 
   // @private
   function capitalizeString(string) {
@@ -2082,11 +2082,14 @@
     return toColorString(_extends({}, hslColor, {
       hue: (hslColor.hue + parseFloat(degree)) % 360
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedAdjustHue =
   /*#__PURE__*/
-  curry(adjustHue);
+  curry
+  /* ::<number | string, string, string> */
+  (adjustHue);
 
   /**
    * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
@@ -2151,11 +2154,14 @@
     return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness - parseFloat(amount))
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedDarken =
   /*#__PURE__*/
-  curry(darken);
+  curry
+  /* ::<number | string, string, string> */
+  (darken);
 
   /**
    * Decreases the intensity of a color. Its range is between 0 to 1. The first
@@ -2187,11 +2193,14 @@
     return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation - parseFloat(amount))
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedDesaturate =
   /*#__PURE__*/
-  curry(desaturate);
+  curry
+  /* ::<number | string, string, string> */
+  (desaturate);
 
   /**
    * Returns a number (float) representing the luminance of a color.
@@ -2326,11 +2335,14 @@
     return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness + parseFloat(amount))
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedLighten =
   /*#__PURE__*/
-  curry(lighten);
+  curry
+  /* ::<number | string, string, string> */
+  (lighten);
 
   /**
    * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
@@ -2387,11 +2399,14 @@
       alpha: color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0)
     };
     return rgba(mixedColor);
-  }
+  } // prettier-ignore
+
 
   var curriedMix =
   /*#__PURE__*/
-  curry(mix);
+  curry
+  /* ::<number | string, string, string, string> */
+  (mix);
 
   /**
    * Increases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -2430,11 +2445,14 @@
     });
 
     return rgba(colorWithAlpha);
-  }
+  } // prettier-ignore
+
 
   var curriedOpacify =
   /*#__PURE__*/
-  curry(opacify);
+  curry
+  /* ::<number | string, string, string> */
+  (opacify);
 
   /**
    * Returns black or white for best contrast depending on the luminosity of the given color.
@@ -2468,10 +2486,6 @@
     return getLuminance(color) > 0.179 ? '#000' : '#fff';
   }
 
-  var curriedReadableColor =
-  /*#__PURE__*/
-  curry(readableColor);
-
   /**
    * Increases the intensity of a color. Its range is between 0 to 1. The first
    * argument of the saturate function is the amount by how much the color
@@ -2503,11 +2517,14 @@
     return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation + parseFloat(amount))
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedSaturate =
   /*#__PURE__*/
-  curry(saturate);
+  curry
+  /* ::<number | string, string, string> */
+  (saturate);
 
   /**
    * Sets the hue of a color to the provided value. The hue range can be
@@ -2537,11 +2554,14 @@
     return toColorString(_extends({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedSetHue =
   /*#__PURE__*/
-  curry(setHue);
+  curry
+  /* ::<number | string, string, string> */
+  (setHue);
 
   /**
    * Sets the lightness of a color to the provided value. The lightness range can be
@@ -2571,11 +2591,14 @@
     return toColorString(_extends({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedSetLightness =
   /*#__PURE__*/
-  curry(setLightness);
+  curry
+  /* ::<number | string, string, string> */
+  (setLightness);
 
   /**
    * Sets the saturation of a color to the provided value. The lightness range can be
@@ -2605,11 +2628,14 @@
     return toColorString(_extends({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
-  }
+  } // prettier-ignore
+
 
   var curriedSetSaturation =
   /*#__PURE__*/
-  curry(setSaturation);
+  curry
+  /* ::<number | string, string, string> */
+  (setSaturation);
 
   /**
    * Shades a color by mixing it with black. `shade` can produce
@@ -2636,11 +2662,14 @@
 
   function shade(percentage, color) {
     return curriedMix(parseFloat(percentage), 'rgb(0, 0, 0)', color);
-  }
+  } // prettier-ignore
+
 
   var curriedShade =
   /*#__PURE__*/
-  curry(shade);
+  curry
+  /* ::<number | string, string, string> */
+  (shade);
 
   /**
    * Tints a color by mixing it with white. `tint` can produce
@@ -2667,11 +2696,14 @@
 
   function tint(percentage, color) {
     return curriedMix(parseFloat(percentage), 'rgb(255, 255, 255)', color);
-  }
+  } // prettier-ignore
+
 
   var curriedTint =
   /*#__PURE__*/
-  curry(tint);
+  curry
+  /* ::<number | string, string, string> */
+  (tint);
 
   /**
    * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -2710,11 +2742,14 @@
     });
 
     return rgba(colorWithAlpha);
-  }
+  } // prettier-ignore
+
 
   var curriedTransparentize =
   /*#__PURE__*/
-  curry(transparentize);
+  curry
+  /* ::<number | string, string, string> */
+  (transparentize);
 
   /**
    * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
@@ -3364,7 +3399,7 @@
   exports.placeholder = placeholder;
   exports.position = position;
   exports.radialGradient = radialGradient;
-  exports.readableColor = curriedReadableColor;
+  exports.readableColor = readableColor;
   exports.rem = rem;
   exports.retinaImage = retinaImage;
   exports.rgb = rgb;
@@ -3388,4 +3423,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
