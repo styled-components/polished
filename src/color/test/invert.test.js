@@ -21,4 +21,8 @@ describe('invert', () => {
   it('should invert a color with opacity', () => {
     expect(invert('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(invert('transparent')).toMatchSnapshot()
+  })
 })

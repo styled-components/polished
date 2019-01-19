@@ -29,4 +29,8 @@ describe('lighten', () => {
   it('should lighten a color when passed a string for amount', () => {
     expect(lighten('0.1', '#444')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(lighten('0.1', 'transparent')).toMatchSnapshot()
+  })
 })

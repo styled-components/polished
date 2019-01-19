@@ -21,4 +21,8 @@ describe('grayscale', () => {
   it('should grayscale a color with opacity', () => {
     expect(grayscale('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(grayscale('transparent')).toMatchSnapshot()
+  })
 })

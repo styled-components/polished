@@ -21,4 +21,8 @@ describe('setLightness', () => {
   it('should update the lightness when passed a string', () => {
     expect(setLightness('0.2', '#CCCD64')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(setLightness('0.2', 'transparent')).toMatchSnapshot()
+  })
 })

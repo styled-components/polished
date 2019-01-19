@@ -29,4 +29,8 @@ describe('saturate', () => {
   it('should saturate a color when passed a string for amount', () => {
     expect(saturate('0.1', '#444')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(saturate('0.1', 'transparent')).toMatchSnapshot()
+  })
 })

@@ -17,4 +17,8 @@ describe('test', () => {
   it('should tint the provided color when passed a string for amount', () => {
     expect(tint('0.25', '#00f')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(tint('0.25', 'transparent')).toMatchSnapshot()
+  })
 })

@@ -25,4 +25,8 @@ describe('setSaturation', () => {
   it('should update the saturation when passed a string', () => {
     expect(setSaturation('0.75', 'rgba(204,205,100,0.7)')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(setSaturation('0.75', 'transparent')).toMatchSnapshot()
+  })
 })

@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getLuminance should return 0 when passed transparent 1`] = `0`;
+
 exports[`getLuminance should return the luminance of a hex color 1`] = `0.058`;
 
 exports[`getLuminance should return the luminance of a named CSS color 1`] = `0.878`;

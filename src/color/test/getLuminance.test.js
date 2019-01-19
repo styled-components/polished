@@ -33,4 +33,8 @@ describe('getLuminance', () => {
   it('should return the luminance of a named CSS color', () => {
     expect(getLuminance('papayawhip')).toMatchSnapshot()
   })
+
+  it('should return 0 when passed transparent', () => {
+    expect(getLuminance('transparent')).toMatchSnapshot()
+  })
 })

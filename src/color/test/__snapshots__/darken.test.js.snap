@@ -13,3 +13,5 @@ exports[`darken should darken a color with opacity by 20% 1`] = `"rgba(51,50,153
 exports[`darken should darken an 4-digit hex color by 30% 1`] = `"rgba(0,102,0,0.53)"`;
 
 exports[`darken should darken an 8-digit hex color by 20% 1`] = `"rgba(51,50,153,0.7)"`;
+
+exports[`darken should return transparent when passed transparent 1`] = `"transparent"`;

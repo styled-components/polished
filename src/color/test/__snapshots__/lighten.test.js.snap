@@ -13,3 +13,5 @@ exports[`lighten should lighten a hex color by 20% 1`] = `"#e5e6b1"`;
 exports[`lighten should lighten an 4-digit hex color by 20% 1`] = `"rgba(102,255,102,0.53)"`;
 
 exports[`lighten should lighten an 8-digit hex color by 20% 1`] = `"rgba(178,177,230,0.7)"`;
+
+exports[`lighten should return transparent when passed transparent 1`] = `"transparent"`;
