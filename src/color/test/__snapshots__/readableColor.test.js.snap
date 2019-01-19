@@ -22,6 +22,10 @@ exports[`readableColor should return black given white, #FFFFFFBF 1`] = `"#000"`
 
 exports[`readableColor should return black given white, rgb(255,255,255) 1`] = `"#000"`;
 
+exports[`readableColor should return custom dark background when passed light color 1`] = `"#001"`;
+
+exports[`readableColor should return custom light background when passed dark color 1`] = `"#ff8"`;
+
 exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, #000 1`] = `"#fff"`;

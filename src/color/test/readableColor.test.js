@@ -10,6 +10,14 @@ describe('readableColor', () => {
     expect(readableColor('#000')).toMatchSnapshot()
   })
 
+  it('should return custom light background when passed dark color', () => {
+    expect(readableColor('black', '#001', '#ff8')).toMatchSnapshot()
+  })
+
+  it('should return custom dark background when passed light color', () => {
+    expect(readableColor('white', '#001', '#ff8')).toMatchSnapshot()
+  })
+
   it('should return black given red, #FF0000', () => {
     expect(readableColor('#FF0000')).toMatchSnapshot()
   })
