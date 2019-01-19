@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hslToColorString should convert a HslColor to a hex string 1`] = `
+Object {
+  "background": "#b31919",
+}
+`;
+
+exports[`hslToColorString should convert a HslColor to a reduced hex string 1`] = `
+Object {
+  "background": "#00f",
+}
+`;
+
+exports[`hslToColorString should convert a HslaColor to a rgba string 1`] = `
+Object {
+  "background": "rgba(179,25,25,0.72)",
+}
+`;
