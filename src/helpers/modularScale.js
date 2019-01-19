@@ -1,5 +1,5 @@
 // @flow
-import stripUnit from './stripUnit'
+import getValueAndUnit from './getValueAndUnit'
 
 import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
@@ -64,16 +64,16 @@ function modularScale(
     )
   }
 
-  const realBase = typeof base === 'string' ? stripUnit(base) : base
+  const [realBase, unit] = typeof base === 'string' ? getValueAndUnit(base) : [base, '']
   const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
-  if (typeof realBase === 'string') {
+  if (typeof realBase === 'string' || (unit !== 'em' && unit !== 'rem')) {
     throw new Error(
-      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
+      `Invalid value passed as base to modularScale, expected number or em/rem string but got "${base}"`,
     )
   }
 
-  return `${realBase * realRatio ** steps}em`
+  return `${realBase * realRatio ** steps}${unit}`
 }
 
 export { ratioNames }

@@ -114,6 +114,12 @@ Object {
 }
 `;
 
+exports[`modularScale should allow rems as a base 1`] = `
+Object {
+  "font-size": "2.666rem",
+}
+`;
+
 exports[`modularScale should use perfect fourth and 1em base by default 1`] = `
 Object {
   "font-size": "1.333em",
