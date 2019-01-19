@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`setSaturation should return transparent when passed transparent 1`] = `"transparent"`;
+
 exports[`setSaturation should update the saturation of an 4-digit hex color and return an rgba color 1`] = `"rgba(102,153,102,0.53)"`;
 
 exports[`setSaturation should update the saturation of an 8-digit hex color and return an rgba color 1`] = `"rgba(132,132,173,0.7)"`;

@@ -25,4 +25,8 @@ describe('desaturate', () => {
   it('should desaturate a color but not go below 0', () => {
     expect(desaturate(0.8, 'rgba(40,20,10,0.7)')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(desaturate(0.8, 'transparent')).toMatchSnapshot()
+  })
 })

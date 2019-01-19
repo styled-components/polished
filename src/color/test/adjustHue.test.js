@@ -29,4 +29,8 @@ describe('adjustHue', () => {
   it('should adjustHue when passed a string for adjustment', () => {
     expect(adjustHue('20', '#448')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(adjustHue('20', 'transparent')).toMatchSnapshot()
+  })
 })

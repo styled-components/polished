@@ -29,4 +29,8 @@ describe('darken', () => {
   it('should darken a color by when passed a string for amount', () => {
     expect(darken('0.2', '#444')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(darken('0.2', 'transparent')).toMatchSnapshot()
+  })
 })

@@ -19,3 +19,5 @@ exports[`opacify should increase the opacity when passed a string for amount 1`]
 exports[`opacify should not decrease the opacity below 0 1`] = `"rgba(255,0,0,0)"`;
 
 exports[`opacify should not increase the opacity beyond 1 1`] = `"#f00"`;
+
+exports[`opacify should return transparent when passed transparent 1`] = `"transparent"`;

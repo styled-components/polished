@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`shade should return transparent when passed transparent 1`] = `"transparent"`;
+
 exports[`shade should shade the provided 4-digit hex color with white by the given percentage 1`] = `"rgba(0,132,0,0.8825000000000001)"`;
 
 exports[`shade should shade the provided 8-digit hex color with white by the given percentage 1`] = `"rgba(0,10,170,0.95)"`;

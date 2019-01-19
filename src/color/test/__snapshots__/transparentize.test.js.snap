@@ -23,3 +23,5 @@ exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.5 
 exports[`transparentize should reduce the opacity of rgba(255, 0, 0, 1) by 0.1 1`] = `"rgba(101,100,205,0.6)"`;
 
 exports[`transparentize should reduce the opacity when passed a string for amount 1`] = `"rgba(255,255,255,0.9)"`;
+
+exports[`transparentize should return transparent when passed transparent 1`] = `"transparent"`;

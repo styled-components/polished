@@ -42,6 +42,10 @@ describe('opacify', () => {
     expect(opacify('0.1', '#fff')).toMatchSnapshot()
   })
 
+  it('should return transparent when passed transparent', () => {
+    expect(opacify('0.1', 'transparent')).toMatchSnapshot()
+  })
+
   it('should throw an error when enter an invalid color', () => {
     expect(() => {
       opacify(0.5, 'not a color')

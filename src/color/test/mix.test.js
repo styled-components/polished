@@ -21,4 +21,16 @@ describe('mix', () => {
   it('should mix two colors when weight is a string', () => {
     expect(mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')).toMatchSnapshot()
   })
+
+  it('should return otherColor when passed transparent color', () => {
+    expect(mix('0.5', 'transparent', '#00f')).toMatchSnapshot()
+  })
+
+  it('should return color when passed transparent otherColor', () => {
+    expect(mix('0.5', 'rgba(255, 0, 0, 0.5)', 'transparent')).toMatchSnapshot()
+  })
+
+  it('should return transparent when passed transparent for both colors', () => {
+    expect(mix('0.5', 'transparent', 'transparent')).toMatchSnapshot()
+  })
 })

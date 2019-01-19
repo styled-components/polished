@@ -21,4 +21,8 @@ describe('complement', () => {
   it('should return the complement of a color with opacity', () => {
     expect(complement('rgba(101,100,205,0.7)')).toMatchSnapshot()
   })
+
+  it('should return transparent when passed transparent', () => {
+    expect(complement('transparent')).toMatchSnapshot()
+  })
 })

@@ -9,3 +9,9 @@ exports[`mix should mix two colors with an 8-digit hex color 1`] = `"rgba(63,0,1
 exports[`mix should mix two colors with by a weight of 25% 1`] = `"#3f00bf"`;
 
 exports[`mix should mix two colors with opacity lower than 1 1`] = `"rgba(63,0,191,0.75)"`;
+
+exports[`mix should return color when passed transparent otherColor 1`] = `"rgba(255, 0, 0, 0.5)"`;
+
+exports[`mix should return otherColor when passed transparent color 1`] = `"#00f"`;
+
+exports[`mix should return transparent when passed transparent for both colors 1`] = `"transparent"`;
