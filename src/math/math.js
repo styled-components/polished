@@ -1,91 +1,14 @@
 // @flow
+import defaultSymbolMap from './defaultMathSymbols'
 
-const unitRegExp = /(a|an|ch|cm|em|ex|(?<!s)in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g
+const unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g
 
-function last(...a) {
-  return a[a.length - 1]
-}
+function calculate(expression: string, additionalSymbols?: Object): number {
+  const symbolMap = {}
+  symbolMap.symbols = additionalSymbols
+    ? { ...defaultSymbolMap.symbols, ...additionalSymbols.symbols }
+    : { ...defaultSymbolMap.symbols }
 
-function negation(a) {
-  return -a
-}
-
-function addition(a, b) {
-  return a + b
-}
-
-function subtraction(a, b) {
-  return a - b
-}
-
-function multiplication(a, b) {
-  return a * b
-}
-
-function division(a, b) {
-  return a / b
-}
-
-function factorial(a) {
-  if (a % 1 || !(+a >= 0)) return NaN
-  if (a > 170) return Infinity
-  let b = 1
-  while (a > 1) b *= a-- // eslint-disable-line
-  return b
-}
-
-const symbolMap = {}
-
-function defineOperator(
-  symbol: string,
-  f,
-  notation: string = 'func',
-  precedence: number = 0,
-  rightToLeft: boolean = false,
-) {
-  // Store operators keyed by their symbol/name. Some symbols may represent
-  // different usages: e.g. "-" can be unary or binary, so they are also
-  // keyed by their notation (prefix, infix, postfix, func):
-  symbolMap.symbols[symbol] = Object.assign(
-    {},
-    {
-      [notation]: {
-        symbol,
-        f,
-        notation,
-        precedence,
-        rightToLeft,
-        argCount: 1 + (notation === 'infix'),
-      },
-      symbol,
-      regSymbol:
-        symbol.replace(/[\\^$*+?.()|[\]{}]/g, '\\$&')
-        + (/\w$/.test(symbol) ? '\\b' : ''), // add a break if it's a name
-    },
-  )
-}
-
-function generateSymbolMap(): Object {
-  symbolMap.symbols = {}
-  defineOperator('!', factorial, 'postfix', 6)
-  // eslint-disable-next-line no-restricted-properties
-  defineOperator('^', Math.pow, 'infix', 5, true)
-  defineOperator('*', multiplication, 'infix', 4)
-  defineOperator('/', division, 'infix', 4)
-  defineOperator('+', last, 'prefix', 3)
-  defineOperator('-', negation, 'prefix', 3)
-  defineOperator('+', addition, 'infix', 2)
-  defineOperator('-', subtraction, 'infix', 2)
-  defineOperator(',', Array.of, 'infix', 1)
-  defineOperator('(', last, 'prefix')
-  defineOperator(')', null, 'postfix')
-  defineOperator('min', Math.min)
-  defineOperator('sqrt', Math.sqrt)
-}
-
-generateSymbolMap()
-
-function calculate(expression: string): number {
   let match
   const values = []
 
@@ -164,7 +87,31 @@ function calculate(expression: string): number {
       : values.pop()
 }
 
-function math(formula: string): string {
+/**
+ * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   ...cover()
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${cover()}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div: {
+ *   'position': 'absolute',
+ *   'top': '0',
+ *   'right: '0',
+ *   'bottom': '0',
+ *   'left: '0'
+ * }
+ */
+function math(formula: string, additionalSymbols?: Object): string {
   const match = formula.match(unitRegExp)
   if (match) {
     if (match.every(unit => unit !== match[0]) && match.length > 1) {
@@ -175,7 +122,7 @@ function math(formula: string): string {
   }
 
   const cleanFormula = formula.replace(unitRegExp, '')
-  return `${calculate(cleanFormula)}${match ? match[0] : ''}`
+  return `${calculate(cleanFormula, additionalSymbols)}${match ? match[0] : ''}`
 }
 
 export default math

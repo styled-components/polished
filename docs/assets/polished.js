@@ -4,6 +4,347 @@
   (global = global || self, factory(global.polished = {}));
 }(this, function (exports) { 'use strict';
 
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+
+      return target;
+    };
+
+    return _extends.apply(this, arguments);
+  }
+
+  // RPN Functions
+  function last() {
+    var _ref;
+
+    return _ref = arguments.length - 1, _ref < 0 || arguments.length <= _ref ? undefined : arguments[_ref];
+  }
+
+  function negation(a) {
+    return -a;
+  }
+
+  function addition(a, b) {
+    return a + b;
+  }
+
+  function subtraction(a, b) {
+    return a - b;
+  }
+
+  function multiplication(a, b) {
+    return a * b;
+  }
+
+  function division(a, b) {
+    return a / b;
+  }
+
+  function factorial(a) {
+    if (a % 1 || !(+a >= 0)) return NaN;
+    if (a > 170) return Infinity;
+    if (a < 0) return -1;else if (a == 0) return 1;else {
+      return a * factorial(a - 1);
+    }
+  }
+
+  var defaultSymbolMap = {
+    symbols: {
+      "!": {
+        postfix: {
+          symbol: "!",
+          f: factorial,
+          notation: "postfix",
+          precedence: 6,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "!",
+        regSymbol: "!"
+      },
+      "^": {
+        infix: {
+          symbol: "^",
+          f: Math.pow,
+          notation: "infix",
+          precedence: 5,
+          rightToLeft: true,
+          argCount: 2
+        },
+        symbol: "^",
+        regSymbol: "\\^"
+      },
+      "*": {
+        infix: {
+          symbol: "*",
+          f: multiplication,
+          notation: "infix",
+          precedence: 4,
+          rightToLeft: false,
+          argCount: 2
+        },
+        symbol: "*",
+        regSymbol: "\\*"
+      },
+      "/": {
+        infix: {
+          symbol: "/",
+          f: division,
+          notation: "infix",
+          precedence: 4,
+          rightToLeft: false,
+          argCount: 2
+        },
+        symbol: "/",
+        regSymbol: "/"
+      },
+      "+": {
+        infix: {
+          symbol: "+",
+          f: addition,
+          notation: "infix",
+          precedence: 2,
+          rightToLeft: false,
+          argCount: 2
+        },
+        prefix: {
+          symbol: "+",
+          f: last,
+          notation: "prefix",
+          precedence: 3,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "+",
+        regSymbol: "\\+"
+      },
+      "-": {
+        infix: {
+          symbol: "-",
+          f: subtraction,
+          notation: "infix",
+          precedence: 2,
+          rightToLeft: false,
+          argCount: 2
+        },
+        prefix: {
+          symbol: "-",
+          f: negation,
+          notation: "prefix",
+          precedence: 3,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "-",
+        regSymbol: "-"
+      },
+      ",": {
+        infix: {
+          symbol: ",",
+          f: Array.of,
+          notation: "infix",
+          precedence: 1,
+          rightToLeft: false,
+          argCount: 2
+        },
+        symbol: ",",
+        regSymbol: ","
+      },
+      "(": {
+        prefix: {
+          symbol: "(",
+          f: last,
+          notation: "prefix",
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "(",
+        regSymbol: "\\("
+      },
+      ")": {
+        postfix: {
+          symbol: ")",
+          f: null,
+          notation: "postfix",
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: ")",
+        regSymbol: "\\)"
+      },
+      min: {
+        func: {
+          symbol: "min",
+          f: Math.min,
+          notation: "func",
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "min",
+        regSymbol: "min\\b"
+      },
+      max: {
+        func: {
+          symbol: "max",
+          f: Math.max,
+          notation: "func",
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "max",
+        regSymbol: "max\\b"
+      },
+      sqrt: {
+        func: {
+          symbol: "sqrt",
+          f: Math.sqrt,
+          notation: "func",
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: "sqrt",
+        regSymbol: "sqrt\\b"
+      }
+    }
+  };
+
+  var unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g;
+
+  function calculate(expression, additionalSymbols) {
+    var symbolMap = {};
+    symbolMap.symbols = additionalSymbols ? _extends({}, defaultSymbolMap.symbols, additionalSymbols.symbols) : _extends({}, defaultSymbolMap.symbols);
+    var match;
+    var values = [];
+    var operators = [symbolMap.symbols['('].prefix]; // eslint-disable-next-line no-unused-vars
+
+    var exec = function exec(_) {
+      var _ref;
+
+      var op = operators.pop();
+      values.push(op.f.apply(op, (_ref = []).concat.apply(_ref, values.splice(-op.argCount))));
+      return op.precedence;
+    };
+
+    var error = function error(msg) {
+      var notation = match ? match.index : expression.length;
+      return msg + " at " + notation + ":\n" + expression + "\n" + ' '.repeat(notation) + "^";
+    };
+
+    var pattern = new RegExp( // Pattern for numbers
+    "\\d+(?:\\.\\d+)?|" + // ...and patterns for individual operators/function names
+    Object.values(symbolMap.symbols) // longer symbols should be listed first
+    .sort(function (a, b) {
+      return b.symbol.length - a.symbol.length;
+    }).map(function (val) {
+      return val.regSymbol;
+    }).join('|') + "|(\\S)", 'g');
+    var afterValue = false;
+    pattern.lastIndex = 0; // Reset regular expression object
+
+    do {
+      match = pattern.exec(expression);
+
+      var _ref2 = match || [')', undefined],
+          token = _ref2[0],
+          bad = _ref2[1];
+
+      var notNumber = symbolMap.symbols[token];
+      var notNewValue = notNumber && !notNumber.prefix && !notNumber.func;
+      var notAfterValue = !notNumber || !notNumber.postfix && !notNumber.infix; // Check for syntax errors:
+
+      if (bad || (afterValue ? notAfterValue : notNewValue)) return error('Syntax error');
+
+      if (afterValue) {
+        // We either have an infix or postfix operator (they should be mutually exclusive)
+        var curr = notNumber.postfix || notNumber.infix;
+
+        do {
+          var prev = operators[operators.length - 1];
+          if ((curr.precedence - prev.precedence || prev.rightToLeft) > 0) break; // Apply previous operator, since it has precedence over current one
+        } while (exec()); // Exit loop after executing an opening parenthesis or function
+
+
+        afterValue = curr.notation === 'postfix';
+
+        if (curr.symbol !== ')') {
+          operators.push(curr); // Postfix always has precedence over any operator that follows after it
+
+          if (afterValue) exec();
+        }
+      } else if (notNumber) {
+        // prefix operator or function
+        operators.push(notNumber.prefix || notNumber.func);
+
+        if (notNumber.func) {
+          // Require an opening parenthesis
+          match = pattern.exec(expression);
+          if (!match || match[0] !== '(') return error('Function needs parentheses');
+        }
+      } else {
+        // number
+        values.push(+token);
+        afterValue = true;
+      }
+    } while (match && operators.length); // eslint-disable-next-line no-nested-ternary
+
+
+    return operators.length ? error('Missing closing parenthesis') : match ? error('Too many closing parentheses') : values.pop();
+  }
+  /**
+   * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   ...cover()
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${cover()}
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *   'position': 'absolute',
+   *   'top': '0',
+   *   'right: '0',
+   *   'bottom': '0',
+   *   'left: '0'
+   * }
+   */
+
+
+  function math(formula, additionalSymbols) {
+    var match = formula.match(unitRegExp);
+
+    if (match) {
+      if (match.every(function (unit) {
+        return unit !== match[0];
+      }) && match.length > 1) {
+        throw new Error('All values in a formula must have the same unit or be unitless.');
+      }
+    }
+
+    var cleanFormula = formula.replace(unitRegExp, '');
+    return "" + calculate(cleanFormula, additionalSymbols) + (match ? match[0] : '');
+  }
+
   // @private
   function capitalizeString(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -273,14 +614,17 @@
       throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.');
     }
 
-    var realBase = typeof base === 'string' ? stripUnit(base) : base;
+    var _ref = typeof base === 'string' ? getValueAndUnit(base) : [base, ''],
+        realBase = _ref[0],
+        unit = _ref[1];
+
     var realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio;
 
-    if (typeof realBase === 'string') {
-      throw new Error("Invalid value passed as base to modularScale, expected number or em string but got \"" + base + "\"");
+    if (typeof realBase === 'string' || unit !== 'em' && unit !== 'rem') {
+      throw new Error("Invalid value passed as base to modularScale, expected number or em/rem string but got \"" + base + "\"");
     }
 
-    return realBase * Math.pow(realRatio, steps) + "em";
+    return "" + realBase * Math.pow(realRatio, steps) + unit;
   }
 
   /**
@@ -486,24 +830,6 @@
       whiteSpace: 'nowrap',
       wordWrap: 'normal'
     };
-  }
-
-  function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-
-      return target;
-    };
-
-    return _extends.apply(this, arguments);
   }
 
   /**
@@ -941,49 +1267,6 @@
     }];
   }
 
-  /**
-   * CSS to style the placeholder pseudo-element.
-   *
-   * @deprecated - placeholder has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed placeholder pseudo-element.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...placeholder({'color': 'blue'})
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.input`
-   *    ${placeholder({'color': 'blue'})}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'input': {
-   *   '&:-moz-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&:-ms-input-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&::-moz-placeholder': {
-   *     'color': 'blue',
-   *   },
-   *   '&::-webkit-input-placeholder': {
-   *     'color': 'blue',
-   *   },
-   * },
-   */
-  function placeholder(styles, parent) {
-    var _ref;
-
-    if (parent === void 0) {
-      parent = '&';
-    }
-
-    return _ref = {}, _ref[parent + "::-webkit-input-placeholder"] = _extends({}, styles), _ref[parent + ":-moz-placeholder"] = _extends({}, styles), _ref[parent + "::-moz-placeholder"] = _extends({}, styles), _ref[parent + ":-ms-input-placeholder"] = _extends({}, styles), _ref;
-  }
-
   function _taggedTemplateLiteralLoose(strings, raw) {
     if (!raw) {
       raw = strings.slice(0);
@@ -1128,45 +1411,6 @@
     }, backgroundSize ? {
       backgroundSize: backgroundSize
     } : {}), _ref;
-  }
-
-  /**
-   * CSS to style the selection pseudo-element.
-   *
-   * @deprecated - selection has been marked for deprecation in polished 2.0 and will be fully deprecated in 3.0. It is no longer needed and can safely be replaced with the non-prefixed selection pseudo-element.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...selection({
-   *     'backgroundColor': 'blue'
-   *   }, 'section')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${selection({'backgroundColor': 'blue'}, 'section')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'section::-moz-selection': {
-   *     'backgroundColor':'blue',
-   *   },
-   *   'section::selection': {
-   *     'backgroundColor': 'blue',
-   *   }
-   * }
-   */
-  function selection(styles, parent) {
-    var _ref;
-
-    if (parent === void 0) {
-      parent = '';
-    }
-
-    return _ref = {}, _ref[parent + "::-moz-selection"] = _extends({}, styles), _ref[parent + "::selection"] = _extends({}, styles), _ref;
   }
 
   /* eslint-disable key-spacing */
@@ -2078,6 +2322,7 @@
    */
 
   function adjustHue(degree, color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       hue: (hslColor.hue + parseFloat(degree)) % 360
@@ -2115,6 +2360,7 @@
    */
 
   function complement(color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       hue: (hslColor.hue + 180) % 360
@@ -2150,6 +2396,7 @@
    */
 
   function darken(amount, color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness - parseFloat(amount))
@@ -2189,6 +2436,7 @@
    */
 
   function desaturate(amount, color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation - parseFloat(amount))
@@ -2230,6 +2478,7 @@
    */
 
   function getLuminance(color) {
+    if (color === 'transparent') return 0;
     var rgbColor = parseToRgb(color);
 
     var _Object$keys$map = Object.keys(rgbColor).map(function (key) {
@@ -2267,6 +2516,7 @@
    */
 
   function grayscale(color) {
+    if (color === 'transparent') return color;
     return toColorString(_extends({}, parseToHsl(color), {
       saturation: 0
     }));
@@ -2297,7 +2547,8 @@
    */
 
   function invert(color) {
-    // parse color string to rgb
+    if (color === 'transparent') return color; // parse color string to rgb
+
     var value = parseToRgb(color);
     return toColorString(_extends({}, value, {
       red: 255 - value.red,
@@ -2331,6 +2582,7 @@
    */
 
   function lighten(amount, color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness + parseFloat(amount))
@@ -2372,6 +2624,8 @@
    */
 
   function mix(weight, color, otherColor) {
+    if (color === 'transparent') return otherColor;
+    if (otherColor === 'transparent') return color;
     var parsedColor1 = parseToRgb(color);
 
     var color1 = _extends({}, parsedColor1, {
@@ -2437,6 +2691,7 @@
    */
 
   function opacify(amount, color) {
+    if (color === 'transparent') return color;
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
@@ -2462,28 +2717,36 @@
    * // Styles as object usage
    * const styles = {
    *   color: readableColor('#000'),
-   *   color: readableColor('papayawhip'),
-   *   color: readableColor('rgb(255,0,0)'),
+   *   color: readableColor('black', '#001', '#ff8'),
+   *   color: readableColor('white', '#001', '#ff8'),
    * }
    *
    * // styled-components usage
    * const div = styled.div`
    *   color: ${readableColor('#000')};
-   *   color: ${readableColor('papayawhip')};
-   *   color: ${readableColor('rgb(255,0,0)')};
+   *   color: ${readableColor('black', '#001', '#ff8')};
+   *   color: ${readableColor('white', '#001', '#ff8')};
    * `
    *
    * // CSS in JS Output
    *
    * element {
    *   color: "#fff";
-   *   color: "#fff";
-   *   color: "#000";
+   *   color: "#ff8";
+   *   color: "#001";
    * }
    */
 
-  function readableColor(color) {
-    return getLuminance(color) > 0.179 ? '#000' : '#fff';
+  function readableColor(color, lightReturnColor, darkReturnColor) {
+    if (lightReturnColor === void 0) {
+      lightReturnColor = '#000';
+    }
+
+    if (darkReturnColor === void 0) {
+      darkReturnColor = '#fff';
+    }
+
+    return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor;
   }
 
   /**
@@ -2513,6 +2776,7 @@
    */
 
   function saturate(amount, color) {
+    if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation + parseFloat(amount))
@@ -2551,6 +2815,7 @@
    */
 
   function setHue(hue, color) {
+    if (color === 'transparent') return color;
     return toColorString(_extends({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
@@ -2588,6 +2853,7 @@
    */
 
   function setLightness(lightness, color) {
+    if (color === 'transparent') return color;
     return toColorString(_extends({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
@@ -2625,6 +2891,7 @@
    */
 
   function setSaturation(saturation, color) {
+    if (color === 'transparent') return color;
     return toColorString(_extends({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
@@ -2661,6 +2928,7 @@
    */
 
   function shade(percentage, color) {
+    if (color === 'transparent') return color;
     return curriedMix(parseFloat(percentage), 'rgb(0, 0, 0)', color);
   } // prettier-ignore
 
@@ -2695,6 +2963,7 @@
    */
 
   function tint(percentage, color) {
+    if (color === 'transparent') return color;
     return curriedMix(parseFloat(percentage), 'rgb(255, 255, 255)', color);
   } // prettier-ignore
 
@@ -2734,6 +3003,7 @@
    */
 
   function transparentize(amount, color) {
+    if (color === 'transparent') return color;
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
@@ -3355,7 +3625,7 @@
     }
   }
 
-  // Helpers
+  // Math
 
   exports.adjustHue = curriedAdjustHue;
   exports.animation = animation;
@@ -3389,6 +3659,7 @@
   exports.hsla = hsla;
   exports.lighten = curriedLighten;
   exports.margin = margin;
+  exports.math = math;
   exports.mix = curriedMix;
   exports.modularScale = modularScale;
   exports.normalize = normalize;
@@ -3396,7 +3667,6 @@
   exports.padding = padding;
   exports.parseToHsl = parseToHsl;
   exports.parseToRgb = parseToRgb;
-  exports.placeholder = placeholder;
   exports.position = position;
   exports.radialGradient = radialGradient;
   exports.readableColor = readableColor;
@@ -3405,7 +3675,6 @@
   exports.rgb = rgb;
   exports.rgba = rgba;
   exports.saturate = curriedSaturate;
-  exports.selection = selection;
   exports.setHue = curriedSetHue;
   exports.setLightness = curriedSetLightness;
   exports.setSaturation = curriedSetSaturation;

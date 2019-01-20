@@ -1,4 +1,8 @@
 // @flow
+
+// Math
+import math from './math/math'
+
 // Helpers
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
@@ -101,6 +105,7 @@ export {
   hsla,
   lighten,
   margin,
+  math,
   mix,
   modularScale,
   normalize,
