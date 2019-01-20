@@ -69,9 +69,6 @@ hiDPI = polished.hiDPI(1.5);
 
 const normalize: object = polished.normalize();
 
-let placeholder: object = polished.placeholder({});
-placeholder = polished.placeholder({}, "");
-
 const radialGradient: object = polished.radialGradient({
   colorStops: ["#00FFFF 0%", "rgba(0, 0, 255, 0) 50%", "#0000FF 95%"],
   extent: "farthest-corner at 45px 45px",
@@ -85,9 +82,6 @@ retinaImage = polished.retinaImage("", "");
 retinaImage = polished.retinaImage("", "", "");
 retinaImage = polished.retinaImage("", "", "", "");
 retinaImage = polished.retinaImage("", "", "", "", "");
-
-let selection: object = polished.selection({});
-selection = polished.selection({}, "");
 
 const timingFunctions = polished.timingFunctions("easeInBack");
 
