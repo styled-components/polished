@@ -9,28 +9,32 @@ import getLuminance from './getLuminance'
  * // Styles as object usage
  * const styles = {
  *   color: readableColor('#000'),
- *   color: readableColor('papayawhip'),
- *   color: readableColor('rgb(255,0,0)'),
+ *   color: readableColor('black', '#001', '#ff8'),
+ *   color: readableColor('white', '#001', '#ff8'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   color: ${readableColor('#000')};
- *   color: ${readableColor('papayawhip')};
- *   color: ${readableColor('rgb(255,0,0)')};
+ *   color: ${readableColor('black', '#001', '#ff8')};
+ *   color: ${readableColor('white', '#001', '#ff8')};
  * `
  *
  * // CSS in JS Output
  *
  * element {
  *   color: "#fff";
- *   color: "#fff";
- *   color: "#000";
+ *   color: "#ff8";
+ *   color: "#001";
  * }
  */
 
-function readableColor(color: string): string {
-  return getLuminance(color) > 0.179 ? '#000' : '#fff'
+function readableColor(
+  color: string,
+  lightReturnColor: string = '#000',
+  darkReturnColor: string = '#fff',
+): string {
+  return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor
 }
 
 export default readableColor

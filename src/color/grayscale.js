@@ -25,6 +25,7 @@ import toColorString from './toColorString'
  * }
  */
 function grayscale(color: string): string {
+  if (color === 'transparent') return color
   return toColorString({
     ...parseToHsl(color),
     saturation: 0,

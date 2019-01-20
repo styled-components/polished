@@ -28,6 +28,7 @@ import curry from '../internalHelpers/_curry'
  * }
  */
 function adjustHue(degree: number | string, color: string): string {
+  if (color === 'transparent') return color
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,

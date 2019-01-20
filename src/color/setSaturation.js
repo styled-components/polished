@@ -27,6 +27,7 @@ import toColorString from './toColorString'
  * }
  */
 function setSaturation(saturation: number | string, color: string): string {
+  if (color === 'transparent') return color
   return toColorString({
     ...parseToHsl(color),
     saturation: parseFloat(saturation),

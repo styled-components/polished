@@ -26,6 +26,7 @@ import toColorString from './toColorString'
  * }
  */
 function invert(color: string): string {
+  if (color === 'transparent') return color
   // parse color string to rgb
   const value = parseToRgb(color)
   return toColorString({

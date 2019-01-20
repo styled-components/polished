@@ -26,6 +26,7 @@ import mix from './mix'
  */
 
 function tint(percentage: number | string, color: string): string {
+  if (color === 'transparent') return color
   return mix(parseFloat(percentage), 'rgb(255, 255, 255)', color)
 }
 
