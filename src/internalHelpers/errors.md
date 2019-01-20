@@ -1,5 +1,7 @@
 **DO NOT REMOVE ERRORS OR MAKE NEW ONES OUT OF SEQUENCE, ALWAYS ADD TO THE END.**
 
+**COLOR**
+
 ## 1
 
 Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).
@@ -118,7 +120,7 @@ Passed invalid argument to triangle, please pass correct pointingDirection e.g. 
 
 ## 30
 
-Passed an invalid value to `height` or `width`. Please provide a pixel based unit
+Passed an invalid value to `height` or `width`. Please provide a pixel based unit.
 
 ## 31
 

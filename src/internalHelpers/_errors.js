@@ -41,10 +41,14 @@ function format(...args) {
  * in production mode.
  */
 export default class PolishedError extends Error {
-  constructor(code: string | number, ...args: Array<any>) {
+  constructor(
+    code: string | number,
+    pkg: string = 'internal_helpers',
+    ...args: Array<any>
+  ) {
     if (process.env.NODE_ENV === 'production') {
       super(
-        `An error occurred. See https://github.com/styled-components/polished/blob/master/src/internal_helpers/errors.md#${code} for more information. ${
+        `An error occurred. See https://github.com/styled-components/polished/blob/master/src/${pkg}/errors.md#${code} for more information. ${
           args ? `Additional arguments: ${args.join(', ')}` : ''
         }`,
       )
