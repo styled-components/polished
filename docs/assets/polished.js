@@ -60,14 +60,6 @@
     return Math.pow(a, b);
   }
 
-  function comma() {
-    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
-      a[_key] = arguments[_key];
-    }
-
-    return Array.of(a);
-  }
-
   function sqrt(a) {
     return Math.sqrt(a);
   }
@@ -165,7 +157,7 @@
       ',': {
         infix: {
           symbol: ',',
-          f: comma,
+          f: Array.of,
           notation: 'infix',
           precedence: 1,
           rightToLeft: 0,
@@ -197,6 +189,30 @@
         },
         symbol: ')',
         regSymbol: '\\)'
+      },
+      min: {
+        func: {
+          symbol: 'min',
+          f: Math.min,
+          notation: 'func',
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: 'min',
+        regSymbol: 'min\\b'
+      },
+      max: {
+        func: {
+          symbol: 'max',
+          f: Math.max,
+          notation: 'func',
+          precedence: 0,
+          rightToLeft: false,
+          argCount: 1
+        },
+        symbol: 'max',
+        regSymbol: 'max\\b'
       },
       sqrt: {
         func: {
@@ -1133,6 +1149,93 @@
     return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
   }
 
+  function _taggedTemplateLiteralLoose(strings, raw) {
+    if (!raw) {
+      raw = strings.slice(0);
+    }
+
+    strings.raw = raw;
+    return strings;
+  }
+
+  function _templateObject() {
+    var data = _taggedTemplateLiteralLoose(["linear-gradient(", "", ")"]);
+
+    _templateObject = function _templateObject() {
+      return data;
+    };
+
+    return data;
+  }
+
+  function parseFallback(colorStops) {
+    return colorStops[0].split(' ')[0];
+  }
+
+  function constructGradientValue(literals) {
+    var template = '';
+
+    for (var i = 0; i < literals.length; i += 1) {
+      template += literals[i]; // Adds leading coma if properties preceed color-stops
+
+      if (i === 1 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && (arguments.length <= 1 ? undefined : arguments[1])) {
+        template = template.slice(0, -1);
+        template += ", " + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // No trailing space if color-stops is the only param provided
+      } else if (i === 1 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && !(arguments.length <= 1 ? undefined : arguments[1])) {
+        template += "" + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // Only adds substitution if it is defined
+      } else if (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) {
+        template += (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) + " ";
+      }
+    }
+
+    return template.trim();
+  }
+  /**
+   * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   ...linearGradient({
+          colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
+          toDirection: 'to top right',
+          fallback: '#FFF',
+        })
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${linearGradient({
+          colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
+          toDirection: 'to top right',
+          fallback: '#FFF',
+        })}
+   *`
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *   'backgroundColor': '#FFF',
+   *   'backgroundImage': 'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+   * }
+   */
+
+
+  function linearGradient(_ref) {
+    var colorStops = _ref.colorStops,
+        fallback = _ref.fallback,
+        toDirection = _ref.toDirection;
+
+    if (!colorStops || colorStops.length < 2) {
+      throw new Error('linearGradient requries at least 2 color-stops to properly render.');
+    }
+
+    return {
+      backgroundColor: fallback || parseFallback(colorStops),
+      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', '))
+    };
+  }
+
   /**
    * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
    *
@@ -1258,30 +1361,21 @@
     }];
   }
 
-  function _taggedTemplateLiteralLoose(strings, raw) {
-    if (!raw) {
-      raw = strings.slice(0);
-    }
-
-    strings.raw = raw;
-    return strings;
-  }
-
-  function _templateObject() {
+  function _templateObject$1() {
     var data = _taggedTemplateLiteralLoose(["radial-gradient(", "", "", "", ")"]);
 
-    _templateObject = function _templateObject() {
+    _templateObject$1 = function _templateObject() {
       return data;
     };
 
     return data;
   }
 
-  function parseFallback(colorStops) {
+  function parseFallback$1(colorStops) {
     return colorStops[0].split(' ')[0];
   }
 
-  function constructGradientValue(literals) {
+  function constructGradientValue$1(literals) {
     var template = '';
 
     for (var i = 0; i < literals.length; i += 1) {
@@ -1344,8 +1438,8 @@
     }
 
     return {
-      backgroundColor: fallback || parseFallback(colorStops),
-      backgroundImage: constructGradientValue(_templateObject(), position, shape, extent, colorStops.join(', '))
+      backgroundColor: fallback || parseFallback$1(colorStops),
+      backgroundImage: constructGradientValue$1(_templateObject$1(), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -2063,6 +2157,203 @@
     return hslToRgb(hue, saturation, lightness, convertToHex);
   }
 
+  function _assertThisInitialized(self) {
+    if (self === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return self;
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+
+  function _getPrototypeOf(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+      return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
+  }
+
+  function _isNativeFunction(fn) {
+    return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  }
+
+  function isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function _construct(Parent, args, Class) {
+    if (isNativeReflectConstruct()) {
+      _construct = Reflect.construct;
+    } else {
+      _construct = function _construct(Parent, args, Class) {
+        var a = [null];
+        a.push.apply(a, args);
+        var Constructor = Function.bind.apply(Parent, a);
+        var instance = new Constructor();
+        if (Class) _setPrototypeOf(instance, Class.prototype);
+        return instance;
+      };
+    }
+
+    return _construct.apply(null, arguments);
+  }
+
+  function _wrapNativeSuper(Class) {
+    var _cache = typeof Map === "function" ? new Map() : undefined;
+
+    _wrapNativeSuper = function _wrapNativeSuper(Class) {
+      if (Class === null || !_isNativeFunction(Class)) return Class;
+
+      if (typeof Class !== "function") {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+
+      if (typeof _cache !== "undefined") {
+        if (_cache.has(Class)) return _cache.get(Class);
+
+        _cache.set(Class, Wrapper);
+      }
+
+      function Wrapper() {
+        return _construct(Class, arguments, _getPrototypeOf(this).constructor);
+      }
+
+      Wrapper.prototype = Object.create(Class.prototype, {
+        constructor: {
+          value: Wrapper,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      });
+      return _setPrototypeOf(Wrapper, Class);
+    };
+
+    return _wrapNativeSuper(Class);
+  }
+
+  // based on https://github.com/styled-components/styled-components/blob/fcf6f3804c57a14dd7984dfab7bc06ee2edca044/src/utils/error.js
+
+  /**
+   * Parse errors.md and turn it into a simple hash of code: message
+   */
+  var ERRORS = {
+    "1": "Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).\n\n",
+    "2": "Passed invalid arguments to hsla, please pass multiple numbers e.g. hsla(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).\n\n",
+    "3": "Passed an incorrect argument to a color function, please pass a string representation of a color.\n\n",
+    "4": "Couldn't generate valid rgb string from %s, it returned %s.\n\n",
+    "5": "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.\n\n",
+    "6": "Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).\n\n",
+    "7": "Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).\n\n",
+    "8": "Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.\n\n",
+    "9": "Please provide a number of steps to the modularScale helper.\n\n",
+    "10": "Please pass a number or one of the predefined scales to the modularScale helper as the ratio.\n\n",
+    "11": "Invalid value passed as base to modularScale, expected number or em string but got \"%s\"\n\n",
+    "12": "Expected a string ending in \"px\" or a number passed as the first argument to %s(), got \"%s\" instead.\n\n",
+    "13": "Expected a string ending in \"px\" or a number passed as the second argument to %s(), got \"%s\" instead.\n\n",
+    "14": "Passed invalid pixel value (\"%s\") to %s(), please pass a value like \"12px\" or 12.\n\n",
+    "15": "Passed invalid base value (\"%s\") to %s(), please pass a value like \"12px\" or 12.\n\n",
+    "16": "You must provide a template to this method.\n\n",
+    "17": "You passed an unsupported selector state to this method.\n\n",
+    "18": "minScreen and maxScreen must be provided as stringified numbers with the same units.\n\n",
+    "19": "fromSize and toSize must be provided as stringified numbers with the same units.\n\n",
+    "20": "expects either an array of objects or a single object with the properties prop, fromSize, and toSize.\n\n",
+    "21": "expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.\n\n",
+    "22": "expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.\n\n",
+    "23": "fontFace expects a name of a font-family.\n\n",
+    "24": "fontFace expects either the path to the font file(s) or a name of a local copy.\n\n",
+    "25": "fontFace expects localFonts to be an array.\n\n",
+    "26": "fontFace expects fileFormats to be an array.\n\n",
+    "27": "radialGradient requries at least 2 color-stops to properly render.\n\n",
+    "28": "Please supply a filename to retinaImage() as the first argument.\n\n",
+    "29": "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.\n\n",
+    "30": "Passed an invalid value to `height` or `width`. Please provide a pixel based unit.\n\n",
+    "31": "The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation\n\n",
+    "32": "To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')\n\n",
+    "33": "The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation\n\n",
+    "34": "borderRadius expects a radius value as a string or number as the second argument.\n\n",
+    "35": "borderRadius expects one of \"top\", \"bottom\", \"left\" or \"right\" as the first argument.\n\n",
+    "36": "Property must be a string value.\n"
+  };
+  /**
+   * super basic version of sprintf
+   */
+
+  function format() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var a = args[0];
+    var b = [];
+    var c;
+
+    for (c = 1; c < args.length; c += 1) {
+      b.push(args[c]);
+    }
+
+    b.forEach(function (d) {
+      a = a.replace(/%[a-z]/, d);
+    });
+    return a;
+  }
+  /**
+   * Create an error file out of errors.md for development and a simple web link to the full errors
+   * in production mode.
+   */
+
+
+  var PolishedError =
+  /*#__PURE__*/
+  function (_Error) {
+    _inheritsLoose(PolishedError, _Error);
+
+    function PolishedError(code, pkg) {
+      var _this;
+
+      if (pkg === void 0) {
+        pkg = 'internal_helpers';
+      }
+
+      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      {
+        _this = _Error.call(this, format.apply(void 0, [ERRORS[code]].concat(args))) || this;
+      }
+
+      return _assertThisInitialized(_this);
+    }
+
+    return PolishedError;
+  }(
+  /*#__PURE__*/
+  _wrapNativeSuper(Error));
+
   /**
    * Returns a string value for the color. The returned result is the smallest possible hex notation.
    *
@@ -2093,7 +2384,7 @@
       return hslToHex(value.hue, value.saturation, value.lightness);
     }
 
-    throw new Error('Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).');
+    throw new PolishedError(1);
   }
 
   /**
@@ -3649,6 +3940,7 @@
   exports.hsl = hsl;
   exports.hsla = hsla;
   exports.lighten = curriedLighten;
+  exports.linearGradient = linearGradient;
   exports.margin = margin;
   exports.math = math;
   exports.mix = curriedMix;

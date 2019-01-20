@@ -164,6 +164,16 @@
             
               
               <li><a
+                href='#lineargradient'
+                class="">
+                linearGradient
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#normalize'
                 class="">
                 normalize
@@ -907,6 +917,16 @@
                 href='#polishederror'
                 class="">
                 PolishedError
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#lineargradientconfiguration'
+                class="">
+                LinearGradientConfiguration
                 
               </a>
               
@@ -2096,6 +2116,154 @@ const div = styled.div`
  only screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>-resolution: <span class="hljs-number">144</span>dpi),
  only screen <span class="hljs-built_in">and</span> (<span class="hljs-built_in">min</span>-resolution: <span class="hljs-number">1.5</span>dppx)': {
   'width': '<span class="hljs-number">200</span>px',
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='lineargradient'>
+      linearGradient
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
+
+
+  <div class='pre p1 fill-light mt0'>linearGradient($0: any): <a href="#styles">Styles</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>$0</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.colorStops</span> <code class='quiet'>any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.fallback</span> <code class='quiet'>any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>$0.toDirection</span> <code class='quiet'>any</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#styles">Styles</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+  ...linearGradient({
+<span class="hljs-string">colorStops:</span> [<span class="hljs-string">'#00FFFF 0%'</span>, <span class="hljs-string">'rgba(0, 0, 255, 0) 50%'</span>, <span class="hljs-string">'#0000FF 95%'</span>],
+<span class="hljs-string">toDirection:</span> <span class="hljs-string">'to top right'</span>,
+<span class="hljs-string">fallback:</span> <span class="hljs-string">'#FFF'</span>,
+})
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const div = styled.div`
+  ${linearGradient({
+<span class="hljs-string">colorStops:</span> [<span class="hljs-string">'#00FFFF 0%'</span>, <span class="hljs-string">'rgba(0, 0, 255, 0) 50%'</span>, <span class="hljs-string">'#0000FF 95%'</span>],
+<span class="hljs-string">toDirection:</span> <span class="hljs-string">'to top right'</span>,
+<span class="hljs-string">fallback:</span> <span class="hljs-string">'#FFF'</span>,
+})}
+`
+
+<span class="hljs-comment">// CSS as JS Output</span>
+<span class="hljs-symbol">
+div:</span> {
+  <span class="hljs-string">'backgroundColor'</span>: <span class="hljs-string">'#FFF'</span>,
+  <span class="hljs-string">'backgroundImage'</span>: <span class="hljs-string">'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)'</span>,
 }</pre>
     
   
@@ -10030,7 +10198,7 @@ element {
 in production mode.</p>
 
 
-  <div class='pre p1 fill-light mt0'>new PolishedError(code: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</div>
+  <div class='pre p1 fill-light mt0'>new PolishedError(code: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), pkg: sring, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</div>
   
   
     <p>
@@ -10061,6 +10229,15 @@ in production mode.</p>
       
         <div class='space-bottom0'>
           <div>
+            <span class='code bold'>pkg</span> <code class='quiet'>(sring
+            = <code>&#39;internal_helpers&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
             <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</code>
 	    
           </div>
@@ -10073,6 +10250,105 @@ in production mode.</p>
   
     <div class='py1 quiet mt1 prose-big'>Properties</div>
     <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='lineargradientconfiguration'>
+      LinearGradientConfiguration
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>LinearGradientConfiguration</div>
+  
+    <p>
+      Type:
+      {colorStops: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, toDirection: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fallback: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?}
+    </p>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorStops</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>toDirection</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>fallback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+          
+          
+        </div>
       
     </div>
   
