@@ -20,10 +20,6 @@ exports[`math should be able to do simple exponent power 1`] = `"8em"`;
 
 exports[`math should be able to do simple factorial 1`] = `"6em"`;
 
-exports[`math should be able to do simple max 1`] = `"4em"`;
-
-exports[`math should be able to do simple min 1`] = `"1em"`;
-
 exports[`math should be able to do simple multiplication 1`] = `"2rem"`;
 
 exports[`math should be able to do simple multiplication 2`] = `"2rem"`;

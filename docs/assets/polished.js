@@ -22,7 +22,6 @@
     return _extends.apply(this, arguments);
   }
 
-  // RPN Functions
   function last() {
     var _ref;
 
@@ -52,172 +51,164 @@
   function factorial(a) {
     if (a % 1 || !(+a >= 0)) return NaN;
     if (a > 170) return Infinity;
-    if (a < 0) return -1;else if (a == 0) return 1;else {
+    if (a < 0) return -1;else if (a === 0) return 1;else {
       return a * factorial(a - 1);
     }
   }
 
-  var defaultSymbolMap = {
+  function power(a, b) {
+    return Math.pow(a, b);
+  }
+
+  function comma() {
+    for (var _len = arguments.length, a = new Array(_len), _key = 0; _key < _len; _key++) {
+      a[_key] = arguments[_key];
+    }
+
+    return Array.of(a);
+  }
+
+  function sqrt(a) {
+    return Math.sqrt(a);
+  }
+
+  var defaultMathSymbols = {
     symbols: {
-      "!": {
+      '!': {
         postfix: {
-          symbol: "!",
+          symbol: '!',
           f: factorial,
-          notation: "postfix",
+          notation: 'postfix',
           precedence: 6,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: "!",
-        regSymbol: "!"
+        symbol: '!',
+        regSymbol: '!'
       },
-      "^": {
+      '^': {
         infix: {
-          symbol: "^",
-          f: Math.pow,
-          notation: "infix",
+          symbol: '^',
+          f: power,
+          notation: 'infix',
           precedence: 5,
-          rightToLeft: true,
+          rightToLeft: 1,
           argCount: 2
         },
-        symbol: "^",
-        regSymbol: "\\^"
+        symbol: '^',
+        regSymbol: '\\^'
       },
-      "*": {
+      '*': {
         infix: {
-          symbol: "*",
+          symbol: '*',
           f: multiplication,
-          notation: "infix",
+          notation: 'infix',
           precedence: 4,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 2
         },
-        symbol: "*",
-        regSymbol: "\\*"
+        symbol: '*',
+        regSymbol: '\\*'
       },
-      "/": {
+      '/': {
         infix: {
-          symbol: "/",
+          symbol: '/',
           f: division,
-          notation: "infix",
+          notation: 'infix',
           precedence: 4,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 2
         },
-        symbol: "/",
-        regSymbol: "/"
+        symbol: '/',
+        regSymbol: '/'
       },
-      "+": {
+      '+': {
         infix: {
-          symbol: "+",
+          symbol: '+',
           f: addition,
-          notation: "infix",
+          notation: 'infix',
           precedence: 2,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: "+",
+          symbol: '+',
           f: last,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 3,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: "+",
-        regSymbol: "\\+"
+        symbol: '+',
+        regSymbol: '\\+'
       },
-      "-": {
+      '-': {
         infix: {
-          symbol: "-",
+          symbol: '-',
           f: subtraction,
-          notation: "infix",
+          notation: 'infix',
           precedence: 2,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: "-",
+          symbol: '-',
           f: negation,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 3,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: "-",
-        regSymbol: "-"
+        symbol: '-',
+        regSymbol: '-'
       },
-      ",": {
+      ',': {
         infix: {
-          symbol: ",",
-          f: Array.of,
-          notation: "infix",
+          symbol: ',',
+          f: comma,
+          notation: 'infix',
           precedence: 1,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 2
         },
-        symbol: ",",
-        regSymbol: ","
+        symbol: ',',
+        regSymbol: ','
       },
-      "(": {
+      '(': {
         prefix: {
-          symbol: "(",
+          symbol: '(',
           f: last,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 0,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: "(",
-        regSymbol: "\\("
+        symbol: '(',
+        regSymbol: '\\('
       },
-      ")": {
+      ')': {
         postfix: {
-          symbol: ")",
-          f: null,
-          notation: "postfix",
+          symbol: ')',
+          f: undefined,
+          notation: 'postfix',
           precedence: 0,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: ")",
-        regSymbol: "\\)"
-      },
-      min: {
-        func: {
-          symbol: "min",
-          f: Math.min,
-          notation: "func",
-          precedence: 0,
-          rightToLeft: false,
-          argCount: 1
-        },
-        symbol: "min",
-        regSymbol: "min\\b"
-      },
-      max: {
-        func: {
-          symbol: "max",
-          f: Math.max,
-          notation: "func",
-          precedence: 0,
-          rightToLeft: false,
-          argCount: 1
-        },
-        symbol: "max",
-        regSymbol: "max\\b"
+        symbol: ')',
+        regSymbol: '\\)'
       },
       sqrt: {
         func: {
-          symbol: "sqrt",
-          f: Math.sqrt,
-          notation: "func",
+          symbol: 'sqrt',
+          f: sqrt,
+          notation: 'func',
           precedence: 0,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
-        symbol: "sqrt",
-        regSymbol: "sqrt\\b"
+        symbol: 'sqrt',
+        regSymbol: 'sqrt\\b'
       }
     }
   };
@@ -226,7 +217,7 @@
 
   function calculate(expression, additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends({}, defaultSymbolMap.symbols, additionalSymbols.symbols) : _extends({}, defaultSymbolMap.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
     var match;
     var values = [];
     var operators = [symbolMap.symbols['('].prefix]; // eslint-disable-next-line no-unused-vars
