@@ -26,6 +26,7 @@
     "hideText",
     "hideVisually",
     "hiDPI",
+    "linearGradient",
     "normalize",
     "radialGradient",
     "retinaImage",

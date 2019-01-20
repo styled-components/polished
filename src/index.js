@@ -21,6 +21,7 @@ import fontFace from './mixins/fontFace'
 import hideText from './mixins/hideText'
 import hideVisually from './mixins/hideVisually'
 import hiDPI from './mixins/hiDPI'
+import linearGradient from './mixins/linearGradient'
 import normalize from './mixins/normalize'
 import radialGradient from './mixins/radialGradient'
 import retinaImage from './mixins/retinaImage'
@@ -104,6 +105,7 @@ export {
   hsl,
   hsla,
   lighten,
+  linearGradient,
   margin,
   math,
   mix,

@@ -38,10 +38,6 @@ function power(a: number, b: number): number {
   return a ** b
 }
 
-function comma(...a: Array<number | string>): Array<number | string> {
-  return Array.of(a)
-}
-
 function sqrt(a: number): number {
   return Math.sqrt(a)
 }
@@ -139,7 +135,7 @@ const defaultMathSymbols = {
     ',': {
       infix: {
         symbol: ',',
-        f: comma,
+        f: Array.of,
         notation: 'infix',
         precedence: 1,
         rightToLeft: 0,
@@ -171,6 +167,30 @@ const defaultMathSymbols = {
       },
       symbol: ')',
       regSymbol: '\\)',
+    },
+    min: {
+      func: {
+        symbol: 'min',
+        f: Math.min,
+        notation: 'func',
+        precedence: 0,
+        rightToLeft: false,
+        argCount: 1,
+      },
+      symbol: 'min',
+      regSymbol: 'min\\b',
+    },
+    max: {
+      func: {
+        symbol: 'max',
+        f: Math.max,
+        notation: 'func',
+        precedence: 0,
+        rightToLeft: false,
+        argCount: 1,
+      },
+      symbol: 'max',
+      regSymbol: 'max\\b',
     },
     sqrt: {
       func: {

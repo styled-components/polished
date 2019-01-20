@@ -34,4 +34,10 @@ describe('math', () => {
   it('should be able to do simple exponent power', () => {
     expect(math('2em^3')).toMatchSnapshot()
   })
+  it('should be able to do simple min', () => {
+    expect(math('min(3em, 4em, 1em, 2em)')).toMatchSnapshot()
+  })
+  it('should be able to do simple max', () => {
+    expect(math('max(3em, 8em, 1em, 2em)')).toMatchSnapshot()
+  })
 })
