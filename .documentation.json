@@ -61,6 +61,10 @@
     "toColorString",
     "transparentize",
     {
+      "name": "Math"
+    },
+    "math",
+    {
       "name": "Shorthands"
     },
     "animation",

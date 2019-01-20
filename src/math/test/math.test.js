@@ -26,6 +26,18 @@ describe('math', () => {
     expect(math('1in * 5in * 10')).toMatchSnapshot()
   })
   it('should be able to do simple factorial', () => {
-    expect(math('3!')).toMatchSnapshot()
+    expect(math('3em!')).toMatchSnapshot()
+  })
+  it('should be able to do simple square root', () => {
+    expect(math('sqrt(4em)')).toMatchSnapshot()
+  })
+  it('should be able to do simple exponent power', () => {
+    expect(math('2em^3')).toMatchSnapshot()
+  })
+  it('should be able to do simple min', () => {
+    expect(math('min(1em,2em,3em,4em)')).toMatchSnapshot()
+  })
+  it('should be able to do simple max', () => {
+    expect(math('max(1em,2em,3em,4em)')).toMatchSnapshot()
   })
 })
