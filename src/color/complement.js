@@ -25,6 +25,7 @@ import toColorString from './toColorString'
  * }
  */
 function complement(color: string): string {
+  if (color === 'transparent') return color
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,

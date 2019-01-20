@@ -28,6 +28,7 @@ import parseToRgb from './parseToRgb'
  * }
  */
 function getLuminance(color: string): number {
+  if (color === 'transparent') return 0
   const rgbColor: { [string]: number } = parseToRgb(color)
   const [r, g, b] = Object.keys(rgbColor).map(key => {
     const channel = rgbColor[key] / 255

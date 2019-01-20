@@ -27,6 +27,7 @@ import toColorString from './toColorString'
  * }
  */
 function setLightness(lightness: number | string, color: string): string {
+  if (color === 'transparent') return color
   return toColorString({
     ...parseToHsl(color),
     lightness: parseFloat(lightness),

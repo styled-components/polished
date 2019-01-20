@@ -27,6 +27,7 @@ import toColorString from './toColorString'
  * }
  */
 function setHue(hue: number | string, color: string): string {
+  if (color === 'transparent') return color
   return toColorString({
     ...parseToHsl(color),
     hue: parseFloat(hue),

@@ -32,6 +32,7 @@ import parseToRgb from './parseToRgb'
  * }
  */
 function transparentize(amount: number | string, color: string): string {
+  if (color === 'transparent') return color
   const parsedColor = parseToRgb(color)
   const alpha: number = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1
   const colorWithAlpha = {

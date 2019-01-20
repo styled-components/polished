@@ -34,6 +34,8 @@ function mix(
   color: string,
   otherColor: string,
 ): string {
+  if (color === 'transparent') return otherColor
+  if (otherColor === 'transparent') return color
   const parsedColor1 = parseToRgb(color)
   const color1 = {
     ...parsedColor1,

@@ -28,6 +28,7 @@ import toColorString from './toColorString'
  * }
  */
 function lighten(amount: number | string, color: string): string {
+  if (color === 'transparent') return color
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,
