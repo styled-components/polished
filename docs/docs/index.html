@@ -884,6 +884,36 @@
             
               
               <li><a
+                href='#errors'
+                class="">
+                ERRORS
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#format'
+                class="">
+                format
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#polishederror'
+                class="">
+                PolishedError
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#timingfunction'
                 class="">
                 TimingFunction
@@ -5830,7 +5860,7 @@ element {
   <p>CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".</p>
 
 
-  <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -5861,7 +5891,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>additionalSymbols</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>additionalSymbols</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    
           </div>
           
@@ -9804,6 +9834,262 @@ element {
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"#ffcd64"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(255,205,100,0.72)"</span>;
 }</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='errors'>
+      ERRORS
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Parse errors.md and turn it into a simple hash of code: message</p>
+
+
+  <div class='pre p1 fill-light mt0'>ERRORS</div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='format'>
+      format
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>super basic version of sprintf</p>
+
+
+  <div class='pre p1 fill-light mt0'>format(args: ...any)</div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='polishederror'>
+      PolishedError
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Create an error file out of errors.md for development and a simple web link to the full errors
+in production mode.</p>
+
+
+  <div class='pre p1 fill-light mt0'>new PolishedError(code: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</div>
+  
+  
+    <p>
+      Extends
+      
+        <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>code</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
     
   
 

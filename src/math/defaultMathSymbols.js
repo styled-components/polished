@@ -1,4 +1,5 @@
-// RPN Functions
+// @flow
+
 function last(...a: Array<number>): number {
   return a[a.length - 1]
 }
@@ -33,7 +34,19 @@ function factorial(a: number): number {
   }
 }
 
-export default {
+function power(a: number, b: number): number {
+  return a ** b
+}
+
+function comma(...a: Array<number | string>): Array<number | string> {
+  return Array.of(a)
+}
+
+function sqrt(a: number): number {
+  return Math.sqrt(a)
+}
+
+const defaultMathSymbols = {
   symbols: {
     '!': {
       postfix: {
@@ -41,7 +54,7 @@ export default {
         f: factorial,
         notation: 'postfix',
         precedence: 6,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: '!',
@@ -50,10 +63,10 @@ export default {
     '^': {
       infix: {
         symbol: '^',
-        f: Math.pow, // eslint-disable-line no-restricted-properties
+        f: power,
         notation: 'infix',
         precedence: 5,
-        rightToLeft: true,
+        rightToLeft: 1,
         argCount: 2,
       },
       symbol: '^',
@@ -65,7 +78,7 @@ export default {
         f: multiplication,
         notation: 'infix',
         precedence: 4,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 2,
       },
       symbol: '*',
@@ -77,7 +90,7 @@ export default {
         f: division,
         notation: 'infix',
         precedence: 4,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 2,
       },
       symbol: '/',
@@ -89,7 +102,7 @@ export default {
         f: addition,
         notation: 'infix',
         precedence: 2,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 2,
       },
       prefix: {
@@ -97,7 +110,7 @@ export default {
         f: last,
         notation: 'prefix',
         precedence: 3,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: '+',
@@ -109,7 +122,7 @@ export default {
         f: subtraction,
         notation: 'infix',
         precedence: 2,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 2,
       },
       prefix: {
@@ -117,7 +130,7 @@ export default {
         f: negation,
         notation: 'prefix',
         precedence: 3,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: '-',
@@ -126,10 +139,10 @@ export default {
     ',': {
       infix: {
         symbol: ',',
-        f: Array.of,
+        f: comma,
         notation: 'infix',
         precedence: 1,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 2,
       },
       symbol: ',',
@@ -141,7 +154,7 @@ export default {
         f: last,
         notation: 'prefix',
         precedence: 0,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: '(',
@@ -150,46 +163,22 @@ export default {
     ')': {
       postfix: {
         symbol: ')',
-        f: null,
+        f: undefined,
         notation: 'postfix',
         precedence: 0,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: ')',
       regSymbol: '\\)',
     },
-    min: {
-      func: {
-        symbol: 'min',
-        f: Math.min,
-        notation: 'func',
-        precedence: 0,
-        rightToLeft: false,
-        argCount: 1,
-      },
-      symbol: 'min',
-      regSymbol: 'min\\b',
-    },
-    max: {
-      func: {
-        symbol: 'max',
-        f: Math.max,
-        notation: 'func',
-        precedence: 0,
-        rightToLeft: false,
-        argCount: 1,
-      },
-      symbol: 'max',
-      regSymbol: 'max\\b',
-    },
     sqrt: {
       func: {
         symbol: 'sqrt',
-        f: Math.sqrt,
+        f: sqrt,
         notation: 'func',
         precedence: 0,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: 'sqrt',
@@ -197,3 +186,5 @@ export default {
     },
   },
 }
+
+export default defaultMathSymbols

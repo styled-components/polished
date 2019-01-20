@@ -125,6 +125,7 @@
     "url": "https://opencollective.com/polished"
   },
   "dependencies": {
-    "@babel/runtime": "^7.2.0"
+    "@babel/runtime": "^7.2.0",
+    "babel-plugin-preval": "3.0.1"
   }
 }
