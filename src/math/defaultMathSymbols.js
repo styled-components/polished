@@ -27,7 +27,6 @@ function division(a: number, b: number): number {
 function factorial(a: number): number {
   if (a % 1 || !(+a >= 0)) return NaN
   if (a > 170) return Infinity
-  if (a < 0) return -1
   else if (a === 0) return 1
   else {
     return a * factorial(a - 1)
