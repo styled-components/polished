@@ -1,43 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`math should be able to do simple addition 1`] = `"3rem"`;
-
-exports[`math should be able to do simple addition 2`] = `"3rem"`;
-
-exports[`math should be able to do simple addition 3`] = `"6em"`;
-
-exports[`math should be able to do simple addition 4`] = `"16in"`;
-
-exports[`math should be able to do simple division 1`] = `"2rem"`;
-
-exports[`math should be able to do simple division 2`] = `"2rem"`;
-
-exports[`math should be able to do simple division 3`] = `"5em"`;
-
-exports[`math should be able to do simple division 4`] = `"50in"`;
-
-exports[`math should be able to do simple exponent power 1`] = `"8em"`;
-
 exports[`math should be able to do simple factorial 1`] = `"6em"`;
 
-exports[`math should be able to do simple max 1`] = `"8em"`;
+exports[`math should be able to do simple factorial 2`] = `"Infinityem"`;
 
-exports[`math should be able to do simple min 1`] = `"1em"`;
+exports[`math should be able to do simple factorial 3`] = `"1px"`;
 
-exports[`math should be able to do simple multiplication 1`] = `"2rem"`;
+exports[`math should be able to do simple factorial 4`] = `"NaNpx"`;
 
-exports[`math should be able to do simple multiplication 2`] = `"2rem"`;
-
-exports[`math should be able to do simple multiplication 3`] = `"5em"`;
-
-exports[`math should be able to do simple multiplication 4`] = `"50in"`;
-
-exports[`math should be able to do simple square root 1`] = `"2em"`;
-
-exports[`math should be able to do simple subtraction 1`] = `"-1rem"`;
-
-exports[`math should be able to do simple subtraction 2`] = `"-1rem"`;
-
-exports[`math should be able to do simple subtraction 3`] = `"-4em"`;
-
-exports[`math should be able to do simple subtraction 4`] = `"-14in"`;
+exports[`math should be able to do simple factorial 5`] = `"-120px"`;
