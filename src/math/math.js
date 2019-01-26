@@ -122,11 +122,10 @@ function calculate(expression: string, additionalSymbols?: Object): number {
  */
 function math(formula: string, additionalSymbols?: Object): string {
   const formulaMatch = formula.match(unitRegExp)
+
+  // Check that all units are the same
   if (formulaMatch) {
-    if (
-      formulaMatch.every(unit => unit !== formulaMatch[0])
-      && formulaMatch.length > 1
-    ) {
+    if (!formulaMatch.every(unit => unit === formulaMatch[0])) {
       throw new Error(
         'All values in a formula must have the same unit or be unitless.',
       )

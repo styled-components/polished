@@ -77,9 +77,11 @@ describe('math', () => {
 
   it('should throw an error when formula contains multiple units', () => {
     expect(() => {
-      math('1rem + 1px')
+      math('1vw + 1vh + 1pt')
     }).toThrow(
-      'All values in a formula must have the same unit or be unitless.',
+      new Error(
+        'All values in a formula must have the same unit or be unitless.',
+      ),
     )
   })
 })
