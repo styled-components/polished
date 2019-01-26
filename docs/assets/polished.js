@@ -50,8 +50,7 @@
 
   function factorial(a) {
     if (a % 1 || !(+a >= 0)) return NaN;
-    if (a > 170) return Infinity;
-    if (a < 0) return -1;else if (a === 0) return 1;else {
+    if (a > 170) return Infinity;else if (a === 0) return 1;else {
       return a * factorial(a - 1);
     }
   }
@@ -229,28 +228,32 @@
     }
   };
 
-  var unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g;
+  var unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g; // Merges additional math functionality into the defaults.
 
-  function calculate(expression, additionalSymbols) {
+  function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
     symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
+    return symbolMap;
+  }
+
+  function generateError(msg, match, expression) {
+    var notation = match ? match.index : expression.length;
+    return msg + " at " + notation + ":\n" + expression + "\n" + ' '.repeat(notation) + "^";
+  }
+
+  function exec(operators, values) {
+    var _ref;
+
+    var op = operators.pop();
+    values.push(op.f.apply(op, (_ref = []).concat.apply(_ref, values.splice(-op.argCount))));
+    return op.precedence;
+  }
+
+  function calculate(expression, additionalSymbols) {
+    var symbolMap = mergeSymbolMaps(additionalSymbols);
     var match;
+    var operators = [symbolMap.symbols['('].prefix];
     var values = [];
-    var operators = [symbolMap.symbols['('].prefix]; // eslint-disable-next-line no-unused-vars
-
-    var exec = function exec(_) {
-      var _ref;
-
-      var op = operators.pop();
-      values.push(op.f.apply(op, (_ref = []).concat.apply(_ref, values.splice(-op.argCount))));
-      return op.precedence;
-    };
-
-    var error = function error(msg) {
-      var notation = match ? match.index : expression.length;
-      return msg + " at " + notation + ":\n" + expression + "\n" + ' '.repeat(notation) + "^";
-    };
-
     var pattern = new RegExp( // Pattern for numbers
     "\\d+(?:\\.\\d+)?|" + // ...and patterns for individual operators/function names
     Object.values(symbolMap.symbols) // longer symbols should be listed first
@@ -259,8 +262,9 @@
     }).map(function (val) {
       return val.regSymbol;
     }).join('|') + "|(\\S)", 'g');
-    var afterValue = false;
     pattern.lastIndex = 0; // Reset regular expression object
+
+    var afterValue = false;
 
     do {
       match = pattern.exec(expression);
@@ -273,7 +277,7 @@
       var notNewValue = notNumber && !notNumber.prefix && !notNumber.func;
       var notAfterValue = !notNumber || !notNumber.postfix && !notNumber.infix; // Check for syntax errors:
 
-      if (bad || (afterValue ? notAfterValue : notNewValue)) return error('Syntax error');
+      if (bad || (afterValue ? notAfterValue : notNewValue)) return generateError('Syntax error', match, expression);
 
       if (afterValue) {
         // We either have an infix or postfix operator (they should be mutually exclusive)
@@ -282,7 +286,7 @@
         do {
           var prev = operators[operators.length - 1];
           if ((curr.precedence - prev.precedence || prev.rightToLeft) > 0) break; // Apply previous operator, since it has precedence over current one
-        } while (exec()); // Exit loop after executing an opening parenthesis or function
+        } while (exec(operators, values)); // Exit loop after executing an opening parenthesis or function
 
 
         afterValue = curr.notation === 'postfix';
@@ -290,7 +294,7 @@
         if (curr.symbol !== ')') {
           operators.push(curr); // Postfix always has precedence over any operator that follows after it
 
-          if (afterValue) exec();
+          if (afterValue) exec(operators, values);
         }
       } else if (notNumber) {
         // prefix operator or function
@@ -299,17 +303,22 @@
         if (notNumber.func) {
           // Require an opening parenthesis
           match = pattern.exec(expression);
-          if (!match || match[0] !== '(') return error('Function needs parentheses');
+          if (!match || match[0] !== '(') return generateError('Function needs parentheses', match, expression);
         }
       } else {
         // number
         values.push(+token);
         afterValue = true;
       }
-    } while (match && operators.length); // eslint-disable-next-line no-nested-ternary
+    } while (match && operators.length);
 
-
-    return operators.length ? error('Missing closing parenthesis') : match ? error('Too many closing parentheses') : values.pop();
+    if (operators.length) {
+      return generateError('Missing closing parenthesis', match, expression);
+    } else if (match) {
+      return generateError('Too many closing parentheses', match, expression);
+    } else {
+      return values.pop();
+    }
   }
   /**
    * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
@@ -338,18 +347,18 @@
 
 
   function math(formula, additionalSymbols) {
-    var match = formula.match(unitRegExp);
+    var formulaMatch = formula.match(unitRegExp);
 
-    if (match) {
-      if (match.every(function (unit) {
-        return unit !== match[0];
-      }) && match.length > 1) {
+    if (formulaMatch) {
+      if (formulaMatch.every(function (unit) {
+        return unit !== formulaMatch[0];
+      }) && formulaMatch.length > 1) {
         throw new Error('All values in a formula must have the same unit or be unitless.');
       }
     }
 
     var cleanFormula = formula.replace(unitRegExp, '');
-    return "" + calculate(cleanFormula, additionalSymbols) + (match ? match[0] : '');
+    return "" + calculate(cleanFormula, additionalSymbols) + (formulaMatch ? formulaMatch[0] : '');
   }
 
   // @private
@@ -1914,249 +1923,6 @@
     return namedColorMap[normalizedColorName] ? "#" + namedColorMap[normalizedColorName] : color;
   }
 
-  var hexRegex = /^#[a-fA-F0-9]{6}$/;
-  var hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;
-  var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
-  var reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/;
-  var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
-  var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
-  var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
-  var hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
-  /**
-   * Returns an RgbColor or RgbaColor object. This utility function is only useful
-   * if want to extract a color component. With the color util `toColorString` you
-   * can convert a RgbColor or RgbaColor object back to a string.
-   *
-   * @example
-   * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
-   * const color1 = parseToRgb('rgb(255, 0, 0)');
-   * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
-   * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
-   */
-
-  function parseToRgb(color) {
-    if (typeof color !== 'string') {
-      throw new Error('Passed an incorrect argument to a color function, please pass a string representation of a color.');
-    }
-
-    var normalizedColor = nameToHex(color);
-
-    if (normalizedColor.match(hexRegex)) {
-      return {
-        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
-        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
-        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16)
-      };
-    }
-
-    if (normalizedColor.match(hexRgbaRegex)) {
-      var alpha = parseFloat((parseInt("" + normalizedColor[7] + normalizedColor[8], 16) / 255).toFixed(2));
-      return {
-        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
-        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
-        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16),
-        alpha: alpha
-      };
-    }
-
-    if (normalizedColor.match(reducedHexRegex)) {
-      return {
-        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
-        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
-        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16)
-      };
-    }
-
-    if (normalizedColor.match(reducedRgbaHexRegex)) {
-      var _alpha = parseFloat((parseInt("" + normalizedColor[4] + normalizedColor[4], 16) / 255).toFixed(2));
-
-      return {
-        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
-        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
-        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16),
-        alpha: _alpha
-      };
-    }
-
-    var rgbMatched = rgbRegex.exec(normalizedColor);
-
-    if (rgbMatched) {
-      return {
-        red: parseInt("" + rgbMatched[1], 10),
-        green: parseInt("" + rgbMatched[2], 10),
-        blue: parseInt("" + rgbMatched[3], 10)
-      };
-    }
-
-    var rgbaMatched = rgbaRegex.exec(normalizedColor);
-
-    if (rgbaMatched) {
-      return {
-        red: parseInt("" + rgbaMatched[1], 10),
-        green: parseInt("" + rgbaMatched[2], 10),
-        blue: parseInt("" + rgbaMatched[3], 10),
-        alpha: parseFloat("" + rgbaMatched[4])
-      };
-    }
-
-    var hslMatched = hslRegex.exec(normalizedColor);
-
-    if (hslMatched) {
-      var hue = parseInt("" + hslMatched[1], 10);
-      var saturation = parseInt("" + hslMatched[2], 10) / 100;
-      var lightness = parseInt("" + hslMatched[3], 10) / 100;
-      var rgbColorString = "rgb(" + hslToRgb(hue, saturation, lightness) + ")";
-      var hslRgbMatched = rgbRegex.exec(rgbColorString);
-
-      if (!hslRgbMatched) {
-        throw new Error("Couldn't generate valid rgb string from " + normalizedColor + ", it returned " + rgbColorString + ".");
-      }
-
-      return {
-        red: parseInt("" + hslRgbMatched[1], 10),
-        green: parseInt("" + hslRgbMatched[2], 10),
-        blue: parseInt("" + hslRgbMatched[3], 10)
-      };
-    }
-
-    var hslaMatched = hslaRegex.exec(normalizedColor);
-
-    if (hslaMatched) {
-      var _hue = parseInt("" + hslaMatched[1], 10);
-
-      var _saturation = parseInt("" + hslaMatched[2], 10) / 100;
-
-      var _lightness = parseInt("" + hslaMatched[3], 10) / 100;
-
-      var _rgbColorString = "rgb(" + hslToRgb(_hue, _saturation, _lightness) + ")";
-
-      var _hslRgbMatched = rgbRegex.exec(_rgbColorString);
-
-      if (!_hslRgbMatched) {
-        throw new Error("Couldn't generate valid rgb string from " + normalizedColor + ", it returned " + _rgbColorString + ".");
-      }
-
-      return {
-        red: parseInt("" + _hslRgbMatched[1], 10),
-        green: parseInt("" + _hslRgbMatched[2], 10),
-        blue: parseInt("" + _hslRgbMatched[3], 10),
-        alpha: parseFloat("" + hslaMatched[4])
-      };
-    }
-
-    throw new Error("Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.");
-  }
-
-  function rgbToHsl(color) {
-    // make sure rgb are contained in a set of [0, 255]
-    var red = color.red / 255;
-    var green = color.green / 255;
-    var blue = color.blue / 255;
-    var max = Math.max(red, green, blue);
-    var min = Math.min(red, green, blue);
-    var lightness = (max + min) / 2;
-
-    if (max === min) {
-      // achromatic
-      if (color.alpha !== undefined) {
-        return {
-          hue: 0,
-          saturation: 0,
-          lightness: lightness,
-          alpha: color.alpha
-        };
-      } else {
-        return {
-          hue: 0,
-          saturation: 0,
-          lightness: lightness
-        };
-      }
-    }
-
-    var hue;
-    var delta = max - min;
-    var saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
-
-    switch (max) {
-      case red:
-        hue = (green - blue) / delta + (green < blue ? 6 : 0);
-        break;
-
-      case green:
-        hue = (blue - red) / delta + 2;
-        break;
-
-      default:
-        // blue case
-        hue = (red - green) / delta + 4;
-        break;
-    }
-
-    hue *= 60;
-
-    if (color.alpha !== undefined) {
-      return {
-        hue: hue,
-        saturation: saturation,
-        lightness: lightness,
-        alpha: color.alpha
-      };
-    }
-
-    return {
-      hue: hue,
-      saturation: saturation,
-      lightness: lightness
-    };
-  }
-
-  /**
-   * Returns an HslColor or HslaColor object. This utility function is only useful
-   * if want to extract a color component. With the color util `toColorString` you
-   * can convert a HslColor or HslaColor object back to a string.
-   *
-   * @example
-   * // Assigns `{ hue: 0, saturation: 1, lightness: 0.5 }` to color1
-   * const color1 = parseToHsl('rgb(255, 0, 0)');
-   * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
-   * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
-   */
-  function parseToHsl(color) {
-    // Note: At a later stage we can optimize this function as right now a hsl
-    // color would be parsed converted to rgb values and converted back to hsl.
-    return rgbToHsl(parseToRgb(color));
-  }
-
-  /**
-   * Reduces hex values if possible e.g. #ff8866 to #f86
-   * @private
-   */
-  var reduceHexValue = function reduceHexValue(value) {
-    if (value.length === 7 && value[1] === value[2] && value[3] === value[4] && value[5] === value[6]) {
-      return "#" + value[1] + value[3] + value[5];
-    }
-
-    return value;
-  };
-
-  function numberToHex(value) {
-    var hex = value.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-  }
-
-  function colorToHex(color) {
-    return numberToHex(Math.round(color * 255));
-  }
-
-  function convertToHex(red, green, blue) {
-    return reduceHexValue("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
-  }
-
-  function hslToHex(hue, saturation, lightness) {
-    return hslToRgb(hue, saturation, lightness, convertToHex);
-  }
-
   function _assertThisInitialized(self) {
     if (self === void 0) {
       throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -2354,6 +2120,249 @@
   /*#__PURE__*/
   _wrapNativeSuper(Error));
 
+  var hexRegex = /^#[a-fA-F0-9]{6}$/;
+  var hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;
+  var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
+  var reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/;
+  var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
+  var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
+  var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
+  var hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
+  /**
+   * Returns an RgbColor or RgbaColor object. This utility function is only useful
+   * if want to extract a color component. With the color util `toColorString` you
+   * can convert a RgbColor or RgbaColor object back to a string.
+   *
+   * @example
+   * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
+   * const color1 = parseToRgb('rgb(255, 0, 0)');
+   * // Assigns `{ red: 92, green: 102, blue: 112, alpha: 0.75 }` to color2
+   * const color2 = parseToRgb('hsla(210, 10%, 40%, 0.75)');
+   */
+
+  function parseToRgb(color) {
+    if (typeof color !== 'string') {
+      throw new PolishedError(3);
+    }
+
+    var normalizedColor = nameToHex(color);
+
+    if (normalizedColor.match(hexRegex)) {
+      return {
+        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
+        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
+        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16)
+      };
+    }
+
+    if (normalizedColor.match(hexRgbaRegex)) {
+      var alpha = parseFloat((parseInt("" + normalizedColor[7] + normalizedColor[8], 16) / 255).toFixed(2));
+      return {
+        red: parseInt("" + normalizedColor[1] + normalizedColor[2], 16),
+        green: parseInt("" + normalizedColor[3] + normalizedColor[4], 16),
+        blue: parseInt("" + normalizedColor[5] + normalizedColor[6], 16),
+        alpha: alpha
+      };
+    }
+
+    if (normalizedColor.match(reducedHexRegex)) {
+      return {
+        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
+        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
+        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16)
+      };
+    }
+
+    if (normalizedColor.match(reducedRgbaHexRegex)) {
+      var _alpha = parseFloat((parseInt("" + normalizedColor[4] + normalizedColor[4], 16) / 255).toFixed(2));
+
+      return {
+        red: parseInt("" + normalizedColor[1] + normalizedColor[1], 16),
+        green: parseInt("" + normalizedColor[2] + normalizedColor[2], 16),
+        blue: parseInt("" + normalizedColor[3] + normalizedColor[3], 16),
+        alpha: _alpha
+      };
+    }
+
+    var rgbMatched = rgbRegex.exec(normalizedColor);
+
+    if (rgbMatched) {
+      return {
+        red: parseInt("" + rgbMatched[1], 10),
+        green: parseInt("" + rgbMatched[2], 10),
+        blue: parseInt("" + rgbMatched[3], 10)
+      };
+    }
+
+    var rgbaMatched = rgbaRegex.exec(normalizedColor);
+
+    if (rgbaMatched) {
+      return {
+        red: parseInt("" + rgbaMatched[1], 10),
+        green: parseInt("" + rgbaMatched[2], 10),
+        blue: parseInt("" + rgbaMatched[3], 10),
+        alpha: parseFloat("" + rgbaMatched[4])
+      };
+    }
+
+    var hslMatched = hslRegex.exec(normalizedColor);
+
+    if (hslMatched) {
+      var hue = parseInt("" + hslMatched[1], 10);
+      var saturation = parseInt("" + hslMatched[2], 10) / 100;
+      var lightness = parseInt("" + hslMatched[3], 10) / 100;
+      var rgbColorString = "rgb(" + hslToRgb(hue, saturation, lightness) + ")";
+      var hslRgbMatched = rgbRegex.exec(rgbColorString);
+
+      if (!hslRgbMatched) {
+        throw new PolishedError(4, normalizedColor, rgbColorString);
+      }
+
+      return {
+        red: parseInt("" + hslRgbMatched[1], 10),
+        green: parseInt("" + hslRgbMatched[2], 10),
+        blue: parseInt("" + hslRgbMatched[3], 10)
+      };
+    }
+
+    var hslaMatched = hslaRegex.exec(normalizedColor);
+
+    if (hslaMatched) {
+      var _hue = parseInt("" + hslaMatched[1], 10);
+
+      var _saturation = parseInt("" + hslaMatched[2], 10) / 100;
+
+      var _lightness = parseInt("" + hslaMatched[3], 10) / 100;
+
+      var _rgbColorString = "rgb(" + hslToRgb(_hue, _saturation, _lightness) + ")";
+
+      var _hslRgbMatched = rgbRegex.exec(_rgbColorString);
+
+      if (!_hslRgbMatched) {
+        throw new PolishedError(4, normalizedColor, _rgbColorString);
+      }
+
+      return {
+        red: parseInt("" + _hslRgbMatched[1], 10),
+        green: parseInt("" + _hslRgbMatched[2], 10),
+        blue: parseInt("" + _hslRgbMatched[3], 10),
+        alpha: parseFloat("" + hslaMatched[4])
+      };
+    }
+
+    throw new PolishedError(5);
+  }
+
+  function rgbToHsl(color) {
+    // make sure rgb are contained in a set of [0, 255]
+    var red = color.red / 255;
+    var green = color.green / 255;
+    var blue = color.blue / 255;
+    var max = Math.max(red, green, blue);
+    var min = Math.min(red, green, blue);
+    var lightness = (max + min) / 2;
+
+    if (max === min) {
+      // achromatic
+      if (color.alpha !== undefined) {
+        return {
+          hue: 0,
+          saturation: 0,
+          lightness: lightness,
+          alpha: color.alpha
+        };
+      } else {
+        return {
+          hue: 0,
+          saturation: 0,
+          lightness: lightness
+        };
+      }
+    }
+
+    var hue;
+    var delta = max - min;
+    var saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
+
+    switch (max) {
+      case red:
+        hue = (green - blue) / delta + (green < blue ? 6 : 0);
+        break;
+
+      case green:
+        hue = (blue - red) / delta + 2;
+        break;
+
+      default:
+        // blue case
+        hue = (red - green) / delta + 4;
+        break;
+    }
+
+    hue *= 60;
+
+    if (color.alpha !== undefined) {
+      return {
+        hue: hue,
+        saturation: saturation,
+        lightness: lightness,
+        alpha: color.alpha
+      };
+    }
+
+    return {
+      hue: hue,
+      saturation: saturation,
+      lightness: lightness
+    };
+  }
+
+  /**
+   * Returns an HslColor or HslaColor object. This utility function is only useful
+   * if want to extract a color component. With the color util `toColorString` you
+   * can convert a HslColor or HslaColor object back to a string.
+   *
+   * @example
+   * // Assigns `{ hue: 0, saturation: 1, lightness: 0.5 }` to color1
+   * const color1 = parseToHsl('rgb(255, 0, 0)');
+   * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
+   * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
+   */
+  function parseToHsl(color) {
+    // Note: At a later stage we can optimize this function as right now a hsl
+    // color would be parsed converted to rgb values and converted back to hsl.
+    return rgbToHsl(parseToRgb(color));
+  }
+
+  /**
+   * Reduces hex values if possible e.g. #ff8866 to #f86
+   * @private
+   */
+  var reduceHexValue = function reduceHexValue(value) {
+    if (value.length === 7 && value[1] === value[2] && value[3] === value[4] && value[5] === value[6]) {
+      return "#" + value[1] + value[3] + value[5];
+    }
+
+    return value;
+  };
+
+  function numberToHex(value) {
+    var hex = value.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  }
+
+  function colorToHex(color) {
+    return numberToHex(Math.round(color * 255));
+  }
+
+  function convertToHex(red, green, blue) {
+    return reduceHexValue("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
+  }
+
+  function hslToHex(hue, saturation, lightness) {
+    return hslToRgb(hue, saturation, lightness, convertToHex);
+  }
+
   /**
    * Returns a string value for the color. The returned result is the smallest possible hex notation.
    *
@@ -2420,7 +2429,7 @@
       return value.alpha >= 1 ? hslToHex(value.hue, value.saturation, value.lightness) : "rgba(" + hslToRgb(value.hue, value.saturation, value.lightness) + "," + value.alpha + ")";
     }
 
-    throw new Error('Passed invalid arguments to hsla, please pass multiple numbers e.g. hsl(360, 0.75, 0.4, 0.7) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75, alpha: 0.7 }).');
+    throw new PolishedError(2);
   }
 
   /**
@@ -2453,7 +2462,7 @@
       return reduceHexValue("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
     }
 
-    throw new Error('Passed invalid arguments to rgb, please pass multiple numbers e.g. rgb(255, 205, 100) or an object e.g. rgb({ red: 255, green: 205, blue: 100 }).');
+    throw new PolishedError(6);
   }
 
   /**
@@ -2500,7 +2509,7 @@
       return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : "rgba(" + firstValue.red + "," + firstValue.green + "," + firstValue.blue + "," + firstValue.alpha + ")";
     }
 
-    throw new Error('Passed invalid arguments to rgba, please pass multiple numbers e.g. rgb(255, 205, 100, 0.75) or an object e.g. rgb({ red: 255, green: 205, blue: 100, alpha: 0.75 }).');
+    throw new PolishedError(7);
   }
 
   var isRgb = function isRgb(color) {
@@ -2518,8 +2527,6 @@
   var isHsla = function isHsla(color) {
     return typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number' && typeof color.alpha === 'number';
   };
-
-  var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.';
   /**
    * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
    * This util is useful in case you only know on runtime which color object is
@@ -2551,13 +2558,14 @@
    * }
    */
 
+
   function toColorString(color) {
-    if (typeof color !== 'object') throw new Error(errMsg);
+    if (typeof color !== 'object') throw new PolishedError(8);
     if (isRgba(color)) return rgba(color);
     if (isRgb(color)) return rgb(color);
     if (isHsla(color)) return hsla(color);
     if (isHsl(color)) return hsl(color);
-    throw new Error(errMsg);
+    throw new PolishedError(8);
   }
 
   // Type definitions taken from https://github.com/gcanti/flow-static-land/blob/master/src/Fun.js
