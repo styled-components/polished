@@ -1,32 +1,8 @@
 // @flow
+import constructGradientValue from '../internalHelpers/_constructGradientValue'
+
 import type { LinearGradientConfiguration } from '../types/linearGradientConfiguration'
 import type { Styles } from '../types/style'
-
-function parseFallback(colorStops: Array<string>): string {
-  return colorStops[0].split(' ')[0]
-}
-
-function constructGradientValue(
-  literals: Array<string>,
-  ...substitutions: Array<string>
-): string {
-  let template = ''
-  for (let i = 0; i < literals.length; i += 1) {
-    template += literals[i]
-    // Adds leading coma if properties preceed color-stops
-    if (i === 1 && substitutions[i] && substitutions[0]) {
-      template = template.slice(0, -1)
-      template += `, ${substitutions[i]}`
-      // No trailing space if color-stops is the only param provided
-    } else if (i === 1 && substitutions[i] && !substitutions[0]) {
-      template += `${substitutions[i]}`
-      // Only adds substitution if it is defined
-    } else if (substitutions[i]) {
-      template += `${substitutions[i]} `
-    }
-  }
-  return template.trim()
-}
 
 /**
  * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
@@ -68,7 +44,7 @@ function linearGradient({
     )
   }
   return {
-    backgroundColor: fallback || parseFallback(colorStops),
+    backgroundColor: fallback || colorStops[0].split(' ')[0],
     backgroundImage: constructGradientValue`linear-gradient(${toDirection}${colorStops.join(
       ', ',
     )})`,
