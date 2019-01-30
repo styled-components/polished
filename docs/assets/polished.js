@@ -63,6 +63,18 @@
     return Math.sqrt(a);
   }
 
+  function max() {
+    return Math.max.apply(Math, arguments);
+  }
+
+  function min() {
+    return Math.min.apply(Math, arguments);
+  }
+
+  function comma() {
+    return Array.of.apply(Array, arguments);
+  }
+
   var defaultMathSymbols = {
     symbols: {
       '!': {
@@ -156,7 +168,7 @@
       ',': {
         infix: {
           symbol: ',',
-          f: Array.of,
+          f: comma,
           notation: 'infix',
           precedence: 1,
           rightToLeft: 0,
@@ -192,10 +204,10 @@
       min: {
         func: {
           symbol: 'min',
-          f: Math.min,
+          f: min,
           notation: 'func',
           precedence: 0,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
         symbol: 'min',
@@ -204,10 +216,10 @@
       max: {
         func: {
           symbol: 'max',
-          f: Math.max,
+          f: max,
           notation: 'func',
           precedence: 0,
-          rightToLeft: false,
+          rightToLeft: 0,
           argCount: 1
         },
         symbol: 'max',
@@ -368,7 +380,11 @@
     "34": "borderRadius expects a radius value as a string or number as the second argument.\n\n",
     "35": "borderRadius expects one of \"top\", \"bottom\", \"left\" or \"right\" as the first argument.\n\n",
     "36": "Property must be a string value.\n\n",
-    "37": "All values in a formula must have the same unit or be unitless.\n"
+    "37": "Syntax Error at %s.\n\n",
+    "38": "Formula contains a function that needs parentheses at %s.\n\n",
+    "39": "Formula is missing closing parenthesis at %s.\n\n",
+    "40": "Formula has too many closing parentheses at %s.\n\n",
+    "41": "All values in a formula must have the same unit or be unitless.\n"
   };
   /**
    * super basic version of sprintf
@@ -422,17 +438,12 @@
   /*#__PURE__*/
   _wrapNativeSuper(Error));
 
-  var unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g; // Merges additional math functionality into the defaults.
+  var unitRegExp = /(?<![a-zA-Z])(a|an|cap|ch|cm|em|ex|ic|in|lh|mm|pc|pt|px|q|rem|rlh|vh|vi|vb|vmax|vmin|vw)/g; // Merges additional math functionality into the defaults.
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
     symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
     return symbolMap;
-  }
-
-  function generateError(msg, match, expression) {
-    var notation = match ? match.index : expression.length;
-    return msg + " at " + notation + ":\n" + expression + "\n" + ' '.repeat(notation) + "^";
   }
 
   function exec(operators, values) {
@@ -450,10 +461,13 @@
     var values = [];
     var pattern = new RegExp( // Pattern for numbers
     "\\d+(?:\\.\\d+)?|" + // ...and patterns for individual operators/function names
+    // Flow does not properly type Object.values (https://github.com/facebook/flow/issues/2221)
     Object.values(symbolMap.symbols) // longer symbols should be listed first
+    // $FlowFixMe
     .sort(function (a, b) {
       return b.symbol.length - a.symbol.length;
-    }).map(function (val) {
+    }) // $FlowFixMe
+    .map(function (val) {
       return val.regSymbol;
     }).join('|') + "|(\\S)", 'g');
     pattern.lastIndex = 0; // Reset regular expression object
@@ -471,7 +485,9 @@
       var notNewValue = notNumber && !notNumber.prefix && !notNumber.func;
       var notAfterValue = !notNumber || !notNumber.postfix && !notNumber.infix; // Check for syntax errors:
 
-      if (bad || (afterValue ? notAfterValue : notNewValue)) return generateError('Syntax error', match, expression);
+      if (bad || (afterValue ? notAfterValue : notNewValue)) {
+        throw new PolishedError(37, match ? match.index : expression.length, expression);
+      }
 
       if (afterValue) {
         // We either have an infix or postfix operator (they should be mutually exclusive)
@@ -497,7 +513,10 @@
         if (notNumber.func) {
           // Require an opening parenthesis
           match = pattern.exec(expression);
-          if (!match || match[0] !== '(') return generateError('Function needs parentheses', match, expression);
+
+          if (!match || match[0] !== '(') {
+            throw new PolishedError(38, match ? match.index : expression.length, expression);
+          }
         }
       } else {
         // number
@@ -507,35 +526,38 @@
     } while (match && operators.length);
 
     if (operators.length) {
-      throw new PolishedError(generateError("Missing closing parenthesis", match, expression));
+      throw new PolishedError(39, match ? match.index : expression.length, expression);
     } else if (match) {
-      throw new PolishedError(generateError("Too many closing parentheses", match, expression));
+      throw new PolishedError(40, match ? match.index : expression.length, expression);
     } else {
       return values.pop();
     }
   }
   /**
-   * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+   * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.
    *
+   *In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *
    * @example
    * // Styles as object usage
    * const styles = {
-   *   ...cover()
+   *   fontSize: math('12rem + 8rem'),
+   *   fontSize: math('(12px + 2px) * 3'),
+   *   fontSize: math('3px^2 + sqrt(4)'),
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   ${cover()}
+   *   fontSize: ${math('12rem + 8rem')};
+   *   fontSize: ${math('(12px + 2px) * 3')};
+   *   fontSize: ${math('3px^2 + sqrt(4)')};
    * `
    *
    * // CSS as JS Output
    *
    * div: {
-   *   'position': 'absolute',
-   *   'top': '0',
-   *   'right: '0',
-   *   'bottom': '0',
-   *   'left: '0'
+   *   fontSize: '20rem',
+   *   fontSize: '42px',
+   *   fontSize: '11px',
    * }
    */
 
@@ -546,7 +568,7 @@
     if (formulaMatch && !formulaMatch.every(function (unit) {
       return unit === formulaMatch[0];
     })) {
-      throw new PolishedError(37);
+      throw new PolishedError(41);
     }
 
     var cleanFormula = formula.replace(unitRegExp, '');
@@ -783,7 +805,7 @@
     return ratioNames[ratioName];
   }
   /**
-   * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
+   * Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
    * @example
    * // Styles as object usage
    * const styles = {
@@ -2976,7 +2998,7 @@
   (opacify);
 
   /**
-   * Returns black or white for best contrast depending on the luminosity of the given color.
+   * Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
    * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
    *
    * @example
