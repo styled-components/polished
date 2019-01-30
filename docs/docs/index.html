@@ -4684,7 +4684,7 @@ const color2 = parseToRgb('hsla(<span class="hljs-number">210</span>, <span clas
   </div>
   
 
-  <p>Returns black or white for best contrast depending on the luminosity of the given color.
+  <p>Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
 Follows W3C specs for readability at <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">https://www.w3.org/TR/WCAG20-TECHS/G18.html</a></p>
 
 
@@ -6025,7 +6025,8 @@ element {
   </div>
   
 
-  <p>CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".</p>
+  <p>Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.</p>
+<p>In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *</p>
 
 
   <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -6094,23 +6095,25 @@ element {
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-  ...cover()
+const styles = {
+  fontSize: math(<span class="hljs-string">'12rem + 8rem'</span>),
+  fontSize: math(<span class="hljs-string">'(12px + 2px) * 3'</span>),
+  fontSize: math(<span class="hljs-string">'3px^2 + sqrt(4)'</span>),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  ${cover()}
-`</span>
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
+  fontSize: <span class="hljs-symbol">$</span>{math(<span class="hljs-string">'12rem + 8rem'</span>)};
+  fontSize: <span class="hljs-symbol">$</span>{math(<span class="hljs-string">'(12px + 2px) * 3'</span>)};
+  fontSize: <span class="hljs-symbol">$</span>{math(<span class="hljs-string">'3px^2 + sqrt(4)'</span>)};
+`
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
-div: {
-  <span class="hljs-string">'position'</span>: <span class="hljs-string">'absolute'</span>,
-  <span class="hljs-string">'top'</span>: <span class="hljs-string">'0'</span>,
-  <span class="hljs-string">'right: '</span><span class="hljs-number">0</span><span class="hljs-string">',
-  '</span>bottom<span class="hljs-string">': '</span><span class="hljs-number">0</span><span class="hljs-string">',
-  '</span>left: <span class="hljs-string">'0'</span>
+<span class="hljs-built-in">div</span>: {
+  fontSize: <span class="hljs-string">'20rem'</span>,
+  fontSize: <span class="hljs-string">'42px'</span>,
+  fontSize: <span class="hljs-string">'11px'</span>,
 }</pre>
     
   
@@ -8228,7 +8231,7 @@ element {
   </div>
   
 
-  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.</p>
+  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.</p>
 
 
   <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), ratio: <a href="#modularscaleratio">ModularScaleRatio</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>

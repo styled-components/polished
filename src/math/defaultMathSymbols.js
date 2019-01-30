@@ -41,6 +41,18 @@ function sqrt(a: number): number {
   return Math.sqrt(a)
 }
 
+function max(...a: Array<number>): number {
+  return Math.max(...a)
+}
+
+function min(...a: Array<number>): number {
+  return Math.min(...a)
+}
+
+function comma(...a: Array<number | string>): Array<number | string> {
+  return Array.of(...a)
+}
+
 const defaultMathSymbols = {
   symbols: {
     '!': {
@@ -134,7 +146,7 @@ const defaultMathSymbols = {
     ',': {
       infix: {
         symbol: ',',
-        f: Array.of,
+        f: comma,
         notation: 'infix',
         precedence: 1,
         rightToLeft: 0,
@@ -170,10 +182,10 @@ const defaultMathSymbols = {
     min: {
       func: {
         symbol: 'min',
-        f: Math.min,
+        f: min,
         notation: 'func',
         precedence: 0,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: 'min',
@@ -182,10 +194,10 @@ const defaultMathSymbols = {
     max: {
       func: {
         symbol: 'max',
-        f: Math.max,
+        f: max,
         notation: 'func',
         precedence: 0,
-        rightToLeft: false,
+        rightToLeft: 0,
         argCount: 1,
       },
       symbol: 'max',
