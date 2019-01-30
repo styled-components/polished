@@ -2,6 +2,11 @@ import * as polished from "./lib/index";
 import { ENGINE_METHOD_NONE } from "constants";
 
 /*
+ * Math
+ */
+const math = polished.math("20px + 10px");
+
+/*
  * Mixins
  */
 let between: string = polished.between("20px", "100px", "400px", "1000px");
