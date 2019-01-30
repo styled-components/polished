@@ -2,7 +2,7 @@
 import getLuminance from './getLuminance'
 
 /**
- * Returns black or white for best contrast depending on the luminosity of the given color.
+ * Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
  * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
  *
  * @example

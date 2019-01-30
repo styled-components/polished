@@ -28,7 +28,7 @@ function getRatio(ratioName: string): number {
 }
 
 /**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
+ * Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
  * @example
  * // Styles as object usage
  * const styles = {

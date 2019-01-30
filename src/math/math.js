@@ -1,7 +1,8 @@
 // @flow
 import defaultSymbolMap from './defaultMathSymbols'
+import PolishedError from '../internalHelpers/_errors'
 
-const unitRegExp = /(?<![a-zA-Z])(a|an|ch|cm|em|ex|in|mm|pc|pt|px|q|rem|vh|vmax|vmin|vw)/g
+const unitRegExp = /(?<![a-zA-Z])(a|an|cap|ch|cm|em|ex|ic|in|lh|mm|pc|pt|px|q|rem|rlh|vh|vi|vb|vmax|vmin|vw)/g
 
 // Merges additional math functionality into the defaults.
 function mergeSymbolMaps(additionalSymbols?: Object): Object {
@@ -88,48 +89,51 @@ function calculate(expression: string, additionalSymbols?: Object): number {
   } while (match && operators.length)
 
   if (operators.length) {
-    return generateError('Missing closing parenthesis', match, expression)
+    throw new PolishedError(
+      generateError('Missing closing parenthesis', match, expression),
+    )
   } else if (match) {
-    return generateError('Too many closing parentheses', match, expression)
+    throw new PolishedError(
+      generateError('Too many closing parentheses', match, expression),
+    )
   } else {
     return values.pop()
   }
 }
 
 /**
- * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+ * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.
  *
+ *In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *
  * @example
  * // Styles as object usage
  * const styles = {
- *   ...cover()
+ *   fontSize: math('12rem + 8rem'),
+ *   fontSize: math('(12px + 2px) * 3'),
+ *   fontSize: math('3px^2 + sqrt(4)'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   ${cover()}
+ *   fontSize: ${math('12rem + 8rem')};
+ *   fontSize: ${math('(12px + 2px) * 3')};
+ *   fontSize: ${math('3px^2 + sqrt(4)')};
  * `
  *
  * // CSS as JS Output
  *
  * div: {
- *   'position': 'absolute',
- *   'top': '0',
- *   'right: '0',
- *   'bottom': '0',
- *   'left: '0'
+ *   fontSize: '20rem',
+ *   fontSize: '42px',
+ *   fontSize: '11px',
  * }
  */
 function math(formula: string, additionalSymbols?: Object): string {
   const formulaMatch = formula.match(unitRegExp)
 
   // Check that all units are the same
-  if (formulaMatch) {
-    if (!formulaMatch.every(unit => unit === formulaMatch[0])) {
-      throw new Error(
-        'All values in a formula must have the same unit or be unitless.',
-      )
-    }
+  if (formulaMatch && !formulaMatch.every(unit => unit === formulaMatch[0])) {
+    throw new PolishedError(37)
   }
 
   const cleanFormula = formula.replace(unitRegExp, '')
