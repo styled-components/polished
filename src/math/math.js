@@ -14,11 +14,6 @@ function mergeSymbolMaps(additionalSymbols?: Object): Object {
   return symbolMap
 }
 
-function generateError(msg, match, expression) {
-  const notation = match ? match.index : expression.length
-  return `${msg} at ${notation}:\n${expression}\n${' '.repeat(notation)}^`
-}
-
 function exec(operators, values) {
   const op = operators.pop()
   values.push(op.f(...[].concat(...values.splice(-op.argCount))))
@@ -32,13 +27,15 @@ function calculate(expression: string, additionalSymbols?: Object): number {
   const operators = [symbolMap.symbols['('].prefix]
   const values = []
 
-  const pattern = new RegExp(
-    // Pattern for numbers
+  const pattern = new RegExp( // Pattern for numbers
     `\\d+(?:\\.\\d+)?|${
       // ...and patterns for individual operators/function names
+      // Flow does not properly type Object.values (https://github.com/facebook/flow/issues/2221)
       Object.values(symbolMap.symbols)
         // longer symbols should be listed first
+        // $FlowFixMe
         .sort((a, b) => b.symbol.length - a.symbol.length)
+        // $FlowFixMe
         .map(val => val.regSymbol)
         .join('|')
     }|(\\S)`,
@@ -57,7 +54,13 @@ function calculate(expression: string, additionalSymbols?: Object): number {
     const notAfterValue = !notNumber || (!notNumber.postfix && !notNumber.infix)
 
     // Check for syntax errors:
-    if (bad || (afterValue ? notAfterValue : notNewValue)) return generateError('Syntax error', match, expression)
+    if (bad || (afterValue ? notAfterValue : notNewValue)) {
+      throw new PolishedError(
+        37,
+        match ? match.index : expression.length,
+        expression,
+      )
+    }
 
     if (afterValue) {
       // We either have an infix or postfix operator (they should be mutually exclusive)
@@ -79,7 +82,13 @@ function calculate(expression: string, additionalSymbols?: Object): number {
       if (notNumber.func) {
         // Require an opening parenthesis
         match = pattern.exec(expression)
-        if (!match || match[0] !== '(') return generateError('Function needs parentheses', match, expression)
+        if (!match || match[0] !== '(') {
+          throw new PolishedError(
+            38,
+            match ? match.index : expression.length,
+            expression,
+          )
+        }
       }
     } else {
       // number
@@ -90,11 +99,15 @@ function calculate(expression: string, additionalSymbols?: Object): number {
 
   if (operators.length) {
     throw new PolishedError(
-      generateError('Missing closing parenthesis', match, expression),
+      39,
+      match ? match.index : expression.length,
+      expression,
     )
   } else if (match) {
     throw new PolishedError(
-      generateError('Too many closing parentheses', match, expression),
+      40,
+      match ? match.index : expression.length,
+      expression,
     )
   } else {
     return values.pop()
@@ -133,7 +146,7 @@ function math(formula: string, additionalSymbols?: Object): string {
 
   // Check that all units are the same
   if (formulaMatch && !formulaMatch.every(unit => unit === formulaMatch[0])) {
-    throw new PolishedError(37)
+    throw new PolishedError(41)
   }
 
   const cleanFormula = formula.replace(unitRegExp, '')
