@@ -149,4 +149,20 @@ Property must be a string value.
 
 ## 37
 
+Syntax Error at %s.
+
+## 38
+
+Formula contains a function that needs parentheses at %s.
+
+## 39
+
+Formula is missing closing parenthesis at %s.
+
+## 40
+
+Formula has too many closing parentheses at %s.
+
+## 41
+
 All values in a formula must have the same unit or be unitless.
