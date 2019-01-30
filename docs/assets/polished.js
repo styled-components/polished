@@ -653,8 +653,9 @@
     return string.substr(-suffix.length) === suffix;
   }
 
+  var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
-   * Returns a given CSS value minus its unit (or the original value if an invalid string is passed).
+   * Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.
    *
    * @example
    * // Styles as object usage
@@ -673,10 +674,18 @@
    *   '--dimension': 100
    * }
    */
-  function stripUnit(value) {
-    var unitlessValue = parseFloat(value);
-    if (isNaN(unitlessValue)) return value;
-    return unitlessValue;
+
+  function stripUnit(value, unitReturn) {
+    if (typeof value !== 'string') return unitReturn ? [value, undefined] : value;
+    var matchedValue = value.match(cssRegex);
+
+    if (unitReturn) {
+      if (matchedValue) return [parseFloat(value), matchedValue[2]];
+      return [value, undefined];
+    }
+
+    if (matchedValue) return parseFloat(value);
+    return value;
   }
 
   /**
@@ -749,9 +758,11 @@
   /*#__PURE__*/
   pxtoFactory('em');
 
-  var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+  var cssRegex$1 = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
    * Returns a given CSS value and its unit as elements of an array.
+   *
+   * @deprecated - getValueAndUnit has been marked for deprecation in polished 3.0 and will be fully deprecated in 4.0. It's functionality has been been moved to stripUnit as an optional return.
    *
    * @example
    * // Styles as object usage
@@ -775,8 +786,10 @@
    */
 
   function getValueAndUnit(value) {
+    // eslint-disable-next-line no-console
+    console.warn("getValueAndUnit has been marked for deprecation in polished 3.0 and will be fully deprecated in 4.0. It's functionality has been been moved to stripUnit as an optional return.");
     if (typeof value !== 'string') return [value, ''];
-    var matchedValue = value.match(cssRegex);
+    var matchedValue = value.match(cssRegex$1);
     if (matchedValue) return [parseFloat(value), matchedValue[2]];
     return [value, undefined];
   }
@@ -844,7 +857,7 @@
       throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.');
     }
 
-    var _ref = typeof base === 'string' ? getValueAndUnit(base) : [base, ''],
+    var _ref = typeof base === 'string' ? stripUnit(base, true) : [base, ''],
         realBase = _ref[0],
         unit = _ref[1];
 
@@ -918,21 +931,21 @@
       maxScreen = '1200px';
     }
 
-    var _getValueAndUnit = getValueAndUnit(fromSize),
-        unitlessFromSize = _getValueAndUnit[0],
-        fromSizeUnit = _getValueAndUnit[1];
+    var _stripUnit = stripUnit(fromSize, true),
+        unitlessFromSize = _stripUnit[0],
+        fromSizeUnit = _stripUnit[1];
 
-    var _getValueAndUnit2 = getValueAndUnit(toSize),
-        unitlessToSize = _getValueAndUnit2[0],
-        toSizeUnit = _getValueAndUnit2[1];
+    var _stripUnit2 = stripUnit(toSize, true),
+        unitlessToSize = _stripUnit2[0],
+        toSizeUnit = _stripUnit2[1];
 
-    var _getValueAndUnit3 = getValueAndUnit(minScreen),
-        unitlessMinScreen = _getValueAndUnit3[0],
-        minScreenUnit = _getValueAndUnit3[1];
+    var _stripUnit3 = stripUnit(minScreen, true),
+        unitlessMinScreen = _stripUnit3[0],
+        minScreenUnit = _stripUnit3[1];
 
-    var _getValueAndUnit4 = getValueAndUnit(maxScreen),
-        unitlessMaxScreen = _getValueAndUnit4[0],
-        maxScreenUnit = _getValueAndUnit4[1];
+    var _stripUnit4 = stripUnit(maxScreen, true),
+        unitlessMaxScreen = _stripUnit4[0],
+        maxScreenUnit = _stripUnit4[1];
 
     if (typeof unitlessMinScreen !== 'number' || typeof unitlessMaxScreen !== 'number' || !minScreenUnit || !maxScreenUnit || minScreenUnit !== maxScreenUnit) {
       throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.');

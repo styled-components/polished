@@ -1,5 +1,5 @@
 // @flow
-import getValueAndUnit from './getValueAndUnit'
+import stripUnit from './stripUnit'
 
 import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
@@ -64,7 +64,7 @@ function modularScale(
     )
   }
 
-  const [realBase, unit] = typeof base === 'string' ? getValueAndUnit(base) : [base, '']
+  const [realBase, unit] = typeof base === 'string' ? stripUnit(base, true) : [base, '']
   const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
   if (typeof realBase === 'string' || (unit !== 'em' && unit !== 'rem')) {
