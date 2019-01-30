@@ -1,5 +1,5 @@
 // @flow
-import getValueAndUnit from '../helpers/getValueAndUnit'
+import stripUnit from '../helpers/stripUnit'
 
 /**
  * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
@@ -30,10 +30,10 @@ function between(
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
 ): string {
-  const [unitlessFromSize, fromSizeUnit] = getValueAndUnit(fromSize)
-  const [unitlessToSize, toSizeUnit] = getValueAndUnit(toSize)
-  const [unitlessMinScreen, minScreenUnit] = getValueAndUnit(minScreen)
-  const [unitlessMaxScreen, maxScreenUnit] = getValueAndUnit(maxScreen)
+  const [unitlessFromSize, fromSizeUnit] = stripUnit(fromSize, true)
+  const [unitlessToSize, toSizeUnit] = stripUnit(toSize, true)
+  const [unitlessMinScreen, minScreenUnit] = stripUnit(minScreen, true)
+  const [unitlessMaxScreen, maxScreenUnit] = stripUnit(maxScreen, true)
 
   if (
     typeof unitlessMinScreen !== 'number'
