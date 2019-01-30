@@ -146,3 +146,7 @@ borderRadius expects one of "top", "bottom", "left" or "right" as the first argu
 ## 36
 
 Property must be a string value.
+
+## 37
+
+All values in a formula must have the same unit or be unitless.
