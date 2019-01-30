@@ -347,12 +347,12 @@
 
 
   function math(formula, additionalSymbols) {
-    var formulaMatch = formula.match(unitRegExp);
+    var formulaMatch = formula.match(unitRegExp); // Check that all units are the same
 
     if (formulaMatch) {
-      if (formulaMatch.every(function (unit) {
-        return unit !== formulaMatch[0];
-      }) && formulaMatch.length > 1) {
+      if (!formulaMatch.every(function (unit) {
+        return unit === formulaMatch[0];
+      })) {
         throw new Error('All values in a formula must have the same unit or be unitless.');
       }
     }
@@ -1167,6 +1167,35 @@
     return strings;
   }
 
+  function constructGradientValue(literals) {
+    var template = '';
+
+    for (var _len = arguments.length, substitutions = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      substitutions[_key - 1] = arguments[_key];
+    }
+
+    for (var i = 0; i < literals.length; i += 1) {
+      template += literals[i];
+
+      if (i === substitutions.length - 1 && substitutions[i]) {
+        var definedValues = substitutions.filter(function (substitute) {
+          return !!substitute;
+        }); // Adds leading coma if properties preceed color-stops
+
+        if (definedValues.length > 1) {
+          template = template.slice(0, -1);
+          template += ", " + substitutions[i]; // No trailing space if color-stops is the only param provided
+        } else if (definedValues.length === 1) {
+          template += "" + substitutions[i];
+        }
+      } else if (substitutions[i]) {
+        template += substitutions[i] + " ";
+      }
+    }
+
+    return template.trim();
+  }
+
   function _templateObject() {
     var data = _taggedTemplateLiteralLoose(["linear-gradient(", "", ")"]);
 
@@ -1177,28 +1206,6 @@
     return data;
   }
 
-  function parseFallback(colorStops) {
-    return colorStops[0].split(' ')[0];
-  }
-
-  function constructGradientValue(literals) {
-    var template = '';
-
-    for (var i = 0; i < literals.length; i += 1) {
-      template += literals[i]; // Adds leading coma if properties preceed color-stops
-
-      if (i === 1 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && (arguments.length <= 1 ? undefined : arguments[1])) {
-        template = template.slice(0, -1);
-        template += ", " + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // No trailing space if color-stops is the only param provided
-      } else if (i === 1 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && !(arguments.length <= 1 ? undefined : arguments[1])) {
-        template += "" + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // Only adds substitution if it is defined
-      } else if (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) {
-        template += (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) + " ";
-      }
-    }
-
-    return template.trim();
-  }
   /**
    * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
    *
@@ -1228,8 +1235,6 @@
    *   'backgroundImage': 'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
    * }
    */
-
-
   function linearGradient(_ref) {
     var colorStops = _ref.colorStops,
         fallback = _ref.fallback,
@@ -1240,7 +1245,7 @@
     }
 
     return {
-      backgroundColor: fallback || parseFallback(colorStops),
+      backgroundColor: fallback || colorStops[0].split(' ')[0],
       backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', '))
     };
   }
@@ -1380,28 +1385,6 @@
     return data;
   }
 
-  function parseFallback$1(colorStops) {
-    return colorStops[0].split(' ')[0];
-  }
-
-  function constructGradientValue$1(literals) {
-    var template = '';
-
-    for (var i = 0; i < literals.length; i += 1) {
-      template += literals[i]; // Adds leading coma if properties preceed color-stops
-
-      if (i === 3 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && ((arguments.length <= 1 ? undefined : arguments[1]) || (arguments.length <= 2 ? undefined : arguments[2]) || (arguments.length <= 3 ? undefined : arguments[3]))) {
-        template = template.slice(0, -1);
-        template += ", " + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // No trailing space if color-stops is the only param provided
-      } else if (i === 3 && (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) && !(arguments.length <= 1 ? undefined : arguments[1]) && !(arguments.length <= 2 ? undefined : arguments[2]) && !(arguments.length <= 3 ? undefined : arguments[3])) {
-        template += "" + (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]); // Only adds substitution if it is defined
-      } else if (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) {
-        template += (i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]) + " ";
-      }
-    }
-
-    return template.trim();
-  }
   /**
    * CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
    *
@@ -1433,8 +1416,6 @@
    *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
    * }
    */
-
-
   function radialGradient(_ref) {
     var colorStops = _ref.colorStops,
         extent = _ref.extent,
@@ -1447,8 +1428,8 @@
     }
 
     return {
-      backgroundColor: fallback || parseFallback$1(colorStops),
-      backgroundImage: constructGradientValue$1(_templateObject$1(), position, shape, extent, colorStops.join(', '))
+      backgroundColor: fallback || colorStops[0].split(' ')[0],
+      backgroundImage: constructGradientValue(_templateObject$1(), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -2097,15 +2078,11 @@
   function (_Error) {
     _inheritsLoose(PolishedError, _Error);
 
-    function PolishedError(code, pkg) {
+    function PolishedError(code) {
       var _this;
 
-      if (pkg === void 0) {
-        pkg = 'internal_helpers';
-      }
-
-      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
+      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        args[_key2 - 1] = arguments[_key2];
       }
 
       {
