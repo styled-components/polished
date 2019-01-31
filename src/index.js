@@ -38,6 +38,7 @@ import getLuminance from './color/getLuminance'
 import grayscale from './color/grayscale'
 import hsl from './color/hsl'
 import hsla from './color/hsla'
+import hslToColorString from './color/hslToColorString'
 import invert from './color/invert'
 import lighten from './color/lighten'
 import mix from './color/mix'
@@ -47,6 +48,7 @@ import parseToRgb from './color/parseToRgb'
 import readableColor from './color/readableColor'
 import rgb from './color/rgb'
 import rgba from './color/rgba'
+import rgbToColorString from './color/rgbToColorString'
 import saturate from './color/saturate'
 import setHue from './color/setHue'
 import setLightness from './color/setLightness'
@@ -104,6 +106,7 @@ export {
   hiDPI,
   hsl,
   hsla,
+  hslToColorString,
   lighten,
   linearGradient,
   margin,
@@ -122,6 +125,7 @@ export {
   retinaImage,
   rgb,
   rgba,
+  rgbToColorString,
   saturate,
   setHue,
   setLightness,

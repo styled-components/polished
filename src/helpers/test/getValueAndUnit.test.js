@@ -133,8 +133,4 @@ describe('getValueAndUnit', () => {
   it('should return value and no unit when passed a number string', () => {
     expect(getValueAndUnit('33')).toMatchSnapshot()
   })
-
-  it('should return value and no unit when passed a number', () => {
-    expect(getValueAndUnit(33)).toMatchSnapshot()
-  })
 })
