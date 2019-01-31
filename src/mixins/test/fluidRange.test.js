@@ -53,7 +53,7 @@ describe('fluidRange', () => {
       // $FlowFixMe
       fluidRange('padding', '400px', '1000px')
     }).toThrow(
-      'expects either an array of objects or a single object with the properties prop, fromSize, and toSize.',
+      'Expects either an array of objects or a single object with the properties prop, fromSize, and toSize.',
     )
   })
 
@@ -62,7 +62,7 @@ describe('fluidRange', () => {
       // $FlowFixMe
       fluidRange(null, '400px', '1000px')
     }).toThrow(
-      'expects either an array of objects or a single object with the properties prop, fromSize, and toSize.',
+      'Expects either an array of objects or a single object with the properties prop, fromSize, and toSize.',
     )
   })
 
@@ -71,7 +71,7 @@ describe('fluidRange', () => {
       // $FlowFixMe
       fluidRange({}, '400px', '1000px')
     }).toThrow(
-      'expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.',
+      'Expects the first argument object to have the properties prop, fromSize, and toSize.',
     )
   })
 
@@ -92,7 +92,7 @@ describe('fluidRange', () => {
         '1000px',
       )
     }).toThrow(
-      'expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.',
+      'Expects the objects in the first argument array to have the properties prop, fromSize, and toSize.',
     )
   })
 

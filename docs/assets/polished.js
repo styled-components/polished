@@ -384,7 +384,38 @@
     "38": "Formula contains a function that needs parentheses at %s.\n\n",
     "39": "Formula is missing closing parenthesis at %s.\n\n",
     "40": "Formula has too many closing parentheses at %s.\n\n",
-    "41": "All values in a formula must have the same unit or be unitless.\n"
+    "41": "All values in a formula must have the same unit or be unitless.\n\n",
+    "42": "Please provide a number of steps to the modularScale helper.\n\n",
+    "43": "Please pass a number or one of the predefined scales to the modularScale helper as the ratio.\n\n",
+    "44": "Invalid value passed as base to modularScale, expected number or em/rem string but got %s.\n\n",
+    "45": "Passed invalid argument to hslToColorString, please pass a HslColor or HslaColor object.\n\n",
+    "46": "Passed invalid argument to rgbToColorString, please pass a RgbColor or RgbaColor object.\n\n",
+    "47": "minScreen and maxScreen must be provided as stringified numbers with the same units.\n\n",
+    "48": "fromSize and toSize must be provided as stringified numbers with the same units.\n\n",
+    "49": "Expects either an array of objects or a single object with the properties prop, fromSize, and toSize.\n\n",
+    "50": "Expects the objects in the first argument array to have the properties prop, fromSize, and toSize.\n\n",
+    "51": "Expects the first argument object to have the properties prop, fromSize, and toSize.\n\n",
+    "52": "fontFace expects either the path to the font file(s) or a name of a local copy.\n\n",
+    "53": "fontFace expects localFonts to be an array.\n\n",
+    "54": "fontFace expects fileFormats to be an array.\n\n",
+    "55": "fontFace expects a name of a font-family.\n\n",
+    "56": "linearGradient requries at least 2 color-stops to properly render.\n\n",
+    "57": "radialGradient requries at least 2 color-stops to properly render.\n\n",
+    "58": "Please supply a filename to retinaImage() as the first argument.\n\n",
+    "59": "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.\n\n",
+    "60": "Passed an invalid value to `height` or `width`. Please provide a pixel based unit.\n\n",
+    "61": "Property must be a string value.\n\n",
+    "62": "borderRadius expects a radius value as a string or number as the second argument.\n\n",
+    "63": "borderRadius expects one of \"top\", \"bottom\", \"left\" or \"right\" as the first argument.\n\n",
+    "64": "The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation.\n\n",
+    "65": "To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s').\n\n",
+    "66": "The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation.\n\n",
+    "67": "You must provide a template to this method.\n\n",
+    "68": "You passed an unsupported selector state to this method.\n\n",
+    "69": "Expected a string ending in \"px\" or a number passed as the first argument to %s(), got %s instead.\n\n",
+    "70": "Expected a string ending in \"px\" or a number passed as the second argument to %s(), got %s instead.\n\n",
+    "71": "Passed invalid pixel value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
+    "72": "Passed invalid base value %s to %s(), please pass a value like \"12px\" or 12.\n"
   };
   /**
    * super basic version of sprintf
@@ -704,7 +735,7 @@
 
       if (typeof pxval === 'string') {
         if (!endsWith(pxval, 'px')) {
-          throw new Error("Expected a string ending in \"px\" or a number passed as the first argument to " + to + "(), got \"" + pxval + "\" instead.");
+          throw new PolishedError(69, to, pxval);
         }
 
         newPxval = stripUnit(pxval);
@@ -712,18 +743,18 @@
 
       if (typeof base === 'string') {
         if (!endsWith(base, 'px')) {
-          throw new Error("Expected a string ending in \"px\" or a number passed as the second argument to " + to + "(), got \"" + base + "\" instead.");
+          throw new PolishedError(70, to, base);
         }
 
         newBase = stripUnit(base);
       }
 
       if (typeof newPxval === 'string') {
-        throw new Error("Passed invalid pixel value (\"" + pxval + "\") to " + to + "(), please pass a value like \"12px\" or 12.");
+        throw new PolishedError(71, pxval, to);
       }
 
       if (typeof newBase === 'string') {
-        throw new Error("Passed invalid base value (\"" + base + "\") to " + to + "(), please pass a value like \"12px\" or 12.");
+        throw new PolishedError(72, base, to);
       }
 
       return "" + newPxval / newBase + to;
@@ -850,11 +881,11 @@
     }
 
     if (typeof steps !== 'number') {
-      throw new Error('Please provide a number of steps to the modularScale helper.');
+      throw new PolishedError(42);
     }
 
     if (typeof ratio === 'string' && !ratioNames[ratio]) {
-      throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.');
+      throw new PolishedError(43);
     }
 
     var _ref = typeof base === 'string' ? stripUnit(base, true) : [base, ''],
@@ -864,7 +895,7 @@
     var realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio;
 
     if (typeof realBase === 'string' || unit !== 'em' && unit !== 'rem') {
-      throw new Error("Invalid value passed as base to modularScale, expected number or em/rem string but got \"" + base + "\"");
+      throw new PolishedError(44, base);
     }
 
     return "" + realBase * Math.pow(realRatio, steps) + unit;
@@ -948,11 +979,11 @@
         maxScreenUnit = _stripUnit4[1];
 
     if (typeof unitlessMinScreen !== 'number' || typeof unitlessMaxScreen !== 'number' || !minScreenUnit || !maxScreenUnit || minScreenUnit !== maxScreenUnit) {
-      throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.');
+      throw new PolishedError(47);
     }
 
     if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || !fromSizeUnit || !toSizeUnit || fromSizeUnit !== toSizeUnit) {
-      throw new Error('fromSize and toSize must be provided as stringified numbers with the same units.');
+      throw new PolishedError(48);
     }
 
     var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
@@ -1127,7 +1158,7 @@
     }
 
     if (!Array.isArray(cssProp) && typeof cssProp !== 'object' || cssProp === null) {
-      throw new Error('expects either an array of objects or a single object with the properties prop, fromSize, and toSize.');
+      throw new PolishedError(49);
     }
 
     if (Array.isArray(cssProp)) {
@@ -1151,7 +1182,7 @@
         var obj = _ref;
 
         if (!obj.prop || !obj.fromSize || !obj.toSize) {
-          throw new Error('expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.');
+          throw new PolishedError(50);
         }
 
         fallbacks[obj.prop] = obj.fromSize;
@@ -1164,7 +1195,7 @@
       var _ref2, _ref3, _ref4;
 
       if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) {
-        throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.');
+        throw new PolishedError(51);
       }
 
       return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4["@media (min-width: " + minScreen + ")"] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4["@media (min-width: " + maxScreen + ")"] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
@@ -1239,18 +1270,18 @@
         fontVariationSettings = _ref.fontVariationSettings,
         fontFeatureSettings = _ref.fontFeatureSettings;
     // Error Handling
-    if (!fontFamily) throw new Error('fontFace expects a name of a font-family.');
+    if (!fontFamily) throw new PolishedError(55);
 
     if (!fontFilePath && !localFonts) {
-      throw new Error('fontFace expects either the path to the font file(s) or a name of a local copy.');
+      throw new PolishedError(52);
     }
 
     if (localFonts && !Array.isArray(localFonts)) {
-      throw new Error('fontFace expects localFonts to be an array.');
+      throw new PolishedError(53);
     }
 
     if (!Array.isArray(fileFormats)) {
-      throw new Error('fontFace expects fileFormats to be an array.');
+      throw new PolishedError(54);
     }
 
     var fontFaceDeclaration = {
@@ -1468,7 +1499,7 @@
         toDirection = _ref.toDirection;
 
     if (!colorStops || colorStops.length < 2) {
-      throw new Error('linearGradient requries at least 2 color-stops to properly render.');
+      throw new PolishedError(56);
     }
 
     return {
@@ -1651,7 +1682,7 @@
         shape = _ref.shape;
 
     if (!colorStops || colorStops.length < 2) {
-      throw new Error('radialGradient requries at least 2 color-stops to properly render.');
+      throw new PolishedError(57);
     }
 
     return {
@@ -1700,7 +1731,7 @@
     }
 
     if (!filename) {
-      throw new Error('Please supply a filename to retinaImage() as the first argument.');
+      throw new PolishedError(58);
     } // Replace the dot at the beginning of the passed extension if one exists
 
 
@@ -1819,7 +1850,7 @@
         return "" + height[0] / 2 + height[1] + " 0 " + height[0] / 2 + height[1] + " " + width[0] + width[1];
 
       default:
-        throw new Error("Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.");
+        throw new PolishedError(59);
     }
   }; // needed for border-color
 
@@ -1865,7 +1896,7 @@
     var heightAndUnit = [parseFloat(height), String(height).replace(NUMBER_AND_FLOAT, '') || 'px'];
 
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-      throw new Error('Passed an invalid value to `height` or `width`. Please provide a pixel based unit');
+      throw new PolishedError(60);
     }
 
     var reverseDirectionIndex = reverseDirection.indexOf(pointingDirection);
@@ -3367,16 +3398,16 @@
     var multiMode = Array.isArray(args[0]);
 
     if (!multiMode && args.length > 8) {
-      throw new Error('The animation shorthand only takes 8 arguments. See the specification for more information: http://mdn.io/animation');
+      throw new PolishedError(64);
     }
 
     var code = args.map(function (arg) {
       if (multiMode && !Array.isArray(arg) || !multiMode && Array.isArray(arg)) {
-        throw new Error("To pass multiple animations please supply them in arrays, e.g. animation(['rotate', '2s'], ['move', '1s'])\nTo pass a single animation please supply them in simple values, e.g. animation('rotate', '2s')");
+        throw new PolishedError(65);
       }
 
       if (Array.isArray(arg) && arg.length > 8) {
-        throw new Error('The animation shorthand arrays can only have 8 elements. See the specification for more information: http://mdn.io/animation');
+        throw new PolishedError(66);
       }
 
       return Array.isArray(arg) ? arg.join(' ') : arg;
@@ -3529,7 +3560,7 @@
     var uppercaseSide = capitalizeString(side);
 
     if (!radius && radius !== 0) {
-      throw new Error('borderRadius expects a radius value as a string or number as the second argument.');
+      throw new PolishedError(62);
     }
 
     if (uppercaseSide === 'Top' || uppercaseSide === 'Bottom') {
@@ -3544,7 +3575,7 @@
       return _ref2 = {}, _ref2["borderTop" + uppercaseSide + "Radius"] = radius, _ref2["borderBottom" + uppercaseSide + "Radius"] = radius, _ref2;
     }
 
-    throw new Error('borderRadius expects one of "top", "bottom", "left" or "right" as the first argument.');
+    throw new PolishedError(63);
   }
 
   /**
@@ -3618,13 +3649,13 @@
 
 
   function statefulSelectors(states, template, stateMap) {
-    if (!template) throw new Error('You must provide a template to this method.');
+    if (!template) throw new PolishedError(67);
     if (states.length === 0) return generateSelectors(template, null);
     var selectors = [];
 
     for (var i = 0; i < states.length; i += 1) {
       if (stateMap && stateMap.indexOf(states[i]) < 0) {
-        throw new Error('You passed an unsupported selector state to this method.');
+        throw new PolishedError(68);
       }
 
       selectors.push(generateSelectors(template, states[i]));
@@ -3901,6 +3932,7 @@
    *   'transition': 'color 2.0s ease-in 2s, background-color 2.0s ease-in 2s',
    * }
    */
+
   function transitions() {
     for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
@@ -3910,7 +3942,7 @@
       var value = properties[1];
 
       if (typeof value !== 'string') {
-        throw new Error('Property must be a string value.');
+        throw new PolishedError(61);
       }
 
       var transitionsString = properties[0].map(function (property) {

@@ -1,7 +1,8 @@
 // @flow
-
 import hsl from './hsl'
 import hsla from './hsla'
+import PolishedError from '../internalHelpers/_errors'
+
 import type { HslColor, HslaColor } from '../types/color'
 
 /**
@@ -51,9 +52,7 @@ function hslToColorString(color: HslColor | HslaColor | number): string {
     })
   }
 
-  throw new Error(
-    'Passed invalid argument to hslToColorString, please pass a HslColor or HslaColor object.',
-  )
+  throw new PolishedError(45)
 }
 
 export default hslToColorString

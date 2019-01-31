@@ -1,5 +1,6 @@
 // @flow
 import constructGradientValue from '../internalHelpers/_constructGradientValue'
+import PolishedError from '../internalHelpers/_errors'
 
 import type { LinearGradientConfiguration } from '../types/linearGradientConfiguration'
 import type { Styles } from '../types/style'
@@ -39,9 +40,7 @@ function linearGradient({
   toDirection,
 }: LinearGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
-    throw new Error(
-      'linearGradient requries at least 2 color-stops to properly render.',
-    )
+    throw new PolishedError(56)
   }
   return {
     backgroundColor: fallback || colorStops[0].split(' ')[0],

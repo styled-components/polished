@@ -1,7 +1,8 @@
 // @flow
-
 import rgb from './rgb'
 import rgba from './rgba'
+import PolishedError from '../internalHelpers/_errors'
+
 import type { RgbColor, RgbaColor } from '../types/color'
 
 /**
@@ -47,9 +48,7 @@ function rgbToColorString(color: RgbColor | RgbaColor): string {
     return rgb({ red: color.red, green: color.green, blue: color.blue })
   }
 
-  throw new Error(
-    'Passed invalid argument to rgbToColorString, please pass a RgbColor or RgbaColor object.',
-  )
+  throw new PolishedError(46)
 }
 
 export default rgbToColorString

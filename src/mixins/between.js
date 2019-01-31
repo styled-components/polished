@@ -1,5 +1,6 @@
 // @flow
 import stripUnit from '../helpers/stripUnit'
+import PolishedError from '../internalHelpers/_errors'
 
 /**
  * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
@@ -42,9 +43,7 @@ function between(
     || !maxScreenUnit
     || minScreenUnit !== maxScreenUnit
   ) {
-    throw new Error(
-      'minScreen and maxScreen must be provided as stringified numbers with the same units.',
-    )
+    throw new PolishedError(47)
   }
 
   if (
@@ -54,9 +53,7 @@ function between(
     || !toSizeUnit
     || fromSizeUnit !== toSizeUnit
   ) {
-    throw new Error(
-      'fromSize and toSize must be provided as stringified numbers with the same units.',
-    )
+    throw new PolishedError(48)
   }
 
   const slope = (unitlessFromSize - unitlessToSize)
