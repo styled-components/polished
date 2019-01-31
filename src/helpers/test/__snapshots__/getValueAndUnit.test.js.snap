@@ -223,3 +223,17 @@ Array [
   "vw",
 ]
 `;
+
+exports[`getValueAndUnit should return value and no unit when passed a number 1`] = `
+Array [
+  33,
+  "",
+]
+`;
+
+exports[`getValueAndUnit should return value and no unit when passed a number string 1`] = `
+Array [
+  33,
+  "",
+]
+`;

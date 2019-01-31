@@ -129,4 +129,12 @@ describe('getValueAndUnit', () => {
   it('should get value and % from decimal values', () => {
     expect(getValueAndUnit('33.3%')).toMatchSnapshot()
   })
+
+  it('should return value and no unit when passed a number string', () => {
+    expect(getValueAndUnit('33')).toMatchSnapshot()
+  })
+
+  it('should return value and no unit when passed a number', () => {
+    expect(getValueAndUnit(33)).toMatchSnapshot()
+  })
 })

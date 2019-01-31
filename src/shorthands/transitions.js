@@ -1,5 +1,6 @@
 // @flow
 import type { Styles } from '../types/style'
+import PolishedError from '../internalHelpers/_errors'
 
 /**
  * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
@@ -27,7 +28,7 @@ function transitions(...properties: Array<string | Array<string>>): Styles {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const value = properties[1]
     if (typeof value !== 'string') {
-      throw new Error('Property must be a string value.')
+      throw new PolishedError(61)
     }
     const transitionsString = properties[0]
       .map((property: string): string => `${property} ${value}`)

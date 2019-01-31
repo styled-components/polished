@@ -1,5 +1,6 @@
 // @flow
 import hiDPI from './hiDPI'
+import PolishedError from '../internalHelpers/_errors'
 
 import type { Styles } from '../types/style'
 
@@ -39,9 +40,7 @@ function retinaImage(
   retinaSuffix?: string = '_2x',
 ): Styles {
   if (!filename) {
-    throw new Error(
-      'Please supply a filename to retinaImage() as the first argument.',
-    )
+    throw new PolishedError(58)
   }
   // Replace the dot at the beginning of the passed extension if one exists
   const ext = extension.replace(/^\./, '')

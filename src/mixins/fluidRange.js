@@ -1,5 +1,6 @@
 // @flow
 import between from './between'
+import PolishedError from '../internalHelpers/_errors'
 
 import type { FluidRangeConfiguration } from '../types/fluidRangeConfiguration'
 import type { Styles } from '../types/style'
@@ -55,9 +56,7 @@ function fluidRange(
     (!Array.isArray(cssProp) && typeof cssProp !== 'object')
     || cssProp === null
   ) {
-    throw new Error(
-      'expects either an array of objects or a single object with the properties prop, fromSize, and toSize.',
-    )
+    throw new PolishedError(49)
   }
 
   if (Array.isArray(cssProp)) {
@@ -65,9 +64,7 @@ function fluidRange(
     const fallbacks = {}
     for (const obj of cssProp) {
       if (!obj.prop || !obj.fromSize || !obj.toSize) {
-        throw new Error(
-          'expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.',
-        )
+        throw new PolishedError(50)
       }
 
       fallbacks[obj.prop] = obj.fromSize
@@ -87,9 +84,7 @@ function fluidRange(
     }
   } else {
     if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) {
-      throw new Error(
-        'expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.',
-      )
+      throw new PolishedError(51)
     }
 
     return {

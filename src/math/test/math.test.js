@@ -82,4 +82,34 @@ describe('math', () => {
       'All values in a formula must have the same unit or be unitless.',
     )
   })
+
+  it('should throw an error when formula is missing a closing parenthesis', () => {
+    expect(() => {
+      math('(1px + 2px * 3')
+    }).toThrow('Formula is missing closing parenthesis at 10')
+  })
+
+  it('should throw an error when formula has an extra closing parenthesis', () => {
+    expect(() => {
+      math('(1px + 2px) * 3)')
+    }).toThrow('Formula has too many closing parentheses at 11')
+  })
+
+  it('should throw an error when formula has no opening parenthesis', () => {
+    expect(() => {
+      math('1px + 2px) * 3')
+    }).toThrow('Formula has too many closing parentheses at 5')
+  })
+
+  it('should throw an error when a function has no opening parenthesis', () => {
+    expect(() => {
+      math('1px + sqrt 4')
+    }).toThrow('Formula contains a function that needs parentheses at 9')
+  })
+
+  it('should throw an error when passed a non-formula string', () => {
+    expect(() => {
+      math("eval('1+2+3')")
+    }).toThrow('Syntax Error at 0')
+  })
 })
