@@ -342,6 +342,7 @@
 
   /**
    * Parse errors.md and turn it into a simple hash of code: message
+   * @private
    */
   var ERRORS = {
     "1": "Passed invalid arguments to hsl, please pass multiple numbers e.g. hsl(360, 0.75, 0.4) or an object e.g. rgb({ hue: 255, saturation: 0.4, lightness: 0.75 }).\n\n",
@@ -419,6 +420,7 @@
   };
   /**
    * super basic version of sprintf
+   * @private
    */
 
   function format() {
@@ -442,6 +444,7 @@
   /**
    * Create an error file out of errors.md for development and a simple web link to the full errors
    * in production mode.
+   * @private
    */
 
 
@@ -567,7 +570,7 @@
   /**
    * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.
    *
-   *In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *
+   *In cases where you need to do calculations with mixed units where one unit is a [relative length unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units), you will want to use [CSS Calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc).
    * @example
    * // Styles as object usage
    * const styles = {
@@ -691,18 +694,21 @@
    * @example
    * // Styles as object usage
    * const styles = {
-   *   '--dimension': stripUnit('100px')
+   *   '--dimension': stripUnit('100px'),
+   *   '--unit': stripUnit('100px')[1],
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   --dimension: ${stripUnit('100px')}
+   *   --dimension: ${stripUnit('100px')};
+   *   --unit: ${stripUnit('100px')[1]};
    * `
    *
    * // CSS in JS Output
    *
    * element {
-   *   '--dimension': 100
+   *   '--dimension': 100,
+   *   '--unit': 'px',
    * }
    */
 
@@ -798,21 +804,21 @@
    * @example
    * // Styles as object usage
    * const styles = {
-   *   '--dimension': getValueAndUnit('100px')[0]
-   *   '--unit': getValueAndUnit('100px')[1]
+   *   '--dimension': getValueAndUnit('100px')[0],
+   *   '--unit': getValueAndUnit('100px')[1],
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   --dimension: ${getValueAndUnit('100px')[0]}
-   *   --unit: ${getValueAndUnit('100px')[1]}
+   *   --dimension: ${getValueAndUnit('100px')[0]};
+   *   --unit: ${getValueAndUnit('100px')[1]};
    * `
    *
    * // CSS in JS Output
    *
    * element {
-   *   '--dimension': 100
-   *   '--unit': 'px'
+   *   '--dimension': 100,
+   *   '--unit': 'px',
    * }
    */
 
@@ -2855,6 +2861,51 @@
   }
 
   /**
+   * Converts a HslColor or HslaColor object to a color string.
+   * This util is useful in case you only know on runtime which color object is
+   * used. Otherwise we recommend to rely on `hsl` or `hsla`.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   background: hslToColorString({ hue: 240, saturation: 1, lightness: 0.5 }),
+   *   background: hslToColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   background: ${hslToColorString({ hue: 240, saturation: 1, lightness: 0.5 })};
+   *   background: ${hslToColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 })};
+   * `
+   *
+   * // CSS in JS Output
+   * element {
+   *   background: "#00f";
+   *   background: "rgba(179,25,25,0.72)";
+   * }
+   */
+  function hslToColorString(color) {
+    if (typeof color === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number') {
+      if (color.alpha && typeof color.alpha === 'number') {
+        return hsla({
+          hue: color.hue,
+          saturation: color.saturation,
+          lightness: color.lightness,
+          alpha: color.alpha
+        });
+      }
+
+      return hsl({
+        hue: color.hue,
+        saturation: color.saturation,
+        lightness: color.lightness
+      });
+    }
+
+    throw new PolishedError(45);
+  }
+
+  /**
    * Inverts the red, green and blue values of a color.
    *
    * @example
@@ -3043,7 +3094,7 @@
 
   /**
    * Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
-   * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
+   * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
    *
    * @example
    * // Styles as object usage
@@ -3079,6 +3130,51 @@
     }
 
     return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor;
+  }
+
+  /**
+   * Converts a RgbColor or RgbaColor object to a color string.
+   * This util is useful in case you only know on runtime which color object is
+   * used. Otherwise we recommend to rely on `rgb` or `rgba`.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   background: rgbToColorString({ red: 255, green: 205, blue: 100 }),
+   *   background: rgbToColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 }),
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   background: ${rgbToColorString({ red: 255, green: 205, blue: 100 })};
+   *   background: ${rgbToColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 })};
+   * `
+   *
+   * // CSS in JS Output
+   * element {
+   *   background: "#ffcd64";
+   *   background: "rgba(255,205,100,0.72)";
+   * }
+   */
+  function rgbToColorString(color) {
+    if (typeof color === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number') {
+      if (color.alpha && typeof color.alpha === 'number') {
+        return rgba({
+          red: color.red,
+          green: color.green,
+          blue: color.blue,
+          alpha: color.alpha
+        });
+      }
+
+      return rgb({
+        red: color.red,
+        green: color.green,
+        blue: color.blue
+      });
+    }
+
+    throw new PolishedError(46);
   }
 
   /**
@@ -3990,6 +4086,7 @@
   exports.hiDPI = hiDPI;
   exports.hsl = hsl;
   exports.hsla = hsla;
+  exports.hslToColorString = hslToColorString;
   exports.lighten = curriedLighten;
   exports.linearGradient = linearGradient;
   exports.margin = margin;
@@ -4008,6 +4105,7 @@
   exports.retinaImage = retinaImage;
   exports.rgb = rgb;
   exports.rgba = rgba;
+  exports.rgbToColorString = rgbToColorString;
   exports.saturate = curriedSaturate;
   exports.setHue = curriedSetHue;
   exports.setLightness = curriedSetLightness;

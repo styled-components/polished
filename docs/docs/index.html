@@ -324,6 +324,16 @@
             
               
               <li><a
+                href='#hsltocolorstring'
+                class="">
+                hslToColorString
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#invert'
                 class="">
                 invert
@@ -407,6 +417,16 @@
                 href='#rgba'
                 class="">
                 rgba
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#rgbtocolorstring'
+                class="">
+                rgbToColorString
                 
               </a>
               
@@ -867,56 +887,6 @@
                 href='#triangleconfiguration'
                 class="">
                 TriangleConfiguration
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#hsltocolorstring'
-                class="">
-                hslToColorString
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#rgbtocolorstring'
-                class="">
-                rgbToColorString
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#errors'
-                class="">
-                ERRORS
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#format'
-                class="">
-                format
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#polishederror'
-                class="">
-                PolishedError
                 
               </a>
               
@@ -4010,6 +3980,115 @@ element {
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='hsltocolorstring'>
+      hslToColorString
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts a HslColor or HslaColor object to a color string.
+This util is useful in case you only know on runtime which color object is
+used. Otherwise we recommend to rely on <code>hsl</code> or <code>hsla</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>hslToColorString(color: (<a href="#hslcolor">HslColor</a> | <a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>color</span> <code class='quiet'>((<a href="#hslcolor">HslColor</a> | <a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-built_in">background</span>: hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">240</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">1</span>, lightness: <span class="hljs-number">0.5</span> }),
+  <span class="hljs-built_in">background</span>: hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> }),
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  <span class="hljs-built_in">background</span>: ${hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">240</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">1</span>, lightness: <span class="hljs-number">0.5</span> })};
+  <span class="hljs-built_in">background</span>: ${hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> })};
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+element {
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#00f"</span>;
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(179,25,25,0.72)"</span>;
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='invert'>
       invert
     </h3>
@@ -4685,7 +4764,7 @@ const color2 = parseToRgb('hsla(<span class="hljs-number">210</span>, <span clas
   
 
   <p>Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
-Follows W3C specs for readability at <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">https://www.w3.org/TR/WCAG20-TECHS/G18.html</a></p>
+Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
 
 
   <div class='pre p1 fill-light mt0'>readableColor(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lightReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, darkReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5049,6 +5128,115 @@ element {
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"#ffcd64"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(255,255,255,0.4)"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(0,0,0,0.7)"</span>;
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='rgbtocolorstring'>
+      rgbToColorString
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Converts a RgbColor or RgbaColor object to a color string.
+This util is useful in case you only know on runtime which color object is
+used. Otherwise we recommend to rely on <code>rgb</code> or <code>rgba</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>rgbToColorString(color: (<a href="#rgbcolor">RgbColor</a> | <a href="#rgbacolor">RgbaColor</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>color</span> <code class='quiet'>((<a href="#rgbcolor">RgbColor</a> | <a href="#rgbacolor">RgbaColor</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-built_in">background</span>: rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span> }),
+  <span class="hljs-built_in">background</span>: rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> }),
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
+  <span class="hljs-built_in">background</span>: ${rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span> })};
+  <span class="hljs-built_in">background</span>: ${rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> })};
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+element {
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#ffcd64"</span>;
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(255,205,100,0.72)"</span>;
 }</pre>
     
   
@@ -6026,7 +6214,7 @@ element {
   
 
   <p>Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.</p>
-<p>In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *</p>
+<p>In cases where you need to do calculations with mixed units where one unit is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units">relative length unit</a>, you will want to use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">CSS Calc</a>.</p>
 
 
   <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -8185,21 +8373,21 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]
-  <span class="hljs-string">'--unit'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]
+  <span class="hljs-string">'--dimension'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>],
+  <span class="hljs-string">'--unit'</span>: getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>],
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  --dimension: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]}</span>
-  --unit: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>
+  --dimension: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">0</span>]}</span>;
+  --unit: <span class="hljs-subst">${getValueAndUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>;
 `</span>
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
-  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
+  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
 }</pre>
     
   
@@ -8543,18 +8731,21 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>)
+  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>),
+  <span class="hljs-string">'--unit'</span>: stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>],
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)}</span>
+  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)}</span>;
+  --unit: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>;
 `</span>
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
+  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
 }</pre>
     
   
@@ -9778,480 +9969,6 @@ element {
           
           
         </div>
-      
-    </div>
-  
-
-  
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='hsltocolorstring'>
-      hslToColorString
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>Converts a HslColor or HslaColor object to a color string.
-This util is useful in case you only know on runtime which color object is
-used. Otherwise we recommend to rely on <code>hsl</code> or <code>hsla</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>hslToColorString(color: (<a href="#hslcolor">HslColor</a> | <a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>color</span> <code class='quiet'>((<a href="#hslcolor">HslColor</a> | <a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">240</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">1</span>, lightness: <span class="hljs-number">0.5</span> }),
-  <span class="hljs-built_in">background</span>: hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> }),
-}
-
-<span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>: ${hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">240</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">1</span>, lightness: <span class="hljs-number">0.5</span> })};
-  <span class="hljs-built_in">background</span>: ${hslToColorString({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> })};
-`
-
-<span class="hljs-comment">// CSS in JS Output</span>
-element {
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#00f"</span>;
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(179,25,25,0.72)"</span>;
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='rgbtocolorstring'>
-      rgbToColorString
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>Converts a RgbColor or RgbaColor object to a color string.
-This util is useful in case you only know on runtime which color object is
-used. Otherwise we recommend to rely on <code>rgb</code> or <code>rgba</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>rgbToColorString(color: (<a href="#rgbcolor">RgbColor</a> | <a href="#rgbacolor">RgbaColor</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>color</span> <code class='quiet'>((<a href="#rgbcolor">RgbColor</a> | <a href="#rgbacolor">RgbaColor</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span> }),
-  <span class="hljs-built_in">background</span>: rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> }),
-}
-
-<span class="hljs-comment">// styled-components usage</span>
-<span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>: ${rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span> })};
-  <span class="hljs-built_in">background</span>: ${rgbToColorString({ <span class="hljs-built_in">red</span>: <span class="hljs-number">255</span>, <span class="hljs-built_in">green</span>: <span class="hljs-number">205</span>, <span class="hljs-built_in">blue</span>: <span class="hljs-number">100</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0.72</span> })};
-`
-
-<span class="hljs-comment">// CSS in JS Output</span>
-element {
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#ffcd64"</span>;
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(255,205,100,0.72)"</span>;
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='errors'>
-      ERRORS
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>Parse errors.md and turn it into a simple hash of code: message</p>
-
-
-  <div class='pre p1 fill-light mt0'>ERRORS</div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='format'>
-      format
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>super basic version of sprintf</p>
-
-
-  <div class='pre p1 fill-light mt0'>format(args: ...any)</div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...any)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='polishederror'>
-      PolishedError
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>Create an error file out of errors.md for development and a simple web link to the full errors
-in production mode.</p>
-
-
-  <div class='pre p1 fill-light mt0'>new PolishedError(code: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</div>
-  
-  
-    <p>
-      Extends
-      
-        <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>code</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
       
     </div>
   

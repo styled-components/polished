@@ -6,6 +6,7 @@ declare var preval: Function
 
 /**
  * Parse errors.md and turn it into a simple hash of code: message
+ * @private
  */
 const ERRORS = preval`
   const fs = require('fs');
@@ -19,6 +20,7 @@ const ERRORS = preval`
 
 /**
  * super basic version of sprintf
+ * @private
  */
 function format(...args) {
   let a = args[0]
@@ -39,6 +41,7 @@ function format(...args) {
 /**
  * Create an error file out of errors.md for development and a simple web link to the full errors
  * in production mode.
+ * @private
  */
 export default class PolishedError extends Error {
   constructor(code: string | number, ...args: Array<any>) {

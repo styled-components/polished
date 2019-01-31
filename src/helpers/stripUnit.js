@@ -8,18 +8,21 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit('100px')
+ *   '--dimension': stripUnit('100px'),
+ *   '--unit': stripUnit('100px')[1],
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit('100px')}
+ *   --dimension: ${stripUnit('100px')};
+ *   --unit: ${stripUnit('100px')[1]};
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   '--dimension': 100
+ *   '--dimension': 100,
+ *   '--unit': 'px',
  * }
  */
 function stripUnit(value: string, unitReturn?: boolean): any {

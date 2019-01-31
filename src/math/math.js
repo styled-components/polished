@@ -117,7 +117,7 @@ function calculate(expression: string, additionalSymbols?: Object): number {
 /**
  * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.
  *
- *In cases where you need to do calculations with mixed units where one unit is a (relative length unit)[https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units], you will want to use (CSS Calc)[https://developer.mozilla.org/en-US/docs/Web/CSS/calc]. *
+ *In cases where you need to do calculations with mixed units where one unit is a [relative length unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units), you will want to use [CSS Calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc).
  * @example
  * // Styles as object usage
  * const styles = {
