@@ -14,7 +14,10 @@ function mergeSymbolMaps(additionalSymbols?: Object): Object {
   return symbolMap
 }
 
-function exec(operators, values) {
+function exec(
+  operators: Array<any>,
+  values: Array<number>,
+): Array<number | string> {
   const op = operators.pop()
   values.push(op.f(...[].concat(...values.splice(-op.argCount))))
   return op.precedence
