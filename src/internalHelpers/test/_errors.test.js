@@ -4,7 +4,7 @@ import math from '../../math/math'
 const OLD_ENV = process.env
 
 beforeEach(() => {
-  jest.resetModules() // this is important
+  jest.resetModules()
   process.env = { ...OLD_ENV }
   delete process.env.NODE_ENV
 })

@@ -82,6 +82,12 @@ const radialGradient: object = polished.radialGradient({
   fallback: ""
 });
 
+const linearGradient: object = polished.linearGradient({
+  colorStops: ["#00FFFF 0%", "rgba(0, 0, 255, 0) 50%", "#0000FF 95%"],
+  toDirection: 'to top right',
+  fallback: '#FFF'
+});
+
 let retinaImage: object = polished.retinaImage("");
 retinaImage = polished.retinaImage("", "");
 retinaImage = polished.retinaImage("", "", "");
