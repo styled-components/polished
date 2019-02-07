@@ -126,7 +126,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.1",
-    "babel-plugin-preval": "3.0.1",
-    "commitizen": "^3.0.5"
+    "babel-plugin-preval": "3.0.1"
   }
 }
