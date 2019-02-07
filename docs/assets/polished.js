@@ -472,7 +472,7 @@
   /*#__PURE__*/
   _wrapNativeSuper(Error));
 
-  var unitRegExp = /(?<![a-zA-Z])(a|an|cap|ch|cm|em|ex|ic|in|lh|mm|pc|pt|px|q|rem|rlh|vh|vi|vb|vmax|vmin|vw)/g; // Merges additional math functionality into the defaults.
+  var unitRegExp = /((?!\w)a|na|hc|mc|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv)/g; // Merges additional math functionality into the defaults.
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
@@ -567,10 +567,16 @@
       return values.pop();
     }
   }
+
+  function reverseString(str) {
+    return str.split('').reverse().join('');
+  }
   /**
-   * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.
+   * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, division, square root, powers, factorial, min, max, as well as parentheses for order of operation.
    *
    *In cases where you need to do calculations with mixed units where one unit is a [relative length unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units), you will want to use [CSS Calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc).
+   *
+   * *warning* While we've done everything possible to ensure math safely evalutes formulas expressed as strings, you should always use extreme caution when passing `math` user provided values.
    * @example
    * // Styles as object usage
    * const styles = {
@@ -597,7 +603,8 @@
 
 
   function math(formula, additionalSymbols) {
-    var formulaMatch = formula.match(unitRegExp); // Check that all units are the same
+    var reversedFormula = reverseString(formula);
+    var formulaMatch = reversedFormula.match(unitRegExp); // Check that all units are the same
 
     if (formulaMatch && !formulaMatch.every(function (unit) {
       return unit === formulaMatch[0];
@@ -605,8 +612,8 @@
       throw new PolishedError(41);
     }
 
-    var cleanFormula = formula.replace(unitRegExp, '');
-    return "" + calculate(cleanFormula, additionalSymbols) + (formulaMatch ? formulaMatch[0] : '');
+    var cleanFormula = reverseString(reversedFormula.replace(unitRegExp, ''));
+    return "" + calculate(cleanFormula, additionalSymbols) + (formulaMatch ? reverseString(formulaMatch[0]) : '');
   }
 
   // @private

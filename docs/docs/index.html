@@ -6213,8 +6213,9 @@ element {
   </div>
   
 
-  <p>Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, squareroot, power, factorial, min, max, as well as parentheses for order of operation.</p>
+  <p>Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, division, square root, powers, factorial, min, max, as well as parentheses for order of operation.</p>
 <p>In cases where you need to do calculations with mixed units where one unit is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#Relative_length_units">relative length unit</a>, you will want to use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">CSS Calc</a>.</p>
+<p><em>warning</em> While we've done everything possible to ensure math safely evalutes formulas expressed as strings, you should always use extreme caution when passing <code>math</code> user provided values.</p>
 
 
   <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>

@@ -2,7 +2,7 @@
 import defaultSymbolMap from './defaultMathSymbols'
 import PolishedError from '../internalHelpers/_errors'
 
-const unitRegExp = /(?<![a-zA-Z])(a|an|cap|ch|cm|em|ex|ic|in|lh|mm|pc|pt|px|q|rem|rlh|vh|vi|vb|vmax|vmin|vw)/g
+const unitRegExp = /((?!\w)a|na|hc|mc|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv)/g
 
 // Merges additional math functionality into the defaults.
 function mergeSymbolMaps(additionalSymbols?: Object): Object {
@@ -117,6 +117,13 @@ function calculate(expression: string, additionalSymbols?: Object): number {
   }
 }
 
+function reverseString(str: string): string {
+  return str
+    .split('')
+    .reverse()
+    .join('')
+}
+
 /**
  * Helper for doing math with CSS Units. Accepts a formula as a string. All values in the formula must have the same unit (or be unitless). Supports complex formulas utliziing addition, subtraction, multiplication, division, square root, powers, factorial, min, max, as well as parentheses for order of operation.
  *
@@ -147,16 +154,17 @@ function calculate(expression: string, additionalSymbols?: Object): number {
  * }
  */
 function math(formula: string, additionalSymbols?: Object): string {
-  const formulaMatch = formula.match(unitRegExp)
+  const reversedFormula = reverseString(formula)
+  const formulaMatch = reversedFormula.match(unitRegExp)
 
   // Check that all units are the same
   if (formulaMatch && !formulaMatch.every(unit => unit === formulaMatch[0])) {
     throw new PolishedError(41)
   }
 
-  const cleanFormula = formula.replace(unitRegExp, '')
+  const cleanFormula = reverseString(reversedFormula.replace(unitRegExp, ''))
   return `${calculate(cleanFormula, additionalSymbols)}${
-    formulaMatch ? formulaMatch[0] : ''
+    formulaMatch ? reverseString(formulaMatch[0]) : ''
   }`
 }
 
