@@ -4,7 +4,7 @@ import parseToHsl from './parseToHsl'
 import toColorString from './toColorString'
 
 /**
- * Sets the saturation of a color to the provided value. The lightness range can be
+ * Sets the saturation of a color to the provided value. The saturation range can be
  * from 0 and 1.
  *
  * @example
