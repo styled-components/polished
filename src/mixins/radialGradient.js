@@ -38,10 +38,10 @@ import type { Styles } from '../types/style'
  */
 function radialGradient({
   colorStops,
-  extent,
+  extent = '',
   fallback,
-  position,
-  shape,
+  position = '',
+  shape = '',
 }: RadialGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
     throw new PolishedError(57)
