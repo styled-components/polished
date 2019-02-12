@@ -1509,7 +1509,8 @@
   function linearGradient(_ref) {
     var colorStops = _ref.colorStops,
         fallback = _ref.fallback,
-        toDirection = _ref.toDirection;
+        _ref$toDirection = _ref.toDirection,
+        toDirection = _ref$toDirection === void 0 ? '' : _ref$toDirection;
 
     if (!colorStops || colorStops.length < 2) {
       throw new PolishedError(56);
@@ -1689,10 +1690,13 @@
    */
   function radialGradient(_ref) {
     var colorStops = _ref.colorStops,
-        extent = _ref.extent,
+        _ref$extent = _ref.extent,
+        extent = _ref$extent === void 0 ? '' : _ref$extent,
         fallback = _ref.fallback,
-        position = _ref.position,
-        shape = _ref.shape;
+        _ref$position = _ref.position,
+        position = _ref$position === void 0 ? '' : _ref$position,
+        _ref$shape = _ref.shape,
+        shape = _ref$shape === void 0 ? '' : _ref$shape;
 
     if (!colorStops || colorStops.length < 2) {
       throw new PolishedError(57);
