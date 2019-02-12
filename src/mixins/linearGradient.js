@@ -37,7 +37,7 @@ import type { Styles } from '../types/style'
 function linearGradient({
   colorStops,
   fallback,
-  toDirection,
+  toDirection = '',
 }: LinearGradientConfiguration): Styles {
   if (!colorStops || colorStops.length < 2) {
     throw new PolishedError(56)
