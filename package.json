@@ -21,8 +21,6 @@
     "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
     "test": "jest src",
     "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
-    "precommit": "lint-staged --debug",
-    "postcommit": "validate-commit-msg",
     "lint": "eslint src",
     "flow": "flow check && flow-coverage-report -i 'src/**/!(*.test).js'",
     "docs": "pushstate-server docs",
@@ -127,5 +125,11 @@
   "dependencies": {
     "@babel/runtime": "^7.3.1",
     "babel-plugin-preval": "3.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "validate-commit-msg",
+      "pre-commit": "lint-staged --debug"
+    }
   }
 }
