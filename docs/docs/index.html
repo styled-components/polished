@@ -1525,8 +1525,8 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> object usage
-const styles = {
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
   ...fluidRange(
    {
        prop: <span class="hljs-string">'padding'</span>,
@@ -1538,8 +1538,8 @@ const styles = {
    )
 }
 
-// styled-components usage
-const div = styled.div`
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div`
   ${fluidRange(
      {
        prop: <span class="hljs-string">'padding'</span>,
@@ -1551,13 +1551,13 @@ const div = styled.div`
    )}
 `
 
-// CSS <span class="hljs-keyword">as</span> JS Output
+<span class="hljs-comment">// CSS as JS Output</span>
 
 div: {
-  <span class="hljs-string">"@media (min-width: 1000px)"</span>: Object {
+  <span class="hljs-string">"@media (min-width: 1000px)"</span>: <span class="hljs-built_in">Object</span> {
     <span class="hljs-string">"padding"</span>: <span class="hljs-string">"100px"</span>,
   },
-  <span class="hljs-string">"@media (min-width: 400px)"</span>: Object {
+  <span class="hljs-string">"@media (min-width: 400px)"</span>: <span class="hljs-built_in">Object</span> {
     <span class="hljs-string">"padding"</span>: <span class="hljs-string">"calc(-33.33333333333334px + 13.333333333333334vw)"</span>,
   },
   <span class="hljs-string">"padding"</span>: <span class="hljs-string">"20px"</span>,
@@ -2320,12 +2320,12 @@ div:</span> {
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-const styles = {
+<span class="hljs-keyword">const</span> styles = {
    ...normalize(),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-const GlobalStyle = createGlobalStyle`${normalize()}`
+<span class="hljs-keyword">const</span> GlobalStyle = createGlobalStyle`${normalize()}`
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
@@ -3819,21 +3819,21 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: hsl(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>),
-  <span class="hljs-built_in">background</span>: hsl({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span> }),
+  background: hsl(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>),
+  background: hsl({ hue: <span class="hljs-number">360</span>, saturation: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span> }),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>: ${hsl(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>)};
-  <span class="hljs-built_in">background</span>: ${hsl({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span> })};
+  background: ${hsl(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>)};
+  background: ${hsl({ hue: <span class="hljs-number">360</span>, saturation: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span> })};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#b3191c"</span>;
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#b3191c"</span>;
+  background: <span class="hljs-string">"#b3191c"</span>;
+  background: <span class="hljs-string">"#b3191c"</span>;
 }</pre>
     
   
@@ -3951,24 +3951,24 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.7</span>),
-  <span class="hljs-built_in">background</span>: hsla({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0</span>,<span class="hljs-number">7</span> }),
-  <span class="hljs-built_in">background</span>: hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1</span>),
+  background: hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.7</span>),
+  background: hsla({ hue: <span class="hljs-number">360</span>, saturation: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, alpha: <span class="hljs-number">0</span>,<span class="hljs-number">7</span> }),
+  background: hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1</span>),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>: ${hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.7</span>)};
-  <span class="hljs-built_in">background</span>: ${hsla({ <span class="hljs-built_in">hue</span>: <span class="hljs-number">360</span>, <span class="hljs-built_in">saturation</span>: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, <span class="hljs-built_in">alpha</span>: <span class="hljs-number">0</span>,<span class="hljs-number">7</span> })};
-  <span class="hljs-built_in">background</span>: ${hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1</span>)};
+  background: ${hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.7</span>)};
+  background: ${hsla({ hue: <span class="hljs-number">360</span>, saturation: <span class="hljs-number">0.75</span>, lightness: <span class="hljs-number">0.4</span>, alpha: <span class="hljs-number">0</span>,<span class="hljs-number">7</span> })};
+  background: ${hsla(<span class="hljs-number">359</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1</span>)};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(179,25,28,0.7)"</span>;
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(179,25,28,0.7)"</span>;
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#b3191c"</span>;
+  background: <span class="hljs-string">"rgba(179,25,28,0.7)"</span>;
+  background: <span class="hljs-string">"rgba(179,25,28,0.7)"</span>;
+  background: <span class="hljs-string">"#b3191c"</span>;
 }</pre>
     
   
@@ -7321,27 +7321,27 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+      <pre class='p1 overflow-auto round fill-light'>// Styles <span class="hljs-keyword">as</span> <span class="hljs-keyword">object</span> <span class="hljs-keyword">usage</span>
 const styles = {
-  [buttons(<span class="hljs-symbol">'activ</span>e')]: {
-    <span class="hljs-symbol">'borde</span>r': <span class="hljs-symbol">'non</span>e'
+  [buttons(<span class="hljs-string">'active'</span>)]: {
+    <span class="hljs-string">'border'</span>: <span class="hljs-string">'none'</span>
   }
 }
 
-<span class="hljs-comment">// styled-components usage</span>
+// styled-components <span class="hljs-keyword">usage</span>
 const div = styled.div`
-  &gt; ${buttons(<span class="hljs-symbol">'activ</span>e')} {
-    border: none;
+  &gt; ${buttons(<span class="hljs-string">'active'</span>)} {
+    border: <span class="hljs-keyword">none</span>;
   }
 `
 
-<span class="hljs-comment">// CSS in JS Output</span>
+// CSS <span class="hljs-keyword">in</span> JS Output
 
- <span class="hljs-symbol">'button</span>:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"button"</span>]:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span><span class="hljs-title">=\</span>"<span class="hljs-title">reset\</span>"]</span>:active,
- <span class="hljs-symbol">'input</span>[<span class="hljs-class"><span class="hljs-keyword">type</span><span class="hljs-title">=\</span>"<span class="hljs-title">submit\</span>"]</span>:active: {
-  <span class="hljs-symbol">'borde</span>r': <span class="hljs-symbol">'non</span>e'
+ <span class="hljs-string">'button:active,
+ '</span><span class="hljs-keyword">input</span>[<span class="hljs-keyword">type</span>="button"]:active,
+ <span class="hljs-string">'input[type=\"reset\"]:active,
+ '</span><span class="hljs-keyword">input</span>[<span class="hljs-keyword">type</span>=\"submit\"]:active: {
+  <span class="hljs-string">'border'</span>: <span class="hljs-string">'none'</span>
 }</pre>
     
   

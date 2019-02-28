@@ -495,8 +495,9 @@
     var values = [];
     var pattern = new RegExp( // Pattern for numbers
     "\\d+(?:\\.\\d+)?|" + // ...and patterns for individual operators/function names
-    // Flow does not properly type Object.values (https://github.com/facebook/flow/issues/2221)
-    Object.values(symbolMap.symbols) // longer symbols should be listed first
+    Object.keys(symbolMap.symbols).map(function (key) {
+      return symbolMap.symbols[key];
+    }) // longer symbols should be listed first
     // $FlowFixMe
     .sort(function (a, b) {
       return b.symbol.length - a.symbol.length;

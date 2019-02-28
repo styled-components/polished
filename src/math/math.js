@@ -33,8 +33,8 @@ function calculate(expression: string, additionalSymbols?: Object): number {
   const pattern = new RegExp( // Pattern for numbers
     `\\d+(?:\\.\\d+)?|${
       // ...and patterns for individual operators/function names
-      // Flow does not properly type Object.values (https://github.com/facebook/flow/issues/2221)
-      Object.values(symbolMap.symbols)
+      Object.keys(symbolMap.symbols)
+        .map(key => symbolMap.symbols[key])
         // longer symbols should be listed first
         // $FlowFixMe
         .sort((a, b) => b.symbol.length - a.symbol.length)
