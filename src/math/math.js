@@ -2,7 +2,7 @@
 import defaultSymbolMap from './defaultMathSymbols'
 import PolishedError from '../internalHelpers/_errors'
 
-const unitRegExp = /((?!\w)a|na|hc|mc|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv)/g
+const unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|(?<![a-zA-Z])s|ged|darg?|nrut)/g
 
 // Merges additional math functionality into the defaults.
 function mergeSymbolMaps(additionalSymbols?: Object): Object {
