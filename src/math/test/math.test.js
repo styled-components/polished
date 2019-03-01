@@ -2,6 +2,15 @@
 import math from '../math'
 
 describe('math', () => {
+  it('should handle non-length units', () => {
+    expect(math('1ms + 2ms')).toEqual(`${1 + 2}ms`)
+    expect(math('1s + 2s')).toEqual(`${1 + 2}s`)
+    expect(math('1deg + 2deg')).toEqual(`${1 + 2}deg`)
+    expect(math('1grad + 2grad')).toEqual(`${1 + 2}grad`)
+    expect(math('1rad + 2rad')).toEqual(`${1 + 2}rad`)
+    expect(math('1turn + 2turn')).toEqual(`${1 + 2}turn`)
+  })
+
   it('should be able to do simple addition', () => {
     expect(math('1rem + 2rem')).toEqual(`${1 + 2}rem`)
     expect(math('1rem + 2')).toEqual(`${1 + 2}rem`)
