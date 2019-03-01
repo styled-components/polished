@@ -66,9 +66,10 @@ describe('math', () => {
   })
 
   it('should be able to process square root', () => {
+    expect(math('0 + sqrt(4em)')).toEqual(`${Math.sqrt(4)}em`)
     expect(math('sqrt(4em)')).toEqual(`${Math.sqrt(4)}em`)
+    expect(math('sqrt(2em + 4em) * 1')).toEqual(`${Math.sqrt(2 + 4)}em`)
     expect(math('sqrt(-4em)')).toEqual(`${Math.sqrt(-4)}em`)
-    expect(math('sqrt(2em + 4em)')).toEqual(`${Math.sqrt(2 + 4)}em`)
     expect(math('sqrt(4em / 2em)')).toEqual(`${Math.sqrt(4 / 2)}em`)
     expect(math('sqrt(4em + 2em * 5)')).toEqual(`${Math.sqrt(4 + 2 * 5)}em`)
     expect(math('sqrt(4em - 2 / 5em)')).toEqual(`${Math.sqrt(4 - 2 / 5)}em`)
