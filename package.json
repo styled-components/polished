@@ -75,6 +75,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
+    "babel-plugin-preval": "3.0.1",
     "concat-stream": "^2.0.0",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
@@ -122,8 +123,7 @@
     "url": "https://opencollective.com/polished"
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.1",
-    "babel-plugin-preval": "3.0.1"
+    "@babel/runtime": "^7.3.1"
   },
   "husky": {
     "hooks": {
