@@ -50,7 +50,7 @@ Flow frequently updates and it is possible that the version you are running may 
 
 ## TypeScript Definitions
 
-`✨ polished` has [TypeScript](https://www.typescriptlang.org/) definitions to allow the library to be used in any TypeScript project.
+`✨ polished` has [TypeScript](https://www.typescriptlang.org/) definitions to allow the library to be used in any TypeScript project. You will need to set `moduleResolution` to `node` in your `tsconfig.json` in order to use `✨ polished` with TypeScript.
 
 ### Babel plugin
 

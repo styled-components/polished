@@ -1,10 +1,30 @@
 {
   "name": "polished",
+  "version": "3.0.3",
   "description": "A lightweight toolset for writing styles in Javascript.",
+  "license": "MIT",
+  "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
+  "homepage": "https://polished.js.org",
+  "bugs": "https://github.com/styled-components/polished/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/styled-components/polished.git"
+  },
+  "keywords": [
+    "styled-components",
+    "polished",
+    "emotion",
+    "glamor",
+    "css-in-js",
+    "inline-styles",
+    "react",
+    "flow",
+    "typescript"
+  ],
   "main": "lib/index.js",
   "module": "dist/polished.es.js",
   "types": "lib/index.d.ts",
-  "version": "3.0.2",
+  "sideEffects": false,
   "scripts": {
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
@@ -43,26 +63,9 @@
     "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
   },
-  "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/styled-components/polished.git"
+  "dependencies": {
+    "@babel/runtime": "^7.3.1"
   },
-  "keywords": [
-    "styled-components",
-    "polished",
-    "emotion",
-    "glamor",
-    "css-in-js",
-    "inline-styles",
-    "react",
-    "typescript"
-  ],
-  "bugs": {
-    "url": "https://github.com/styled-components/polished/issues"
-  },
-  "homepage": "https://github.com/styled-components/polished#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
@@ -121,9 +124,6 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/polished"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.3.1"
   },
   "husky": {
     "hooks": {
