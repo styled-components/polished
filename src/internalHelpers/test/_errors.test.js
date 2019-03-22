@@ -19,7 +19,7 @@ describe('errors', () => {
     expect(() => {
       math('1px + sqrt 4')
     }).toThrow(
-      'An error occurred. See https://github.com/styled-components/polished/blob/master/src/error/errors.md#38 for more information.',
+      'An error occurred. See https://github.com/styled-components/polished/blob/master/src/internalHelpers/errors.md#38 for more information.',
     )
   })
 })
