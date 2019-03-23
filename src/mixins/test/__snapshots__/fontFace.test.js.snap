@@ -45,6 +45,36 @@ Object {
 }
 `;
 
+exports[`fontFace should return base64 src 1`] = `
+Object {
+  "@font-face": Object {
+    "fontFamily": "Sans Pro",
+    "src": "url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\")",
+  },
+}
+`;
+
+exports[`fontFace should return base64 src with format hint 1`] = `
+Object {
+  "@font-face": Object {
+    "fontFamily": "Sans Pro",
+    "src": "url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\") format(\\"woff\\")",
+  },
+}
+`;
+
+exports[`fontFace should set generate format hints 1`] = `
+Object {
+  "@font-face": Object {
+    "fontFamily": "Sans Pro",
+    "fontStretch": "condensed",
+    "fontStyle": "italic",
+    "fontWeight": "bold",
+    "src": "url(\\"path/to/file.eot\\") format(\\"embedded-opentype\\"), url(\\"path/to/file.svg\\") format(\\"svg\\"), url(\\"path/to/file.svgz\\") format(\\"svg\\"), url(\\"path/to/file.woff\\") format(\\"woff\\"), url(\\"path/to/file.woff2\\") format(\\"woff2\\"), url(\\"path/to/file.otf\\") format(\\"opentype\\"), url(\\"path/to/file.ttf\\") format(\\"truetype\\")",
+  },
+}
+`;
+
 exports[`fontFace should set passed font configuration variables 1`] = `
 Object {
   "@font-face": Object {

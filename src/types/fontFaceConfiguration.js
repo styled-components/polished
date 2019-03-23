@@ -11,6 +11,7 @@
  * @property {?string}  fontVariant
  * @property {?string}  fontWeight
  * @property {?Array<string>}  fileFormats
+ * @property {?boolean}  formatHint
  * @property {?Array<string>}  localFonts
  * @property {?string}  unicodeRange
  * @property {?string}  fontDisplay
@@ -25,6 +26,7 @@ export type FontFaceConfiguration = {
   fontVariant?: string,
   fontWeight?: string,
   fileFormats?: Array<string>,
+  formatHint?: boolean,
   localFonts?: Array<string>,
   unicodeRange?: string,
   fontDisplay?: string,
