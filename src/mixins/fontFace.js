@@ -4,12 +4,44 @@ import PolishedError from '../internalHelpers/_errors'
 import type { FontFaceConfiguration } from '../types/fontFaceConfiguration'
 import type { Styles } from '../types/style'
 
+const dataURIRegex = /^\s*data:([a-z]+\/[a-z-]+(;[a-z-]+=[a-z-]+)?)?(;charset=[a-z0-9-]+)?(;base64)?,[a-z0-9!$&',()*+,;=\-._~:@/?%\s]*\s*$/i
+
+const formatHintMap = {
+  woff: 'woff',
+  woff2: 'woff2',
+  ttf: 'truetype',
+  otf: 'opentype',
+  eot: 'embedded-opentype',
+  svg: 'svg',
+  svgz: 'svg',
+}
+
+function generateFormatHint(format: string, formatHint: boolean): string {
+  if (!formatHint) return ''
+  return ` format("${formatHintMap[format]}")`
+}
+
+function isDataURI(fontFilePath: string): boolean {
+  return !!fontFilePath.match(dataURIRegex)
+}
+
 function generateFileReferences(
   fontFilePath: string,
   fileFormats: Array<string>,
+  formatHint: boolean,
 ): string {
+  if (isDataURI(fontFilePath)) {
+    return `url("${fontFilePath}")${generateFormatHint(
+      fileFormats[0],
+      formatHint,
+    )}`
+  }
+
   const fileFontReferences = fileFormats.map(
-    format => `url("${fontFilePath}.${format}")`,
+    format => `url("${fontFilePath}.${format}")${generateFormatHint(
+      format,
+      formatHint,
+    )}`,
   )
   return fileFontReferences.join(', ')
 }
@@ -23,11 +55,14 @@ function generateSources(
   fontFilePath?: string,
   localFonts?: Array<string>,
   fileFormats: Array<string>,
+  formatHint: boolean,
 ): string {
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))
   if (fontFilePath) {
-    fontReferences.push(generateFileReferences(fontFilePath, fileFormats))
+    fontReferences.push(
+      generateFileReferences(fontFilePath, fileFormats, formatHint),
+    )
   }
   return fontReferences.join(', ')
 }
@@ -59,6 +94,7 @@ function generateSources(
  *   'src': 'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
  * }
  */
+
 function fontFace({
   fontFamily,
   fontFilePath,
@@ -67,6 +103,7 @@ function fontFace({
   fontVariant,
   fontWeight,
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
+  formatHint = false,
   localFonts,
   unicodeRange,
   fontDisplay,
@@ -88,7 +125,7 @@ function fontFace({
   const fontFaceDeclaration = {
     '@font-face': {
       fontFamily,
-      src: generateSources(fontFilePath, localFonts, fileFormats),
+      src: generateSources(fontFilePath, localFonts, fileFormats, formatHint),
       unicodeRange,
       fontStretch,
       fontStyle,
