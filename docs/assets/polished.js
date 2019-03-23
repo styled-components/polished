@@ -1216,9 +1216,33 @@
     }
   }
 
-  function generateFileReferences(fontFilePath, fileFormats) {
+  var dataURIRegex = /^\s*data:([a-z]+\/[a-z-]+(;[a-z-]+=[a-z-]+)?)?(;charset=[a-z0-9-]+)?(;base64)?,[a-z0-9!$&',()*+,;=\-._~:@/?%\s]*\s*$/i;
+  var formatHintMap = {
+    woff: 'woff',
+    woff2: 'woff2',
+    ttf: 'truetype',
+    otf: 'opentype',
+    eot: 'embedded-opentype',
+    svg: 'svg',
+    svgz: 'svg'
+  };
+
+  function generateFormatHint(format, formatHint) {
+    if (!formatHint) return '';
+    return " format(\"" + formatHintMap[format] + "\")";
+  }
+
+  function isDataURI(fontFilePath) {
+    return !!fontFilePath.match(dataURIRegex);
+  }
+
+  function generateFileReferences(fontFilePath, fileFormats, formatHint) {
+    if (isDataURI(fontFilePath)) {
+      return "url(\"" + fontFilePath + "\")" + generateFormatHint(fileFormats[0], formatHint);
+    }
+
     var fileFontReferences = fileFormats.map(function (format) {
-      return "url(\"" + fontFilePath + "." + format + "\")";
+      return "url(\"" + fontFilePath + "." + format + "\")" + generateFormatHint(format, formatHint);
     });
     return fileFontReferences.join(', ');
   }
@@ -1230,12 +1254,12 @@
     return localFontReferences.join(', ');
   }
 
-  function generateSources(fontFilePath, localFonts, fileFormats) {
+  function generateSources(fontFilePath, localFonts, fileFormats, formatHint) {
     var fontReferences = [];
     if (localFonts) fontReferences.push(generateLocalReferences(localFonts));
 
     if (fontFilePath) {
-      fontReferences.push(generateFileReferences(fontFilePath, fileFormats));
+      fontReferences.push(generateFileReferences(fontFilePath, fileFormats, formatHint));
     }
 
     return fontReferences.join(', ');
@@ -1278,6 +1302,8 @@
         fontWeight = _ref.fontWeight,
         _ref$fileFormats = _ref.fileFormats,
         fileFormats = _ref$fileFormats === void 0 ? ['eot', 'woff2', 'woff', 'ttf', 'svg'] : _ref$fileFormats,
+        _ref$formatHint = _ref.formatHint,
+        formatHint = _ref$formatHint === void 0 ? false : _ref$formatHint,
         localFonts = _ref.localFonts,
         unicodeRange = _ref.unicodeRange,
         fontDisplay = _ref.fontDisplay,
@@ -1301,7 +1327,7 @@
     var fontFaceDeclaration = {
       '@font-face': {
         fontFamily: fontFamily,
-        src: generateSources(fontFilePath, localFonts, fileFormats),
+        src: generateSources(fontFilePath, localFonts, fileFormats, formatHint),
         unicodeRange: unicodeRange,
         fontStretch: fontStretch,
         fontStyle: fontStyle,
@@ -4092,13 +4118,13 @@
   exports.getLuminance = getLuminance;
   exports.getValueAndUnit = getValueAndUnit;
   exports.grayscale = grayscale;
-  exports.invert = invert;
+  exports.hiDPI = hiDPI;
   exports.hideText = hideText;
   exports.hideVisually = hideVisually;
-  exports.hiDPI = hiDPI;
   exports.hsl = hsl;
-  exports.hsla = hsla;
   exports.hslToColorString = hslToColorString;
+  exports.hsla = hsla;
+  exports.invert = invert;
   exports.lighten = curriedLighten;
   exports.linearGradient = linearGradient;
   exports.margin = margin;
@@ -4116,8 +4142,8 @@
   exports.rem = rem;
   exports.retinaImage = retinaImage;
   exports.rgb = rgb;
-  exports.rgba = rgba;
   exports.rgbToColorString = rgbToColorString;
+  exports.rgba = rgba;
   exports.saturate = curriedSaturate;
   exports.setHue = curriedSetHue;
   exports.setLightness = curriedSetLightness;
