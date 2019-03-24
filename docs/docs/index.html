@@ -2914,8 +2914,7 @@ const div = styled.div`
 <span class="hljs-comment">// CSS as JS Output</span>
 <span class="hljs-symbol">
 div:</span> {
- <span class="hljs-string">'borderColor'</span>: <span class="hljs-string">'transparent'</span>,
- <span class="hljs-string">'borderLeftColor'</span>: <span class="hljs-string">'red !important'</span>,
+ <span class="hljs-string">'borderColor'</span>: <span class="hljs-string">'transparent transparent transparent red'</span>,
  <span class="hljs-string">'borderStyle'</span>: <span class="hljs-string">'solid'</span>,
  <span class="hljs-string">'borderWidth'</span>: <span class="hljs-string">'50px 0 50px 100px'</span>,
  <span class="hljs-string">'height'</span>: <span class="hljs-string">'0'</span>,
@@ -8681,7 +8680,7 @@ element {
   <p>Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.</p>
 
 
-  <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): any</div>
+  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): any</div>
   
   
     <p>
@@ -8704,7 +8703,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>value</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
 	    
           </div>
           
@@ -9754,7 +9753,7 @@ element {
   
     <p>
       Type:
-      (<code>"top"</code> | <code>"right"</code> | <code>"bottom"</code> | <code>"left"</code>)
+      (<code>"top"</code> | <code>"topRight"</code> | <code>"right"</code> | <code>"bottomRight"</code> | <code>"bottom"</code> | <code>"bottomLeft"</code> | <code>"left"</code> | <code>"topLeft"</code>)
     </p>
   
   

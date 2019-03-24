@@ -43,8 +43,8 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'red',
         pointingDirection: 'right',
-        height: 10,
-        width: 20,
+        height: '10px',
+        width: '20px',
       }),
     }).toMatchSnapshot()
   })
@@ -67,8 +67,8 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'grey',
         pointingDirection: 'right',
-        height: 10,
-        width: 20,
+        height: '10px',
+        width: '20px',
       }),
     }).toMatchSnapshot()
   })
@@ -78,8 +78,8 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'green',
         pointingDirection: 'top',
-        height: 20,
-        width: 20,
+        height: '20px',
+        width: '20px',
       }),
     }).toMatchSnapshot()
   })
@@ -89,8 +89,8 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'red',
         pointingDirection: 'right',
-        height: 10,
-        width: 20,
+        height: '10px',
+        width: '20px',
       }),
     }).toMatchSnapshot()
   })
@@ -100,8 +100,8 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'red',
         pointingDirection: 'bottom',
-        height: 20,
-        width: 10,
+        height: '20px',
+        width: '10px',
       }),
     }).toMatchSnapshot()
   })
@@ -111,8 +111,52 @@ describe('triangle', () => {
       ...triangle({
         foregroundColor: 'blue',
         pointingDirection: 'left',
-        height: 20,
-        width: 10,
+        height: '20px',
+        width: '10px',
+      }),
+    }).toMatchSnapshot()
+  })
+
+  it('should properly render topRight pointing arrow with blue foregroundColor, width of 20px and height 20px', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'blue',
+        pointingDirection: 'topRight',
+        height: '20px',
+        width: '20px',
+      }),
+    }).toMatchSnapshot()
+  })
+
+  it('should properly render bottomRight pointing arrow with blue foregroundColor, width of 20px and height 20px', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'blue',
+        pointingDirection: 'bottomRight',
+        height: '20px',
+        width: '20px',
+      }),
+    }).toMatchSnapshot()
+  })
+
+  it('should properly render bottomLeft pointing arrow with blue foregroundColor, width of 20px and height 20px', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'blue',
+        pointingDirection: 'bottomLeft',
+        height: '20px',
+        width: '20px',
+      }),
+    }).toMatchSnapshot()
+  })
+
+  it('should properly render topLeft pointing arrow with blue foregroundColor, width of 20px and height 20px', () => {
+    expect({
+      ...triangle({
+        foregroundColor: 'blue',
+        pointingDirection: 'topLeft',
+        height: '20px',
+        width: '20px',
       }),
     }).toMatchSnapshot()
   })
@@ -122,8 +166,8 @@ describe('triangle', () => {
       // $FlowFixMe
       triangle({
         foregroundColor: 'blue',
-        height: 20,
-        width: 10,
+        height: '20px',
+        width: '10px',
       })
     }).toThrow(
       "Passed invalid argument to triangle, please pass correct pointingDirection e.g. 'right'.",
@@ -135,8 +179,8 @@ describe('triangle', () => {
       // $FlowFixMe
       triangle({
         foregroundColor: 'blue',
-        height: 20,
-        width: 10,
+        height: '20px',
+        width: '10px',
         pointingDirection: false,
       })
     }).toThrow(
