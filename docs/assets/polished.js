@@ -1849,58 +1849,62 @@
     return getTimingFunction(timingFunction);
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...borderColor('red', 'green', 'blue', 'yellow')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${borderColor('red', 'green', 'blue', 'yellow')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'borderTopColor': 'red',
-   *   'borderRightColor': 'green',
-   *   'borderBottomColor': 'blue',
-   *   'borderLeftColor': 'yellow'
-   * }
-   */
-  function borderColor() {
-    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
-      values[_key] = arguments[_key];
-    }
-
-    return directionalProperty.apply(void 0, ['borderColor'].concat(values));
-  }
-
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
+    var fullWidth = "" + width[0] + (width[1] || '');
+    var halfWidth = "" + width[0] / 2 + (width[1] || '');
+    var fullHeight = "" + height[0] + (height[1] || '');
+    var halfHeight = "" + height[0] / 2 + (height[1] || '');
+
     switch (pointingDirection) {
       case 'top':
-        return "0 " + width[0] / 2 + width[1] + " " + height[0] + height[1] + " " + width[0] / 2 + width[1];
+        return "0 " + halfWidth + " " + fullHeight + " " + halfWidth;
+
+      case 'topLeft':
+        return fullWidth + " " + fullHeight + " 0 0";
 
       case 'left':
-        return "" + height[0] / 2 + height[1] + " " + width[0] + width[1] + " " + height[0] / 2 + height[1] + " 0";
+        return halfHeight + " " + fullWidth + " " + halfHeight + " 0";
+
+      case 'bottomLeft':
+        return fullWidth + " 0 0 " + fullHeight;
 
       case 'bottom':
-        return "" + height[0] + height[1] + " " + width[0] / 2 + width[1] + " 0 " + width[0] / 2 + width[1];
+        return fullHeight + " " + halfWidth + " 0 " + halfWidth;
+
+      case 'bottomRight':
+        return "0 0 " + fullWidth + " " + fullHeight;
 
       case 'right':
-        return "" + height[0] / 2 + height[1] + " 0 " + height[0] / 2 + height[1] + " " + width[0] + width[1];
+        return halfHeight + " 0 " + halfHeight + " " + fullWidth;
+
+      case 'topRight':
+      default:
+        return "0 " + fullWidth + " " + fullHeight + " 0";
+    }
+  };
+
+  var getBorderColor = function getBorderColor(pointingDirection, foregroundColor, backgroundColor) {
+    switch (pointingDirection) {
+      case 'top':
+      case 'bottomRight':
+        return backgroundColor + " " + backgroundColor + " " + foregroundColor + " " + backgroundColor;
+
+      case 'left':
+      case 'topRight':
+        return backgroundColor + " " + foregroundColor + " " + backgroundColor + " " + backgroundColor;
+
+      case 'bottom':
+      case 'topLeft':
+        return foregroundColor + " " + backgroundColor + " " + backgroundColor + " " + backgroundColor;
+
+      case 'right':
+      case 'bottomLeft':
+        return backgroundColor + " " + backgroundColor + " " + backgroundColor + " " + foregroundColor;
 
       default:
         throw new PolishedError(59);
     }
-  }; // needed for border-color
-
-
-  var reverseDirection = ['bottom', 'left', 'top', 'right'];
-  var NUMBER_AND_FLOAT = /(\d*\.?\d*)/;
+  };
   /**
    * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
    *
@@ -1920,14 +1924,14 @@
    * // CSS as JS Output
    *
    * div: {
-   *  'borderColor': 'transparent',
-   *  'borderLeftColor': 'red !important',
+   *  'borderColor': 'transparent transparent transparent red',
    *  'borderStyle': 'solid',
    *  'borderWidth': '50px 0 50px 100px',
    *  'height': '0',
    *  'width': '0',
    * }
    */
+
 
   function triangle(_ref) {
     var pointingDirection = _ref.pointingDirection,
@@ -1936,24 +1940,20 @@
         foregroundColor = _ref.foregroundColor,
         _ref$backgroundColor = _ref.backgroundColor,
         backgroundColor = _ref$backgroundColor === void 0 ? 'transparent' : _ref$backgroundColor;
-    var widthAndUnit = [parseFloat(width), String(width).replace(NUMBER_AND_FLOAT, '') || 'px'];
-    var heightAndUnit = [parseFloat(height), String(height).replace(NUMBER_AND_FLOAT, '') || 'px'];
+    var widthAndUnit = stripUnit(width, true);
+    var heightAndUnit = stripUnit(height, true);
 
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
       throw new PolishedError(60);
     }
 
-    var reverseDirectionIndex = reverseDirection.indexOf(pointingDirection);
-    return _extends({
+    return {
       width: '0',
       height: '0',
-      borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
-      borderStyle: 'solid'
-    }, borderColor.apply(void 0, Array.from({
-      length: 4
-    }).map(function (_, index) {
-      return index === reverseDirectionIndex ? foregroundColor : backgroundColor;
-    })));
+      borderColor: getBorderColor(pointingDirection, foregroundColor, backgroundColor),
+      borderStyle: 'solid',
+      borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit)
+    };
   }
 
   /**
@@ -3668,6 +3668,36 @@
         borderColor: values[2]
       };
     }
+  }
+
+  /**
+   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   ...borderColor('red', 'green', 'blue', 'yellow')
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${borderColor('red', 'green', 'blue', 'yellow')}
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * div {
+   *   'borderTopColor': 'red',
+   *   'borderRightColor': 'green',
+   *   'borderBottomColor': 'blue',
+   *   'borderLeftColor': 'yellow'
+   * }
+   */
+  function borderColor() {
+    for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
+      values[_key] = arguments[_key];
+    }
+
+    return directionalProperty.apply(void 0, ['borderColor'].concat(values));
   }
 
   /**

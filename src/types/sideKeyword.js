@@ -4,6 +4,14 @@
 // exported types yet. See https://github.com/documentationjs/documentation/issues/680
 
 /**
- * @property {top, right, bottom, left} SideKeyword
+ * @property {top, topRight, right, bottomRight, bottom, bottomLeft, left, topLeft} SideKeyword
  */
-export type SideKeyword = 'top' | 'right' | 'bottom' | 'left'
+export type SideKeyword =
+  | 'top'
+  | 'topRight'
+  | 'right'
+  | 'bottomRight'
+  | 'bottom'
+  | 'bottomLeft'
+  | 'left'
+  | 'topLeft'
