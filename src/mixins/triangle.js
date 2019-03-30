@@ -46,15 +46,15 @@ const getBorderColor = (
     case 'top':
     case 'bottomRight':
       return `${backgroundColor} ${backgroundColor} ${foregroundColor} ${backgroundColor}`
-    case 'left':
-    case 'topRight':
-      return `${backgroundColor} ${foregroundColor} ${backgroundColor} ${backgroundColor}`
-    case 'bottom':
-    case 'topLeft':
-      return `${foregroundColor} ${backgroundColor} ${backgroundColor} ${backgroundColor}`
     case 'right':
     case 'bottomLeft':
       return `${backgroundColor} ${backgroundColor} ${backgroundColor} ${foregroundColor}`
+    case 'bottom':
+    case 'topLeft':
+      return `${foregroundColor} ${backgroundColor} ${backgroundColor} ${backgroundColor}`
+    case 'left':
+    case 'topRight':
+      return `${backgroundColor} ${foregroundColor} ${backgroundColor} ${backgroundColor}`
 
     default:
       throw new PolishedError(59)
