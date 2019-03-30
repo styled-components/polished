@@ -1906,7 +1906,7 @@
     }
   };
   /**
-   * CSS to represent triangle with any pointing direction with an optional background color. Accepts number or px values for height and width.
+   * CSS to represent triangle with any pointing direction with an optional background color.
    *
    * @example
    * // Styles as object usage
