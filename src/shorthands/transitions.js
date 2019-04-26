@@ -3,7 +3,7 @@ import type { Styles } from '../types/style'
 import PolishedError from '../internalHelpers/_errors'
 
 /**
- * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same tranisition values to (second parameter).
+ * Accepts any number of transition values as parameters for creating a single transition statement. You may also pass an array of properties as the first parameter that you would like to apply the same transition values to (second parameter).
  * @example
  * // Styles as object usage
  * const styles = {
