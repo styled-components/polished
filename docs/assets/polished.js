@@ -386,8 +386,8 @@
     "39": "Formula is missing closing parenthesis at %s.\n\n",
     "40": "Formula has too many closing parentheses at %s.\n\n",
     "41": "All values in a formula must have the same unit or be unitless.\n\n",
-    "42": "Please provide a number of steps to the modularScale helper.\n\n",
-    "43": "Please pass a number or one of the predefined scales to the modularScale helper as the ratio.\n\n",
+    "42": "Please provide steps as a number to the modularScale helper.\n\n",
+    "43": "Please provide ratio as a number to the modularScale helper.\n\n",
     "44": "Invalid value passed as base to modularScale, expected number or em/rem string but got %s.\n\n",
     "45": "Passed invalid argument to hslToColorString, please pass a HslColor or HslaColor object.\n\n",
     "46": "Passed invalid argument to rgbToColorString, please pass a RgbColor or RgbaColor object.\n\n",
@@ -839,31 +839,8 @@
     return [value, undefined];
   }
 
-  var ratioNames = {
-    minorSecond: 1.067,
-    majorSecond: 1.125,
-    minorThird: 1.2,
-    majorThird: 1.25,
-    perfectFourth: 1.333,
-    augFourth: 1.414,
-    perfectFifth: 1.5,
-    minorSixth: 1.6,
-    goldenSection: 1.618,
-    majorSixth: 1.667,
-    minorSeventh: 1.778,
-    majorSeventh: 1.875,
-    octave: 2,
-    majorTenth: 2.5,
-    majorEleventh: 2.667,
-    majorTwelfth: 3,
-    doubleOctave: 4
-  };
-
-  function getRatio(ratioName) {
-    return ratioNames[ratioName];
-  }
   /**
-   * Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
+   * Establish consistent measurements and spacial relationships throughout your projects by incrementing any value up or down a defined scale. We provide a list of commonly used scales in `presets/modularScaleRatios`.
    * @example
    * // Styles as object usage
    * const styles = {
@@ -884,7 +861,6 @@
    * }
    */
 
-
   function modularScale(steps, base, ratio) {
     if (base === void 0) {
       base = '1em';
@@ -898,7 +874,7 @@
       throw new PolishedError(42);
     }
 
-    if (typeof ratio === 'string' && !ratioNames[ratio]) {
+    if (typeof ratio !== 'number') {
       throw new PolishedError(43);
     }
 
@@ -906,13 +882,11 @@
         realBase = _ref[0],
         unit = _ref[1];
 
-    var realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio;
-
     if (typeof realBase === 'string') {
       throw new PolishedError(44, base);
     }
 
-    return "" + realBase * Math.pow(realRatio, steps) + unit;
+    return "" + realBase * Math.pow(ratio, steps) + unit;
   }
 
   /**
@@ -1790,65 +1764,6 @@
     } : {}), _ref;
   }
 
-  /* eslint-disable key-spacing */
-  var functionsMap = {
-    easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
-    easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
-    easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
-    easeInExpo: 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
-    easeInQuad: 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-    easeInQuart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
-    easeInQuint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
-    easeInSine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)',
-    easeOutBack: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
-    easeOutCubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
-    easeOutCirc: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
-    easeOutExpo: 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
-    easeOutQuad: 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
-    easeOutQuart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
-    easeOutQuint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
-    easeOutSine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)',
-    easeInOutBack: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
-    easeInOutCirc: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
-    easeInOutCubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
-    easeInOutExpo: 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
-    easeInOutQuad: 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
-    easeInOutQuart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
-    easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
-    easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
-    /* eslint-enable key-spacing */
-
-  };
-
-  function getTimingFunction(functionName) {
-    return functionsMap[functionName];
-  }
-  /**
-   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   'transitionTimingFunction': timingFunctions('easeInQuad')
-   * }
-   *
-   * // styled-components usage
-   *  const div = styled.div`
-   *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
-   * }
-   */
-
-
-  function timingFunctions(timingFunction) {
-    return getTimingFunction(timingFunction);
-  }
-
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
     var fullWidth = "" + width[0] + (width[1] || '');
     var halfWidth = "" + width[0] / 2 + (width[1] || '');
@@ -2199,7 +2114,6 @@
      */
 
   };
-
   function nameToHex(color) {
     if (typeof color !== 'string') return color;
     var normalizedColorName = color.toLowerCase();
@@ -2424,13 +2338,13 @@
    * Reduces hex values if possible e.g. #ff8866 to #f86
    * @private
    */
-  var reduceHexValue = function reduceHexValue(value) {
-    if (value.length === 7 && value[1] === value[2] && value[3] === value[4] && value[5] === value[6]) {
+  function reduceHexValue(value) {
+    if (value.length === 7 && "" + value[1] + value[3] + value[5] === "" + value[2] + value[4] + value[6]) {
       return "#" + value[1] + value[3] + value[5];
     }
 
     return value;
-  };
+  }
 
   function numberToHex(value) {
     var hex = value.toString(16);
@@ -4182,7 +4096,6 @@
   exports.size = size;
   exports.stripUnit = stripUnit;
   exports.textInputs = textInputs;
-  exports.timingFunctions = timingFunctions;
   exports.tint = curriedTint;
   exports.toColorString = toColorString;
   exports.transitions = transitions;

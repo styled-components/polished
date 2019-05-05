@@ -10,7 +10,7 @@ function convertToInt(red: number, green: number, blue: number): string {
   return `${colorToInt(red)},${colorToInt(green)},${colorToInt(blue)}`
 }
 
-function hslToRgb(
+export default function hslToRgb(
   hue: number,
   saturation: number,
   lightness: number,
@@ -22,9 +22,9 @@ function hslToRgb(
   }
 
   // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
-  const huePrime = hue % 360 / 60
+  const huePrime = (hue % 360) / 60
   const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation
-  const secondComponent = chroma * (1 - Math.abs(huePrime % 2 - 1))
+  const secondComponent = chroma * (1 - Math.abs((huePrime % 2) - 1))
 
   let red = 0
   let green = 0
@@ -56,5 +56,3 @@ function hslToRgb(
   const finalBlue = blue + lightnessModification
   return convert(finalRed, finalGreen, finalBlue)
 }
-
-export default hslToRgb

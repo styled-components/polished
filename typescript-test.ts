@@ -94,8 +94,6 @@ retinaImage = polished.retinaImage("", "", "");
 retinaImage = polished.retinaImage("", "", "", "");
 retinaImage = polished.retinaImage("", "", "", "", "");
 
-const timingFunctions = polished.timingFunctions("easeInBack");
-
 const triangle = polished.triangle({
   backgroundColor: "red",
   foregroundColor: "red",
@@ -191,7 +189,6 @@ let modularScale: string = polished.modularScale(2);
 modularScale = polished.modularScale(2, 2);
 modularScale = polished.modularScale(2, "");
 modularScale = polished.modularScale(2, 2, 5);
-modularScale = polished.modularScale(2, 2, "minorSecond");
 
 let rem: string = polished.rem("12px");
 rem = polished.rem(12);

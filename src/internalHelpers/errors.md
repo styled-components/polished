@@ -169,11 +169,11 @@ All values in a formula must have the same unit or be unitless.
 
 ## 42
 
-Please provide a number of steps to the modularScale helper.
+Please provide steps as a number to the modularScale helper.
 
 ## 43
 
-Please pass a number or one of the predefined scales to the modularScale helper as the ratio.
+Please provide ratio as a number to the modularScale helper.
 
 ## 44
 

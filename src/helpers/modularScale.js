@@ -2,34 +2,8 @@
 import stripUnit from './stripUnit'
 import PolishedError from '../internalHelpers/_errors'
 
-import type { ModularScaleRatio } from '../types/modularScaleRatio'
-
-export const ratioNames = {
-  minorSecond: 1.067,
-  majorSecond: 1.125,
-  minorThird: 1.2,
-  majorThird: 1.25,
-  perfectFourth: 1.333,
-  augFourth: 1.414,
-  perfectFifth: 1.5,
-  minorSixth: 1.6,
-  goldenSection: 1.618,
-  majorSixth: 1.667,
-  minorSeventh: 1.778,
-  majorSeventh: 1.875,
-  octave: 2,
-  majorTenth: 2.5,
-  majorEleventh: 2.667,
-  majorTwelfth: 3,
-  doubleOctave: 4,
-}
-
-function getRatio(ratioName: string): number {
-  return ratioNames[ratioName]
-}
-
 /**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.
+ * Establish consistent measurements and spacial relationships throughout your projects by incrementing any value up or down a defined scale. We provide a list of commonly used scales in `presets/modularScaleRatios`.
  * @example
  * // Styles as object usage
  * const styles = {
@@ -52,21 +26,21 @@ function getRatio(ratioName: string): number {
 export default function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: ModularScaleRatio = 1.333,
+  ratio?: number = 1.333,
 ): string {
   if (typeof steps !== 'number') {
     throw new PolishedError(42)
   }
-  if (typeof ratio === 'string' && !ratioNames[ratio]) {
+
+  if (typeof ratio !== 'number') {
     throw new PolishedError(43)
   }
 
   const [realBase, unit] = typeof base === 'string' ? stripUnit(base, true) : [base, '']
-  const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
   if (typeof realBase === 'string') {
     throw new PolishedError(44, base)
   }
 
-  return `${realBase * realRatio ** steps}${unit}`
+  return `${realBase * ratio ** steps}${unit}`
 }

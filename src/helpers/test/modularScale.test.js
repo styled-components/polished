@@ -1,5 +1,5 @@
 // @flow
-import modularScale, { ratioNames } from '../modularScale'
+import modularScale from '../modularScale'
 
 describe('modularScale', () => {
   it('should throw an error if no steps are provided', () => {
@@ -21,22 +21,8 @@ describe('modularScale', () => {
     expect({ 'font-size': modularScale(1, 2) }).toMatchSnapshot()
   })
 
-  it('should allow properly look up preset ratio', () => {
-    expect({
-      'font-size': modularScale(1, '1em', 'minorSecond'),
-    }).toMatchSnapshot()
-  })
-
   it('should allow adjusting the ratio', () => {
     expect({ 'font-size': modularScale(1, '1em', 1) }).toMatchSnapshot()
-  })
-
-  it('should allow any of the predefined ratio names', () => {
-    Object.keys(ratioNames).forEach(ratio => {
-      expect({
-        'font-size': modularScale(1, '1em', ratioNames[ratio]),
-      }).toMatchSnapshot()
-    })
   })
 
   it('should throw an error if an invalid base is provided', () => {

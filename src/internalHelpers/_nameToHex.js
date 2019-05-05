@@ -154,12 +154,10 @@ const namedColorMap = {
  * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
  * @private
  */
-function nameToHex(color: string): string {
+export default function nameToHex(color: string): string {
   if (typeof color !== 'string') return color
   const normalizedColorName = color.toLowerCase()
   return namedColorMap[normalizedColorName]
     ? `#${namedColorMap[normalizedColorName]}`
     : color
 }
-
-export default nameToHex

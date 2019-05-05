@@ -204,16 +204,6 @@
             
               
               <li><a
-                href='#timingfunctions'
-                class="">
-                timingFunctions
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
                 href='#triangle'
                 class="">
                 triangle
@@ -764,6 +754,36 @@
             
               
               <li><a
+                href='#presets'
+                class="h5 bold black caps">
+                Presets
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#modularscaleratios'
+                class="">
+                modularScaleRatios
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#timingfunctions'
+                class="">
+                timingFunctions
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#types'
                 class="h5 bold black caps">
                 Types
@@ -817,16 +837,6 @@
                 href='#interactionstate'
                 class="">
                 InteractionState
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#modularscaleratio'
-                class="">
-                ModularScaleRatio
                 
               </a>
               
@@ -897,16 +907,6 @@
                 href='#lineargradientconfiguration'
                 class="">
                 LinearGradientConfiguration
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
-                href='#timingfunction'
-                class="">
-                TimingFunction
                 
               </a>
               
@@ -2655,111 +2655,6 @@ a _2x.png filename suffix by default.</p>
    only screen <span class="hljs-keyword">and</span> (min-resolution: <span class="hljs-number">1</span>.<span class="hljs-number">5</span>dppx)': {
     backgroundImage: 'url(my-img_2x.png)',
   }
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='timingfunctions'>
-      timingFunctions
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).</p>
-
-
-  <div class='pre p1 fill-light mt0'>timingFunctions(timingFunction: <a href="#timingfunction">TimingFunction</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>timingFunction</span> <code class='quiet'>(<a href="#timingfunction">TimingFunction</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-<span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'transitionTimingFunction'</span>: timingFunctions(<span class="hljs-string">'easeInQuad'</span>)
-}
-
-<span class="hljs-comment">// styled-components usage</span>
- <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  transitionTimingFunction: <span class="hljs-subst">${timingFunctions(<span class="hljs-string">'easeInQuad'</span>)}</span>;
-`</span>
-
-<span class="hljs-comment">// CSS as JS Output</span>
-
-<span class="hljs-string">'div'</span>: {
-  <span class="hljs-string">'transitionTimingFunction'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
 }</pre>
     
   
@@ -8435,10 +8330,10 @@ element {
   </div>
   
 
-  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing an em or rem value up or down a defined scale. We provide a list of commonly used scales as pre-defined variables.</p>
+  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing any value up or down a defined scale. We provide a list of commonly used scales in <code>presets/modularScaleRatios</code>.</p>
 
 
-  <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), ratio: <a href="#modularscaleratio">ModularScaleRatio</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), ratio: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -8478,7 +8373,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>ratio</span> <code class='quiet'>(<a href="#modularscaleratio">ModularScaleRatio</a>
+            <span class='code bold'>ratio</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
             = <code>1.333</code>)</code>
 	    
           </div>
@@ -8763,6 +8658,175 @@ element {
   <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
   <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
 }</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
+
+  <h2 class="section__heading" id='presets' class='mt0'>
+    Presets
+  </h2>
+
+  
+    
+
+  
+</section>
+</div>
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='modularscaleratios'>
+      modularScaleRatios
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Provides a range of popular modular ratios. Most commonly used with <code>modularScale</code></p>
+
+
+  <div class='pre p1 fill-light mt0'>modularScaleRatios</div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='timingfunctions'>
+      timingFunctions
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Provides a range of popular easing functions for use with animations and transitions. Formerly available as the <code>timingFunctions</code> mixin.</p>
+
+
+  <div class='pre p1 fill-light mt0'>timingFunctions</div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
     
   
 
@@ -9277,87 +9341,6 @@ element {
     <p>
       Type:
       (any | null | <code>"active"</code> | <code>"focus"</code> | <code>"hover"</code>)
-    </p>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='modularscaleratio'>
-      ModularScaleRatio
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>ModularScaleRatio</div>
-  
-    <p>
-      Type:
-      (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <code>"minorSecond"</code> | <code>"majorSecond"</code> | <code>"minorThird"</code> | <code>"majorThird"</code> | <code>"perfectFourth"</code> | <code>"augFourth"</code> | <code>"perfectFifth"</code> | <code>"minorSixth"</code> | <code>"goldenSection"</code> | <code>"majorSixth"</code> | <code>"minorSeventh"</code> | <code>"majorSeventh"</code> | <code>"octave"</code> | <code>"majorTenth"</code> | <code>"majorEleventh"</code> | <code>"majorTwelfth"</code> | <code>"doubleOctave"</code>)
     </p>
   
   
@@ -10090,87 +10073,6 @@ element {
           
           
         </div>
-      
-    </div>
-  
-
-  
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='timingfunction'>
-      TimingFunction
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>TimingFunction</div>
-  
-    <p>
-      Type:
-      (<code>"easeInBack"</code> | <code>"easeInCirc"</code> | <code>"easeInCubic"</code> | <code>"easeInExpo"</code> | <code>"easeInQuad"</code> | <code>"easeInQuart"</code> | <code>"easeInQuint"</code> | <code>"easeInSine"</code> | <code>"easeOutBack"</code> | <code>"easeOutCubic"</code> | <code>"easeOutCirc"</code> | <code>"easeOutExpo"</code> | <code>"easeOutQuad"</code> | <code>"easeOutQuart"</code> | <code>"easeOutQuint"</code> | <code>"easeOutSine"</code> | <code>"easeInOutBack"</code> | <code>"easeInOutCirc"</code> | <code>"easeInOutCubic"</code> | <code>"easeInOutExpo"</code> | <code>"easeInOutQuad"</code> | <code>"easeInOutQuart"</code> | <code>"easeInOutQuint"</code> | <code>"easeInOutSine"</code>)
-    </p>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
       
     </div>
   

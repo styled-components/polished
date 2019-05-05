@@ -4,7 +4,9 @@ import type {
   HslColor, HslaColor, RgbColor, RgbaColor,
 } from '../types/color'
 
-function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
+export default function rgbToHsl(
+  color: RgbColor | RgbaColor,
+): HslColor | HslaColor {
   // make sure rgb are contained in a set of [0, 255]
   const red = color.red / 255
   const green = color.green / 255
@@ -55,5 +57,3 @@ function rgbToHsl(color: RgbColor | RgbaColor): HslColor | HslaColor {
   }
   return { hue, saturation, lightness }
 }
-
-export default rgbToHsl

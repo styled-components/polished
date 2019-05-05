@@ -30,7 +30,6 @@
     "normalize",
     "radialGradient",
     "retinaImage",
-    "timingFunctions",
     "triangle",
     "wordWrap",
     {
@@ -95,6 +94,11 @@
     "rem",
     "stripUnit",
     {
+      "name": "Presets"
+    },
+    "modularScaleRatios",
+    "timingFunctions",
+    {
       "name": "Types"
     },
     "FluidRangeConfiguration",
@@ -102,7 +106,6 @@
     "HslColor",
     "HslaColor",
     "InteractionState",
-    "ModularScaleRatio",
     "RadialGradientConfiguration",
     "RgbaColor",
     "RgbColor",

@@ -1,5 +1,5 @@
 // @flow
-function constructGradientValue(
+export default function constructGradientValue(
   literals: Array<string>,
   ...substitutions: Array<string>
 ): string {
@@ -22,5 +22,3 @@ function constructGradientValue(
   }
   return template.trim()
 }
-
-export default constructGradientValue

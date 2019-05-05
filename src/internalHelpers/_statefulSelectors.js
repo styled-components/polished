@@ -15,7 +15,7 @@ function generateSelectors(
  * Function helper that adds an array of states to a template of selectors. Used in textInputs and buttons.
  * @private
  */
-function statefulSelectors(
+export default function statefulSelectors(
   states: Array<InteractionState>,
   template: Function,
   stateMap?: Array<InteractionState>,
@@ -32,5 +32,3 @@ function statefulSelectors(
   selectors = selectors.join(',')
   return selectors
 }
-
-export default statefulSelectors

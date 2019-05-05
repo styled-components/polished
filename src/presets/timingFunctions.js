@@ -1,8 +1,9 @@
 // @flow
-import type { TimingFunction } from '../types/timingFunction'
-
+/**
+ * Provides a range of popular easing functions for use with animations and transitions. Formerly available as the `timingFunctions` mixin.
+ */
 /* eslint-disable key-spacing */
-const functionsMap = {
+export default {
   easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
   easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
   easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
@@ -29,36 +30,4 @@ const functionsMap = {
   easeInOutQuart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
   easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
   easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)',
-}
-/* eslint-enable key-spacing */
-
-function getTimingFunction(functionName: string): string {
-  return functionsMap[functionName]
-}
-
-/**
- * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
- *
- * @example
- * // Styles as object usage
- * const styles = {
- *   'transitionTimingFunction': timingFunctions('easeInQuad')
- * }
- *
- * // styled-components usage
- *  const div = styled.div`
- *   transitionTimingFunction: ${timingFunctions('easeInQuad')};
- * `
- *
- * // CSS as JS Output
- *
- * 'div': {
- *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
- * }
- */
-
-export default function timingFunctions(
-  timingFunction: TimingFunction,
-): string {
-  return getTimingFunction(timingFunction)
 }
