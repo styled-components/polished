@@ -4,7 +4,7 @@ import PolishedError from '../internalHelpers/_errors'
 
 import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
-const ratioNames = {
+export const ratioNames = {
   minorSecond: 1.067,
   majorSecond: 1.125,
   minorThird: 1.2,
@@ -49,10 +49,10 @@ function getRatio(ratioName: string): number {
  *   'fontSize': '1.77689em'
  * }
  */
-function modularScale(
+export default function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: ModularScaleRatio = 'perfectFourth',
+  ratio?: ModularScaleRatio = 1.333,
 ): string {
   if (typeof steps !== 'number') {
     throw new PolishedError(42)
@@ -64,12 +64,9 @@ function modularScale(
   const [realBase, unit] = typeof base === 'string' ? stripUnit(base, true) : [base, '']
   const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
-  if (typeof realBase === 'string' || (unit !== 'em' && unit !== 'rem')) {
+  if (typeof realBase === 'string') {
     throw new PolishedError(44, base)
   }
 
   return `${realBase * realRatio ** steps}${unit}`
 }
-
-export { ratioNames }
-export default modularScale
