@@ -24,7 +24,10 @@ import type { Styles } from '../types/style'
  *   'borderTopLeftRadius': '5px',
  * }
  */
-function borderRadius(side: string, radius: string | number): Styles {
+export default function borderRadius(
+  side: string,
+  radius: string | number,
+): Styles {
   const uppercaseSide = capitalizeString(side)
   if (!radius && radius !== 0) {
     throw new PolishedError(62)
@@ -45,5 +48,3 @@ function borderRadius(side: string, radius: string | number): Styles {
 
   throw new PolishedError(63)
 }
-
-export default borderRadius

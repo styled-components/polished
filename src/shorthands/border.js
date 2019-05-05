@@ -47,7 +47,7 @@ const sideMap = ['top', 'right', 'bottom', 'left']
  * }
  */
 
-function border(
+export default function border(
   sideKeyword: SideKeyword | string | number,
   ...values: Array<string | number>
 ): Styles {
@@ -66,5 +66,3 @@ function border(
     }
   }
 }
-
-export default border

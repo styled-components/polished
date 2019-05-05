@@ -95,7 +95,7 @@ function generateSources(
  * }
  */
 
-function fontFace({
+export default function fontFace({
   fontFamily,
   fontFilePath,
   fontStretch,
@@ -140,5 +140,3 @@ function fontFace({
   // Removes undefined fields for cleaner css object.
   return JSON.parse(JSON.stringify(fontFaceDeclaration))
 }
-
-export default fontFace

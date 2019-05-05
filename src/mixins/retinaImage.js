@@ -32,7 +32,7 @@ import type { Styles } from '../types/style'
  *   }
  * }
  */
-function retinaImage(
+export default function retinaImage(
   filename: string,
   backgroundSize?: string,
   extension?: string = 'png',
@@ -56,5 +56,3 @@ function retinaImage(
     },
   }
 }
-
-export default retinaImage

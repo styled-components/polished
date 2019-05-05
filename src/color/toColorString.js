@@ -56,7 +56,7 @@ const isHsla = (color: Object): boolean => typeof color.hue === 'number'
  * }
  */
 
-function toColorString(color: Object): string {
+export default function toColorString(color: Object): string {
   if (typeof color !== 'object') throw new PolishedError(8)
   if (isRgba(color)) return rgba(color)
   if (isRgb(color)) return rgb(color)
@@ -65,5 +65,3 @@ function toColorString(color: Object): string {
 
   throw new PolishedError(8)
 }
-
-export default toColorString

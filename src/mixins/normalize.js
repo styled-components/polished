@@ -20,7 +20,7 @@ import type { Styles } from '../types/style'
  *   textSizeAdjust: 100%,
  * } ...
  */
-function normalize(): Array<Styles> {
+export default function normalize(): Array<Styles> {
   return [
     {
       html: {
@@ -205,5 +205,3 @@ function normalize(): Array<Styles> {
     },
   ]
 }
-
-export default normalize

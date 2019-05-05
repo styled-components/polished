@@ -25,7 +25,7 @@ import PolishedError from '../internalHelpers/_errors'
  *   'fontSize': 'calc(-9.090909090909093px + 9.090909090909092vw)'
  * }
  */
-function between(
+export default function between(
   fromSize: string,
   toSize: string,
   minScreen?: string = '320px',
@@ -63,5 +63,3 @@ function between(
     2,
   )}vw)`
 }
-
-export default between

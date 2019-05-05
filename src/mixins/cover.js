@@ -25,7 +25,7 @@ import type { Styles } from '../types/style'
  *   'left: '0'
  * }
  */
-function cover(offset?: number | string = 0): Styles {
+export default function cover(offset?: number | string = 0): Styles {
   return {
     position: 'absolute',
     top: offset,
@@ -34,5 +34,3 @@ function cover(offset?: number | string = 0): Styles {
     left: offset,
   }
 }
-
-export default cover
