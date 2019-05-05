@@ -24,12 +24,10 @@ import toColorString from './toColorString'
  *   background: "rgba(153,153,153,0.7)";
  * }
  */
-function grayscale(color: string): string {
+export default function grayscale(color: string): string {
   if (color === 'transparent') return color
   return toColorString({
     ...parseToHsl(color),
     saturation: 0,
   })
 }
-
-export default grayscale

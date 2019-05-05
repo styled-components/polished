@@ -29,12 +29,10 @@ import getLuminance from './getLuminance'
  * }
  */
 
-function readableColor(
+export default function readableColor(
   color: string,
   lightReturnColor: string = '#000',
   darkReturnColor: string = '#fff',
 ): string {
   return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor
 }
-
-export default readableColor

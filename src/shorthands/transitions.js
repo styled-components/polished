@@ -24,7 +24,9 @@ import PolishedError from '../internalHelpers/_errors'
  *   'transition': 'color 2.0s ease-in 2s, background-color 2.0s ease-in 2s',
  * }
  */
-function transitions(...properties: Array<string | Array<string>>): Styles {
+export default function transitions(
+  ...properties: Array<string | Array<string>>
+): Styles {
   if (Array.isArray(properties[0]) && properties.length === 2) {
     const value = properties[1]
     if (typeof value !== 'string') {
@@ -42,5 +44,3 @@ function transitions(...properties: Array<string | Array<string>>): Styles {
     }
   }
 }
-
-export default transitions

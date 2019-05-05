@@ -47,7 +47,7 @@ import type { Styles } from '../types/style'
  *   "padding": "20px",
  * }
  */
-function fluidRange(
+export default function fluidRange(
   cssProp: Array<FluidRangeConfiguration> | FluidRangeConfiguration,
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
@@ -103,5 +103,3 @@ function fluidRange(
     }
   }
 }
-
-export default fluidRange

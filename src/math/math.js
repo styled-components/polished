@@ -153,7 +153,10 @@ function reverseString(str: string): string {
  *   fontSize: '11px',
  * }
  */
-function math(formula: string, additionalSymbols?: Object): string {
+export default function math(
+  formula: string,
+  additionalSymbols?: Object,
+): string {
   const reversedFormula = reverseString(formula)
   const formulaMatch = reversedFormula.match(unitRegExp)
 
@@ -167,5 +170,3 @@ function math(formula: string, additionalSymbols?: Object): string {
     formulaMatch ? reverseString(formulaMatch[0]) : ''
   }`
 }
-
-export default math

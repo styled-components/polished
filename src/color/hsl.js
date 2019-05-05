@@ -27,7 +27,7 @@ import type { HslColor } from '../types/color'
  *   background: "#b3191c";
  * }
  */
-function hsl(
+export default function hsl(
   value: HslColor | number,
   saturation?: number,
   lightness?: number,
@@ -48,5 +48,3 @@ function hsl(
 
   throw new PolishedError(1)
 }
-
-export default hsl

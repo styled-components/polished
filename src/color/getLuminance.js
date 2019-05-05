@@ -27,7 +27,7 @@ import parseToRgb from './parseToRgb'
  *   background: "rgba(58, 133, 255, 1)";
  * }
  */
-function getLuminance(color: string): number {
+export default function getLuminance(color: string): number {
   if (color === 'transparent') return 0
   const rgbColor: { [string]: number } = parseToRgb(color)
   const [r, g, b] = Object.keys(rgbColor).map(key => {
@@ -38,5 +38,3 @@ function getLuminance(color: string): number {
   })
   return parseFloat((0.2126 * r + 0.7152 * g + 0.0722 * b).toFixed(3))
 }
-
-export default getLuminance

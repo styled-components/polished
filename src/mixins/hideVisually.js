@@ -31,7 +31,7 @@ import type { Styles } from '../types/style'
  *   'width': '1px',
  * }
  */
-function hideVisually(): Styles {
+export default function hideVisually(): Styles {
   return {
     border: '0',
     clip: 'rect(0 0 0 0)',
@@ -45,5 +45,3 @@ function hideVisually(): Styles {
     width: '1px',
   }
 }
-
-export default hideVisually

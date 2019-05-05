@@ -39,7 +39,7 @@ import type { Styles } from '../types/style'
  *   'animation': 'rotate 1s ease-in-out'
  * }
  */
-function animation(
+export default function animation(
   ...args: Array<Array<string | number> | string | number>
 ): Styles {
   // Allow single or multiple animations passed
@@ -67,5 +67,3 @@ function animation(
     animation: code,
   }
 }
-
-export default animation

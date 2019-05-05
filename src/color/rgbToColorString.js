@@ -29,7 +29,7 @@ import type { RgbColor, RgbaColor } from '../types/color'
  *   background: "rgba(255,205,100,0.72)";
  * }
  */
-function rgbToColorString(color: RgbColor | RgbaColor): string {
+export default function rgbToColorString(color: RgbColor | RgbaColor): string {
   if (
     typeof color === 'object'
     && typeof color.red === 'number'
@@ -50,5 +50,3 @@ function rgbToColorString(color: RgbColor | RgbaColor): string {
 
   throw new PolishedError(46)
 }
-
-export default rgbToColorString
