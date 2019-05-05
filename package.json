@@ -82,7 +82,7 @@
     "concat-stream": "^2.0.0",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
-    "documentation": "10.1.0",
+    "documentation": "9.3.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2",
