@@ -21,7 +21,7 @@ import type { Styles } from '../types/style'
  *   'width': '250px',
  * }
  */
-function size(
+export default function size(
   height: string | number,
   width?: string | number = height,
 ): Styles {
@@ -30,5 +30,3 @@ function size(
     width,
   }
 }
-
-export default size

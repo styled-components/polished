@@ -23,7 +23,7 @@ import type { Styles } from '../types/style'
  *   'display': 'table'
  * }
  */
-function clearFix(parent?: string = '&'): Styles {
+export default function clearFix(parent?: string = '&'): Styles {
   const pseudoSelector = `${parent}::after`
   return {
     [pseudoSelector]: {
@@ -33,5 +33,3 @@ function clearFix(parent?: string = '&'): Styles {
     },
   }
 }
-
-export default clearFix

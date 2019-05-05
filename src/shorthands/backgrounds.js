@@ -20,10 +20,8 @@ import type { Styles } from '../types/style'
  *   'background': 'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat'
  * }
  */
-function backgrounds(...properties: Array<string>): Styles {
+export default function backgrounds(...properties: Array<string>): Styles {
   return {
     background: properties.join(', '),
   }
 }
-
-export default backgrounds

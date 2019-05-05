@@ -27,12 +27,10 @@ import type { Styles } from '../types/style'
  * }
  */
 
-function hideText(): Styles {
+export default function hideText(): Styles {
   return {
     textIndent: '101%',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
   }
 }
-
-export default hideText

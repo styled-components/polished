@@ -25,8 +25,6 @@ import type { Styles } from '../types/style'
  *   'paddingLeft': '48px'
  * }
  */
-function padding(...values: Array<?string | ?number>): Styles {
+export default function padding(...values: Array<?string | ?number>): Styles {
   return directionalProperty('padding', ...values)
 }
-
-export default padding

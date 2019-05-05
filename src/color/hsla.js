@@ -31,7 +31,7 @@ import type { HslaColor } from '../types/color'
  *   background: "#b3191c";
  * }
  */
-function hsla(
+export default function hsla(
   value: HslaColor | number,
   saturation?: number,
   lightness?: number,
@@ -61,5 +61,3 @@ function hsla(
 
   throw new PolishedError(2)
 }
-
-export default hsla

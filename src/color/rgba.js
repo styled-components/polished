@@ -39,7 +39,7 @@ import type { RgbaColor } from '../types/color'
  *   background: "rgba(0,0,0,0.7)";
  * }
  */
-function rgba(
+export default function rgba(
   firstValue: RgbaColor | number | string,
   secondValue?: number,
   thirdValue?: number,
@@ -74,5 +74,3 @@ function rgba(
 
   throw new PolishedError(7)
 }
-
-export default rgba

@@ -51,7 +51,7 @@ function generateStyles(
  *   'paddingLeft': '48px'
  * }
  */
-function directionalProperty(
+export default function directionalProperty(
   property: string,
   ...values: Array<?string | ?number>
 ): Styles {
@@ -60,5 +60,3 @@ function directionalProperty(
   const valuesWithDefaults = [firstValue, secondValue, thirdValue, fourthValue]
   return generateStyles(property, valuesWithDefaults)
 }
-
-export default directionalProperty
