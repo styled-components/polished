@@ -21,6 +21,12 @@ describe('modularScale', () => {
     expect({ 'font-size': modularScale(1, 2) }).toMatchSnapshot()
   })
 
+  it('should allow properly look up preset ratio', () => {
+    expect({
+      'font-size': modularScale(1, '1em', 'minorSecond'),
+    }).toMatchSnapshot()
+  })
+
   it('should allow adjusting the ratio', () => {
     expect({ 'font-size': modularScale(1, '1em', 1) }).toMatchSnapshot()
   })
