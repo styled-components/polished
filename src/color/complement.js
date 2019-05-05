@@ -24,7 +24,7 @@ import toColorString from './toColorString'
  *   background: "rgba(153,153,153,0.7)";
  * }
  */
-function complement(color: string): string {
+export default function complement(color: string): string {
   if (color === 'transparent') return color
   const hslColor = parseToHsl(color)
   return toColorString({
@@ -32,5 +32,3 @@ function complement(color: string): string {
     hue: (hslColor.hue + 180) % 360,
   })
 }
-
-export default complement

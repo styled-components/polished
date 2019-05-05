@@ -23,7 +23,7 @@ import type { Styles } from '../types/style'
  *   wordBreak: 'break-all',
  * }
  */
-function wordWrap(wrap?: string = 'break-word'): Styles {
+export default function wordWrap(wrap?: string = 'break-word'): Styles {
   const wordBreak = wrap === 'break-word' ? 'break-all' : wrap
   return {
     overflowWrap: wrap,
@@ -31,5 +31,3 @@ function wordWrap(wrap?: string = 'break-word'): Styles {
     wordBreak,
   }
 }
-
-export default wordWrap

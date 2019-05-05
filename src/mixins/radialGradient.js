@@ -36,7 +36,7 @@ import type { Styles } from '../types/style'
  *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
-function radialGradient({
+export default function radialGradient({
   colorStops,
   extent = '',
   fallback,
@@ -53,5 +53,3 @@ function radialGradient({
     )})`,
   }
 }
-
-export default radialGradient

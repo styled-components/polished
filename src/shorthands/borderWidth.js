@@ -25,8 +25,8 @@ import type { Styles } from '../types/style'
  *   'borderLeftWidth': '48px'
  * }
  */
-function borderWidth(...values: Array<?string | ?number>): Styles {
+export default function borderWidth(
+  ...values: Array<?string | ?number>
+): Styles {
   return directionalProperty('borderWidth', ...values)
 }
-
-export default borderWidth

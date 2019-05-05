@@ -38,8 +38,6 @@ function template(state: string): string {
  *   'border': 'none'
  * }
  */
-function buttons(...states: Array<InteractionState>): string {
+export default function buttons(...states: Array<InteractionState>): string {
   return statefulSelectors(states, template, stateMap)
 }
-
-export default buttons

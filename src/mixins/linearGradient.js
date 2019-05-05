@@ -34,7 +34,7 @@ import type { Styles } from '../types/style'
  *   'backgroundImage': 'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
  * }
  */
-function linearGradient({
+export default function linearGradient({
   colorStops,
   fallback,
   toDirection = '',
@@ -49,5 +49,3 @@ function linearGradient({
     )})`,
   }
 }
-
-export default linearGradient

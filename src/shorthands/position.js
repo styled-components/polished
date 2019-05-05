@@ -47,7 +47,7 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  *   'left': '48px'
  * }
  */
-function position(
+export default function position(
   positionKeyword: string | null,
   ...values: Array<?string | ?number>
 ): Styles {
@@ -61,5 +61,3 @@ function position(
     return directionalProperty('', firstValue, ...values)
   }
 }
-
-export default position

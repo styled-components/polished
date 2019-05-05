@@ -25,7 +25,7 @@ import toColorString from './toColorString'
  *   background: "rgba(154,155,50,0.7)";
  * }
  */
-function invert(color: string): string {
+export default function invert(color: string): string {
   if (color === 'transparent') return color
   // parse color string to rgb
   const value = parseToRgb(color)
@@ -36,5 +36,3 @@ function invert(color: string): string {
     blue: 255 - value.blue,
   })
 }
-
-export default invert

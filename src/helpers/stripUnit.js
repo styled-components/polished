@@ -25,7 +25,10 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
  *   '--unit': 'px',
  * }
  */
-function stripUnit(value: string | number, unitReturn?: boolean): any {
+export default function stripUnit(
+  value: string | number,
+  unitReturn?: boolean,
+): any {
   if (typeof value !== 'string') return unitReturn ? [value, undefined] : value
   const matchedValue = value.match(cssRegex)
 
@@ -37,5 +40,3 @@ function stripUnit(value: string | number, unitReturn?: boolean): any {
   if (matchedValue) return parseFloat(value)
   return value
 }
-
-export default stripUnit

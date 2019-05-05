@@ -87,7 +87,7 @@ const getBorderColor = (
  *  'width': '0',
  * }
  */
-function triangle({
+export default function triangle({
   pointingDirection,
   height,
   width,
@@ -113,5 +113,3 @@ function triangle({
     borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
   }
 }
-
-export default triangle

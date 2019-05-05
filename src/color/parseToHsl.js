@@ -15,10 +15,8 @@ import type { HslColor, HslaColor } from '../types/color'
  * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
  * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
  */
-function parseToHsl(color: string): HslColor | HslaColor {
+export default function parseToHsl(color: string): HslColor | HslaColor {
   // Note: At a later stage we can optimize this function as right now a hsl
   // color would be parsed converted to rgb values and converted back to hsl.
   return rgbToHsl(parseToRgb(color))
 }
-
-export default parseToHsl

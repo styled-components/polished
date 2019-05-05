@@ -28,7 +28,11 @@ import type { RgbColor } from '../types/color'
  *   background: "#ffcd64";
  * }
  */
-function rgb(value: RgbColor | number, green?: number, blue?: number): string {
+export default function rgb(
+  value: RgbColor | number,
+  green?: number,
+  blue?: number,
+): string {
   if (
     typeof value === 'number'
     && typeof green === 'number'
@@ -47,5 +51,3 @@ function rgb(value: RgbColor | number, green?: number, blue?: number): string {
 
   throw new PolishedError(6)
 }
-
-export default rgb
