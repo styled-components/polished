@@ -17,8 +17,8 @@ describe('modularScale', () => {
     expect({ 'font-size': modularScale(1, '2em') }).toMatchSnapshot()
   })
 
-  it('should allow rems as a base', () => {
-    expect({ 'font-size': modularScale(1, '2rem') }).toMatchSnapshot()
+  it('should allow a number as a base', () => {
+    expect({ 'font-size': modularScale(1, 2) }).toMatchSnapshot()
   })
 
   it('should allow adjusting the ratio', () => {
@@ -31,12 +31,6 @@ describe('modularScale', () => {
         'font-size': modularScale(1, '1em', ratioNames[ratio]),
       }).toMatchSnapshot()
     })
-  })
-
-  it('should throw an error if an non-rem/em base is provided', () => {
-    expect(() => {
-      modularScale(2, '1px')
-    }).toThrow()
   })
 
   it('should throw an error if an invalid base is provided', () => {
