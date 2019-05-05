@@ -120,6 +120,12 @@ Object {
 }
 `;
 
+exports[`modularScale should allow properly look up preset ratio 1`] = `
+Object {
+  "font-size": "1.067em",
+}
+`;
+
 exports[`modularScale should use perfect fourth and 1em base by default 1`] = `
 Object {
   "font-size": "1.333em",
