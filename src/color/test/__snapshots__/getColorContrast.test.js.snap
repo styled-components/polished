@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getColorContrast should return the color contrast of two 4-digit hex colors 1`] = `15.3`;
+
+exports[`getColorContrast should return the color contrast of two 8-digit hex colors 1`] = `4.93`;
+
+exports[`getColorContrast should return the color contrast of two hex colors 1`] = `9.72`;
+
+exports[`getColorContrast should return the color contrast of two hsl colors 1`] = `3.99`;
+
+exports[`getColorContrast should return the color contrast of two hsla colors 1`] = `8.27`;
+
+exports[`getColorContrast should return the color contrast of two named CSS colors 1`] = `1.13`;
+
+exports[`getColorContrast should return the color contrast of two rgb colors 1`] = `12.48`;
+
+exports[`getColorContrast should return the color contrast of two rgba colors 1`] = `4.26`;
