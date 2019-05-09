@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getColorContrastScores should return the color contrast scores of two 4-digit hex colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": true,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two 8-digit hex colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": false,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two hex colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": true,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two hsl colors 1`] = `
+Object {
+  "AA": false,
+  "AAA": false,
+  "AAALarge": false,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two hsla colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": true,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two named CSS colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": true,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two rgb colors 1`] = `
+Object {
+  "AA": true,
+  "AAA": true,
+  "AAALarge": true,
+  "AALarge": true,
+}
+`;
+
+exports[`getColorContrastScores should return the color contrast scores of two rgba colors 1`] = `
+Object {
+  "AA": false,
+  "AAA": false,
+  "AAALarge": false,
+  "AALarge": true,
+}
+`;
