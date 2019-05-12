@@ -32,7 +32,7 @@ function adjustHue(degree: number | string, color: string): string {
   const hslColor = parseToHsl(color)
   return toColorString({
     ...hslColor,
-    hue: (hslColor.hue + parseFloat(degree)) % 360,
+    hue: hslColor.hue + parseFloat(degree),
   })
 }
 
