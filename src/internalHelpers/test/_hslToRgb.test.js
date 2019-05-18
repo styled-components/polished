@@ -34,4 +34,10 @@ describe('hslToRgb', () => {
   it('should convert black', () => {
     expect({ background: `rgb(${hslToRgb(360, 0, 0.4)})` }).toMatchSnapshot()
   })
+
+  it('should convert correctly even when passed a "faulty" negative hue', () => {
+    expect({ background: `rgb(${hslToRgb(-10, 1, 0.5)})` }).toMatchSnapshot()
+    expect({ background: `rgb(${hslToRgb(-100, 1, 0.5)})` }).toMatchSnapshot()
+    expect({ background: `rgb(${hslToRgb(-1000, 1, 0.5)})` }).toMatchSnapshot()
+  })
 })
