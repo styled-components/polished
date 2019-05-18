@@ -5,8 +5,8 @@ import curry from '../internalHelpers/_curry'
 
 /**
  * Changes the hue of the color. Hue is a number between 0 to 360. The first
- * argument for adjustHue is the amount of degrees the color is rotated along
- * the color wheel.
+ * argument for adjustHue is the amount of degrees the color is rotated around
+ * the color wheel, always producing a positive hue value.
  *
  * @example
  * // Styles as object usage

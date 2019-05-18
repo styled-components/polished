@@ -2007,10 +2007,10 @@
     if (saturation === 0) {
       // achromatic
       return convert(lightness, lightness, lightness);
-    } // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
+    } // formulae from https://en.wikipedia.org/wiki/HSL_and_HSV
 
 
-    var huePrime = hue % 360 / 60;
+    var huePrime = (hue % 360 + 360) % 360 / 60;
     var chroma = (1 - Math.abs(2 * lightness - 1)) * saturation;
     var secondComponent = chroma * (1 - Math.abs(huePrime % 2 - 1));
     var red = 0;
@@ -2674,8 +2674,8 @@
 
   /**
    * Changes the hue of the color. Hue is a number between 0 to 360. The first
-   * argument for adjustHue is the amount of degrees the color is rotated along
-   * the color wheel.
+   * argument for adjustHue is the amount of degrees the color is rotated around
+   * the color wheel, always producing a positive hue value.
    *
    * @example
    * // Styles as object usage
@@ -2701,7 +2701,7 @@
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
     return toColorString(_extends({}, hslColor, {
-      hue: (hslColor.hue + parseFloat(degree)) % 360
+      hue: hslColor.hue + parseFloat(degree)
     }));
   } // prettier-ignore
 
