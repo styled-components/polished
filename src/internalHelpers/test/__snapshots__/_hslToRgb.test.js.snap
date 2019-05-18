@@ -6,6 +6,24 @@ Object {
 }
 `;
 
+exports[`hslToRgb should convert correctly even when passed a "faulty" negative hue 1`] = `
+Object {
+  "background": "rgb(255,0,43)",
+}
+`;
+
+exports[`hslToRgb should convert correctly even when passed a "faulty" negative hue 2`] = `
+Object {
+  "background": "rgb(85,0,255)",
+}
+`;
+
+exports[`hslToRgb should convert correctly even when passed a "faulty" negative hue 3`] = `
+Object {
+  "background": "rgb(170,255,0)",
+}
+`;
+
 exports[`hslToRgb should convert numbers to a hex color 1`] = `
 Object {
   "background": "rgb(179,25,25)",
