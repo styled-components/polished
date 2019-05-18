@@ -21,8 +21,8 @@ function hslToRgb(
     return convert(lightness, lightness, lightness)
   }
 
-  // formular from https://en.wikipedia.org/wiki/HSL_and_HSV
-  const huePrime = (((hue % 360) + 360) % 360) / 60 // Corrected for potential negative hue
+  // formulae from https://en.wikipedia.org/wiki/HSL_and_HSV
+  const huePrime = (((hue % 360) + 360) % 360) / 60
   const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation
   const secondComponent = chroma * (1 - Math.abs((huePrime % 2) - 1))
 
