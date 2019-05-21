@@ -2869,6 +2869,20 @@
   }
 
   /**
+   * Returns the contrast ratio between two colors based on
+   * [W3's recommended equation for calculating contrast](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
+   *
+   * @example
+   * const contrastRatio = getContrast('#444', '#fff');
+   */
+
+  function getContrast(color1, color2) {
+    var luminance1 = getLuminance(color1);
+    var luminance2 = getLuminance(color2);
+    return parseFloat((luminance1 > luminance2 ? (luminance1 + 0.05) / (luminance2 + 0.05) : (luminance2 + 0.05) / (luminance1 + 0.05)).toFixed(2));
+  }
+
+  /**
    * Converts the color to a grayscale, by reducing its saturation to 0.
    *
    * @example
@@ -3016,6 +3030,23 @@
   curry
   /* ::<number | string, string, string> */
   (lighten);
+
+  /**
+   * Determines which contrast guidelines have been met for two colors.
+   * Based on the [contrast calculations recommended by W3](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
+   *
+   * @example
+   * const scores = meetsContrastGuidelines('#444', '#fff');
+   */
+  function meetsContrastGuidelines(color1, color2) {
+    var contrastRatio = getContrast(color1, color2);
+    return {
+      AA: contrastRatio >= 4.5,
+      AALarge: contrastRatio >= 3,
+      AAA: contrastRatio >= 7,
+      AAALarge: contrastRatio >= 4.5
+    };
+  }
 
   /**
    * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
@@ -4145,6 +4176,7 @@
   exports.em = em;
   exports.fluidRange = fluidRange;
   exports.fontFace = fontFace;
+  exports.getContrast = getContrast;
   exports.getLuminance = getLuminance;
   exports.getValueAndUnit = getValueAndUnit;
   exports.grayscale = grayscale;
@@ -4159,6 +4191,7 @@
   exports.linearGradient = linearGradient;
   exports.margin = margin;
   exports.math = math;
+  exports.meetsContrastGuidelines = meetsContrastGuidelines;
   exports.mix = curriedMix;
   exports.modularScale = modularScale;
   exports.normalize = normalize;
