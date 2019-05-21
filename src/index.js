@@ -34,6 +34,7 @@ import adjustHue from './color/adjustHue'
 import complement from './color/complement'
 import darken from './color/darken'
 import desaturate from './color/desaturate'
+import getContrast from './color/getContrast'
 import getLuminance from './color/getLuminance'
 import grayscale from './color/grayscale'
 import hsl from './color/hsl'
@@ -41,6 +42,7 @@ import hsla from './color/hsla'
 import hslToColorString from './color/hslToColorString'
 import invert from './color/invert'
 import lighten from './color/lighten'
+import meetsContrastGuidelines from './color/meetsContrastGuidelines'
 import mix from './color/mix'
 import opacify from './color/opacify'
 import parseToHsl from './color/parseToHsl'
@@ -97,6 +99,7 @@ export {
   em,
   fluidRange,
   fontFace,
+  getContrast,
   getLuminance,
   getValueAndUnit,
   grayscale,
@@ -111,6 +114,7 @@ export {
   linearGradient,
   margin,
   math,
+  meetsContrastGuidelines,
   mix,
   modularScale,
   normalize,

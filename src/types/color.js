@@ -4,16 +4,16 @@
 // exported types yet. See https://github.com/documentationjs/documentation/issues/680
 
 /**
- * @property {number}  AA
- * @property {number}  AALarge
- * @property {number}  AAA
- * @property {number}  AAALarge
+ * @property {boolean}  AA
+ * @property {boolean}  AALarge
+ * @property {boolean}  AAA
+ * @property {boolean}  AAALarge
  */
 export type ContrastScores = {|
-  AA: number,
-  AALarge: number,
-  AAA: number,
-  AAALarge: number,
+  AA: boolean,
+  AALarge: boolean,
+  AAA: boolean,
+  AAALarge: boolean,
 |}
 
 /**
