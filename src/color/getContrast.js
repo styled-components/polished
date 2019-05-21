@@ -6,12 +6,9 @@ import getLuminance from './getLuminance'
  * [W3's recommended equation for calculating contrast](http://www.w3.org/TR/WCAG20/#contrast-ratiodef).
  *
  * @example
- * const contrastRatio = getColorContrast('#444', '#fff');
+ * const contrastRatio = getContrast('#444', '#fff');
  */
-export default function getColorContrast(
-  color1: string,
-  color2: string,
-): number {
+export default function getContrast(color1: string, color2: string): number {
   const luminance1 = getLuminance(color1)
   const luminance2 = getLuminance(color2)
   return parseFloat(

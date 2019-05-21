@@ -114,6 +114,7 @@ const adjustHue: string = polished.adjustHue(180, "#448");
 const complement: string = polished.complement("#448");
 const darken: string = polished.darken(0.2, "#FFCD64");
 const desaturate: string = polished.desaturate(0.2, "#CCCD64");
+const getContrast: number = polished.getContrast('#444', '#fff');
 const getLuminance: number = polished.getLuminance('#6564CDB3');
 const grayscale: string = polished.grayscale("#CCCD64");
 
@@ -125,6 +126,7 @@ hsla = polished.hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.7 })
 
 const invert: string = polished.invert("#CCCD64");
 const lighten: string = polished.lighten(0.2, "#CCCD64");
+const meetsContrastGuidelines: object = polished.meetsContrastGuidelines('#444', '#fff');
 const mix: string = polished.mix(0.5, "#f00", "#00f");
 const opacify: string = polished.opacify(0.1, "rgba(255, 255, 255, 0.9)");
 const parseToHsl = polished.parseToHsl("rgb(255, 0, 0)");
