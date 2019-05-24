@@ -5,7 +5,7 @@ import type { ContrastScores } from '../types/color'
 
 /**
  * Determines which contrast guidelines have been met for two colors.
- * Based on the [contrast calculations recommended by W3](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
+ * Based on the [contrast calculations recommended by W3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html).
  *
  * @example
  * const scores = meetsContrastGuidelines('#444', '#fff');
