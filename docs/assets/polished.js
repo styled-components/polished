@@ -691,6 +691,10 @@
     return generateStyles(property, valuesWithDefaults);
   }
 
+  /**
+   * Check if a string ends with something
+   * @private
+   */
   function endsWith (string, suffix) {
     return string.substr(-suffix.length) === suffix;
   }
@@ -996,13 +1000,13 @@
       throw new PolishedError(47);
     }
 
-    if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || !fromSizeUnit || !toSizeUnit || fromSizeUnit !== toSizeUnit) {
+    if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || fromSizeUnit !== toSizeUnit) {
       throw new PolishedError(48);
     }
 
     var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
     var base = unitlessToSize - slope * unitlessMaxScreen;
-    return "calc(" + base.toFixed(2) + fromSizeUnit + " + " + (100 * slope).toFixed(2) + "vw)";
+    return "calc(" + base.toFixed(2) + (fromSizeUnit || '') + " + " + (100 * slope).toFixed(2) + "vw)";
   }
 
   /**
@@ -3033,7 +3037,7 @@
 
   /**
    * Determines which contrast guidelines have been met for two colors.
-   * Based on the [contrast calculations recommended by W3](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
+   * Based on the [contrast calculations recommended by W3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html).
    *
    * @example
    * const scores = meetsContrastGuidelines('#444', '#fff');
@@ -4152,8 +4156,6 @@
       };
     }
   }
-
-  // Math
 
   exports.adjustHue = curriedAdjustHue;
   exports.animation = animation;
