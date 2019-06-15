@@ -1,5 +1,5 @@
-// flow-typed signature: 6a9603d5cf48ccab5ebf8673df6c9b27
-// flow-typed version: beb33e67ff/ramda_v0.26.x/flow_>=v0.76.x
+// flow-typed signature: 3f660ab2306fb89be2a41b2dd3edc047
+// flow-typed version: 96b2a111f3/ramda_v0.26.x/flow_>=v0.76.x
 
 /* eslint-disable no-unused-vars, no-redeclare */
 
@@ -314,48 +314,41 @@ declare module ramda {
       args: [A, B, C, D, E, F, G, H, I]
     ) => () => R);
 
-  declare type $MakePipeFn = <Args,Return>(
-    (...args: Args) => any,
-    UnaryFn<any, Return>
-  ) => ((...args: Args) => Return);
-
-  declare type $PipeFn<FirstFn, LastFn> = $Call<$MakePipeFn, FirstFn, LastFn>;
-
   declare var pipe: {
-    <B, C, D, E, F, FN1: (...a: *) => B, FN6: UnaryFn<F, *>>(
-      ab: FN1,
+    <Args, Return, B, C, D, E, F>(
+      ab: (...a: Args) => B,
       bc: UnaryFn<B, C>,
       cd: UnaryFn<C, D>,
       de: UnaryFn<D, E>,
       ef: UnaryFn<E, F>,
-      fg: FN6,
-    ): $PipeFn<FN1, FN6>,
+      fg: UnaryFn<F, Return>,
+    ): (...a: Args) => Return,
 
-    <B, C, D, E, FN1: (...a: *) => B, FN5: UnaryFn<E, *>>(
-      ab: FN1,
+    <Args, Return, B, C, D, E,>(
+      ab: (...a: Args) => B,
       bc: UnaryFn<B, C>,
       cd: UnaryFn<C, D>,
       de: UnaryFn<D, E>,
-      ef: FN5,
-    ): $PipeFn<FN1, FN5>,
+      ef: UnaryFn<E, Return>,
+    ): (...a: Args) => Return,
 
-    <B, C, D, FN1: (...a: *) => B, FN4: UnaryFn<D, *>>(
-      ab: FN1,
+    <Args, Return, B, C, D,>(
+      ab: (...a: Args) => B,
       bc: UnaryFn<B, C>,
       cd: UnaryFn<C, D>,
-      de: FN4,
-    ): $PipeFn<FN1, FN4>,
+      de: UnaryFn<D, Return>,
+    ): (...a: Args) => Return,
 
-    <B, C, FN1: (...a: *) => B, FN3: UnaryFn<C, *>>(
-      ab: FN1,
+    <Args, Return, B, C,>(
+      ab: (...a: Args) => B,
       bc: UnaryFn<B, C>,
-      cd: FN3,
-    ): $PipeFn<FN1, FN3>,
+      cd: UnaryFn<C, Return>,
+    ): (...a: Args) => Return,
 
-    <B, FN1: (...a: *) => B, FN2: UnaryFn<B, *>>(
-      ab: FN1,
-      bc: FN2,
-    ): $PipeFn<FN1, FN2>,
+    <Args, Return, B,>(
+      ab: (...a: Args) => B,
+      bc: UnaryFn<B, Return>,
+    ): (...a: Args) => Return,
 
     <A, B>(ab: UnaryFn<A, B>): UnaryFn<A, B>,
   };
@@ -493,7 +486,11 @@ declare module ramda {
   declare var multiply: CurriedFunction2<number, number, number>;
   declare var negate: UnaryFn<number, number>;
   declare var product: UnaryFn<Array<number>, number>;
-  declare var subtract: CurriedFunction2<number, number, number>;
+  declare var subtract:
+    & CurriedFunction2<number, number, number>
+    & CurriedFunction2<Date, Date, number>
+    & CurriedFunction2<Date, number, number>
+    & CurriedFunction2<number, Date, number>;
   declare var sum: UnaryFn<Array<number>, number>;
 
   // Filter
@@ -1201,11 +1198,16 @@ declare module ramda {
   declare function eqBy<T>(fn: (x: T) => T, x: T): (y: T) => boolean;
   declare function eqBy<T>(fn: (x: T) => T): (x: T) => (y: T) => boolean;
 
-  declare function gt<T>(x: T): (y: T) => boolean;
-  declare function gt<T>(x: T, y: T): boolean;
+  declare type RelationCompare =
+    & ((x: number) => (y: number) => bool)
+    & ((x: number, y: number) => bool)
+    & ((x: string) => (y: string) => bool)
+    & ((x: string, y: string) => bool)
 
-  declare function gte<T>(x: T): (y: T) => boolean;
-  declare function gte<T>(x: T, y: T): boolean;
+  declare var gt: RelationCompare
+  declare var gte: RelationCompare
+  declare var lt: RelationCompare
+  declare var lte: RelationCompare
 
   declare function identical<T>(x: T): (y: T) => boolean;
   declare function identical<T>(x: T, y: T): boolean;
@@ -1227,12 +1229,6 @@ declare module ramda {
 
   declare function intersection<T>(x: Array<T>, y: Array<T>): Array<T>;
   declare function intersection<T>(x: Array<T>): (y: Array<T>) => Array<T>;
-
-  declare function lt<T>(x: T): (y: T) => boolean;
-  declare function lt<T>(x: T, y: T): boolean;
-
-  declare function lte<T>(x: T): (y: T) => boolean;
-  declare function lte<T>(x: T, y: T): boolean;
 
   declare function max<T>(x: T): (y: T) => T;
   declare function max<T>(x: T, y: T): T;
@@ -1716,7 +1712,7 @@ declare module ramda {
 
   declare function invoker<A, B, C, D, O: { [k: string]: Function }>(
     arity: number,
-    name: $Enum<O>
+    name: $Keys<O>
   ): CurriedFunction2<A, O, D> &
     CurriedFunction3<A, B, O, D> &
     CurriedFunction4<A, B, C, O, D>;
@@ -1925,20 +1921,20 @@ declare module ramda {
     y: (...args: Array<any>) => *
   ): (...args: Array<any>) => *;
 
-  declare function ifElse<A, B, C>(
-    cond: (...args: Array<A>) => boolean,
+  declare function ifElse<Args, B, C>(
+    cond: (...args: Args) => boolean
   ): ((
-    f1: (...args: Array<A>) => B,
-  ) => (f2: (...args: Array<A>) => C) => (...args: Array<A>) => B | C) &
+    f1: (...args: Args) => B
+  ) => (f2: (...args: Args) => C) => (...args: Args) => B | C) &
     ((
-      f1: (...args: Array<A>) => B,
-      f2: (...args: Array<A>) => C
-    ) => (...args: Array<A>) => B | C);
-  declare function ifElse<A, B, C>(
-    cond: (...args: Array<any>) => boolean,
-    f1: (...args: Array<any>) => B,
-    f2: (...args: Array<any>) => C
-  ): (...args: Array<A>) => B | C;
+      f1: (...args: Args) => B,
+      f2: (...args: Args) => C
+    ) => (...args: Args) => B | C);
+  declare function ifElse<Args, B, C>(
+    cond: (...args: Args) => boolean,
+    f1: (...args: Args) => B,
+    f2: (...args: Args) => C
+  ): (...args: Args) => B | C;
 
   declare function isEmpty(x: ?Array<any> | Object | string): boolean;
 
