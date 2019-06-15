@@ -10,6 +10,6 @@
  */
 export type FluidRangeConfiguration = {|
   prop: string,
-  fromSize: string,
-  toSize: string,
+  fromSize: string | number,
+  toSize: string | number,
 |}

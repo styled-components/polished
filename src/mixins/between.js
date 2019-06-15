@@ -26,8 +26,8 @@ import PolishedError from '../internalHelpers/_errors'
  * }
  */
 export default function between(
-  fromSize: string,
-  toSize: string,
+  fromSize: string | number,
+  toSize: string | number,
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
 ): string {
@@ -49,8 +49,6 @@ export default function between(
   if (
     typeof unitlessFromSize !== 'number'
     || typeof unitlessToSize !== 'number'
-    || !fromSizeUnit
-    || !toSizeUnit
     || fromSizeUnit !== toSizeUnit
   ) {
     throw new PolishedError(48)
@@ -59,7 +57,7 @@ export default function between(
   const slope = (unitlessFromSize - unitlessToSize)
     / (unitlessMinScreen - unitlessMaxScreen)
   const base = unitlessToSize - slope * unitlessMaxScreen
-  return `calc(${base.toFixed(2)}${fromSizeUnit} + ${(100 * slope).toFixed(
-    2,
-  )}vw)`
+  return `calc(${base.toFixed(2)}${fromSizeUnit || ''} + ${(
+    100 * slope
+  ).toFixed(2)}vw)`
 }
