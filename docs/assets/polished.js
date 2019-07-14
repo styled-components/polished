@@ -476,7 +476,7 @@
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, {}, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
     return symbolMap;
   }
 
@@ -1208,7 +1208,7 @@
         mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
       }
 
-      return _extends({}, fallbacks, mediaQueries);
+      return _extends({}, fallbacks, {}, mediaQueries);
     } else {
       var _ref2, _ref3, _ref4;
 
