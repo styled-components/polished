@@ -21,7 +21,6 @@ import type { Styles } from '../types/style'
  * 'div': {
  *   'border': '0',
  *   'clip': 'rect(0 0 0 0)',
- *   'clipPath': 'inset(50%)',
  *   'height': '1px',
  *   'margin': '-1px',
  *   'overflow': 'hidden',
@@ -32,10 +31,15 @@ import type { Styles } from '../types/style'
  * }
  */
 export default function hideVisually(): Styles {
+  // Note: The use of `clip-path` causes performance degredation on scroll events in Chrome.
+  // For more information, see:
+  // * h5bp/html5-boilerplate#2021
+  // * zurb/foundation-sites#10914
+  // * twbs/bootstrap#24906
   return {
     border: '0',
     clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
+    // clipPath: 'inset(50%)',
     height: '1px',
     margin: '-1px',
     overflow: 'hidden',
