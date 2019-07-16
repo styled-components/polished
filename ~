@@ -1,0 +1,24 @@
+fix(hsla): enable decimal values in hsla
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Kristie Yorkston <kyorkston@gmail.com>
+# Date:      Fri Oct 4 12:04:28 2019 +0100
+#
+# interactive rebase in progress; onto b0762e9
+# Last commands done (2 commands done):
+#    pick 7fc252e build(package.json): update deps
+#    edit 9dffda2 feat(hsla): enable decimal values in hsla
+# Next commands to do (2 remaining commands):
+#    edit 4f630a9 feat(hsl): enable decimal values in hsl representation
+#    pick bb466f9 fix(hsl(a)): hsl(a) decimal support
+# You are currently splitting a commit while rebasing branch 'version-3-4-2-release' on 'b0762e9'.
+#
+# Changes to be committed:
+#	modified:   src/color/parseToRgb.js
+#	modified:   src/color/test/__snapshots__/parseToRgb.test.js.snap
+#	modified:   src/color/test/__snapshots__/transparentize.test.js.snap
+#	modified:   src/color/test/parseToRgb.test.js
+#	modified:   src/color/test/transparentize.test.js
+#
