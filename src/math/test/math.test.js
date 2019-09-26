@@ -75,6 +75,18 @@ describe('math', () => {
     expect(math('sqrt(4em - 2 / 5em)')).toEqual(`${Math.sqrt(4 - 2 / 5)}em`)
   })
 
+  it('should be able to round', () => {
+    expect(math('round(1.23em)')).toEqual(`${Math.round(1.23)}em`)
+    expect(math('round(4.3em + 2.9em)')).toEqual(`${Math.round(4.3 + 2.9)}em`)
+    expect(math('round(1em + 2em)')).toEqual(`${Math.round(1 + 2)}em`)
+    expect(math('round(1.2em + 1.3em) * 1')).toEqual(
+      `${Math.round(1.2 + 1.3)}em`,
+    )
+    expect(math('round(-23.44em)')).toEqual(`${Math.round(-23.44)}em`)
+    expect(math('round(3.1px + 2.2px)')).toEqual(`${Math.round(3.1 + 2.2)}px`)
+    expect(math('round(3em / 2)')).toEqual(`${Math.round(3 / 2)}em`)
+  })
+
   it('should be able to process exponent power', () => {
     expect(math('2em^3')).toEqual(`${2 ** 3}em`)
   })

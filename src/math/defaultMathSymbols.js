@@ -49,6 +49,10 @@ function min(...a: Array<number>): number {
   return Math.min(...a)
 }
 
+function round(a: number): number {
+  return Math.round(a)
+}
+
 function comma(...a: Array<number | string>): Array<number | string> {
   return Array.of(...a)
 }
@@ -202,6 +206,18 @@ const defaultMathSymbols = {
       },
       symbol: 'max',
       regSymbol: 'max\\b',
+    },
+    round: {
+      func: {
+        symbol: 'round',
+        f: round,
+        notation: 'func',
+        precedence: 0,
+        rightToLeft: 0,
+        argCount: 1,
+      },
+      symbol: 'round',
+      regSymbol: 'round\\b',
     },
     sqrt: {
       func: {
