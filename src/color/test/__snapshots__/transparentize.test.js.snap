@@ -14,6 +14,8 @@ exports[`transparentize should reduce the opacity of hsl(0, 0%, 100%) by 0.2 1`]
 
 exports[`transparentize should reduce the opacity of hsla(0, 0%, 100%, .8) by 0.5 1`] = `"rgba(255,255,255,0.3)"`;
 
+exports[`transparentize should reduce the opacity of hsla(0, 0.5%, 0.5%, .1) by 0.4 1`] = `"rgba(0,0,0,0)"`;
+
 exports[`transparentize should reduce the opacity of rgb(255, 0, 255) by 0.1 1`] = `"rgba(255,0,255,0.9)"`;
 
 exports[`transparentize should reduce the opacity of rgba(255, 0, 0, .5) by 0.3 1`] = `"rgba(255,0,0,0.2)"`;
