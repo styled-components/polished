@@ -38,6 +38,10 @@ describe('transparentize', () => {
     expect(transparentize(0.5, 'hsla(0, 0%, 100%, .8)')).toMatchSnapshot()
   })
 
+  it('should reduce the opacity of hsla(0, 0.5%, 0.5%, .1) by 0.4', () => {
+    expect(transparentize(0.4, 'hsla(0, 0.5%, 0.5%, 0.4)')).toMatchSnapshot()
+  })
+
   it('should not reduce the opacity below 0', () => {
     expect(transparentize(0.5, 'rgba(255, 0, 0, .2)')).toMatchSnapshot()
   })

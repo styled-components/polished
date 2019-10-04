@@ -53,6 +53,11 @@ describe('parseToRgb', () => {
     )
   })
 
+  it('should parse a hsla color representation with decimal values', () => {
+    expect(parseToRgb('hsla(210,0.5%,0.5%,1.0)')).toMatchSnapshot()
+    expect(parseToRgb('hsla( 210 , 0.5% , 0.5% , 1.0 )')).toMatchSnapshot()
+  })
+
   it('should throw an error if an invalid hsl string is provided', () => {
     expect(() => {
       parseToRgb('hsl(210,120%,4%)')
