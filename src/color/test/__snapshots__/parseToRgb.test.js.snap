@@ -24,6 +24,22 @@ Object {
 }
 `;
 
+exports[`parseToRgb should parse a hsl color representation with decimal values 1`] = `
+Object {
+  "blue": 38,
+  "green": 33,
+  "red": 28,
+}
+`;
+
+exports[`parseToRgb should parse a hsl color representation with decimal values 2`] = `
+Object {
+  "blue": 38,
+  "green": 33,
+  "red": 28,
+}
+`;
+
 exports[`parseToRgb should parse a hsla color representation 1`] = `
 Object {
   "alpha": 0.75,

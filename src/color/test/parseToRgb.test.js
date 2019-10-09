@@ -32,9 +32,19 @@ describe('parseToRgb', () => {
     expect(parseToRgb('hsl( 210 , 10% , 4% )')).toMatchSnapshot()
   })
 
+  it('should parse a hsl color representation with decimal values', () => {
+    expect(parseToRgb('hsl(210,16.4%,13.2%)')).toMatchSnapshot()
+    expect(parseToRgb('hsl( 210 , 16.4%, 13.2% )')).toMatchSnapshot()
+  })
+
   it('should parse a hsla color representation', () => {
     expect(parseToRgb('hsla(210,10%,40%,0.75)')).toMatchSnapshot()
     expect(parseToRgb('hsla( 210 , 10% , 40% , 0.75 )')).toMatchSnapshot()
+  })
+
+  it('should parse a hsla color representation with decimal values', () => {
+    expect(parseToRgb('hsla(210,0.5%,0.5%,1.0)')).toMatchSnapshot()
+    expect(parseToRgb('hsla( 210 , 0.5% , 0.5% , 1.0 )')).toMatchSnapshot()
   })
 
   it('should throw an error if an invalid color string is provided', () => {
@@ -51,11 +61,6 @@ describe('parseToRgb', () => {
     }).toThrow(
       'Passed an incorrect argument to a color function, please pass a string representation of a color.',
     )
-  })
-
-  it('should parse a hsla color representation with decimal values', () => {
-    expect(parseToRgb('hsla(210,0.5%,0.5%,1.0)')).toMatchSnapshot()
-    expect(parseToRgb('hsla( 210 , 0.5% , 0.5% , 1.0 )')).toMatchSnapshot()
   })
 
   it('should throw an error if an invalid hsl string is provided', () => {
