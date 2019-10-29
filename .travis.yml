@@ -4,7 +4,7 @@ cache: yarn
 notifications:
   email: false
 node_js:
-  - '10'
+  - '13'
 before_script:
   - yarn global add codecov
 script:
