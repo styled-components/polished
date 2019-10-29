@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = global || self, factory(global.polished = {}));
-}(this, function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
 
   function _extends() {
     _extends = Object.assign || function (target) {
@@ -1009,28 +1009,6 @@
     return "calc(" + base.toFixed(2) + (fromSizeUnit || '') + " + " + (100 * slope).toFixed(2) + "vw)";
   }
 
-  /**
-   * CSS to contain a float (credit to CSSMojo).
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *    ...clearFix(),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${clearFix()}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * '&::after': {
-   *   'clear': 'both',
-   *   'content': '""',
-   *   'display': 'table'
-   * }
-   */
   function clearFix(parent) {
     var _ref;
 
@@ -1046,30 +1024,6 @@
     }, _ref;
   }
 
-  /**
-   * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...cover()
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${cover()}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *   'position': 'absolute',
-   *   'top': '0',
-   *   'right: '0',
-   *   'bottom': '0',
-   *   'left: '0'
-   * }
-   */
   function cover(offset) {
     if (offset === void 0) {
       offset = 0;
@@ -1084,31 +1038,6 @@
     };
   }
 
-  /**
-   * CSS to represent truncated text with an ellipsis.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...ellipsis('250px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${ellipsis('250px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *   'display': 'inline-block',
-   *   'maxWidth': '250px',
-   *   'overflow': 'hidden',
-   *   'textOverflow': 'ellipsis',
-   *   'whiteSpace': 'nowrap',
-   *   'wordWrap': 'normal'
-   * }
-   */
   function ellipsis(width) {
     if (width === void 0) {
       width = '100%';
@@ -1124,48 +1053,6 @@
     };
   }
 
-  /**
-   * Returns a set of media queries that resizes a property (or set of properties) between a provided fromSize and toSize. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px') to constrain the interpolation.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...fluidRange(
-   *    {
-   *        prop: 'padding',
-   *        fromSize: '20px',
-   *        toSize: '100px',
-   *      },
-   *      '400px',
-   *      '1000px',
-   *    )
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${fluidRange(
-   *      {
-   *        prop: 'padding',
-   *        fromSize: '20px',
-   *        toSize: '100px',
-   *      },
-   *      '400px',
-   *      '1000px',
-   *    )}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *   "@media (min-width: 1000px)": Object {
-   *     "padding": "100px",
-   *   },
-   *   "@media (min-width: 400px)": Object {
-   *     "padding": "calc(-33.33333333333334px + 13.333333333333334vw)",
-   *   },
-   *   "padding": "20px",
-   * }
-   */
   function fluidRange(cssProp, minScreen, maxScreen) {
     if (minScreen === void 0) {
       minScreen = '320px';
@@ -1340,37 +1227,12 @@
         fontDisplay: fontDisplay,
         fontVariationSettings: fontVariationSettings,
         fontFeatureSettings: fontFeatureSettings
-      } // Removes undefined fields for cleaner css object.
+      }
+    }; // Removes undefined fields for cleaner css object.
 
-    };
     return JSON.parse(JSON.stringify(fontFaceDeclaration));
   }
 
-  /**
-   * CSS to hide text to show a background image in a SEO-friendly way.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   'backgroundImage': 'url(logo.png)',
-   *   ...hideText(),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   backgroundImage: url(logo.png);
-   *   ${hideText()};
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'backgroundImage': 'url(logo.png)',
-   *   'textIndent': '101%',
-   *   'overflow': 'hidden',
-   *   'whiteSpace': 'nowrap',
-   * }
-   */
   function hideText() {
     return {
       textIndent: '101%',
@@ -1379,36 +1241,6 @@
     };
   }
 
-  /**
-   * CSS to hide content visually but remain accessible to screen readers.
-   * from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121)
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...hideVisually(),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${hideVisually()};
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * 'div': {
-   *   'border': '0',
-   *   'clip': 'rect(0 0 0 0)',
-   *   'clipPath': 'inset(50%)',
-   *   'height': '1px',
-   *   'margin': '-1px',
-   *   'overflow': 'hidden',
-   *   'padding': '0',
-   *   'position': 'absolute',
-   *   'whiteSpace': 'nowrap',
-   *   'width': '1px',
-   * }
-   */
   function hideVisually() {
     return {
       border: '0',
@@ -1507,36 +1339,6 @@
 
     return data;
   }
-
-  /**
-   * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...linearGradient({
-          colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-          toDirection: 'to top right',
-          fallback: '#FFF',
-        })
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${linearGradient({
-          colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-          toDirection: 'to top right',
-          fallback: '#FFF',
-        })}
-   *`
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *   'backgroundColor': '#FFF',
-   *   'backgroundImage': 'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
-   * }
-   */
   function linearGradient(_ref) {
     var colorStops = _ref.colorStops,
         fallback = _ref.fallback,
@@ -1553,25 +1355,6 @@
     };
   }
 
-  /**
-   * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *    ...normalize(),
-   * }
-   *
-   * // styled-components usage
-   * const GlobalStyle = createGlobalStyle`${normalize()}`
-   *
-   * // CSS as JS Output
-   *
-   * html {
-   *   lineHeight: 1.15,
-   *   textSizeAdjust: 100%,
-   * } ...
-   */
   function normalize() {
     var _ref;
 
@@ -1687,38 +1470,6 @@
 
     return data;
   }
-
-  /**
-   * CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...radialGradient({
-   *     colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-   *     extent: 'farthest-corner at 45px 45px',
-   *     position: 'center',
-   *     shape: 'ellipse',
-   *   })
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${radialGradient({
-   *     colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
-   *     extent: 'farthest-corner at 45px 45px',
-   *     position: 'center',
-   *     shape: 'ellipse',
-   *   })}
-   *`
-   *
-   * // CSS as JS Output
-   *
-   * div: {
-   *   'backgroundColor': '#00FFFF',
-   *   'backgroundImage': 'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
-   * }
-   */
   function radialGradient(_ref) {
     var colorStops = _ref.colorStops,
         _ref$extent = _ref.extent,
@@ -1739,34 +1490,6 @@
     };
   }
 
-  /**
-   * A helper to generate a retina background image and non-retina
-   * background image. The retina background image will output to a HiDPI media query. The mixin uses
-   * a _2x.png filename suffix by default.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *  ...retinaImage('my-img')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${retinaImage('my-img')}
-   * `
-   *
-   * // CSS as JS Output
-   * div {
-   *   backgroundImage: 'url(my-img.png)',
-   *   '@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-   *    only screen and (min--moz-device-pixel-ratio: 1.3),
-   *    only screen and (-o-min-device-pixel-ratio: 1.3/1),
-   *    only screen and (min-resolution: 144dpi),
-   *    only screen and (min-resolution: 1.5dppx)': {
-   *     backgroundImage: 'url(my-img_2x.png)',
-   *   }
-   * }
-   */
   function retinaImage(filename, backgroundSize, extension, retinaFilename, retinaSuffix) {
     var _ref;
 
@@ -1794,7 +1517,6 @@
     } : {}), _ref;
   }
 
-  /* eslint-disable key-spacing */
   var functionsMap = {
     easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
     easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
@@ -1820,9 +1542,8 @@
     easeInOutQuart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
     easeInOutQuint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
     easeInOutSine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
-    /* eslint-enable key-spacing */
-
   };
+  /* eslint-enable key-spacing */
 
   function getTimingFunction(functionName) {
     return functionsMap[functionName];
@@ -1960,28 +1681,6 @@
     };
   }
 
-  /**
-   * Provides an easy way to change the `wordWrap` property.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...wordWrap('break-word')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${wordWrap('break-word')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * const styles = {
-   *   overflowWrap: 'break-word',
-   *   wordWrap: 'break-word',
-   *   wordBreak: 'break-all',
-   * }
-   */
   function wordWrap(wrap) {
     if (wrap === void 0) {
       wrap = 'break-word';
@@ -2197,12 +1896,11 @@
     whitesmoke: 'f5f5f5',
     yellow: 'ff0',
     yellowgreen: '9acd32'
-    /**
-     * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
-     * @private
-     */
-
   };
+  /**
+   * Checks if a string is a CSS named color and returns its equivalent hex value, otherwise returns the original color.
+   * @private
+   */
 
   function nameToHex(color) {
     if (typeof color !== 'string') return color;
@@ -2407,17 +2105,6 @@
     };
   }
 
-  /**
-   * Returns an HslColor or HslaColor object. This utility function is only useful
-   * if want to extract a color component. With the color util `toColorString` you
-   * can convert a HslColor or HslaColor object back to a string.
-   *
-   * @example
-   * // Assigns `{ hue: 0, saturation: 1, lightness: 0.5 }` to color1
-   * const color1 = parseToHsl('rgb(255, 0, 0)');
-   * // Assigns `{ hue: 128, saturation: 1, lightness: 0.5, alpha: 0.75 }` to color2
-   * const color2 = parseToHsl('hsla(128, 100%, 50%, 0.75)');
-   */
   function parseToHsl(color) {
     // Note: At a later stage we can optimize this function as right now a hsl
     // color would be parsed converted to rgb values and converted back to hsl.
@@ -2453,29 +2140,6 @@
     return hslToRgb(hue, saturation, lightness, convertToHex);
   }
 
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible hex notation.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: hsl(359, 0.75, 0.4),
-   *   background: hsl({ hue: 360, saturation: 0.75, lightness: 0.4 }),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${hsl(359, 0.75, 0.4)};
-   *   background: ${hsl({ hue: 360, saturation: 0.75, lightness: 0.4 })};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "#b3191c";
-   *   background: "#b3191c";
-   * }
-   */
   function hsl(value, saturation, lightness) {
     if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
       return hslToHex(value, saturation, lightness);
@@ -2486,32 +2150,6 @@
     throw new PolishedError(1);
   }
 
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: hsla(359, 0.75, 0.4, 0.7),
-   *   background: hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0,7 }),
-   *   background: hsla(359, 0.75, 0.4, 1),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${hsla(359, 0.75, 0.4, 0.7)};
-   *   background: ${hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0,7 })};
-   *   background: ${hsla(359, 0.75, 0.4, 1)};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "rgba(179,25,28,0.7)";
-   *   background: "rgba(179,25,28,0.7)";
-   *   background: "#b3191c";
-   * }
-   */
   function hsla(value, saturation, lightness, alpha) {
     if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number' && typeof alpha === 'number') {
       return alpha >= 1 ? hslToHex(value, saturation, lightness) : "rgba(" + hslToRgb(value, saturation, lightness) + "," + alpha + ")";
@@ -2522,29 +2160,6 @@
     throw new PolishedError(2);
   }
 
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible hex notation.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: rgb(255, 205, 100),
-   *   background: rgb({ red: 255, green: 205, blue: 100 }),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${rgb(255, 205, 100)};
-   *   background: ${rgb({ red: 255, green: 205, blue: 100 })};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "#ffcd64";
-   *   background: "#ffcd64";
-   * }
-   */
   function rgb(value, green, blue) {
     if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
       return reduceHexValue("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
@@ -2555,40 +2170,6 @@
     throw new PolishedError(6);
   }
 
-  /**
-   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
-   *
-   * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: rgba(255, 205, 100, 0.7),
-   *   background: rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 }),
-   *   background: rgba(255, 205, 100, 1),
-   *   background: rgba('#ffffff', 0.4),
-   *   background: rgba('black', 0.7),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${rgba(255, 205, 100, 0.7)};
-   *   background: ${rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 })};
-   *   background: ${rgba(255, 205, 100, 1)};
-   *   background: ${rgba('#ffffff', 0.4)};
-   *   background: ${rgba('black', 0.7)};
-   * `
-   *
-   * // CSS in JS Output
-   *
-   * element {
-   *   background: "rgba(255,205,100,0.7)";
-   *   background: "rgba(255,205,100,0.7)";
-   *   background: "#ffcd64";
-   *   background: "rgba(255,255,255,0.4)";
-   *   background: "rgba(0,0,0,0.7)";
-   * }
-   */
   function rgba(firstValue, secondValue, thirdValue, fourthValue) {
     if (typeof firstValue === 'string' && typeof secondValue === 'number') {
       var rgbValue = parseToRgb(firstValue);
@@ -2916,30 +2497,6 @@
     }));
   }
 
-  /**
-   * Converts a HslColor or HslaColor object to a color string.
-   * This util is useful in case you only know on runtime which color object is
-   * used. Otherwise we recommend to rely on `hsl` or `hsla`.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: hslToColorString({ hue: 240, saturation: 1, lightness: 0.5 }),
-   *   background: hslToColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${hslToColorString({ hue: 240, saturation: 1, lightness: 0.5 })};
-   *   background: ${hslToColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 })};
-   * `
-   *
-   * // CSS in JS Output
-   * element {
-   *   background: "#00f";
-   *   background: "rgba(179,25,25,0.72)";
-   * }
-   */
   function hslToColorString(color) {
     if (typeof color === 'object' && typeof color.hue === 'number' && typeof color.saturation === 'number' && typeof color.lightness === 'number') {
       if (color.alpha && typeof color.alpha === 'number') {
@@ -3035,13 +2592,6 @@
   /* ::<number | string, string, string> */
   (lighten);
 
-  /**
-   * Determines which contrast guidelines have been met for two colors.
-   * Based on the [contrast calculations recommended by W3](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html).
-   *
-   * @example
-   * const scores = meetsContrastGuidelines('#444', '#fff');
-   */
   function meetsContrastGuidelines(color1, color2) {
     var contrastRatio = getContrast(color1, color2);
     return {
@@ -3091,10 +2641,10 @@
     var parsedColor2 = parseToRgb(otherColor);
 
     var color2 = _extends({}, parsedColor2, {
-      alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1 // The formular is copied from the original Sass implementation:
-      // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
+      alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
+    }); // The formular is copied from the original Sass implementation:
+    // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
 
-    });
 
     var alphaDelta = color1.alpha - color2.alpha;
     var x = parseFloat(weight) * 2 - 1;
@@ -3205,30 +2755,6 @@
     return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor;
   }
 
-  /**
-   * Converts a RgbColor or RgbaColor object to a color string.
-   * This util is useful in case you only know on runtime which color object is
-   * used. Otherwise we recommend to rely on `rgb` or `rgba`.
-   *
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   background: rgbToColorString({ red: 255, green: 205, blue: 100 }),
-   *   background: rgbToColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 }),
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   background: ${rgbToColorString({ red: 255, green: 205, blue: 100 })};
-   *   background: ${rgbToColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 })};
-   * `
-   *
-   * // CSS in JS Output
-   * element {
-   *   background: "#ffcd64";
-   *   background: "rgba(255,205,100,0.72)";
-   * }
-   */
   function rgbToColorString(color) {
     if (typeof color === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number') {
       if (color.alpha && typeof color.alpha === 'number') {
@@ -3522,42 +3048,6 @@
   /* ::<number | string, string, string> */
   (transparentize);
 
-  /**
-   * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
-   * or a single animation spread over the arguments.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...animation(['rotate', '1s', 'ease-in-out'], ['colorchange', '2s'])
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${animation(['rotate', '1s', 'ease-in-out'], ['colorchange', '2s'])}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'animation': 'rotate 1s ease-in-out, colorchange 2s'
-   * }
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...animation('rotate', '1s', 'ease-in-out')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${animation('rotate', '1s', 'ease-in-out')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'animation': 'rotate 1s ease-in-out'
-   * }
-   */
   function animation() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -3586,25 +3076,6 @@
     };
   }
 
-  /**
-   * Shorthand that accepts any number of backgroundImage values as parameters for creating a single background statement.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'backgroundImage': 'url("/image/background.jpg"), linear-gradient(red, green)'
-   * }
-   */
   function backgroundImages() {
     for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
@@ -3615,25 +3086,6 @@
     };
   }
 
-  /**
-   * Shorthand that accepts any number of background values as parameters for creating a single background statement.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${backgrounds('url("/image/background.jpg")', 'linear-gradient(red, green)', 'center no-repeat')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'background': 'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat'
-   * }
-   */
   function backgrounds() {
     for (var _len = arguments.length, properties = new Array(_len), _key = 0; _key < _len; _key++) {
       properties[_key] = arguments[_key];
@@ -3705,28 +3157,6 @@
     }
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...borderColor('red', 'green', 'blue', 'yellow')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${borderColor('red', 'green', 'blue', 'yellow')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'borderTopColor': 'red',
-   *   'borderRightColor': 'green',
-   *   'borderBottomColor': 'blue',
-   *   'borderLeftColor': 'yellow'
-   * }
-   */
   function borderColor() {
     for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3735,26 +3165,6 @@
     return directionalProperty.apply(void 0, ['borderColor'].concat(values));
   }
 
-  /**
-   * Shorthand that accepts a value for side and a value for radius and applies the radius value to both corners of the side.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...borderRadius('top', '5px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${borderRadius('top', '5px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'borderTopRightRadius': '5px',
-   *   'borderTopLeftRadius': '5px',
-   * }
-   */
   function borderRadius(side, radius) {
     var uppercaseSide = capitalizeString(side);
 
@@ -3777,28 +3187,6 @@
     throw new PolishedError(63);
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...borderStyle('solid', 'dashed', 'dotted', 'double')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${borderStyle('solid', 'dashed', 'dotted', 'double')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'borderTopStyle': 'solid',
-   *   'borderRightStyle': 'dashed',
-   *   'borderBottomStyle': 'dotted',
-   *   'borderLeftStyle': 'double'
-   * }
-   */
   function borderStyle() {
     for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3807,28 +3195,6 @@
     return directionalProperty.apply(void 0, ['borderStyle'].concat(values));
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...borderWidth('12px', '24px', '36px', '48px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${borderWidth('12px', '24px', '36px', '48px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'borderTopWidth': '12px',
-   *   'borderRightWidth': '24px',
-   *   'borderBottomWidth': '36px',
-   *   'borderLeftWidth': '48px'
-   * }
-   */
   function borderWidth() {
     for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3905,28 +3271,6 @@
     return statefulSelectors(states, template, stateMap);
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...margin('12px', '24px', '36px', '48px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${margin('12px', '24px', '36px', '48px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'marginTop': '12px',
-   *   'marginRight': '24px',
-   *   'marginBottom': '36px',
-   *   'marginLeft': '48px'
-   * }
-   */
   function margin() {
     for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -3935,28 +3279,6 @@
     return directionalProperty.apply(void 0, ['margin'].concat(values));
   }
 
-  /**
-   * Shorthand that accepts up to four values, including null to skip a value, and maps them to their respective directions.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...padding('12px', '24px', '36px', '48px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${padding('12px', '24px', '36px', '48px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'paddingTop': '12px',
-   *   'paddingRight': '24px',
-   *   'paddingBottom': '36px',
-   *   'paddingLeft': '48px'
-   * }
-   */
   function padding() {
     for (var _len = arguments.length, values = new Array(_len), _key = 0; _key < _len; _key++) {
       values[_key] = arguments[_key];
@@ -4025,26 +3347,6 @@
     }
   }
 
-  /**
-   * Shorthand to set the height and width properties in a single statement.
-   * @example
-   * // Styles as object usage
-   * const styles = {
-   *   ...size('300px', '250px')
-   * }
-   *
-   * // styled-components usage
-   * const div = styled.div`
-   *   ${size('300px', '250px')}
-   * `
-   *
-   * // CSS as JS Output
-   *
-   * div {
-   *   'height': '300px',
-   *   'width': '250px',
-   * }
-   */
   function size(height, width) {
     if (width === void 0) {
       width = height;
@@ -4227,4 +3529,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
