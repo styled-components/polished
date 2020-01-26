@@ -53,8 +53,8 @@ export default function position(
 ): Styles {
   if (positionMap.indexOf(positionKeyword) >= 0) {
     return {
-      position: positionKeyword,
       ...directionalProperty('', ...values),
+      position: positionKeyword,
     }
   } else {
     const firstValue = positionKeyword // in this case position is actually the first value
