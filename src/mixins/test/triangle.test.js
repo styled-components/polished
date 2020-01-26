@@ -61,18 +61,6 @@ describe('triangle', () => {
     }).toMatchSnapshot()
   })
 
-  it('should properly add rules when block has existing rules', () => {
-    expect({
-      background: 'red',
-      ...triangle({
-        foregroundColor: 'grey',
-        pointingDirection: 'right',
-        height: '10px',
-        width: '20px',
-      }),
-    }).toMatchSnapshot()
-  })
-
   it('should properly render top pointing arrow with green foregroundColor, width of 20px and height 20px', () => {
     expect({
       ...triangle({
