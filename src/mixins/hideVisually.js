@@ -21,7 +21,6 @@ import type { Styles } from '../types/style'
  * 'div': {
  *   'border': '0',
  *   'clip': 'rect(0 0 0 0)',
- *   'clipPath': 'inset(50%)',
  *   'height': '1px',
  *   'margin': '-1px',
  *   'overflow': 'hidden',
@@ -35,7 +34,6 @@ export default function hideVisually(): Styles {
   return {
     border: '0',
     clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
     height: '1px',
     margin: '-1px',
     overflow: 'hidden',
