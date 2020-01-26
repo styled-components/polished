@@ -8,8 +8,8 @@ describe('hideText', () => {
 
   it('should add rules when block has existing rules', () => {
     expect({
-      'background-image': 'url(logo.png)',
       ...hideText(),
+      'background-image': 'url(logo.png)',
     }).toMatchSnapshot()
   })
 })

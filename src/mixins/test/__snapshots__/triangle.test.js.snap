@@ -50,17 +50,6 @@ Object {
 }
 `;
 
-exports[`triangle should properly add rules when block has existing rules 1`] = `
-Object {
-  "background": "red",
-  "borderColor": "transparent transparent transparent grey",
-  "borderStyle": "solid",
-  "borderWidth": "5px 0 5px 20px",
-  "height": "0",
-  "width": "0",
-}
-`;
-
 exports[`triangle should properly render bottom pointing arrow with red foregroundColor, width of 20px and height 20px 1`] = `
 Object {
   "borderColor": "red transparent transparent transparent",

@@ -1399,7 +1399,6 @@
    * 'div': {
    *   'border': '0',
    *   'clip': 'rect(0 0 0 0)',
-   *   'clipPath': 'inset(50%)',
    *   'height': '1px',
    *   'margin': '-1px',
    *   'overflow': 'hidden',
@@ -1410,15 +1409,9 @@
    * }
    */
   function hideVisually() {
-    // Note: The use of `clip-path` causes performance degredation on scroll events in Chrome.
-    // For more information, see:
-    // * h5bp/html5-boilerplate#2021
-    // * zurb/foundation-sites#10914
-    // * twbs/bootstrap#24906
     return {
       border: '0',
       clip: 'rect(0 0 0 0)',
-      // clipPath: 'inset(50%)',
       height: '1px',
       margin: '-1px',
       overflow: 'hidden',
@@ -4018,9 +4011,9 @@
     }
 
     if (positionMap$1.indexOf(positionKeyword) >= 0) {
-      return _extends({
+      return _extends({}, directionalProperty.apply(void 0, [''].concat(values)), {
         position: positionKeyword
-      }, directionalProperty.apply(void 0, [''].concat(values)));
+      });
     } else {
       var firstValue = positionKeyword; // in this case position is actually the first value
 
