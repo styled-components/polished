@@ -86,7 +86,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.0",
-    "flow-bin": "^0.110.1",
+    "flow-bin": "^0.116.1",
     "flow-copy-source": "^2.0.9",
     "flow-coverage-report": "^0.6.1",
     "husky": "^4.2.1",
