@@ -1625,7 +1625,7 @@ div: {
   <p>CSS for a @font-face declaration.</p>
 
 
-  <div class='pre p1 fill-light mt0'>fontFace($0: any): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>fontFace($0: <a href="#fontfaceconfiguration">FontFaceConfiguration</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -1648,7 +1648,7 @@ div: {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="#fontfaceconfiguration">FontFaceConfiguration</a>)</code>
 	    
           </div>
           
@@ -2157,7 +2157,7 @@ from <a href="https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70
   <p>CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
 
 
-  <div class='pre p1 fill-light mt0'>linearGradient($0: any): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>linearGradient($0: <a href="#lineargradientconfiguration">LinearGradientConfiguration</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -2180,7 +2180,7 @@ from <a href="https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="#lineargradientconfiguration">LinearGradientConfiguration</a>)</code>
 	    
           </div>
           
@@ -2403,7 +2403,7 @@ html {
   <p>CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.</p>
 
 
-  <div class='pre p1 fill-light mt0'>radialGradient($0: any): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>radialGradient($0: <a href="#radialgradientconfiguration">RadialGradientConfiguration</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -2426,7 +2426,7 @@ html {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="#radialgradientconfiguration">RadialGradientConfiguration</a>)</code>
 	    
           </div>
           
@@ -2573,7 +2573,7 @@ background image. The retina background image will output to a HiDPI media query
 a _2x.png filename suffix by default.</p>
 
 
-  <div class='pre p1 fill-light mt0'>retinaImage(filename: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, backgroundSize: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, extension: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, retinaFilename: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, retinaSuffix: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>retinaImage(filename: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, backgroundSize: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, extension: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, retinaFilename: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, retinaSuffix: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -2604,7 +2604,7 @@ a _2x.png filename suffix by default.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>backgroundSize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>backgroundSize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
 	    
           </div>
           
@@ -2621,7 +2621,7 @@ a _2x.png filename suffix by default.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>retinaFilename</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>retinaFilename</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
 	    
           </div>
           
@@ -2823,7 +2823,7 @@ div {
   <p>CSS to represent triangle with any pointing direction with an optional background color.</p>
 
 
-  <div class='pre p1 fill-light mt0'>triangle($0: any): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>triangle($0: <a href="#triangleconfiguration">TriangleConfiguration</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -2846,7 +2846,7 @@ div {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>$0</span> <code class='quiet'>(<a href="#triangleconfiguration">TriangleConfiguration</a>)</code>
 	    
           </div>
           
@@ -3880,7 +3880,7 @@ element {
   <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
 
 
-  <div class='pre p1 fill-light mt0'>hsl(value: (<a href="#hslcolor">HslColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>hsl(value: (<a href="#hslcolor">HslColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -3911,7 +3911,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -3919,7 +3919,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -4004,7 +4004,7 @@ element {
   <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
 
 
-  <div class='pre p1 fill-light mt0'>hsla(value: (<a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, alpha: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>hsla(value: (<a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, alpha: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -4035,7 +4035,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>saturation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -4043,7 +4043,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>lightness</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -4051,7 +4051,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>alpha</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>alpha</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -5140,7 +5140,7 @@ element {
   <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
 
 
-  <div class='pre p1 fill-light mt0'>rgb(value: (<a href="#rgbcolor">RgbColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), green: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, blue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>rgb(value: (<a href="#rgbcolor">RgbColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), green: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, blue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -5171,7 +5171,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>green</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -5179,7 +5179,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>blue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -5265,7 +5265,7 @@ element {
 <p>Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.</p>
 
 
-  <div class='pre p1 fill-light mt0'>rgba(firstValue: (<a href="#rgbacolor">RgbaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), secondValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, thirdValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, fourthValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>rgba(firstValue: (<a href="#rgbacolor">RgbaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), secondValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, thirdValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?, fourthValue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -5296,7 +5296,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>secondValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>secondValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -5304,7 +5304,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>thirdValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>thirdValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -5312,7 +5312,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fourthValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>fourthValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)</code>
 	    
           </div>
           
@@ -6462,7 +6462,7 @@ element {
 <p><em>warning</em> While we've done everything possible to ensure math safely evalutes formulas expressed as strings, you should always use extreme caution when passing <code>math</code> user provided values.</p>
 
 
-  <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>math(formula: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, additionalSymbols: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -6493,7 +6493,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>additionalSymbols</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>additionalSymbols</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
 	    
           </div>
           
@@ -8909,7 +8909,7 @@ element {
   <p>Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.</p>
 
 
-  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): any</div>
+  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): any</div>
   
   
     <p>
@@ -8940,7 +8940,7 @@ element {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>unitReturn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+            <span class='code bold'>unitReturn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?)</code>
 	    
           </div>
           
