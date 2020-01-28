@@ -48,16 +48,15 @@ const positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky']
  * }
  */
 export default function position(
-  positionKeyword: string | null,
+  firstValue?: string | number | null,
   ...values: Array<?string | ?number>
 ): Styles {
-  if (positionMap.indexOf(positionKeyword) >= 0) {
+  if (positionMap.indexOf(firstValue) >= 0 && firstValue) {
     return {
       ...directionalProperty('', ...values),
-      position: positionKeyword,
+      position: firstValue,
     }
   } else {
-    const firstValue = positionKeyword // in this case position is actually the first value
     return directionalProperty('', firstValue, ...values)
   }
 }

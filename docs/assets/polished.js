@@ -4005,18 +4005,16 @@
    * }
    */
 
-  function position(positionKeyword) {
+  function position(firstValue) {
     for (var _len = arguments.length, values = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       values[_key - 1] = arguments[_key];
     }
 
-    if (positionMap$1.indexOf(positionKeyword) >= 0) {
+    if (positionMap$1.indexOf(firstValue) >= 0 && firstValue) {
       return _extends({}, directionalProperty.apply(void 0, [''].concat(values)), {
-        position: positionKeyword
+        position: firstValue
       });
     } else {
-      var firstValue = positionKeyword; // in this case position is actually the first value
-
       return directionalProperty.apply(void 0, ['', firstValue].concat(values));
     }
   }
