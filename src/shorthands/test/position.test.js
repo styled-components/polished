@@ -12,10 +12,18 @@ describe('position', () => {
     expect(position('relative', '12px', '24px', '36px')).toMatchSnapshot()
   })
   it('properly applies values when passed four', () => {
-    expect(position('relative', '12px', '24px', '36px', '48px')).toMatchSnapshot()
+    expect(
+      position('relative', '12px', '24px', '36px', '48px'),
+    ).toMatchSnapshot()
   })
   it('properly ignores position property, when not passed one', () => {
     expect(position('12px', '24px', '36px', '48px')).toMatchSnapshot()
+  })
+  it('properly skips values when passed undefined`', () => {
+    expect(position('relative', '12px', null, '36px', '48px')).toMatchSnapshot()
+  })
+  it('properly skips first value when passed undefined', () => {
+    expect(position(null, '24px', '36px', '48px')).toMatchSnapshot()
   })
   it('properly applies values when passed four integers', () => {
     expect(position('relative', 12, 24, 36, 48)).toMatchSnapshot()

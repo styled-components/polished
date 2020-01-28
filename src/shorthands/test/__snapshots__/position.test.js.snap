@@ -68,3 +68,20 @@ Object {
   "top": "12px",
 }
 `;
+
+exports[`position properly skips first value when passed undefined 1`] = `
+Object {
+  "bottom": "36px",
+  "left": "48px",
+  "right": "24px",
+}
+`;
+
+exports[`position properly skips values when passed undefined\` 1`] = `
+Object {
+  "bottom": "36px",
+  "left": "48px",
+  "position": "relative",
+  "top": "12px",
+}
+`;
