@@ -5,7 +5,7 @@
 
 A lightweight toolset for writing styles in JavaScript. ✨
 
-[![Node CI Test](https://github.com/styled-components/polished/workflows/Node%20CI%20Test/badge.svg?branch=master)
+![Node CI Test](https://github.com/styled-components/polished/workflows/Node%20CI%20Test/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/styled-components/polished/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/polished)
 [![Github All Releases](https://img.shields.io/npm/dm/polished.svg)](https://npmcharts.com/compare/polished)
 
