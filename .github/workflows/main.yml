@@ -35,4 +35,5 @@ jobs:
     - name: Report Code Coverage
       uses: codecov/codecov-action@v1
       with:
+        flags: unittests
         fail_ci_if_error: true
