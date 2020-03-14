@@ -17,11 +17,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Core Dependencies 
-      run: |
-        npm install -g yarn
-        yarn global add codecov
-        yarn --frozen-lockfile
+    - name: Install Yarn
+      run: npm install -g yarn
+    - name: Add Codecov  
+      run: yarn global add codecov
     - name: Jest Tests
       run: yarn test
     - name: Linting
