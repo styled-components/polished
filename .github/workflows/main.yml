@@ -20,7 +20,7 @@ jobs:
     - name: Install Yarn
       run: npm install -g yarn
     - name: Install Codecov
-      run: yarn global add codecov
+      run: npm install -g codecov
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
