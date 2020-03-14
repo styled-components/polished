@@ -3,7 +3,7 @@ name: Node CI Coverage
 on: [push, pull_request]
 
 jobs:
-  build-test:
+  report-coverage:
 
     runs-on: ubuntu-latest
 
