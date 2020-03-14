@@ -9,8 +9,6 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 install: yarn --frozen-lockfile
 script:
-  - node --version
-  - yarn --version
   - yarn test
   - yarn lint
   - yarn flow
@@ -27,9 +25,5 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
-cache:
-  yarn: true
-  directories:
-    - node_modules
 notifications:
   email: false
