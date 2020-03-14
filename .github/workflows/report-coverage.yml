@@ -1,0 +1,26 @@
+name: Node CI Coverage
+
+on: [push, pull_request]
+
+jobs:
+  build-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install Yarn
+      run: npm install -g yarn
+    - name: Install Dependencies
+      run: yarn install --ignore-scripts --frozen-lockfile
+    - name: Run Jest Tests
+      run: yarn test
+    - name: Report Code Coverage
+      uses: codecov/codecov-action@v1
+      with:
+        flags: unittests
+        fail_ci_if_error: true
