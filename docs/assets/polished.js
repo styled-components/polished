@@ -448,9 +448,7 @@
    */
 
 
-  var PolishedError =
-  /*#__PURE__*/
-  function (_Error) {
+  var PolishedError = /*#__PURE__*/function (_Error) {
     _inheritsLoose(PolishedError, _Error);
 
     function PolishedError(code) {
@@ -468,9 +466,7 @@
     }
 
     return PolishedError;
-  }(
-  /*#__PURE__*/
-  _wrapNativeSuper(Error));
+  }( /*#__PURE__*/_wrapNativeSuper(Error));
 
   var unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g; // Merges additional math functionality into the defaults.
 
@@ -803,9 +799,7 @@
    * }
    */
 
-  var em =
-  /*#__PURE__*/
-  pxtoFactory('em');
+  var em = /*#__PURE__*/pxtoFactory('em');
 
   var cssRegex$1 = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
@@ -943,9 +937,7 @@
    * }
    */
 
-  var rem =
-  /*#__PURE__*/
-  pxtoFactory('rem');
+  var rem = /*#__PURE__*/pxtoFactory('rem');
 
   /**
    * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
@@ -2706,9 +2698,7 @@
   } // prettier-ignore
 
 
-  var curriedAdjustHue =
-  /*#__PURE__*/
-  curry
+  var curriedAdjustHue = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (adjustHue);
 
@@ -2780,9 +2770,7 @@
   } // prettier-ignore
 
 
-  var curriedDarken =
-  /*#__PURE__*/
-  curry
+  var curriedDarken = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (darken);
 
@@ -2820,9 +2808,7 @@
   } // prettier-ignore
 
 
-  var curriedDesaturate =
-  /*#__PURE__*/
-  curry
+  var curriedDesaturate = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (desaturate);
 
@@ -3025,9 +3011,7 @@
   } // prettier-ignore
 
 
-  var curriedLighten =
-  /*#__PURE__*/
-  curry
+  var curriedLighten = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (lighten);
 
@@ -3108,9 +3092,7 @@
   } // prettier-ignore
 
 
-  var curriedMix =
-  /*#__PURE__*/
-  curry
+  var curriedMix = /*#__PURE__*/curry
   /* ::<number | string, string, string, string> */
   (mix);
 
@@ -3155,9 +3137,7 @@
   } // prettier-ignore
 
 
-  var curriedOpacify =
-  /*#__PURE__*/
-  curry
+  var curriedOpacify = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (opacify);
 
@@ -3281,9 +3261,7 @@
   } // prettier-ignore
 
 
-  var curriedSaturate =
-  /*#__PURE__*/
-  curry
+  var curriedSaturate = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (saturate);
 
@@ -3319,9 +3297,7 @@
   } // prettier-ignore
 
 
-  var curriedSetHue =
-  /*#__PURE__*/
-  curry
+  var curriedSetHue = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setHue);
 
@@ -3357,9 +3333,7 @@
   } // prettier-ignore
 
 
-  var curriedSetLightness =
-  /*#__PURE__*/
-  curry
+  var curriedSetLightness = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setLightness);
 
@@ -3395,9 +3369,7 @@
   } // prettier-ignore
 
 
-  var curriedSetSaturation =
-  /*#__PURE__*/
-  curry
+  var curriedSetSaturation = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setSaturation);
 
@@ -3430,9 +3402,7 @@
   } // prettier-ignore
 
 
-  var curriedShade =
-  /*#__PURE__*/
-  curry
+  var curriedShade = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (shade);
 
@@ -3465,9 +3435,7 @@
   } // prettier-ignore
 
 
-  var curriedTint =
-  /*#__PURE__*/
-  curry
+  var curriedTint = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (tint);
 
@@ -3512,9 +3480,7 @@
   } // prettier-ignore
 
 
-  var curriedTransparentize =
-  /*#__PURE__*/
-  curry
+  var curriedTransparentize = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (transparentize);
 
