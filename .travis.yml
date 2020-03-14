@@ -1,7 +1,7 @@
 language: node_js
 node_js:
+  - '10'
   - '12'
-  - '13'
 before_script:
   - yarn global add codecov
 before_install:
@@ -16,7 +16,6 @@ script:
   - yarn build:typescript
   - yarn typescript
 after_success:
-  - codecov
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
