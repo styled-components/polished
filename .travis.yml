@@ -1,13 +1,16 @@
-sudo: false
 language: node_js
-cache: yarn
-notifications:
-  email: false
 node_js:
+  - '12'
   - '13'
 before_script:
   - yarn global add codecov
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+install: yarn --frozen-lockfile
 script:
+  - node --version
+  - yarn --version
   - yarn test
   - yarn lint
   - yarn flow
@@ -24,3 +27,9 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+cache:
+  yarn: true
+  directories:
+    - node_modules
+notifications:
+  email: false
