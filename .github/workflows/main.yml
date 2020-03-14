@@ -22,7 +22,7 @@ jobs:
     - name: Install Codecov  
       run: yarn global add codecov
     - name: Install Dependencies
-      run: yarn
+      run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
       run: yarn test
     - name: Lint Files
