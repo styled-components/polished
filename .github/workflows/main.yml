@@ -19,8 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install Yarn
       run: npm install -g yarn
-    - name: Install Codecov
-      run: npm install -g codecov
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
@@ -34,4 +32,9 @@ jobs:
         yarn build:typescript
         yarn typescript
     - name: Report Code Coverage
-      run: codecov
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
