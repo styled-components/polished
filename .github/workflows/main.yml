@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [push, pull_request] # Run on Push and Pull Requests
+on: [push, pull_request]
 
 jobs:
   build:
@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x] # Only run the 10.x build
+        node-version: [10.x, 12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -27,10 +27,9 @@ jobs:
       run: yarn test
     - name: Lint Files
       run: yarn lint
-    - name: Check Flow Types
-      run: yarn flow
-    - name: Build and Check TS Types
+    - name: Build and Check Types
       run: | 
+        yarn flow
         yarn build:flow
         yarn build:typescript
         yarn typescript
