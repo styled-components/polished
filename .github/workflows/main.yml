@@ -1,0 +1,32 @@
+name: Node CI
+
+on: [push, pull_request] # Run on Push and Pull Requests
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 13.x] # Only run the 10.x build
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        npm install -g yarn
+        yarn global add codecov
+    - name: yarn test & lint
+      run: |
+        yarn test
+        yarn lint
+        yarn flow
+    - name: yarn build
+      run: |
+        yarn build:flow
+        yarn build:typescript
+        yarn typescript
