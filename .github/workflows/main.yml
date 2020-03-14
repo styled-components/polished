@@ -22,6 +22,7 @@ jobs:
         yarn global add codecov
     - name: yarn test & lint
       run: |
+        yarn --frozen-lockfile
         yarn test
         yarn lint
         yarn flow
