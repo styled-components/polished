@@ -31,7 +31,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - name: Install Dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
       run: yarn test
