@@ -21,10 +21,17 @@ jobs:
     - name: Install Yarn
       run: npm install -g yarn
     - name: Get yarn cache directory path
+<<<<<<< HEAD
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
     - uses: actions/cache@v1
       id: yarn-cache
+=======
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+    - uses: actions/cache@v1
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+>>>>>>> c02845a... build(report-coverage): add caching solution to report-coverage workflow
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
