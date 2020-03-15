@@ -82,4 +82,17 @@ describe('readableColor', () => {
   it('should return white given blue, hsla(250, 100%, 50%, 0.2)', () => {
     expect(readableColor('hsla(250, 100%, 50%, 0.2)')).toMatchSnapshot()
   })
+
+  it('should return custom light background when contrast meets AA in strict mode', () => {
+    expect(readableColor('red', '#001', '#ff8', true)).toMatchSnapshot()
+  })
+  it('should return custom dark background when contrast meets AA in strict mode', () => {
+    expect(readableColor('darkred', '#001', '#ff8', true)).toMatchSnapshot()
+  })
+  it('should return the default light background when contrast fails AA in strict mode', () => {
+    expect(readableColor('red', '#333', '#aaa', true)).toMatchSnapshot()
+  })
+  it('should return the default dark background when contrast fails AA in strict mode', () => {
+    expect(readableColor('darkred', '#333', '#aaa', true)).toMatchSnapshot()
+  })
 })
