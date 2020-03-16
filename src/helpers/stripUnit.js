@@ -3,7 +3,9 @@
 const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
 
 /**
- * Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.
+ * Returns a given CSS value minus its unit.
+ *
+ * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.
  *
  * @example
  * // Styles as object usage
@@ -33,6 +35,9 @@ export default function stripUnit(
   const matchedValue = value.match(cssRegex)
 
   if (unitReturn) {
+    console.warn(
+      "stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.",
+    )
     if (matchedValue) return [parseFloat(value), matchedValue[2]]
     return [value, undefined]
   }
