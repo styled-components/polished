@@ -416,7 +416,9 @@
     "69": "Expected a string ending in \"px\" or a number passed as the first argument to %s(), got %s instead.\n\n",
     "70": "Expected a string ending in \"px\" or a number passed as the second argument to %s(), got %s instead.\n\n",
     "71": "Passed invalid pixel value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
-    "72": "Passed invalid base value %s to %s(), please pass a value like \"12px\" or 12.\n"
+    "72": "Passed invalid base value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
+    "73": "Please provide a valid CSS variable.\n\n",
+    "74": "CSS variable not found.\n"
   };
   /**
    * super basic version of sprintf
