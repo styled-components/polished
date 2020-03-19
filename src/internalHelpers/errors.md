@@ -290,3 +290,11 @@ Passed invalid pixel value %s to %s(), please pass a value like "12px" or 12.
 ## 72
 
 Passed invalid base value %s to %s(), please pass a value like "12px" or 12.
+
+## 73
+
+Please provide a valid CSS variable.
+
+## 74
+
+CSS variable not found.
