@@ -914,6 +914,16 @@
             
               
               <li><a
+                href='#cssvar'
+                class="">
+                cssVar
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#contrastscores'
                 class="">
                 ContrastScores
@@ -10237,6 +10247,114 @@ element {
 
   
     <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='cssvar'>
+      cssVar
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Fetches</p>
+
+
+  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cssVariable</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>),
+  <span class="hljs-string">'--unit'</span>: stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>],
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)}</span>;
+  --unit: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>;
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
+  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
+}</pre>
     
   
 
