@@ -2,14 +2,14 @@
 import cssVar from '../cssVar'
 
 beforeAll(() => {
-  // eslint-disable-next-line no-undef
-  document.documentElement.style.setProperty('--background', '#FFF')
-  // eslint-disable-next-line no-undef
-  document.documentElement.style.setProperty('--foreground-color', '#000')
-  // eslint-disable-next-line no-undef
-  document.documentElement.style.setProperty('--our-background-color', 'red')
-  // eslint-disable-next-line no-undef
-  document.documentElement.style.setProperty('--our-Background-Color', 'orange')
+  // $FlowFixMe
+  document.documentElement.style.setProperty('--background', '#FFF') // eslint-disable-line no-undef
+  // $FlowFixMe
+  document.documentElement.style.setProperty('--foreground-color', '#000') // eslint-disable-line no-undef
+  // $FlowFixMe
+  document.documentElement.style.setProperty('--our-background-color', 'red') // eslint-disable-line no-undef
+  // $FlowFixMe
+  document.documentElement.style.setProperty('--our-Background-Color', 'orange') // eslint-disable-line no-undef
 })
 
 describe('cssVar', () => {
