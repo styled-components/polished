@@ -49,7 +49,7 @@ function mix(
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1,
   }
 
-  // The formular is copied from the original Sass implementation:
+  // The formula is copied from the original Sass implementation:
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
   const x = parseFloat(weight) * 2 - 1

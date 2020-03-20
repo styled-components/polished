@@ -35,4 +35,7 @@ describe('cssVar', () => {
       cssVar('-bad-formatted-variable')
     }).toThrow('Please provide a valid CSS variable.')
   })
+  test('passes value through when passthrough mode is enabled', () => {
+    expect(cssVar('#FFF', true)).toEqual('#FFF')
+  })
 })
