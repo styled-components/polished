@@ -2,10 +2,12 @@
 import getContrast from './getContrast'
 import getLuminance from './getLuminance'
 
+const defaultLightReturnColor = '#000'
+const defaultDarkReturnColor = '#fff'
+
 /**
  * Returns black or white (or optional light and dark return colors) for best
  * contrast depending on the luminosity of the given color.
- *
  * When passing custom return colors, set `strict` to `true` to ensure that the
  * return color always meets or exceeds WCAG level AA or greater. If this test
  * fails, the default return color (black or white) is returned in place of the
@@ -19,7 +21,7 @@ import getLuminance from './getLuminance'
  *   color: readableColor('#000'),
  *   color: readableColor('black', '#001', '#ff8'),
  *   color: readableColor('white', '#001', '#ff8'),
- *   color: readableColor('red', '#333', '#ddd', true);
+ *   color: readableColor('red', '#333', '#ddd', true)
  * }
  *
  * // styled-components usage
@@ -38,10 +40,6 @@ import getLuminance from './getLuminance'
  *   color: "#000";
  * }
  */
-
-const defaultLightReturnColor = '#000'
-const defaultDarkReturnColor = '#fff'
-
 export default function readableColor(
   color: string,
   lightReturnColor?: string = defaultLightReturnColor,
