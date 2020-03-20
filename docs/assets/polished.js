@@ -617,7 +617,7 @@
 
   var cssVariableRegex = /--[\S]*/g;
   /**
-   * Fetches the value of a CSS Variable.
+   * Fetches the value of a passed CSS Variable.
    *
    * @example
    * // Styles as object usage
@@ -744,26 +744,25 @@
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
-   * Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.
+   * Returns a given CSS value minus its unit of measure.
+   *
+   * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.
    *
    * @example
    * // Styles as object usage
    * const styles = {
-   *   '--dimension': stripUnit('100px'),
-   *   '--unit': stripUnit('100px')[1],
+   *   '--dimension': stripUnit('100px')
    * }
    *
    * // styled-components usage
    * const div = styled.div`
    *   --dimension: ${stripUnit('100px')};
-   *   --unit: ${stripUnit('100px')[1]};
    * `
    *
    * // CSS in JS Output
    *
    * element {
-   *   '--dimension': 100,
-   *   '--unit': 'px',
+   *   '--dimension': 100
    * }
    */
 
@@ -772,6 +771,7 @@
     var matchedValue = value.match(cssRegex);
 
     if (unitReturn) {
+      console.warn("stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.");
       if (matchedValue) return [parseFloat(value), matchedValue[2]];
       return [value, undefined];
     }
@@ -852,8 +852,6 @@
   /**
    * Returns a given CSS value and its unit as elements of an array.
    *
-   * @deprecated - getValueAndUnit has been marked for deprecation in polished 3.0 and will be fully deprecated in 4.0. It's functionality has been been moved to stripUnit as an optional return.
-   *
    * @example
    * // Styles as object usage
    * const styles = {
@@ -876,8 +874,6 @@
    */
 
   function getValueAndUnit(value) {
-    // eslint-disable-next-line no-console
-    console.warn("getValueAndUnit has been marked for deprecation in polished 3.0 and will be fully deprecated in 4.0. It's functionality has been been moved to stripUnit as an optional return.");
     if (typeof value !== 'string') return [value, ''];
     var matchedValue = value.match(cssRegex$1);
     if (matchedValue) return [parseFloat(value), matchedValue[2]];
@@ -3109,6 +3105,7 @@
   function mix(weight, color, otherColor) {
     if (color === 'transparent') return otherColor;
     if (otherColor === 'transparent') return color;
+    if (weight === 0) return otherColor;
     var parsedColor1 = parseToRgb(color);
 
     var color1 = _extends({}, parsedColor1, {
@@ -3133,7 +3130,7 @@
       red: Math.floor(color1.red * weight1 + color2.red * weight2),
       green: Math.floor(color1.green * weight1 + color2.green * weight2),
       blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
-      alpha: color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0)
+      alpha: color1.alpha * (parseFloat(weight) / 1.0) + color2.alpha * (1 - parseFloat(weight) / 1.0)
     };
     return rgba(mixedColor);
   } // prettier-ignore
@@ -3188,8 +3185,16 @@
   /* ::<number | string, string, string> */
   (opacify);
 
+  var defaultLightReturnColor = '#000';
+  var defaultDarkReturnColor = '#fff';
   /**
-   * Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
+   * Returns black or white (or optional light and dark return colors) for best
+   * contrast depending on the luminosity of the given color.
+   * When passing custom return colors, set `strict` to `true` to ensure that the
+   * return color always meets or exceeds WCAG level AA or greater. If this test
+   * fails, the default return color (black or white) is returned in place of the
+   * custom return color.
+   *
    * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
    *
    * @example
@@ -3198,6 +3203,7 @@
    *   color: readableColor('#000'),
    *   color: readableColor('black', '#001', '#ff8'),
    *   color: readableColor('white', '#001', '#ff8'),
+   *   color: readableColor('red', '#333', '#ddd', true)
    * }
    *
    * // styled-components usage
@@ -3205,27 +3211,40 @@
    *   color: ${readableColor('#000')};
    *   color: ${readableColor('black', '#001', '#ff8')};
    *   color: ${readableColor('white', '#001', '#ff8')};
+   *   color: ${readableColor('red', '#333', '#ddd', true)};
    * `
    *
    * // CSS in JS Output
-   *
    * element {
    *   color: "#fff";
    *   color: "#ff8";
    *   color: "#001";
+   *   color: "#000";
    * }
    */
 
-  function readableColor(color, lightReturnColor, darkReturnColor) {
+  function readableColor(color, lightReturnColor, darkReturnColor, strict) {
     if (lightReturnColor === void 0) {
-      lightReturnColor = '#000';
+      lightReturnColor = defaultLightReturnColor;
     }
 
     if (darkReturnColor === void 0) {
-      darkReturnColor = '#fff';
+      darkReturnColor = defaultDarkReturnColor;
     }
 
-    return getLuminance(color) > 0.179 ? lightReturnColor : darkReturnColor;
+    if (strict === void 0) {
+      strict = false;
+    }
+
+    var isLightColor = getLuminance(color) > 0.179;
+    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor; // TODO: Make `strict` the default behaviour in the next major release.
+    // Without `strict`, this may return a color that does not meet WCAG AA.
+
+    if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
+      return preferredReturnColor;
+    }
+
+    return isLightColor ? defaultLightReturnColor : defaultDarkReturnColor;
   }
 
   /**

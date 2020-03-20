@@ -5017,11 +5017,16 @@ can convert a RgbColor or RgbaColor object back to a string.</p>
   </div>
   
 
-  <p>Returns black or white (or optional light and dark return colors) for best contrast depending on the luminosity of the given color.
-Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
+  <p>Returns black or white (or optional light and dark return colors) for best
+contrast depending on the luminosity of the given color.
+When passing custom return colors, set <code>strict</code> to <code>true</code> to ensure that the
+return color always meets or exceeds WCAG level AA or greater. If this test
+fails, the default return color (black or white) is returned in place of the
+custom return color.</p>
+<p>Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
 
 
-  <div class='pre p1 fill-light mt0'>readableColor(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lightReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, darkReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>readableColor(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lightReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, darkReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, strict: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -5053,7 +5058,7 @@ Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for read
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>lightReturnColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&#39;#000&#39;</code>)</code>
+            = <code>defaultLightReturnColor</code>)</code>
 	    
           </div>
           
@@ -5062,7 +5067,16 @@ Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for read
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>darkReturnColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&#39;#fff&#39;</code>)</code>
+            = <code>defaultDarkReturnColor</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>strict</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>false</code>)</code>
 	    
           </div>
           
@@ -5101,6 +5115,7 @@ Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for read
   <span class="hljs-built_in">color</span>: readableColor(<span class="hljs-string">'#000'</span>),
   <span class="hljs-built_in">color</span>: readableColor(<span class="hljs-string">'black'</span>, <span class="hljs-string">'#001'</span>, <span class="hljs-string">'#ff8'</span>),
   <span class="hljs-built_in">color</span>: readableColor(<span class="hljs-string">'white'</span>, <span class="hljs-string">'#001'</span>, <span class="hljs-string">'#ff8'</span>),
+  <span class="hljs-built_in">color</span>: readableColor(<span class="hljs-string">'red'</span>, <span class="hljs-string">'#333'</span>, <span class="hljs-string">'#ddd'</span>, <span class="hljs-keyword">true</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
@@ -5108,14 +5123,15 @@ Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for read
   <span class="hljs-built_in">color</span>: ${readableColor(<span class="hljs-string">'#000'</span>)};
   <span class="hljs-built_in">color</span>: ${readableColor(<span class="hljs-string">'black'</span>, <span class="hljs-string">'#001'</span>, <span class="hljs-string">'#ff8'</span>)};
   <span class="hljs-built_in">color</span>: ${readableColor(<span class="hljs-string">'white'</span>, <span class="hljs-string">'#001'</span>, <span class="hljs-string">'#ff8'</span>)};
+  <span class="hljs-built_in">color</span>: ${readableColor(<span class="hljs-string">'red'</span>, <span class="hljs-string">'#333'</span>, <span class="hljs-string">'#ddd'</span>, <span class="hljs-keyword">true</span>)};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
-
 element {
   <span class="hljs-built_in">color</span>: <span class="hljs-string">"#fff"</span>;
   <span class="hljs-built_in">color</span>: <span class="hljs-string">"#ff8"</span>;
   <span class="hljs-built_in">color</span>: <span class="hljs-string">"#001"</span>;
+  <span class="hljs-built_in">color</span>: <span class="hljs-string">"#000"</span>;
 }</pre>
     
   
@@ -8333,7 +8349,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   </div>
   
 
-  <p>Fetches the value of a CSS Variable.</p>
+  <p>Fetches the value of a passed CSS Variable.</p>
 
 
   <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
@@ -9021,7 +9037,7 @@ element {
   </div>
   
 
-  <p>Returns a given CSS value minus its unit (or the original value if an invalid string is passed). Optionally returns an array containing the stripped value and the original unit of measure.</p>
+  <p>Returns a given CSS value minus its unit of measure.</p>
 
 
   <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): any</div>
@@ -9091,21 +9107,18 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>),
-  <span class="hljs-string">'--unit'</span>: stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>],
+  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
   --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)}</span>;
-  --unit: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>;
 `</span>
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
-  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
+  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
 }</pre>
     
   
