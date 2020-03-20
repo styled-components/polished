@@ -8350,9 +8350,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   
 
   <p>Fetches the value of a passed CSS Variable.</p>
+<p>Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.</p>
 
 
-  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, passThrough: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
     <p>
@@ -8376,6 +8377,14 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>cssVariable</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>passThrough</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?)</code>
 	    
           </div>
           

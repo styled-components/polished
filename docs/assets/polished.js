@@ -619,6 +619,8 @@
   /**
    * Fetches the value of a passed CSS Variable.
    *
+   * Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.
+   *
    * @example
    * // Styles as object usage
    * const styles = {
@@ -637,8 +639,9 @@
    * }
    */
 
-  function cssVar(cssVariable) {
+  function cssVar(cssVariable, passThrough) {
     if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
+      if (passThrough) return cssVariable;
       throw new PolishedError(73);
     }
 
@@ -3116,7 +3119,7 @@
 
     var color2 = _extends({}, parsedColor2, {
       alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
-    }); // The formular is copied from the original Sass implementation:
+    }); // The formula is copied from the original Sass implementation:
     // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
 
 
