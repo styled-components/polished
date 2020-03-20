@@ -10277,10 +10277,10 @@ element {
   </div>
   
 
-  <p>Fetches</p>
+  <p>Fetches the value of a CSS Variable.</p>
 
 
-  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
+  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
     <p>
@@ -10322,7 +10322,7 @@ element {
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
     
   
 
@@ -10339,21 +10339,18 @@ element {
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-string">'--dimension'</span>: stripUnit(<span class="hljs-string">'100px'</span>),
-  <span class="hljs-string">'--unit'</span>: stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>],
+  <span class="hljs-string">'background'</span>: cssVar(<span class="hljs-string">'--background-color'</span>),
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
-  --dimension: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)}</span>;
-  --unit: <span class="hljs-subst">${stripUnit(<span class="hljs-string">'100px'</span>)[<span class="hljs-number">1</span>]}</span>;
+  background: <span class="hljs-subst">${cssVar(<span class="hljs-string">'--background-color'</span>)}</span>;
 `</span>
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>,
-  <span class="hljs-string">'--unit'</span>: <span class="hljs-string">'px'</span>,
+  <span class="hljs-string">'background'</span>: <span class="hljs-string">'red'</span>
 }</pre>
     
   
