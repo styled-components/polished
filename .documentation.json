@@ -90,6 +90,7 @@
     {
       "name": "Helpers"
     },
+    "cssVar",
     "directionalProperty",
     "em",
     "getValueAndUnit",

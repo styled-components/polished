@@ -615,6 +615,51 @@
     return "" + calculate(cleanFormula, additionalSymbols) + (formulaMatch ? reverseString(formulaMatch[0]) : '');
   }
 
+  var cssVariableRegex = /--[\S]*/g;
+  /**
+   * Fetches the value of a CSS Variable.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'background': cssVar('--background-color'),
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   background: ${cssVar('--background-color')};
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   'background': 'red'
+   * }
+   */
+
+  function cssVar(cssVariable) {
+    if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
+      throw new PolishedError(73);
+    }
+
+    var variableValue;
+    /* eslint-disable */
+
+    /* istanbul ignore next */
+
+    if (document.documentElement !== null) {
+      variableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+    }
+    /* eslint-enable */
+
+
+    if (variableValue) {
+      return variableValue;
+    } else {
+      throw new PolishedError(74);
+    }
+  }
+
   // @private
   function capitalizeString(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -4133,6 +4178,7 @@
   exports.clearFix = clearFix;
   exports.complement = complement;
   exports.cover = cover;
+  exports.cssVar = cssVar;
   exports.darken = curriedDarken;
   exports.desaturate = curriedDesaturate;
   exports.directionalProperty = directionalProperty;
