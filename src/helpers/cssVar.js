@@ -6,6 +6,8 @@ const cssVariableRegex = /--[\S]*/g
 /**
  * Fetches the value of a passed CSS Variable.
  *
+ * Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -23,8 +25,12 @@ const cssVariableRegex = /--[\S]*/g
  *   'background': 'red'
  * }
  */
-export default function cssVar(cssVariable: string): string | number {
+export default function cssVar(
+  cssVariable: string,
+  passThrough?: boolean,
+): string | number {
   if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
+    if (passThrough) return cssVariable
     throw new PolishedError(73)
   }
 
