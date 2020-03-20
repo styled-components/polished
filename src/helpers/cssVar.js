@@ -4,7 +4,7 @@ import PolishedError from '../internalHelpers/_errors'
 const cssVariableRegex = /--[\S]*/g
 
 /**
- * Fetches the value of a CSS Variable.
+ * Fetches the value of a passed CSS Variable.
  *
  * @example
  * // Styles as object usage
