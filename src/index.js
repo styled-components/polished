@@ -4,6 +4,7 @@
 import math from './math/math'
 
 // Helpers
+import cssVar from './helpers/cssVar'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
 import getValueAndUnit from './helpers/getValueAndUnit'
@@ -92,6 +93,7 @@ export {
   clearFix,
   complement,
   cover,
+  cssVar,
   darken,
   desaturate,
   directionalProperty,

@@ -80,7 +80,6 @@
     "@babel/preset-flow": "^7.0.0",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
-    "@testing-library/dom": "^7.0.4",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "babel-plugin-add-module-exports": "^1.0.2",
