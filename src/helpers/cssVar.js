@@ -9,32 +9,35 @@ const cssVariableRegex = /--[\S]*/g
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit('100px'),
- *   '--unit': stripUnit('100px')[1],
+ *   'background': cssVar('--background-color'),
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   --dimension: ${stripUnit('100px')};
- *   --unit: ${stripUnit('100px')[1]};
+ *   background: ${cssVar('--background-color')};
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   '--dimension': 100,
- *   '--unit': 'px',
+ *   'background': 'red'
  * }
  */
-export default function cssVar(cssVariable: string): any {
+export default function cssVar(cssVariable: string): string | number {
   if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
     throw new PolishedError(73)
   }
-  // eslint-disable-next-line no-undef
-  const variableValue = getComputedStyle(
-    // eslint-disable-next-line no-undef
-    document.documentElement,
-  ).getPropertyValue(cssVariable)
+
+  let variableValue
+
+  /* eslint-disable */
+  /* istanbul ignore next */
+  if (document.documentElement !== null) {
+    variableValue = getComputedStyle(document.documentElement).getPropertyValue(
+      cssVariable,
+    )
+  }
+  /* eslint-enable */
 
   if (variableValue) {
     return variableValue
