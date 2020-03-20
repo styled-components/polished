@@ -3,28 +3,25 @@
 const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
 
 /**
- * Returns a given CSS value minus its unit.
+ * Returns a given CSS value minus its unit of measure.
  *
  * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.
  *
  * @example
  * // Styles as object usage
  * const styles = {
- *   '--dimension': stripUnit('100px'),
- *   '--unit': stripUnit('100px')[1],
+ *   '--dimension': stripUnit('100px')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   --dimension: ${stripUnit('100px')};
- *   --unit: ${stripUnit('100px')[1]};
  * `
  *
  * // CSS in JS Output
  *
  * element {
- *   '--dimension': 100,
- *   '--unit': 'px',
+ *   '--dimension': 100
  * }
  */
 export default function stripUnit(
