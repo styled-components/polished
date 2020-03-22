@@ -32,6 +32,7 @@ export default function stripUnit(
   const matchedValue = value.match(cssRegex)
 
   if (unitReturn) {
+    // eslint-disable-next-line no-console
     console.warn(
       "stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.",
     )
