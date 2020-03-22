@@ -68,5 +68,5 @@ export default function modularScale(
     throw new PolishedError(44, base)
   }
 
-  return `${realBase * realRatio ** steps}${unit}`
+  return `${realBase * realRatio ** steps}${unit || ''}`
 }
