@@ -1,5 +1,5 @@
 // @flow
-import stripUnit from './stripUnit'
+import getValueAndUnit from './getValueAndUnit'
 import PolishedError from '../internalHelpers/_errors'
 
 import type { ModularScaleRatio } from '../types/modularScaleRatio'
@@ -61,7 +61,7 @@ export default function modularScale(
     throw new PolishedError(43)
   }
 
-  const [realBase, unit] = typeof base === 'string' ? stripUnit(base, true) : [base, '']
+  const [realBase, unit] = typeof base === 'string' ? getValueAndUnit(base) : [base, '']
   const realRatio = typeof ratio === 'string' ? getRatio(ratio) : ratio
 
   if (typeof realBase === 'string') {

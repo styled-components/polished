@@ -1,5 +1,5 @@
 // @flow
-import stripUnit from '../helpers/stripUnit'
+import getValueAndUnit from '../helpers/getValueAndUnit'
 import PolishedError from '../internalHelpers/_errors'
 
 /**
@@ -31,10 +31,10 @@ export default function between(
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
 ): string {
-  const [unitlessFromSize, fromSizeUnit] = stripUnit(fromSize, true)
-  const [unitlessToSize, toSizeUnit] = stripUnit(toSize, true)
-  const [unitlessMinScreen, minScreenUnit] = stripUnit(minScreen, true)
-  const [unitlessMaxScreen, maxScreenUnit] = stripUnit(maxScreen, true)
+  const [unitlessFromSize, fromSizeUnit] = getValueAndUnit(fromSize)
+  const [unitlessToSize, toSizeUnit] = getValueAndUnit(toSize)
+  const [unitlessMinScreen, minScreenUnit] = getValueAndUnit(minScreen)
+  const [unitlessMaxScreen, maxScreenUnit] = getValueAndUnit(maxScreen)
 
   if (
     typeof unitlessMinScreen !== 'number'
