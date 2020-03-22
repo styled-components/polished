@@ -1,5 +1,5 @@
 // @flow
-import stripUnit from '../helpers/stripUnit'
+import getValueAndUnit from '../helpers/getValueAndUnit'
 import PolishedError from '../internalHelpers/_errors'
 
 import type { SideKeyword } from '../types/sideKeyword'
@@ -94,8 +94,8 @@ export default function triangle({
   foregroundColor,
   backgroundColor = 'transparent',
 }: TriangleConfiguration): Styles {
-  const widthAndUnit = stripUnit(width, true)
-  const heightAndUnit = stripUnit(height, true)
+  const widthAndUnit = getValueAndUnit(width)
+  const heightAndUnit = getValueAndUnit(height)
 
   if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
     throw new PolishedError(60)
