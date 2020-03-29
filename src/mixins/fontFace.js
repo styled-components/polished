@@ -38,7 +38,7 @@ function generateFileReferences(
   }
 
   const fileFontReferences = fileFormats.map(
-    format => `url("${fontFilePath}.${format}")${generateFormatHint(
+    (format) => `url("${fontFilePath}.${format}")${generateFormatHint(
       format,
       formatHint,
     )}`,
@@ -47,13 +47,13 @@ function generateFileReferences(
 }
 
 function generateLocalReferences(localFonts: Array<string>): string {
-  const localFontReferences = localFonts.map(font => `local("${font}")`)
+  const localFontReferences = localFonts.map((font) => `local("${font}")`)
   return localFontReferences.join(', ')
 }
 
 function generateSources(
   fontFilePath?: string,
-  localFonts?: Array<string>,
+  localFonts: Array<string> | null,
   fileFormats: Array<string>,
   formatHint: boolean,
 ): string {
@@ -68,7 +68,7 @@ function generateSources(
 }
 
 /**
- * CSS for a @font-face declaration.
+ * CSS for a @font-face declaration. Defaults to check for local copies of the font on the user's machine. You can disable this by passing `null` to localFonts.
  *
  * @example
  * // Styles as object basic usage
@@ -104,7 +104,7 @@ export default function fontFace({
   fontWeight,
   fileFormats = ['eot', 'woff2', 'woff', 'ttf', 'svg'],
   formatHint = false,
-  localFonts,
+  localFonts = [fontFamily],
   unicodeRange,
   fontDisplay,
   fontVariationSettings,
