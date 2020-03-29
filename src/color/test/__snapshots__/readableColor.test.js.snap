@@ -34,6 +34,8 @@ exports[`readableColor should return the default dark background when contrast f
 
 exports[`readableColor should return the default light background when contrast fails AA in strict mode 1`] = `"#000"`;
 
+exports[`readableColor should return the the passed colors when constrast fails AA with strict mode off 1`] = `"#aaa"`;
+
 exports[`readableColor should return white given black, "black" 1`] = `"#fff"`;
 
 exports[`readableColor should return white given black, #000 1`] = `"#fff"`;
