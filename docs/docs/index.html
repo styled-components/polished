@@ -5019,10 +5019,10 @@ can convert a RgbColor or RgbaColor object back to a string.</p>
 
   <p>Returns black or white (or optional light and dark return colors) for best
 contrast depending on the luminosity of the given color.
-When passing custom return colors, set <code>strict</code> to <code>true</code> to ensure that the
+When passing custom return colors, strict mode ensures that the
 return color always meets or exceeds WCAG level AA or greater. If this test
 fails, the default return color (black or white) is returned in place of the
-custom return color.</p>
+custom return color. You can optionally turn off strict mode.</p>
 <p>Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
 
 
@@ -5076,7 +5076,7 @@ custom return color.</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>strict</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-            = <code>false</code>)</code>
+            = <code>true</code>)</code>
 	    
           </div>
           
@@ -9049,7 +9049,7 @@ element {
   <p>Returns a given CSS value minus its unit of measure.</p>
 
 
-  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): any</div>
+  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
     <p>
@@ -9078,14 +9078,6 @@ element {
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>unitReturn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -9099,7 +9091,7 @@ element {
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
     
   
 
