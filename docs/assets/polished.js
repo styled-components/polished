@@ -641,8 +641,6 @@
   /**
    * Returns a given CSS value minus its unit of measure.
    *
-   * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.
-   *
    * @example
    * // Styles as object usage
    * const styles = {
@@ -661,19 +659,10 @@
    * }
    */
 
-  function stripUnit(value, unitReturn) {
-    if (typeof value !== 'string') return unitReturn ? [value, undefined] : value;
+  function stripUnit(value) {
+    if (typeof value !== 'string') return value;
     var matchedValue = value.match(cssRegex);
-
-    if (unitReturn) {
-      // eslint-disable-next-line no-console
-      console.warn("stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.");
-      if (matchedValue) return [parseFloat(value), matchedValue[2]];
-      return [value, undefined];
-    }
-
-    if (matchedValue) return parseFloat(value);
-    return value;
+    return matchedValue ? parseFloat(value) : value;
   }
 
   /**
@@ -3075,10 +3064,10 @@
   /**
    * Returns black or white (or optional light and dark return colors) for best
    * contrast depending on the luminosity of the given color.
-   * When passing custom return colors, set `strict` to `true` to ensure that the
+   * When passing custom return colors, strict mode ensures that the
    * return color always meets or exceeds WCAG level AA or greater. If this test
    * fails, the default return color (black or white) is returned in place of the
-   * custom return color.
+   * custom return color. You can optionally turn off strict mode.
    *
    * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
    *
@@ -3118,12 +3107,11 @@
     }
 
     if (strict === void 0) {
-      strict = false;
+      strict = true;
     }
 
     var isLightColor = getLuminance(color) > 0.179;
-    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor; // TODO: Make `strict` the default behaviour in the next major release.
-    // Without `strict`, this may return a color that does not meet WCAG AA.
+    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor;
 
     if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
       return preferredReturnColor;
