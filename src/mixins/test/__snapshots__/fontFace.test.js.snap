@@ -4,7 +4,7 @@ exports[`fontFace should respect the file format configuration object 1`] = `
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "url(\\"path/to/file.eot\\"), url(\\"path/to/file.svg\\")",
+    "src": "local(\\"Sans Pro\\"), url(\\"path/to/file.eot\\"), url(\\"path/to/file.svg\\")",
   },
 }
 `;
@@ -27,11 +27,20 @@ Object {
 }
 `;
 
-exports[`fontFace should return a valid object when passed just a family and source 1`] = `
+exports[`fontFace should return a valid object when passed false for localFonts 1`] = `
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
     "src": "url(\\"path/to/file.eot\\"), url(\\"path/to/file.woff2\\"), url(\\"path/to/file.woff\\"), url(\\"path/to/file.ttf\\"), url(\\"path/to/file.svg\\")",
+  },
+}
+`;
+
+exports[`fontFace should return a valid object when passed just a family and source 1`] = `
+Object {
+  "@font-face": Object {
+    "fontFamily": "Sans Pro",
+    "src": "local(\\"Sans Pro\\"), url(\\"path/to/file.eot\\"), url(\\"path/to/file.woff2\\"), url(\\"path/to/file.woff\\"), url(\\"path/to/file.ttf\\"), url(\\"path/to/file.svg\\")",
   },
 }
 `;
@@ -49,7 +58,7 @@ exports[`fontFace should return base64 src 1`] = `
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\")",
+    "src": "local(\\"Sans Pro\\"), url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\")",
   },
 }
 `;
@@ -58,7 +67,7 @@ exports[`fontFace should return base64 src with format hint 1`] = `
 Object {
   "@font-face": Object {
     "fontFamily": "Sans Pro",
-    "src": "url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\") format(\\"woff\\")",
+    "src": "local(\\"Sans Pro\\"), url(\\"data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC\\") format(\\"woff\\")",
   },
 }
 `;
@@ -70,7 +79,7 @@ Object {
     "fontStretch": "condensed",
     "fontStyle": "italic",
     "fontWeight": "bold",
-    "src": "url(\\"path/to/file.eot\\") format(\\"embedded-opentype\\"), url(\\"path/to/file.svg\\") format(\\"svg\\"), url(\\"path/to/file.svgz\\") format(\\"svg\\"), url(\\"path/to/file.woff\\") format(\\"woff\\"), url(\\"path/to/file.woff2\\") format(\\"woff2\\"), url(\\"path/to/file.otf\\") format(\\"opentype\\"), url(\\"path/to/file.ttf\\") format(\\"truetype\\")",
+    "src": "local(\\"Sans Pro\\"), url(\\"path/to/file.eot\\") format(\\"embedded-opentype\\"), url(\\"path/to/file.svg\\") format(\\"svg\\"), url(\\"path/to/file.svgz\\") format(\\"svg\\"), url(\\"path/to/file.woff\\") format(\\"woff\\"), url(\\"path/to/file.woff2\\") format(\\"woff2\\"), url(\\"path/to/file.otf\\") format(\\"opentype\\"), url(\\"path/to/file.ttf\\") format(\\"truetype\\")",
   },
 }
 `;
@@ -86,7 +95,7 @@ Object {
     "fontVariant": "small-caps",
     "fontVariationSettings": "\\"XHGT\\" 0.7",
     "fontWeight": "bold",
-    "src": "url(\\"path/to/file.eot\\"), url(\\"path/to/file.woff2\\"), url(\\"path/to/file.woff\\"), url(\\"path/to/file.ttf\\"), url(\\"path/to/file.svg\\")",
+    "src": "local(\\"Sans Pro\\"), url(\\"path/to/file.eot\\"), url(\\"path/to/file.woff2\\"), url(\\"path/to/file.woff\\"), url(\\"path/to/file.ttf\\"), url(\\"path/to/file.svg\\")",
     "unicodeRange": "U+26",
   },
 }
