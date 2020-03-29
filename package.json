@@ -55,13 +55,11 @@
   "lint-staged": {
     "src/**/!(*.test).js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "src/**/*.test.js": [
       "prettier --no-semi --single-quote --trailing-comma all --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "watch": {
