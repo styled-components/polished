@@ -5,7 +5,7 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
 /**
  * Returns a given CSS value minus its unit of measure.
  *
- * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.
+ * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.
  *
  * @example
  * // Styles as object usage
@@ -34,7 +34,7 @@ export default function stripUnit(
   if (unitReturn) {
     // eslint-disable-next-line no-console
     console.warn(
-      "stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.",
+      "stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.",
     )
     if (matchedValue) return [parseFloat(value), matchedValue[2]]
     return [value, undefined]
