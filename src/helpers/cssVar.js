@@ -46,7 +46,7 @@ export default function cssVar(
   /* eslint-enable */
 
   if (variableValue) {
-    return variableValue
+    return variableValue.trim()
   } else {
     throw new PolishedError(74)
   }
