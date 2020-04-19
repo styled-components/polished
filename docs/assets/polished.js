@@ -657,7 +657,7 @@
 
 
     if (variableValue) {
-      return variableValue;
+      return variableValue.trim();
     } else {
       throw new PolishedError(74);
     }
@@ -749,7 +749,7 @@
   /**
    * Returns a given CSS value minus its unit of measure.
    *
-   * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.
+   * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.
    *
    * @example
    * // Styles as object usage
@@ -774,7 +774,8 @@
     var matchedValue = value.match(cssRegex);
 
     if (unitReturn) {
-      console.warn("stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getUnitAndValue.");
+      // eslint-disable-next-line no-console
+      console.warn("stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.");
       if (matchedValue) return [parseFloat(value), matchedValue[2]];
       return [value, undefined];
     }
@@ -946,7 +947,7 @@
       throw new PolishedError(43);
     }
 
-    var _ref = typeof base === 'string' ? stripUnit(base, true) : [base, ''],
+    var _ref = typeof base === 'string' ? getValueAndUnit(base) : [base, ''],
         realBase = _ref[0],
         unit = _ref[1];
 
@@ -956,7 +957,7 @@
       throw new PolishedError(44, base);
     }
 
-    return "" + realBase * Math.pow(realRatio, steps) + unit;
+    return "" + realBase * Math.pow(realRatio, steps) + (unit || '');
   }
 
   /**
@@ -1018,21 +1019,21 @@
       maxScreen = '1200px';
     }
 
-    var _stripUnit = stripUnit(fromSize, true),
-        unitlessFromSize = _stripUnit[0],
-        fromSizeUnit = _stripUnit[1];
+    var _getValueAndUnit = getValueAndUnit(fromSize),
+        unitlessFromSize = _getValueAndUnit[0],
+        fromSizeUnit = _getValueAndUnit[1];
 
-    var _stripUnit2 = stripUnit(toSize, true),
-        unitlessToSize = _stripUnit2[0],
-        toSizeUnit = _stripUnit2[1];
+    var _getValueAndUnit2 = getValueAndUnit(toSize),
+        unitlessToSize = _getValueAndUnit2[0],
+        toSizeUnit = _getValueAndUnit2[1];
 
-    var _stripUnit3 = stripUnit(minScreen, true),
-        unitlessMinScreen = _stripUnit3[0],
-        minScreenUnit = _stripUnit3[1];
+    var _getValueAndUnit3 = getValueAndUnit(minScreen),
+        unitlessMinScreen = _getValueAndUnit3[0],
+        minScreenUnit = _getValueAndUnit3[1];
 
-    var _stripUnit4 = stripUnit(maxScreen, true),
-        unitlessMaxScreen = _stripUnit4[0],
-        maxScreenUnit = _stripUnit4[1];
+    var _getValueAndUnit4 = getValueAndUnit(maxScreen),
+        unitlessMaxScreen = _getValueAndUnit4[0],
+        maxScreenUnit = _getValueAndUnit4[1];
 
     if (typeof unitlessMinScreen !== 'number' || typeof unitlessMaxScreen !== 'number' || !minScreenUnit || !maxScreenUnit || minScreenUnit !== maxScreenUnit) {
       throw new PolishedError(47);
@@ -1979,8 +1980,8 @@
         foregroundColor = _ref.foregroundColor,
         _ref$backgroundColor = _ref.backgroundColor,
         backgroundColor = _ref$backgroundColor === void 0 ? 'transparent' : _ref$backgroundColor;
-    var widthAndUnit = stripUnit(width, true);
-    var heightAndUnit = stripUnit(height, true);
+    var widthAndUnit = getValueAndUnit(width);
+    var heightAndUnit = getValueAndUnit(height);
 
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
       throw new PolishedError(60);
