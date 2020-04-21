@@ -25,6 +25,7 @@ const getBabelOptions = ({ useESModules }, targets) => ({
       "@babel/preset-env",
       {
         loose: true,
+        modules: false,
         exclude: [/transform-typeof-symbol/],
         targets,
         bugfixes: true
