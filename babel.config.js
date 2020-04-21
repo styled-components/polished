@@ -6,5 +6,9 @@ module.exports = {
     ["@babel/env", { loose: true, exclude: [/transform-typeof-symbol/] }],
     "@babel/flow"
   ],
-  plugins: [cjs && "add-module-exports", "annotate-pure-calls", "preval"].filter(Boolean)
+  plugins: [
+    cjs && "add-module-exports",
+    "annotate-pure-calls",
+    "preval"
+  ].filter(Boolean)
 };

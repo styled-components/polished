@@ -164,11 +164,11 @@ describe('triangle', () => {
 
   it('should throw an error when pointingDirection does not match corresponding options', () => {
     expect(() => {
-      // $FlowFixMe
       triangle({
         foregroundColor: 'blue',
         height: '20px',
         width: '10px',
+        // $FlowFixMe
         pointingDirection: false,
       })
     }).toThrow(

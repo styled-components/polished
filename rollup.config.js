@@ -1,42 +1,92 @@
-import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "rollup-plugin-babel";
+import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
-import { uglify } from "rollup-plugin-uglify";
+import sourceMaps from "rollup-plugin-sourcemaps";
+import { terser } from "rollup-plugin-terser";
+
+const root = process.platform === "win32" ? path.resolve("/") : "/";
+const external = id => !id.startsWith(".") && !id.startsWith(root);
+const globals = {
+  '@babel/runtime/helpers/esm/extends': 'extends',
+  '@babel/runtime/helpers/esm/assertThisInitialized': 'assertThisInitialized',
+  '@babel/runtime/helpers/esm/inheritsLoose': 'inheritsLoose',
+  '@babel/runtime/helpers/esm/wrapNativeSuper': 'wrapNativeSuper',
+  '@babel/runtime/helpers/esm/taggedTemplateLiteralLoose': 'taggedTemplateLiteralLoose'
+};
 
 const input = "src/index.js";
 const name = "polished";
-const babelOptions = {
+
+const getBabelOptions = ({ useESModules }, targets) => ({
+  babelrc: false,
   runtimeHelpers: true,
-  plugins: [["@babel/transform-runtime", { useESModules: true }]]
-};
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        loose: true,
+        exclude: [/transform-typeof-symbol/],
+        targets,
+        bugfixes: true
+      }
+    ],
+    "@babel/flow"
+  ],
+  plugins: [
+    "add-module-exports",
+    "annotate-pure-calls",
+    "preval",
+    ["@babel/transform-runtime", { useESModules }]
+  ]
+});
 
 export default [
   {
     input,
-    output: { file: "dist/polished.es.js", format: "es" },
-    // treat as external all node modules
-    external: id => !id.startsWith(".") && !id.startsWith("/"),
-    plugins: [babel(babelOptions)]
+    output: { file: `dist/${name}.esm.js`, format: "esm" },
+    external,
+    plugins: [
+      sourceMaps(),
+      resolve(),
+      babel(
+        getBabelOptions(
+          { useESModules: true },
+          { esmodules: true }
+        )
+      )
+    ]
   },
-
   {
     input,
-    output: { file: "dist/polished.js", format: "umd", name },
+    output: { file: `dist/${name}.cjs.js`, format: "cjs" },
+    external,
     plugins: [
-      nodeResolve(),
-      babel(babelOptions),
+      sourceMaps(),
+      resolve(),
+      babel(getBabelOptions({ useESModules: false }))
+    ]
+  },
+  {
+    input,
+    output: { file: `dist/${name}.js`, format: "umd", name, globals },
+    external,
+    plugins: [
+      sourceMaps(),
+      resolve(),
+      babel(getBabelOptions({ useESModules: true })),
       replace({ "process.env.NODE_ENV": JSON.stringify("development") })
     ]
   },
-
   {
     input,
-    output: { file: "dist/polished.min.js", format: "umd", name },
+    output: { file: `dist/${name}.min.js`, format: "umd", name, globals },
+    external,
     plugins: [
-      nodeResolve(),
-      babel(babelOptions),
+      sourceMaps(),
+      resolve(),
+      babel(getBabelOptions({ useESModules: true })),
       replace({ "process.env.NODE_ENV": JSON.stringify("production") }),
-      uglify()
+      terser()
     ]
   }
 ];
