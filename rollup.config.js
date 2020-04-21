@@ -49,13 +49,8 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(
-        getBabelOptions(
-          { useESModules: true },
-          { esmodules: true }
-        )
-      )
-    ]
+      babel(getBabelOptions({ useESModules: true }, { esmodules: true })),
+    ],
   },
   {
     input,
@@ -64,8 +59,13 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(getBabelOptions({ useESModules: false }))
-    ]
+      babel(
+        getBabelOptions(
+          { useESModules: false },
+          ">0.5%, not dead, ie >= 11, not op_mini all"
+        )
+      ),
+    ],
   },
   {
     input,
@@ -74,9 +74,14 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(getBabelOptions({ useESModules: true })),
-      replace({ "process.env.NODE_ENV": JSON.stringify("development") })
-    ]
+      babel(
+        getBabelOptions(
+          { useESModules: true },
+          ">0.5%, not dead, ie >= 11, not op_mini all"
+        )
+      ),
+      replace({ "process.env.NODE_ENV": JSON.stringify("development") }),
+    ],
   },
   {
     input,
@@ -85,9 +90,14 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(getBabelOptions({ useESModules: true })),
+      babel(
+        getBabelOptions(
+          { useESModules: true },
+          ">0.5%, not dead, ie >= 11, not op_mini all"
+        )
+      ),
       replace({ "process.env.NODE_ENV": JSON.stringify("production") }),
-      terser()
-    ]
-  }
+      terser(),
+    ],
+  },
 ];
