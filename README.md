@@ -35,6 +35,11 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 
 When `✨ polished` modules are imported properly, tree shaking in [webpack](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
+## Browser Support
+All Evergreen Browsers + IE11
+
+As of v3.5.X we use `esmodules: true` for our ESM build and `>0.5%, not dead, ie >= 11, not op_mini all` for CJS and UMD builds.
+
 ## Flow Type Definitions
 
 `✨ polished` has first-class [Flow](https://flow.org/) support with zero configuration to assist you in finding type errors while using our modules.
