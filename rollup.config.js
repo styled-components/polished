@@ -5,13 +5,14 @@ import sourceMaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
 
 const root = process.platform === "win32" ? path.resolve("/") : "/";
-const external = id => !id.startsWith(".") && !id.startsWith(root);
+const external = (id) => !id.startsWith(".") && !id.startsWith(root);
 const globals = {
-  '@babel/runtime/helpers/esm/extends': 'extends',
-  '@babel/runtime/helpers/esm/assertThisInitialized': 'assertThisInitialized',
-  '@babel/runtime/helpers/esm/inheritsLoose': 'inheritsLoose',
-  '@babel/runtime/helpers/esm/wrapNativeSuper': 'wrapNativeSuper',
-  '@babel/runtime/helpers/esm/taggedTemplateLiteralLoose': 'taggedTemplateLiteralLoose'
+  "@babel/runtime/helpers/esm/extends": "extends",
+  "@babel/runtime/helpers/esm/assertThisInitialized": "assertThisInitialized",
+  "@babel/runtime/helpers/esm/inheritsLoose": "inheritsLoose",
+  "@babel/runtime/helpers/esm/wrapNativeSuper": "wrapNativeSuper",
+  "@babel/runtime/helpers/esm/taggedTemplateLiteralLoose":
+    "taggedTemplateLiteralLoose",
 };
 
 const input = "src/index.js";
@@ -28,17 +29,21 @@ const getBabelOptions = ({ useESModules }, targets) => ({
         modules: false,
         exclude: [/transform-typeof-symbol/],
         targets,
-        bugfixes: true
-      }
+        bugfixes: true,
+      },
     ],
-    "@babel/flow"
+    "@babel/flow",
   ],
   plugins: [
     "add-module-exports",
     "annotate-pure-calls",
     "preval",
-    ["@babel/transform-runtime", { useESModules }]
-  ]
+    [
+      "@babel/transform-runtime",
+      { useESModules },
+      ">0.5%, not dead, ie >= 11, not op_mini all",
+    ],
+  ],
 });
 
 export default [
@@ -49,7 +54,7 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(getBabelOptions({ useESModules: true }, { esmodules: true })),
+      babel(getBabelOptions({ useESModules: true })),
     ],
   },
   {
@@ -59,12 +64,7 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(
-        getBabelOptions(
-          { useESModules: false },
-          ">0.5%, not dead, ie >= 11, not op_mini all"
-        )
-      ),
+      babel(getBabelOptions({ useESModules: false })),
     ],
   },
   {
@@ -74,12 +74,7 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(
-        getBabelOptions(
-          { useESModules: true },
-          ">0.5%, not dead, ie >= 11, not op_mini all"
-        )
-      ),
+      babel(getBabelOptions({ useESModules: true })),
       replace({ "process.env.NODE_ENV": JSON.stringify("development") }),
     ],
   },
@@ -90,12 +85,7 @@ export default [
     plugins: [
       sourceMaps(),
       resolve(),
-      babel(
-        getBabelOptions(
-          { useESModules: true },
-          ">0.5%, not dead, ie >= 11, not op_mini all"
-        )
-      ),
+      babel(getBabelOptions({ useESModules: true })),
       replace({ "process.env.NODE_ENV": JSON.stringify("production") }),
       terser(),
     ],
