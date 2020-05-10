@@ -34,20 +34,20 @@ export default function important(
     throw new PolishedError(75, typeof styleBlock)
   }
 
+  const newStyleBlock = {}
+
   Object.keys(styleBlock).forEach((key) => {
     if (typeof styleBlock[key] === 'object' && styleBlock[key] !== null) {
-      // eslint-disable-next-line no-param-reassign
-      styleBlock[key] = important(styleBlock[key], rules)
+      newStyleBlock[key] = important(styleBlock[key], rules)
     } else if (
       !rules
       || (rules && (rules === key || rules.indexOf(key) >= 0))
     ) {
-      // eslint-disable-next-line no-param-reassign
-      styleBlock[key] = `${styleBlock[key]} !important`
+      newStyleBlock[key] = `${styleBlock[key]} !important`
+    } else {
+      newStyleBlock[key] = styleBlock[key]
     }
   })
 
-  return styleBlock
+  return newStyleBlock
 }
-
-// Errors
