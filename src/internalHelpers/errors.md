@@ -298,3 +298,7 @@ Please provide a valid CSS variable.
 ## 74
 
 CSS variable not found.
+
+## 75
+
+important requires a valid style object, got a %s instead.
