@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`important should add !important to a mixture of unnested and nested target rules when passed as an array 1`] = `
+Object {
+  "background": "blue",
+  "div": Object {
+    "color": "red !important",
+  },
+  "height": "100px !important",
+}
+`;
+
+exports[`important should add !important to a single rule in a flat style block 1`] = `
+Object {
+  "color": "red !important",
+}
+`;
+
+exports[`important should add !important to a single rule in a flat style block when the value is a number 1`] = `
+Object {
+  "fontSize": "12 !important",
+}
+`;
+
+exports[`important should add !important to a specific rule in a polished module 1`] = `
+Object {
+  "bottom": 0,
+  "left": 0,
+  "position": "absolute !important",
+  "right": 0,
+  "top": 0,
+}
+`;
+
+exports[`important should add !important to a target rule when passed as a single item array 1`] = `
+Object {
+  "background": "blue",
+  "color": "red !important",
+}
+`;
+
+exports[`important should add !important to a target rule when passed as a string 1`] = `
+Object {
+  "background": "blue",
+  "color": "red !important",
+}
+`;
+
+exports[`important should add !important to a target rule when passed as an array 1`] = `
+Object {
+  "background": "blue",
+  "color": "red !important",
+  "height": "100px !important",
+}
+`;
+
+exports[`important should add !important to all rules in a polished module 1`] = `
+Object {
+  "bottom": "0 !important",
+  "left": "0 !important",
+  "position": "absolute !important",
+  "right": "0 !important",
+  "top": "0 !important",
+}
+`;
+
+exports[`important should add !important to every rule in a flat style block 1`] = `
+Object {
+  "background": "blue !important",
+  "color": "red !important",
+}
+`;
+
+exports[`important should return original styles when no properties are found 1`] = `
+Object {
+  "background": "blue",
+  "color": "red",
+  "height": "100px",
+}
+`;
