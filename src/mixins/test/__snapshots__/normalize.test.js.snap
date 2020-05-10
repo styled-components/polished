@@ -113,6 +113,9 @@ Array [
       "padding": "0",
       "whiteSpace": "normal",
     },
+    "main": Object {
+      "display": "block",
+    },
     "pre": Object {
       "fontFamily": "monospace, monospace",
       "fontSize": "1em",

@@ -2,7 +2,7 @@
 import type { Styles } from '../types/style'
 
 /**
- * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
+ * CSS to normalize abnormalities across browsers (normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css)
  *
  * @example
  * // Styles as object usage
@@ -30,6 +30,10 @@ export default function normalize(): Array<Styles> {
 
       body: {
         margin: '0',
+      },
+
+      main: {
+        display: 'block',
       },
 
       h1: {
