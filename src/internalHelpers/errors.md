@@ -297,7 +297,7 @@ Please provide a valid CSS variable.
 
 ## 74
 
-CSS variable not found.
+CSS variable not found and no default was provided.
 
 ## 75
 
