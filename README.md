@@ -38,7 +38,7 @@ When `✨ polished` modules are imported properly, tree shaking in [webpack](htt
 ## Browser Support
 All Evergreen Browsers + IE11
 
-As of v3.6.X we use `esmodules: true` for our ESM build and `>0.5%, not dead, ie >= 11, not op_mini all` for CJS and UMD builds.
+As of v3.6.X we support `>0.5%, not dead, ie >= 11, not op_mini all` for all our builds.
 
 ## Flow Type Definitions
 
