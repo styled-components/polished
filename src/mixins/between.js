@@ -54,6 +54,10 @@ export default function between(
     throw new PolishedError(48)
   }
 
+  if (fromSizeUnit !== minScreenUnit || toSizeUnit !== maxScreenUnit) {
+    throw new PolishedError(76)
+  }
+
   const slope = (unitlessFromSize - unitlessToSize)
     / (unitlessMinScreen - unitlessMaxScreen)
   const base = unitlessToSize - slope * unitlessMaxScreen
