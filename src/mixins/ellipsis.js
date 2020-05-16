@@ -2,7 +2,7 @@
 import type { Styles } from '../types/style'
 
 /**
- * CSS to represent truncated text with an ellipsis.
+ * CSS to represent truncated text with an ellipsis. You can optionally pass a max-width and number of lines before truncating.
  *
  * @example
  * // Styles as object usage
@@ -26,13 +26,25 @@ import type { Styles } from '../types/style'
  *   'wordWrap': 'normal'
  * }
  */
-export default function ellipsis(width?: string | number = '100%'): Styles {
-  return {
+export default function ellipsis(
+  width?: ?string | ?number,
+  lines?: number = 1,
+): Styles {
+  const styles = {
     display: 'inline-block',
-    maxWidth: width,
+    maxWidth: width || '100%',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     wordWrap: 'normal',
   }
+
+  return lines > 1
+    ? {
+      ...styles,
+      display: '-webkit-box',
+      webkitLineClamp: lines,
+      webkitBoxOrient: 'vertical',
+    }
+    : styles
 }

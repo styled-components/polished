@@ -10,7 +10,15 @@ describe('ellipsis', () => {
     expect(ellipsis(300)).toMatchSnapshot()
   })
 
-  it('should default max-width to 100%', () => {
+  it('should default lines to 1 and max-width to 100%', () => {
     expect(ellipsis()).toMatchSnapshot()
+  })
+
+  it('should truncate text after 3 lines', () => {
+    expect(ellipsis(null, 3)).toMatchSnapshot()
+  })
+
+  it('should truncate text after 3 lines and 500px max-width', () => {
+    expect(ellipsis('500px', 3)).toMatchSnapshot()
   })
 })
