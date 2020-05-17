@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`easeOut should return easeOutBack cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.175,  0.885, 0.320, 1.275)",
+}
+`;
+
+exports[`easeOut should return easeOutCirc cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.075,  0.820, 0.165, 1.000)",
+}
+`;
+
+exports[`easeOut should return easeOutCubic cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.215,  0.610, 0.355, 1.000)",
+}
+`;
+
+exports[`easeOut should return easeOutExpo cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.190,  1.000, 0.220, 1.000)",
+}
+`;
+
+exports[`easeOut should return easeOutQuad cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.250,  0.460, 0.450, 0.940)",
+}
+`;
+
+exports[`easeOut should return easeOutQuart cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.165,  0.840, 0.440, 1.000)",
+}
+`;
+
+exports[`easeOut should return easeOutQuint cubic-bezier 1`] = `
+Object {
+  "transition-timing-function": "cubic-bezier(0.230,  1.000, 0.320, 1.000)",
+}
+`;
