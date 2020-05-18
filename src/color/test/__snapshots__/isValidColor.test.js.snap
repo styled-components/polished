@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`isValidColor should return false when passed a boolean 1`] = `false`;
+
+exports[`isValidColor should return false when passed a random string 1`] = `false`;
+
+exports[`isValidColor should return true when passed "transparent" 1`] = `true`;
+
+exports[`isValidColor should return true when passed a 4-digit hex color 1`] = `true`;
+
+exports[`isValidColor should return true when passed a 6-digit hex color 1`] = `true`;
+
+exports[`isValidColor should return true when passed a 8-digit hex color 1`] = `true`;
+
+exports[`isValidColor should return true when passed a color string 1`] = `true`;
+
+exports[`isValidColor should return true when passed a color with opacity 1`] = `true`;
+
+exports[`isValidColor should return true when passed a hex color 1`] = `true`;

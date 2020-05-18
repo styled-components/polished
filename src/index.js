@@ -60,6 +60,7 @@ import shade from './color/shade'
 import tint from './color/tint'
 import toColorString from './color/toColorString'
 import transparentize from './color/transparentize'
+import isValidColor from './color/isValidColor'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -145,6 +146,7 @@ export {
   toColorString,
   transitions,
   transparentize,
+  isValidColor,
   triangle,
   wordWrap,
 }
