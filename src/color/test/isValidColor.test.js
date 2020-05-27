@@ -18,8 +18,20 @@ describe('isValidColor', () => {
     expect(isValidColor('#0f08')).toMatchSnapshot()
   })
 
-  it('should return true when passed a color with opacity', () => {
+  it('should return true when passed a rgb color', () => {
+    expect(isValidColor('rgb(101,100,205)')).toMatchSnapshot()
+  })
+
+  it('should return true when passed a rgb color with opacity', () => {
     expect(isValidColor('rgba(101,100,205,0.7)')).toMatchSnapshot()
+  })
+
+  it('should return true when passed a hsl color', () => {
+    expect(isValidColor('hsl(102,100%,50%)')).toMatchSnapshot()
+  })
+
+  it('should return true when passed a hsl color with opacity', () => {
+    expect(isValidColor('hsl(102,100%,50%,0.7)')).toMatchSnapshot()
   })
 
   it('should return true when passed a color string', () => {
