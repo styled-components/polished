@@ -17,3 +17,9 @@ Object {
   "background": "rgba(255,205,100,0.72)",
 }
 `;
+
+exports[`rgbToColorString should convert a RgbaColor with 0 alpha to a rgba string 1`] = `
+Object {
+  "background": "rgba(255,205,100,0)",
+}
+`;

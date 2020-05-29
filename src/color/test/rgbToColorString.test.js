@@ -25,6 +25,17 @@ describe('rgbToColorString', () => {
     }).toMatchSnapshot()
   })
 
+  it('should convert a RgbaColor with 0 alpha to a rgba string', () => {
+    expect({
+      background: rgbToColorString({
+        red: 255,
+        green: 205,
+        blue: 100,
+        alpha: 0.0,
+      }),
+    }).toMatchSnapshot()
+  })
+
   it('should throw an error if anything else than a RgbColor or RgbaColor is provided', () => {
     // $FlowFixMe
     expect(() => rgbToColorString({ red: 255, green: 1, hue: 240 })).toThrow(
