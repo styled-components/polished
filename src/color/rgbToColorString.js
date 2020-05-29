@@ -36,7 +36,7 @@ export default function rgbToColorString(color: RgbColor | RgbaColor): string {
     && typeof color.green === 'number'
     && typeof color.blue === 'number'
   ) {
-    if (color.alpha && typeof color.alpha === 'number') {
+    if (typeof color.alpha === 'number') {
       return rgba({
         red: color.red,
         green: color.green,
