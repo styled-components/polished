@@ -54,12 +54,12 @@
   },
   "lint-staged": {
     "src/**/!(*.test).js": [
-      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "prettier --write",
       "eslint --fix",
       "git add"
     ],
     "src/**/*.test.js": [
-      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "prettier --write",
       "eslint --fix",
       "git add"
     ]
