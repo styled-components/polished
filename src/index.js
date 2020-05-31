@@ -42,6 +42,7 @@ import hsl from './color/hsl'
 import hsla from './color/hsla'
 import hslToColorString from './color/hslToColorString'
 import invert from './color/invert'
+import isValidColor from './color/isValidColor'
 import lighten from './color/lighten'
 import meetsContrastGuidelines from './color/meetsContrastGuidelines'
 import mix from './color/mix'
@@ -60,7 +61,6 @@ import shade from './color/shade'
 import tint from './color/tint'
 import toColorString from './color/toColorString'
 import transparentize from './color/transparentize'
-import isValidColor from './color/isValidColor'
 
 // Shorthands
 import animation from './shorthands/animation'
@@ -106,13 +106,14 @@ export {
   getLuminance,
   getValueAndUnit,
   grayscale,
-  invert,
   hideText,
   hideVisually,
   hiDPI,
   hsl,
   hsla,
   hslToColorString,
+  invert,
+  isValidColor,
   lighten,
   linearGradient,
   margin,
@@ -146,7 +147,6 @@ export {
   toColorString,
   transitions,
   transparentize,
-  isValidColor,
   triangle,
   wordWrap,
 }
