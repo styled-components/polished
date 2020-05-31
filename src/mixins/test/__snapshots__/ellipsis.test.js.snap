@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ellipsis should default max-width to 100% 1`] = `
+exports[`ellipsis should default lines to 1 and max-width to 100% 1`] = `
 Object {
   "display": "inline-block",
   "maxWidth": "100%",
@@ -28,6 +28,32 @@ Object {
   "maxWidth": "300px",
   "overflow": "hidden",
   "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap",
+  "wordWrap": "normal",
+}
+`;
+
+exports[`ellipsis should truncate text after 3 lines 1`] = `
+Object {
+  "display": "-webkit-box",
+  "maxWidth": "100%",
+  "overflow": "hidden",
+  "textOverflow": "ellipsis",
+  "webkitBoxOrient": "vertical",
+  "webkitLineClamp": 3,
+  "whiteSpace": "nowrap",
+  "wordWrap": "normal",
+}
+`;
+
+exports[`ellipsis should truncate text after 3 lines and 500px max-width 1`] = `
+Object {
+  "display": "-webkit-box",
+  "maxWidth": "500px",
+  "overflow": "hidden",
+  "textOverflow": "ellipsis",
+  "webkitBoxOrient": "vertical",
+  "webkitLineClamp": 3,
   "whiteSpace": "nowrap",
   "wordWrap": "normal",
 }

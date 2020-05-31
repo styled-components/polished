@@ -11,6 +11,16 @@ describe('fontFace', () => {
     }).toMatchSnapshot()
   })
 
+  it('should return a valid object when passed false for localFonts', () => {
+    expect({
+      ...fontFace({
+        fontFamily: 'Sans Pro',
+        fontFilePath: 'path/to/file',
+        localFonts: null,
+      }),
+    }).toMatchSnapshot()
+  })
+
   it('should return a valid object when passed both local and file-based sources', () => {
     expect({
       ...fontFace({
@@ -116,6 +126,7 @@ describe('fontFace', () => {
     expect(() => {
       fontFace({
         fontFamily: 'Sans Pro',
+        localFonts: null,
       })
     }).toThrow(
       'fontFace expects either the path to the font file(s) or a name of a local copy.',
