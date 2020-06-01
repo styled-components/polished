@@ -8,25 +8,7 @@ Object {
 
 exports[`stripUnit should return a unitless value when passed 2`] = `
 Object {
-  "--dimension": Array [
-    33,
-    "",
-  ],
-}
-`;
-
-exports[`stripUnit should return a unitless value when passed 3`] = `
-Object {
   "--dimension": 33,
-}
-`;
-
-exports[`stripUnit should return a unitless value when passed 4`] = `
-Object {
-  "--dimension": Array [
-    33,
-    undefined,
-  ],
 }
 `;
 
@@ -36,27 +18,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should return invalid value when passed 2`] = `
-Object {
-  "--dimension": Array [
-    "blah",
-    undefined,
-  ],
-}
-`;
-
 exports[`stripUnit should strip % from decimal values 1`] = `
 Object {
   "--dimension": 33.3,
-}
-`;
-
-exports[`stripUnit should strip % from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    33.3,
-    "%",
-  ],
 }
 `;
 
@@ -66,27 +30,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip % from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    80,
-    "%",
-  ],
-}
-`;
-
 exports[`stripUnit should strip ch from decimal values 1`] = `
 Object {
   "--dimension": 1.2,
-}
-`;
-
-exports[`stripUnit should strip ch from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    1.2,
-    "ch",
-  ],
 }
 `;
 
@@ -96,27 +42,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip ch from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "ch",
-  ],
-}
-`;
-
 exports[`stripUnit should strip cm from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip cm from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "cm",
-  ],
 }
 `;
 
@@ -126,27 +54,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip cm from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "cm",
-  ],
-}
-`;
-
 exports[`stripUnit should strip em from decimal values 1`] = `
 Object {
   "--dimension": 1.2,
-}
-`;
-
-exports[`stripUnit should strip em from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    1.2,
-    "em",
-  ],
 }
 `;
 
@@ -156,27 +66,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip em from whole value 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "em",
-  ],
-}
-`;
-
 exports[`stripUnit should strip ex from decimal values 1`] = `
 Object {
   "--dimension": 1.2,
-}
-`;
-
-exports[`stripUnit should strip ex from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    1.2,
-    "ex",
-  ],
 }
 `;
 
@@ -186,27 +78,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip ex from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "ex",
-  ],
-}
-`;
-
 exports[`stripUnit should strip in from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip in from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "in",
-  ],
 }
 `;
 
@@ -216,27 +90,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip in from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "in",
-  ],
-}
-`;
-
 exports[`stripUnit should strip mm from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip mm from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "mm",
-  ],
 }
 `;
 
@@ -246,27 +102,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip mm from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "mm",
-  ],
-}
-`;
-
 exports[`stripUnit should strip pc from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip pc from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "pc",
-  ],
 }
 `;
 
@@ -276,27 +114,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip pc from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "pc",
-  ],
-}
-`;
-
 exports[`stripUnit should strip pt from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip pt from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "pt",
-  ],
 }
 `;
 
@@ -306,27 +126,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip pt from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "pt",
-  ],
-}
-`;
-
 exports[`stripUnit should strip px from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip px from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "px",
-  ],
 }
 `;
 
@@ -336,27 +138,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip px from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "px",
-  ],
-}
-`;
-
 exports[`stripUnit should strip q from values 1`] = `
 Object {
   "--dimension": 1.5,
-}
-`;
-
-exports[`stripUnit should strip q from values 2`] = `
-Object {
-  "--dimension": Array [
-    1.5,
-    "q",
-  ],
 }
 `;
 
@@ -366,27 +150,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip q from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "q",
-  ],
-}
-`;
-
 exports[`stripUnit should strip rem from decimal values 1`] = `
 Object {
   "--dimension": 1.2,
-}
-`;
-
-exports[`stripUnit should strip rem from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    1.2,
-    "rem",
-  ],
 }
 `;
 
@@ -396,27 +162,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip rem from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    1,
-    "rem",
-  ],
-}
-`;
-
 exports[`stripUnit should strip vh from decimal values 1`] = `
 Object {
   "--dimension": 33.33,
-}
-`;
-
-exports[`stripUnit should strip vh from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    33.33,
-    "vh",
-  ],
 }
 `;
 
@@ -426,27 +174,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip vh from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    100,
-    "vh",
-  ],
-}
-`;
-
 exports[`stripUnit should strip vmax from decimal values 1`] = `
 Object {
   "--dimension": 33.33,
-}
-`;
-
-exports[`stripUnit should strip vmax from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    33.33,
-    "vmax",
-  ],
 }
 `;
 
@@ -456,27 +186,9 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip vmax from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    100,
-    "vmax",
-  ],
-}
-`;
-
 exports[`stripUnit should strip vmin from decimal values 1`] = `
 Object {
   "--dimension": 33.33,
-}
-`;
-
-exports[`stripUnit should strip vmin from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    33.33,
-    "vmin",
-  ],
 }
 `;
 
@@ -486,41 +198,14 @@ Object {
 }
 `;
 
-exports[`stripUnit should strip vmin from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    100,
-    "vmin",
-  ],
-}
-`;
-
 exports[`stripUnit should strip vw from decimal values 1`] = `
 Object {
   "--dimension": 33.33,
 }
 `;
 
-exports[`stripUnit should strip vw from decimal values 2`] = `
-Object {
-  "--dimension": Array [
-    33.33,
-    "vw",
-  ],
-}
-`;
-
 exports[`stripUnit should strip vw from whole values 1`] = `
 Object {
   "--dimension": 100,
-}
-`;
-
-exports[`stripUnit should strip vw from whole values 2`] = `
-Object {
-  "--dimension": Array [
-    100,
-    "vw",
-  ],
 }
 `;

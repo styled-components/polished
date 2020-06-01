@@ -8,6 +8,7 @@ import cssVar from './helpers/cssVar'
 import directionalProperty from './helpers/directionalProperty'
 import em from './helpers/em'
 import getValueAndUnit from './helpers/getValueAndUnit'
+import important from './helpers/important'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
@@ -42,6 +43,7 @@ import hsl from './color/hsl'
 import hsla from './color/hsla'
 import hslToColorString from './color/hslToColorString'
 import invert from './color/invert'
+import isValidColor from './color/isValidColor'
 import lighten from './color/lighten'
 import meetsContrastGuidelines from './color/meetsContrastGuidelines'
 import mix from './color/mix'
@@ -105,13 +107,15 @@ export {
   getLuminance,
   getValueAndUnit,
   grayscale,
-  invert,
   hideText,
   hideVisually,
   hiDPI,
   hsl,
   hsla,
   hslToColorString,
+  important,
+  invert,
+  isValidColor,
   lighten,
   linearGradient,
   margin,
