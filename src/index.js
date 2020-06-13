@@ -114,8 +114,6 @@ export {
   hsla,
   hslToColorString,
   important,
-  invert,
-  isValidColor,
   lighten,
   linearGradient,
   margin,
