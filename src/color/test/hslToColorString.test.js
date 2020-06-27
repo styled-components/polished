@@ -5,7 +5,9 @@ describe('hslToColorString', () => {
   it('should convert a HslColor to a reduced hex string', () => {
     expect({
       background: hslToColorString({ hue: 240, saturation: 1, lightness: 0.5 }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      background: '#00f',
+    })
   })
 
   it('should convert a HslColor to a hex string', () => {
@@ -15,7 +17,9 @@ describe('hslToColorString', () => {
         saturation: 0.75,
         lightness: 0.4,
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      background: '#b31919',
+    })
   })
 
   it('should convert a HslaColor to a rgba string', () => {
@@ -26,7 +30,9 @@ describe('hslToColorString', () => {
         lightness: 0.4,
         alpha: 0.72,
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      background: 'rgba(179,25,25,0.72)',
+    })
   })
 
   it('should throw an error if anything else than a HslColor or HslaColor is provided', () => {

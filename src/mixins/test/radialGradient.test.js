@@ -7,7 +7,10 @@ describe('radialGradient', () => {
       ...radialGradient({
         colorStops: ['#fff', '#000'],
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#fff',
+      backgroundImage: 'radial-gradient(#fff, #000)',
+    })
   })
 
   it('returns the correct object when passed extent, shape, and position, including parsed fallback with percentage', () => {
@@ -18,7 +21,11 @@ describe('radialGradient', () => {
         position: 'center',
         shape: 'ellipse',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#00FFFF',
+      backgroundImage:
+        'radial-gradient(center ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('returns the correct object when passed extent and shape', () => {
@@ -28,7 +35,11 @@ describe('radialGradient', () => {
         extent: 'farthest-corner at 45px 45px',
         shape: 'ellipse',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#00FFFF',
+      backgroundImage:
+        'radial-gradient(ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('returns the correct object when passed just extent', () => {
@@ -37,7 +48,11 @@ describe('radialGradient', () => {
         colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
         extent: 'farthest-corner at 45px 45px',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#00FFFF',
+      backgroundImage:
+        'radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('properly overrides the fallback when it is passed', () => {
@@ -47,7 +62,11 @@ describe('radialGradient', () => {
         extent: 'farthest-corner at 45px 45px',
         fallback: '#FFF',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#FFF',
+      backgroundImage:
+        'radial-gradient(farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('should throw an error when not provided at least 2 color-stops', () => {
@@ -57,6 +76,8 @@ describe('radialGradient', () => {
         extent: 'farthest-corner at 45px 45px',
         fallback: '#FFF',
       })
-    }).toThrow('radialGradient requries at least 2 color-stops to properly render.')
+    }).toThrow(
+      'radialGradient requries at least 2 color-stops to properly render.',
+    )
   })
 })
