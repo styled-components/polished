@@ -58,11 +58,11 @@ describe('math', () => {
   })
 
   it('should be able to do simple factorial', () => {
-    expect(math('3em!')).toMatchSnapshot()
-    expect(math('171em!')).toMatchSnapshot()
-    expect(math('0px!')).toMatchSnapshot()
-    expect(math('-0.5px!')).toMatchSnapshot()
-    expect(math('-5px!')).toMatchSnapshot()
+    expect(math('3em!')).toEqual('6em')
+    expect(math('171em!')).toEqual('Infinityem')
+    expect(math('0px!')).toEqual('1px')
+    expect(math('-0.5px!')).toEqual('NaNpx')
+    expect(math('-5px!')).toEqual('-120px')
   })
 
   it('should be able to process square root', () => {

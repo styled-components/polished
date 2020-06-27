@@ -8,34 +8,69 @@ describe('modularScale', () => {
   })
 
   it('should use perfect fourth and 1em base by default', () => {
-    expect({ 'font-size': modularScale(1) }).toMatchSnapshot()
-    expect({ 'font-size': modularScale(2) }).toMatchSnapshot()
-    expect({ 'font-size': modularScale(0) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1) }).toEqual({
+      'font-size': '1.333em',
+    })
+    expect({ 'font-size': modularScale(2) }).toEqual({
+      'font-size': '1.776889em',
+    })
+    expect({ 'font-size': modularScale(0) }).toEqual({
+      'font-size': '1em',
+    })
   })
 
   it('should allow adjusting the base', () => {
-    expect({ 'font-size': modularScale(1, '2em') }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, '2em') }).toEqual({
+      'font-size': '2.666em',
+    })
   })
 
   it('should allow a number as a base', () => {
-    expect({ 'font-size': modularScale(1, 2) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, 2) }).toEqual({
+      'font-size': '2.666',
+    })
   })
 
   it('should allow properly look up preset ratio', () => {
     expect({
       'font-size': modularScale(1, '1em', 'minorSecond'),
-    }).toMatchSnapshot()
+    }).toEqual({
+      'font-size': '1.067em',
+    })
   })
 
   it('should allow adjusting the ratio', () => {
-    expect({ 'font-size': modularScale(1, '1em', 1) }).toMatchSnapshot()
+    expect({ 'font-size': modularScale(1, '1em', 1) }).toEqual({
+      'font-size': '1em',
+    })
   })
 
   it('should allow any of the predefined ratio names', () => {
-    Object.keys(ratioNames).forEach(ratio => {
+    const expectedRatio = {
+      minorSecond: '1.067em',
+      majorSecond: '1.125em',
+      minorThird: '1.2em',
+      majorThird: '1.25em',
+      perfectFourth: '1.333em',
+      augFourth: '1.414em',
+      perfectFifth: '1.5em',
+      minorSixth: '1.6em',
+      goldenSection: '1.618em',
+      majorSixth: '1.667em',
+      minorSeventh: '1.778em',
+      majorSeventh: '1.875em',
+      octave: '2em',
+      majorTenth: '2.5em',
+      majorEleventh: '2.667em',
+      majorTwelfth: '3em',
+      doubleOctave: '4em',
+    }
+    Object.keys(ratioNames).forEach((ratio) => {
       expect({
         'font-size': modularScale(1, '1em', ratioNames[ratio]),
-      }).toMatchSnapshot()
+      }).toEqual({
+        'font-size': expectedRatio[ratio],
+      })
     })
   })
 

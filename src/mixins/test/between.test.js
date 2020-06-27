@@ -3,11 +3,13 @@ import between from '../between'
 
 describe('between', () => {
   it('should return a valid calc formula when passed min/max screen sizes', () => {
-    expect(between('20px', '100px', '400px', '1000px')).toMatchSnapshot()
+    expect(between('20px', '100px', '400px', '1000px')).toEqual(
+      'calc(-33.33px + 13.33vw)',
+    )
   })
 
   it('should return a valid calc formula when not passed min/max screen sizes', () => {
-    expect(between('20px', '100px')).toMatchSnapshot()
+    expect(between('20px', '100px')).toEqual('calc(-9.09px + 9.09vw)')
   })
 
   // Errors

@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`rem should convert a simple number to rems 1`] = `
-Object {
-  "height": "1rem",
-}
-`;
