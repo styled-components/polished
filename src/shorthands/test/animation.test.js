@@ -15,11 +15,16 @@ describe('animation', () => {
           'forwards',
           'paused',
         ),
-      }).toMatchSnapshot()
+      }).toEqual({
+        animation:
+          'rotate, 1s, ease-in-out, 0.5s, 5, reverse, forwards, paused',
+      })
     })
 
     it('should be fine with less than eight arguments', () => {
-      expect({ ...animation('rotate', '1s', 'ease-in-out') }).toMatchSnapshot()
+      expect({ ...animation('rotate', '1s', 'ease-in-out') }).toEqual({
+        animation: 'rotate, 1s, ease-in-out',
+      })
     })
 
     it('should throw an error if more than eight elements are supplied', () => {
@@ -52,19 +57,25 @@ describe('animation', () => {
           'forwards',
           'paused',
         ]),
-      }).toMatchSnapshot()
+      }).toEqual({
+        animation: 'rotate 1s ease-in-out 0.5s 5 reverse forwards paused',
+      })
     })
 
     it('should be fine with less than eight arguments', () => {
       expect({
         ...animation(['rotate', '1s', 'ease-in-out']),
-      }).toMatchSnapshot()
+      }).toEqual({
+        animation: 'rotate 1s ease-in-out',
+      })
     })
 
     it('should be fine with multiple animations', () => {
       expect({
         ...animation(['rotate', '1s', 'ease-in-out'], ['colorchange', '2s']),
-      }).toMatchSnapshot()
+      }).toEqual({
+        animation: 'rotate 1s ease-in-out, colorchange 2s',
+      })
     })
 
     it('should throw an error if more than eight elements are supplied in an array', () => {

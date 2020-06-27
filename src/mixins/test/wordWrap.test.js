@@ -5,12 +5,20 @@ describe('wordWrap', () => {
   it('should accept other values', () => {
     expect({
       ...wordWrap('break-all'),
-    }).toMatchSnapshot()
+    }).toEqual({
+      overflowWrap: 'break-all',
+      wordBreak: 'break-all',
+      wordWrap: 'break-all',
+    })
   })
 
   it('should default wrap to break-word', () => {
     expect({
       ...wordWrap(),
-    }).toMatchSnapshot()
+    }).toEqual({
+      overflowWrap: 'break-word',
+      wordBreak: 'break-all',
+      wordWrap: 'break-word',
+    })
   })
 })

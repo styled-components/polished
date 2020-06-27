@@ -4,7 +4,9 @@ describe('backgrounds', () => {
   it('should generate a single background from a parameter', () => {
     expect({
       ...backgrounds('url("/image/background.jpg")'),
-    }).toMatchSnapshot()
+    }).toEqual({
+      background: 'url("/image/background.jpg")',
+    })
   })
 
   it('should generate a multiple backgrounds from multiple parameters', () => {
@@ -14,6 +16,9 @@ describe('backgrounds', () => {
         'linear-gradient(red, green)',
         'center no-repeat',
       ),
-    }).toMatchSnapshot()
+    }).toEqual({
+      background:
+        'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat',
+    })
   })
 })

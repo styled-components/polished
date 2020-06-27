@@ -4,11 +4,15 @@ import cover from '../../mixins/cover'
 
 describe('important', () => {
   it('should add !important to a single rule in a flat style block', () => {
-    expect(important({ color: 'red' })).toMatchSnapshot()
+    expect(important({ color: 'red' })).toEqual({
+      color: 'red !important',
+    })
   })
 
   it('should add !important to a single rule in a flat style block when the value is a number', () => {
-    expect(important({ fontSize: 12 })).toMatchSnapshot()
+    expect(important({ fontSize: 12 })).toEqual({
+      fontSize: '12 !important',
+    })
   })
 
   it('should add !important to every rule in a flat style block', () => {
@@ -17,7 +21,10 @@ describe('important', () => {
         color: 'red',
         background: 'blue',
       }),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue !important',
+      color: 'red !important',
+    })
   })
 
   it('should add !important to a target rule when passed as a string', () => {
@@ -29,7 +36,10 @@ describe('important', () => {
         },
         'color',
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue',
+      color: 'red !important',
+    })
   })
 
   it('should add !important to a target rule when passed as a single item array', () => {
@@ -41,7 +51,10 @@ describe('important', () => {
         },
         ['color'],
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue',
+      color: 'red !important',
+    })
   })
 
   it('should add !important to a target rule when passed as an array', () => {
@@ -54,7 +67,11 @@ describe('important', () => {
         },
         ['color', 'height'],
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue',
+      color: 'red !important',
+      height: '100px !important',
+    })
   })
 
   it('should add !important to a mixture of unnested and nested target rules when passed as an array', () => {
@@ -69,15 +86,33 @@ describe('important', () => {
         },
         ['color', 'height'],
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue',
+      div: {
+        color: 'red !important',
+      },
+      height: '100px !important',
+    })
   })
 
   it('should add !important to all rules in a polished module', () => {
-    expect(important(cover())).toMatchSnapshot()
+    expect(important(cover())).toEqual({
+      bottom: '0 !important',
+      left: '0 !important',
+      position: 'absolute !important',
+      right: '0 !important',
+      top: '0 !important',
+    })
   })
 
   it('should add !important to a specific rule in a polished module', () => {
-    expect(important(cover(), 'position')).toMatchSnapshot()
+    expect(important(cover(), 'position')).toEqual({
+      bottom: 0,
+      left: 0,
+      position: 'absolute !important',
+      right: 0,
+      top: 0,
+    })
   })
 
   it('should return original styles when no properties are found', () => {
@@ -90,7 +125,11 @@ describe('important', () => {
         },
         ['width', 'fontSize'],
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      background: 'blue',
+      color: 'red',
+      height: '100px',
+    })
   })
 
   it('should throw an error when passed a non-object', () => {
