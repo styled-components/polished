@@ -66,9 +66,9 @@ function normalizeColorStopArray(colorStops) {
 
   // This is finding the stops with no position and populating them.
   // It does this by finding a stop with an unpopulated position then iterating
-  // until it finds a stop with a defined position. Once it finds a
-  // populating the position by finding the next stop with a defined position.
-  // After a stop is found with a position,
+  // until it finds a stop with a defined position. Once those are found, it
+  // evenly distributes the positions untill all the undefined positions are
+  // defined.
   //
   // TODO: there may be a more elegant way to do this
   let i = 0
