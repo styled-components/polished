@@ -37,4 +37,20 @@ describe('getScale', () => {
     expect(scale(0.9)).toEqual('#f00')
     expect(scale(1)).toEqual('#f00')
   })
+
+  it('accepts easing functions', () => {
+    const scale = getScale(['#000', 'ease', '#fff'])
+
+    expect(scale(0)).toEqual('#000')
+    expect(scale(0.1)).toEqual('#363636')
+    expect(scale(0.2)).toEqual('#323232')
+    expect(scale(0.3)).toEqual('#343434')
+    expect(scale(0.4)).toEqual('#3b3b3b')
+    expect(scale(0.5)).toEqual('#494949')
+    expect(scale(0.6)).toEqual('#5e5e5e')
+    expect(scale(0.7)).toEqual('#7a7a7a')
+    expect(scale(0.8)).toEqual('#9d9d9d')
+    expect(scale(0.9)).toEqual('#cacaca')
+    expect(scale(1)).toEqual('#fff')
+  })
 })
