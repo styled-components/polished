@@ -7,7 +7,10 @@ describe('linearGradient', () => {
       ...linearGradient({
         colorStops: ['#fff', '#000'],
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#fff',
+      backgroundImage: 'linear-gradient(#fff, #000)',
+    })
   })
 
   it('returns the correct object when passed toDirection, including parsed fallback with percentage', () => {
@@ -16,7 +19,11 @@ describe('linearGradient', () => {
         colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
         toDirection: '90deg',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#00FFFF',
+      backgroundImage:
+        'linear-gradient(90deg, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('properly overrides the fallback when it is passed', () => {
@@ -26,7 +33,11 @@ describe('linearGradient', () => {
         toDirection: 'to top right',
         fallback: '#FFF',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      backgroundColor: '#FFF',
+      backgroundImage:
+        'linear-gradient(to top right, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+    })
   })
 
   it('should throw an error when not provided at least 2 color-stops', () => {

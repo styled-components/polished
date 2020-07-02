@@ -14,28 +14,51 @@ describe('statefulSelectors', () => {
       [statefulSelectors([':before'], mockTemplate, mockStateMap)]: {
         content: 'hello',
       },
-    }).toMatchSnapshot()
+    }).toEqual({
+      [`section a::before,
+  p a::before`]: {
+        content: 'hello',
+      },
+    })
   })
   it('populates selectors for a multiple states', () => {
     expect({
       [statefulSelectors([':before', ':after'], mockTemplate, mockStateMap)]: {
         content: 'hello',
       },
-    }).toMatchSnapshot()
+    }).toEqual({
+      [`section a::before,
+  p a::before,section a::after,
+  p a::after`]: {
+        content: 'hello',
+      },
+    })
   })
   it('populates both base selectors and selectors for a single state', () => {
     expect({
       [statefulSelectors([null, ':after'], mockTemplate, mockStateMap)]: {
         content: 'hello',
       },
-    }).toMatchSnapshot()
+    }).toEqual({
+      [`section a,
+  p a,section a::after,
+  p a::after`]: {
+        content: 'hello',
+      },
+    })
   })
   it('populates both base selectors and selectors for a single state when not passed a stateMap', () => {
     expect({
       [statefulSelectors([null, ':after'], mockTemplate)]: {
         content: 'hello',
       },
-    }).toMatchSnapshot()
+    }).toEqual({
+      [`section a,
+  p a,section a::after,
+  p a::after`]: {
+        content: 'hello',
+      },
+    })
   })
 
   // Errors
