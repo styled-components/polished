@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 14.x]
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-latest]
 
     runs-on: ${{ matrix.platform }}
 
@@ -18,19 +18,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - uses: microsoft/playwright-github-action@v1
     - name: Install Yarn
       run: npm install -g yarn
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - uses: actions/cache@v1
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - uses: microsoft/playwright-github-action@v1
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
