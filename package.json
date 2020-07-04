@@ -89,6 +89,7 @@
     "lerna": "^3.20.2",
     "lint-staged": "^10.1.7",
     "npm-watch": "^0.6.0",
+    "playwright": "^1.1.1",
     "prettier": "^2.0.5",
     "ramda": "^0.27.0",
     "rollup": "^2.7.1",
