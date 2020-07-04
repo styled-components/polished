@@ -1,26 +1,19 @@
-name: Node CI Coverage
+name: Report Coverage
 
 on: [push, pull_request]
 
 jobs:
   report-coverage:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
     - uses: microsoft/playwright-github-action@v1
-    - name: Install Yarn
       run: npm install -g yarn
-    - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
-    - name: Run Jest Tests
       run: yarn test
-    - name: Report Code Coverage
       uses: codecov/codecov-action@v1
       with:
         flags: unittests
