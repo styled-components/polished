@@ -5,17 +5,17 @@ jobs:
   build-test:
     runs-on: unbuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - uses: microsoft/playwright-github-action@v1
-      run: npm install -g yarn
-      run: yarn install --ignore-scripts --frozen-lockfile
-      run: yarn test
-      run: yarn lint
-      run: |
-        yarn flow
-        yarn build:flow
-        yarn build:typescript
-        yarn typescript
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: microsoft/playwright-github-action@v1
+      - run: npm install -g yarn
+      - run: yarn install --ignore-scripts --frozen-lockfile
+      - run: yarn test
+      - run: yarn lint
+      - run: |
+          yarn flow
+          yarn build:flow
+          yarn build:typescript
+          yarn typescript
