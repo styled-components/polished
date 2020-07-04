@@ -87,7 +87,6 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-playwright-jsdom": "^0.0.3",
-    "jest-playwright-preset": "^1.2.1",
     "lerna": "^3.20.2",
     "lint-staged": "^10.1.7",
     "npm-watch": "^0.6.0",
