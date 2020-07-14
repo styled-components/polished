@@ -135,5 +135,8 @@
       "post-commit": "validate-commit-msg",
       "pre-commit": "lint-staged --debug"
     }
+  },
+  "engines": {
+    "node": ">=10"
   }
 }
