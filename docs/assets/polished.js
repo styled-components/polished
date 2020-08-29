@@ -1,14 +1,16 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@babel/runtime/helpers/esm/extends'), require('@babel/runtime/helpers/esm/assertThisInitialized'), require('@babel/runtime/helpers/esm/inheritsLoose'), require('@babel/runtime/helpers/esm/wrapNativeSuper'), require('@babel/runtime/helpers/esm/taggedTemplateLiteralLoose')) :
   typeof define === 'function' && define.amd ? define(['exports', '@babel/runtime/helpers/esm/extends', '@babel/runtime/helpers/esm/assertThisInitialized', '@babel/runtime/helpers/esm/inheritsLoose', '@babel/runtime/helpers/esm/wrapNativeSuper', '@babel/runtime/helpers/esm/taggedTemplateLiteralLoose'], factory) :
-  (global = global || self, factory(global.polished = {}, global.extends, global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.polished = {}, global.extends, global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
 }(this, (function (exports, _extends, _assertThisInitialized, _inheritsLoose, _wrapNativeSuper, _taggedTemplateLiteralLoose) { 'use strict';
 
-  _extends = _extends && Object.prototype.hasOwnProperty.call(_extends, 'default') ? _extends['default'] : _extends;
-  _assertThisInitialized = _assertThisInitialized && Object.prototype.hasOwnProperty.call(_assertThisInitialized, 'default') ? _assertThisInitialized['default'] : _assertThisInitialized;
-  _inheritsLoose = _inheritsLoose && Object.prototype.hasOwnProperty.call(_inheritsLoose, 'default') ? _inheritsLoose['default'] : _inheritsLoose;
-  _wrapNativeSuper = _wrapNativeSuper && Object.prototype.hasOwnProperty.call(_wrapNativeSuper, 'default') ? _wrapNativeSuper['default'] : _wrapNativeSuper;
-  _taggedTemplateLiteralLoose = _taggedTemplateLiteralLoose && Object.prototype.hasOwnProperty.call(_taggedTemplateLiteralLoose, 'default') ? _taggedTemplateLiteralLoose['default'] : _taggedTemplateLiteralLoose;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
+  var _assertThisInitialized__default = /*#__PURE__*/_interopDefaultLegacy(_assertThisInitialized);
+  var _inheritsLoose__default = /*#__PURE__*/_interopDefaultLegacy(_inheritsLoose);
+  var _wrapNativeSuper__default = /*#__PURE__*/_interopDefaultLegacy(_wrapNativeSuper);
+  var _taggedTemplateLiteralLoose__default = /*#__PURE__*/_interopDefaultLegacy(_taggedTemplateLiteralLoose);
 
   function last() {
     var _ref;
@@ -341,7 +343,7 @@
 
 
   var PolishedError = /*#__PURE__*/function (_Error) {
-    _inheritsLoose(PolishedError, _Error);
+    _inheritsLoose__default['default'](PolishedError, _Error);
 
     function PolishedError(code) {
       var _this;
@@ -354,17 +356,17 @@
         _this = _Error.call(this, format.apply(void 0, [ERRORS[code]].concat(args))) || this;
       }
 
-      return _assertThisInitialized(_this);
+      return _assertThisInitialized__default['default'](_this);
     }
 
     return PolishedError;
-  }( /*#__PURE__*/_wrapNativeSuper(Error));
+  }( /*#__PURE__*/_wrapNativeSuper__default['default'](Error));
 
   var unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g; // Merges additional math functionality into the defaults.
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends({}, defaultMathSymbols.symbols, {}, additionalSymbols.symbols) : _extends({}, defaultMathSymbols.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultMathSymbols.symbols);
     return symbolMap;
   }
 
@@ -540,7 +542,7 @@
 
     /* istanbul ignore next */
 
-    if (document.documentElement !== null) {
+    if (typeof document !== 'undefined' && document.documentElement !== null) {
       variableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
     }
     /* eslint-enable */
@@ -1053,9 +1055,9 @@
     };
   }
 
-  function _createForOfIteratorHelperLoose(o) { var i = 0; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } i = o[Symbol.iterator](); return i.next.bind(i); }
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
 
-  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
@@ -1128,11 +1130,11 @@
         }
 
         fallbacks[obj.prop] = obj.fromSize;
-        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
-        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
+        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends__default['default']({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
+        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends__default['default']({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
       }
 
-      return _extends({}, fallbacks, {}, mediaQueries);
+      return _extends__default['default']({}, fallbacks, mediaQueries);
     } else {
       var _ref, _ref2, _ref3;
 
@@ -1412,7 +1414,7 @@
   }
 
   function _templateObject() {
-    var data = _taggedTemplateLiteralLoose(["linear-gradient(", "", ")"]);
+    var data = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"]);
 
     _templateObject = function _templateObject() {
       return data;
@@ -1595,7 +1597,7 @@
   }
 
   function _templateObject$1() {
-    var data = _taggedTemplateLiteralLoose(["radial-gradient(", "", "", "", ")"]);
+    var data = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"]);
 
     _templateObject$1 = function _templateObject() {
       return data;
@@ -1703,7 +1705,7 @@
     var rFilename = retinaFilename ? retinaFilename + "." + ext : "" + filename + retinaSuffix + "." + ext;
     return _ref = {
       backgroundImage: "url(" + filename + "." + ext + ")"
-    }, _ref[hiDPI()] = _extends({
+    }, _ref[hiDPI()] = _extends__default['default']({
       backgroundImage: "url(" + rFilename + ")"
     }, backgroundSize ? {
       backgroundSize: backgroundSize
@@ -2618,7 +2620,7 @@
   function adjustHue(degree, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       hue: hslColor.hue + parseFloat(degree)
     }));
   } // prettier-ignore
@@ -2654,7 +2656,7 @@
   function complement(color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       hue: (hslColor.hue + 180) % 360
     }));
   }
@@ -2690,7 +2692,7 @@
   function darken(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness - parseFloat(amount))
     }));
   } // prettier-ignore
@@ -2728,7 +2730,7 @@
   function desaturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation - parseFloat(amount))
     }));
   } // prettier-ignore
@@ -2819,7 +2821,7 @@
 
   function grayscale(color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends({}, parseToHsl(color), {
+    return toColorString(_extends__default['default']({}, parseToHsl(color), {
       saturation: 0
     }));
   }
@@ -2897,7 +2899,7 @@
     if (color === 'transparent') return color; // parse color string to rgb
 
     var value = parseToRgb(color);
-    return toColorString(_extends({}, value, {
+    return toColorString(_extends__default['default']({}, value, {
       red: 255 - value.red,
       green: 255 - value.green,
       blue: 255 - value.blue
@@ -2931,7 +2933,7 @@
   function lighten(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness + parseFloat(amount))
     }));
   } // prettier-ignore
@@ -2991,13 +2993,13 @@
     if (weight === 0) return otherColor;
     var parsedColor1 = parseToRgb(color);
 
-    var color1 = _extends({}, parsedColor1, {
+    var color1 = _extends__default['default']({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
     });
 
     var parsedColor2 = parseToRgb(otherColor);
 
-    var color2 = _extends({}, parsedColor2, {
+    var color2 = _extends__default['default']({}, parsedColor2, {
       alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
     }); // The formula is copied from the original Sass implementation:
     // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
@@ -3056,7 +3058,7 @@
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
-    var colorWithAlpha = _extends({}, parsedColor, {
+    var colorWithAlpha = _extends__default['default']({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 + parseFloat(amount) * 100) / 100)
     });
 
@@ -3156,7 +3158,7 @@
    */
   function rgbToColorString(color) {
     if (typeof color === 'object' && typeof color.red === 'number' && typeof color.green === 'number' && typeof color.blue === 'number') {
-      if (color.alpha && typeof color.alpha === 'number') {
+      if (typeof color.alpha === 'number') {
         return rgba({
           red: color.red,
           green: color.green,
@@ -3204,7 +3206,7 @@
   function saturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends({}, hslColor, {
+    return toColorString(_extends__default['default']({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation + parseFloat(amount))
     }));
   } // prettier-ignore
@@ -3240,7 +3242,7 @@
 
   function setHue(hue, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends({}, parseToHsl(color), {
+    return toColorString(_extends__default['default']({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
   } // prettier-ignore
@@ -3276,7 +3278,7 @@
 
   function setLightness(lightness, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends({}, parseToHsl(color), {
+    return toColorString(_extends__default['default']({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
   } // prettier-ignore
@@ -3312,7 +3314,7 @@
 
   function setSaturation(saturation, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends({}, parseToHsl(color), {
+    return toColorString(_extends__default['default']({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
   } // prettier-ignore
@@ -3421,7 +3423,7 @@
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
-    var colorWithAlpha = _extends({}, parsedColor, {
+    var colorWithAlpha = _extends__default['default']({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 - parseFloat(amount) * 100) / 100)
     });
 
@@ -3926,7 +3928,7 @@
     }
 
     if (positionMap$1.indexOf(firstValue) >= 0 && firstValue) {
-      return _extends({}, directionalProperty.apply(void 0, [''].concat(values)), {
+      return _extends__default['default']({}, directionalProperty.apply(void 0, [''].concat(values)), {
         position: firstValue
       });
     } else {
