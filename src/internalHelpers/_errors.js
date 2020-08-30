@@ -31,7 +31,7 @@ function format(...args) {
     b.push(args[c])
   }
 
-  b.forEach(d => {
+  b.forEach((d) => {
     a = a.replace(/%[a-z]/, d)
   })
 
@@ -47,7 +47,7 @@ export default class PolishedError extends Error {
   constructor(code: string | number, ...args: Array<any>) {
     if (process.env.NODE_ENV === 'production') {
       super(
-        `An error occurred. See https://github.com/styled-components/polished/blob/master/src/internalHelpers/errors.md#${code} for more information.`,
+        `An error occurred. See https://github.com/styled-components/polished/blob/main/src/internalHelpers/errors.md#${code} for more information.`,
       )
     } else {
       super(format(ERRORS[code], ...args))
