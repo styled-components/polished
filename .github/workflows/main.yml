@@ -37,7 +37,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
-      run: npm install playwright && yarn test
+      run: yarn add playwright && yarn test
     - name: Lint Files
       run: yarn lint
     - name: Build and Check Types
