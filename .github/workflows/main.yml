@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: microsoft/playwright-github-action@v1
     - name: Install Yarn
       run: npm install -g yarn
     - name: Get yarn cache directory path
@@ -38,7 +37,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
-      run: yarn test
+      run: npm install playwright && yarn test
     - name: Lint Files
       run: yarn lint
     - name: Build and Check Types
