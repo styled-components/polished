@@ -33,7 +33,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --ignore-scripts --frozen-lockfile
     - name: Run Jest Tests
-      run: yarn add playwright && sudo apt-get install ffmpeg && yarn test
+      run: npm install playwright && sudo apt-get install ffmpeg && yarn test
     - name: Report Code Coverage
       uses: codecov/codecov-action@v1
       with:
