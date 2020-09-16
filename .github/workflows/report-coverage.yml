@@ -18,6 +18,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
+    - uses: microsoft/playwright-github-action@v1
     - name: Install Yarn
       run: npm install -g yarn
     - name: Get yarn cache directory path
