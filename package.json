@@ -31,12 +31,16 @@
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:typescript",
+    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
     "prebuild:dist": "shx rm -rf dist/*",
     "build:dist": "rollup -c",
+    "build:docs": "yarn build:docs:site",
+    "prebuild:docs:site": "shx rm -rf docs/*",
+    "build:docs:site": "documentation build src/** -t docs-theme --github -o docs -f html -c ./.documentation.json",
+    "postbuild:docs:site": "shx cp CNAME docs/CNAME && shx cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
     "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
@@ -44,6 +48,7 @@
     "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
     "lint": "eslint src",
     "flow": "flow check && flow batch-coverage src/ --show-all --strip-root",
+    "docs": "pushstate-server docs",
     "prepare": "yarn build && yarn typescript",
     "semantic-release": "semantic-release"
   },
@@ -58,6 +63,7 @@
     ]
   },
   "watch": {
+    "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
   },
   "dependencies": {
@@ -79,6 +85,7 @@
     "babel-plugin-preval": "5.0.0",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.1.0",
+    "documentation": "12.3.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -90,6 +97,7 @@
     "lint-staged": "^10.1.7",
     "npm-watch": "^0.7.0",
     "prettier": "^2.0.5",
+    "pushstate-server": "^3.1.0",
     "ramda": "^0.27.0",
     "rollup": "^2.7.1",
     "rollup-plugin-babel": "^4.4.0",

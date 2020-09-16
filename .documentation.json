@@ -1,0 +1,116 @@
+{
+  "hljs": {
+    "highlightAuto": true
+  },
+  "inferPrivate": "^_",
+  "toc": [
+    {
+      "name": "Installation",
+      "description": "<div class='installation'><code class='command'>npm install --save polished</code></div>",
+      "markdown": false
+    },
+    {
+      "name": "Usage",
+      "description": "<div class='usage'><code class='javascript'>import { lighten, modularScale } from 'polished'</code></div>",
+      "markdown": false
+    },
+    {
+      "name": "Mixins"
+    },
+    "between",
+    "clearFix",
+    "cover",
+    "ellipsis",
+    "fluidRange",
+    "fontFace",
+    "hideText",
+    "hideVisually",
+    "hiDPI",
+    "linearGradient",
+    "normalize",
+    "radialGradient",
+    "retinaImage",
+    "timingFunctions",
+    "triangle",
+    "wordWrap",
+    {
+      "name": "Color"
+    },
+    "adjustHue",
+    "complement",
+    "darken",
+    "desaturate",
+    "getContrast",
+    "getLuminance",
+    "grayscale",
+    "hsl",
+    "hsla",
+    "hslToColorString",
+    "invert",
+    "lighten",
+    "meetsContrastGuidelines",
+    "mix",
+    "opacify",
+    "parseToHsl",
+    "parseToRgb",
+    "readableColor",
+    "rgb",
+    "rgba",
+    "rgbToColorString",
+    "saturate",
+    "setHue",
+    "setLightness",
+    "setSaturation",
+    "shade",
+    "tint",
+    "toColorString",
+    "transparentize",
+    {
+      "name": "Math"
+    },
+    "math",
+    {
+      "name": "Shorthands"
+    },
+    "animation",
+    "backgroundImages",
+    "backgrounds",
+    "border",
+    "borderColor",
+    "borderRadius",
+    "borderStyle",
+    "borderWidth",
+    "buttons",
+    "margin",
+    "padding",
+    "position",
+    "size",
+    "textInputs",
+    "transitions",
+    {
+      "name": "Helpers"
+    },
+    "cssVar",
+    "directionalProperty",
+    "em",
+    "getValueAndUnit",
+    "modularScale",
+    "rem",
+    "stripUnit",
+    {
+      "name": "Types"
+    },
+    "FluidRangeConfiguration",
+    "FontFaceConfiguration",
+    "HslColor",
+    "HslaColor",
+    "InteractionState",
+    "ModularScaleRatio",
+    "RadialGradientConfiguration",
+    "RgbaColor",
+    "RgbColor",
+    "SideKeyword",
+    "Styles",
+    "TriangleConfiguration"
+  ]
+}
