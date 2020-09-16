@@ -1,6 +1,6 @@
 {
   "name": "polished",
-  "version": "3.6.5",
+  "version": "4.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "license": "MIT",
   "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
@@ -127,5 +127,8 @@
       "post-commit": "validate-commit-msg",
       "pre-commit": "lint-staged --debug"
     }
+  },
+  "engines": {
+    "node": ">=10"
   }
 }
