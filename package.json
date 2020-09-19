@@ -1,6 +1,6 @@
 {
   "name": "polished",
-  "version": "3.6.6",
+  "version": "3.6.7",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "license": "MIT",
   "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
