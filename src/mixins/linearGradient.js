@@ -43,9 +43,14 @@ export default function linearGradient({
     throw new PolishedError(56)
   }
   return {
-    backgroundColor: fallback || colorStops[0].split(' ')[0],
-    backgroundImage: constructGradientValue`linear-gradient(${toDirection}${colorStops.join(
-      ', ',
-    )})`,
+    backgroundColor:
+      fallback
+      || colorStops[0]
+        .replace(/,\s+/g, ',')
+        .split(' ')[0]
+        .replace(/,(?=\S)/g, ', '),
+    backgroundImage: constructGradientValue`linear-gradient(${toDirection}${colorStops
+      .join(', ')
+      .replace(/,(?=\S)/g, ', ')})`,
   }
 }
