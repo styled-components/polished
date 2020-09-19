@@ -13,6 +13,40 @@ describe('linearGradient', () => {
     })
   })
 
+  it('returns the right value for fallback when first value is rgb(a)', () => {
+    expect({
+      ...linearGradient({
+        colorStops: [
+          'rgba(19, 20, 21, 0.5) 0%',
+          'rgba(83, 250, 197, 0.5) 33%',
+          'rgba(93, 84, 255, 0.5) 100%',
+        ],
+        toDirection: '0deg',
+      }),
+    }).toEqual({
+      backgroundColor: 'rgba(19, 20, 21, 0.5)',
+      backgroundImage:
+        'linear-gradient(0deg, rgba(19, 20, 21, 0.5) 0%, rgba(83, 250, 197, 0.5) 33%, rgba(93, 84, 255, 0.5) 100%)',
+    })
+  })
+
+  it('consistently formats without spaces in rgb(a)', () => {
+    expect({
+      ...linearGradient({
+        colorStops: [
+          'rgba(19,20,21,0.5) 0%',
+          'rgba(83,250,197,0.5) 33%',
+          'rgba(93,84,255,0.5) 100%',
+        ],
+        toDirection: '0deg',
+      }),
+    }).toEqual({
+      backgroundColor: 'rgba(19, 20, 21, 0.5)',
+      backgroundImage:
+        'linear-gradient(0deg, rgba(19, 20, 21, 0.5) 0%, rgba(83, 250, 197, 0.5) 33%, rgba(93, 84, 255, 0.5) 100%)',
+    })
+  })
+
   it('returns the correct object when passed toDirection, including parsed fallback with percentage', () => {
     expect({
       ...linearGradient({
