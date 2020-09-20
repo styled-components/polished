@@ -94,6 +94,7 @@
     "directionalProperty",
     "em",
     "getValueAndUnit",
+    "important",
     "modularScale",
     "rem",
     "stripUnit",
