@@ -36,9 +36,7 @@ export default function cssVar(
   /* eslint-disable */
   /* istanbul ignore next */
   if (typeof document !== 'undefined' && document.documentElement !== null) {
-    variableValue = getComputedStyle(document.documentElement).getPropertyValue(
-      cssVariable,
-    )
+    variableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariable)
   }
   /* eslint-enable */
 

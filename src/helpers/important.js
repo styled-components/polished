@@ -26,23 +26,17 @@ import PolishedError from '../internalHelpers/_errors'
  *   'left: '0 !important'
  * }
  */
-export default function important(
-  styleBlock: Styles,
-  rules?: Array<string> | string,
-): Styles {
+export default function important(styleBlock: Styles, rules?: Array<string> | string): Styles {
   if (typeof styleBlock !== 'object' || styleBlock === null) {
     throw new PolishedError(75, typeof styleBlock)
   }
 
   const newStyleBlock = {}
 
-  Object.keys(styleBlock).forEach((key) => {
+  Object.keys(styleBlock).forEach(key => {
     if (typeof styleBlock[key] === 'object' && styleBlock[key] !== null) {
       newStyleBlock[key] = important(styleBlock[key], rules)
-    } else if (
-      !rules
-      || (rules && (rules === key || rules.indexOf(key) >= 0))
-    ) {
+    } else if (!rules || (rules && (rules === key || rules.indexOf(key) >= 0))) {
       newStyleBlock[key] = `${styleBlock[key]} !important`
     } else {
       newStyleBlock[key] = styleBlock[key]

@@ -99,6 +99,12 @@
     "rem",
     "stripUnit",
     {
+      "name": "Easings"
+    },
+    "easeIn",
+    "easeInOut",
+    "easeOut",
+    {
       "name": "Types"
     },
     "FluidRangeConfiguration",
