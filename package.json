@@ -93,6 +93,7 @@
     "lint-staged": "^10.4.0",
     "npm-watch": "^0.7.0",
     "prettier": "^2.0.5",
+    "pushstate-server": "^3.1.0",
     "ramda": "^0.27.0",
     "rollup": "^2.27.1",
     "rollup-plugin-sourcemaps": "^0.6.2",
