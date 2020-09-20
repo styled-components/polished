@@ -23,9 +23,7 @@ describe('getContrast', () => {
   })
 
   it('should return the color contrast of two hsla colors', () => {
-    expect(
-      getContrast('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)'),
-    ).toEqual(8.27)
+    expect(getContrast('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)')).toEqual(8.27)
   })
 
   it('should return the color contrast of two hsl colors', () => {

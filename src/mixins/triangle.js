@@ -37,10 +37,7 @@ const getBorderWidth = (
   }
 }
 
-const getBorderColor = (
-  pointingDirection: SideKeyword,
-  foregroundColor: string,
-): Object => {
+const getBorderColor = (pointingDirection: SideKeyword, foregroundColor: string): Object => {
   switch (pointingDirection) {
     case 'top':
     case 'bottomRight':

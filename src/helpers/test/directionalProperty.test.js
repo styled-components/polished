@@ -134,9 +134,7 @@ describe('directionalProperty', () => {
 
   // Four Params
   it('properly applies values when passed four', () => {
-    expect(
-      directionalProperty('border', '12px', '24px', '36px', '48px'),
-    ).toEqual({
+    expect(directionalProperty('border', '12px', '24px', '36px', '48px')).toEqual({
       borderBottom: '36px',
       borderLeft: '48px',
       borderRight: '24px',
@@ -144,40 +142,32 @@ describe('directionalProperty', () => {
     })
   })
   it('properly skips top property when first value is null', () => {
-    expect(directionalProperty('border', null, '24px', '36px', '48px')).toEqual(
-      {
-        borderBottom: '36px',
-        borderLeft: '48px',
-        borderRight: '24px',
-      },
-    )
+    expect(directionalProperty('border', null, '24px', '36px', '48px')).toEqual({
+      borderBottom: '36px',
+      borderLeft: '48px',
+      borderRight: '24px',
+    })
   })
   it('properly skips right property when second value is null', () => {
-    expect(directionalProperty('border', '12px', null, '36px', '48px')).toEqual(
-      {
-        borderBottom: '36px',
-        borderLeft: '48px',
-        borderTop: '12px',
-      },
-    )
+    expect(directionalProperty('border', '12px', null, '36px', '48px')).toEqual({
+      borderBottom: '36px',
+      borderLeft: '48px',
+      borderTop: '12px',
+    })
   })
   it('properly skips bottom property when third value is null', () => {
-    expect(directionalProperty('border', '12px', '24px', null, '48px')).toEqual(
-      {
-        borderLeft: '48px',
-        borderRight: '24px',
-        borderTop: '12px',
-      },
-    )
+    expect(directionalProperty('border', '12px', '24px', null, '48px')).toEqual({
+      borderLeft: '48px',
+      borderRight: '24px',
+      borderTop: '12px',
+    })
   })
   it('properly skips left property when fourth value is null', () => {
-    expect(directionalProperty('border', '12px', '24px', '36px', null)).toEqual(
-      {
-        borderBottom: '36px',
-        borderRight: '24px',
-        borderTop: '12px',
-      },
-    )
+    expect(directionalProperty('border', '12px', '24px', '36px', null)).toEqual({
+      borderBottom: '36px',
+      borderRight: '24px',
+      borderTop: '12px',
+    })
   })
   it('properly applies valuew when passed a mixture of four value types', () => {
     expect(directionalProperty('border', 12, '24px', 36, null)).toEqual({

@@ -15,9 +15,7 @@ describe('opacify', () => {
   })
 
   it('should increase the opacity of rgba(255, 0, 0, 0.5) by 0.1', () => {
-    expect(opacify(0.1, 'rgba(101, 100, 205, 0.7)')).toEqual(
-      'rgba(101,100,205,0.8)',
-    )
+    expect(opacify(0.1, 'rgba(101, 100, 205, 0.7)')).toEqual('rgba(101,100,205,0.8)')
   })
 
   it('should increase the opacity of rgba(255, 0, 0, .5) by 0.5', () => {
@@ -29,9 +27,7 @@ describe('opacify', () => {
   })
 
   it('should increase the opacity of hsla(0, 0%, 100%, .3) by 0.5', () => {
-    expect(opacify(0.5, 'hsla(0, 0%, 100%, .3)')).toEqual(
-      'rgba(255,255,255,0.8)',
-    )
+    expect(opacify(0.5, 'hsla(0, 0%, 100%, .3)')).toEqual('rgba(255,255,255,0.8)')
   })
 
   it('should not decrease the opacity below 0', () => {

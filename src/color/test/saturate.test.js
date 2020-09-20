@@ -19,15 +19,11 @@ describe('saturate', () => {
   })
 
   it('should saturate a color with opacity by 20%', () => {
-    expect(saturate(0.2, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(81,80,226,0.7)',
-    )
+    expect(saturate(0.2, 'rgba(101,100,205,0.7)')).toEqual('rgba(81,80,226,0.7)')
   })
 
   it('should saturate a color but not go beyond 255', () => {
-    expect(saturate(0.8, 'rgba(255,200,200,0.7)')).toEqual(
-      'rgba(255,200,200,0.7)',
-    )
+    expect(saturate(0.8, 'rgba(255,200,200,0.7)')).toEqual('rgba(255,200,200,0.7)')
   })
 
   it('should saturate a color when passed a string for amount', () => {

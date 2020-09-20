@@ -49,10 +49,7 @@ export default function animation(
   }
   const code = args
     .map(arg => {
-      if (
-        (multiMode && !Array.isArray(arg))
-        || (!multiMode && Array.isArray(arg))
-      ) {
+      if ((multiMode && !Array.isArray(arg)) || (!multiMode && Array.isArray(arg))) {
         throw new PolishedError(65)
       }
       if (Array.isArray(arg) && arg.length > 8) {

@@ -14,10 +14,7 @@ function mergeSymbolMaps(additionalSymbols?: Object): Object {
   return symbolMap
 }
 
-function exec(
-  operators: Array<any>,
-  values: Array<number>,
-): Array<number | string> {
+function exec(operators: Array<any>, values: Array<number>): Array<number | string> {
   const op = operators.pop()
   values.push(op.f(...[].concat(...values.splice(-op.argCount))))
   return op.precedence
@@ -34,12 +31,12 @@ function calculate(expression: string, additionalSymbols?: Object): number {
     `\\d+(?:\\.\\d+)?|${
       // ...and patterns for individual operators/function names
       Object.keys(symbolMap.symbols)
-        .map((key) => symbolMap.symbols[key])
+        .map(key => symbolMap.symbols[key])
         // longer symbols should be listed first
         // $FlowFixMe
         .sort((a, b) => b.symbol.length - a.symbol.length)
         // $FlowFixMe
-        .map((val) => val.regSymbol)
+        .map(val => val.regSymbol)
         .join('|')
     }|(\\S)`,
     'g',
@@ -58,11 +55,7 @@ function calculate(expression: string, additionalSymbols?: Object): number {
 
     // Check for syntax errors:
     if (bad || (afterValue ? notAfterValue : notNewValue)) {
-      throw new PolishedError(
-        37,
-        match ? match.index : expression.length,
-        expression,
-      )
+      throw new PolishedError(37, match ? match.index : expression.length, expression)
     }
 
     if (afterValue) {
@@ -86,11 +79,7 @@ function calculate(expression: string, additionalSymbols?: Object): number {
         // Require an opening parenthesis
         match = pattern.exec(expression)
         if (!match || match[0] !== '(') {
-          throw new PolishedError(
-            38,
-            match ? match.index : expression.length,
-            expression,
-          )
+          throw new PolishedError(38, match ? match.index : expression.length, expression)
         }
       }
     } else {
@@ -101,17 +90,9 @@ function calculate(expression: string, additionalSymbols?: Object): number {
   } while (match && operators.length)
 
   if (operators.length) {
-    throw new PolishedError(
-      39,
-      match ? match.index : expression.length,
-      expression,
-    )
+    throw new PolishedError(39, match ? match.index : expression.length, expression)
   } else if (match) {
-    throw new PolishedError(
-      40,
-      match ? match.index : expression.length,
-      expression,
-    )
+    throw new PolishedError(40, match ? match.index : expression.length, expression)
   } else {
     return values.pop()
   }
@@ -150,15 +131,12 @@ function reverseString(str: string): string {
  *   fontSize: '11px',
  * }
  */
-export default function math(
-  formula: string,
-  additionalSymbols?: Object,
-): string {
+export default function math(formula: string, additionalSymbols?: Object): string {
   const reversedFormula = reverseString(formula)
   const formulaMatch = reversedFormula.match(unitRegExp)
 
   // Check that all units are the same
-  if (formulaMatch && !formulaMatch.every((unit) => unit === formulaMatch[0])) {
+  if (formulaMatch && !formulaMatch.every(unit => unit === formulaMatch[0])) {
     throw new PolishedError(41)
   }
 

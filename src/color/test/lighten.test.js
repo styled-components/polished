@@ -19,15 +19,11 @@ describe('lighten', () => {
   })
 
   it('should lighten a color with opacity by 20%', () => {
-    expect(lighten(0.2, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(178,177,230,0.7)',
-    )
+    expect(lighten(0.2, 'rgba(101,100,205,0.7)')).toEqual('rgba(178,177,230,0.7)')
   })
 
   it('should lighten a color but not go beyond 255', () => {
-    expect(lighten(0.8, 'rgba(255,200,200,0.7)')).toEqual(
-      'rgba(255,255,255,0.7)',
-    )
+    expect(lighten(0.8, 'rgba(255,200,200,0.7)')).toEqual('rgba(255,255,255,0.7)')
   })
 
   it('should lighten a color when passed a string for amount', () => {

@@ -19,15 +19,11 @@ describe('setSaturation', () => {
   })
 
   it('should update the saturation of an rgba color and return an rgba color', () => {
-    expect(setSaturation(0.2, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(132,132,173,0.7)',
-    )
+    expect(setSaturation(0.2, 'rgba(101,100,205,0.7)')).toEqual('rgba(132,132,173,0.7)')
   })
 
   it('should update the saturation when passed a string', () => {
-    expect(setSaturation('0.75', 'rgba(204,205,100,0.7)')).toEqual(
-      'rgba(228,229,76,0.7)',
-    )
+    expect(setSaturation('0.75', 'rgba(204,205,100,0.7)')).toEqual('rgba(228,229,76,0.7)')
   })
 
   it('should return transparent when passed transparent', () => {

@@ -16,10 +16,7 @@ function generateProperty(property: string, position: string) {
   return property === joinedProperty ? `${property}${position}` : joinedProperty
 }
 
-function generateStyles(
-  property: string,
-  valuesWithDefaults: Array<?string | ?number>,
-) {
+function generateStyles(property: string, valuesWithDefaults: Array<?string | ?number>) {
   const styles = {}
   for (let i = 0; i < valuesWithDefaults.length; i += 1) {
     if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {

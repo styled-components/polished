@@ -65,7 +65,7 @@ describe('modularScale', () => {
       majorTwelfth: '3em',
       doubleOctave: '4em',
     }
-    Object.keys(ratioNames).forEach((ratio) => {
+    Object.keys(ratioNames).forEach(ratio => {
       expect({
         'font-size': modularScale(1, '1em', ratioNames[ratio]),
       }).toEqual({

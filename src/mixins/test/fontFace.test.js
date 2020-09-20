@@ -89,8 +89,7 @@ describe('fontFace', () => {
     }).toEqual({
       '@font-face': {
         fontFamily: 'Sans Pro',
-        src:
-          'local("Sans Pro"), url("path/to/file.eot"), url("path/to/file.svg")',
+        src: 'local("Sans Pro"), url("path/to/file.eot"), url("path/to/file.svg")',
       },
     })
   })
@@ -198,9 +197,7 @@ describe('fontFace', () => {
         fontFamily: 'Sans Pro',
         localFonts: null,
       })
-    }).toThrow(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
-    )
+    }).toThrow('fontFace expects either the path to the font file(s) or a name of a local copy.')
   })
 
   it('should throw an error when localFonts is not an array', () => {

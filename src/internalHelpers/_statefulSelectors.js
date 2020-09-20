@@ -3,10 +3,7 @@ import PolishedError from './_errors'
 
 import type { InteractionState } from '../types/interactionState'
 
-function generateSelectors(
-  template: Function,
-  state: InteractionState,
-): string {
+function generateSelectors(template: Function, state: InteractionState): string {
   const stateSuffix = state ? `:${state}` : ''
   return template(stateSuffix)
 }

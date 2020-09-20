@@ -19,9 +19,7 @@ describe('desaturate', () => {
   })
 
   it('should desaturate a color with opacity by 20%', () => {
-    expect(desaturate(0.2, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(121,121,185,0.7)',
-    )
+    expect(desaturate(0.2, 'rgba(101,100,205,0.7)')).toEqual('rgba(121,121,185,0.7)')
   })
 
   it('should desaturate a color but not go below 0', () => {

@@ -7,9 +7,7 @@ describe('test', () => {
   })
 
   it('should tint the provided 8-digit hex color with white by the given percentage', () => {
-    expect(tint(0.25, '#000fffcc')).toEqual(
-      'rgba(85,95,255,0.8500000000000001)',
-    )
+    expect(tint(0.25, '#000fffcc')).toEqual('rgba(85,95,255,0.8500000000000001)')
   })
 
   it('should tint the provided 4-digit hex color with white by the given percentage', () => {

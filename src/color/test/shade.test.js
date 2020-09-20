@@ -7,9 +7,7 @@ describe('shade', () => {
   })
 
   it('should shade the provided 8-digit hex color with white by the given percentage', () => {
-    expect(shade(0.25, '#000fffcc')).toEqual(
-      'rgba(0,10,170,0.8500000000000001)',
-    )
+    expect(shade(0.25, '#000fffcc')).toEqual('rgba(0,10,170,0.8500000000000001)')
   })
 
   it('should shade the provided 4-digit hex color with white by the given percentage', () => {

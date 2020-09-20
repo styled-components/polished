@@ -42,9 +42,7 @@ describe('borderRadius', () => {
     expect(() => {
       // $FlowFixMe
       borderRadius('top')
-    }).toThrow(
-      'borderRadius expects a radius value as a string or number as the second argument.',
-    )
+    }).toThrow('borderRadius expects a radius value as a string or number as the second argument.')
   })
   it('should throw an error when an invalid side value is provided', () => {
     expect(() => {

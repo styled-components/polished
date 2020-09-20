@@ -19,9 +19,7 @@ describe('adjustHue', () => {
   })
 
   it('should adjustHue of a color with opacity', () => {
-    expect(adjustHue(20, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(136,100,205,0.7)',
-    )
+    expect(adjustHue(20, 'rgba(101,100,205,0.7)')).toEqual('rgba(136,100,205,0.7)')
   })
 
   it('should adjustHue of a color and not go beyond 360', () => {

@@ -17,8 +17,7 @@ describe('backgrounds', () => {
         'center no-repeat',
       ),
     }).toEqual({
-      background:
-        'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat',
+      background: 'url("/image/background.jpg"), linear-gradient(red, green), center no-repeat',
     })
   })
 })

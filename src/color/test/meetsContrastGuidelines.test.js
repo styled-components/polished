@@ -30,9 +30,7 @@ describe('meetsContrastGuidelines', () => {
   })
 
   it('should return the color contrast guidelines of two rgba colors', () => {
-    expect(
-      meetsContrastGuidelines('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)'),
-    ).toEqual({
+    expect(meetsContrastGuidelines('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)')).toEqual({
       AA: false,
       AAA: false,
       AAALarge: false,
@@ -50,12 +48,7 @@ describe('meetsContrastGuidelines', () => {
   })
 
   it('should return the color contrast guidelines of two hsla colors', () => {
-    expect(
-      meetsContrastGuidelines(
-        'hsla(250, 100%, 50%, 0.2)',
-        'hsla(0, 100%, 100%, 1)',
-      ),
-    ).toEqual({
+    expect(meetsContrastGuidelines('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)')).toEqual({
       AA: true,
       AAA: true,
       AAALarge: true,
@@ -64,9 +57,7 @@ describe('meetsContrastGuidelines', () => {
   })
 
   it('should return the color contrast guidelines of two hsl colors', () => {
-    expect(
-      meetsContrastGuidelines('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)'),
-    ).toEqual({
+    expect(meetsContrastGuidelines('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)')).toEqual({
       AA: false,
       AAA: false,
       AAALarge: false,

@@ -46,16 +46,12 @@ describe('math', () => {
 
   it('should be able to do simple min', () => {
     expect(math('min(3em, 4em, 1em, 2em)')).toEqual(`${Math.min(3, 4, 1, 2)}em`)
-    expect(math('min(3em, -4em, 1em, 2em)')).toEqual(
-      `${Math.min(3, -4, 1, 2)}em`,
-    )
+    expect(math('min(3em, -4em, 1em, 2em)')).toEqual(`${Math.min(3, -4, 1, 2)}em`)
   })
 
   it('should be able to do simple max', () => {
     expect(math('max(3em, 8em, 1em, 2em)')).toEqual(`${Math.max(3, 8, 1, 2)}em`)
-    expect(math('max(3em, -8em, 1em, 2em)')).toEqual(
-      `${Math.max(3, -8, 1, 2)}em`,
-    )
+    expect(math('max(3em, -8em, 1em, 2em)')).toEqual(`${Math.max(3, -8, 1, 2)}em`)
   })
 
   it('should be able to do simple factorial', () => {
@@ -69,19 +65,11 @@ describe('math', () => {
   it('should be able to process square root', () => {
     expect(math('0 + sqrt(4em)', exponential)).toEqual(`${Math.sqrt(4)}em`)
     expect(math('sqrt(4em)', exponential)).toEqual(`${Math.sqrt(4)}em`)
-    expect(math('sqrt(2em + 4em) * 1', exponential)).toEqual(
-      `${Math.sqrt(2 + 4)}em`,
-    )
+    expect(math('sqrt(2em + 4em) * 1', exponential)).toEqual(`${Math.sqrt(2 + 4)}em`)
     expect(math('sqrt(-4em)', exponential)).toEqual(`${Math.sqrt(-4)}em`)
-    expect(math('sqrt(4em / 2em)', exponential)).toEqual(
-      `${Math.sqrt(4 / 2)}em`,
-    )
-    expect(math('sqrt(4em + 2em * 5)', exponential)).toEqual(
-      `${Math.sqrt(4 + 2 * 5)}em`,
-    )
-    expect(math('sqrt(4em - 2 / 5em)', exponential)).toEqual(
-      `${Math.sqrt(4 - 2 / 5)}em`,
-    )
+    expect(math('sqrt(4em / 2em)', exponential)).toEqual(`${Math.sqrt(4 / 2)}em`)
+    expect(math('sqrt(4em + 2em * 5)', exponential)).toEqual(`${Math.sqrt(4 + 2 * 5)}em`)
+    expect(math('sqrt(4em - 2 / 5em)', exponential)).toEqual(`${Math.sqrt(4 - 2 / 5)}em`)
   })
 
   it('should be able to process exponent power', () => {
@@ -98,9 +86,7 @@ describe('math', () => {
   it('should throw an error when formula contains multiple units', () => {
     expect(() => {
       math('1vw + 1vh + 1pt')
-    }).toThrow(
-      'All values in a formula must have the same unit or be unitless.',
-    )
+    }).toThrow('All values in a formula must have the same unit or be unitless.')
   })
 
   it('should throw an error when formula is missing a closing parenthesis', () => {

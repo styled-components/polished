@@ -15,9 +15,7 @@ describe('setLightness', () => {
   })
 
   it('should update the lightness and return a color with opacity', () => {
-    expect(setLightness(0.2, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(25,25,77,0.7)',
-    )
+    expect(setLightness(0.2, 'rgba(101,100,205,0.7)')).toEqual('rgba(25,25,77,0.7)')
   })
 
   it('should update the lightness when passed a string', () => {

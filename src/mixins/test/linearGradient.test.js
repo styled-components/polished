@@ -55,8 +55,7 @@ describe('linearGradient', () => {
       }),
     }).toEqual({
       backgroundColor: '#00FFFF',
-      backgroundImage:
-        'linear-gradient(90deg, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
+      backgroundImage: 'linear-gradient(90deg, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)',
     })
   })
 
@@ -81,8 +80,6 @@ describe('linearGradient', () => {
         toDirection: 'to top right',
         fallback: '#FFF',
       })
-    }).toThrow(
-      'linearGradient requries at least 2 color-stops to properly render.',
-    )
+    }).toThrow('linearGradient requries at least 2 color-stops to properly render.')
   })
 })

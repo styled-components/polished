@@ -15,9 +15,7 @@ describe('setHue', () => {
   })
 
   it('should update the hue and return a color with opacity', () => {
-    expect(setHue(244, 'rgba(101,100,205,0.7)')).toEqual(
-      'rgba(107,100,205,0.7)',
-    )
+    expect(setHue(244, 'rgba(101,100,205,0.7)')).toEqual('rgba(107,100,205,0.7)')
   })
 
   it('should update the hue when passed a string for hue', () => {

@@ -47,9 +47,7 @@ export default function rgba(
 ): string {
   if (typeof firstValue === 'string' && typeof secondValue === 'number') {
     const rgbValue = parseToRGB(firstValue)
-    return `rgba(${rgbValue.red},${rgbValue.green},${
-      rgbValue.blue
-    },${secondValue})`
+    return `rgba(${rgbValue.red},${rgbValue.green},${rgbValue.blue},${secondValue})`
   } else if (
     typeof firstValue === 'number'
     && typeof secondValue === 'number'
@@ -67,9 +65,7 @@ export default function rgba(
   ) {
     return firstValue.alpha >= 1
       ? rgb(firstValue.red, firstValue.green, firstValue.blue)
-      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${
-        firstValue.alpha
-      })`
+      : `rgba(${firstValue.red},${firstValue.green},${firstValue.blue},${firstValue.alpha})`
   }
 
   throw new PolishedError(7)

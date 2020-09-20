@@ -31,7 +31,7 @@ function format(...args) {
     b.push(args[c])
   }
 
-  b.forEach((d) => {
+  b.forEach(d => {
     a = a.replace(/%[a-z]/, d)
   })
 

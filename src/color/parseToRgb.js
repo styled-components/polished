@@ -39,9 +39,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
   }
   if (normalizedColor.match(hexRgbaRegex)) {
     const alpha = parseFloat(
-      (
-        parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255
-      ).toFixed(2),
+      (parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255).toFixed(2),
     )
     return {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
@@ -59,9 +57,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
   }
   if (normalizedColor.match(reducedRgbaHexRegex)) {
     const alpha = parseFloat(
-      (
-        parseInt(`${normalizedColor[4]}${normalizedColor[4]}`, 16) / 255
-      ).toFixed(2),
+      (parseInt(`${normalizedColor[4]}${normalizedColor[4]}`, 16) / 255).toFixed(2),
     )
     return {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[1]}`, 16),

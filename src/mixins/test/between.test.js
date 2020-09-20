@@ -3,9 +3,7 @@ import between from '../between'
 
 describe('between', () => {
   it('should return a valid calc formula when passed min/max screen sizes', () => {
-    expect(between('20px', '100px', '400px', '1000px')).toEqual(
-      'calc(-33.33px + 13.33vw)',
-    )
+    expect(between('20px', '100px', '400px', '1000px')).toEqual('calc(-33.33px + 13.33vw)')
   })
 
   it('should return a valid calc formula when not passed min/max screen sizes', () => {
@@ -35,9 +33,7 @@ describe('between', () => {
     expect(() => {
       // $FlowFixMe
       between('1em', '100px', '400px', '1000px')
-    }).toThrow(
-      'fromSize and toSize must be provided as stringified numbers with the same units.',
-    )
+    }).toThrow('fromSize and toSize must be provided as stringified numbers with the same units.')
   })
 
   it('should throw an error when passed to/from size with different units than mix/max screen', () => {

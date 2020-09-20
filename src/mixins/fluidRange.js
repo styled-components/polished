@@ -52,10 +52,7 @@ export default function fluidRange(
   minScreen?: string = '320px',
   maxScreen?: string = '1200px',
 ): Styles {
-  if (
-    (!Array.isArray(cssProp) && typeof cssProp !== 'object')
-    || cssProp === null
-  ) {
+  if ((!Array.isArray(cssProp) && typeof cssProp !== 'object') || cssProp === null) {
     throw new PolishedError(49)
   }
 
@@ -90,12 +87,7 @@ export default function fluidRange(
     return {
       [cssProp.prop]: cssProp.fromSize,
       [`@media (min-width: ${minScreen})`]: {
-        [cssProp.prop]: between(
-          cssProp.fromSize,
-          cssProp.toSize,
-          minScreen,
-          maxScreen,
-        ),
+        [cssProp.prop]: between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen),
       },
       [`@media (min-width: ${maxScreen})`]: {
         [cssProp.prop]: cssProp.toSize,
