@@ -39,6 +39,8 @@ function getTimingFunction(functionName: string): string {
 /**
  * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
  *
+ * @deprecated - This will be deprecated in v5 in favor of `easeIn`, `easeOut`, `easeInOut`.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
