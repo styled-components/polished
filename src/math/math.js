@@ -1,5 +1,5 @@
 // @flow
-import defaultSymbolMap from './defaultMathSymbols'
+import defaultSymbolMap from './presets/defaultSymbols'
 import PolishedError from '../internalHelpers/_errors'
 
 const unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g
@@ -34,12 +34,12 @@ function calculate(expression: string, additionalSymbols?: Object): number {
     `\\d+(?:\\.\\d+)?|${
       // ...and patterns for individual operators/function names
       Object.keys(symbolMap.symbols)
-        .map(key => symbolMap.symbols[key])
+        .map((key) => symbolMap.symbols[key])
         // longer symbols should be listed first
         // $FlowFixMe
         .sort((a, b) => b.symbol.length - a.symbol.length)
         // $FlowFixMe
-        .map(val => val.regSymbol)
+        .map((val) => val.regSymbol)
         .join('|')
     }|(\\S)`,
     'g',
@@ -118,10 +118,7 @@ function calculate(expression: string, additionalSymbols?: Object): number {
 }
 
 function reverseString(str: string): string {
-  return str
-    .split('')
-    .reverse()
-    .join('')
+  return str.split('').reverse().join('')
 }
 
 /**
@@ -161,7 +158,7 @@ export default function math(
   const formulaMatch = reversedFormula.match(unitRegExp)
 
   // Check that all units are the same
-  if (formulaMatch && !formulaMatch.every(unit => unit === formulaMatch[0])) {
+  if (formulaMatch && !formulaMatch.every((unit) => unit === formulaMatch[0])) {
     throw new PolishedError(41)
   }
 

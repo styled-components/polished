@@ -38,21 +38,6 @@
     return a / b;
   }
 
-  function factorial(a) {
-    if (a % 1 || !(+a >= 0)) return NaN;
-    if (a > 170) return Infinity;else if (a === 0) return 1;else {
-      return a * factorial(a - 1);
-    }
-  }
-
-  function power(a, b) {
-    return Math.pow(a, b);
-  }
-
-  function sqrt(a) {
-    return Math.sqrt(a);
-  }
-
   function max() {
     return Math.max.apply(Math, arguments);
   }
@@ -65,167 +50,131 @@
     return Array.of.apply(Array, arguments);
   }
 
-  var defaultMathSymbols = {
+  var defaultSymbols = {
     symbols: {
-      '!': {
-        postfix: {
-          symbol: '!',
-          f: factorial,
-          notation: 'postfix',
-          precedence: 6,
-          rightToLeft: 0,
-          argCount: 1
-        },
-        symbol: '!',
-        regSymbol: '!'
-      },
-      '^': {
+      "*": {
         infix: {
-          symbol: '^',
-          f: power,
-          notation: 'infix',
-          precedence: 5,
-          rightToLeft: 1,
-          argCount: 2
-        },
-        symbol: '^',
-        regSymbol: '\\^'
-      },
-      '*': {
-        infix: {
-          symbol: '*',
+          symbol: "*",
           f: multiplication,
-          notation: 'infix',
+          notation: "infix",
           precedence: 4,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: '*',
-        regSymbol: '\\*'
+        symbol: "*",
+        regSymbol: "\\*"
       },
-      '/': {
+      "/": {
         infix: {
-          symbol: '/',
+          symbol: "/",
           f: division,
-          notation: 'infix',
+          notation: "infix",
           precedence: 4,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: '/',
-        regSymbol: '/'
+        symbol: "/",
+        regSymbol: "/"
       },
-      '+': {
+      "+": {
         infix: {
-          symbol: '+',
+          symbol: "+",
           f: addition,
-          notation: 'infix',
+          notation: "infix",
           precedence: 2,
           rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: '+',
+          symbol: "+",
           f: last,
-          notation: 'prefix',
+          notation: "prefix",
           precedence: 3,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: '+',
-        regSymbol: '\\+'
+        symbol: "+",
+        regSymbol: "\\+"
       },
-      '-': {
+      "-": {
         infix: {
-          symbol: '-',
+          symbol: "-",
           f: subtraction,
-          notation: 'infix',
+          notation: "infix",
           precedence: 2,
           rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: '-',
+          symbol: "-",
           f: negation,
-          notation: 'prefix',
+          notation: "prefix",
           precedence: 3,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: '-',
-        regSymbol: '-'
+        symbol: "-",
+        regSymbol: "-"
       },
-      ',': {
+      ",": {
         infix: {
-          symbol: ',',
+          symbol: ",",
           f: comma,
-          notation: 'infix',
+          notation: "infix",
           precedence: 1,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: ',',
-        regSymbol: ','
+        symbol: ",",
+        regSymbol: ","
       },
-      '(': {
+      "(": {
         prefix: {
-          symbol: '(',
+          symbol: "(",
           f: last,
-          notation: 'prefix',
+          notation: "prefix",
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: '(',
-        regSymbol: '\\('
+        symbol: "(",
+        regSymbol: "\\("
       },
-      ')': {
+      ")": {
         postfix: {
-          symbol: ')',
+          symbol: ")",
           f: undefined,
-          notation: 'postfix',
+          notation: "postfix",
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: ')',
-        regSymbol: '\\)'
+        symbol: ")",
+        regSymbol: "\\)"
       },
       min: {
         func: {
-          symbol: 'min',
+          symbol: "min",
           f: min,
-          notation: 'func',
+          notation: "func",
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: 'min',
-        regSymbol: 'min\\b'
+        symbol: "min",
+        regSymbol: "min\\b"
       },
       max: {
         func: {
-          symbol: 'max',
+          symbol: "max",
           f: max,
-          notation: 'func',
+          notation: "func",
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: 'max',
-        regSymbol: 'max\\b'
-      },
-      sqrt: {
-        func: {
-          symbol: 'sqrt',
-          f: sqrt,
-          notation: 'func',
-          precedence: 0,
-          rightToLeft: 0,
-          argCount: 1
-        },
-        symbol: 'sqrt',
-        regSymbol: 'sqrt\\b'
+        symbol: "max",
+        regSymbol: "max\\b"
       }
     }
   };
@@ -368,7 +317,7 @@
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultMathSymbols.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultSymbols.symbols);
     return symbolMap;
   }
 
@@ -1506,8 +1455,8 @@
     }
 
     return {
-      backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', '))
+      backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
+      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
