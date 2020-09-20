@@ -52,129 +52,129 @@
 
   var defaultSymbols = {
     symbols: {
-      "*": {
+      '*': {
         infix: {
-          symbol: "*",
+          symbol: '*',
           f: multiplication,
-          notation: "infix",
+          notation: 'infix',
           precedence: 4,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: "*",
-        regSymbol: "\\*"
+        symbol: '*',
+        regSymbol: '\\*'
       },
-      "/": {
+      '/': {
         infix: {
-          symbol: "/",
+          symbol: '/',
           f: division,
-          notation: "infix",
+          notation: 'infix',
           precedence: 4,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: "/",
-        regSymbol: "/"
+        symbol: '/',
+        regSymbol: '/'
       },
-      "+": {
+      '+': {
         infix: {
-          symbol: "+",
+          symbol: '+',
           f: addition,
-          notation: "infix",
+          notation: 'infix',
           precedence: 2,
           rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: "+",
+          symbol: '+',
           f: last,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 3,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: "+",
-        regSymbol: "\\+"
+        symbol: '+',
+        regSymbol: '\\+'
       },
-      "-": {
+      '-': {
         infix: {
-          symbol: "-",
+          symbol: '-',
           f: subtraction,
-          notation: "infix",
+          notation: 'infix',
           precedence: 2,
           rightToLeft: 0,
           argCount: 2
         },
         prefix: {
-          symbol: "-",
+          symbol: '-',
           f: negation,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 3,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: "-",
-        regSymbol: "-"
+        symbol: '-',
+        regSymbol: '-'
       },
-      ",": {
+      ',': {
         infix: {
-          symbol: ",",
+          symbol: ',',
           f: comma,
-          notation: "infix",
+          notation: 'infix',
           precedence: 1,
           rightToLeft: 0,
           argCount: 2
         },
-        symbol: ",",
-        regSymbol: ","
+        symbol: ',',
+        regSymbol: ','
       },
-      "(": {
+      '(': {
         prefix: {
-          symbol: "(",
+          symbol: '(',
           f: last,
-          notation: "prefix",
+          notation: 'prefix',
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: "(",
-        regSymbol: "\\("
+        symbol: '(',
+        regSymbol: '\\('
       },
-      ")": {
+      ')': {
         postfix: {
-          symbol: ")",
+          symbol: ')',
           f: undefined,
-          notation: "postfix",
+          notation: 'postfix',
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: ")",
-        regSymbol: "\\)"
+        symbol: ')',
+        regSymbol: '\\)'
       },
       min: {
         func: {
-          symbol: "min",
+          symbol: 'min',
           f: min,
-          notation: "func",
+          notation: 'func',
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: "min",
-        regSymbol: "min\\b"
+        symbol: 'min',
+        regSymbol: 'min\\b'
       },
       max: {
         func: {
-          symbol: "max",
+          symbol: 'max',
           f: max,
-          notation: "func",
+          notation: 'func',
           precedence: 0,
           rightToLeft: 0,
           argCount: 1
         },
-        symbol: "max",
-        regSymbol: "max\\b"
+        symbol: 'max',
+        regSymbol: 'max\\b'
       }
     }
   };

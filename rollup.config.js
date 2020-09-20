@@ -1,4 +1,4 @@
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import sourceMaps from "rollup-plugin-sourcemaps";
@@ -20,7 +20,7 @@ const name = "polished";
 
 const getBabelOptions = ({ useESModules }, targets) => ({
   babelrc: false,
-  runtimeHelpers: true,
+  babelHelpers: 'runtime',
   presets: [
     [
       "@babel/preset-env",
