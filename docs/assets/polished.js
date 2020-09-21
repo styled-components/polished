@@ -860,6 +860,111 @@
 
   var rem = /*#__PURE__*/pxtoFactory('rem');
 
+  var functionsMap = {
+    back: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
+    circ: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
+    cubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
+    expo: 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
+    quad: 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+    quart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
+    quint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
+    sine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeIn('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeIn('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+   * }
+   */
+
+  function easeIn(functionName) {
+    return functionsMap[functionName.toLowerCase().trim()];
+  }
+
+  var functionsMap$1 = {
+    back: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
+    circ: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
+    cubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
+    expo: 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
+    quad: 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+    quart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
+    quint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
+    sine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeInOut('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeInOut('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+   * }
+   */
+
+  function easeInOut(functionName) {
+    return functionsMap$1[functionName.toLowerCase().trim()];
+  }
+
+  var functionsMap$2 = {
+    back: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
+    cubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
+    circ: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
+    expo: 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
+    quad: 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+    quart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
+    quint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
+    sine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeOut('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeOut('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+   * }
+   */
+
+  function easeOut(functionName) {
+    return functionsMap$2[functionName.toLowerCase().trim()];
+  }
+
   /**
    * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
    *
@@ -1705,7 +1810,7 @@
   }
 
   /* eslint-disable key-spacing */
-  var functionsMap = {
+  var functionsMap$3 = {
     easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
     easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
     easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
@@ -1734,7 +1839,7 @@
   /* eslint-enable key-spacing */
 
   function getTimingFunction(functionName) {
-    return functionsMap[functionName];
+    return functionsMap$3[functionName];
   }
   /**
    * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
@@ -4088,6 +4193,9 @@
   exports.darken = curriedDarken;
   exports.desaturate = curriedDesaturate;
   exports.directionalProperty = directionalProperty;
+  exports.easeIn = easeIn;
+  exports.easeInOut = easeInOut;
+  exports.easeOut = easeOut;
   exports.ellipsis = ellipsis;
   exports.em = em;
   exports.fluidRange = fluidRange;

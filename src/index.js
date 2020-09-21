@@ -13,6 +13,11 @@ import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
 import stripUnit from './helpers/stripUnit'
 
+// Easings
+import easeIn from './easings/easeIn'
+import easeInOut from './easings/easeInOut'
+import easeOut from './easings/easeOut'
+
 // Mixins
 import between from './mixins/between'
 import clearFix from './mixins/clearFix'
@@ -98,6 +103,9 @@ export {
   darken,
   desaturate,
   directionalProperty,
+  easeIn,
+  easeInOut,
+  easeOut,
   ellipsis,
   em,
   fluidRange,
