@@ -764,6 +764,16 @@
             
               
               <li><a
+                href='#important'
+                class="">
+                important
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#modularscale'
                 class="">
                 modularScale
@@ -787,6 +797,46 @@
                 href='#stripunit'
                 class="">
                 stripUnit
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#easings'
+                class="h5 bold black caps">
+                Easings
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#easein'
+                class="">
+                easeIn
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#easeinout'
+                class="">
+                easeInOut
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#easeout'
+                class="">
+                easeOut
                 
               </a>
               
@@ -1376,10 +1426,10 @@ div: {
   </div>
   
 
-  <p>CSS to represent truncated text with an ellipsis.</p>
+  <p>CSS to represent truncated text with an ellipsis. You can optionally pass a max-width and number of lines before truncating.</p>
 
 
-  <div class='pre p1 fill-light mt0'>ellipsis(width: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): <a href="#styles">Styles</a></div>
+  <div class='pre p1 fill-light mt0'>ellipsis(width: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>? | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)?, lines: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="#styles">Styles</a></div>
   
   
     <p>
@@ -1402,8 +1452,16 @@ div: {
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>width</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)
-            = <code>&#39;100%&#39;</code>)</code>
+            <span class='code bold'>width</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>? | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lines</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>1</code>)</code>
 	    
           </div>
           
@@ -1632,7 +1690,7 @@ div: {
   </div>
   
 
-  <p>CSS for a @font-face declaration.</p>
+  <p>CSS for a @font-face declaration. Defaults to check for local copies of the font on the user's machine. You can disable this by passing <code>null</code> to localFonts.</p>
 
 
   <div class='pre p1 fill-light mt0'>fontFace($0: <a href="#fontfaceconfiguration">FontFaceConfiguration</a>): <a href="#styles">Styles</a></div>
@@ -1729,6 +1787,8 @@ div: {
               
                 <tr>
                   <td class='break-word'><span class='code bold'>$0.localFonts</span> <code class='quiet'>any</code>
+                  
+                    (default <code>[fontFamily]</code>)
                   </td>
                   <td class='break-word'><span></span></td>
                 </tr>
@@ -5019,10 +5079,10 @@ can convert a RgbColor or RgbaColor object back to a string.</p>
 
   <p>Returns black or white (or optional light and dark return colors) for best
 contrast depending on the luminosity of the given color.
-When passing custom return colors, set <code>strict</code> to <code>true</code> to ensure that the
+When passing custom return colors, strict mode ensures that the
 return color always meets or exceeds WCAG level AA or greater. If this test
 fails, the default return color (black or white) is returned in place of the
-custom return color.</p>
+custom return color. You can optionally turn off strict mode.</p>
 <p>Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
 
 
@@ -5076,7 +5136,7 @@ custom return color.</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>strict</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-            = <code>false</code>)</code>
+            = <code>true</code>)</code>
 	    
           </div>
           
@@ -8349,11 +8409,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   </div>
   
 
-  <p>Fetches the value of a passed CSS Variable.</p>
-<p>Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.</p>
+  <p>Fetches the value of a passed CSS Variable in the :root scope, or otherwise returns a defaultValue if provided.</p>
 
 
-  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, passThrough: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  <div class='pre p1 fill-light mt0'>cssVar(cssVariable: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, defaultValue: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
     <p>
@@ -8384,7 +8443,7 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>passThrough</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?)</code>
+            <span class='code bold'>defaultValue</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?)</code>
 	    
           </div>
           
@@ -8792,6 +8851,123 @@ element {
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='important'>
+      important
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Helper for targeting rules in a style block generated by polished modules that need !important-level specificity. Can optionally specify a rule (or rules) to target specific rules.</p>
+
+
+  <div class='pre p1 fill-light mt0'>important(styleBlock: <a href="#styles">Styles</a>, rules: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?): <a href="#styles">Styles</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>styleBlock</span> <code class='quiet'>(<a href="#styles">Styles</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rules</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#styles">Styles</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+  <span class="hljs-params">...</span>important(cover())
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const div = styled.div<span class="hljs-string">`
+  ${important(cover())}
+`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+div: {
+  <span class="hljs-string">'position'</span>: <span class="hljs-string">'absolute !important'</span>,
+  <span class="hljs-string">'top'</span>: <span class="hljs-string">'0 !important'</span>,
+  <span class="hljs-string">'right: '</span><span class="hljs-number">0</span> !important<span class="hljs-string">',
+  '</span>bottom<span class="hljs-string">': '</span><span class="hljs-number">0</span> !important<span class="hljs-string">',
+  '</span>left: <span class="hljs-string">'0 !important'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='modularscale'>
       modularScale
     </h3>
@@ -9049,7 +9225,7 @@ element {
   <p>Returns a given CSS value minus its unit of measure.</p>
 
 
-  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), unitReturn: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?): any</div>
+  <div class='pre p1 fill-light mt0'>stripUnit(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
   
   
     <p>
@@ -9078,14 +9254,6 @@ element {
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>unitReturn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?)</code>
-	    
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -9099,7 +9267,7 @@ element {
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
     
   
 
@@ -9128,6 +9296,336 @@ element {
 
 element {
   <span class="hljs-string">'--dimension'</span>: <span class="hljs-number">100</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <div class='keyline-top-not py2'><section class='section py2 clearfix'>
+
+  <h2 class="section__heading" id='easings' class='mt0'>
+    Easings
+  </h2>
+
+  
+    
+
+  
+</section>
+</div>
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='easein'>
+      easeIn
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>easeIn(functionName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#timingfunction">TimingFunction</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>functionName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#timingfunction">TimingFunction</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'transitionTimingFunction'</span>: easeIn(<span class="hljs-string">'quad'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+ <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  transitionTimingFunction: <span class="hljs-subst">${easeIn(<span class="hljs-string">'quad'</span>)}</span>;
+`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'transitionTimingFunction'</span>: <span class="hljs-string">'cubic-bezier(0.550,  0.085, 0.680, 0.530)'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='easeinout'>
+      easeInOut
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>easeInOut(functionName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#timingfunction">TimingFunction</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>functionName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#timingfunction">TimingFunction</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'transitionTimingFunction'</span>: easeInOut(<span class="hljs-string">'quad'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+ <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  transitionTimingFunction: <span class="hljs-subst">${easeInOut(<span class="hljs-string">'quad'</span>)}</span>;
+`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'transitionTimingFunction'</span>: <span class="hljs-string">'cubic-bezier(0.455,  0.030, 0.515, 0.955)'</span>,
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='easeout'>
+      easeOut
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).</p>
+
+
+  <div class='pre p1 fill-light mt0'>easeOut(functionName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#timingfunction">TimingFunction</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>functionName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#timingfunction">TimingFunction</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'transitionTimingFunction'</span>: easeOut(<span class="hljs-string">'quad'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+ <span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  transitionTimingFunction: <span class="hljs-subst">${easeOut(<span class="hljs-string">'quad'</span>)}</span>;
+`</span>
+
+<span class="hljs-comment">// CSS as JS Output</span>
+
+<span class="hljs-string">'div'</span>: {
+  <span class="hljs-string">'transitionTimingFunction'</span>: <span class="hljs-string">'cubic-bezier(0.250,  0.460, 0.450, 0.940)'</span>,
 }</pre>
     
   
@@ -9279,7 +9777,7 @@ element {
   
     <p>
       Type:
-      {fontFamily: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontFilePath: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontStretch: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontStyle: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontVariant: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontWeight: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fileFormats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>?, formatHint: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?, localFonts: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>?, unicodeRange: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontDisplay: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontVariationSettings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontFeatureSettings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?}
+      {fontFamily: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, fontFilePath: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontStretch: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontStyle: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontVariant: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontWeight: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fileFormats: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>?, formatHint: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?, localFonts: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | null)?, unicodeRange: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontDisplay: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontVariationSettings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, fontFeatureSettings: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?}
     </p>
   
   
@@ -9357,7 +9855,7 @@ element {
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>localFonts</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>?)</code>
+          <span class='code bold'>localFonts</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>? | null))</code>
           
           
         </div>

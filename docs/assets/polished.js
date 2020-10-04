@@ -38,21 +38,6 @@
     return a / b;
   }
 
-  function factorial(a) {
-    if (a % 1 || !(+a >= 0)) return NaN;
-    if (a > 170) return Infinity;else if (a === 0) return 1;else {
-      return a * factorial(a - 1);
-    }
-  }
-
-  function power(a, b) {
-    return Math.pow(a, b);
-  }
-
-  function sqrt(a) {
-    return Math.sqrt(a);
-  }
-
   function max() {
     return Math.max.apply(Math, arguments);
   }
@@ -65,32 +50,8 @@
     return Array.of.apply(Array, arguments);
   }
 
-  var defaultMathSymbols = {
+  var defaultSymbols = {
     symbols: {
-      '!': {
-        postfix: {
-          symbol: '!',
-          f: factorial,
-          notation: 'postfix',
-          precedence: 6,
-          rightToLeft: 0,
-          argCount: 1
-        },
-        symbol: '!',
-        regSymbol: '!'
-      },
-      '^': {
-        infix: {
-          symbol: '^',
-          f: power,
-          notation: 'infix',
-          precedence: 5,
-          rightToLeft: 1,
-          argCount: 2
-        },
-        symbol: '^',
-        regSymbol: '\\^'
-      },
       '*': {
         infix: {
           symbol: '*',
@@ -214,18 +175,6 @@
         },
         symbol: 'max',
         regSymbol: 'max\\b'
-      },
-      sqrt: {
-        func: {
-          symbol: 'sqrt',
-          f: sqrt,
-          notation: 'func',
-          precedence: 0,
-          rightToLeft: 0,
-          argCount: 1
-        },
-        symbol: 'sqrt',
-        regSymbol: 'sqrt\\b'
       }
     }
   };
@@ -310,7 +259,9 @@
     "71": "Passed invalid pixel value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
     "72": "Passed invalid base value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
     "73": "Please provide a valid CSS variable.\n\n",
-    "74": "CSS variable not found.\n"
+    "74": "CSS variable not found and no default was provided.\n\n",
+    "75": "important requires a valid style object, got a %s instead.\n\n",
+    "76": "fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.\n"
   };
   /**
    * super basic version of sprintf
@@ -366,7 +317,7 @@
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultMathSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultMathSymbols.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultSymbols.symbols);
     return symbolMap;
   }
 
@@ -509,9 +460,7 @@
 
   var cssVariableRegex = /--[\S]*/g;
   /**
-   * Fetches the value of a passed CSS Variable.
-   *
-   * Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.
+   * Fetches the value of a passed CSS Variable in the :root scope, or otherwise returns a defaultValue if provided.
    *
    * @example
    * // Styles as object usage
@@ -531,9 +480,8 @@
    * }
    */
 
-  function cssVar(cssVariable, passThrough) {
+  function cssVar(cssVariable, defaultValue) {
     if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
-      if (passThrough) return cssVariable;
       throw new PolishedError(73);
     }
 
@@ -550,9 +498,11 @@
 
     if (variableValue) {
       return variableValue.trim();
-    } else {
-      throw new PolishedError(74);
+    } else if (defaultValue) {
+      return defaultValue;
     }
+
+    throw new PolishedError(74);
   }
 
   // @private
@@ -633,15 +583,13 @@
    * Check if a string ends with something
    * @private
    */
-  function endsWith (string, suffix) {
+  function endsWith(string, suffix) {
     return string.substr(-suffix.length) === suffix;
   }
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
    * Returns a given CSS value minus its unit of measure.
-   *
-   * @deprecated - stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.
    *
    * @example
    * // Styles as object usage
@@ -661,19 +609,10 @@
    * }
    */
 
-  function stripUnit(value, unitReturn) {
-    if (typeof value !== 'string') return unitReturn ? [value, undefined] : value;
+  function stripUnit(value) {
+    if (typeof value !== 'string') return value;
     var matchedValue = value.match(cssRegex);
-
-    if (unitReturn) {
-      // eslint-disable-next-line no-console
-      console.warn("stripUnit's unitReturn functionality has been marked for deprecation in polished 4.0. It's functionality has been been moved to getValueAndUnit.");
-      if (matchedValue) return [parseFloat(value), matchedValue[2]];
-      return [value, undefined];
-    }
-
-    if (matchedValue) return parseFloat(value);
-    return value;
+    return matchedValue ? parseFloat(value) : value;
   }
 
   /**
@@ -774,6 +713,49 @@
     var matchedValue = value.match(cssRegex$1);
     if (matchedValue) return [parseFloat(value), matchedValue[2]];
     return [value, undefined];
+  }
+
+  /**
+   * Helper for targeting rules in a style block generated by polished modules that need !important-level specificity. Can optionally specify a rule (or rules) to target specific rules.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   ...important(cover())
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   ${important(cover())}
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * div: {
+   *   'position': 'absolute !important',
+   *   'top': '0 !important',
+   *   'right: '0 !important',
+   *   'bottom': '0 !important',
+   *   'left: '0 !important'
+   * }
+   */
+
+  function important(styleBlock, rules) {
+    if (typeof styleBlock !== 'object' || styleBlock === null) {
+      throw new PolishedError(75, typeof styleBlock);
+    }
+
+    var newStyleBlock = {};
+    Object.keys(styleBlock).forEach(function (key) {
+      if (typeof styleBlock[key] === 'object' && styleBlock[key] !== null) {
+        newStyleBlock[key] = important(styleBlock[key], rules);
+      } else if (!rules || rules && (rules === key || rules.indexOf(key) >= 0)) {
+        newStyleBlock[key] = styleBlock[key] + " !important";
+      } else {
+        newStyleBlock[key] = styleBlock[key];
+      }
+    });
+    return newStyleBlock;
   }
 
   var ratioNames = {
@@ -878,6 +860,111 @@
 
   var rem = /*#__PURE__*/pxtoFactory('rem');
 
+  var functionsMap = {
+    back: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
+    circ: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
+    cubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
+    expo: 'cubic-bezier(0.950,  0.050, 0.795, 0.035)',
+    quad: 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+    quart: 'cubic-bezier(0.895,  0.030, 0.685, 0.220)',
+    quint: 'cubic-bezier(0.755,  0.050, 0.855, 0.060)',
+    sine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeIn('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeIn('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.550,  0.085, 0.680, 0.530)',
+   * }
+   */
+
+  function easeIn(functionName) {
+    return functionsMap[functionName.toLowerCase().trim()];
+  }
+
+  var functionsMap$1 = {
+    back: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
+    circ: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
+    cubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
+    expo: 'cubic-bezier(1.000,  0.000, 0.000, 1.000)',
+    quad: 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+    quart: 'cubic-bezier(0.770,  0.000, 0.175, 1.000)',
+    quint: 'cubic-bezier(0.860,  0.000, 0.070, 1.000)',
+    sine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeInOut('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeInOut('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.455,  0.030, 0.515, 0.955)',
+   * }
+   */
+
+  function easeInOut(functionName) {
+    return functionsMap$1[functionName.toLowerCase().trim()];
+  }
+
+  var functionsMap$2 = {
+    back: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
+    cubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
+    circ: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
+    expo: 'cubic-bezier(0.190,  1.000, 0.220, 1.000)',
+    quad: 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+    quart: 'cubic-bezier(0.165,  0.840, 0.440, 1.000)',
+    quint: 'cubic-bezier(0.230,  1.000, 0.320, 1.000)',
+    sine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)'
+  };
+  /**
+   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'transitionTimingFunction': easeOut('quad')
+   * }
+   *
+   * // styled-components usage
+   *  const div = styled.div`
+   *   transitionTimingFunction: ${easeOut('quad')};
+   * `
+   *
+   * // CSS as JS Output
+   *
+   * 'div': {
+   *   'transitionTimingFunction': 'cubic-bezier(0.250,  0.460, 0.450, 0.940)',
+   * }
+   */
+
+  function easeOut(functionName) {
+    return functionsMap$2[functionName.toLowerCase().trim()];
+  }
+
   /**
    * Returns a CSS calc formula for linear interpolation of a property between two values. Accepts optional minScreen (defaults to '320px') and maxScreen (defaults to '1200px').
    *
@@ -933,6 +1020,10 @@
 
     if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || fromSizeUnit !== toSizeUnit) {
       throw new PolishedError(48);
+    }
+
+    if (fromSizeUnit !== minScreenUnit || toSizeUnit !== maxScreenUnit) {
+      throw new PolishedError(76);
     }
 
     var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
@@ -1016,7 +1107,7 @@
   }
 
   /**
-   * CSS to represent truncated text with an ellipsis.
+   * CSS to represent truncated text with an ellipsis. You can optionally pass a max-width and number of lines before truncating.
    *
    * @example
    * // Styles as object usage
@@ -1040,19 +1131,24 @@
    *   'wordWrap': 'normal'
    * }
    */
-  function ellipsis(width) {
-    if (width === void 0) {
-      width = '100%';
+  function ellipsis(width, lines) {
+    if (lines === void 0) {
+      lines = 1;
     }
 
-    return {
+    var styles = {
       display: 'inline-block',
-      maxWidth: width,
+      maxWidth: width || '100%',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
       wordWrap: 'normal'
     };
+    return lines > 1 ? _extends__default['default']({}, styles, {
+      display: '-webkit-box',
+      webkitLineClamp: lines,
+      webkitBoxOrient: 'vertical'
+    }) : styles;
   }
 
   function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
@@ -1195,7 +1291,7 @@
     return fontReferences.join(', ');
   }
   /**
-   * CSS for a @font-face declaration.
+   * CSS for a @font-face declaration. Defaults to check for local copies of the font on the user's machine. You can disable this by passing `null` to localFonts.
    *
    * @example
    * // Styles as object basic usage
@@ -1234,7 +1330,8 @@
         fileFormats = _ref$fileFormats === void 0 ? ['eot', 'woff2', 'woff', 'ttf', 'svg'] : _ref$fileFormats,
         _ref$formatHint = _ref.formatHint,
         formatHint = _ref$formatHint === void 0 ? false : _ref$formatHint,
-        localFonts = _ref.localFonts,
+        _ref$localFonts = _ref.localFonts,
+        localFonts = _ref$localFonts === void 0 ? [fontFamily] : _ref$localFonts,
         unicodeRange = _ref.unicodeRange,
         fontDisplay = _ref.fontDisplay,
         fontVariationSettings = _ref.fontVariationSettings,
@@ -1463,8 +1560,8 @@
     }
 
     return {
-      backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', '))
+      backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
+      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
@@ -1713,7 +1810,7 @@
   }
 
   /* eslint-disable key-spacing */
-  var functionsMap = {
+  var functionsMap$3 = {
     easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
     easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
     easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
@@ -1742,10 +1839,12 @@
   /* eslint-enable key-spacing */
 
   function getTimingFunction(functionName) {
-    return functionsMap[functionName];
+    return functionsMap$3[functionName];
   }
   /**
    * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   *
+   * @deprecated - This will be deprecated in v5 in favor of `easeIn`, `easeOut`, `easeInOut`.
    *
    * @example
    * // Styles as object usage
@@ -1804,23 +1903,31 @@
     }
   };
 
-  var getBorderColor = function getBorderColor(pointingDirection, foregroundColor, backgroundColor) {
+  var getBorderColor = function getBorderColor(pointingDirection, foregroundColor) {
     switch (pointingDirection) {
       case 'top':
       case 'bottomRight':
-        return backgroundColor + " " + backgroundColor + " " + foregroundColor + " " + backgroundColor;
+        return {
+          borderBottomColor: foregroundColor
+        };
 
       case 'right':
       case 'bottomLeft':
-        return backgroundColor + " " + backgroundColor + " " + backgroundColor + " " + foregroundColor;
+        return {
+          borderLeftColor: foregroundColor
+        };
 
       case 'bottom':
       case 'topLeft':
-        return foregroundColor + " " + backgroundColor + " " + backgroundColor + " " + backgroundColor;
+        return {
+          borderTopColor: foregroundColor
+        };
 
       case 'left':
       case 'topRight':
-        return backgroundColor + " " + foregroundColor + " " + backgroundColor + " " + backgroundColor;
+        return {
+          borderRightColor: foregroundColor
+        };
 
       default:
         throw new PolishedError(59);
@@ -1868,13 +1975,14 @@
       throw new PolishedError(60);
     }
 
-    return {
+    return _extends__default['default']({
       width: '0',
       height: '0',
-      borderColor: getBorderColor(pointingDirection, foregroundColor, backgroundColor),
+      borderColor: backgroundColor
+    }, getBorderColor(pointingDirection, foregroundColor), {
       borderStyle: 'solid',
       borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit)
-    };
+    });
   }
 
   /**
@@ -3075,10 +3183,10 @@
   /**
    * Returns black or white (or optional light and dark return colors) for best
    * contrast depending on the luminosity of the given color.
-   * When passing custom return colors, set `strict` to `true` to ensure that the
+   * When passing custom return colors, strict mode ensures that the
    * return color always meets or exceeds WCAG level AA or greater. If this test
    * fails, the default return color (black or white) is returned in place of the
-   * custom return color.
+   * custom return color. You can optionally turn off strict mode.
    *
    * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
    *
@@ -3118,12 +3226,11 @@
     }
 
     if (strict === void 0) {
-      strict = false;
+      strict = true;
     }
 
     var isLightColor = getLuminance(color) > 0.179;
-    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor; // TODO: Make `strict` the default behaviour in the next major release.
-    // Without `strict`, this may return a color that does not meet WCAG AA.
+    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor;
 
     if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
       return preferredReturnColor;
@@ -4086,6 +4193,9 @@
   exports.darken = curriedDarken;
   exports.desaturate = curriedDesaturate;
   exports.directionalProperty = directionalProperty;
+  exports.easeIn = easeIn;
+  exports.easeInOut = easeInOut;
+  exports.easeOut = easeOut;
   exports.ellipsis = ellipsis;
   exports.em = em;
   exports.fluidRange = fluidRange;
@@ -4100,6 +4210,7 @@
   exports.hsl = hsl;
   exports.hslToColorString = hslToColorString;
   exports.hsla = hsla;
+  exports.important = important;
   exports.invert = invert;
   exports.lighten = curriedLighten;
   exports.linearGradient = linearGradient;

@@ -94,9 +94,16 @@
     "directionalProperty",
     "em",
     "getValueAndUnit",
+    "important",
     "modularScale",
     "rem",
     "stripUnit",
+    {
+      "name": "Easings"
+    },
+    "easeIn",
+    "easeInOut",
+    "easeOut",
     {
       "name": "Types"
     },

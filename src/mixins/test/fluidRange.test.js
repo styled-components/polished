@@ -13,7 +13,15 @@ describe('fluidRange', () => {
         '400px',
         '1000px',
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      '@media (min-width: 1000px)': {
+        padding: '100px',
+      },
+      '@media (min-width: 400px)': {
+        padding: 'calc(-33.33px + 13.33vw)',
+      },
+      padding: '20px',
+    })
   })
 
   it('should return a valid object when passed multiple cssValues in an array and min/max screen sizes', () => {
@@ -34,7 +42,18 @@ describe('fluidRange', () => {
         '400px',
         '1000px',
       ),
-    ).toMatchSnapshot()
+    ).toEqual({
+      '@media (min-width: 1000px)': {
+        margin: '25px',
+        padding: '100px',
+      },
+      '@media (min-width: 400px)': {
+        margin: 'calc(-8.33px + 3.33vw)',
+        padding: 'calc(-33.33px + 13.33vw)',
+      },
+      margin: '5px',
+      padding: '20px',
+    })
   })
 
   it('should use defaults when min/maxScreen are not passed', () => {
@@ -44,7 +63,15 @@ describe('fluidRange', () => {
         fromSize: '20px',
         toSize: '100px',
       }),
-    ).toMatchSnapshot()
+    ).toEqual({
+      '@media (min-width: 1200px)': {
+        padding: '100px',
+      },
+      '@media (min-width: 320px)': {
+        padding: 'calc(-9.09px + 9.09vw)',
+      },
+      padding: '20px',
+    })
   })
 
   // Errors
@@ -158,8 +185,6 @@ describe('fluidRange', () => {
         '100px',
         '200px',
       )
-    }).toThrow(
-      'fromSize and toSize must be provided as stringified numbers with the same units.',
-    )
+    }).toThrow('fromSize and toSize must be provided as stringified numbers with the same units.')
   })
 })

@@ -10,10 +10,7 @@ import type { ContrastScores } from '../types/color'
  * @example
  * const scores = meetsContrastGuidelines('#444', '#fff');
  */
-export default function meetsContrastGuidelines(
-  color1: string,
-  color2: string,
-): ContrastScores {
+export default function meetsContrastGuidelines(color1: string, color2: string): ContrastScores {
   const contrastRatio = getContrast(color1, color2)
   return {
     AA: contrastRatio >= 4.5,

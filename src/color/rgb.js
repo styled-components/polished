@@ -28,25 +28,11 @@ import type { RgbColor } from '../types/color'
  *   background: "#ffcd64";
  * }
  */
-export default function rgb(
-  value: RgbColor | number,
-  green?: number,
-  blue?: number,
-): string {
-  if (
-    typeof value === 'number'
-    && typeof green === 'number'
-    && typeof blue === 'number'
-  ) {
+export default function rgb(value: RgbColor | number, green?: number, blue?: number): string {
+  if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
     return reduceHexValue(`#${toHex(value)}${toHex(green)}${toHex(blue)}`)
-  } else if (
-    typeof value === 'object'
-    && green === undefined
-    && blue === undefined
-  ) {
-    return reduceHexValue(
-      `#${toHex(value.red)}${toHex(value.green)}${toHex(value.blue)}`,
-    )
+  } else if (typeof value === 'object' && green === undefined && blue === undefined) {
+    return reduceHexValue(`#${toHex(value.red)}${toHex(value.green)}${toHex(value.blue)}`)
   }
 
   throw new PolishedError(6)

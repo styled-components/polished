@@ -24,8 +24,5 @@ import pixelsto from '../internalHelpers/_pxto'
  *   'height': '1rem'
  * }
  */
-const rem: (
-  value: string | number,
-  base?: string | number,
-) => string = pixelsto('rem')
+const rem: (value: string | number, base?: string | number) => string = pixelsto('rem')
 export default rem

@@ -37,24 +37,20 @@ const getBorderWidth = (
   }
 }
 
-const getBorderColor = (
-  pointingDirection: SideKeyword,
-  foregroundColor: string,
-  backgroundColor: string,
-): string => {
+const getBorderColor = (pointingDirection: SideKeyword, foregroundColor: string): Object => {
   switch (pointingDirection) {
     case 'top':
     case 'bottomRight':
-      return `${backgroundColor} ${backgroundColor} ${foregroundColor} ${backgroundColor}`
+      return { borderBottomColor: foregroundColor }
     case 'right':
     case 'bottomLeft':
-      return `${backgroundColor} ${backgroundColor} ${backgroundColor} ${foregroundColor}`
+      return { borderLeftColor: foregroundColor }
     case 'bottom':
     case 'topLeft':
-      return `${foregroundColor} ${backgroundColor} ${backgroundColor} ${backgroundColor}`
+      return { borderTopColor: foregroundColor }
     case 'left':
     case 'topRight':
-      return `${backgroundColor} ${foregroundColor} ${backgroundColor} ${backgroundColor}`
+      return { borderRightColor: foregroundColor }
 
     default:
       throw new PolishedError(59)
@@ -104,11 +100,8 @@ export default function triangle({
   return {
     width: '0',
     height: '0',
-    borderColor: getBorderColor(
-      pointingDirection,
-      foregroundColor,
-      backgroundColor,
-    ),
+    borderColor: backgroundColor,
+    ...getBorderColor(pointingDirection, foregroundColor),
     borderStyle: 'solid',
     borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
   }

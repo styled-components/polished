@@ -8,7 +8,29 @@ describe('fontFace', () => {
         fontFamily: 'Sans Pro',
         fontFilePath: 'path/to/file',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'local("Sans Pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
+      },
+    })
+  })
+
+  it('should return a valid object when passed false for localFonts', () => {
+    expect({
+      ...fontFace({
+        fontFamily: 'Sans Pro',
+        fontFilePath: 'path/to/file',
+        localFonts: null,
+      }),
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
+      },
+    })
   })
 
   it('should return a valid object when passed both local and file-based sources', () => {
@@ -18,7 +40,13 @@ describe('fontFace', () => {
         localFonts: ['sans-pro'],
         fontFilePath: 'path/to/file',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'local("sans-pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
+      },
+    })
   })
 
   it('should return a valid object when passed both a file-based source and multiple local sources', () => {
@@ -28,7 +56,13 @@ describe('fontFace', () => {
         localFonts: ['sans-pro', 'sans pro'],
         fontFilePath: 'path/to/file',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'local("sans-pro"), local("sans pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
+      },
+    })
   })
 
   it('should return a valid object when passed only local sources', () => {
@@ -37,7 +71,12 @@ describe('fontFace', () => {
         fontFamily: 'Sans Pro',
         localFonts: ['sans-pro', 'sans pro'],
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src: 'local("sans-pro"), local("sans pro")',
+      },
+    })
   })
 
   it('should respect the file format configuration object', () => {
@@ -47,7 +86,12 @@ describe('fontFace', () => {
         fontFilePath: 'path/to/file',
         fileFormats: ['eot', 'svg'],
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src: 'local("Sans Pro"), url("path/to/file.eot"), url("path/to/file.svg")',
+      },
+    })
   })
 
   it('should return base64 src', () => {
@@ -57,7 +101,13 @@ describe('fontFace', () => {
         fontFilePath:
           'data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'local("Sans Pro"), url("data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC")',
+      },
+    })
   })
 
   it('should return base64 src with format hint', () => {
@@ -69,7 +119,13 @@ describe('fontFace', () => {
         fileFormats: ['woff'],
         formatHint: true,
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        src:
+          'local("Sans Pro"), url("data:application/x-font-woff;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC") format("woff")',
+      },
+    })
   })
 
   it('should set passed font configuration variables', () => {
@@ -86,7 +142,21 @@ describe('fontFace', () => {
         fontVariationSettings: '"XHGT" 0.7',
         fontFeatureSettings: '"smcp" on',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontDisplay: 'swap',
+        fontFamily: 'Sans Pro',
+        fontFeatureSettings: '"smcp" on',
+        fontStretch: 'condensed',
+        fontStyle: 'italic',
+        fontVariant: 'small-caps',
+        fontVariationSettings: '"XHGT" 0.7',
+        fontWeight: 'bold',
+        src:
+          'local("Sans Pro"), url("path/to/file.eot"), url("path/to/file.woff2"), url("path/to/file.woff"), url("path/to/file.ttf"), url("path/to/file.svg")',
+        unicodeRange: 'U+26',
+      },
+    })
   })
 
   it('should set generate format hints', () => {
@@ -100,7 +170,16 @@ describe('fontFace', () => {
         fontStyle: 'italic',
         fontWeight: 'bold',
       }),
-    }).toMatchSnapshot()
+    }).toEqual({
+      '@font-face': {
+        fontFamily: 'Sans Pro',
+        fontStretch: 'condensed',
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        src:
+          'local("Sans Pro"), url("path/to/file.eot") format("embedded-opentype"), url("path/to/file.svg") format("svg"), url("path/to/file.svgz") format("svg"), url("path/to/file.woff") format("woff"), url("path/to/file.woff2") format("woff2"), url("path/to/file.otf") format("opentype"), url("path/to/file.ttf") format("truetype")',
+      },
+    })
   })
 
   it('should throw an error when not passed a fontfamily', () => {
@@ -116,10 +195,9 @@ describe('fontFace', () => {
     expect(() => {
       fontFace({
         fontFamily: 'Sans Pro',
+        localFonts: null,
       })
-    }).toThrow(
-      'fontFace expects either the path to the font file(s) or a name of a local copy.',
-    )
+    }).toThrow('fontFace expects either the path to the font file(s) or a name of a local copy.')
   })
 
   it('should throw an error when localFonts is not an array', () => {

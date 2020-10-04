@@ -4,9 +4,7 @@ import PolishedError from '../internalHelpers/_errors'
 const cssVariableRegex = /--[\S]*/g
 
 /**
- * Fetches the value of a passed CSS Variable.
- *
- * Passthrough can be enabled (off by default) for when you are unsure of the input and want non-variable values to be returned instead of an error.
+ * Fetches the value of a passed CSS Variable in the :root scope, or otherwise returns a defaultValue if provided.
  *
  * @example
  * // Styles as object usage
@@ -27,10 +25,9 @@ const cssVariableRegex = /--[\S]*/g
  */
 export default function cssVar(
   cssVariable: string,
-  passThrough?: boolean,
+  defaultValue?: string | number,
 ): string | number {
   if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
-    if (passThrough) return cssVariable
     throw new PolishedError(73)
   }
 
@@ -39,15 +36,15 @@ export default function cssVar(
   /* eslint-disable */
   /* istanbul ignore next */
   if (typeof document !== 'undefined' && document.documentElement !== null) {
-    variableValue = getComputedStyle(document.documentElement).getPropertyValue(
-      cssVariable,
-    )
+    variableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariable)
   }
   /* eslint-enable */
 
   if (variableValue) {
     return variableValue.trim()
-  } else {
-    throw new PolishedError(74)
+  } else if (defaultValue) {
+    return defaultValue
   }
+
+  throw new PolishedError(74)
 }

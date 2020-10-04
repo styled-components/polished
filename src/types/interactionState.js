@@ -6,9 +6,4 @@
 /**
  * @property {undefined, null, 'active', 'focus', 'hover'} InteractionState
  */
-export type InteractionState =
-  | typeof undefined
-  | null
-  | 'active'
-  | 'focus'
-  | 'hover'
+export type InteractionState = typeof undefined | null | 'active' | 'focus' | 'hover'

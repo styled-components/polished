@@ -29,9 +29,7 @@ import type { HslColor, HslaColor } from '../types/color'
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
-export default function hslToColorString(
-  color: HslColor | HslaColor | number,
-): string {
+export default function hslToColorString(color: HslColor | HslaColor | number): string {
   if (
     typeof color === 'object'
     && typeof color.hue === 'number'
