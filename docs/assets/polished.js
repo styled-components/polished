@@ -1145,9 +1145,10 @@
       wordWrap: 'normal'
     };
     return lines > 1 ? _extends__default['default']({}, styles, {
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: lines,
       display: '-webkit-box',
-      webkitLineClamp: lines,
-      webkitBoxOrient: 'vertical'
+      whiteSpace: 'normal'
     }) : styles;
   }
 
