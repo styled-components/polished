@@ -37,26 +37,26 @@ describe('ellipsis', () => {
 
   it('should truncate text after 3 lines', () => {
     expect(ellipsis(null, 3)).toEqual({
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: 3,
       display: '-webkit-box',
       maxWidth: '100%',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      webkitBoxOrient: 'vertical',
-      webkitLineClamp: 3,
-      whiteSpace: 'nowrap',
+      whiteSpace: 'normal',
       wordWrap: 'normal',
     })
   })
 
   it('should truncate text after 3 lines and 500px max-width', () => {
     expect(ellipsis('500px', 3)).toEqual({
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: 3,
       display: '-webkit-box',
       maxWidth: '500px',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      webkitBoxOrient: 'vertical',
-      webkitLineClamp: 3,
-      whiteSpace: 'nowrap',
+      whiteSpace: 'normal',
       wordWrap: 'normal',
     })
   })

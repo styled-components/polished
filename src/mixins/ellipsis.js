@@ -39,9 +39,10 @@ export default function ellipsis(width?: ?string | ?number, lines?: number = 1):
   return lines > 1
     ? {
       ...styles,
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: lines,
       display: '-webkit-box',
-      webkitLineClamp: lines,
-      webkitBoxOrient: 'vertical',
+      whiteSpace: 'normal',
     }
     : styles
 }
