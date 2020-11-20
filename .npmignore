@@ -23,7 +23,6 @@ docs-theme
 src
 test
 flow-typed
-docs
 
 # markdown files
 CONTRIBUTING.md
