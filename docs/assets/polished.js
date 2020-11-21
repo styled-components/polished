@@ -3532,7 +3532,7 @@
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
     var colorWithAlpha = _extends__default['default']({}, parsedColor, {
-      alpha: guard(0, 1, (alpha * 100 - parseFloat(amount) * 100) / 100)
+      alpha: guard(0, 1, +(alpha * 100 - parseFloat(amount) * 100).toFixed(2) / 100)
     });
 
     return rgba(colorWithAlpha);
