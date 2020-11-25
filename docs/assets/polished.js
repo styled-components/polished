@@ -3179,10 +3179,10 @@
   /* ::<number | string, string, string> */
   (opacify);
 
-  var defaultLightReturnColor = '#000';
-  var defaultDarkReturnColor = '#fff';
+  var defaultReturnIfLightColor = '#000';
+  var defaultReturnIfDarkColor = '#fff';
   /**
-   * Returns black or white (or optional light and dark return colors) for best
+   * Returns black or white (or optional passed colors) for best
    * contrast depending on the luminosity of the given color.
    * When passing custom return colors, strict mode ensures that the
    * return color always meets or exceeds WCAG level AA or greater. If this test
@@ -3217,27 +3217,27 @@
    * }
    */
 
-  function readableColor(color, lightReturnColor, darkReturnColor, strict) {
-    if (lightReturnColor === void 0) {
-      lightReturnColor = defaultLightReturnColor;
+  function readableColor(color, returnIfLightColor, returnIfDarkColor, strict) {
+    if (returnIfLightColor === void 0) {
+      returnIfLightColor = defaultReturnIfLightColor;
     }
 
-    if (darkReturnColor === void 0) {
-      darkReturnColor = defaultDarkReturnColor;
+    if (returnIfDarkColor === void 0) {
+      returnIfDarkColor = defaultReturnIfDarkColor;
     }
 
     if (strict === void 0) {
       strict = true;
     }
 
-    var isLightColor = getLuminance(color) > 0.179;
-    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor;
+    var isColorLight = getLuminance(color) > 0.179;
+    var preferredReturnColor = isColorLight ? returnIfLightColor : returnIfDarkColor;
 
     if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
       return preferredReturnColor;
     }
 
-    return isLightColor ? defaultLightReturnColor : defaultDarkReturnColor;
+    return isColorLight ? defaultReturnIfLightColor : defaultReturnIfDarkColor;
   }
 
   /**
