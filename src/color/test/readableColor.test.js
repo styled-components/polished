@@ -10,11 +10,11 @@ describe('readableColor', () => {
     expect(readableColor('#000')).toEqual('#fff')
   })
 
-  it('should return custom light background when passed dark color', () => {
+  it('should return custom light color when passed a dark color', () => {
     expect(readableColor('black', '#001', '#ff8')).toEqual('#ff8')
   })
 
-  it('should return custom dark background when passed light color', () => {
+  it('should return custom dark color when passed a light color', () => {
     expect(readableColor('white', '#001', '#ff8')).toEqual('#001')
   })
 
