@@ -125,4 +125,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## License
 
-Copyright © 2016-2020 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
+Copyright © 2016-2021 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
