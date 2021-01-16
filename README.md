@@ -122,7 +122,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/polished/sponsor/9/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/9/avatar.svg"></a>
 
 
-
 ## License
 
 Copyright © 2016-2021 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
+
+<img src="https://static.scarf.sh/a.png?x-pxid=121e67af-0b5f-4132-a6e7-6ae63ebeedac" />
