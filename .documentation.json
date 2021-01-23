@@ -97,6 +97,7 @@
     "important",
     "modularScale",
     "rem",
+    "remToPx",
     "stripUnit",
     {
       "name": "Easings"
