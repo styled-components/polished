@@ -1,4 +1,4 @@
-**DO NOT REMOVE ERRORS OR MAKE NEW ONES OUT OF SEQUENCE, ALWAYS ADD TO THE END.**
+**f NOT REMOVE ERRORS OR MAKE NEW ONES OUT OF SEQUENCE, ALWAYS ADD TO THE END.**
 
 **COLOR**
 
@@ -306,3 +306,11 @@ important requires a valid style object, got a %s instead.
 ## 76
 
 fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.
+
+## 77
+
+remToPx expects a value in "rem" but you provided it in "%s".
+
+## 78
+
+base must be set in "px" or "%" but you set it in "%s".

@@ -794,6 +794,16 @@
             
               
               <li><a
+                href='#remtopx'
+                class="">
+                remToPx
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#stripunit'
                 class="">
                 stripUnit
@@ -9191,6 +9201,122 @@ second argument to the function.</p>
 
 element {
   <span class="hljs-string">'height'</span>: <span class="hljs-string">'1rem'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='remtopx'>
+      remToPx
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Convert rem values to px. By default, the base value is pulled from the font-size property on the root element (if it is set in % or px). It defaults to 16px if not found on the root. You can also override the base value by providing your own base in % or px.</p>
+
+
+  <div class='pre p1 fill-light mt0'>remToPx(value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+<span class="hljs-keyword">const</span> styles = {
+  <span class="hljs-string">'height'</span>: remToPx(<span class="hljs-string">'1.6rem'</span>)
+  <span class="hljs-string">'height'</span>: remToPx(<span class="hljs-string">'1.6rem'</span>, <span class="hljs-string">'10px'</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  height: <span class="hljs-subst">${remToPx(<span class="hljs-string">'1.6rem'</span>)}</span>
+  height: <span class="hljs-subst">${remToPx(<span class="hljs-string">'1.6rem'</span>, <span class="hljs-string">'10px'</span>)}</span>
+`</span>
+
+<span class="hljs-comment">// CSS in JS Output</span>
+
+element {
+  <span class="hljs-string">'height'</span>: <span class="hljs-string">'25.6px'</span>,
+  <span class="hljs-string">'height'</span>: <span class="hljs-string">'16px'</span>,
 }</pre>
     
   

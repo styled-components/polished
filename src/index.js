@@ -11,6 +11,7 @@ import getValueAndUnit from './helpers/getValueAndUnit'
 import important from './helpers/important'
 import modularScale from './helpers/modularScale'
 import rem from './helpers/rem'
+import remToPx from './helpers/remToPx'
 import stripUnit from './helpers/stripUnit'
 
 // Easings
@@ -138,6 +139,7 @@ export {
   radialGradient,
   readableColor,
   rem,
+  remToPx,
   retinaImage,
   rgb,
   rgba,
