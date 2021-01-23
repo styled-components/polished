@@ -261,7 +261,9 @@
     "73": "Please provide a valid CSS variable.\n\n",
     "74": "CSS variable not found and no default was provided.\n\n",
     "75": "important requires a valid style object, got a %s instead.\n\n",
-    "76": "fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.\n"
+    "76": "fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.\n\n",
+    "77": "remToPx expects a value in \"rem\" but you provided it in \"%s\".\n\n",
+    "78": "base must be set in \"px\" or \"%\" but you set it in \"%s\".\n"
   };
   /**
    * super basic version of sprintf
@@ -859,6 +861,72 @@
    */
 
   var rem = /*#__PURE__*/pxtoFactory('rem');
+
+  var defaultFontSize = 16;
+
+  function convertBase(base) {
+    var deconstructedValue = getValueAndUnit(base);
+
+    if (deconstructedValue[1] === 'px') {
+      return parseFloat(base);
+    }
+
+    if (deconstructedValue[1] === '%') {
+      return parseFloat(base) / 100 * defaultFontSize;
+    }
+
+    throw new PolishedError(78, deconstructedValue[1]);
+  }
+
+  function getBaseFromDoc() {
+    /* eslint-disable */
+
+    /* istanbul ignore next */
+    if (typeof document !== 'undefined' && document.documentElement !== null) {
+      var rootFontSize = getComputedStyle(document.documentElement).fontSize;
+      return rootFontSize ? convertBase(rootFontSize) : defaultFontSize;
+    }
+    /* eslint-enable */
+
+    /* istanbul ignore next */
+
+
+    return defaultFontSize;
+  }
+  /**
+   * Convert rem values to px. By default, the base value is pulled from the font-size property on the root element (if it is set in % or px). It defaults to 16px if not found on the root. You can also override the base value by providing your own base in % or px.
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *   'height': remToPx('1.6rem')
+   *   'height': remToPx('1.6rem', '10px')
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *   height: ${remToPx('1.6rem')}
+   *   height: ${remToPx('1.6rem', '10px')}
+   * `
+   *
+   * // CSS in JS Output
+   *
+   * element {
+   *   'height': '25.6px',
+   *   'height': '16px',
+   * }
+   */
+
+
+  function remToPx(value, base) {
+    var deconstructedValue = getValueAndUnit(value);
+
+    if (deconstructedValue[1] !== 'rem' && deconstructedValue[1] !== '') {
+      throw new PolishedError(77, deconstructedValue[1]);
+    }
+
+    var newBase = base ? convertBase(base) : getBaseFromDoc();
+    return deconstructedValue[0] * newBase + "px";
+  }
 
   var functionsMap = {
     back: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
@@ -4229,6 +4297,7 @@
   exports.radialGradient = radialGradient;
   exports.readableColor = readableColor;
   exports.rem = rem;
+  exports.remToPx = remToPx;
   exports.retinaImage = retinaImage;
   exports.rgb = rgb;
   exports.rgbToColorString = rgbToColorString;
