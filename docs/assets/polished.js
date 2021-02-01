@@ -1463,8 +1463,8 @@
     }
 
     return {
-      backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', '))
+      backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
+      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
