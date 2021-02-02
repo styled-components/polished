@@ -1,6 +1,6 @@
 {
   "name": "polished",
-  "version": "3.6.7",
+  "version": "3.7.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "license": "MIT",
   "author": "Brian Hough <hello@brianhough.net> (https://polished.js.org)",
@@ -48,7 +48,7 @@
     "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
     "lint": "eslint src",
     "flow": "flow check && flow batch-coverage src/ --show-all --strip-root",
-    "docs": "pushstate-server docs",
+    "docs": "pushstate-server -d docs",
     "prepare": "yarn build && yarn typescript",
     "semantic-release": "semantic-release"
   },
@@ -69,7 +69,8 @@
     "build:lib": "src/**/*.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.5",
+    "@scarf/scarf": "^1.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
