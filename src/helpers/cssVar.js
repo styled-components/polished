@@ -25,10 +25,7 @@ const cssVariableRegex = /--[\S]*/g
  *   'background': 'red'
  * }
  */
-export default function cssVar(
-  cssVariable: string,
-  passThrough?: boolean,
-): string | number {
+export default function cssVar(cssVariable: string, passThrough?: boolean): string | number {
   if (!cssVariable || !cssVariable.match(cssVariableRegex)) {
     if (passThrough) return cssVariable
     throw new PolishedError(73)
@@ -39,9 +36,7 @@ export default function cssVar(
   /* eslint-disable */
   /* istanbul ignore next */
   if (typeof document !== 'undefined' && document.documentElement !== null) {
-    variableValue = getComputedStyle(document.documentElement).getPropertyValue(
-      cssVariable,
-    )
+    variableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariable)
   }
   /* eslint-enable */
 

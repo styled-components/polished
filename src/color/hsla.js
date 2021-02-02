@@ -54,9 +54,7 @@ export default function hsla(
   ) {
     return value.alpha >= 1
       ? hslToHex(value.hue, value.saturation, value.lightness)
-      : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${
-        value.alpha
-      })`
+      : `rgba(${hslToRgb(value.hue, value.saturation, value.lightness)},${value.alpha})`
   }
 
   throw new PolishedError(2)

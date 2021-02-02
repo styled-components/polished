@@ -36,8 +36,6 @@ describe('linearGradient', () => {
         toDirection: 'to top right',
         fallback: '#FFF',
       })
-    }).toThrow(
-      'linearGradient requries at least 2 color-stops to properly render.',
-    )
+    }).toThrow('linearGradient requries at least 2 color-stops to properly render.')
   })
 })

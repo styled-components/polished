@@ -36,6 +36,7 @@ Want to write styles in JavaScript, but also want Sass-style helper functions an
 When `✨ polished` modules are imported properly, tree shaking in [webpack](https://webpack.js.org/guides/tree-shaking/) and [Rollup](https://github.com/rollup/rollup#tree-shaking) can be leveraged to reduce your bundle size.
 
 ## Browser Support
+
 All Evergreen Browsers + IE11
 
 As of v3.6.X we support `>0.5%, not dead, ie >= 11, not op_mini all` for all our builds.
@@ -98,13 +99,11 @@ No matter if you're using [inline styles or CSS-in-JS](http://mxstbr.blog/2016/1
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/styled-components/polished/graphs/contributors"><img src="https://opencollective.com/polished/contributors.svg?width=890&button=false" /></a>
 
-
 ## Backers
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/polished#backer)]
 
 <a href="https://opencollective.com/polished#backers" target="_blank"><img src="https://opencollective.com/polished/backers.svg?width=890"></a>
-
 
 ## Sponsors
 
@@ -120,8 +119,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/polished/sponsor/7/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/7/avatar.svg"></a>
 <a href="https://opencollective.com/polished/sponsor/8/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/polished/sponsor/9/website" target="_blank"><img src="https://opencollective.com/polished/sponsor/9/avatar.svg"></a>
-
-
 
 ## License
 

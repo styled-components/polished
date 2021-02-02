@@ -1,25 +1,25 @@
-import * as polished from "./lib/index";
-import { ENGINE_METHOD_NONE } from "constants";
+import * as polished from './lib/index'
+import { ENGINE_METHOD_NONE } from 'constants'
 
 /*
  * Math
  */
-const math = polished.math("20px + 10px");
+const math = polished.math('20px + 10px')
 
 /*
  * Mixins
  */
-let between: string = polished.between("20px", "100px", "400px", "1000px");
-between = polished.between("20px", "100px");
+let between: string = polished.between('20px', '100px', '400px', '1000px')
+between = polished.between('20px', '100px')
 
-let clearFix: object = polished.clearFix();
-clearFix = polished.clearFix("&");
+let clearFix: object = polished.clearFix()
+clearFix = polished.clearFix('&')
 
-let cover: object = polished.cover();
-cover = polished.cover("100px");
+let cover: object = polished.cover()
+cover = polished.cover('100px')
 
-let ellipsis: object = polished.ellipsis();
-ellipsis = polished.ellipsis("250px");
+let ellipsis: object = polished.ellipsis()
+ellipsis = polished.ellipsis('250px')
 
 let fluidRange: object = polished.fluidRange(
   {
@@ -28,8 +28,8 @@ let fluidRange: object = polished.fluidRange(
     toSize: '100px',
   },
   '400px',
-  '1000px',
-);
+  '1000px'
+)
 
 fluidRange = polished.fluidRange(
   [
@@ -45,157 +45,170 @@ fluidRange = polished.fluidRange(
     },
   ],
   '400px',
-  '1000px',
-);
+  '1000px'
+)
 
 fluidRange = polished.fluidRange({
   prop: 'padding',
   fromSize: '20px',
   toSize: '100px',
-});
+})
 
 const fontFace: object = polished.fontFace({
-  fontFamily: "Sans-Pro",
-  fontFilePath: "path/to/file",
-  fontStretch: "",
-  fontStyle: "",
-  fontVariant: "",
-  fontWeight: "",
-  fileFormats: [""],
-  localFonts: [""],
-  unicodeRange: ""
-});
+  fontFamily: 'Sans-Pro',
+  fontFilePath: 'path/to/file',
+  fontStretch: '',
+  fontStyle: '',
+  fontVariant: '',
+  fontWeight: '',
+  fileFormats: [''],
+  localFonts: [''],
+  unicodeRange: '',
+})
 
-const hideText: object = polished.hideText();
-const hideVisually: object = polished.hideVisually();
+const hideText: object = polished.hideText()
+const hideVisually: object = polished.hideVisually()
 
-let hiDPI: string = polished.hiDPI();
-hiDPI = polished.hiDPI(1.5);
+let hiDPI: string = polished.hiDPI()
+hiDPI = polished.hiDPI(1.5)
 
-const normalize: object = polished.normalize();
+const normalize: object = polished.normalize()
 
 const radialGradient: object = polished.radialGradient({
-  colorStops: ["#00FFFF 0%", "rgba(0, 0, 255, 0) 50%", "#0000FF 95%"],
-  extent: "farthest-corner at 45px 45px",
-  position: "center",
-  shape: "ellipse",
-  fallback: ""
-});
+  colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
+  extent: 'farthest-corner at 45px 45px',
+  position: 'center',
+  shape: 'ellipse',
+  fallback: '',
+})
 
 const linearGradient: object = polished.linearGradient({
-  colorStops: ["#00FFFF 0%", "rgba(0, 0, 255, 0) 50%", "#0000FF 95%"],
+  colorStops: ['#00FFFF 0%', 'rgba(0, 0, 255, 0) 50%', '#0000FF 95%'],
   toDirection: 'to top right',
-  fallback: '#FFF'
-});
+  fallback: '#FFF',
+})
 
-let retinaImage: object = polished.retinaImage("");
-retinaImage = polished.retinaImage("", "");
-retinaImage = polished.retinaImage("", "", "");
-retinaImage = polished.retinaImage("", "", "", "");
-retinaImage = polished.retinaImage("", "", "", "", "");
+let retinaImage: object = polished.retinaImage('')
+retinaImage = polished.retinaImage('', '')
+retinaImage = polished.retinaImage('', '', '')
+retinaImage = polished.retinaImage('', '', '', '')
+retinaImage = polished.retinaImage('', '', '', '', '')
 
-const timingFunctions = polished.timingFunctions("easeInBack");
+const timingFunctions = polished.timingFunctions('easeInBack')
 
 const triangle = polished.triangle({
-  backgroundColor: "red",
-  foregroundColor: "red",
-  pointingDirection: "right",
+  backgroundColor: 'red',
+  foregroundColor: 'red',
+  pointingDirection: 'right',
   width: 100,
   height: 100,
-});
+})
 
-let wordWrap: object = polished.wordWrap();
-wordWrap = polished.wordWrap("");
+let wordWrap: object = polished.wordWrap()
+wordWrap = polished.wordWrap('')
 
 /*
  * Colors
  */
-const adjustHue: string = polished.adjustHue(180, "#448");
-const complement: string = polished.complement("#448");
-const darken: string = polished.darken(0.2, "#FFCD64");
-const desaturate: string = polished.desaturate(0.2, "#CCCD64");
-const getContrast: number = polished.getContrast('#444', '#fff');
-const getLuminance: number = polished.getLuminance('#6564CDB3');
-const grayscale: string = polished.grayscale("#CCCD64");
+const adjustHue: string = polished.adjustHue(180, '#448')
+const complement: string = polished.complement('#448')
+const darken: string = polished.darken(0.2, '#FFCD64')
+const desaturate: string = polished.desaturate(0.2, '#CCCD64')
+const getContrast: number = polished.getContrast('#444', '#fff')
+const getLuminance: number = polished.getLuminance('#6564CDB3')
+const grayscale: string = polished.grayscale('#CCCD64')
 
-let hsl: string = polished.hsl(359, 0.75, 0.4);
-hsl = polished.hsl({ hue: 360, saturation: 0.75, lightness: 0.4 });
+let hsl: string = polished.hsl(359, 0.75, 0.4)
+hsl = polished.hsl({ hue: 360, saturation: 0.75, lightness: 0.4 })
 
-let hsla: string = polished.hsla(359, 0.75, 0.4, 0.7);
-hsla = polished.hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.7 });
+let hsla: string = polished.hsla(359, 0.75, 0.4, 0.7)
+hsla = polished.hsla({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.7 })
 
-const invert: string = polished.invert("#CCCD64");
-const lighten: string = polished.lighten(0.2, "#CCCD64");
-const meetsContrastGuidelines: object = polished.meetsContrastGuidelines('#444', '#fff');
-const mix: string = polished.mix(0.5, "#f00", "#00f");
-const opacify: string = polished.opacify(0.1, "rgba(255, 255, 255, 0.9)");
-const parseToHsl = polished.parseToHsl("rgb(255, 0, 0)");
-const parseToRgb = polished.parseToRgb("rgb(255, 0, 0)");
-const readableColor = polished.readableColor("rgb(255,0,0)");
+const invert: string = polished.invert('#CCCD64')
+const lighten: string = polished.lighten(0.2, '#CCCD64')
+const meetsContrastGuidelines: object = polished.meetsContrastGuidelines('#444', '#fff')
+const mix: string = polished.mix(0.5, '#f00', '#00f')
+const opacify: string = polished.opacify(0.1, 'rgba(255, 255, 255, 0.9)')
+const parseToHsl = polished.parseToHsl('rgb(255, 0, 0)')
+const parseToRgb = polished.parseToRgb('rgb(255, 0, 0)')
+const readableColor = polished.readableColor('rgb(255,0,0)')
 
-let rgb: string = polished.rgb(255, 205, 100);
-rgb = polished.rgb({ red: 255, green: 205, blue: 100 });
+let rgb: string = polished.rgb(255, 205, 100)
+rgb = polished.rgb({ red: 255, green: 205, blue: 100 })
 
-let rgba: string = polished.rgba(255, 205, 100, 0.7);
-rgba = polished.rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 });
+let rgba: string = polished.rgba(255, 205, 100, 0.7)
+rgba = polished.rgba({ red: 255, green: 205, blue: 100, alpha: 0.7 })
 
-const saturate: string = polished.saturate(0.2, "#CCCD64");
-const setHue: string = polished.setHue(42, "#CCCD64");
-const setLightness: string = polished.setLightness(0.2, "#CCCD64");
-const setSaturation: string = polished.setSaturation(0.2, "#CCCD64");
-const shade: string = polished.shade(0.25, "#00f");
-const tint: string = polished.tint(0.25, "#00f");
+const saturate: string = polished.saturate(0.2, '#CCCD64')
+const setHue: string = polished.setHue(42, '#CCCD64')
+const setLightness: string = polished.setLightness(0.2, '#CCCD64')
+const setSaturation: string = polished.setSaturation(0.2, '#CCCD64')
+const shade: string = polished.shade(0.25, '#00f')
+const tint: string = polished.tint(0.25, '#00f')
 
-let toColorString: string = polished.toColorString({ red: 255, green: 205, blue: 100 });
-toColorString = polished.toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 });
-toColorString = polished.toColorString({ hue: 240, saturation: 1, lightness: 0.5 });
-toColorString = polished.toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 });
+let toColorString: string = polished.toColorString({ red: 255, green: 205, blue: 100 })
+toColorString = polished.toColorString({ red: 255, green: 205, blue: 100, alpha: 0.72 })
+toColorString = polished.toColorString({ hue: 240, saturation: 1, lightness: 0.5 })
+toColorString = polished.toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 })
 
-const transparentize: string = polished.transparentize(0.1, "#fff");
+const transparentize: string = polished.transparentize(0.1, '#fff')
 
 /*
  * Shorthands
  */
-const animation: object = polished.animation(["rotate", 1, "ease-in-out"], ["colorchange", "2s"]);
-const backgroundImages: object = polished.backgroundImages('url("/image/background.jpg")', 'linear-gradient(red, green)');
-const backgrounds: object = polished.backgrounds('url("/image/background.jpg")', "linear-gradient(red, green)", "center no-repeat");
-const border: object = polished.border('top', '1px', 'solid', 'red');
-const borderColor: object = polished.borderColor("red", null, undefined, "green");
-const borderRadius: object = polished.borderRadius("top", "5px");
-const borderStyle: object = polished.borderStyle("solid", null, undefined, "dashed");
-const borderWidth: object = polished.borderWidth("12px", null, undefined, "24px");
-const buttons: string = polished.buttons(null, undefined, "active");
-const margin: object = polished.margin("12px", null, undefined, "24px");
-const padding: object = polished.padding("12px", null, undefined, "24px");
+const animation: object = polished.animation(['rotate', 1, 'ease-in-out'], ['colorchange', '2s'])
+const backgroundImages: object = polished.backgroundImages(
+  'url("/image/background.jpg")',
+  'linear-gradient(red, green)'
+)
+const backgrounds: object = polished.backgrounds(
+  'url("/image/background.jpg")',
+  'linear-gradient(red, green)',
+  'center no-repeat'
+)
+const border: object = polished.border('top', '1px', 'solid', 'red')
+const borderColor: object = polished.borderColor('red', null, undefined, 'green')
+const borderRadius: object = polished.borderRadius('top', '5px')
+const borderStyle: object = polished.borderStyle('solid', null, undefined, 'dashed')
+const borderWidth: object = polished.borderWidth('12px', null, undefined, '24px')
+const buttons: string = polished.buttons(null, undefined, 'active')
+const margin: object = polished.margin('12px', null, undefined, '24px')
+const padding: object = polished.padding('12px', null, undefined, '24px')
 
-let position: object = polished.position(null);
-polished.position("absolute", "12px", null, undefined, "24px");
-position = polished.position(null, "12px", null, undefined, "24px");
-position = polished.position(undefined, "12px", null, undefined, "24px");
+let position: object = polished.position(null)
+polished.position('absolute', '12px', null, undefined, '24px')
+position = polished.position(null, '12px', null, undefined, '24px')
+position = polished.position(undefined, '12px', null, undefined, '24px')
 
-let size: object = polished.size("");
-size = polished.size("", "");
+let size: object = polished.size('')
+size = polished.size('', '')
 
-const textInputs: string = polished.textInputs("active", null, undefined);
-const transitions: object = polished.transitions("opacity 1.0s ease-in 0s", "width 2.0s ease-in 2s");
+const textInputs: string = polished.textInputs('active', null, undefined)
+const transitions: object = polished.transitions('opacity 1.0s ease-in 0s', 'width 2.0s ease-in 2s')
 
 /*
  * Helpers
  */
-const directionalProperty: object = polished.directionalProperty("padding", "12px", null, undefined, "24px");
+const directionalProperty: object = polished.directionalProperty(
+  'padding',
+  '12px',
+  null,
+  undefined,
+  '24px'
+)
 
-let em: string = polished.em("12px");
-em = polished.em(12);
+let em: string = polished.em('12px')
+em = polished.em(12)
 
-const getValueAndUnit: [number | string, string | void] = polished.getValueAndUnit('100px');
+const getValueAndUnit: [number | string, string | void] = polished.getValueAndUnit('100px')
 
-let modularScale: string = polished.modularScale(2);
-modularScale = polished.modularScale(2, 2);
-modularScale = polished.modularScale(2, "");
-modularScale = polished.modularScale(2, 2, 5);
-modularScale = polished.modularScale(2, 2, "minorSecond");
+let modularScale: string = polished.modularScale(2)
+modularScale = polished.modularScale(2, 2)
+modularScale = polished.modularScale(2, '')
+modularScale = polished.modularScale(2, 2, 5)
+modularScale = polished.modularScale(2, 2, 'minorSecond')
 
-let rem: string = polished.rem("12px");
-rem = polished.rem(12);
+let rem: string = polished.rem('12px')
+rem = polished.rem(12)
 
-const stripUnit: number | string = polished.stripUnit("100px");
+const stripUnit: number | string = polished.stripUnit('100px')

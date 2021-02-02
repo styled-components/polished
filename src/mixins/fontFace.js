@@ -31,17 +31,11 @@ function generateFileReferences(
   formatHint: boolean,
 ): string {
   if (isDataURI(fontFilePath)) {
-    return `url("${fontFilePath}")${generateFormatHint(
-      fileFormats[0],
-      formatHint,
-    )}`
+    return `url("${fontFilePath}")${generateFormatHint(fileFormats[0], formatHint)}`
   }
 
   const fileFontReferences = fileFormats.map(
-    format => `url("${fontFilePath}.${format}")${generateFormatHint(
-      format,
-      formatHint,
-    )}`,
+    format => `url("${fontFilePath}.${format}")${generateFormatHint(format, formatHint)}`,
   )
   return fileFontReferences.join(', ')
 }
@@ -60,9 +54,7 @@ function generateSources(
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))
   if (fontFilePath) {
-    fontReferences.push(
-      generateFileReferences(fontFilePath, fileFormats, formatHint),
-    )
+    fontReferences.push(generateFileReferences(fontFilePath, fileFormats, formatHint))
   }
   return fontReferences.join(', ')
 }

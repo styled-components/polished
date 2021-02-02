@@ -184,8 +184,6 @@ describe('triangle', () => {
         width: 'inherit',
         pointingDirection: 'bottom',
       })
-    }).toThrow(
-      'Passed an invalid value to `height` or `width`. Please provide a pixel based unit',
-    )
+    }).toThrow('Passed an invalid value to `height` or `width`. Please provide a pixel based unit')
   })
 })

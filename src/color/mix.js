@@ -29,11 +29,7 @@ import parseToRgb from './parseToRgb'
  *   background: "rgba(63, 0, 191, 0.75)";
  * }
  */
-function mix(
-  weight: number | string,
-  color: string,
-  otherColor: string,
-): string {
+function mix(weight: number | string, color: string, otherColor: string): string {
   if (color === 'transparent') return otherColor
   if (otherColor === 'transparent') return color
   if (weight === 0) return otherColor
@@ -63,8 +59,7 @@ function mix(
     green: Math.floor(color1.green * weight1 + color2.green * weight2),
     blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
     alpha:
-      color1.alpha * (parseFloat(weight) / 1.0)
-      + color2.alpha * (1 - parseFloat(weight) / 1.0),
+      color1.alpha * (parseFloat(weight) / 1.0) + color2.alpha * (1 - parseFloat(weight) / 1.0),
   }
 
   return rgba(mixedColor)

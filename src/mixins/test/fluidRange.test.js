@@ -158,8 +158,6 @@ describe('fluidRange', () => {
         '100px',
         '200px',
       )
-    }).toThrow(
-      'fromSize and toSize must be provided as stringified numbers with the same units.',
-    )
+    }).toThrow('fromSize and toSize must be provided as stringified numbers with the same units.')
   })
 })

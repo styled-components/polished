@@ -1,7 +1,7 @@
 ---
 name: Question ❓
 about: Question about usage of the library.
-labels: "type: question"
+labels: 'type: question'
 ---
 
 <!--

@@ -24,10 +24,7 @@ const cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
  *   '--dimension': 100
  * }
  */
-export default function stripUnit(
-  value: string | number,
-  unitReturn?: boolean,
-): any {
+export default function stripUnit(value: string | number, unitReturn?: boolean): any {
   if (typeof value !== 'string') return unitReturn ? [value, undefined] : value
   const matchedValue = value.match(cssRegex)
 

@@ -1,7 +1,7 @@
 {
   "extends": "airbnb-base",
   "parser": "babel-eslint",
-    "parserOptions": {
+  "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -10,7 +10,7 @@
     }
   },
   "env": {
-    "jest": true,
+    "jest": true
   },
   "rules": {
     "arrow-parens": 0,
@@ -25,7 +25,12 @@
     "no-prototype-builtins": 0,
     "no-restricted-globals": 0,
     "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
-    "no-unused-vars": [2, { "varsIgnorePattern": "^_+$" }],
+    "no-unused-vars": [
+      2,
+      {
+        "varsIgnorePattern": "^_+$"
+      }
+    ],
     "quote-props": 0,
     "semi": [2, "never"],
     "space-before-function-paren": 0,

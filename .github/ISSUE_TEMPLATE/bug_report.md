@@ -1,7 +1,7 @@
 ---
 name: Bug Report 🐞
 about: Something isn't working as expected? Submit a bug report here.
-labels: "type: unconfirmed bug"
+labels: 'type: unconfirmed bug'
 ---
 
 <!--

@@ -5,16 +5,7 @@ describe('animation', () => {
   describe('single mode', () => {
     it('should pass first eight arguments to the CSS', () => {
       expect({
-        ...animation(
-          'rotate',
-          '1s',
-          'ease-in-out',
-          '0.5s',
-          5,
-          'reverse',
-          'forwards',
-          'paused',
-        ),
+        ...animation('rotate', '1s', 'ease-in-out', '0.5s', 5, 'reverse', 'forwards', 'paused'),
       }).toMatchSnapshot()
     })
 
@@ -24,17 +15,7 @@ describe('animation', () => {
 
     it('should throw an error if more than eight elements are supplied', () => {
       expect(() => {
-        animation(
-          'one',
-          'two',
-          'three',
-          'four',
-          'five',
-          'six',
-          'seven',
-          'eight',
-          'oops',
-        )
+        animation('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'oops')
       }).toThrow()
     })
   })
@@ -42,16 +23,7 @@ describe('animation', () => {
   describe('multi mode', () => {
     it('should pass first eight arguments to the CSS in multi mode', () => {
       expect({
-        ...animation([
-          'rotate',
-          '1s',
-          'ease-in-out',
-          '0.5s',
-          5,
-          'reverse',
-          'forwards',
-          'paused',
-        ]),
+        ...animation(['rotate', '1s', 'ease-in-out', '0.5s', 5, 'reverse', 'forwards', 'paused']),
       }).toMatchSnapshot()
     })
 
@@ -69,17 +41,7 @@ describe('animation', () => {
 
     it('should throw an error if more than eight elements are supplied in an array', () => {
       expect(() => {
-        animation([
-          'one',
-          'two',
-          'three',
-          'four',
-          'five',
-          'six',
-          'seven',
-          'eight',
-          'oops',
-        ])
+        animation(['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'oops'])
       }).toThrow()
     })
 
@@ -87,17 +49,7 @@ describe('animation', () => {
       expect(() => {
         animation(
           ['rotate'],
-          [
-            'one',
-            'two',
-            'three',
-            'four',
-            'five',
-            'six',
-            'seven',
-            'eight',
-            'oops',
-          ],
+          ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'oops'],
         )
       }).toThrow()
     })

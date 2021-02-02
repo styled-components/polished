@@ -1,5 +1,6 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: #222;
   line-height: 1.5;
   font-size: 16px;
@@ -11,7 +12,7 @@ body {
 
 .home {
   background: #65daa2;
-  color: #fff!important;
+  color: #fff !important;
 }
 
 .header {
@@ -31,7 +32,7 @@ body {
 }
 
 .home a {
-  color: #fff!important;
+  color: #fff !important;
   text-decoration: underline;
 }
 
@@ -49,7 +50,8 @@ body {
   color: #fff;
 }
 
-.command, .javascript {
+.command,
+.javascript {
   background-color: #3a9b6d;
   color: #d6f5e6;
   border-radius: 4px;
@@ -59,26 +61,27 @@ body {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-#installation ~ .installation, #usage ~ .usage {
+#installation ~ .installation,
+#usage ~ .usage {
   text-align: center;
   margin-bottom: 0;
 }
 
 .command:before {
-  content: "$";
+  content: '$';
   margin-right: 0.5em;
 }
 
 .button {
   background-color: #ff583f;
-  border-bottom: 4px solid #D7493A;
+  border-bottom: 4px solid #d7493a;
   border-radius: 4px;
   padding: 1em 2em;
-  color: #fff!important;
+  color: #fff !important;
   font-weight: bold;
   font-size: 1em;
   display: inline-block;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 .button img {
@@ -90,14 +93,14 @@ body {
 
 .button:hover {
   text-decoration: none;
-  border-bottom: 5px solid #D7493A;
+  border-bottom: 5px solid #d7493a;
   transform: translateY(-1px);
   margin-bottom: -1px;
 }
 
 .button:active {
   text-decoration: none;
-  border-bottom: 3px solid #D7493A;
+  border-bottom: 3px solid #d7493a;
   transform: translateY(1px);
   margin-bottom: 1px;
 }
@@ -169,7 +172,7 @@ h4 {
 }
 
 a {
-  color: #0D3523;
+  color: #0d3523;
   text-decoration: none;
 }
 
@@ -198,12 +201,12 @@ a:hover {
 }
 
 section:target h3 {
-  font-weight:700;
+  font-weight: 700;
 }
 
 .documentation td,
 .documentation th {
-    padding: .25rem .25rem;
+  padding: 0.25rem 0.25rem;
 }
 
 h1:hover .anchorjs-link,
@@ -229,13 +232,16 @@ h4:hover .anchorjs-link {
   }
 }
 
-.pre, pre, code, .code {
-  font-family: Source Code Pro,Menlo,Consolas,Liberation Mono,monospace;
+.pre,
+pre,
+code,
+.code {
+  font-family: Source Code Pro, Menlo, Consolas, Liberation Mono, monospace;
   font-size: 14px;
 }
 
 .fill-light {
-  background: #F9F9F9;
+  background: #f9f9f9;
 }
 
 .width2 {
@@ -247,10 +253,10 @@ h4:hover .anchorjs-link {
   display: block;
   width: 100%;
   height: 2rem;
-  padding: .5rem;
+  padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
-  font-size: .875rem;
+  font-size: 0.875rem;
   border-radius: 3px;
   box-sizing: border-box;
 }
@@ -262,15 +268,19 @@ table {
 .prose table th,
 .prose table td {
   text-align: left;
-  padding:8px;
-  border:1px solid #ddd;
+  padding: 8px;
+  border: 1px solid #ddd;
 }
 
-.prose table th:nth-child(1) { border-right: none; }
-.prose table th:nth-child(2) { border-left: none; }
+.prose table th:nth-child(1) {
+  border-right: none;
+}
+.prose table th:nth-child(2) {
+  border-left: none;
+}
 
 .prose table {
-  border:1px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .prose-big {

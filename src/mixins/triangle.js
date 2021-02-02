@@ -104,11 +104,7 @@ export default function triangle({
   return {
     width: '0',
     height: '0',
-    borderColor: getBorderColor(
-      pointingDirection,
-      foregroundColor,
-      backgroundColor,
-    ),
+    borderColor: getBorderColor(pointingDirection, foregroundColor, backgroundColor),
     borderStyle: 'solid',
     borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
   }

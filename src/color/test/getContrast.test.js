@@ -15,9 +15,7 @@ describe('getContrast', () => {
   })
 
   it('should return the color contrast of two rgba colors', () => {
-    expect(
-      getContrast('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)'),
-    ).toMatchSnapshot()
+    expect(getContrast('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)')).toMatchSnapshot()
   })
 
   it('should return the color contrast of two rgb colors', () => {
@@ -25,15 +23,11 @@ describe('getContrast', () => {
   })
 
   it('should return the color contrast of two hsla colors', () => {
-    expect(
-      getContrast('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)'),
-    ).toMatchSnapshot()
+    expect(getContrast('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)')).toMatchSnapshot()
   })
 
   it('should return the color contrast of two hsl colors', () => {
-    expect(
-      getContrast('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)'),
-    ).toMatchSnapshot()
+    expect(getContrast('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)')).toMatchSnapshot()
   })
 
   it('should return the color contrast of two named CSS colors', () => {

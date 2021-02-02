@@ -19,13 +19,10 @@ function isFunction(section) {
 }
 
 module.exports = function (comments, config, callback) {
-  const linkerStack = new LinkerStack(config).namespaceResolver(
-    comments,
-    function (namespace) {
-      const slugger = new GithubSlugger()
-      return '#' + slugger.slug(namespace)
-    }
-  )
+  const linkerStack = new LinkerStack(config).namespaceResolver(comments, function (namespace) {
+    const slugger = new GithubSlugger()
+    return '#' + slugger.slug(namespace)
+  })
 
   const formatters = createFormatters(linkerStack.link)
 
@@ -60,15 +57,10 @@ module.exports = function (comments, config, callback) {
         return prefix + section.name + formatters.parameters(section) + returns
       },
       md(ast, inline) {
-        if (
-          inline &&
-          ast &&
-          ast.children.length &&
-          ast.children[0].type === 'paragraph'
-        ) {
+        if (inline && ast && ast.children.length && ast.children[0].type === 'paragraph') {
           ast = {
             type: 'root',
-            children: ast.children[0].children.concat(ast.children.slice(1))
+            children: ast.children[0].children.concat(ast.children.slice(1)),
           }
         }
         return formatters.markdown(ast)
@@ -80,26 +72,47 @@ module.exports = function (comments, config, callback) {
           return hljs.highlightAuto(example).value
         }
         return hljs.highlight('js', example).value
-      }
-    }
+      },
+    },
   }
 
-  sharedImports.imports.renderSectionList = _.template(fs.readFileSync(path.join(__dirname, 'partials/section_list._'), 'utf8'), sharedImports)
-  sharedImports.imports.renderSection = _.template(fs.readFileSync(path.join(__dirname, 'partials/section._'), 'utf8'), sharedImports)
-  sharedImports.imports.renderNote = _.template(fs.readFileSync(path.join(__dirname, 'partials/note._'), 'utf8'), sharedImports)
-  sharedImports.imports.renderDocs = _.template(fs.readFileSync(path.join(__dirname, 'docs/index._'), 'utf8'), sharedImports)
-  sharedImports.imports.renderHome = _.template(fs.readFileSync(path.join(__dirname, 'index._'), 'utf8'), sharedImports)
+  sharedImports.imports.renderSectionList = _.template(
+    fs.readFileSync(path.join(__dirname, 'partials/section_list._'), 'utf8'),
+    sharedImports
+  )
+  sharedImports.imports.renderSection = _.template(
+    fs.readFileSync(path.join(__dirname, 'partials/section._'), 'utf8'),
+    sharedImports
+  )
+  sharedImports.imports.renderNote = _.template(
+    fs.readFileSync(path.join(__dirname, 'partials/note._'), 'utf8'),
+    sharedImports
+  )
+  sharedImports.imports.renderDocs = _.template(
+    fs.readFileSync(path.join(__dirname, 'docs/index._'), 'utf8'),
+    sharedImports
+  )
+  sharedImports.imports.renderHome = _.template(
+    fs.readFileSync(path.join(__dirname, 'index._'), 'utf8'),
+    sharedImports
+  )
 
-  const mainTemplate = _.template(fs.readFileSync(path.join(__dirname, 'partials/base._'), 'utf8'), sharedImports)
+  const mainTemplate = _.template(
+    fs.readFileSync(path.join(__dirname, 'partials/base._'), 'utf8'),
+    sharedImports
+  )
 
-  const pages = [{
-    path: 'index.html',
-  }, {
-    path: 'docs/index.html',
-    data: {
-      docs: comments,
+  const pages = [
+    {
+      path: 'index.html',
     },
-  }]
+    {
+      path: 'docs/index.html',
+      data: {
+        docs: comments,
+      },
+    },
+  ]
 
   const pageTemplate = _.template(
     fs.readFileSync(path.join(__dirname, 'index._'), 'utf8'),
@@ -108,14 +121,18 @@ module.exports = function (comments, config, callback) {
 
   // push assets into the pipeline as well.
   return new Promise(resolve => {
-    vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname })
-      .pipe(concat(function (files) {
+    vfs.src([`${__dirname}/assets/**`, `${__dirname}/favicon.png`], { base: __dirname }).pipe(
+      concat(function (files) {
         resolve(
           files.concat(
-            pages.map((page) => {
-              const data = Object.assign({}, {
-                config,
-              }, page.data)
+            pages.map(page => {
+              const data = Object.assign(
+                {},
+                {
+                  config,
+                },
+                page.data
+              )
               const compiled = mainTemplate(data)
               return new File({
                 path: page.path,
@@ -125,6 +142,6 @@ module.exports = function (comments, config, callback) {
           )
         )
       })
-      )
+    )
   })
 }

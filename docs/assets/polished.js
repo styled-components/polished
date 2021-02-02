@@ -633,7 +633,7 @@
    * Check if a string ends with something
    * @private
    */
-  function endsWith (string, suffix) {
+  function endsWith(string, suffix) {
     return string.substr(-suffix.length) === suffix;
   }
 

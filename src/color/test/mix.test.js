@@ -19,9 +19,7 @@ describe('mix', () => {
   })
 
   it('should mix two rgba colors', () => {
-    expect(
-      mix(0.7, 'rgba(0, 0, 0, 1)', 'rgba(255, 255, 255, 0)'),
-    ).toMatchSnapshot()
+    expect(mix(0.7, 'rgba(0, 0, 0, 1)', 'rgba(255, 255, 255, 0)')).toMatchSnapshot()
   })
 
   it('should mix two colors when weight is a string', () => {
@@ -41,8 +39,6 @@ describe('mix', () => {
   })
 
   it('should return the second color when weight is 0', () => {
-    expect(
-      mix(0, 'rgba(0, 0, 0, 1)', 'rgba(255, 255, 255, 0)'),
-    ).toMatchSnapshot()
+    expect(mix(0, 'rgba(0, 0, 0, 1)', 'rgba(255, 255, 255, 0)')).toMatchSnapshot()
   })
 })

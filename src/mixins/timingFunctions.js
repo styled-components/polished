@@ -57,8 +57,6 @@ function getTimingFunction(functionName: string): string {
  * }
  */
 
-export default function timingFunctions(
-  timingFunction: TimingFunction,
-): string {
+export default function timingFunctions(timingFunction: TimingFunction): string {
   return getTimingFunction(timingFunction)
 }

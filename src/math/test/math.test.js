@@ -45,16 +45,12 @@ describe('math', () => {
 
   it('should be able to do simple min', () => {
     expect(math('min(3em, 4em, 1em, 2em)')).toEqual(`${Math.min(3, 4, 1, 2)}em`)
-    expect(math('min(3em, -4em, 1em, 2em)')).toEqual(
-      `${Math.min(3, -4, 1, 2)}em`,
-    )
+    expect(math('min(3em, -4em, 1em, 2em)')).toEqual(`${Math.min(3, -4, 1, 2)}em`)
   })
 
   it('should be able to do simple max', () => {
     expect(math('max(3em, 8em, 1em, 2em)')).toEqual(`${Math.max(3, 8, 1, 2)}em`)
-    expect(math('max(3em, -8em, 1em, 2em)')).toEqual(
-      `${Math.max(3, -8, 1, 2)}em`,
-    )
+    expect(math('max(3em, -8em, 1em, 2em)')).toEqual(`${Math.max(3, -8, 1, 2)}em`)
   })
 
   it('should be able to do simple factorial', () => {
@@ -89,9 +85,7 @@ describe('math', () => {
   it('should throw an error when formula contains multiple units', () => {
     expect(() => {
       math('1vw + 1vh + 1pt')
-    }).toThrow(
-      'All values in a formula must have the same unit or be unitless.',
-    )
+    }).toThrow('All values in a formula must have the same unit or be unitless.')
   })
 
   it('should throw an error when formula is missing a closing parenthesis', () => {

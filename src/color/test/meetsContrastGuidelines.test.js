@@ -15,30 +15,21 @@ describe('meetsContrastGuidelines', () => {
   })
 
   it('should return the color contrast guidelines of two rgba colors', () => {
-    expect(
-      meetsContrastGuidelines('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)'),
-    ).toMatchSnapshot()
+    expect(meetsContrastGuidelines('rgba(101,100,205,0.7)', 'rgba(0,0,0,1)')).toMatchSnapshot()
   })
 
   it('should return the color contrast guidelines of two rgb colors', () => {
-    expect(
-      meetsContrastGuidelines('rgb(204,205,100)', 'rgb(0,0,0)'),
-    ).toMatchSnapshot()
+    expect(meetsContrastGuidelines('rgb(204,205,100)', 'rgb(0,0,0)')).toMatchSnapshot()
   })
 
   it('should return the color contrast guidelines of two hsla colors', () => {
     expect(
-      meetsContrastGuidelines(
-        'hsla(250, 100%, 50%, 0.2)',
-        'hsla(0, 100%, 100%, 1)',
-      ),
+      meetsContrastGuidelines('hsla(250, 100%, 50%, 0.2)', 'hsla(0, 100%, 100%, 1)'),
     ).toMatchSnapshot()
   })
 
   it('should return the color contrast guidelines of two hsl colors', () => {
-    expect(
-      meetsContrastGuidelines('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)'),
-    ).toMatchSnapshot()
+    expect(meetsContrastGuidelines('hsl(0, 100%, 50%)', 'hsl(0, 100%, 100%)')).toMatchSnapshot()
   })
 
   it('should return the color contrast guidelines of two named CSS colors', () => {
