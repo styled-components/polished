@@ -10,9 +10,9 @@ A lightweight toolset for writing styles in JavaScript. ✨
 [![Github All Releases](https://img.shields.io/npm/dm/polished.svg)](https://npmcharts.com/compare/polished)
 
 ```sh
-npm install --save polished
+npm install --save polished@lts
 # or if you're using yarn
-yarn add polished
+yarn add polished@lts
 ```
 
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? `✨ polished` is for you!
@@ -122,4 +122,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## License
 
-Copyright © 2016-2020 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!
+Copyright © 2016-2021 Brian Hough, Maximilian Stoiber, & Nik Graf. Licensed under the MIT License, see [LICENSE.md](LICENSE.md) for more information!

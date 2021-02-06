@@ -310,7 +310,8 @@
     "71": "Passed invalid pixel value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
     "72": "Passed invalid base value %s to %s(), please pass a value like \"12px\" or 12.\n\n",
     "73": "Please provide a valid CSS variable.\n\n",
-    "74": "CSS variable not found.\n"
+    "74": "CSS variable not found.\n\n",
+    "75": "fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.\n"
   };
   /**
    * super basic version of sprintf
@@ -933,6 +934,10 @@
 
     if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || fromSizeUnit !== toSizeUnit) {
       throw new PolishedError(48);
+    }
+
+    if (fromSizeUnit !== minScreenUnit || toSizeUnit !== maxScreenUnit) {
+      throw new PolishedError(75);
     }
 
     var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
@@ -1804,23 +1809,31 @@
     }
   };
 
-  var getBorderColor = function getBorderColor(pointingDirection, foregroundColor, backgroundColor) {
+  var getBorderColor = function getBorderColor(pointingDirection, foregroundColor) {
     switch (pointingDirection) {
       case 'top':
       case 'bottomRight':
-        return backgroundColor + " " + backgroundColor + " " + foregroundColor + " " + backgroundColor;
+        return {
+          borderBottomColor: foregroundColor
+        };
 
       case 'right':
       case 'bottomLeft':
-        return backgroundColor + " " + backgroundColor + " " + backgroundColor + " " + foregroundColor;
+        return {
+          borderLeftColor: foregroundColor
+        };
 
       case 'bottom':
       case 'topLeft':
-        return foregroundColor + " " + backgroundColor + " " + backgroundColor + " " + backgroundColor;
+        return {
+          borderTopColor: foregroundColor
+        };
 
       case 'left':
       case 'topRight':
-        return backgroundColor + " " + foregroundColor + " " + backgroundColor + " " + backgroundColor;
+        return {
+          borderRightColor: foregroundColor
+        };
 
       default:
         throw new PolishedError(59);
@@ -1868,13 +1881,14 @@
       throw new PolishedError(60);
     }
 
-    return {
+    return _extends__default['default']({
       width: '0',
       height: '0',
-      borderColor: getBorderColor(pointingDirection, foregroundColor, backgroundColor),
+      borderColor: backgroundColor
+    }, getBorderColor(pointingDirection, foregroundColor), {
       borderStyle: 'solid',
       borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit)
-    };
+    });
   }
 
   /**
@@ -3070,15 +3084,15 @@
   /* ::<number | string, string, string> */
   (opacify);
 
-  var defaultLightReturnColor = '#000';
-  var defaultDarkReturnColor = '#fff';
+  var defaultReturnIfLightColor = '#000';
+  var defaultReturnIfDarkColor = '#fff';
   /**
-   * Returns black or white (or optional light and dark return colors) for best
+   * Returns black or white (or optional passed colors) for best
    * contrast depending on the luminosity of the given color.
-   * When passing custom return colors, set `strict` to `true` to ensure that the
+   * When passing custom return colors, strict mode ensures that the
    * return color always meets or exceeds WCAG level AA or greater. If this test
    * fails, the default return color (black or white) is returned in place of the
-   * custom return color.
+   * custom return color. You can optionally turn off strict mode.
    *
    * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
    *
@@ -3108,28 +3122,27 @@
    * }
    */
 
-  function readableColor(color, lightReturnColor, darkReturnColor, strict) {
-    if (lightReturnColor === void 0) {
-      lightReturnColor = defaultLightReturnColor;
+  function readableColor(color, returnIfLightColor, returnIfDarkColor, strict) {
+    if (returnIfLightColor === void 0) {
+      returnIfLightColor = defaultReturnIfLightColor;
     }
 
-    if (darkReturnColor === void 0) {
-      darkReturnColor = defaultDarkReturnColor;
+    if (returnIfDarkColor === void 0) {
+      returnIfDarkColor = defaultReturnIfDarkColor;
     }
 
     if (strict === void 0) {
-      strict = false;
+      strict = true;
     }
 
-    var isLightColor = getLuminance(color) > 0.179;
-    var preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor; // TODO: Make `strict` the default behaviour in the next major release.
-    // Without `strict`, this may return a color that does not meet WCAG AA.
+    var isColorLight = getLuminance(color) > 0.179;
+    var preferredReturnColor = isColorLight ? returnIfLightColor : returnIfDarkColor;
 
     if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
       return preferredReturnColor;
     }
 
-    return isLightColor ? defaultLightReturnColor : defaultDarkReturnColor;
+    return isColorLight ? defaultReturnIfLightColor : defaultReturnIfDarkColor;
   }
 
   /**
@@ -3424,7 +3437,7 @@
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
     var colorWithAlpha = _extends__default['default']({}, parsedColor, {
-      alpha: guard(0, 1, (alpha * 100 - parseFloat(amount) * 100) / 100)
+      alpha: guard(0, 1, +(alpha * 100 - parseFloat(amount) * 100).toFixed(2) / 100)
     });
 
     return rgba(colorWithAlpha);
