@@ -5017,16 +5017,16 @@ can convert a RgbColor or RgbaColor object back to a string.</p>
   </div>
   
 
-  <p>Returns black or white (or optional light and dark return colors) for best
+  <p>Returns black or white (or optional passed colors) for best
 contrast depending on the luminosity of the given color.
-When passing custom return colors, set <code>strict</code> to <code>true</code> to ensure that the
+When passing custom return colors, strict mode ensures that the
 return color always meets or exceeds WCAG level AA or greater. If this test
 fails, the default return color (black or white) is returned in place of the
-custom return color.</p>
+custom return color. You can optionally turn off strict mode.</p>
 <p>Follows <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">W3C specs for readability</a>.</p>
 
 
-  <div class='pre p1 fill-light mt0'>readableColor(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lightReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, darkReturnColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, strict: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>readableColor(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, returnIfLightColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, returnIfDarkColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, strict: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -5057,8 +5057,8 @@ custom return color.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>lightReturnColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>defaultLightReturnColor</code>)</code>
+            <span class='code bold'>returnIfLightColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>defaultReturnIfLightColor</code>)</code>
 	    
           </div>
           
@@ -5066,8 +5066,8 @@ custom return color.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>darkReturnColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>defaultDarkReturnColor</code>)</code>
+            <span class='code bold'>returnIfDarkColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>defaultReturnIfDarkColor</code>)</code>
 	    
           </div>
           
@@ -5076,7 +5076,7 @@ custom return color.</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>strict</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
-            = <code>false</code>)</code>
+            = <code>true</code>)</code>
 	    
           </div>
           
