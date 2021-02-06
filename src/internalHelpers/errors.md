@@ -298,3 +298,7 @@ Please provide a valid CSS variable.
 ## 74
 
 CSS variable not found.
+
+## 75
+
+fromSize and toSize must be provided as stringified numbers with the same units as minScreen and maxScreen.

@@ -10,6 +10,12 @@
 .gitignore
 .npmignore
 .travis.yml
+.browserlistrc
+.prettierignore
+.prettierrc
+.vscode
+babel.config.js
+CODEOWNERS
 
 # folders
 coverage
@@ -20,9 +26,12 @@ flow-typed
 
 # markdown files
 CONTRIBUTING.md
+CODE_OF_CONDUCT.md
 
 # misc.
 CNAME
 rollup.config.js
 travis_after_all.py
 yarn.lock
+.yarn
+typescript-test.ts

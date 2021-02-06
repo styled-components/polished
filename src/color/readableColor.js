@@ -2,16 +2,16 @@
 import getContrast from './getContrast'
 import getLuminance from './getLuminance'
 
-const defaultLightReturnColor = '#000'
-const defaultDarkReturnColor = '#fff'
+const defaultReturnIfLightColor = '#000'
+const defaultReturnIfDarkColor = '#fff'
 
 /**
- * Returns black or white (or optional light and dark return colors) for best
+ * Returns black or white (or optional passed colors) for best
  * contrast depending on the luminosity of the given color.
- * When passing custom return colors, set `strict` to `true` to ensure that the
+ * When passing custom return colors, strict mode ensures that the
  * return color always meets or exceeds WCAG level AA or greater. If this test
  * fails, the default return color (black or white) is returned in place of the
- * custom return color.
+ * custom return color. You can optionally turn off strict mode.
  *
  * Follows [W3C specs for readability](https://www.w3.org/TR/WCAG20-TECHS/G18.html).
  *
@@ -42,17 +42,15 @@ const defaultDarkReturnColor = '#fff'
  */
 export default function readableColor(
   color: string,
-  lightReturnColor?: string = defaultLightReturnColor,
-  darkReturnColor?: string = defaultDarkReturnColor,
-  strict?: boolean = false,
+  returnIfLightColor?: string = defaultReturnIfLightColor,
+  returnIfDarkColor?: string = defaultReturnIfDarkColor,
+  strict?: boolean = true,
 ): string {
-  const isLightColor = getLuminance(color) > 0.179
-  const preferredReturnColor = isLightColor ? lightReturnColor : darkReturnColor
+  const isColorLight = getLuminance(color) > 0.179
+  const preferredReturnColor = isColorLight ? returnIfLightColor : returnIfDarkColor
 
-  // TODO: Make `strict` the default behaviour in the next major release.
-  // Without `strict`, this may return a color that does not meet WCAG AA.
   if (!strict || getContrast(color, preferredReturnColor) >= 4.5) {
     return preferredReturnColor
   }
-  return isLightColor ? defaultLightReturnColor : defaultDarkReturnColor
+  return isColorLight ? defaultReturnIfLightColor : defaultReturnIfDarkColor
 }

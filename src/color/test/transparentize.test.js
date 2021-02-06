@@ -54,6 +54,10 @@ describe('transparentize', () => {
     expect(transparentize(-0.5, 'rgba(255, 0, 0, .8)')).toMatchSnapshot()
   })
 
+  it('should properly round a float to 2 decimals.', () => {
+    expect(transparentize(0.55, '#01B0BB')).toEqual('rgba(1,176,187,0.45)')
+  })
+
   it('should reduce the opacity when passed a string for amount', () => {
     expect(transparentize('0.1', '#fff')).toMatchSnapshot()
   })
