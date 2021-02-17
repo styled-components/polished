@@ -63,8 +63,7 @@
     "build:lib": "src/**/*.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5",
-    "@scarf/scarf": "^1.1.0"
+    "@babel/runtime": "^7.12.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
