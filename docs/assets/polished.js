@@ -512,7 +512,7 @@
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  var positionMap = ['Top', 'Right', 'Bottom', 'Left'];
+  var positionMap$1 = ['Top', 'Right', 'Bottom', 'Left'];
 
   function generateProperty(property, position) {
     if (!property) return position.toLowerCase();
@@ -534,7 +534,7 @@
 
     for (var i = 0; i < valuesWithDefaults.length; i += 1) {
       if (valuesWithDefaults[i] || valuesWithDefaults[i] === 0) {
-        styles[generateProperty(property, positionMap[i])] = valuesWithDefaults[i];
+        styles[generateProperty(property, positionMap$1[i])] = valuesWithDefaults[i];
       }
     }
 
@@ -589,7 +589,7 @@
     return string.substr(-suffix.length) === suffix;
   }
 
-  var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+  var cssRegex$1 = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
    * Returns a given CSS value minus its unit of measure.
    *
@@ -613,7 +613,7 @@
 
   function stripUnit(value) {
     if (typeof value !== 'string') return value;
-    var matchedValue = value.match(cssRegex);
+    var matchedValue = value.match(cssRegex$1);
     return matchedValue ? parseFloat(value) : value;
   }
 
@@ -685,7 +685,7 @@
 
   var em = /*#__PURE__*/pxtoFactory('em');
 
-  var cssRegex$1 = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+  var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
    * Returns a given CSS value and its unit as elements of an array.
    *
@@ -712,7 +712,7 @@
 
   function getValueAndUnit(value) {
     if (typeof value !== 'string') return [value, ''];
-    var matchedValue = value.match(cssRegex$1);
+    var matchedValue = value.match(cssRegex);
     if (matchedValue) return [parseFloat(value), matchedValue[2]];
     return [value, undefined];
   }
@@ -928,7 +928,7 @@
     return deconstructedValue[0] * newBase + "px";
   }
 
-  var functionsMap = {
+  var functionsMap$3 = {
     back: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
     circ: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
     cubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
@@ -960,10 +960,10 @@
    */
 
   function easeIn(functionName) {
-    return functionsMap[functionName.toLowerCase().trim()];
+    return functionsMap$3[functionName.toLowerCase().trim()];
   }
 
-  var functionsMap$1 = {
+  var functionsMap$2 = {
     back: 'cubic-bezier(0.680, -0.550, 0.265, 1.550)',
     circ: 'cubic-bezier(0.785,  0.135, 0.150, 0.860)',
     cubic: 'cubic-bezier(0.645,  0.045, 0.355, 1.000)',
@@ -995,10 +995,10 @@
    */
 
   function easeInOut(functionName) {
-    return functionsMap$1[functionName.toLowerCase().trim()];
+    return functionsMap$2[functionName.toLowerCase().trim()];
   }
 
-  var functionsMap$2 = {
+  var functionsMap$1 = {
     back: 'cubic-bezier(0.175,  0.885, 0.320, 1.275)',
     cubic: 'cubic-bezier(0.215,  0.610, 0.355, 1.000)',
     circ: 'cubic-bezier(0.075,  0.820, 0.165, 1.000)',
@@ -1030,7 +1030,7 @@
    */
 
   function easeOut(functionName) {
-    return functionsMap$2[functionName.toLowerCase().trim()];
+    return functionsMap$1[functionName.toLowerCase().trim()];
   }
 
   /**
@@ -1220,7 +1220,7 @@
     }) : styles;
   }
 
-  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -1579,7 +1579,7 @@
     return template.trim();
   }
 
-  var _templateObject;
+  var _templateObject$1;
 
   /**
    * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
@@ -1622,7 +1622,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
-      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
+      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
@@ -1754,7 +1754,7 @@
     }];
   }
 
-  var _templateObject$1;
+  var _templateObject;
 
   /**
    * CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
@@ -1803,7 +1803,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
+      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -1863,7 +1863,7 @@
   }
 
   /* eslint-disable key-spacing */
-  var functionsMap$3 = {
+  var functionsMap = {
     easeInBack: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)',
     easeInCirc: 'cubic-bezier(0.600,  0.040, 0.980, 0.335)',
     easeInCubic: 'cubic-bezier(0.550,  0.055, 0.675, 0.190)',
@@ -1892,7 +1892,7 @@
   /* eslint-enable key-spacing */
 
   function getTimingFunction(functionName) {
-    return functionsMap$3[functionName];
+    return functionsMap[functionName];
   }
   /**
    * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
@@ -3937,9 +3937,9 @@
     return selectors;
   }
 
-  var stateMap = [undefined, null, 'active', 'focus', 'hover'];
+  var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
 
-  function template(state) {
+  function template$1(state) {
     return "button" + state + ",\n  input[type=\"button\"]" + state + ",\n  input[type=\"reset\"]" + state + ",\n  input[type=\"submit\"]" + state;
   }
   /**
@@ -3975,7 +3975,7 @@
       states[_key] = arguments[_key];
     }
 
-    return statefulSelectors(states, template, stateMap);
+    return statefulSelectors(states, template$1, stateMap$1);
   }
 
   /**
@@ -4038,7 +4038,7 @@
     return directionalProperty.apply(void 0, ['padding'].concat(values));
   }
 
-  var positionMap$1 = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
+  var positionMap = ['absolute', 'fixed', 'relative', 'static', 'sticky'];
   /**
    * Shorthand accepts up to five values, including null to skip a value, and maps them to their respective directions. The first value can optionally be a position keyword.
    * @example
@@ -4087,7 +4087,7 @@
       values[_key - 1] = arguments[_key];
     }
 
-    if (positionMap$1.indexOf(firstValue) >= 0 && firstValue) {
+    if (positionMap.indexOf(firstValue) >= 0 && firstValue) {
       return _extends__default['default']({}, directionalProperty.apply(void 0, [''].concat(values)), {
         position: firstValue
       });
@@ -4127,9 +4127,9 @@
     };
   }
 
-  var stateMap$1 = [undefined, null, 'active', 'focus', 'hover'];
+  var stateMap = [undefined, null, 'active', 'focus', 'hover'];
 
-  function template$1(state) {
+  function template(state) {
     return "input[type=\"color\"]" + state + ",\n    input[type=\"date\"]" + state + ",\n    input[type=\"datetime\"]" + state + ",\n    input[type=\"datetime-local\"]" + state + ",\n    input[type=\"email\"]" + state + ",\n    input[type=\"month\"]" + state + ",\n    input[type=\"number\"]" + state + ",\n    input[type=\"password\"]" + state + ",\n    input[type=\"search\"]" + state + ",\n    input[type=\"tel\"]" + state + ",\n    input[type=\"text\"]" + state + ",\n    input[type=\"time\"]" + state + ",\n    input[type=\"url\"]" + state + ",\n    input[type=\"week\"]" + state + ",\n    input:not([type])" + state + ",\n    textarea" + state;
   }
   /**
@@ -4177,7 +4177,7 @@
       states[_key] = arguments[_key];
     }
 
-    return statefulSelectors(states, template$1, stateMap$1);
+    return statefulSelectors(states, template, stateMap);
   }
 
   /**
