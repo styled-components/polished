@@ -99,7 +99,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${hslRgbMatched[3]}`, 10),
     }
   }
-  const hslaMatched = hslaRegex.exec(normalizedColor)
+  const hslaMatched = hslaRegex.exec(normalizedColor.substring(0, 50))
   if (hslaMatched) {
     const hue = parseInt(`${hslaMatched[1]}`, 10)
     const saturation = parseInt(`${hslaMatched[2]}`, 10) / 100
