@@ -2392,7 +2392,7 @@
       };
     }
 
-    var hslaMatched = hslaRegex.exec(normalizedColor);
+    var hslaMatched = hslaRegex.exec(normalizedColor.substring(0, 50));
 
     if (hslaMatched) {
       var _hue = parseInt("" + hslaMatched[1], 10);
