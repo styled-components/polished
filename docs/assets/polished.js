@@ -1328,7 +1328,7 @@
   }
 
   function isDataURI(fontFilePath) {
-    return !!fontFilePath.match(dataURIRegex);
+    return !!fontFilePath.replace(/\s+/g, ' ').match(dataURIRegex);
   }
 
   function generateFileReferences(fontFilePath, fileFormats, formatHint) {
@@ -2361,7 +2361,7 @@
       };
     }
 
-    var rgbaMatched = rgbaRegex.exec(normalizedColor);
+    var rgbaMatched = rgbaRegex.exec(normalizedColor.substring(0, 50));
 
     if (rgbaMatched) {
       return {
