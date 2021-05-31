@@ -22,20 +22,20 @@ function generateFormatHint(format: string, formatHint: boolean): string {
 }
 
 function isDataURI(fontFilePath: string): boolean {
-  return !!fontFilePath.match(dataURIRegex)
+  return !!fontFilePath.replace(/\s+/g, ' ').match(dataURIRegex)
 }
 
 function generateFileReferences(
   fontFilePath: string,
   fileFormats: Array<string>,
-  formatHint: boolean,
+  formatHint: boolean
 ): string {
   if (isDataURI(fontFilePath)) {
     return `url("${fontFilePath}")${generateFormatHint(fileFormats[0], formatHint)}`
   }
 
   const fileFontReferences = fileFormats.map(
-    format => `url("${fontFilePath}.${format}")${generateFormatHint(format, formatHint)}`,
+    format => `url("${fontFilePath}.${format}")${generateFormatHint(format, formatHint)}`
   )
   return fileFontReferences.join(', ')
 }
@@ -49,7 +49,7 @@ function generateSources(
   fontFilePath?: string,
   localFonts?: Array<string>,
   fileFormats: Array<string>,
-  formatHint: boolean,
+  formatHint: boolean
 ): string {
   const fontReferences = []
   if (localFonts) fontReferences.push(generateLocalReferences(localFonts))

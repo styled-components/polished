@@ -1060,7 +1060,7 @@
     };
   }
 
-  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -1168,7 +1168,7 @@
   }
 
   function isDataURI(fontFilePath) {
-    return !!fontFilePath.match(dataURIRegex);
+    return !!fontFilePath.replace(/\s+/g, ' ').match(dataURIRegex);
   }
 
   function generateFileReferences(fontFilePath, fileFormats, formatHint) {
@@ -1418,15 +1418,7 @@
     return template.trim();
   }
 
-  function _templateObject() {
-    var data = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"]);
-
-    _templateObject = function _templateObject() {
-      return data;
-    };
-
-    return data;
-  }
+  var _templateObject;
 
   /**
    * CSS for declaring a linear gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
@@ -1469,7 +1461,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
-      backgroundImage: constructGradientValue(_templateObject(), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
+      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
@@ -1601,15 +1593,7 @@
     }];
   }
 
-  function _templateObject$1() {
-    var data = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"]);
-
-    _templateObject$1 = function _templateObject() {
-      return data;
-    };
-
-    return data;
-  }
+  var _templateObject$1;
 
   /**
    * CSS for declaring a radial gradient, including a fallback background-color. The fallback is either the first color-stop or an explicitly passed fallback color.
@@ -1658,7 +1642,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject$1(), position, shape, extent, colorStops.join(', '))
+      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -2214,7 +2198,7 @@
       };
     }
 
-    var rgbaMatched = rgbaRegex.exec(normalizedColor);
+    var rgbaMatched = rgbaRegex.exec(normalizedColor.substring(0, 50));
 
     if (rgbaMatched) {
       return {
@@ -2245,7 +2229,7 @@
       };
     }
 
-    var hslaMatched = hslaRegex.exec(normalizedColor);
+    var hslaMatched = hslaRegex.exec(normalizedColor.substring(0, 50));
 
     if (hslaMatched) {
       var _hue = parseInt("" + hslaMatched[1], 10);

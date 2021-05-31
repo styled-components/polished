@@ -39,7 +39,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
   }
   if (normalizedColor.match(hexRgbaRegex)) {
     const alpha = parseFloat(
-      (parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255).toFixed(2),
+      (parseInt(`${normalizedColor[7]}${normalizedColor[8]}`, 16) / 255).toFixed(2)
     )
     return {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[2]}`, 16),
@@ -57,7 +57,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
   }
   if (normalizedColor.match(reducedRgbaHexRegex)) {
     const alpha = parseFloat(
-      (parseInt(`${normalizedColor[4]}${normalizedColor[4]}`, 16) / 255).toFixed(2),
+      (parseInt(`${normalizedColor[4]}${normalizedColor[4]}`, 16) / 255).toFixed(2)
     )
     return {
       red: parseInt(`${normalizedColor[1]}${normalizedColor[1]}`, 16),
@@ -74,7 +74,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${rgbMatched[3]}`, 10),
     }
   }
-  const rgbaMatched = rgbaRegex.exec(normalizedColor)
+  const rgbaMatched = rgbaRegex.exec(normalizedColor.substring(0, 50))
   if (rgbaMatched) {
     return {
       red: parseInt(`${rgbaMatched[1]}`, 10),
@@ -99,7 +99,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${hslRgbMatched[3]}`, 10),
     }
   }
-  const hslaMatched = hslaRegex.exec(normalizedColor)
+  const hslaMatched = hslaRegex.exec(normalizedColor.substring(0, 50))
   if (hslaMatched) {
     const hue = parseInt(`${hslaMatched[1]}`, 10)
     const saturation = parseInt(`${hslaMatched[2]}`, 10) / 100
