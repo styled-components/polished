@@ -22,7 +22,7 @@ function generateFormatHint(format: string, formatHint: boolean): string {
 }
 
 function isDataURI(fontFilePath: string): boolean {
-  return !!fontFilePath.match(dataURIRegex)
+  return !!fontFilePath.replace(/\s+/g, ' ').match(dataURIRegex)
 }
 
 function generateFileReferences(

@@ -74,7 +74,7 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       blue: parseInt(`${rgbMatched[3]}`, 10),
     }
   }
-  const rgbaMatched = rgbaRegex.exec(normalizedColor)
+  const rgbaMatched = rgbaRegex.exec(normalizedColor.substring(0, 50))
   if (rgbaMatched) {
     return {
       red: parseInt(`${rgbaMatched[1]}`, 10),
