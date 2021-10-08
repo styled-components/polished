@@ -63,7 +63,7 @@ You can optionally also use [`babel-plugin-polished`](https://github.com/styled-
 
 ### Object Spread Properties
 
-In the documentation you will see examples using [object spread properties](https://github.com/tc39/proposal-object-rest-spread). (`{ ...other }`) To enable this syntax in your project add the [`transform-object-rest-spread` plugin](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread) (or the [`stage-3` preset](https://babeljs.io/docs/plugins/preset-stage-3/) to enable all stage three features) to your Babel configuration.
+In the documentation you will see examples using [object spread properties](https://github.com/tc39/proposal-object-rest-spread) (`{ ...other }`). To enable this syntax in your project add the [`transform-object-rest-spread` plugin](https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread) (or the [`stage-3` preset](https://babeljs.io/docs/plugins/preset-stage-3/) to enable all stage three features) to your Babel configuration.
 
 ## Why?
 
