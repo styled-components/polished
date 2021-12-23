@@ -23,6 +23,8 @@ docs-theme
 src
 test
 flow-typed
+.husky/
+docs/
 
 # markdown files
 CONTRIBUTING.md
