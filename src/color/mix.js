@@ -59,7 +59,7 @@ function mix(weight: number | string, color: string, otherColor: string): string
     green: Math.floor(color1.green * weight1 + color2.green * weight2),
     blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
     alpha:
-      color1.alpha * (parseFloat(weight) / 1.0) + color2.alpha * (1 - parseFloat(weight) / 1.0),
+      color1.alpha * parseFloat(weight) + color2.alpha * (1 - parseFloat(weight)),
   }
 
   return rgba(mixedColor)
