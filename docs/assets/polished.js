@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@babel/runtime/helpers/esm/extends'), require('@babel/runtime/helpers/esm/assertThisInitialized'), require('@babel/runtime/helpers/esm/inheritsLoose'), require('@babel/runtime/helpers/esm/wrapNativeSuper'), require('@babel/runtime/helpers/esm/taggedTemplateLiteralLoose')) :
   typeof define === 'function' && define.amd ? define(['exports', '@babel/runtime/helpers/esm/extends', '@babel/runtime/helpers/esm/assertThisInitialized', '@babel/runtime/helpers/esm/inheritsLoose', '@babel/runtime/helpers/esm/wrapNativeSuper', '@babel/runtime/helpers/esm/taggedTemplateLiteralLoose'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.polished = {}, global.extends, global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
-}(this, (function (exports, _extends, _assertThisInitialized, _inheritsLoose, _wrapNativeSuper, _taggedTemplateLiteralLoose) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.polished = {}, global["extends"], global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
+})(this, (function (exports, _extends, _assertThisInitialized, _inheritsLoose, _wrapNativeSuper, _taggedTemplateLiteralLoose) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -178,6 +178,7 @@
       }
     }
   };
+  var defaultSymbolMap = defaultSymbols;
 
   // based on https://github.com/styled-components/styled-components/blob/fcf6f3804c57a14dd7984dfab7bc06ee2edca044/src/utils/error.js
 
@@ -296,7 +297,7 @@
 
 
   var PolishedError = /*#__PURE__*/function (_Error) {
-    _inheritsLoose__default['default'](PolishedError, _Error);
+    _inheritsLoose__default["default"](PolishedError, _Error);
 
     function PolishedError(code) {
       var _this;
@@ -309,17 +310,17 @@
         _this = _Error.call(this, format.apply(void 0, [ERRORS[code]].concat(args))) || this;
       }
 
-      return _assertThisInitialized__default['default'](_this);
+      return _assertThisInitialized__default["default"](_this);
     }
 
     return PolishedError;
-  }( /*#__PURE__*/_wrapNativeSuper__default['default'](Error));
+  }( /*#__PURE__*/_wrapNativeSuper__default["default"](Error));
 
   var unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g; // Merges additional math functionality into the defaults.
 
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends__default['default']({}, defaultSymbols.symbols, additionalSymbols.symbols) : _extends__default['default']({}, defaultSymbols.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends__default["default"]({}, defaultSymbolMap.symbols, additionalSymbols.symbols) : _extends__default["default"]({}, defaultSymbolMap.symbols);
     return symbolMap;
   }
 
@@ -659,6 +660,8 @@
     };
   };
 
+  var pixelsto = pxtoFactory;
+
   /**
    * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
    * second argument to the function.
@@ -683,7 +686,8 @@
    * }
    */
 
-  var em = /*#__PURE__*/pxtoFactory('em');
+  var em = /*#__PURE__*/pixelsto('em');
+  var em$1 = em;
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
   /**
@@ -860,7 +864,8 @@
    * }
    */
 
-  var rem = /*#__PURE__*/pxtoFactory('rem');
+  var rem = /*#__PURE__*/pixelsto('rem');
+  var rem$1 = rem;
 
   var defaultFontSize = 16;
 
@@ -1212,7 +1217,7 @@
       whiteSpace: 'nowrap',
       wordWrap: 'normal'
     };
-    return lines > 1 ? _extends__default['default']({}, styles, {
+    return lines > 1 ? _extends__default["default"]({}, styles, {
       WebkitBoxOrient: 'vertical',
       WebkitLineClamp: lines,
       display: '-webkit-box',
@@ -1295,11 +1300,11 @@
         }
 
         fallbacks[obj.prop] = obj.fromSize;
-        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends__default['default']({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
-        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends__default['default']({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
+        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends__default["default"]({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
+        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends__default["default"]({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
       }
 
-      return _extends__default['default']({}, fallbacks, mediaQueries);
+      return _extends__default["default"]({}, fallbacks, mediaQueries);
     } else {
       var _ref, _ref2, _ref3;
 
@@ -1622,7 +1627,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
-      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default['default'](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
+      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default["default"](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
@@ -1803,7 +1808,7 @@
 
     return {
       backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default['default'](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
+      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default["default"](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -1855,7 +1860,7 @@
     var rFilename = retinaFilename ? retinaFilename + "." + ext : "" + filename + retinaSuffix + "." + ext;
     return _ref = {
       backgroundImage: "url(" + filename + "." + ext + ")"
-    }, _ref[hiDPI()] = _extends__default['default']({
+    }, _ref[hiDPI()] = _extends__default["default"]({
       backgroundImage: "url(" + rFilename + ")"
     }, backgroundSize ? {
       backgroundSize: backgroundSize
@@ -2028,7 +2033,7 @@
       throw new PolishedError(60);
     }
 
-    return _extends__default['default']({
+    return _extends__default["default"]({
       width: '0',
       height: '0',
       borderColor: backgroundColor
@@ -2513,6 +2518,8 @@
     return value;
   };
 
+  var reduceHexValue$1 = reduceHexValue;
+
   function numberToHex(value) {
     var hex = value.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
@@ -2523,7 +2530,7 @@
   }
 
   function convertToHex(red, green, blue) {
-    return reduceHexValue("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
+    return reduceHexValue$1("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
   }
 
   function hslToHex(hue, saturation, lightness) {
@@ -2624,9 +2631,9 @@
    */
   function rgb(value, green, blue) {
     if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
-      return reduceHexValue("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
+      return reduceHexValue$1("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
     } else if (typeof value === 'object' && green === undefined && blue === undefined) {
-      return reduceHexValue("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
+      return reduceHexValue$1("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
     }
 
     throw new PolishedError(6);
@@ -2781,7 +2788,7 @@
   function adjustHue(degree, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       hue: hslColor.hue + parseFloat(degree)
     }));
   } // prettier-ignore
@@ -2790,6 +2797,7 @@
   var curriedAdjustHue = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (adjustHue);
+  var curriedAdjustHue$1 = curriedAdjustHue;
 
   /**
    * Returns the complement of the provided color. This is identical to adjustHue(180, <color>).
@@ -2817,7 +2825,7 @@
   function complement(color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       hue: (hslColor.hue + 180) % 360
     }));
   }
@@ -2853,7 +2861,7 @@
   function darken(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness - parseFloat(amount))
     }));
   } // prettier-ignore
@@ -2862,6 +2870,7 @@
   var curriedDarken = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (darken);
+  var curriedDarken$1 = curriedDarken;
 
   /**
    * Decreases the intensity of a color. Its range is between 0 to 1. The first
@@ -2891,7 +2900,7 @@
   function desaturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation - parseFloat(amount))
     }));
   } // prettier-ignore
@@ -2900,6 +2909,7 @@
   var curriedDesaturate = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (desaturate);
+  var curriedDesaturate$1 = curriedDesaturate;
 
   /**
    * Returns a number (float) representing the luminance of a color.
@@ -2982,7 +2992,7 @@
 
   function grayscale(color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default['default']({}, parseToHsl(color), {
+    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
       saturation: 0
     }));
   }
@@ -3060,7 +3070,7 @@
     if (color === 'transparent') return color; // parse color string to rgb
 
     var value = parseToRgb(color);
-    return toColorString(_extends__default['default']({}, value, {
+    return toColorString(_extends__default["default"]({}, value, {
       red: 255 - value.red,
       green: 255 - value.green,
       blue: 255 - value.blue
@@ -3094,7 +3104,7 @@
   function lighten(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness + parseFloat(amount))
     }));
   } // prettier-ignore
@@ -3103,6 +3113,7 @@
   var curriedLighten = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (lighten);
+  var curriedLighten$1 = curriedLighten;
 
   /**
    * Determines which contrast guidelines have been met for two colors.
@@ -3154,13 +3165,13 @@
     if (weight === 0) return otherColor;
     var parsedColor1 = parseToRgb(color);
 
-    var color1 = _extends__default['default']({}, parsedColor1, {
+    var color1 = _extends__default["default"]({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
     });
 
     var parsedColor2 = parseToRgb(otherColor);
 
-    var color2 = _extends__default['default']({}, parsedColor2, {
+    var color2 = _extends__default["default"]({}, parsedColor2, {
       alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
     }); // The formula is copied from the original Sass implementation:
     // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
@@ -3176,7 +3187,7 @@
       red: Math.floor(color1.red * weight1 + color2.red * weight2),
       green: Math.floor(color1.green * weight1 + color2.green * weight2),
       blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
-      alpha: color1.alpha * (parseFloat(weight) / 1.0) + color2.alpha * (1 - parseFloat(weight) / 1.0)
+      alpha: color1.alpha * parseFloat(weight) + color2.alpha * (1 - parseFloat(weight))
     };
     return rgba(mixedColor);
   } // prettier-ignore
@@ -3185,6 +3196,7 @@
   var curriedMix = /*#__PURE__*/curry
   /* ::<number | string, string, string, string> */
   (mix);
+  var mix$1 = curriedMix;
 
   /**
    * Increases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -3219,7 +3231,7 @@
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
-    var colorWithAlpha = _extends__default['default']({}, parsedColor, {
+    var colorWithAlpha = _extends__default["default"]({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 + parseFloat(amount) * 100) / 100)
     });
 
@@ -3230,6 +3242,7 @@
   var curriedOpacify = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (opacify);
+  var curriedOpacify$1 = curriedOpacify;
 
   var defaultReturnIfLightColor = '#000';
   var defaultReturnIfDarkColor = '#fff';
@@ -3366,7 +3379,7 @@
   function saturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default['default']({}, hslColor, {
+    return toColorString(_extends__default["default"]({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation + parseFloat(amount))
     }));
   } // prettier-ignore
@@ -3375,6 +3388,7 @@
   var curriedSaturate = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (saturate);
+  var curriedSaturate$1 = curriedSaturate;
 
   /**
    * Sets the hue of a color to the provided value. The hue range can be
@@ -3402,7 +3416,7 @@
 
   function setHue(hue, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default['default']({}, parseToHsl(color), {
+    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
   } // prettier-ignore
@@ -3411,6 +3425,7 @@
   var curriedSetHue = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setHue);
+  var curriedSetHue$1 = curriedSetHue;
 
   /**
    * Sets the lightness of a color to the provided value. The lightness range can be
@@ -3438,7 +3453,7 @@
 
   function setLightness(lightness, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default['default']({}, parseToHsl(color), {
+    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
   } // prettier-ignore
@@ -3447,6 +3462,7 @@
   var curriedSetLightness = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setLightness);
+  var curriedSetLightness$1 = curriedSetLightness;
 
   /**
    * Sets the saturation of a color to the provided value. The saturation range can be
@@ -3474,7 +3490,7 @@
 
   function setSaturation(saturation, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default['default']({}, parseToHsl(color), {
+    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
   } // prettier-ignore
@@ -3483,6 +3499,7 @@
   var curriedSetSaturation = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (setSaturation);
+  var curriedSetSaturation$1 = curriedSetSaturation;
 
   /**
    * Shades a color by mixing it with black. `shade` can produce
@@ -3509,13 +3526,14 @@
 
   function shade(percentage, color) {
     if (color === 'transparent') return color;
-    return curriedMix(parseFloat(percentage), 'rgb(0, 0, 0)', color);
+    return mix$1(parseFloat(percentage), 'rgb(0, 0, 0)', color);
   } // prettier-ignore
 
 
   var curriedShade = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (shade);
+  var curriedShade$1 = curriedShade;
 
   /**
    * Tints a color by mixing it with white. `tint` can produce
@@ -3542,13 +3560,14 @@
 
   function tint(percentage, color) {
     if (color === 'transparent') return color;
-    return curriedMix(parseFloat(percentage), 'rgb(255, 255, 255)', color);
+    return mix$1(parseFloat(percentage), 'rgb(255, 255, 255)', color);
   } // prettier-ignore
 
 
   var curriedTint = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (tint);
+  var curriedTint$1 = curriedTint;
 
   /**
    * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
@@ -3583,7 +3602,7 @@
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
 
-    var colorWithAlpha = _extends__default['default']({}, parsedColor, {
+    var colorWithAlpha = _extends__default["default"]({}, parsedColor, {
       alpha: guard(0, 1, +(alpha * 100 - parseFloat(amount) * 100).toFixed(2) / 100)
     });
 
@@ -3594,6 +3613,7 @@
   var curriedTransparentize = /*#__PURE__*/curry
   /* ::<number | string, string, string> */
   (transparentize);
+  var curriedTransparentize$1 = curriedTransparentize;
 
   /**
    * Shorthand for easily setting the animation property. Allows either multiple arrays with animations
@@ -4088,7 +4108,7 @@
     }
 
     if (positionMap.indexOf(firstValue) >= 0 && firstValue) {
-      return _extends__default['default']({}, directionalProperty.apply(void 0, [''].concat(values)), {
+      return _extends__default["default"]({}, directionalProperty.apply(void 0, [''].concat(values)), {
         position: firstValue
       });
     } else {
@@ -4228,7 +4248,7 @@
     }
   }
 
-  exports.adjustHue = curriedAdjustHue;
+  exports.adjustHue = curriedAdjustHue$1;
   exports.animation = animation;
   exports.backgroundImages = backgroundImages;
   exports.backgrounds = backgrounds;
@@ -4243,14 +4263,14 @@
   exports.complement = complement;
   exports.cover = cover;
   exports.cssVar = cssVar;
-  exports.darken = curriedDarken;
-  exports.desaturate = curriedDesaturate;
+  exports.darken = curriedDarken$1;
+  exports.desaturate = curriedDesaturate$1;
   exports.directionalProperty = directionalProperty;
   exports.easeIn = easeIn;
   exports.easeInOut = easeInOut;
   exports.easeOut = easeOut;
   exports.ellipsis = ellipsis;
-  exports.em = em;
+  exports.em = em$1;
   exports.fluidRange = fluidRange;
   exports.fontFace = fontFace;
   exports.getContrast = getContrast;
@@ -4265,43 +4285,43 @@
   exports.hsla = hsla;
   exports.important = important;
   exports.invert = invert;
-  exports.lighten = curriedLighten;
+  exports.lighten = curriedLighten$1;
   exports.linearGradient = linearGradient;
   exports.margin = margin;
   exports.math = math;
   exports.meetsContrastGuidelines = meetsContrastGuidelines;
-  exports.mix = curriedMix;
+  exports.mix = mix$1;
   exports.modularScale = modularScale;
   exports.normalize = normalize;
-  exports.opacify = curriedOpacify;
+  exports.opacify = curriedOpacify$1;
   exports.padding = padding;
   exports.parseToHsl = parseToHsl;
   exports.parseToRgb = parseToRgb;
   exports.position = position;
   exports.radialGradient = radialGradient;
   exports.readableColor = readableColor;
-  exports.rem = rem;
+  exports.rem = rem$1;
   exports.remToPx = remToPx;
   exports.retinaImage = retinaImage;
   exports.rgb = rgb;
   exports.rgbToColorString = rgbToColorString;
   exports.rgba = rgba;
-  exports.saturate = curriedSaturate;
-  exports.setHue = curriedSetHue;
-  exports.setLightness = curriedSetLightness;
-  exports.setSaturation = curriedSetSaturation;
-  exports.shade = curriedShade;
+  exports.saturate = curriedSaturate$1;
+  exports.setHue = curriedSetHue$1;
+  exports.setLightness = curriedSetLightness$1;
+  exports.setSaturation = curriedSetSaturation$1;
+  exports.shade = curriedShade$1;
   exports.size = size;
   exports.stripUnit = stripUnit;
   exports.textInputs = textInputs;
   exports.timingFunctions = timingFunctions;
-  exports.tint = curriedTint;
+  exports.tint = curriedTint$1;
   exports.toColorString = toColorString;
   exports.transitions = transitions;
-  exports.transparentize = curriedTransparentize;
+  exports.transparentize = curriedTransparentize$1;
   exports.triangle = triangle;
   exports.wordWrap = wordWrap;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
