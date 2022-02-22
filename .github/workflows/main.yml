@@ -44,5 +44,3 @@ jobs:
       run: |
         yarn flow
         yarn build:flow
-        yarn build:typescript
-        yarn typescript
