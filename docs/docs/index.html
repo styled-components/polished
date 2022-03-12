@@ -6489,7 +6489,7 @@ used. Otherwise we recommend to rely on <code>rgb</code>, <code>rgba</code>, <co
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: transparentize(<span class="hljs-number">0.1</span>, <span class="hljs-string">'#fff'</span>);
+  <span class="hljs-built_in">background</span>: transparentize(<span class="hljs-number">0.1</span>, <span class="hljs-string">'#fff'</span>),
   <span class="hljs-built_in">background</span>: transparentize(<span class="hljs-number">0.2</span>, <span class="hljs-string">'hsl(0, 0%, 100%)'</span>),
   <span class="hljs-built_in">background</span>: transparentize(<span class="hljs-string">'0.5'</span>, <span class="hljs-string">'rgba(255, 0, 0, 0.8)'</span>),
 }
@@ -6497,8 +6497,8 @@ used. Otherwise we recommend to rely on <code>rgb</code>, <code>rgba</code>, <co
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
   <span class="hljs-built_in">background</span>: ${transparentize(<span class="hljs-number">0.1</span>, <span class="hljs-string">'#fff'</span>)};
-  <span class="hljs-built_in">background</span>: ${transparentize(<span class="hljs-number">0.2</span>, <span class="hljs-string">'hsl(0, 0%, 100%)'</span>)},
-  <span class="hljs-built_in">background</span>: ${transparentize(<span class="hljs-string">'0.5'</span>, <span class="hljs-string">'rgba(255, 0, 0, 0.8)'</span>)},
+  <span class="hljs-built_in">background</span>: ${transparentize(<span class="hljs-number">0.2</span>, <span class="hljs-string">'hsl(0, 0%, 100%)'</span>)};
+  <span class="hljs-built_in">background</span>: ${transparentize(<span class="hljs-string">'0.5'</span>, <span class="hljs-string">'rgba(255, 0, 0, 0.8)'</span>)};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>

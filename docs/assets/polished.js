@@ -3576,7 +3576,7 @@
    * @example
    * // Styles as object usage
    * const styles = {
-   *   background: transparentize(0.1, '#fff');
+   *   background: transparentize(0.1, '#fff'),
    *   background: transparentize(0.2, 'hsl(0, 0%, 100%)'),
    *   background: transparentize('0.5', 'rgba(255, 0, 0, 0.8)'),
    * }
@@ -3584,8 +3584,8 @@
    * // styled-components usage
    * const div = styled.div`
    *   background: ${transparentize(0.1, '#fff')};
-   *   background: ${transparentize(0.2, 'hsl(0, 0%, 100%)')},
-   *   background: ${transparentize('0.5', 'rgba(255, 0, 0, 0.8)')},
+   *   background: ${transparentize(0.2, 'hsl(0, 0%, 100%)')};
+   *   background: ${transparentize('0.5', 'rgba(255, 0, 0, 0.8)')};
    * `
    *
    * // CSS in JS Output
