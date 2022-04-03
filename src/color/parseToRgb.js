@@ -9,10 +9,10 @@ const hexRegex = /^#[a-fA-F0-9]{6}$/
 const hexRgbaRegex = /^#[a-fA-F0-9]{8}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
 const reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/
-const rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/i
-const rgbaRegex = /^rgb(?:a)?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
-const hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i
-const hslaRegex = /^hsl(?:a)\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
+const rgbRegex = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i
+const rgbaRegex = /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
+const hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i
+const hslaRegex = /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
 
 /**
  * Returns an RgbColor or RgbaColor object. This utility function is only useful

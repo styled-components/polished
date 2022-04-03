@@ -42,10 +42,27 @@ describe('parseToHsl', () => {
       lightness: 0.6313725490196078,
       saturation: 1,
     })
+    expect(parseToHsl('rgba(174 67 255 / 0.6)')).toEqual({
+      alpha: 0.6,
+      hue: 274.1489361702128,
+      lightness: 0.6313725490196078,
+      saturation: 1,
+    })
+    expect(parseToHsl('rgb(174 67 255 / 0.6)')).toEqual({
+      alpha: 0.6,
+      hue: 274.1489361702128,
+      lightness: 0.6313725490196078,
+      saturation: 1,
+    })
   })
 
   it('should parse a rgb color representation', () => {
     expect(parseToHsl('rgb(174,67,255)')).toEqual({
+      hue: 274.1489361702128,
+      lightness: 0.6313725490196078,
+      saturation: 1,
+    })
+    expect(parseToHsl('rgb(174 67 255)')).toEqual({
       hue: 274.1489361702128,
       lightness: 0.6313725490196078,
       saturation: 1,
@@ -58,7 +75,7 @@ describe('parseToHsl', () => {
       lightness: 0.0392156862745098,
       saturation: 0.1,
     })
-    expect(parseToHsl('hsl(210deg,10%,4%)')).toEqual({
+    expect(parseToHsl('hsl(210deg 10% 4%)')).toEqual({
       hue: 210,
       lightness: 0.0392156862745098,
       saturation: 0.1,
@@ -71,7 +88,7 @@ describe('parseToHsl', () => {
       lightness: 0.0392156862745098,
       saturation: 0.1,
     })
-    expect(parseToHsl('hsl(210.99deg,10%,4%)')).toEqual({
+    expect(parseToHsl('hsl(210.99deg 10% 4%)')).toEqual({
       hue: 210,
       lightness: 0.0392156862745098,
       saturation: 0.1,
@@ -111,7 +128,13 @@ describe('parseToHsl', () => {
       lightness: 0.4,
       saturation: 0.09803921568627451,
     })
-    expect(parseToHsl('hsla(210deg,10%,40%,0.75)')).toEqual({
+    expect(parseToHsl('hsla(210deg 10% 40% / 0.75)')).toEqual({
+      alpha: 0.75,
+      hue: 209.99999999999997,
+      lightness: 0.4,
+      saturation: 0.09803921568627451,
+    })
+    expect(parseToHsl('hsl(210deg 10% 40% / 0.75)')).toEqual({
       alpha: 0.75,
       hue: 209.99999999999997,
       lightness: 0.4,
@@ -126,7 +149,13 @@ describe('parseToHsl', () => {
       lightness: 0.4,
       saturation: 0.09803921568627451,
     })
-    expect(parseToHsl('hsla(210.99deg,10%,40%,0.75)')).toEqual({
+    expect(parseToHsl('hsla(210.99deg 10% 40% / 0.75)')).toEqual({
+      alpha: 0.75,
+      hue: 209.99999999999997,
+      lightness: 0.4,
+      saturation: 0.09803921568627451,
+    })
+    expect(parseToHsl('hsl(210.99deg 10% 40% / 0.75)')).toEqual({
       alpha: 0.75,
       hue: 209.99999999999997,
       lightness: 0.4,
@@ -147,6 +176,12 @@ describe('parseToHsl', () => {
       lightness: 0.4,
       saturation: 0.09803921568627451,
     })
+    expect(parseToHsl('hsl(210deg 10% 40% / 0.75)')).toEqual({
+      alpha: 0.75,
+      hue: 209.99999999999997,
+      lightness: 0.4,
+      saturation: 0.09803921568627451,
+    })
   })
 
   it('should parse a hsla 4 space-separated color representation with a float', () => {
@@ -157,6 +192,12 @@ describe('parseToHsl', () => {
       saturation: 0.09803921568627451,
     })
     expect(parseToHsl('hsla(210.99deg 10% 40% / 0.75)')).toEqual({
+      alpha: 0.75,
+      hue: 209.99999999999997,
+      lightness: 0.4,
+      saturation: 0.09803921568627451,
+    })
+    expect(parseToHsl('hsl(210.99deg 10% 40% / 0.75)')).toEqual({
       alpha: 0.75,
       hue: 209.99999999999997,
       lightness: 0.4,

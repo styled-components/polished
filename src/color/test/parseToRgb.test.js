@@ -42,13 +42,13 @@ describe('parseToRgb', () => {
       green: 67,
       red: 174,
     })
-    expect(parseToRgb('rgba(174, 67, 255 / 0.6)')).toEqual({
+    expect(parseToRgb('rgba(174 67 255 / 0.6)')).toEqual({
       alpha: 0.6,
       blue: 255,
       green: 67,
       red: 174,
     })
-    expect(parseToRgb('rgb(174,67,255 / 0.6)')).toEqual({
+    expect(parseToRgb('rgb(174 67 255 / 0.6)')).toEqual({
       alpha: 0.6,
       blue: 255,
       green: 67,
@@ -62,6 +62,11 @@ describe('parseToRgb', () => {
       green: 67,
       red: 174,
     })
+    expect(parseToRgb('rgb(174 67 255)')).toEqual({
+      blue: 255,
+      green: 67,
+      red: 174,
+    })
   })
 
   it('should parse a hsl color representation', () => {
@@ -70,10 +75,20 @@ describe('parseToRgb', () => {
       green: 10,
       red: 9,
     })
+    expect(parseToRgb('hsl(210 10% 4%)')).toEqual({
+      blue: 11,
+      green: 10,
+      red: 9,
+    })
   })
 
   it('should parse a hsl color representation with decimal values', () => {
     expect(parseToRgb('hsl(210,16.4%,13.2%)')).toEqual({
+      blue: 38,
+      green: 33,
+      red: 28,
+    })
+    expect(parseToRgb('hsl(210 16.4% 13.2%)')).toEqual({
       blue: 38,
       green: 33,
       red: 28,
@@ -87,7 +102,13 @@ describe('parseToRgb', () => {
       green: 102,
       red: 92,
     })
-    expect(parseToRgb('hsla(210, 10%, 40% / 0.75)')).toEqual({
+    expect(parseToRgb('hsla(210 10% 40% / 0.75)')).toEqual({
+      alpha: 0.75,
+      blue: 112,
+      green: 102,
+      red: 92,
+    })
+    expect(parseToRgb('hsl(210 10% 40% / 0.75)')).toEqual({
       alpha: 0.75,
       blue: 112,
       green: 102,
@@ -102,7 +123,13 @@ describe('parseToRgb', () => {
       green: 0,
       red: 0,
     })
-    expect(parseToRgb('hsla(210, 0.5%, 0.5% / 1.0)')).toEqual({
+    expect(parseToRgb('hsla(210 0.5% 0.5% / 1.0)')).toEqual({
+      alpha: 1,
+      blue: 0,
+      green: 0,
+      red: 0,
+    })
+    expect(parseToRgb('hsl(210 0.5% 0.5% / 1.0)')).toEqual({
       alpha: 1,
       blue: 0,
       green: 0,
