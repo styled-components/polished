@@ -10,9 +10,9 @@ const hexRgbaRegex = /^#[a-fA-F0-9]{8}$/
 const reducedHexRegex = /^#[a-fA-F0-9]{3}$/
 const reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/
 const rgbRegex = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i
-const rgbaRegex = /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
+const rgbaRegex = /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]?[0-9]?[%]?)\s*\)$/i
 const hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i
-const hslaRegex = /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*[,]?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i
+const hslaRegex = /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?[0-9]*[.]?[0-9]?[0-9]?[%]?)\s*\)$/i
 
 /**
  * Returns an RgbColor or RgbaColor object. This utility function is only useful
@@ -80,7 +80,10 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${rgbaMatched[1]}`, 10),
       green: parseInt(`${rgbaMatched[2]}`, 10),
       blue: parseInt(`${rgbaMatched[3]}`, 10),
-      alpha: parseFloat(`${rgbaMatched[4]}`),
+      alpha:
+        parseFloat(`${rgbaMatched[4]}`) > 1
+          ? parseFloat(`${rgbaMatched[4]}`) / 100
+          : parseFloat(`${rgbaMatched[4]}`),
     }
   }
   const hslMatched = hslRegex.exec(normalizedColor)
@@ -113,7 +116,10 @@ export default function parseToRgb(color: string): RgbColor | RgbaColor {
       red: parseInt(`${hslRgbMatched[1]}`, 10),
       green: parseInt(`${hslRgbMatched[2]}`, 10),
       blue: parseInt(`${hslRgbMatched[3]}`, 10),
-      alpha: parseFloat(`${hslaMatched[4]}`),
+      alpha:
+        parseFloat(`${hslaMatched[4]}`) > 1
+          ? parseFloat(`${hslaMatched[4]}`) / 100
+          : parseFloat(`${hslaMatched[4]}`),
     }
   }
   throw new PolishedError(5)
