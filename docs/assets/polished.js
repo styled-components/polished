@@ -2296,10 +2296,10 @@
   var hexRgbaRegex = /^#[a-fA-F0-9]{8}$/;
   var reducedHexRegex = /^#[a-fA-F0-9]{3}$/;
   var reducedRgbaHexRegex = /^#[a-fA-F0-9]{4}$/;
-  var rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/i;
-  var rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i;
-  var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i;
-  var hslaRegex = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i;
+  var rgbRegex = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i;
+  var rgbaRegex = /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i;
+  var hslRegex = /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i;
+  var hslaRegex = /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i;
   /**
    * Returns an RgbColor or RgbaColor object. This utility function is only useful
    * if want to extract a color component. With the color util `toColorString` you
@@ -2373,7 +2373,7 @@
         red: parseInt("" + rgbaMatched[1], 10),
         green: parseInt("" + rgbaMatched[2], 10),
         blue: parseInt("" + rgbaMatched[3], 10),
-        alpha: parseFloat("" + rgbaMatched[4])
+        alpha: parseFloat("" + rgbaMatched[4]) > 1 ? parseFloat("" + rgbaMatched[4]) / 100 : parseFloat("" + rgbaMatched[4])
       };
     }
 
@@ -2418,7 +2418,7 @@
         red: parseInt("" + _hslRgbMatched[1], 10),
         green: parseInt("" + _hslRgbMatched[2], 10),
         blue: parseInt("" + _hslRgbMatched[3], 10),
-        alpha: parseFloat("" + hslaMatched[4])
+        alpha: parseFloat("" + hslaMatched[4]) > 1 ? parseFloat("" + hslaMatched[4]) / 100 : parseFloat("" + hslaMatched[4])
       };
     }
 
