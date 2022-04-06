@@ -48,23 +48,8 @@ describe('parseToRgb', () => {
       green: 67,
       red: 174,
     })
-    expect(parseToRgb('rgb(174 67 255 / 60%)')).toEqual({
+    expect(parseToRgb('rgb(174 67 255 / 0.6)')).toEqual({
       alpha: 0.6,
-      blue: 255,
-      green: 67,
-      red: 174,
-    })
-  })
-
-  it('should parse a rgba color representation with a precise alpha', () => {
-    expect(parseToRgb('rgba(174,67,255,.12345)')).toEqual({
-      alpha: 0.12345,
-      blue: 255,
-      green: 67,
-      red: 174,
-    })
-    expect(parseToRgb('rgba(174,67,255,12.345%)')).toEqual({
-      alpha: 0.12345,
       blue: 255,
       green: 67,
       red: 174,
@@ -123,7 +108,7 @@ describe('parseToRgb', () => {
       green: 102,
       red: 92,
     })
-    expect(parseToRgb('hsl(210 10% 40% / 75%)')).toEqual({
+    expect(parseToRgb('hsl(210 10% 40% / 0.75)')).toEqual({
       alpha: 0.75,
       blue: 112,
       green: 102,
@@ -144,26 +129,11 @@ describe('parseToRgb', () => {
       green: 0,
       red: 0,
     })
-    expect(parseToRgb('hsl(210 0.5% 0.5% / 100%)')).toEqual({
+    expect(parseToRgb('hsl(210 0.5% 0.5% / 1.0)')).toEqual({
       alpha: 1,
       blue: 0,
       green: 0,
       red: 0,
-    })
-  })
-
-  it('should parse a hsla color representation with a precise alpha', () => {
-    expect(parseToRgb('hsla(210,10%,40%,.12345)')).toEqual({
-      alpha: 0.12345,
-      blue: 112,
-      green: 102,
-      red: 92,
-    })
-    expect(parseToRgb('hsla(210,10%,40%,12.345%)')).toEqual({
-      alpha: 0.12345,
-      blue: 112,
-      green: 102,
-      red: 92,
     })
   })
 
@@ -181,38 +151,6 @@ describe('parseToRgb', () => {
     }).toThrow(
       'Passed an incorrect argument to a color function, please pass a string representation of a color.',
     )
-  })
-
-  it('should throw an error if an invalid rgba string is provided', () => {
-    const colors = [
-      'rgba(174,67,255,)',
-      'rgba(174,67,255,%)',
-      'rgba(174,67,255,.)',
-      'rgba(174,67,255,1.)',
-    ]
-    colors.forEach(color => {
-      expect(() => {
-        parseToRgb(color)
-      }).toThrow(
-        "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
-      )
-    })
-  })
-
-  it('should throw an error if an invalid hsla string is provided', () => {
-    const colors = [
-      'hsla(210,10%,40%,)',
-      'hsla(210,10%,40%,%)',
-      'hsla(210,10%,40%,.)',
-      'hsla(210,10%,40%,1.)',
-    ]
-    colors.forEach(color => {
-      expect(() => {
-        parseToRgb(color)
-      }).toThrow(
-        "Couldn't parse the color string. Please provide the color as a string in hex, rgb, rgba, hsl or hsla notation.",
-      )
-    })
   })
 
   it('should throw an error if an invalid hsl string is provided', () => {
