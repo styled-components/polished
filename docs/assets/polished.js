@@ -1928,10 +1928,10 @@
   }
 
   var getBorderWidth = function getBorderWidth(pointingDirection, height, width) {
-    var fullWidth = "" + width[0] + (width[1] || '');
-    var halfWidth = "" + width[0] / 2 + (width[1] || '');
-    var fullHeight = "" + height[0] + (height[1] || '');
-    var halfHeight = "" + height[0] / 2 + (height[1] || '');
+    var fullWidth = width;
+    var halfWidth = "calc(" + width + " / 2)";
+    var fullHeight = height;
+    var halfHeight = "calc(" + height + " / 2)";
 
     switch (pointingDirection) {
       case 'top':
@@ -2026,20 +2026,13 @@
         foregroundColor = _ref.foregroundColor,
         _ref$backgroundColor = _ref.backgroundColor,
         backgroundColor = _ref$backgroundColor === void 0 ? 'transparent' : _ref$backgroundColor;
-    var widthAndUnit = getValueAndUnit(width);
-    var heightAndUnit = getValueAndUnit(height);
-
-    if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-      throw new PolishedError(60);
-    }
-
     return _extends__default["default"]({
       width: '0',
       height: '0',
       borderColor: backgroundColor
     }, getBorderColor(pointingDirection, foregroundColor), {
       borderStyle: 'solid',
-      borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit)
+      borderWidth: getBorderWidth(pointingDirection, typeof height === 'number' ? height + "px" : height, typeof width === 'number' ? width + "px" : width)
     });
   }
 
