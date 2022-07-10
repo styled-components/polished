@@ -1,6 +1,6 @@
 {
   "name": "polished",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "license": "MIT",
   "author": "Brian Hough <hello@brianhough.co> (https://polished.js.org)",
@@ -31,16 +31,12 @@
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
+    "build": "yarn build:lib && yarn build:dist && yarn build:flow",
     "prebuild:lib": "shx rm -rf lib/*",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
     "prebuild:dist": "shx rm -rf dist/*",
     "build:dist": "rollup -c",
-    "build:docs": "yarn build:docs:site",
-    "prebuild:docs:site": "shx rm -rf docs/*",
-    "build:docs:site": "documentation build src/** -t docs-theme --github -o docs -f html -c ./.documentation.json",
-    "postbuild:docs:site": "shx cp CNAME docs/CNAME && shx cp dist/polished.js docs/assets/",
     "build:watch": "npm-watch",
     "build:flow": "flow-copy-source -v -i '{**/test/*.js,**/*.test.js}' src lib",
     "build:typescript": "tsgen \"lib/**/*.js.flow\" --ignore \"lib/**/_*.js.flow\"",
@@ -48,7 +44,6 @@
     "typescript": "tsc ./typescript-test.ts --noEmit --target es6 --module es2015 --moduleResolution node --allowJs",
     "lint": "eslint src",
     "flow": "flow check && flow batch-coverage src/ --show-all --strip-root",
-    "docs": "pushstate-server -d docs",
     "prepare": "yarn build && yarn typescript && husky install",
     "semantic-release": "semantic-release"
   },
@@ -59,50 +54,47 @@
     ]
   },
   "watch": {
-    "build:docs": "src/**/*.js",
     "build:lib": "src/**/*.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.8"
+    "@babel/runtime": "^7.18.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
-    "@babel/eslint-parser": "^7.17.0",
-    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.6",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-flow": "^7.16.7",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-flow": "^7.18.6",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.5.1",
+    "babel-jest": "^28.1.2",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-preval": "5.1.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.1.0",
-    "documentation": "12.3.0",
-    "eslint": "^8.12.0",
+    "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.26.0",
     "flow-bin": "^0.133.0",
     "flow-copy-source": "^2.0.8",
-    "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "lint-staged": "^12.3.7",
+    "husky": "^8.0.1",
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
+    "lint-staged": "^13.0.3",
     "npm-watch": "^0.11.0",
-    "prettier": "^2.6.2",
-    "pushstate-server": "^3.1.0",
+    "prettier": "^2.7.1",
     "ramda": "^0.28.0",
-    "rollup": "^2.70.1",
+    "rollup": "^2.76.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^19.0.2",
     "shx": "^0.3.4",
-    "tsgen": "1.3.0",
-    "typescript": "4.6.3",
+    "typescript": "4.7.4",
     "validate-commit-msg": "^2.14.0"
   },
   "config": {
@@ -122,6 +114,6 @@
     "url": "https://opencollective.com/polished"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">= 14"
   }
 }
