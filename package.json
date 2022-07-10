@@ -105,9 +105,11 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "testURL": "http://localhost/",
     "verbose": true,
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "testURL": "http://localhost/"
+    }
   },
   "collective": {
     "type": "opencollective",
