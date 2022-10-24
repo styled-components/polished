@@ -2,6 +2,7 @@
 import rgb from './rgb'
 import rgba from './rgba'
 import PolishedError from '../internalHelpers/_errors'
+import colorObjectType from '../internalHelpers/_colorObjectType'
 
 import type { RgbColor, RgbaColor } from '../types/color'
 
@@ -30,23 +31,17 @@ import type { RgbColor, RgbaColor } from '../types/color'
  * }
  */
 export default function rgbToColorString(color: RgbColor | RgbaColor): string {
-  if (
-    typeof color === 'object'
-    && typeof color.red === 'number'
-    && typeof color.green === 'number'
-    && typeof color.blue === 'number'
-  ) {
-    if (typeof color.alpha === 'number') {
-      return rgba({
-        red: color.red,
-        green: color.green,
-        blue: color.blue,
-        alpha: color.alpha,
-      })
-    }
+  const colorType = colorObjectType({
+    color,
+    expectedTypes: ['rgb', 'rgba'],
+    typeError: new PolishedError(46),
+  })
 
-    return rgb({ red: color.red, green: color.green, blue: color.blue })
+  if (colorType === 'rgba') {
+    return rgba({
+      red: color.red, green: color.green, blue: color.blue, alpha: color.alpha,
+    })
   }
 
-  throw new PolishedError(46)
+  return rgb({ red: color.red, green: color.green, blue: color.blue })
 }
