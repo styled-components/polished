@@ -38,8 +38,12 @@ export default function rgbToColorString(color: RgbColor | RgbaColor): string {
   })
 
   if (colorType === 'rgba') {
+    const rgbaColor: RgbaColor = (color: any)
     return rgba({
-      red: color.red, green: color.green, blue: color.blue, alpha: color.alpha,
+      red: rgbaColor.red,
+      green: rgbaColor.green,
+      blue: rgbaColor.blue,
+      alpha: rgbaColor.alpha,
     })
   }
 

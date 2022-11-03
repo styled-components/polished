@@ -38,11 +38,12 @@ export default function hslToColorString(color: HslColor | HslaColor): string {
   })
 
   if (colorType === 'hsla') {
+    const hslaColor: HslaColor = (color: any)
     return hsla({
-      hue: color.hue,
-      saturation: color.saturation,
-      lightness: color.lightness,
-      alpha: color.alpha,
+      hue: hslaColor.hue,
+      saturation: hslaColor.saturation,
+      lightness: hslaColor.lightness,
+      alpha: hslaColor.alpha,
     })
   }
 
