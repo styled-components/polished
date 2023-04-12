@@ -18,6 +18,7 @@ babel.config.js
 CODEOWNERS
 
 # folders
+.husky
 coverage
 docs-theme
 src
