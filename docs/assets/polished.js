@@ -944,7 +944,8 @@
     sine: 'cubic-bezier(0.470,  0.000, 0.745, 0.715)'
   };
   /**
-   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   * String to represent common easing functions as demonstrated here: https://easings.net/.
+   * Valid function names are: back, circ, cubic, expo, quad, quart, quint, sine.
    *
    * @example
    * // Styles as object usage
@@ -979,7 +980,8 @@
     sine: 'cubic-bezier(0.445,  0.050, 0.550, 0.950)'
   };
   /**
-   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   * String to represent common easing functions as demonstrated here: https://easings.net/.
+   * Valid function names are: back, circ, cubic, expo, quad, quart, quint, sine.
    *
    * @example
    * // Styles as object usage
@@ -1014,7 +1016,8 @@
     sine: 'cubic-bezier(0.390,  0.575, 0.565, 1.000)'
   };
   /**
-   * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
+   * String to represent common easing functions as demonstrated here: https://easings.net/.
+   * Valid function names are: back, circ, cubic, expo, quad, quart, quint, sine.
    *
    * @example
    * // Styles as object usage
