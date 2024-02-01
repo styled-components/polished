@@ -95,7 +95,7 @@
     "npm-watch": "^0.11.0",
     "prettier": "^3.2.4",
     "pushstate-server": "^3.1.0",
-    "ramda": "^0.28.0",
+    "ramda": "^0.29.1",
     "rollup": "^2.70.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-terser": "^7.0.2",
