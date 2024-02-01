@@ -36,6 +36,7 @@ const getBabelOptions = ({ useESModules }, targets) => ({
   ],
   plugins: [
     "add-module-exports",
+    "annotate-pure-calls",
     "preval",
     [
       "@babel/transform-runtime",

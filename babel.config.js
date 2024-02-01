@@ -15,6 +15,7 @@ module.exports = {
   ],
   plugins: [
     cjs && "add-module-exports",
+    "annotate-pure-calls",
     "preval",
   ].filter(Boolean),
 };
