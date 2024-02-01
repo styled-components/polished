@@ -1,6 +1,6 @@
 {
   "name": "polished",
-  "version": "4.2.2",
+  "version": "4.3.1",
   "description": "A lightweight toolset for writing styles in Javascript.",
   "license": "MIT",
   "author": "Brian Hough <hello@brianhough.co> (https://polished.js.org)",
@@ -79,7 +79,6 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.5.1",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-preval": "5.1.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.1.0",
