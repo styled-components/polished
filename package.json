@@ -36,7 +36,7 @@
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src --ignore test.js",
     "prebuild:umd": "shx rm -rf dist/*",
     "prebuild:dist": "shx rm -rf dist/*",
-    "build:dist": "rollup -c --bundleConfigAsCjs",
+    "build:dist": "rollup -c",
     "build:docs": "yarn build:docs:site",
     "prebuild:docs:site": "shx rm -rf docs/*",
     "build:docs:site": "documentation build src/** -t docs-theme --github -o docs -f html -c ./.documentation.json",
