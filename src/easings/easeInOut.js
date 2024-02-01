@@ -13,9 +13,7 @@ const functionsMap = {
 }
 
 /**
- * String to represent common easing functions as demonstrated here: (https://easings.net/).
- *
- * Valid function names are: back, circ, cubic, expo, quad, quart, quint, sine.
+ * String to represent common easing functions as demonstrated here: (github.com/jaukia/easie).
  *
  * @example
  * // Styles as object usage
