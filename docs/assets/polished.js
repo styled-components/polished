@@ -1,16 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@babel/runtime/helpers/esm/extends'), require('@babel/runtime/helpers/esm/assertThisInitialized'), require('@babel/runtime/helpers/esm/inheritsLoose'), require('@babel/runtime/helpers/esm/wrapNativeSuper'), require('@babel/runtime/helpers/esm/taggedTemplateLiteralLoose')) :
   typeof define === 'function' && define.amd ? define(['exports', '@babel/runtime/helpers/esm/extends', '@babel/runtime/helpers/esm/assertThisInitialized', '@babel/runtime/helpers/esm/inheritsLoose', '@babel/runtime/helpers/esm/wrapNativeSuper', '@babel/runtime/helpers/esm/taggedTemplateLiteralLoose'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.polished = {}, global["extends"], global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.polished = {}, global.extends, global.assertThisInitialized, global.inheritsLoose, global.wrapNativeSuper, global.taggedTemplateLiteralLoose));
 })(this, (function (exports, _extends, _assertThisInitialized, _inheritsLoose, _wrapNativeSuper, _taggedTemplateLiteralLoose) { 'use strict';
-
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var _extends__default = /*#__PURE__*/_interopDefaultLegacy(_extends);
-  var _assertThisInitialized__default = /*#__PURE__*/_interopDefaultLegacy(_assertThisInitialized);
-  var _inheritsLoose__default = /*#__PURE__*/_interopDefaultLegacy(_inheritsLoose);
-  var _wrapNativeSuper__default = /*#__PURE__*/_interopDefaultLegacy(_wrapNativeSuper);
-  var _taggedTemplateLiteralLoose__default = /*#__PURE__*/_interopDefaultLegacy(_taggedTemplateLiteralLoose);
 
   function last() {
     var _ref;
@@ -168,7 +160,6 @@
       }
     }
   };
-  var defaultSymbolMap = defaultSymbols;
 
   // based on https://github.com/styled-components/styled-components/blob/fcf6f3804c57a14dd7984dfab7bc06ee2edca044/src/utils/error.js
   /**
@@ -282,7 +273,7 @@
    * @private
    */
   var PolishedError = /*#__PURE__*/function (_Error) {
-    _inheritsLoose__default["default"](PolishedError, _Error);
+    _inheritsLoose(PolishedError, _Error);
     function PolishedError(code) {
       var _this;
       {
@@ -291,17 +282,17 @@
         }
         _this = _Error.call(this, format.apply(void 0, [ERRORS[code]].concat(args))) || this;
       }
-      return _assertThisInitialized__default["default"](_this);
+      return _assertThisInitialized(_this);
     }
     return PolishedError;
-  }( /*#__PURE__*/_wrapNativeSuper__default["default"](Error));
+  }( /*#__PURE__*/_wrapNativeSuper(Error));
 
   var unitRegExp = /((?!\w)a|na|hc|mc|dg|me[r]?|xe|ni(?![a-zA-Z])|mm|cp|tp|xp|q(?!s)|hv|xamv|nimv|wv|sm|s(?!\D|$)|ged|darg?|nrut)/g;
 
   // Merges additional math functionality into the defaults.
   function mergeSymbolMaps(additionalSymbols) {
     var symbolMap = {};
-    symbolMap.symbols = additionalSymbols ? _extends__default["default"]({}, defaultSymbolMap.symbols, additionalSymbols.symbols) : _extends__default["default"]({}, defaultSymbolMap.symbols);
+    symbolMap.symbols = additionalSymbols ? _extends({}, defaultSymbols.symbols, additionalSymbols.symbols) : _extends({}, defaultSymbols.symbols);
     return symbolMap;
   }
   function exec(operators, values) {
@@ -608,7 +599,6 @@
       return "" + newPxval / newBase + to;
     };
   };
-  var pixelsto = pxtoFactory;
 
   /**
    * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
@@ -633,7 +623,7 @@
    *   'height': '1em'
    * }
    */
-  var em = /*#__PURE__*/pixelsto('em');
+  var em = /*#__PURE__*/pxtoFactory('em');
   var em$1 = em;
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
@@ -799,7 +789,7 @@
    *   'height': '1rem'
    * }
    */
-  var rem = /*#__PURE__*/pixelsto('rem');
+  var rem = /*#__PURE__*/pxtoFactory('rem');
   var rem$1 = rem;
 
   var defaultFontSize = 16;
@@ -1126,7 +1116,7 @@
       whiteSpace: 'nowrap',
       wordWrap: 'normal'
     };
-    return lines > 1 ? _extends__default["default"]({}, styles, {
+    return lines > 1 ? _extends({}, styles, {
       WebkitBoxOrient: 'vertical',
       WebkitLineClamp: lines,
       display: '-webkit-box',
@@ -1199,10 +1189,10 @@
           throw new PolishedError(50);
         }
         fallbacks[obj.prop] = obj.fromSize;
-        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends__default["default"]({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
-        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends__default["default"]({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
+        mediaQueries["@media (min-width: " + minScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + minScreen + ")"], (_extends2 = {}, _extends2[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _extends2));
+        mediaQueries["@media (min-width: " + maxScreen + ")"] = _extends({}, mediaQueries["@media (min-width: " + maxScreen + ")"], (_extends3 = {}, _extends3[obj.prop] = obj.toSize, _extends3));
       }
-      return _extends__default["default"]({}, fallbacks, mediaQueries);
+      return _extends({}, fallbacks, mediaQueries);
     } else {
       var _ref, _ref2, _ref3;
       if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) {
@@ -1505,7 +1495,7 @@
     }
     return {
       backgroundColor: fallback || colorStops[0].replace(/,\s+/g, ',').split(' ')[0].replace(/,(?=\S)/g, ', '),
-      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose__default["default"](["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
+      backgroundImage: constructGradientValue(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteralLoose(["linear-gradient(", "", ")"])), toDirection, colorStops.join(', ').replace(/,(?=\S)/g, ', '))
     };
   }
 
@@ -1682,7 +1672,7 @@
     }
     return {
       backgroundColor: fallback || colorStops[0].split(' ')[0],
-      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose__default["default"](["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
+      backgroundImage: constructGradientValue(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["radial-gradient(", "", "", "", ")"])), position, shape, extent, colorStops.join(', '))
     };
   }
 
@@ -1730,7 +1720,7 @@
     var rFilename = retinaFilename ? retinaFilename + "." + ext : "" + filename + retinaSuffix + "." + ext;
     return _ref = {
       backgroundImage: "url(" + filename + "." + ext + ")"
-    }, _ref[hiDPI()] = _extends__default["default"]({
+    }, _ref[hiDPI()] = _extends({
       backgroundImage: "url(" + rFilename + ")"
     }, backgroundSize ? {
       backgroundSize: backgroundSize
@@ -1887,7 +1877,7 @@
     if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
       throw new PolishedError(60);
     }
-    return _extends__default["default"]({
+    return _extends({
       width: '0',
       height: '0',
       borderColor: backgroundColor
@@ -2333,7 +2323,6 @@
     }
     return value;
   };
-  var reduceHexValue$1 = reduceHexValue;
 
   function numberToHex(value) {
     var hex = value.toString(16);
@@ -2344,7 +2333,7 @@
     return numberToHex(Math.round(color * 255));
   }
   function convertToHex(red, green, blue) {
-    return reduceHexValue$1("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
+    return reduceHexValue("#" + colorToHex(red) + colorToHex(green) + colorToHex(blue));
   }
   function hslToHex(hue, saturation, lightness) {
     return hslToRgb(hue, saturation, lightness, convertToHex);
@@ -2442,9 +2431,9 @@
    */
   function rgb(value, green, blue) {
     if (typeof value === 'number' && typeof green === 'number' && typeof blue === 'number') {
-      return reduceHexValue$1("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
+      return reduceHexValue("#" + numberToHex(value) + numberToHex(green) + numberToHex(blue));
     } else if (typeof value === 'object' && green === undefined && blue === undefined) {
-      return reduceHexValue$1("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
+      return reduceHexValue("#" + numberToHex(value.red) + numberToHex(value.green) + numberToHex(value.blue));
     }
     throw new PolishedError(6);
   }
@@ -2593,7 +2582,7 @@
   function adjustHue(degree, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       hue: hslColor.hue + parseFloat(degree)
     }));
   }
@@ -2627,7 +2616,7 @@
   function complement(color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       hue: (hslColor.hue + 180) % 360
     }));
   }
@@ -2662,7 +2651,7 @@
   function darken(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness - parseFloat(amount))
     }));
   }
@@ -2698,7 +2687,7 @@
   function desaturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation - parseFloat(amount))
     }));
   }
@@ -2783,7 +2772,7 @@
    */
   function grayscale(color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
+    return toColorString(_extends({}, parseToHsl(color), {
       saturation: 0
     }));
   }
@@ -2858,7 +2847,7 @@
     if (color === 'transparent') return color;
     // parse color string to rgb
     var value = parseToRgb(color);
-    return toColorString(_extends__default["default"]({}, value, {
+    return toColorString(_extends({}, value, {
       red: 255 - value.red,
       green: 255 - value.green,
       blue: 255 - value.blue
@@ -2891,7 +2880,7 @@
   function lighten(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       lightness: guard(0, 1, hslColor.lightness + parseFloat(amount))
     }));
   }
@@ -2948,11 +2937,11 @@
     if (otherColor === 'transparent') return color;
     if (weight === 0) return otherColor;
     var parsedColor1 = parseToRgb(color);
-    var color1 = _extends__default["default"]({}, parsedColor1, {
+    var color1 = _extends({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
     });
     var parsedColor2 = parseToRgb(otherColor);
-    var color2 = _extends__default["default"]({}, parsedColor2, {
+    var color2 = _extends({}, parsedColor2, {
       alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
     });
 
@@ -3008,7 +2997,7 @@
     if (color === 'transparent') return color;
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
-    var colorWithAlpha = _extends__default["default"]({}, parsedColor, {
+    var colorWithAlpha = _extends({}, parsedColor, {
       alpha: guard(0, 1, (alpha * 100 + parseFloat(amount) * 100) / 100)
     });
     return rgba(colorWithAlpha);
@@ -3145,7 +3134,7 @@
   function saturate(amount, color) {
     if (color === 'transparent') return color;
     var hslColor = parseToHsl(color);
-    return toColorString(_extends__default["default"]({}, hslColor, {
+    return toColorString(_extends({}, hslColor, {
       saturation: guard(0, 1, hslColor.saturation + parseFloat(amount))
     }));
   }
@@ -3179,7 +3168,7 @@
    */
   function setHue(hue, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
+    return toColorString(_extends({}, parseToHsl(color), {
       hue: parseFloat(hue)
     }));
   }
@@ -3213,7 +3202,7 @@
    */
   function setLightness(lightness, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
+    return toColorString(_extends({}, parseToHsl(color), {
       lightness: parseFloat(lightness)
     }));
   }
@@ -3247,7 +3236,7 @@
    */
   function setSaturation(saturation, color) {
     if (color === 'transparent') return color;
-    return toColorString(_extends__default["default"]({}, parseToHsl(color), {
+    return toColorString(_extends({}, parseToHsl(color), {
       saturation: parseFloat(saturation)
     }));
   }
@@ -3351,7 +3340,7 @@
     if (color === 'transparent') return color;
     var parsedColor = parseToRgb(color);
     var alpha = typeof parsedColor.alpha === 'number' ? parsedColor.alpha : 1;
-    var colorWithAlpha = _extends__default["default"]({}, parsedColor, {
+    var colorWithAlpha = _extends({}, parsedColor, {
       alpha: guard(0, 1, +(alpha * 100 - parseFloat(amount) * 100).toFixed(2) / 100)
     });
     return rgba(colorWithAlpha);
@@ -3827,7 +3816,7 @@
       values[_key - 1] = arguments[_key];
     }
     if (positionMap.indexOf(firstValue) >= 0 && firstValue) {
-      return _extends__default["default"]({}, directionalProperty.apply(void 0, [''].concat(values)), {
+      return _extends({}, directionalProperty.apply(void 0, [''].concat(values)), {
         position: firstValue
       });
     } else {
@@ -4032,7 +4021,5 @@
   exports.transparentize = curriedTransparentize$1;
   exports.triangle = triangle;
   exports.wordWrap = wordWrap;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
