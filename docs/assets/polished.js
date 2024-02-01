@@ -623,7 +623,7 @@
    *   'height': '1em'
    * }
    */
-  var em = /*#__PURE__*/pxtoFactory('em');
+  var em = pxtoFactory('em');
   var em$1 = em;
 
   var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
@@ -789,7 +789,7 @@
    *   'height': '1rem'
    * }
    */
-  var rem = /*#__PURE__*/pxtoFactory('rem');
+  var rem = pxtoFactory('rem');
   var rem$1 = rem;
 
   var defaultFontSize = 16;
@@ -2591,7 +2591,7 @@
   }
 
   // prettier-ignore
-  var curriedAdjustHue = /*#__PURE__*/curry /* ::<number | string, string, string> */(adjustHue);
+  var curriedAdjustHue = curry /* ::<number | string, string, string> */(adjustHue);
   var curriedAdjustHue$1 = curriedAdjustHue;
 
   /**
@@ -2660,7 +2660,7 @@
   }
 
   // prettier-ignore
-  var curriedDarken = /*#__PURE__*/curry /* ::<number | string, string, string> */(darken);
+  var curriedDarken = curry /* ::<number | string, string, string> */(darken);
   var curriedDarken$1 = curriedDarken;
 
   /**
@@ -2696,7 +2696,7 @@
   }
 
   // prettier-ignore
-  var curriedDesaturate = /*#__PURE__*/curry /* ::<number | string, string, string> */(desaturate);
+  var curriedDesaturate = curry /* ::<number | string, string, string> */(desaturate);
   var curriedDesaturate$1 = curriedDesaturate;
 
   /**
@@ -2889,7 +2889,7 @@
   }
 
   // prettier-ignore
-  var curriedLighten = /*#__PURE__*/curry /* ::<number | string, string, string> */(lighten);
+  var curriedLighten = curry /* ::<number | string, string, string> */(lighten);
   var curriedLighten$1 = curriedLighten;
 
   /**
@@ -2966,7 +2966,7 @@
   }
 
   // prettier-ignore
-  var curriedMix = /*#__PURE__*/curry /* ::<number | string, string, string, string> */(mix);
+  var curriedMix = curry /* ::<number | string, string, string, string> */(mix);
   var mix$1 = curriedMix;
 
   /**
@@ -3007,7 +3007,7 @@
   }
 
   // prettier-ignore
-  var curriedOpacify = /*#__PURE__*/curry /* ::<number | string, string, string> */(opacify);
+  var curriedOpacify = curry /* ::<number | string, string, string> */(opacify);
   var curriedOpacify$1 = curriedOpacify;
 
   var defaultReturnIfLightColor = '#000';
@@ -3143,7 +3143,7 @@
   }
 
   // prettier-ignore
-  var curriedSaturate = /*#__PURE__*/curry /* ::<number | string, string, string> */(saturate);
+  var curriedSaturate = curry /* ::<number | string, string, string> */(saturate);
   var curriedSaturate$1 = curriedSaturate;
 
   /**
@@ -3177,7 +3177,7 @@
   }
 
   // prettier-ignore
-  var curriedSetHue = /*#__PURE__*/curry /* ::<number | string, string, string> */(setHue);
+  var curriedSetHue = curry /* ::<number | string, string, string> */(setHue);
   var curriedSetHue$1 = curriedSetHue;
 
   /**
@@ -3211,7 +3211,7 @@
   }
 
   // prettier-ignore
-  var curriedSetLightness = /*#__PURE__*/curry /* ::<number | string, string, string> */(setLightness);
+  var curriedSetLightness = curry /* ::<number | string, string, string> */(setLightness);
   var curriedSetLightness$1 = curriedSetLightness;
 
   /**
@@ -3245,7 +3245,7 @@
   }
 
   // prettier-ignore
-  var curriedSetSaturation = /*#__PURE__*/curry /* ::<number | string, string, string> */(setSaturation);
+  var curriedSetSaturation = curry /* ::<number | string, string, string> */(setSaturation);
   var curriedSetSaturation$1 = curriedSetSaturation;
 
   /**
@@ -3277,7 +3277,7 @@
   }
 
   // prettier-ignore
-  var curriedShade = /*#__PURE__*/curry /* ::<number | string, string, string> */(shade);
+  var curriedShade = curry /* ::<number | string, string, string> */(shade);
   var curriedShade$1 = curriedShade;
 
   /**
@@ -3309,7 +3309,7 @@
   }
 
   // prettier-ignore
-  var curriedTint = /*#__PURE__*/curry /* ::<number | string, string, string> */(tint);
+  var curriedTint = curry /* ::<number | string, string, string> */(tint);
   var curriedTint$1 = curriedTint;
 
   /**
@@ -3350,7 +3350,7 @@
   }
 
   // prettier-ignore
-  var curriedTransparentize = /*#__PURE__*/curry /* ::<number | string, string, string> */(transparentize);
+  var curriedTransparentize = curry /* ::<number | string, string, string> */(transparentize);
   var curriedTransparentize$1 = curriedTransparentize;
 
   /**
