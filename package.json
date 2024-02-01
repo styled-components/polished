@@ -125,6 +125,6 @@
     "url": "https://opencollective.com/polished"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   }
 }
