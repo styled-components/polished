@@ -1,5 +1,4 @@
 // @flow
-import getValueAndUnit from '../helpers/getValueAndUnit'
 import PolishedError from '../internalHelpers/_errors'
 
 import type { SideKeyword } from '../types/sideKeyword'
@@ -8,13 +7,13 @@ import type { TriangleConfiguration } from '../types/triangleConfiguration'
 
 const getBorderWidth = (
   pointingDirection: SideKeyword,
-  height: [number, string],
-  width: [number, string],
+  height: number | string,
+  width: number | string,
 ): string => {
-  const fullWidth = `${width[0]}${width[1] || ''}`
-  const halfWidth = `${width[0] / 2}${width[1] || ''}`
-  const fullHeight = `${height[0]}${height[1] || ''}`
-  const halfHeight = `${height[0] / 2}${height[1] || ''}`
+  const fullWidth = width
+  const halfWidth = `calc(${width} / 2)`
+  const fullHeight = height
+  const halfHeight = `calc(${height} / 2)`
 
   switch (pointingDirection) {
     case 'top':
@@ -90,19 +89,16 @@ export default function triangle({
   foregroundColor,
   backgroundColor = 'transparent',
 }: TriangleConfiguration): Styles {
-  const widthAndUnit = getValueAndUnit(width)
-  const heightAndUnit = getValueAndUnit(height)
-
-  if (isNaN(heightAndUnit[0]) || isNaN(widthAndUnit[0])) {
-    throw new PolishedError(60)
-  }
-
   return {
     width: '0',
     height: '0',
     borderColor: backgroundColor,
     ...getBorderColor(pointingDirection, foregroundColor),
     borderStyle: 'solid',
-    borderWidth: getBorderWidth(pointingDirection, heightAndUnit, widthAndUnit),
+    borderWidth: getBorderWidth(
+      pointingDirection,
+      typeof height === 'number' ? `${height}px` : height,
+      typeof width === 'number' ? `${width}px` : width,
+    ),
   }
 }
