@@ -89,7 +89,8 @@
     "flow-bin": "^0.133.0",
     "flow-copy-source": "^2.0.8",
     "husky": "^7.0.4",
-    "jest": "^27.5.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^12.3.7",
     "npm-watch": "^0.11.0",
     "prettier": "^3.2.4",
@@ -112,9 +113,11 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "testURL": "http://localhost/",
     "verbose": true,
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "url": "http://localhost/"
+    }
   },
   "collective": {
     "type": "opencollective",
