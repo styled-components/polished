@@ -27,7 +27,7 @@ import mix from './mix'
 
 function shade(percentage: number | string, color: string): string {
   if (color === 'transparent') return color
-  return mix(parseFloat(percentage), 'rgb(0, 0, 0)', color)
+  return mix(parseFloat(percentage), '#000000', color)
 }
 
 // prettier-ignore
