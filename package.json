@@ -92,7 +92,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
     "npm-watch": "^0.11.0",
-    "prettier": "^2.6.2",
+    "prettier": "^3.2.4",
     "pushstate-server": "^3.1.0",
     "ramda": "^0.28.0",
     "rollup": "^2.70.1",
