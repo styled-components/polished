@@ -4,26 +4,7 @@ import hsla from './hsla'
 import rgb from './rgb'
 import rgba from './rgba'
 import PolishedError from '../internalHelpers/_errors'
-
-const isRgb = (color: Object): boolean => typeof color.red === 'number'
-  && typeof color.green === 'number'
-  && typeof color.blue === 'number'
-  && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
-
-const isRgba = (color: Object): boolean => typeof color.red === 'number'
-  && typeof color.green === 'number'
-  && typeof color.blue === 'number'
-  && typeof color.alpha === 'number'
-
-const isHsl = (color: Object): boolean => typeof color.hue === 'number'
-  && typeof color.saturation === 'number'
-  && typeof color.lightness === 'number'
-  && (typeof color.alpha !== 'number' || typeof color.alpha === 'undefined')
-
-const isHsla = (color: Object): boolean => typeof color.hue === 'number'
-  && typeof color.saturation === 'number'
-  && typeof color.lightness === 'number'
-  && typeof color.alpha === 'number'
+import colorObjectType from '../internalHelpers/_colorObjectType'
 
 /**
  * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
@@ -57,11 +38,15 @@ const isHsla = (color: Object): boolean => typeof color.hue === 'number'
  */
 
 export default function toColorString(color: Object): string {
-  if (typeof color !== 'object') throw new PolishedError(8)
-  if (isRgba(color)) return rgba(color)
-  if (isRgb(color)) return rgb(color)
-  if (isHsla(color)) return hsla(color)
-  if (isHsl(color)) return hsl(color)
+  const colorType = colorObjectType({
+    color,
+    expectedTypes: ['rgb', 'rgba', 'hsl', 'hsla'],
+    typeError: new PolishedError(8),
+  })
 
-  throw new PolishedError(8)
+  if (colorType === 'rgba') return rgba(color)
+  if (colorType === 'rgb') return rgb(color)
+  if (colorType === 'hsla') return hsla(color)
+
+  return hsl(color)
 }
