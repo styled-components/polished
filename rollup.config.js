@@ -44,7 +44,7 @@ const getBabelOptions = ({ useESModules }, targets) => ({
 export default [
   {
     input,
-    output: { file: `dist/${name}.esm.js`, format: 'esm' },
+    output: { file: `dist/${name}.mjs`, format: 'esm' },
     external,
     plugins: [sourceMaps(), resolve(), babel(getBabelOptions({ useESModules: true }))],
   },
