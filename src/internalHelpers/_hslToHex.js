@@ -4,7 +4,7 @@ import reduceHexValue from './_reduceHexValue'
 import toHex from './_numberToHex'
 
 function colorToHex(color: number): string {
-  return toHex(Math.round(color * 255))
+  return toHex(Math.round(color / 255))
 }
 
 function convertToHex(red: number, green: number, blue: number): string {
