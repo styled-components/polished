@@ -27,8 +27,15 @@
     "colour"
   ],
   "main": "dist/polished.cjs.js",
-  "module": "dist/polished.esm.js",
+  "module": "dist/polished.mjs",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./dist/polished.mjs",
+      "default": "./dist/polished.cjs.js"
+    }
+  },
   "sideEffects": false,
   "scripts": {
     "build": "yarn build:lib && yarn build:dist && yarn build:flow && yarn build:docs && yarn build:typescript",
