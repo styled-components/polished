@@ -2,6 +2,7 @@
 import hsl from './hsl'
 import hsla from './hsla'
 import PolishedError from '../internalHelpers/_errors'
+import colorObjectType from '../internalHelpers/_colorObjectType'
 
 import type { HslColor, HslaColor } from '../types/color'
 
@@ -29,28 +30,24 @@ import type { HslColor, HslaColor } from '../types/color'
  *   background: "rgba(179,25,25,0.72)";
  * }
  */
-export default function hslToColorString(color: HslColor | HslaColor | number): string {
-  if (
-    typeof color === 'object'
-    && typeof color.hue === 'number'
-    && typeof color.saturation === 'number'
-    && typeof color.lightness === 'number'
-  ) {
-    if (color.alpha && typeof color.alpha === 'number') {
-      return hsla({
-        hue: color.hue,
-        saturation: color.saturation,
-        lightness: color.lightness,
-        alpha: color.alpha,
-      })
-    }
+export default function hslToColorString(color: HslColor | HslaColor): string {
+  const colorType = colorObjectType({
+    color,
+    expectedTypes: ['hsl', 'hsla'],
+    typeError: new PolishedError(45),
+  })
 
-    return hsl({
-      hue: color.hue,
-      saturation: color.saturation,
-      lightness: color.lightness,
+  if (colorType === 'hsla') {
+    const hslaColor: HslaColor = (color: any)
+    return hsla({
+      hue: hslaColor.hue,
+      saturation: hslaColor.saturation,
+      lightness: hslaColor.lightness,
+      alpha: hslaColor.alpha,
     })
   }
 
-  throw new PolishedError(45)
+  return hsl({
+    hue: color.hue, saturation: color.saturation, lightness: color.lightness,
+  })
 }
