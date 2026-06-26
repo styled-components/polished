@@ -41,4 +41,11 @@ describe('mix', () => {
   it('should return the second color when weight is 0', () => {
     expect(mix(0, 'rgba(0, 0, 0, 1)', 'rgba(255, 255, 255, 0)')).toEqual('rgba(255, 255, 255, 0)')
   })
+
+  it('should not produce NaN channels when the alpha delta cancels the weight', () => {
+    // weight 1 makes `x === 1`, and the opposing alphas make `alphaDelta === -1`,
+    // so `1 + x * alphaDelta === 0`. The previous implementation divided by that
+    // zero and returned `rgba(NaN,NaN,NaN,0)`. weight 1 should yield color1.
+    expect(mix(1, 'rgba(255, 0, 0, 0)', 'rgba(0, 0, 255, 1)')).toEqual('rgba(255,0,0,0)')
+  })
 })
