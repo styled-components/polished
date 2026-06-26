@@ -49,9 +49,11 @@ function mix(weight: number | string, color: string, otherColor: string): string
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
   const x = parseFloat(weight) * 2 - 1
-  const y = x * alphaDelta === -1 ? x : x + alphaDelta
   const z = 1 + x * alphaDelta
-  const weight1 = (y / z + 1) / 2.0
+  // When `x * alphaDelta === -1`, `z` is `0`, so fall back to `x` rather than
+  // dividing by it (matches the reference Sass implementation and avoids NaN).
+  const y = x * alphaDelta === -1 ? x : (x + alphaDelta) / z
+  const weight1 = (y + 1) / 2.0
   const weight2 = 1 - weight1
 
   const mixedColor = {
